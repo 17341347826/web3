@@ -1,0 +1,590 @@
+@charset "utf-8";
+#graduation_file {
+  width: 100%;
+  background-color: #f1f2f6;
+  position: relative;
+}
+#graduation_file .first-index {
+  background-color: #FFFFFF;
+  width: 1089px;
+  margin: 0 auto;
+  margin-bottom: 7px;
+  border: none;
+  padding-left: 20px;
+}
+#graduation_file .first-index .tab-titles {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#graduation_file .first-index .tab-titles .tab {
+  padding-right: 18px;
+  padding-left: 18px;
+  height: 34px;
+  border-radius: 4px;
+  border: solid 1px #e4e4e4;
+  color: #a2a2a2;
+  text-align: center;
+  line-height: 34px;
+  margin-right: 10px;
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+#graduation_file .first-index .tab-titles .chosen {
+  color: #2bbba4!important;
+  border: solid 1px #2bbba4!important;
+  background: url("../../../../common/images/chosen.png") no-repeat top right;
+}
+#graduation_file .dotted_line {
+  width: 100%;
+  height: 1px;
+  border-top: 1px dashed #d6d3d1;
+}
+#graduation_file .file-container {
+  position: relative;
+  width: 1089px;
+  margin: 0 auto;
+  padding-right: 300px;
+}
+#graduation_file .file-main {
+  width: 834px;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+#graduation_file .inner-container {
+  width: 850px;
+  padding-right: 24px;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+#graduation_file .main {
+  width: 834px;
+  background-color: #f2f2f6;
+}
+#graduation_file .main h3 {
+  margin: 0;
+  padding: 0;
+}
+#graduation_file .main .cover {
+  position: relative;
+  padding: 12px;
+  padding-bottom: 30px;
+}
+#graduation_file .main .cover img {
+  width: 100%;
+}
+#graduation_file .main .cover .cover-bottom {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  font-size: 24px;
+  color: #424242;
+  text-align: center;
+}
+#graduation_file .main .cover .cover-bottom .point {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #000000;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#graduation_file .main .cover .cover-input {
+  position: absolute;
+  bottom: 240px;
+  width: 100%;
+  text-align: center;
+}
+#graduation_file .main .cover .cover-input div {
+  height: 54px;
+  line-height: 54px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#graduation_file .main .cover .cover-input div span {
+  display: inline-block;
+  width: 148px;
+  height: 48px;
+  line-height: 48px;
+  text-align: right;
+  font-size: 26px;
+  color: #424242;
+  margin-right: 20px;
+}
+#graduation_file .main .cover .cover-input div input {
+  height: 38px;
+  line-height: 38px;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  border-bottom: 2px solid #424242;
+  margin-bottom: 20px;
+  outline: none;
+  font-size: 16px;
+}
+#graduation_file .main .cover .cover-input div .jianju {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+}
+#graduation_file .main .bse-msg {
+  position: relative;
+  padding: 12px;
+  display: flex;
+}
+#graduation_file .main .tab-content {
+  width: 100%;
+  flex: 1;
+}
+#graduation_file .main .person-img {
+  width: 100%;
+  max-height: 228px;
+}
+#graduation_file .main .img-container {
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  min-width: 150px;
+}
+#graduation_file .main .personal-card {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: #FFFFFF;
+  background-image: url("../../../../common/images/file_detail/circle.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+#graduation_file .main .personal-card .card-left {
+  height: 100%;
+  width: 140px;
+  min-height: 550px;
+  padding-top: 155px;
+  background-color: #ff9e63;
+  padding-left: 40px;
+  float: left;
+  border-radius: 5px;
+}
+#graduation_file .main .personal-card .card-right {
+  float: left;
+  margin-left: -8px;
+  padding-top: 61px;
+  padding-bottom: 61px;
+}
+#graduation_file .main .personal-card .card-right span {
+  display: inline-block;
+}
+#graduation_file .main .personal-card .card-right .card-out {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  vertical-align: top;
+  margin-top: 6px;
+  margin-right: 48px;
+}
+#graduation_file .main .personal-card .card-right .card-in {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-bottom: 4px;
+  margin-left: 5px;
+  background-color: #ff9e63;
+}
+#graduation_file .main .personal-card .card-right .each-card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#graduation_file .main .personal-card .card-right .each-card h3 {
+  font-size: 18px;
+  color: #13cbb3;
+  font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+#graduation_file .main .personal-card .card-right .each-card p {
+  font-size: 14px;
+  color: #777777;
+  margin: 0;
+}
+#graduation_file .main .personal-card .card-right .each-card div {
+  display: inline-block;
+}
+#graduation_file .main .person-detail {
+  margin-left: 140px;
+  padding-left: 45px;
+  padding-top: 72px;
+}
+#graduation_file .main .person-detail div {
+  margin-bottom: 21px;
+  height: 40px;
+}
+#graduation_file .main .person-detail p {
+  margin: 0;
+  font-size: 14px;
+  color: #777777;
+}
+#graduation_file .main .person-table {
+  padding: 11px;
+}
+#graduation_file .main .detail-content {
+  padding-right: 68px;
+  padding-left: 68px;
+  padding-bottom: 18px;
+}
+#graduation_file .main .detail-content .title {
+  /*display: inline-block;*/
+  font-size: 21px;
+  color: #ff9e63;
+  text-align: left;
+}
+#graduation_file .main .detail-content .title .jianju {
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+}
+#graduation_file .main .detail-content .other-msg {
+  font-size: 16px;
+  color: #a2a2a2;
+  margin-top: -5px;
+}
+#graduation_file .main .detail-content .title,
+#graduation_file .main .detail-content .other-msg {
+  /*padding-left: 51px;*/
+  /*padding-right: 51px;*/
+}
+#graduation_file .main .detail-content .title h3,
+#graduation_file .main .detail-content .other-msg h3,
+#graduation_file .main .detail-content .title p,
+#graduation_file .main .detail-content .other-msg p {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+#graduation_file .main .detail-content .title h3,
+#graduation_file .main .detail-content .other-msg h3 {
+  padding: 8px;
+  padding-left:0;
+  text-align: right;
+  font-weight: normal;
+}
+#graduation_file .main .detail-content .last-two{
+  text-align: left;
+}
+#graduation_file .main .detail-content .last-two h3 {
+  vertical-align: top;
+}
+#graduation_file .main .detail-content .last-two p {
+  width: 610px;
+  padding-top: 9px;
+}
+#graduation_file .main .detail-content .first-six {
+  display: flex;
+}
+#graduation_file .main .detail-content .first-six > div {
+  /*flex: 1;*/
+}
+#graduation_file .main .detail-content .first-six > div:first-child {
+  margin-right:20px;
+}
+#graduation_file .main .detail-content .detail-img {
+  margin-top: 10px;
+}
+#graduation_file .main .detail-content .detail-img img {
+  width: 100%;
+}
+#graduation_file .main .model-title h3 {
+  width: 100%;
+  font-size: 20px;
+  color: #777777;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding-top: 6px;
+  margin-top: 10px;
+}
+#graduation_file .main .small_title {
+  text-align: center;
+  padding-top: 18px;
+  padding-bottom: 9px;
+  padding-left: 11px;
+  padding-right: 11px;
+  margin-top: 8px;
+  background-color: #FFFFFF;
+}
+#graduation_file .main .small_title h3 {
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  color: #a2a2a2;
+  font-weight: normal;
+  border: 1px dashed #e4e4e4;
+}
+#graduation_file .main .detail-img {
+  font-size: 0;
+}
+#graduation_file .main .detail-img img {
+  display: block;
+}
+#graduation_file .main .autograph-content {
+  position: relative;
+  display: flex;
+  background-color: #FFFFFF;
+  min-height: 160px;
+  color: #a2a2a2;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#graduation_file .main .autograph-content .autograph {
+  flex: 1;
+  position:relative;
+}
+#graduation_file .main .autograph-content .autograph h3 {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+}
+#graduation_file .main .autograph-content .autograph a{
+    position:absolute;
+    top:0;
+    right:0;
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 6px 15px;
+    border-radius: 4px;
+    background-color: #32d99c;
+    color: #FFFFFF;
+}
+#graduation_file .main .autograph-content .autograph .autograph-value {
+  min-height: 100px;
+  text-align: right;
+}
+#graduation_file .main .autograph-content .autograph .autograph-value img{
+  height:100px;
+}
+#graduation_file .main .autograph-content .autograph .autograph-date {
+  text-align: right;
+  /*padding-right: 30%;*/
+}
+#graduation_file .main .gaizhang {
+  position: absolute;
+  bottom: 51px;
+  right: 55px;
+}
+#graduation_file .main .am-table > tbody > tr > td {
+  white-space: normal;
+}
+#graduation_file .main table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+#graduation_file .main table tr th {
+  white-space: normal;
+}
+#graduation_file .cover,
+#graduation_file .bse-msg,
+#graduation_file .person-table,
+#graduation_file .file-munu,
+#graduation_file .small-circular,
+#graduation_file .out-circle,
+#graduation_file .detail-content,
+#graduation_file .growth-record,
+#graduation_file .model-title,
+#graduation_file #person {
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  color: #777777;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#graduation_file .detail-content{
+  text-align: left;
+}
+#graduation_file .small-circular,
+#graduation_file .out-circle {
+  padding-top: 0;
+}
+#graduation_file .file-munu {
+  position: fixed;
+  padding-top: 11px;
+  width: 274px;
+  top: 80px;
+  /*right: 100px;*/
+  right:40px;
+  padding-right: 22px;
+  padding-bottom: 18px;
+  overflow-y: auto;
+}
+@media  screen and (max-width: 1366px) {
+  #graduation_file .file-munu{
+    right: 16px;
+  }
+}
+#graduation_file .file-munu .outer {
+  border-right: 1px solid #20bda4;
+  margin-top: 50px;
+}
+#graduation_file .file-munu .outer .inner {
+  width: 100%;
+  margin-left: 9px;
+  text-align: right;
+  font-size: 16px;
+  color: #a2a2a2;
+  padding-top: 30px;
+  padding-bottom: 1px;
+  position: relative;
+}
+#graduation_file .file-munu .outer .inner a {
+  color: #a2a2a2;
+}
+#graduation_file .file-munu .outer .inner ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#graduation_file .file-munu .outer .inner li {
+  list-style: none;
+  height: 28px;
+  line-height: 28px;
+  margin-bottom: 30px;
+}
+#graduation_file .file-munu .outer .inner .right-top-point,
+#graduation_file .file-munu .outer .inner .right-bottom-point {
+  display: inline-block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #20bda4;
+}
+#graduation_file .file-munu .outer .inner .right-top-point {
+  top: -1px;
+  right: 4px;
+}
+#graduation_file .file-munu .outer .inner .right-bottom-point {
+  bottom: -2px;
+  right: 4px;
+}
+#graduation_file .file-munu .outer .small-circular {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #a2a2a2;
+  margin-left: 34px;
+  margin-right: 3px;
+}
+#graduation_file .file-munu .outer .active > a {
+  font-size: 18px;
+  color: #20bda4;
+}
+#graduation_file .file-munu .outer .dotted {
+  display: inline-block;
+  width: 25px;
+  height: 13px;
+  margin-left: 4px;
+  background: url(../../../../common/images/file_detail/dotted.png) center no-repeat;
+}
+#graduation_file .file-munu .outer .out-circle {
+  position: relative;
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1px solid #20bda4;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+#graduation_file .file-munu .outer .inner-circle {
+  display: inline-block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #20bda4;
+  top: 6px;
+  left: 6px;
+}
+#graduation_file .file-munu .btn-container {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+}
+#graduation_file .file-munu .btn-container button {
+  margin-left: 5px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 6px 15px;
+  border-radius: 4px;
+  background-color: #32d99c;
+  color: #FFFFFF;
+}
+/*!*自定义设置*!*/
+/*#graduation_file .file-munu .btn-container .owner-set{*/
+/*margin-top:10px;*/
+/*}*/
+#graduation_file .export-print {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 16px;
+}
+#graduation_file .export-print a {
+  color: #FFFFFF;
+  background-color: #32d99c;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+#graduation_file .export-print a:hover {
+  background-color: #2bbb7c;
+}
+#graduation_file .no-margin {
+  margin: 0;
+}
+/*自定义设置*/
+#graduation_file .set {
+  display: none;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+#graduation_file .set .c-arys > label > label,
+#graduation_file .set .radios > label > label {
+  color: #777;
+  font-size: 16px;
+}
+#graduation_file .set .c-arys input[type="checkbox"]:checked + label,
+#graduation_file .set .rdo:checked + label {
+  color: #0dba9e;
+}
+#graduation_file .set .file-radio {
+  display: block;
+  margin-left: 0;
+}
+#graduation_file .set .disabled-radio:before {
+  border-color: #c2cac8;
+}
+#graduation_file .set .disabled-radio:after {
+  background-color: #c2cac8;
+}
+#graduation_file .set .disabled-radio:checked + label {
+  color: #777;
+}
+#graduation_file .comment-content >table tr >td:first-child{
+  width: 150px;
+}

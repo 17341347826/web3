@@ -1,0 +1,162 @@
+<div ms-important="daily_perform_see_list" id="daily_perform_see_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <div class="am-fl" id="add-record" :if="@user_level != 4" ms-click="@add_daily">
+                <span><img src="../../../../common/images/teacher/add_record.png"></span>
+                <span>新增记录</span>
+            </div>
+            <div class="am-fl" :class="[(@extend.status==1 ? 'chosen':'')]" ms-click="@change_status(1)">待审核</div>
+            <!--<div class="am-fl" :class="[(@extend.status==3 ? 'chosen':'')]" ms-click="@change_status(3)">待确认</div>-->
+            <div class="am-fl" :class="[(@extend.status==4 ? 'chosen':'')]" ms-click="@change_status(4)">公示中</div>
+            <div class="am-fl" :class="[(@extend.status==2 ? 'chosen':'')]" ms-click="@change_status(2)">未通过</div>
+            <div class="am-fl" :class="[(@extend.status==5 ? 'chosen':'')]" ms-click="@change_status(5)">已归档</div>
+        </div>
+    </div>
+    <div class="common-select" id="top" >
+        <div class="search-cont clearfix">
+            <div class="select" ms-if="@user_level!=7">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_grade,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="select" ms-if="@user_level!=7">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@sel_class,head_value:@head_value.class,$id:'daily_class'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@sel_semester,default_value:semester_head,head_value:'请选择学期'}"></xmp>
+            </div>
+            <!--<div class="select">-->
+                <!--<xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@type_list,sel_check:@sel_type,head_value:'请选择查看方式'}"></xmp>-->
+            <!--</div>-->
+            <div class="form-input">
+                <input type="text" ms-duplex="@extend.code"  placeholder="请输入学籍号">
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@extend.name" placeholder="请输入姓名">
+            </div>
+            <div class="form-input">
+                <button ms-click="@search">查询</button>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="content">
+        <!--记录列表-->
+
+        <div class="am-fl list-con">
+            <!--显示方式-->
+            <div class="dis-type">
+                <div class="radios">
+                    <label class="radios-name">显示方式：</label>
+                    <label class="am-radio-inline">
+                        <input type="radio" id="option1" ms-duplex="@html_display"  class="rdo" value="1">
+                        <label ms-attr="{for:'option1'}">图文</label>
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" id="option2" ms-duplex="@html_display" class="rdo" value="2">
+                        <label ms-attr="{for:'option2'}">表格</label>
+                    </label>
+                </div>
+            </div>
+            <div class="table_module am-padding-top-sm am-padding-bottom-sm" :if="!@list.hasOwnProperty('name')">
+                <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+                </xmp>
+            </div>
+            <div class="daily-person" ms-class="['s'+list.fk_semester_id]" :if="@list.hasOwnProperty('name')">
+                <!--学生基本信息-->
+                <div class="stu-info">
+                    <div>
+                        <!--头像-->
+                        <div class="stu-head">
+                            <div class="stu-img">
+                                <img ms-attr="{src:@url_img(@user_photo({guid:list.guid}))}">
+                            </div>
+                            <div class="stu-name">
+                                <span>{{list.name}}</span>
+                            </div>
+                        </div>
+                        <div class="line-one"></div>
+                        <!--学校信息-->
+                        <div class="stu-school">
+                            <div class="btn-operation">
+                                <a class='tab-btn tab-edit-btn' ms-click="@update_data(list)" ms-visible="list.status==1 || list.status==2" title="编辑"></a>
+                                <a class='tab-btn tab-trash-btn' ms-click="@delete_data(list)" ms-visible="list.status==1 || list.status==2" title="删除"></a>
+                            </div>
+                            <div>
+                                <span>{{list.grade_name}} {{list.class_name}}班</span>
+                                <span>{{list.school_name}}</span>
+                                <span>{{@district_name}}</span>
+                                <span>{{@list.everyday_date|date}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--日常表现信息-->
+                <div class="daily-info">
+                    <div class="one-two-index">
+                        <span>评价维度 ：{{list.frist_index}}</span>
+                        <span>评价要素 ：{{list.second_index}}</span>
+                    </div>
+                    <div class="three-index">
+                        <h3>关键表现 ：</h3>
+                        <p>{{list.item}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>记录描述 ：</h3>
+                        <p>{{list.description}}</p>
+                    </div>
+                    <div class="pj-score">评价得分 ：{{list.score}}</div>
+                    <div class="record-des" ms-if="el.status==2">
+                        <h3>审核未通过原因 ：</h3>
+                        <p>{{list.check_opinion}}</p>
+                    </div>
+                    <!--图片-->
+                    <div  class="img-ary">
+                        <h3 ms-visible="list.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in list.img_arr-->
+                        <img  ms-attr="{src:@url_img(al.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="text-content">
+                        <h3 ms-visible="@list.video_arr.length>0 || @list.file_arr.length>0">文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @list.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @list.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button type="button" class="am-btn-default"  ms-on-click="@back()">返回</button>
+                </div>
+            </div>
+            <!--<div class="fg-line" ms-visible="$idx!=@list.length-1"></div>-->
+        </div>
+        <!--学年学期选择-->
+        <div class="am-fr d-p-c-nav">
+            <div class="d-p-munu">
+                <div class="outer">
+                    <div class="inner">
+                        <ul>
+                            <!--ms-for:($idx,el) in @semester_list-->
+                            <li ms-click="@menu_jump(el.value)" ms-visible="$idx!=0" ms-class="[@current_menu==el.value ? 'now-menu':'']">
+                                <span>{{el.name}}</span>
+                                <span  class="dotted"></span>
+                                <span :if="@current_menu==el.value" class="out-circle">
+                                        <span :if="@current_menu==el.value" class="inner-circle"></span>
+                                    </span>
+                                <span :if="@current_menu!=el.value" class="small-circular"></span>
+                            </li>
+                            <!--ms-for-end:-->
+                        </ul>
+                        <span class="right-top-point"></span>
+                        <span class="right-bottom-point"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

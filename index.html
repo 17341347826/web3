@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>眉山市初中学生综合素质评价</title>
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+    <link rel="stylesheet" href="common/lib/amazeui.datetimepicker.css">
+    <!--<link rel="stylesheet" href="common/lib/bootstrap-datetimepicker.min.css">-->
+    <link href="common/lib/layer.min.css" rel="stylesheet">
+    <link href="common/lib/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./common/public.css">
+    <link rel="stylesheet" href="./common/css_update_demo.css">
+    <link rel="stylesheet" href="./common/update_demo.css">
+
+    <script src="common/lib/jquery.min.js"></script>
+    <link href="common/lib/toastr.min.css" rel="stylesheet">
+    <script src="common/lib/toastr.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="common/lib/modernizr.js"></script>
+    <script src="common/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+    <script src="common/lib/spin.min.js"></script>
+</head>
+<body>
+<div ms-controller="main" class="ms-controller">
+
+    <xmp ms-widget="{is:'ms-ele-header',id:'header', menu:@data.menu,stus_sel_show:true,
+    user:@data.user,is_show_menu:@is_show_menu,local_href:'http://pj.xtyun.net/Growth/index.html'}"></xmp>
+    <div id="content_body">
+        <div ms-html="@data.body.view" ></div>
+    </div>
+
+</div>
+<div id="wait" style="width:100%;">
+</div>
+<script>
+    var opts = {
+        lines: 11, // The number of lines to draw
+        length: 20, // The length of each line
+        width: 2, // The line thickness
+        radius: 24, // The radius of the inner circle
+        scale: 1, // Scales overall size of the spinner
+        corners: 1, // Corner roundness (0..1)
+        color: '#000', // #rgb or #rrggbb or array of colors
+        opacity: 0.55, // Opacity of the lines
+        rotate: 90, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        speed: 1 ,// Rounds per second
+        trail: 60 ,// Afterglow percentage
+        fps: 20, // Frames per second when using setTimeout() as a fallback for CSS
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        className: 'spinner', // The CSS class to assign to the spinner
+        top: '46%', // Top position relative to parent
+        left: '50%', // Left position relative to parent
+        shadow: true, // Whether to render a shadow
+        hwaccel: true, // Whether to use hardware acceleration
+        position: 'absolute' // Element positioning
+    };
+    var target = document.getElementById('wait');
+    var spinner = new Spinner(opts).spin(target);
+    var height = document.documentElement.clientHeight-80;
+    target.style.height = height + "px";
+
+    toastr.options = {
+        closeButton: true,
+        debug: false,
+        progressBar: true,
+        positionClass: "toast-top-right-30",
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        timeOut: "2500",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut"
+    };
+
+</script>
+<script src="common/lib/jquery.min.js"></script>
+<script src="const.js"></script>
+
+<script src="common/module/request.js"></script>
+<script src="code/mod/base.js"></script>
+<script src="code/mod/audit.js"></script>
+<script src="code/mod/process.js"></script>
+<script src="code/mod/index.js"></script>
+<script src="code/mod/growth.js"></script>
+<script src="code/mod/bybg.js"></script>
+<script src="code/mod/setting.js"></script>
+<script src="code/mod/analysis.js"></script>
+<script src="code/mod/input.js"></script>
+<script src="code/mod/xqbg.js"></script>
+<script src="common/lib/require/require.min.js" defer async="true" data-main="main"></script>
+
+<script src="common/lib/fabric.js"></script>
+<script src="common/lib/darkroom.js"></script>
+<script src="common/lib/head_statistics.js"></script>
+
+
+</body>
+</html>

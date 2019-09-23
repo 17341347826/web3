@@ -1,0 +1,360 @@
+#daily_perform_see_list{
+    background-color: #f1f2f6;
+}
+/*几种状态*/
+#daily_perform_see_list>div.first-index{
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    background-color: #ffffff;
+    border-radius: 4px 4px 0px 0px;
+    margin-bottom:2px;
+    width: calc(100% - 256px);
+}
+#daily_perform_see_list .first-index #add-record{
+    background-color: #2bbba4;
+    color:#fff;
+    border:none;
+    cursor: pointer;
+}
+#daily_perform_see_list .first-index #add-record:hover{
+    background-color:#2bbb7c;
+}
+#daily_perform_see_list .first-index #add-record>span:first-child{
+    display: inline-block;
+    width:20px;
+    height:20px;
+    margin-right:4px;
+}
+#daily_perform_see_list>div.first-index>div.am-fl>div{
+    padding-right: 16px;
+    padding-left: 16px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: default;
+}
+#daily_perform_see_list>div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+#daily_perform_see_list>div.first-index>div.am-fr{
+    padding-right: 45px;
+}
+#daily_perform_see_list .common-select{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#daily_perform_see_list .common-select{
+    background-color: white;
+    width: calc(100% - 256px);
+}
+/*内容部分*/
+#daily_perform_see_list .fg-line{
+    height:4px;
+    width:100%;
+    background-color: #F1F2F6;
+}
+#daily_perform_see_list .list-con{
+    background-color: #fff;
+    width: calc(100% - 256px);
+    /*overflow-y: auto;*/
+}
+#daily_perform_see_list .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#daily_perform_see_list .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#daily_perform_see_list .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+    margin-bottom:4px;
+}
+#daily_perform_see_list .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#daily_perform_see_list .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#daily_perform_see_list .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#daily_perform_see_list .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#daily_perform_see_list .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#daily_perform_see_list .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*#daily_perform_see_list .line-two{*/
+/*display:inline-block;*/
+/*width: 1px;*/
+/*height: 18px;*/
+/*background-color: #a2a2a2;*/
+/*}*/
+/*学生头像那块*/
+#daily_perform_see_list .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#daily_perform_see_list .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#daily_perform_see_list .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#daily_perform_see_list .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#daily_perform_see_list .stu-school{
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+#daily_perform_see_list .stu-school>div:first-child{
+    text-align: right;
+    margin-top: 14px;
+    margin-bottom: 16px;
+}
+#daily_perform_see_list .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#daily_perform_see_list .stu-school>div:last-child span{
+    margin-right:72px;
+}
+#daily_perform_see_list .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#daily_perform_see_list  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#daily_perform_see_list .daily-info>div{
+    margin-top:10px;
+}
+#daily_perform_see_list  .daily-info .one-two-index span:first-child{
+    margin-right:148px;
+}
+#daily_perform_see_list .daily-info h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+    margin:0;
+}
+#daily_perform_see_list .daily-info p{
+    margin:0;
+    padding-left:85px;
+}
+/*图片*/
+#daily_perform_see_list  .daily-info .img-ary{
+    border-radius: 4px;
+}
+#daily_perform_see_list  .daily-info .img-ary img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+#daily_perform_see_list  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+/*学年学期*/
+#daily_perform_see_list .d-p-c-nav{
+    position: fixed;
+    right: 16px;
+    width: 250px;
+    height: 450px;
+    margin-left: 6px;
+    background-color: #fff;
+    top: 80px;
+}
+/*----------------------------------------------------滚动条样式--------------------------------------*/
+#daily_perform_see_list .d-p-munu,
+#daily_perform_see_list .small-circular,
+#daily_perform_see_list .out-circle
+{
+    background-color: #ffffff;
+}
+#daily_perform_see_list .d-p-munu {
+    /*position: absolute;*/
+    width: 250px;
+    /*top: 0;*/
+    /*right: 0;*/
+    padding-right: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.out-circle, .detail-content, .growth-record ,.model-title{
+    background-color: #FFFFFF;
+}
+#daily_perform_see_list .d-p-munu .outer {
+    border-right: 1px solid #20bda4;
+}
+#daily_perform_see_list .d-p-munu .outer .inner {
+    width: 100%;
+    margin-left: 9px;
+    text-align: right;
+    font-size: 16px;
+    color: #a2a2a2;
+    padding-top: 30px;
+    padding-bottom: 1px;
+    position: relative;
+}
+#daily_perform_see_list .d-p-munu .outer .inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#daily_perform_see_list .d-p-munu .outer .inner li {
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+#daily_perform_see_list .d-p-munu .outer .inner .right-top-point,
+#daily_perform_see_list .d-p-munu .outer .inner .right-bottom-point {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #20bda4;
+}
+#daily_perform_see_list .d-p-munu .outer .inner .right-top-point {
+    top: -1px;
+    right: 4px;
+}
+#daily_perform_see_list .d-p-munu .outer .inner .right-bottom-point {
+    bottom: -2px;
+    right: 4px;
+}
+#daily_perform_see_list .d-p-munu .outer .small-circular {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #a2a2a2;
+    margin-right: 3px;
+    background-color: white;
+}
+#daily_perform_see_list .d-p-munu .outer .active {
+    font-size: 18px;
+    color: #20bda4;
+}
+#daily_perform_see_list .d-p-munu .outer .dotted {
+    display: inline-block;
+    width: 25px;
+    height: 13px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background: url(../../../../common/images/file_detail/dotted.png) center no-repeat;
+}
+#daily_perform_see_list .d-p-munu .outer .out-circle {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid #20bda4;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+#daily_perform_see_list .d-p-munu .outer .inner-circle {
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #20bda4;
+    top: 6px;
+    left: 6px;
+}
+#daily_perform_see_list .form-input>button{
+    width: 90px;
+    height: 34px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: rgb(2,205,126);
+}
+#daily_perform_see_list .form-input>button:hover{
+    background-color: #2bbb7c;
+}
+#daily_perform_see_list .no-data{
+    height: 450px;
+}
+#daily_perform_see_list .d-p-munu .outer .now-menu {
+    font-size: 17px;
+    color: #20bda4;
+}
+#daily_perform_see_list .table_module{
+    width: 90%;
+    margin: 0 auto;
+}
+/*显示方式*/
+#daily_perform_see_list .dis-type{
+    text-align: right;
+    margin: 20px 30px 0;
+}
+#daily_perform_see_list .radios{
+    display:inline-block;
+}
+#daily_perform_see_list .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}

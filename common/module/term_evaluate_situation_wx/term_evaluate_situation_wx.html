@@ -1,0 +1,78 @@
+<div id="term_evaluate_situation_wx">
+    <p>一 当前学期评价进行情况 一</p>
+    <div class="te_remind" id="evaluate-con">
+        <div class="clear_both">
+            <div class="float-left">
+                <table class="wx-table">
+                    <tr>
+                        <td colspan="2">目标计划</td>
+                        <td :class="[(@evaluate_list.mbjh_zt == '已完成')? 'has-completed':'no-completed']">
+                            {{@evaluate_list.mbjh_zt}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">自我评价</td>
+                        <td>评分</td>
+                        <td :class="[(@evaluate_list.xszp_zt == '已完成')? 'has-completed':'no-completed']">
+                            {{@evaluate_list.xszp_zt}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>评语</td>
+                        <td :class="[(@evaluate_list.zwms_zt == '已完成')? 'has-completed':'no-completed']">
+                            {{@evaluate_list.zwms_zt}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">评价同学</td>
+                        <td>评分</td>
+                        <td :class="[(@evaluate_list.xshp_zt == '已完成')? 'has-completed':'no-completed']">
+                            {{@evaluate_list.xshp_zt}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>评语</td>
+                        <td :class="[(@evaluate_list.txjy_zt == '已完成')? 'has-completed':'no-completed']">
+                            {{@evaluate_list.txjy_zt}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="float-right con-right">
+                <table class="wx-table">
+                    <tr>
+                        <td id="sj-name" class="gn-name" ms-on-mouseenter="@hover_tip('#sj-name',@sj_tips)" ms-on-mouseleave="@leave_tip()">
+                            <span class="rig-name">综合实践</span>
+                            <span class="num-color">{{@evaluate_list.zhsj_zt}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="jl-name" class="gn-name" ms-on-mouseenter="@hover_tip('#jl-name',@jl_tips)" ms-on-mouseleave="@leave_tip()">
+                            <span class="rig-name">获得奖励</span>
+                            <span class="num-color">{{@evaluate_list.hdjl_zt}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="tc-name" class="gn-name" ms-on-mouseenter="@hover_tip('#tc-name',@tc_tips)" ms-on-mouseleave="@leave_tip()">
+                            <span class="rig-name">个性特长</span>
+                            <span class="num-color">{{@evaluate_list.gxtc_zt}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="rig-name">违纪违规</span>
+                            <span class="num-color">{{@evaluate_list.wjwg_zt}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="rig-name">日常表现</span>
+                            <span class="num-color">{{@evaluate_list.rcbx_zt}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="explain text_remark">*说明：违纪违规与日常表现由老师记录、其他内容由学生本人记录</div>
+    </div>
+</div>

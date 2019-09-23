@@ -1,0 +1,47 @@
+/*.am-slides{*/
+    /*transform:none!important;*/
+/*}*/
+#detail_div{
+    background-color: white;
+    height: 530px;
+}
+#detail_div>div{
+    height: 500px;
+}
+#detail_text_div,#detail_img_div{
+    margin-top: 40px;
+}
+#detail_img_div ul,#detail_img_div ul>li,#detail_img_div ul>li img{
+    height: 400px;
+    overflow: hidden;
+}
+#detail_text_div{
+    height: 420px;
+    overflow-y: auto;
+}
+#detail_text_div>div{
+    margin-top:10px;
+}
+#detail_text_div>#detail_title{
+    font-size: 24px;
+    font-weight: bolder;
+}
+.am-viewport{
+    top:20px;
+}
+/*轮播*/
+.detail_carousel_img{
+    position: relative;
+    width:100%;
+    display: block;
+}
+.detail_carousel_img>div{
+    width:100%;
+    position: absolute;
+    height: 100px;
+    bottom: 0px;
+    background-color: lightgrey;
+    background:rgba(0, 0, 0, 0.4);
+    color:white;
+    padding-top: 3px;
+}

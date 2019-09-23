@@ -1,0 +1,40 @@
+<div ms-important="operation_manual" id="operation_manual">
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-click="@gra_change()">常见问题</div>
+            <div class="am-fl chosen">操作手册</div>
+        </div>
+    </div>
+    <div class="cp_title">
+        <p>操作手册</p>
+    </div>
+    <div class="m_con">
+        <!--ms-for:($index,el) in @list-->
+        <div class="cp_every old_border">
+            <div class="cp_every_con clearfix">
+                <div class="am-fl cp_index">
+                    {{$index+1}}
+                </div>
+                <div class="am-fl cp_con">
+                    <div class="clearfix">
+                        <div class="am-fl cp_con_line"></div>
+                        <div class="am-fl cp_con_que">
+                            {{el.question}}
+                        </div>
+                    </div>
+                    <div class="clearfix href-name" :click="@href_turn(el.url)">
+                        <div class="am-fl cp_con_line am-hide"></div>
+                        <div class="am-fl cp_answer">
+                            {{el.answer}}
+                        </div>
+                    </div>
+                    <!--<a class="clearfix cp_answer">-->
+                        <!--{{el.answer}}-->
+                    <!--</a>-->
+                </div>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div class="last_div"></div>
+    </div>
+</div>

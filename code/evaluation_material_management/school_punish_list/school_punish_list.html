@@ -1,0 +1,41 @@
+<div ms-important="school_punish_list" id="school_punish_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange()" ms-duplex="@fk_grade_id">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@classChange()" ms-duplex="@fk_class_id">
+                        <option ms-attr="{value:''}">
+                            请选择班级
+                        </option>
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh, cbopt:@cbopt,only_hash:@only_hash}">
+            </xmp>
+        </div>
+    </div>
+</div>

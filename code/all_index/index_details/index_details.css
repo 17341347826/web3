@@ -1,0 +1,29 @@
+#index_details{
+    background-color: #f1f2f6;
+}
+#index_details>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+#index_details>div>div{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#index_details>div>div p{
+    margin: 0;
+    max-width: 100%;
+    word-wrap:break-word;
+    word-break:break-all;
+    white-space:normal;
+}
+#index_details table>tbody>tr>td{
+    text-align: left;
+}
+#index_details .btns{
+    width: 20%;
+    margin: 0 auto;
+    padding-top: 20px;
+}

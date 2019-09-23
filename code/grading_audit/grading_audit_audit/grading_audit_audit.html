@@ -1,0 +1,227 @@
+<div class="hide_scroll" id="grading_audit_audit" ms-important="set_level">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+
+    <div class="common-select" ms-if="@way=='update'">
+        <div class="search-cont clearfix">
+
+            <div class="select">
+                <div class="old-select">
+                    <select id="grade"
+                            ms-attr="{disabled:@page_state==2}"
+                            ms-class="[@page_state==2 ? 'disabled-color':'']"
+                            ms-duplex-number="@rule_extend.fk_grade_id"
+                            data-duplex-changed="@grade_change">
+                        <option ms-for="($index,el) in @grade_list" ms-attr="{value:el.value}">
+                            {{el.name}}
+                        </option>
+                    </select>
+                    <input type="text" placeholder="请输入总分"
+                           ms-visible="@page_state==2&&(@lv_type==1||@lv_type==2 || @lv_type==5)"
+                           ms-duplex-number="@level_list.full_score">
+                </div>
+            </div>
+            <div class="select" :visible="@page_state!=1">
+                <div class="old-select">
+                    <select ms-attr="{disabled:@page_state==1}" data-duplex-changed="@division_change"
+                            ms-duplex-number="@division_method" ms-class="[@page_state==1 ? 'disabled-color':'']">
+                        <option ms-attr="{value:''}">
+                            请选择划分方式
+                        </option>
+                        <option ms-attr="{value:1}">
+                            按分数段
+                        </option>
+                        <option ms-attr="{value:2}">
+                            按人数比例
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="select" ms-if="@page_state!=1">
+                <div class="old-select">
+                    <select ms-attr="{disabled:@page_state==1}" data-duplex-changed="@standard_change"
+                            ms-duplex="@standard" ms-class="[@page_state==1?'disabled-color':'']">
+                        <option ms-attr="{value:''}">
+                            请选择标准
+                        </option>
+                        <option value="3">
+                            年级统一
+                        </option>
+                        <option value="4">
+                            按班级规划
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select" :visible="@page_state!=1">
+                <div class="old-select">
+                    <select ms-attr="{disabled:@page_state==1 || @lv_type==''}"
+                            ms-class="[(@page_state==1 || @lv_type =='')  ? 'disabled-color':'']"
+                            data-duplex-changed="@count_change" ms-duplex="@level_count">
+                        <option value="1">
+                            请设置等级个数
+                        </option>
+                        <option value="2">
+                            2
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="5">
+                            5
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--<div class="search-btn" ms-visible="@page_state==2">-->
+            <!--<input type="button" value="导入" ms-click="@import">-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="update-level-content">
+
+        <div class="table-module" ms-visible="@lv_type==2">
+            <label>{{school_name}}-{{grade_name}}</label>
+            <label>等级划分方式：按分数段</label>
+            <label ms-visible="@user_level>3">标准：按年级统一</label>
+            <table class="am-table" id="fractional_section_school">
+                <thead>
+                <tr>
+                    <th ms-visible="@user_level>3">
+                        年级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].score_lv">{{el2.lv}}</th>
+                    <th ms-visible="@level_list.lv_partition[0].score_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        <span ms-visible="@user_level<4">{{el.school_name}}</span><span ms-visible="@user_level>3">{{@now_grade_name}}</span>
+                    </td>
+                    <td ms-for="($index2,el2) in el.score_lv">
+                        <input type="text" ms-visible="@page_state==2" ms-duplex-number="el2.tall_score">
+                        <span ms-visible="@page_state==1">{{el2.tall_score}}</span>
+                        -
+                        <input type="text" ms-visible="@page_state==2" ms-duplex-number="el2.low_score">
+                        <span ms-visible="@page_state==1">{{el2.low_score}}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-visible="@lv_type==4">
+            <label>{{school_name}}-{{grade_name}}</label>
+            <label>等级划分方式：按人数比例</label>
+            <label ms-visible="@user_level<4">标准：按学校划定</label>
+            <label ms-visible="@user_level>3">标准：按年级统一</label>
+            <table class="am-table" id="proportion_people_school">
+                <thead>
+                <tr>
+                    <th ms-visible="@user_level<4">
+                        学校
+                    </th>
+                    <th ms-visible="@user_level>3">
+                        年级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].ratio_lv">{{el2.lv}}</th>
+                    <th ms-visible="@level_list.lv_partition[0].ratio_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        <span ms-visible="@user_level<4">{{el.school_name}}</span><span ms-visible="@user_level>3">{{@now_grade_name}}</span>
+                    </td>
+                    <td ms-for="($index2,el2) in el.ratio_lv">
+                        <input type="text" ms-visible="@page_state==2" ms-duplex-number="el2.ratio">
+                        <span ms-visible="@page_state==1">{{el2.ratio}}%</span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-visible="@lv_type==5">
+            <label>{{school_name}}-{{grade_name}}</label>
+            <label>等级划分方式：按分数段</label>
+            <label>标准：按班级划分</label>
+            <table class="am-table" id="fractional_section_class">
+                <thead>
+                <tr>
+                    <th>
+                        班级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].score_lv">{{el2.lv}}</th>
+                    <th ms-visible="@level_list.lv_partition[0].score_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        {{el.class_name}}
+                    </td>
+                    <td ms-for="($index2,el2) in el.score_lv">
+                        <input type="text" ms-visible="@page_state==2" ms-duplex-number="el2.tall_score">
+                        <span ms-visible="@page_state==1">{{el2.tall_score}}</span>
+                        -
+                        <input type="text" ms-visible="@page_state==2" ms-duplex-number="el2.low_score">
+                        <span ms-visible="@page_state==1">{{el2.low_score}}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-visible="@lv_type==6">
+            <label>{{school_name}}-{{grade_name}}</label>
+            <label>等级划分方式：按人数比例</label>
+            <label>标准：按班级划分</label>
+            <table class="am-table" id="proportion_people_class">
+                <thead>
+                <tr>
+                    <th>
+                        班级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].ratio_lv">{{el2.lv}}</th>
+                    <th ms-visible="@level_list.lv_partition[0].ratio_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        {{el.class_name}}
+                    </td>
+                    <td ms-for="($index2,el2) in el.ratio_lv">
+                        <input type="text" ms-visible="@page_state==2" ms-duplex-number="el2.ratio">
+                        <span ms-visible="@page_state==1">{{el2.ratio}}%</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-module"
+             style="text-align: center;" ms-visible="@lv_type==''">
+            暂无等级设置数据
+
+        </div>
+        <div class="update-level-btn">
+            <div class="btns">
+                <button type="button" class="back" ms-click="back">返回</button>
+                <button type="button" class="am-btn-primary" ms-visible="@page_state==2&&@way=='update'"
+                        ms-click="change_state">保存
+                </button>
+                <button type="button" class="no-pass" ms-if="@way=='audit'" ms-click="is_pass(false)">不通过</button>
+                <button type="button" class="am-btn-primary" ms-if="@way=='audit'" ms-click="is_pass(true)">通过</button>
+
+            </div>
+        </div>
+    </div>
+    <div id="grading_audit_audit_layer">
+        <textarea ms-duplex="@opinion" placeholder="请说明审核意见？"></textarea>
+    </div>
+
+</div>

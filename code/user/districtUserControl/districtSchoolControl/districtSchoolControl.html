@@ -1,0 +1,99 @@
+<div class="am-g" id="districtSchoolControl" ms-important="districtSchoolControl">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="form-input">
+                <input ms-blur="@schoolNameSearch()" ms-duplex="@other.schoolname" placeholder="请输入学校名称" type="text"/>
+            </div>
+            <div class="form-input">
+                <input ms-blur="@schoolCodeSearch()" ms-duplex="@other.schoolcode" placeholder="请输入学校代码" type="text"/>
+            </div>
+            <!--<div class="search-btn" ms-on-click="@addInfo()">-->
+            <!--<input type="button" value="新增">-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div>
+        <!--tabel-->
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+        <!--modal-->
+        <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+        </xmp>
+        <!--添加修改-->
+        <div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    {{@modal.title}}
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                所属区县
+                            </label>
+                            <div class="am-u-sm-9 am-u-end address">
+                                <div class="am-u-sm-4">
+                                    <select disabled="disabled" ms-duplex="@compileData.province" name="province1">
+                                    </select>
+                                </div>
+                                <div class="am-u-sm-4">
+                                    <select disabled="disabled" ms-duplex="@compileData.city" name="city1">
+                                    </select>
+                                </div>
+                                <div class="am-u-sm-4 am-u-end">
+                                    <select disabled="disabled" ms-duplex="@compileData.district" name="area1">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                学校代码
+                            </label>
+                            <div class="am-u-sm-9 ">
+                                <input class="am-hide" type="text"/>
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.schoolcode"
+                                       ms-on-focus="@regMsg()" placeholder="请输入学校代码（必填）" type="text"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                管理员
+                            </label>
+                            <div class="am-u-sm-9">
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.schoolname"
+                                       ms-on-focus="@regMsg()" placeholder="请输入中文名称（必填）" type="text"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                联系电话
+                            </label>
+                            <div class="am-u-sm-9">
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.phone" ms-on-blur="@phoneReg()"
+                                       ms-on-focus="@regMsg()" placeholder="请输入联系电话" type="text"/>
+                            </div>
+                        </div>
+                    </form>
+                    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+                </div>
+                <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@compile()">
+     提交
+    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

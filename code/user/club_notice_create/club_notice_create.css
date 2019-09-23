@@ -1,0 +1,19 @@
+#club_notice_create>div{
+    margin-left: 1px;
+    background-color: white;
+}
+#club_notice_create button{
+    margin: 0 15px;
+}
+#club_notice_create .mp-checkbox{
+    padding-right: 12px;
+}
+#club_notice_create .title-lab{
+    color: #ccc;
+}
+/*按钮*/
+#club_notice_create .btns{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}

@@ -1,0 +1,350 @@
+#incentive_card_type_see{
+    background-color: #f1f2f6;
+}
+#incentive_card_type_see .common-select{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#incentive_card_type_see .common-select,
+#incentive_card_type_see .list-con>div{
+    background-color: white;
+}
+/*几种状态*/
+#incentive_card_type_see>div.first-index{
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    background-color: #ffffff;
+    border-radius: 4px 4px 0px 0px;
+    margin-bottom:2px;
+}
+#incentive_card_type_see .first-index #add-record{
+    background-color: #2bbba4;
+    color:#fff;
+    border:none;
+    cursor: pointer;
+}
+#incentive_card_type_see .first-index #add-record:hover{
+    background-color:#2bbb7c;
+}
+#incentive_card_type_see .first-index #add-record>span:first-child{
+    display: inline-block;
+    width:20px;
+    height:20px;
+    margin-right:4px;
+}
+#incentive_card_type_see>div.first-index>div.am-fl>div{
+    padding-right: 16px;
+    padding-left: 16px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: default;
+}
+#incentive_card_type_see>div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+#incentive_card_type_see>div.first-index>div.am-fr{
+    padding-right: 45px;
+}
+
+/*内容部分*/
+#incentive_card_type_see .list-con{
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+#incentive_card_type_see .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#incentive_card_type_see .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#incentive_card_type_see .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+}
+#incentive_card_type_see .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#incentive_card_type_see .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#incentive_card_type_see .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#incentive_card_type_see .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#incentive_card_type_see .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#incentive_card_type_see .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*#incentive_card_type_see .line-two{*/
+/*display:inline-block;*/
+/*width: 1px;*/
+/*height: 18px;*/
+/*background-color: #a2a2a2;*/
+/*}*/
+/*学生头像那块*/
+#incentive_card_type_see .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#incentive_card_type_see .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#incentive_card_type_see .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#incentive_card_type_see .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#incentive_card_type_see .stu-school{
+    /*border:1px solid red;*/
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+#incentive_card_type_see .stu-school>div:first-child{
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    /*border:1px solid yellow;*/
+    overflow: hidden;/*为了控制左边框和右边框高度和字体高度一致，都等于18px*/
+}
+#incentive_card_type_see .stu-school div .d-name{
+    padding-left:10px;
+    padding-right:10px;
+    border-right:1px solid #a2a2a2;;
+    border-left:1px solid #a2a2a2;;
+}
+#incentive_card_type_see .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#incentive_card_type_see .stu-school>div:last-child span{
+    margin-right:40px;
+}
+#incentive_card_type_see .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#incentive_card_type_see  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#incentive_card_type_see .daily-info>div{
+    margin-top:10px;
+}
+/*图片*/
+#incentive_card_type_see  .daily-info .d-p-img{
+    border-radius: 4px;
+}
+#incentive_card_type_see  .daily-info .d-p-img img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+.img-ary-height{
+    height:150px !important;
+    overflow: hidden;
+}
+.img-ary-height-open{
+    height:auto !important;
+}
+#incentive_card_type_see  .daily-info .one-two-index span:first-child{
+    margin-right:72px;
+}
+#incentive_card_type_see  h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+/*图片*/
+#incentive_card_type_see  .daily-info .img-ary{
+    border-radius: 4px;
+    /*height:150px;*/
+    /*overflow: hidden;*/
+}
+#incentive_card_type_see  .daily-info .img-ary img{
+    margin-bottom:5px;
+    width:766px;
+}
+#incentive_card_type_see  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+/*展开提异议*/
+#incentive_card_type_see  .daily-info .img-objection{
+    text-align: center;
+    position: relative;
+    margin-top:10px;
+}
+#incentive_card_type_see  .daily-info .img-objection>div{
+    display:inline-block;
+    cursor: pointer;
+}
+#incentive_card_type_see .img-objection .img-switch{
+    width: 80px;
+    height: 28px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    line-height:28px;
+    text-align: center;
+    border: solid 1px #2bbba4;
+    color: #2bbba4;
+}
+#incentive_card_type_see .img-objection .img-switch:hover{
+    background-color: #2bbba4;
+    color: #fff;
+}
+/*展开*/
+#incentive_card_type_see .img-objection .img-open span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/down.png");
+    margin-left:5px;
+}
+#incentive_card_type_see .img-objection .img-open:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/down1.png");
+}
+/*收起*/
+#incentive_card_type_see .img-objection .img-close span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/top.png");
+    margin-left:5px;
+}
+#incentive_card_type_see .img-objection .img-close:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/top1.png");
+}
+#incentive_card_type_see .img-objection .ask-dissent{
+    width: 98px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #ff9e47;
+    border-radius: 4px;
+    color:#fff;
+    position: absolute;
+    right:0;
+}
+#incentive_card_type_see .img-objection .ask-dissent:hover{
+    background-color: #ff7a45;
+}
+/*异议内容*/
+#incentive_card_type_see .yy-con{
+    color: #ff6656;
+}
+
+#incentive_card_type_see .text-content ul{
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+}
+/*显示方式*/
+#incentive_card_type_see .dis-type{
+    text-align: right;
+    padding: 20px 30px 0;
+}
+#incentive_card_type_see .radios{
+    display:inline-block;
+}
+#incentive_card_type_see .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+/*表格*/
+#incentive_card_type_see .table-list{
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+#incentive_card_type_see .table_module{
+    padding-left:16px;
+    padding-right:16px;
+}
+#incentive_card_type_see #class-module{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+#incentive_card_type_see .divide-page{
+    padding-right: 16px;
+}
+/*取消按钮*/
+#incentive_card_type_see .btns{
+    text-align: center;
+    padding-bottom: 20px;
+}
+/*撤销按钮*/
+#incentive_card_type_see .remove-css{
+    display: inline-block;
+    background-color: #2bbba4;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 4px;
+    cursor: pointer;
+}
+

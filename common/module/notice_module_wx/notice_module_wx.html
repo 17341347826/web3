@@ -1,0 +1,25 @@
+<div class="content_box" id="notice-module-wx">
+    <p>
+        一 <a href="javascript:;" :class="[(@change_tab_num==1 ? 'avtive':'')]" ms-on-click="change_tab(1)" >通知公告</a> |
+        <a href="javascript:;" :class="[(@change_tab_num==2 ? 'avtive':'')]" ms-on-click="change_tab(2)">版本更新</a>
+        一
+    </p>
+    <div class="context_high">
+        <div class="notice-container" ms-if="@change_tab_num==1">
+            <div class="notice-msg">
+                <h3 :if="@notice_data.title" class="notice-title am-padding-top-sm">{{@notice_data.title}}</h3>
+                <div :if="@notice_data.content" class="notice-des" ms-html="@notice_data.content">
+                </div>
+            </div>
+        </div>
+        <div class="refresh" ms-if="@change_tab_num==2">
+            <div class="refresh-msg" ms-html="@version_content" :if="@version_content">
+            </div>
+        </div>
+    </div>
+    <!--<div class="text_remark am-cf" ms-if="@change_tab_num==1">-->
+        <!--<div class="am-fr" :click="@notice_more()">-->
+            <!--<div class="more_notice">更多>></div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

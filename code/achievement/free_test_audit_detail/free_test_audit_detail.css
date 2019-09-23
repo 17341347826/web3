@@ -1,0 +1,21 @@
+#free_test_audit_detail{
+    padding-bottom:50px;
+}
+#free_test_audit_detail .content{
+    padding-top:50px;
+}
+#free_test_audit_detail .stu_info{
+    padding:20px 40px;
+}
+#free_test_audit_detail  .btn{
+    margin-top:50px;
+}
+#free_test_audit_detail  .btn button{
+    border-radius:4px;
+}
+#free_test_audit_detail  .btn button:first-child{
+    margin-right:2em;
+}
+#free_test_audit_detail .layui-layer-ico{
+    background: url('../../../common/images/icon/add-x.png') no-repeat;
+}

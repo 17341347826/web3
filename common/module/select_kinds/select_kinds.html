@@ -1,0 +1,93 @@
+<div id="select-kinds">
+    <!--参考使用页面：school_iconic_card-->
+    <!--区县-->
+    <div :if="@s_kind == 1">
+        <!--显示框-->
+        <div class="s-show" :click="@drop_show">
+            <span class="s-value">{{@show_name}}</span>
+            <span class="s-icon"></span>
+        </div>
+        <!--下拉框-->
+        <div class="s-hide" :if="@is_show" ms-on-blur="@div_blur()" tabindex="1">
+            <ul>
+                <!--ms-for:($idx,el) in @data_arr-->
+                <li ms-click-1="@s_change(el)" ms-click-2="@name_change(el.district)">
+                    {{el.district}}
+                </li>
+                <!--ms-for-end:-->
+            </ul>
+        </div>
+    </div>
+    <!--学校-->
+    <div :if="@s_kind == 2">
+        <!--显示框-->
+        <div class="s-show" :click="@drop_show">
+            <span class="s-value">{{@show_name}}</span>
+            <span class="s-icon"></span>
+        </div>
+        <!--下拉框-->
+        <div class="s-hide" :if="@is_show" ms-on-blur="@div_blur()" tabindex="1">
+            <ul>
+                <!--ms-for:($idx,el) in @data_arr-->
+                <li ms-click-1="@s_change(el)" ms-click-2="@name_change(el.schoolname)">
+                    {{el.schoolname}}
+                </li>
+                <!--ms-for-end:-->
+            </ul>
+        </div>
+    </div>
+    <!--年级筛选-->
+    <div :if="@s_kind == 3">
+        <!--显示框-->
+        <div class="s-show" :click="@drop_show">
+            <span class="s-value">{{@show_name}}</span>
+            <span class="s-icon"></span>
+        </div>
+        <!--下拉框-->
+        <div class="s-hide" :if="@is_show" ms-on-blur="@div_blur()" tabindex="1">
+            <ul>
+                <!--ms-for:($idx,el) in @data_arr-->
+                <li ms-click-1="@s_change(el)" ms-click-2="@name_change(el.grade_name)">
+                    {{el.grade_name}}
+                </li>
+                <!--ms-for-end:-->
+            </ul>
+        </div>
+    </div>
+    <!--班级筛选-教师身份-->
+    <div :if="@s_kind == 41">
+        <!--显示框-->
+        <div class="s-show" :click="@drop_show">
+            <span class="s-value">{{@show_name}}</span>
+            <span class="s-icon"></span>
+        </div>
+        <!--下拉框-->
+        <div class="s-hide" :if="@is_show" ms-on-blur="@div_blur()" tabindex="1">
+            <ul>
+                <!--ms-for:($idx,el) in @data_arr-->
+                <li ms-click-1="@s_change(el)" ms-click-2="@name_change(el.class_name)">
+                    {{el.class_name | class_ban}}
+                </li>
+                <!--ms-for-end:-->
+            </ul>
+        </div>
+    </div>
+    <!--除上面类型外公有+班级筛选（教师身份以上）-->
+    <div :if="@s_kind == 5">
+        <!--显示框-->
+        <div class="s-show" :click="@drop_show">
+            <span class="s-value">{{@show_name}}</span>
+            <span class="s-icon"></span>
+        </div>
+        <!--下拉框-->
+        <div class="s-hide" :if="@is_show" ms-on-blur="@div_blur()" tabindex="1">
+            <ul>
+                <!--ms-for:($idx,el) in @data_arr-->
+                <li ms-click-1="@s_change(el)" ms-click-2="@name_change(el.name)">
+                    {{el.name}}
+                </li>
+                <!--ms-for-end:-->
+            </ul>
+        </div>
+    </div>
+</div>

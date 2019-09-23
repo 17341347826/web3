@@ -1,0 +1,72 @@
+<div class="am-g" id="evaluation_project_view" ms-important="evaluation_project_view">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix' :if="@extend.pro_type == 2">
+        <div class="am-fl">
+            <!--<div class="am-fl" ms-click="@go_href">评价方案</div>-->
+            <div class="am-fl chosen">评价任务</div>
+            <div class="am-fl" ms-on-click="@parameter_add">分组参数</div>
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="form-input">
+                <input ms-rules="{required:true}" ms-duplex="@extend.pro_name" placeholder="请输入项目名称" type="text"/>
+            </div>
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex="@extend.pro_type">-->
+                        <!--<option value="">请选择项目类型</option>-->
+                        <!--<option ms-attr="{value:1}">学生自评</option>-->
+                        <!--<option ms-attr="{value:2}">学生互评</option>-->
+                        <!--<option ms-attr="{value:3}">教师评</option>-->
+                        <!--<option ms-attr="{value:4}">家长评价</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="select">
+                <div class="old-select">
+                    <select class="select-disabled" ms-duplex="@pro_grade" data-duplex-changed="@grade_change" disabled="disabled">
+                        <!--<option value="">-->
+                            <!--请选择使用年级-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:el.id+','+el.remark}" ms-for="el in @grade_list">-->
+                            <!--{{ el.remark }}-->
+                        <!--</option>-->
+                        <option ms-attr="{value:@pro_grade}">
+                            {{@grade_name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!---->
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@extend.pro_state">
+                        <option value="">
+                            请选择审核状态
+                        </option>
+                        <option ms-attr="{value:1}">待审核</option>
+                        <option ms-attr="{value:2}">审核通过</option>
+                        <option ms-attr="{value:3}">审核不通过</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input id="start_time_input" placeholder="请选择开始时间" readonly ms-on-focus="@get_start_date" type="text"/>
+            </div>
+            <div class="form-input">
+                <input id="end_time_input"  placeholder="请选择结束时间" readonly ms-on-focus="@get_end_date" type="text"/>
+            </div>
+            <div class="click_btn" :click="@create_project">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span >创建项目</span>
+            </div>
+        </div>
+    </div>
+    <div class="e-p-v-con">
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,remember:@remember,theadTh:@theadTh,cbopt:@cbopt,only_hash:@only_hash}">
+        </xmp>
+    </div>
+
+
+</div>

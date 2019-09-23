@@ -1,0 +1,90 @@
+#grading_audit_audit{
+    background-color: #f1f2f6;
+}
+#grading_audit_audit>div{
+    background-color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#grading_audit_audit>div.update-level-content{
+    margin-top: 4px;
+}
+#grading_audit_audit .update-level-content input{
+    width: 50px;
+    height: 24px;
+    border-radius: 4px;
+    border: solid 1px #a2a2a2;
+    text-align: center;
+}
+#grading_audit_audit .update-level-btn{
+    margin-top: 48px;
+    text-align: center;
+}
+#grading_audit_audit .update-level-btn>.btns{
+    padding-bottom: 28px;
+
+}
+#grading_audit_audit .update-level-btn>.btns>button{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#grading_audit_audit .back{
+    background-color: rgba(255, 170, 69, 1);;
+}
+#grading_audit_audit .no-pass{
+    background-color: rgb(169, 150, 84);;
+}
+#fractional_section_city,
+#proportion_people_city,
+#proportion_people_school,
+#fractional_section_school,
+#fractional_section_class,
+#proportion_people_class
+
+{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+#grading_audit_audit .update-level-content>div{
+    padding-top: 46px;
+}
+.table-module>label{
+    margin-right: 60px;
+}
+.disabled-color{
+    background-color: #c8c8c8;
+}
+.hide_scroll  ::-webkit-scrollbar {display:none}
+#grading_audit_audit .old-select select,
+#grading_audit_audit .old-select input{
+    outline: none;
+}
+#grading_audit_audit .old-select input{
+    width: 200px;
+    height: 36px;
+    padding-left: 10px;
+    border: 1px solid #c8c8c8;
+    text-align: left;
+    font-size: 16px;
+    color: #c8c8c8;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+#grading_audit_audit .old-select input::placeholder{
+    color: #c8c8c8;
+}
+#grading_audit_audit .upload_div{
+    background: none;
+}
+#grading_audit_audit_layer{
+    width: 600px;
+    padding: 15px;
+    display: none;
+}
+
+#grading_audit_audit_layer textarea{
+    width: 540px;
+    height: 200px;
+    overflow-y: auto;
+    box-sizing:border-box;
+}

@@ -1,0 +1,49 @@
+#management_list{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+}
+#management_list>div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#management_list .table-module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+#management_list .teacher_div{
+    display: block;
+    width: 100%;
+    border-bottom: 1px #a2a2a2 dashed;
+    padding-bottom: 10px;
+}
+#management_list .teacher_div input{
+    padding-left: 5px;
+}
+#management_list .teacher_{
+    width: 60%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px #a2a2a2 solid;
+    color: #a2a2a2;
+}
+#management_list .title_a{
+    max-width: 82px;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding-left: 5px;
+}
+#management_list .teachers-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+#management_list .each-teacher{
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+}
+#management_list .teacher-name{
+    min-width: 42px;
+    display: inline-block;
+}

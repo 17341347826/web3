@@ -1,0 +1,34 @@
+#role_privileges{
+    background-color: #f1f2f6;
+}
+#role_privileges>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#role_privileges .common-select .click_btn{
+    display:inline-block;
+    height:36px;
+    line-height: 36px;
+    background-color: rgba(43, 187, 164, 1);
+    border-radius: 4px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor: pointer;
+}
+#role_privileges .common-select .click_btn img{
+    margin-top: -4px;
+}
+#role_privileges .common-select .click_btn>span{
+    display:inline-block;
+    color:#fff;
+    font-size: 16px;
+    margin-left:7px;
+}
+#role_privileges .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+

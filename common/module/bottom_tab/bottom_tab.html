@@ -1,0 +1,15 @@
+<div class="bottom-tab" id="bottom-tab" :visible="!is_app && !is_weixin">
+    <div class="home" ms-class="[@cur_tab=='home'?'active':'']" ms-click="@change_tab(1)">
+        <span class="tab-icon"></span>
+        <p class="tab-name">首页</p>
+    </div>
+    <div class="evaluate" ms-class="[@cur_tab=='evaluate'?'active':'']" ms-click="@change_tab(2)">
+        <span class="tab-icon"></span>
+        <p class="tab-name">评价</p>
+    </div>
+    <div class="about-me" ms-class="[@cur_tab=='about-me'?'active':'']" ms-click="@change_tab(3)">
+        <span class="tab-icon"></span>
+        <p class="tab-name">我的</p>
+    </div>
+
+</div>

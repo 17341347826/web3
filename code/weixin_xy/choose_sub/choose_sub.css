@@ -1,0 +1,24 @@
+#choose-sub .sub-title {
+    color: #fff;
+    background: #3b94f0;
+    height:50px;
+    line-height:50px;
+    text-align: center;
+}
+#choose-sub .project-list {
+    color: #3b94f0;
+    padding: 12px;
+    cursor: pointer;
+}
+#choose-sub .project-list span {
+    float: right;
+}
+#choose-sub .project-list:nth-child(odd) {
+    background: #f9f9f9;
+}
+#choose-sub .msg{
+    /*position:absolute;*/
+    /*z-index:999999;*/
+    margin-top:100px;
+    text-align: center;
+}

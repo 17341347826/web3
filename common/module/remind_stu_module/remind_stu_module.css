@@ -1,0 +1,51 @@
+#home_x div.content_box>.context_high>div.stu_fill_module p{
+    font-size: 12px;
+    color: #5f5f5f;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module{
+    padding: 0;
+    overflow-y: auto;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module ul{
+    list-style-type: none;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module ul>li{
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    color: #8c8c8c;
+    line-height: 40px;
+    padding-left: 15px;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module ul .am-u-sm-10{
+    padding: 0;
+    margin: 0;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module ul>li .affair-num > span {
+    display: inline-block;
+    width: 60px;
+    height:20px;
+    line-height: 20px;
+    border-radius: 14px;
+    background-color: #ff8b63;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module ul>li:nth-of-type(odd){/*偶数行 */
+    background-color: #ffffff;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module ul>li:nth-of-type(even){/*奇数行 */
+    background-color: #f5f9fd;
+}
+#home_x div.content_box>.context_high>div.stu_fill_module ul>li:hover{
+    background-color: #e2e6f0;
+}

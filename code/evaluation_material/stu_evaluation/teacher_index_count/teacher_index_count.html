@@ -1,0 +1,78 @@
+<!--<xmp ms-widget="{is:'page_title_div',title:'指标统计',reBack:'1'}"></xmp>-->
+<div class="am-g" id="teacher_index_count" ms-controller="teacher_index_count">
+    <div class='list-con'>
+        <table class="am-table am-table-bordered am-table-hover ">
+            <thead>
+            <tr>
+                <th>
+                    序号
+                </th>
+                <th>
+                    一级指标
+                </th>
+                <th>
+                    二级指标
+                </th>
+                <th>
+                    日常表现
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    写实记录
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    表扬次数
+                </td>
+                <td>
+                    提醒次数
+                </td>
+                <td>
+                    次数
+                </td>
+            </tr>
+            <!--ms-for: $idx,el in @index_data-->
+            <tr>
+                <td>
+                    {{$idx+1}}
+                </td>
+                <td>
+                    {{el.frist_index_name}}
+                </td>
+                <td>
+                    {{el.index_name}}
+                </td>
+                <td>
+                    {{el.everyday_add}}
+                </td>
+                <td>
+                    {{el.everyday_minus}}
+                </td>
+                <td>
+                    {{el.xs}}
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+            <!--<tbody :if="@evaluation_data.length==0">-->
+            <!--<tr>-->
+            <!--<td colspan="7">暂无数据</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        </table>
+    </div>
+</div>

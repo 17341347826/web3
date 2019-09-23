@@ -1,0 +1,19 @@
+#new_parent_comment{
+    background-color: #f1f2f6;
+}
+#new_parent_comment>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+#new_parent_comment #new_parent_comment_table{
+    width: 90%;
+    margin: 0 auto;
+}
+#new_parent_comment #new_parent_comment_table p{
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+#new_parent_comment #new_parent_comment_table table>tbody>tr>td{
+    white-space:inherit;
+}

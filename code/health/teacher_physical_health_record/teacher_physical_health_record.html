@@ -1,0 +1,154 @@
+<!--<div class="am-g" id="page_title_div">-->
+ <!--<table id="title_table">-->
+  <!--<tr>-->
+   <!--<td class="title_nowrap" id="first_title">-->
+    <!--<span>-->
+     <!--综合成绩-->
+    <!--</span>-->
+   <!--</td>-->
+   <!--<td>-->
+    <!--<img alt="" src="Growth/common/images/title_line.png"/>-->
+   <!--</td>-->
+   <!--<td class="title_nowrap" id="last_title">-->
+    <!--体质健康/-->
+    <!--<span>-->
+     <!--成绩录入-->
+    <!--</span>-->
+   <!--</td>-->
+  <!--</tr>-->
+ <!--</table>-->
+<!--</div>-->
+<xmp ms-widget="{is:'page_title_div',title:'',reBack:'0'}">
+</xmp>
+<div class="am-g" id="teacher_edit_div" ms-important="teacher_edit_art_evaluation">
+ <div class="am-text-center am-padding-top-sm am-padding-bottom-sm" id="searchDiv">
+  <div>
+   学年学期
+   <select data-duplex-changed="@semesterChange" ms-duplex="@data.semester_name">
+    <option value="0">
+     请选择
+    </option>
+    <!--ms-for: el in @data.semester_name_arr-->
+    <option ms-attr="{value:el.semester_name}">
+     {{el.semester_name}}
+    </option>
+    <!--ms-for-end:-->
+   </select>
+  </div>
+  <div>
+   年级
+   <select data-duplex-changed="@changeGrade" ms-duplex="@project_grade">
+    <option value="0">
+     请选择
+    </option>
+    <!--ms-for: el in @data.grade_remark_list-->
+    <option ms-attr="{value:el.remark}">
+     {{el.remark}}
+    </option>
+    <!--ms-for-end:-->
+   </select>
+  </div>
+  <div>
+   班级
+   <select data-duplex-changed="@classChange" ms-duplex="@data.form.class_id">
+    <option value="0">
+     请选择
+    </option>
+    <!--ms-for: el in @data.teach_class_list-->
+    <option ms-attr="{value:el.class_id}">
+     {{el.class_name}}
+    </option>
+    <!--ms-for-end:-->
+   </select>
+  </div>
+  <div>
+   测评项目
+   <select data-duplex-changed="@projectChange" ms-duplex="@data.form._id">
+    <option value="0">
+     请选择
+    </option>
+    <!--ms-for: el in @data.project_list-->
+    <option ms-attr="{value:el._id}">
+     {{el.name}}
+    </option>
+    <!--ms-for-end:-->
+   </select>
+  </div>
+  <div class="am-btn am-btn-primary am-margin-left-xl" ms-click="@checkBtn">
+   确定
+  </div>
+ </div>
+ <div class="am-text-right" ms-if="false">
+  <button class="am-btn am-btn-warning" ms-on-click="@uploadingModal()">
+   成绩导入
+  </button>
+ </div>
+ <div id="div_table">
+  <table class="am-table am-table-striped am-table-hover am-margin-top-sm" id="score_table">
+   <thead>
+    <tr>
+     <!--ms-for: el in @theadTh-->
+     <th>
+      {{el.name}}
+     </th>
+     <!--ms-for-end:-->
+    </tr>
+   </thead>
+   <tbody>
+    <!--ms-for: $idx,el in @tbodyex-->
+    <tr>
+     <!--ms-for: col in @theadTh-->
+     <td ms-if="col.type == 'index'">
+      {{$idx+1}}
+     </td>
+     <td ms-if="col.type == 'text'">
+      {{ @showDate(col,el) }}
+     </td>
+     <td ms-if="col.type == 'import'">
+      <!--{{ @show_json(el) }}-->
+      <span ms-if="@el.user_id != @num">
+       {{ el[col.alias].value}}
+      </span>
+      <input ms-duplex="el[col.alias].value" ms-if="@el.user_id == @num && col.for_sex==el.sex" type="number"/>
+     </td>
+     <td ms-html="@showDate(col,el)" ms-if="col.type == 'html'">
+     </td>
+     <!--ms-for-end:-->
+    </tr>
+    <!--ms-for-end:-->
+   </tbody>
+  </table>
+ </div>
+ <!--上传文件-->
+ <div class="am-modal am-modal-prompt" id="file-uploading" tabindex="-1">
+  <div class="am-modal-dialog">
+   <div class="am-modal-hd">
+    批量导入学生成绩
+    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+     ×
+    </a>
+   </div>
+   <div class="am-modal-bd">
+    <form enctype="multipart/form-data" id="uploadForm" method="post">
+     <input class="am-u-sm-10" disabled="" id="file-name" ms-duplex="@fileName" style="height: 32px" type="text"/>
+    </form>
+    <div class="am-text-left">
+     <a href="../../template_file/批量导入成绩模板.xls">
+      下载模板
+     </a>
+    </div>
+    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+   </div>
+   <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+     上传
+    </span>
+   </div>
+  </div>
+ </div>
+</div>

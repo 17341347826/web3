@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="pwZcyU5Ols" />
+    <title>眉山市初中学生综合素质评价</title>
+    <!--<link href="//cdn.bootcss.com/amazeui/2.7.2/css/amazeui.css" rel="stylesheet">-->
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+    <style>
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        body {
+            min-width: 1000px;
+            height: 100%;
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+        }
+        #found_pwd{
+            height: 100%;
+            overflow: auto;
+        }
+        #found_pwd>.parent-title{
+            width: 100%;
+            min-width: 1000px;
+            height:80px;
+            /*background-color: #009e8e;*/
+            overflow: hidden;
+            background: #000000;
+            background: -moz-linear-gradient(left,  #009e8e 0%, #579fd6 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#009e8e), color-stop(100%,#579fd6));
+            background: -webkit-linear-gradient(left,  #009e8e 0%,#579fd6 100%);
+            background: -o-linear-gradient(left,  #009e8e 0%,#579fd6 100%);
+            background: -ms-linear-gradient(left,  #009e8e 0%,#579fd6 100%);
+            background: linear-gradient(to right,  #009e8e 0%,#579fd6 100%);
+            /*ie6 - ie8 我们可以使用滤镜*/
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009e8e', endColorstr='#579fd6',GradientType=0 );
+            /*box-shadow:0 5px 5px red;*/
+            box-shadow: 0 3px 10px #E3E3E3;
+        }
+        #found_pwd>.parent-title>p{
+            color: white;
+            font-size: 30px;
+            line-height: 80px;
+            text-align: center;
+        }
+        #found_pwd .parent-content{
+            height: 100%;
+        }
+        #found_pwd .content-box{
+            border: 1px solid #d1d1d1;
+            border-radius: 5px;
+            height: 80%;
+            margin-left: 35px;
+            margin-top: 25px;
+            margin-right: 35px;
+            text-align:center;
+        }
+        /*进度*/
+        #found_pwd .registration-process{
+            /*width: 497px;*/
+            height: 72px;
+            margin: 35px auto;
+            display:inline-block;
+        }
+        #found_pwd .step-box{
+            text-align: center;
+            color:#d2d2d2;
+        }
+        .step-circular{
+            background-color: white;
+            width: 46px;
+            height: 46px;
+            border: 1px #d2d2d2 solid;
+            color: #d2d2d2;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 23px;
+            margin: 0 auto;
+        }
+        .step-spline{
+            border:1px solid #d2d2d2;
+            width: 150px;
+            margin-top: 22px;
+        }
+        .active-circular{
+            background-color: #55d9bd;
+            color: white;
+            border: 1px #55d9bd solid;
+        }
+        .active-spline{
+            border:1px solid #55d9bd;
+        }
+        .active-span{
+            color:#55d9bd;
+        }
+        #found_pwd .form-div {
+            width: 399px;
+            height: auto;
+            margin: 55px auto;
+            margin-top:0;
+            padding-left: 20px;
+        }
+        #found_pwd .form-div>div{
+            width: 399px;
+            margin-bottom: 10px;
+            /*border:1px solid red;*/
+            position: relative;
+        }
+        #found_pwd  .form-div>div>input{
+            width: 360px;
+            height: 50px;
+            border: 1px #afafaf solid;
+            border-radius: 5px;
+            text-align: center;
+            color:#afafaf;
+        }
+        #found_pwd  .form-div .ident-info input{
+            width: 235px;
+            margin-right:14px;
+        }
+        #found_pwd .form-div>div>input+img{
+            margin-left: 10px;
+        }
+        #found_pwd .parent-phone,
+        #found_pwd .ident-info{
+           margin-left:-13px;
+        }
+        /*验证码开始*/
+        #found_pwd .parent-phone{
+            display: inline-block;
+        }
+        #found_pwd .ident-info .ident-code{
+            display: inline-block;
+            float: none;
+            color: #fff;
+            text-align: center;
+            border-radius: 28px;
+            width: 110px;
+            height: 35px;
+            font-size: 16px;
+            line-height: 35px;
+            margin-left: 5px;
+        }
+        .identfy-no-check{
+            background-color: #A8A7A8;
+        }
+        .identfy-check{
+            background-color: #59e0b6;
+            box-shadow: #D3FFF1 0 7px 10px;
+        }
+        /*发送验证码、重新发送*/
+        #found_pwd .ident-info #identfy-one,
+        #found_pwd .ident-info #identfy-three{
+            /*background-color: #59e0b6;*/
+            cursor: pointer;
+            /*box-shadow: #D3FFF1 0 7px 10px;*/
+        }
+        /*验证码结束*/
+        /*上下一步*/
+        #found_pwd .parent-submit{
+            text-align: center;
+            /*position: fixed;*/
+            /*left:50%;*/
+            /*margin-left:-180px;*/
+            /*bottom:6%;*/
+        }
+        #found_pwd .parent-submit span{
+            display:inline-block;
+            background-color: #4cd8d0;
+            color: white;
+            font-size: 24px;
+            /*margin: 40px auto;*/
+            border-radius: 25px;
+            box-shadow: #d3fffa 0 9px 21px 5px;
+            cursor: pointer;
+        }
+        /*错误提示信息*/
+        #found_pwd .additional-infor{
+            position:absolute;
+            font-size:14px;
+            margin-top:14px;
+            color:red;
+            width: 180px;
+        }
+        /*注册下一步*/
+        #found_pwd .sign-sub span{
+            width: 360px;
+            height: 50px;
+            line-height: 50px;
+        }
+        /*完成*/
+        #found_pwd .complete-sub{
+            width:345px;
+            text-align: center;
+            position: fixed;
+            left:50%;
+            height:50px;
+            line-height: 50px;
+            margin-left:-170px;
+            /*bottom:8%;*/
+        }
+        #found_pwd .complete-sub span{
+            width:100%;
+            display:inline-block;
+            background-color: #55D9BD;
+            color: white;
+            font-size: 24px;
+            border-radius: 25px;
+            box-shadow: #d3fffa 0 9px 21px 5px;
+            cursor: pointer;
+            /*padding-left:20px;*/
+            /*padding-right:20px;*/
+        }
+    </style>
+</head>
+<body>
+<div id="found_pwd" ms-controller="found_pwd">
+    <div class="parent-title">
+        <p>忘记密码</p>
+    </div>
+    <div class="parent-content">
+        <div class="content-box">
+            <div class="registration-process am-cf">
+                <div class="am-fl">
+                    <div class="am-fl step-box">
+                        <div class="step-circular active-circular">1</div>
+                        <div class="active-span">重置密码</div>
+                    </div>
+                    <div class="am-fl step-spline active-spline"></div>
+                </div>
+                <div class="am-fl">
+                    <div class="am-fl step-box">
+                        <div class="step-circular" ms-class="@content_type==2 ? 'active-circular':''">2</div>
+                        <div>密码设置成功</div>
+                    </div>
+                </div>
+            </div>
+            <!--重置密码-->
+            <div class="form-div" :if="@content_type==1">
+                <div class="parent-phone">
+                    <input type="text" id="phone" placeholder="请输入11位手机号" ms-duplex="@signData.phone" ms-on-keyup="@phone_ident()" ms-on-blur="@phone_check()">
+                    <!--<span class="additional-infor" :if="@phone_type==1">手机号不正确</span>-->
+                    <span class="additional-infor" :if="@phone_type==1">{{@phone_msg}}</span>
+                </div>
+                <div class="ident-info">
+                    <input type="text" id="identifying" placeholder="请输入验证码" ms-duplex="@signData.identfy" ms-on-blur="@identfy_check()">
+                    <div class="ident-code" ms-class="@ident_type==1 || @ident_type==3 ? 'identfy-check':'identfy-no-check'">
+                        <span class="identfy" id="identfy-none" :if="@ident_type==0">获取验证码</span>
+                        <span class="identfy" id="identfy-one" :if="@ident_type==1" ms-on-click="@identOne()">获取验证码</span>
+                        <span class="identfy" id="identfy-two" :if="@ident_type==2">{{@countdown}}秒</span>
+                        <span class="identfy" id="identfy-three" :if="@ident_type==3" ms-on-click="@identThree()">重新发送</span>
+                    </div>
+                    <span class="additional-infor"  :if="@prompt_type==1">验证码不正确</span>
+                </div>
+                <div>
+                    <input type="password" id="inputPwd" placeholder="登录密码" :if="@pwd_type==1" ms-duplex="@signData.inputPwd" ms-on-blur="@inputPwd_check()">
+                    <input type="text" id="inputPwd" placeholder="登录密码" :if="@pwd_type==2" ms-duplex="@signData.inputPwd" ms-on-blur="@inputPwd_check()">
+                    <img src="common/images/hide.png" :if="@pwd_type==1" :click="@pwd_btn(2)">
+                    <img src="common/images/display.png" :if="@pwd_type==2" :click="@pwd_btn(1)">
+                    <span class="additional-infor" :if="@prom_pwd_type==1">8-16位且包含大写、小写、数字、特殊字符至少3种</span>
+                </div>
+                <div>
+                    <input type="password" id="insurePwd" placeholder="确认密码" :if="@insure_pwd==1" ms-duplex="@signData.insurePwd" ms-on-blur="@insurePwd_check()">
+                    <input type="text" id="insurePwd" placeholder="确认密码" :if="@insure_pwd==2" ms-duplex="@signData.insurePwd" ms-on-blur="@insurePwd_check()">
+                    <img src="common/images/hide.png" :if="@insure_pwd==1" :click="@pwd_btn(4)">
+                    <img src="common/images/display.png" :if="@insure_pwd==2" :click="@pwd_btn(3)">
+                    <span class="additional-infor" :if="@insurePwd_type==1">两次密码不一致，请重新输入</span>
+                </div>
+            </div>
+            <!--密码设置成功-->
+            <div class="form-stu-div" :if="@content_type==2">
+                <div class="complete-sub">
+                    <span>密码设置成功，2s后进入系统</span>
+                </div>
+            </div>
+            <div class="parent-submit sign-sub" :if="@content_type==1">
+                <span ms-on-click="@reset()">下一步</span>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<script src="common/lib/jquery.min.js"></script>
+<script src="common/lib/amazeui.js"></script>
+<script src="common/lib/avalon.js"></script>
+<script src="const.js"></script>
+<script src="common/module/request.js"></script>
+<script src="common/lib/bin/jsencrypt.js"></script>
+<script src="common/lib/rsa_public_key.js"></script>
+<!--<script src="//cdn.bootcss.com/layer/3.0/layer.min.js"></script>-->
+<script src="common/lib/layer.min.js"></script>
+<script>
+    avalon.ready(function() {
+        var HTTP_X = location.origin;
+        //        注册
+        var updpwd_yzm = " http://" + window.location.host + "/api/base/ng/baseUser/updpwd_yzm";
+//        发送短信验证码
+        var api_validmsg="http://" + window.location.host + "/api/base/ng/validmsg/send";
+        var HTTP_API = HTTP_X;
+        //登录接口
+        var login_api = HTTP_API + "/api/base/baseUser/login.action";
+        //获取用户在线时长
+        var api_get_online = HTTP_API + '/api/base/baseUser/get_onlie_time';
+        //获取系统当前时间
+        var api_get_server_time = HTTP_API + '/api/base/baseUser/current_time';
+        //查询是否签字
+        var api_check_sign = HTTP_API + "/api/GrowthRecordBag/login_query_goodFaithCommitment";
+        var login = avalon.define({
+            $id: "found_pwd",
+            //注册流程：1-重置密码；2-密码设置成功
+            content_type:1,
+            //登录密码眼睛状态：1-闭眼  2-针眼
+            pwd_type:1,
+            //确认密码眼睛状态：1-闭眼  2-针眼
+            insure_pwd:1,
+            //倒计时
+            countdown:120,
+            // 验证码状态:0-灰色;1-获取验证码；2-倒计时；3-重新发送
+            ident_type:0,
+            //判断获取验证码是否发送
+            btn_type:false,
+            //判断是否点击获取验证码这个按钮
+            ident_one_check:false,
+//            错误提示信息显示：0-无措，1-有错
+            prom_pwd_type:0,
+            insurePwd_type:0,
+            phone_type:0,
+            prompt_type:0,
+//            手机号错误提示信息
+            phone_msg:'',
+            //五个表单控件状态
+            a1: false,
+            a2: false,
+            a3: false,
+            a4: false,
+            signData: {
+                inputPwd: '',
+                insurePwd: '',
+                phone: '',
+                //验证码
+                identfy:''
+            },
+            //登录、确认密码--睁眼闭眼
+            pwd_btn:function(num){
+                if(num==1 || num==2){
+                    this.pwd_type=num;
+                }else if(num==3 || num==4){
+                    this.insure_pwd=num-2;
+                }
+            },
+            // 密码
+            inputPwd_check: function() {
+                var self = this;
+                var password = $("#inputPwd").val();
+//                 var reg = /(?=^.*?\d)(?=^.*?[a-zA-Z])^[0-9a-zA-Z]{6,16}$/;
+                var reg = /^(?![a-zA-Z]+$)(?![A-Z0-9]+$)(?![A-Z\\W_!@#$%^&*`~()-+=]+$)(?![a-z0-9]+$)(?![a-z\\W_!@#$%^&*`~()-+=]+$)(?![0-9\\W_!@#$%^&*`~()-+=]+$)[a-zA-Z0-9\\W_!@#$%^&*`~()-+=]{8,20}$/;
+                if (reg.test(password)) {
+                    self.a3 = true;
+                    self.prom_pwd_type = 0;
+                } else {
+                    self.a3 = false;
+                    self.prom_pwd_type = 1;
+                }
+            },
+            //确认密码
+            insurePwd_check: function() {
+                var self = this;
+                var pwd1 = $("#inputPwd").val();
+                var pwd2 = $("#insurePwd").val();
+                if (pwd2 != pwd1) {
+                    self.a4 = false;
+                    self.insurePwd_type = 1;
+                } else {
+                    self.a4= true;
+                    self.insurePwd_type = 0;
+                }
+            },
+            //            手机号
+            phone_check: function() {
+                var self = this;
+                self.retMsg = '';
+                var reg = /^((1(3|4|5|6|7|8|9)\d{9}))$/;
+                var _txt = $("#phone").val();
+//                console.log(self.btn_type);
+                if (reg.test(_txt)) {
+                    self.phone_type = 0;
+                    self.a1 = true;
+                    //发送短信验证码
+                    if(self.btn_type==true){
+                        ajax_post(api_validmsg,{phone:self.signData.phone,is_exist:'1'},self);
+                        self.ident_type=2;
+                        self.idenfiy_two();
+                    }
+                } else {
+                    self.a1 = false;
+                    self.btn_type=false;
+                    self.phone_type = 1;
+                    self.phone_msg = '手机号不正确'
+                }
+            },
+            //手机改变验证码
+            phone_ident:function(){
+                var self=this;
+                var reg = /^((1(3|4|5|6|7|8|9)\d{9}))$/;
+                var _txt = $("#phone").val();
+                // 验证码
+//                if($.trim(_txt) != '') {
+//                    self.ident_type=1;
+//                }
+                if (reg.test(_txt)) {
+                    self.ident_type = 1;
+                }else{
+                    self.ident_type = 0;
+                }
+            },
+//            发送验证码
+            identOne:function(){
+                this.btn_type=true;
+                this.countdown=120;
+                this.phone_check();
+                //判断是否点击获取验证码
+                this.ident_one_check=true;
+            },
+            //验证码倒计时
+            idenfiy_two:function(){
+                var self = this;
+                self.btn_type=false;
+                //定时器
+                var timer=setInterval(function(){
+                    self.countdown--;
+                    if(self.countdown==0){
+                        clearInterval(timer);
+                        self.ident_type=3;
+                    }
+//                    console.log(self.countdown);
+                },1000);
+            },
+            //重新发送
+            identThree:function(){
+                this.countdown=120;
+                this.btn_type=true;
+                this.phone_check();
+            },
+            //验证码验证
+            identfy_check:function(){
+                var self=this;
+                var _txt=$('#identifying').val();
+                if ($.trim(_txt)!='' && self.ident_one_check == true) {
+                    self.a2 = true;
+                    self.prompt_type = 0;
+                } else {
+                    self.a2 = false;
+//                    self.prompt_type = 1;
+                }
+            },
+            // 下一步
+            reset: function() {
+                var self = this;
+                if (self.a1 == true && self.a2 == true && self.a3 == true && self.a4 == true) {
+                    var publicKey = public_key;
+                    var encrypt = new JSEncrypt(); // 实例化加密对象
+                    encrypt.setPublicKey(publicKey); // 设置公钥
+                    var get_password = encrypt.encrypt(self.signData.inputPwd);
+                    ajax_post(updpwd_yzm, {
+                        new_pwd:get_password,
+                        phone: self.signData.phone,
+                        validcode:self.signData.identfy
+                    }, self, self.is_check);
+                } else {
+                    if (self.a1 == false) {//手机号
+                        self.phone_type=1;
+                    }else if (self.a2 == false) {//验证码
+                        self.prompt_type=1;
+                    } else if (self.a3 == false) {//登录密码
+                        self.prom_pwd_type=1;
+                    }else if(self.a4 == false){//确认密码
+                        self.insurePwd_type=1;
+                    }
+                }
+            },
+            on_request_complete: function(cmd, status, data, is_suc, msg) {
+                switch (cmd) {
+                    //修改密码
+                    case updpwd_yzm:
+                        if(status!=200){
+                            layer.msg(msg);
+                            return;
+                        }
+                        this.complete_get_update(data);
+                        break;
+                    // 短信验证码
+                    case api_validmsg:
+                        if(status==200){
+                            this.phone_type = 0;
+                        }else {
+//                            layer.msg(msg);
+                            this.phone_type = 1;
+                            this.phone_msg = msg;
+                        }
+                        break;
+                    case login_api:
+                        this.complete_login(data);
+                        break;
+                    case api_get_online:
+                        this.complete_get_online(data);
+                        break;
+                    case api_get_server_time:
+                        this.complete_get_server_time(data);
+                        break;
+                    case api_check_sign:
+                        if (data.data) {
+                            window.location = HTTP_X + '/Growth/index.html';
+                            return
+                        }
+                        window.location = HTTP_X + '/Growth/promise.html';
+                        break;
+                }
+            },
+            complete_get_update:function(data){
+                this.content_type=2;
+            },
+            //-------------------------------------------------
+            department_level:'',
+            is_upd_pwd:'',
+            is_set_name:'',
+            timeChuo: function (h) {
+                var timestamp3 = h / 1000;
+                var newDate = new Date();
+                newDate.setTime(timestamp3 * 1000);
+                Date.prototype.format = function (format) {
+                    var date = {
+                        "M+": this.getMonth() + 1,
+                        "d+": this.getDate(),
+                        "h+": this.getHours(),
+                        "m+": this.getMinutes(),
+                        "s+": this.getSeconds(),
+                        "q+": Math.floor((this.getMonth() + 3) / 3),
+                        "S+": this.getMilliseconds()
+                    };
+                    if (/(y+)/i.test(format)) {
+                        format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(
+                            4 - RegExp.$1.length));
+                    }
+                    for (var k in date) {
+                        if (new RegExp("(" + k + ")").test(format)) {
+                            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ?
+                                date[k] : ("00" + date[k]).substr(("" + date[k]).length)
+                            );
+                        }
+                    }
+                    return format;
+                }
+                var getTimeIs = newDate.format('yyyy-MM-dd');
+                return getTimeIs;
+            },
+            complete_get_server_time: function (data) {
+                var get_server_time = data.data.current_time;
+                var get_server_time_new = this.timeChuo(get_server_time);
+                var window_time = new Date().valueOf();
+                var window_time_new = this.timeChuo(window_time);
+                if (get_server_time_new == window_time_new) {
+                    if (this.is_upd_pwd == 0) {
+                        var old = this.data.password;
+                        sessionStorage.setItem("old_pwd", old);
+                        sessionStorage.setItem('username_show', this.is_set_name);
+                        window.location = HTTP_X + '/Growth/first_update_password.html';
+                        return
+                    }
+                    if(this.department_level == 2){
+                        window.location = HTTP_X + '/Growth/index.html';
+                        return;
+                    }
+                    window.location = HTTP_X + '/Growth/index.html';
+                    //根据鲜总要求暂时屏蔽
+                    // ajax_post(api_check_sign, {status:2}, this);
+                    return
+                }
+                this.msg = "您的系统时间与服务器时间" + "(" + get_server_time_new + ")" +
+                    "不一致,为保证数据的正确性请先调整时间"
+            },
+            /**
+             * 登录成功
+             * */
+            complete_login:function(data){
+                if (data.status == 200) {
+                    var menus = data.data.powers;
+                    var token = data.data.token;
+                    var user = data.data.user;
+                    this.department_level = JSON.parse(user).department_level;
+                    sessionStorage.setItem("token", token);
+                    sessionStorage.setItem("menu", JSON.stringify(menus));
+                    $(window).unbind('keydown');
+                    sessionStorage.setItem("login_remark", 'pc_html');
+                    //密码设置
+                    this.is_upd_pwd = data.data.is_upd_pwd;
+                    // 用户名设置
+                    this.is_set_name = data.data.is_set_name;
+                    //获取用户在线时间
+                    ajax_post(api_get_online,{},this);
+                } else {
+                    this.msg = data.message;
+                }
+            },
+            /**
+             * 用户在线时长获取成功
+             * */
+            complete_get_online:function(data){
+                sessionStorage.setItem('online_time',data.data);
+                //获取服务器时间
+                ajax_post(api_get_server_time, {}, this, this.is_check);
+            },
+            /**
+             * 密码修改成功，直接登录
+             */
+            to_login:function () {
+                var publicKey = public_key;
+                var encrypt = new JSEncrypt(); // 实例化加密对象
+                encrypt.setPublicKey(publicKey); // 设置公钥
+                var get_password = encrypt.encrypt(this.signData.inputPwd);
+                ajax_post(login_api,{
+                    password:get_password,
+                    account: this.signData.phone
+                },this)
+            }
+        });
+//        监听是否跳转到设置成功页面
+        login.$watch("content_type", function() {
+            if(login.content_type==2){
+                window.setTimeout(function(){
+                    login.to_login();
+                     // window.location = HTTP_X + "/Growth/new_index.html";
+                },2000);
+            }
+        });
+        avalon.scan(document.body);
+    })
+</script>
+</body>
+
+</html>

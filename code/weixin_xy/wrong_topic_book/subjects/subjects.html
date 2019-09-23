@@ -1,0 +1,77 @@
+<div ms-important="topic_analysis" id="subjects">
+    <div class="weui-cells sel" >
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select1" ms-duplex="@period" data-duplex-changed="@period_change()">
+                    <option value="1">最近一周</option>
+                    <option value="2">最近一月</option>
+                    <option value="3">最近半年</option>
+                    <option value="4">最近一年</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <h3 class="sub">科目</h3>
+
+    <!--ms-for:($idx,el) in @sub_info-->
+    <div class="weui-flex subject-list">
+        <!--ms-for:al in el-->
+        <div class="weui-flex__item" :if="al.subject_name=='语文'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/8.png" class="sub-icon" alt="图片">
+            <span class="sub-title">语文</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='文数' || al.subject_name=='理数'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/5.png" class="sub-icon" alt="图片">
+            <span class="sub-title">数学</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='英语'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/7.png" class="sub-icon" alt="图片">
+            <span class="sub-title">英语</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='物理'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/6.png" class="sub-icon" alt="图片">
+            <span class="sub-title">物理</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='化学'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/10.png" class="sub-icon" alt="图片">
+            <span class="sub-title">化学</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='生物'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/4.png" class="sub-icon" alt="图片">
+            <span class="sub-title">生物</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='政治'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/9.png" class="sub-icon" alt="图片">
+            <span class="sub-title">政治</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='历史'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/2.png" class="sub-icon" alt="图片">
+            <span class="sub-title">历史</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='地理'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/1.png" class="sub-icon" alt="图片">
+            <span class="sub-title">地理</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name=='其他'" ms-click="@go_single_subject(al)">
+            <img src="common/images/xy/subject/3.png" class="sub-icon">
+            <span class="sub-title">其他</span>
+            <span class="sub-num">{{al.wrong_count}}</span>
+        </div>
+        <div class="weui-flex__item" :if="al.subject_name==''" style="background-color:#F4F4F4">
+            <!--<img src="common/images/xy/subject/1.png" class="sub-icon" alt="图片">-->
+            <!--<span class="sub-title">地理</span>-->
+            <!--<span class="sub-num">{{al.wrong_count}}</span>-->
+        </div>
+        <!--ms-for-end:-->
+    </div>
+    <!--ms-for-end:-->
+</div>

@@ -1,0 +1,45 @@
+<div ms-important="teacher_list_com" id="teacher_list_com">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-padding-top-sm am-padding-bottom-sm">
+        <div class="t_com">
+            <h3 class="am-text-center am-padding-top-sm">
+                学生综合实践活动报名情况及评价
+            </h3>
+            <p>活动主题：{{@dataInfo.bt}}</p>
+            <p>活动简介：{{@dataInfo.hdjj}}</p>
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="gradeChange" ms-duplex-number="@extend.fk_nj_id"
+                            ms-rules="{required:true}">
+                        <option value="">全部</option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>            </div>
+            <div class="select" :visible="extend.fk_nj_id != ''">
+                <div class="old-select">
+                    <select data-duplex-changed="classChange" ms-duplex-number="@extend.fk_bj_id"
+                            ms-rules="{required:true}">
+                        <option value="">全部</option>
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-module">
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,remember:@remember,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+        </xmp>
+    </div>
+</div>

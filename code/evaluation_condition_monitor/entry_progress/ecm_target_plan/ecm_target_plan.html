@@ -1,0 +1,86 @@
+<div ms-important="ecm_target_plan" id="ecm_target_plan">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester, $id:'ecm_daily_opt_sem'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade,$id:'ecm_daily_opt_grade'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,$id:'ecm_daily_opt_class'}"></xmp>
+            </div>
+
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="con-one">
+            <div class="title">学生目标与计划完成进度</div>
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>内容</td>
+                    <td>班级学生人数</td>
+                    <td>已上传人数</td>
+                    <td>未上传人数</td>
+                    <td>完成率</td>
+                </tr>
+                <tr :for="item in process">
+                    <td>{{item.lxmc}}</td>
+                    <td>{{item.xsrs}}</td>
+                    <td>{{item.yscrs}}</td>
+                    <td>{{item.wscrs}}</td>
+                    <td>{{item.wcl}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clearfix ">
+            <div class="title">班级学生进度详情</div>
+            <div class="stu-progress-table">
+                <div>
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td >序号</td>
+                            <td >姓名</td>
+                            <td >学籍号</td>
+                            <td>目标与计划</td>
+                            <td>实现情况</td>
+                        </tr>
+                        <tr :for="$index, item in student_list|limitBy(@line_offset, 0)">
+                            <td>{{ $index+1}}</td>
+                            <td>{{item.xsxm}}</td>
+                            <td>{{item.xsxjh|mtruncate(3,3)}}</td>
+                            <td :css="{color:@font_color(item.mbjh)}">{{item.mbjh}}</td>
+                            <td :css="{color:@font_color(item.sxqk)}">{{item.sxqk}}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td >序号</td>
+                            <td >姓名</td>
+                            <td >学籍号</td>
+                            <td >目标与计划</td>
+                            <td>实现情况</td>
+                        </tr>
+                        <tr :for="$index, item in student_list|limitBy(@line_offset, @line_offset)">
+                            <td>{{ @line_offset+$index + 1}}</td>
+                            <td>{{item.xsxm}}</td>
+                            <td>{{item.xsxjh|mtruncate(3,3)}}</td>
+                            <td :css="{color:@font_color(item.mbjh)}">{{item.mbjh}}</td>
+                            <td :css="{color:@font_color(item.sxqk)}">{{item.sxqk}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

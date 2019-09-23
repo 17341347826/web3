@@ -1,0 +1,64 @@
+#update_phone>.update_title{
+    line-height: 80px;
+    color:#40acc1;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px #e4e4e4 solid;
+}
+#update_phone>.update_content{
+    width: 360px;
+    margin: 40px auto;
+}
+#update_phone>.update_content input{
+    width: 360px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color:#afafaf;
+    border-radius: 5px;
+}
+#update_phone .parent-phone input{
+    display: inline-block;
+}
+/*验证码*/
+#update_phone .ident-info input{
+    width: 235px;
+    margin-right: 14px;
+    display: inline-block;
+}
+#update_phone .ident-info div{
+    display: inline-block;
+}
+/*发送验证码、重新发送*/
+#update_phone .ident-info #identfy-one,
+#update_phone .ident-info #identfy-three {
+    cursor: pointer;
+}
+#update_phone .ident-info .ident-code{
+    display: inline-block;
+    float: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 28px;
+    width: 110px;
+    height: 35px;
+    font-size: 16px;
+    line-height: 35px;
+    /*margin-left: 5px;*/
+}
+/*验证码*/
+.identfy-no-check{
+    background-color: #A8A7A8;
+}
+/*验证码*/
+.identfy-check{
+    background-color: #59e0b6;
+    box-shadow: #D3FFF1 0 7px 10px;
+}
+#update_phone .additional-infor{
+    position:absolute;
+    font-size:14px;
+    margin-top:14px;
+    color:red;
+    margin-left:10px;
+}

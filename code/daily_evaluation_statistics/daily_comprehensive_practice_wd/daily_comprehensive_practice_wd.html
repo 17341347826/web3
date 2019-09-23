@@ -1,0 +1,178 @@
+<div ms-important="daily_comprehensive_practice" class="d_e_progress" id="daily_comprehensive_practice_wd">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-click="@to_page(@pages[0])">目标计划与完成情况</div>
+            <div class="am-fl" :class="[@form.module_type==4?'chosen':'']" ms-click="@to_page(@pages[2])">综合实践活动</div>
+            <div class="am-fl" :class="[@form.module_type==8?'chosen':'']" ms-click="@to_page(@pages[3])">日常表现与个性特长</div>
+            <div class="am-fl" :class="[@form.module_type==3?'chosen':'']" ms-click="@to_page(@pages[1])">获奖情况</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list_all,sel_check:@sel_change_grade,head_value:@form.grade_name}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:@fk_semester_name}"></xmp>
+        </div>
+    </div>
+    <div class="sec_index">
+        <div class="radios">
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(1)" id="option1" ms-duplex-number="@html_display" class="rdo" value="1">
+                <label ms-attr="{for:'option1'}">综合等级</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(2)" id="option2" ms-duplex-number="@html_display" class="rdo" value="2">
+                <label ms-attr="{for:'option2'}">评价维度</label>
+            </label>
+            <label class="am-radio-inline" >
+                <input type="radio" ms-click="@presentation_change(3)" id="option3" ms-duplex-number="@html_display" class="rdo" value="3">
+                <label ms-attr="{for:'option3'}">评价要素</label>
+            </label>
+        </div>
+    </div>
+    <div class="clearfix table-module" :if="@city_analyze_list.length>0">
+        <p>{{@tit}}{{@form.sta_type==2?'维度':'要素'}}分析（全市）</p>
+        <div>
+            <div id="city_chart_id" class="charts-container"></div>
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">序号</th>
+                        <th class="border-right">年级</th>
+                        <!--ms-for: el in @city_headers-->
+                        <th ms-attr="{title:el}" class="t_width">{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@evaluation_contrast.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @city_analyze_list-->
+                    <tr :if="@grade_is_checked(el.fk_grade_id)">
+                        <td class="border-right">{{ind+1}}</td>
+                        <td class="border-right">{{@to_grade_name(el.fk_grade_id)}}</td>
+                        <!--ms-for: ind,item in @el.sub_list-->
+                        <td class="t_width">{{@ceil(item.zb_pjf)}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix table-module" :if="@district_analyze_list.length>0">
+        <p>{{@tit}}{{@form.sta_type==2?'维度':'要素'}}分析（区县）</p>
+        <div>
+            <div id="district_chart_id" class="charts-container"></div>
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">区县</th>
+                        <th class="border-right">年级</th>
+                        <!--ms-for: el in @district_headers-->
+                        <th ms-attr="{title:el}" class="t_width">{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@evaluation_contrast.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @district_analyze_list-->
+                    <!--ms-for: index,item in @el.sub_list-->
+                    <tr  :if="@grade_is_checked(item.fk_grade_id)">
+                        <td :if="@grade_item.value=='-1'?(index=='0'?true:false):true" ms-attr="{rowspan:@grade_item.value=='-1'?el.sub_list.length:1}" class="border-right">{{el.district_name}}</td>
+                        <td class="border-right">{{@to_grade_name(item.fk_grade_id)}}</td>
+                        <!--ms-for: idx,it in @item.sub_list-->
+                        <td class="t_width">{{@ceil(it.zb_pjf)}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix table-module" :if="@school_analyze_list.length>0">
+        <p>{{@tit}}{{@form.sta_type==2?'维度':'要素'}}分析（学校）</p>
+        <div>
+            <div id="school_chart_id" class="charts-container"></div>
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td >学校</td>
+                        <td >年级</td>
+                        <!--ms-for: el in @school_analyze_list[0].detail.school_cnt.sub_list-->
+                        <td ms-attr="{title:@el.zb_mc}" class="t_width">{{el.zb_mc}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@school_analyze_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != filter_school(@school_analyze_list)[$index-1].schoolname"
+                            ms-attr="{rowspan:count(filter_school(school_analyze_list),'schoolname' ,el.schoolname)}">
+                            {{el.schoolname}}
+                        </td>
+                        <td>{{el.status}}</td>
+                        <td ms-if="el.detail.school_cnt!=0" ms-for="el2 in el.detail.school_cnt.sub_list">{{filter_undefined(el2.zb_pjf,1)}}</td>
+                        <td ms-if="el.detail.school_cnt==0" ms-for="el2 in @sublist">0.0</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@school_process_list.length==0">
+                        <td ms-attr="{colspan:9}">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix table-module" :if="@class_analyze_list.length>0">
+        <p>{{@tit}}{{@form.sta_type==2?'维度':'要素'}}分析（班级）</p>
+        <div>
+            <div id="class_chart_id" class="charts-container"></div>
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">年级</th>
+                        <th class="border-right">班级</th>
+                        <!--ms-for: el in @class_headers-->
+                        <th ms-attr="{title:@el}" class="t_width">{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@evaluation_contrast.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @class_analyze_list-->
+                    <!--ms-for: index,item in @el.sub_list-->
+                    <tr :if="@grade_is_checked(el.fk_grade_id)">
+                        <td :if="index=='0'?true:false" ms-attr="{rowspan:el.sub_list.length}" class="border-right">{{@to_grade_name(el.fk_grade_id)}}</td>
+                        <td class="border-right">{{item.class_name}}</td>
+                        <!--ms-for: idx,it in @item.sub_list-->
+
+                        <td class="t_width">{{@ceil(it.zb_pjf)}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="nodata clearfix" :if="@district_analyze_list.length==0&&@school_analyze_list.length==0&&@class_analyze_list.length==0">暂时没有数据</div>
+</div>

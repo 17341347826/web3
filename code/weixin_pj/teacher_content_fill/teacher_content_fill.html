@@ -1,0 +1,101 @@
+<div id="teacher_content_fill" ms-important="teacher_content_fill">
+    <div class="weui-loadmore" :visible="@student_arr_x.length == 0">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载,请稍等</span>
+    </div>
+    <div :visible="@student_arr_x.length > 0">
+        <div class="pro_info">
+            <p>当前评价内容:{{@add_answer.pj_subject}}({{@every_value}}分)</p>
+        </div>
+        <div class="t_con_box">
+            <!--ms-for: $idx,el in @student_arr_x-->
+            <div class="content_con">
+                <div class="con_flex">
+                    <span>{{el.pj_cover_name}}({{el.my_value}}分)【{{$idx+1}}】</span>
+                    <span class="text_right">{{el.pj_cover_name_num}}</span>
+                </div>
+                <p class="three_index">
+                    <span class="left_span">日常表现加分  {{el.everyday_add}}次</span>
+                    <span class="center_span">日常表现减分  {{el.everyday_minus}}次</span>
+                    <span class="right_span">写实活动  {{el.xs}}次</span>
+                </p>
+                <div>
+                    <div class="input_div">
+                        <!--<input type="text" ms-duplex="el.pj_value" ms-on-blur="blur_input(el)">-->
+                        <input ms-duplex="el.pj_value"  ms-on-blur="@blur_input(el,$idx)" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <div class="public_btn_big normalPaddding">
+                <a ms-on-click="@value_click">提交</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--=====================================-->
+    <!--<div :visible="@table_list_x.length > 0" class="public_btn_big normalPaddding">-->
+        <!--<a ms-on-click="@only_save_click">提交</a>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<span>当前评价内容:{{@add_answer.pj_subject}}({{@every_value}}分)</span>-->
+    <!--</div>-->
+    <!--<div class="p-c-f-con">-->
+        <!--<div :if="value_table">-->
+            <!--<h2 class="am-margin-top-lg am-margin-bottom-lg">当前评价内容:{{@add_answer.pj_subject}}({{@every_value}}分)</h2>-->
+            <!--<button class="am-btn am-btn-primary am-margin-left-lg" ms-click="@resources_click" type="button">-->
+                <!--学生表现参考-->
+            <!--</button>-->
+            <!--<div>-->
+                <!--<p style="color: red;">温馨提示:若该学生未参加评价指标相关的活动，评分不得超过3分。</p>-->
+            <!--</div>-->
+            <!--<div class="table_module">-->
+                <!--<table class="am-table  am-table-hover">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>-->
+                            <!--序号-->
+                        <!--</th>-->
+                        <!--<th>-->
+                            <!--学号-->
+                        <!--</th>-->
+                        <!--<th>-->
+                            <!--姓名-->
+                        <!--</th>-->
+                        <!--&lt;!&ndash;<th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;评价状态&ndash;&gt;-->
+                        <!--&lt;!&ndash;</th>&ndash;&gt;-->
+                        <!--<th>-->
+                            <!--操作-->
+                        <!--</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--&lt;!&ndash;ms-for: $idx,el in @student_arr&ndash;&gt;-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--{{$idx+1}}-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--{{el.pj_cover_name_num}}-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--{{el.pj_cover_name}}({{el.my_value}}分)-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<input type="number" class="fill-input" ms-duplex="el.pj_value">-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+            <!--<div class="btns am-text-center">-->
+                <!--<button type="button" class="am-btn-primary" ms-click="@value_click">提交</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

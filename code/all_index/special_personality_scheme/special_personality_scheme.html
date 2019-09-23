@@ -1,0 +1,101 @@
+<div class="am-g" id="special_personality_scheme" ms-important="special_personality_scheme">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="first-index">
+        <div class="clearfix">
+            <div :class="['am-fl',(@sit_type == 1 ? 'chosen':'')]" :click="@sit_change(1)">
+                类型设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 2 ? 'chosen':'')]" :click="@sit_change(2)">
+                上传数量设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 3 ? 'chosen':'')]" :click="@sit_change(3)">
+                积分规则设置
+            </div>
+            <!--<div :class="['am-fl',(@sit_type == 4 ? 'chosen':'')]" :click="@sit_change(4)">-->
+                <!--任务开发时间设置-->
+            <!--</div>-->
+            <div :class="['am-fl',(@sit_type == 5 ? 'chosen':'')]" :click="@sit_change(5)">
+                个性特长
+            </div>
+        </div>
+    </div>
+    <div class="am-text-left" id="demand">
+        <form class="am-form am-form-inline">
+            <span class="am-btn  add" ms-on-click="@add_special()">
+                新增
+           </span>
+        </form>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>写实模块</th>
+                    <th>特长类型</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody :if="@list_info.length > 0">
+                <!--ms-for: ($index,el) in @list_info-->
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{el.realistic_modulet}}</td>
+                    <td>{{el.ps_type_name}}</td>
+                    <td>
+                        <a :visible="@guid == el.founder_id" class='tab-btn tab-edit-btn'  title='编辑' ms-on-click="@edit_btn(el)"></a>
+                        <a :visible="@guid == el.founder_id" class='tab-btn tab-trash-btn'  title='删除' ms-on-click="@del_btn(el)"></a>
+                        <a :visible="@guid != el.founder_id" class='tab-btn tab-edit-btn-disabled'  title='上级部门设置，不可修改'></a>
+                        <a :visible="@guid != el.founder_id" class='tab-btn tab-trash-btn-disabled'  title='上级部门设置，不可删除'></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="@list_info.length == 0">
+                <tr>
+                    <td colspan="4">请先新增数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--新增、修改-->
+    <div class="am-modal am-modal-prompt" id="my-prompt" tabindex="-1" >
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">个性特长
+                <!--关闭-->
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <form class="am-form am-form-horizontal">
+                    <div class="am-form-group">
+                        <label class="am-u-sm-3 am-form-label">写实模块</label>
+                        <div class="am-u-sm-9">
+                            <select ms-duplex="@spec_choose" data-duplex-changed="@specChoose()" ms-attr="{disabled:@disabled}">
+                                <!--ms-for: ($index,el) in @spec_choose_list-->
+                                <option ms-attr="{value:el.id+'|'+el.index_name}">{{el.index_name}}</option>
+                                <!--ms-for-end:-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-sm-3 am-form-label">特长类型</label>
+                        <div class="am-u-sm-9">
+                            <select ms-duplex="@real_choose" data-duplex-changed="@realChoose()">
+                                <!--ms-for: ($index,el) in @second_choose_list-->
+                                <option ms-attr="{value:el.id+'|'+el.type_name}">{{el.type_name}}</option>
+                                <!--ms-for-end:-->
+                            </select>
+                        </div>
+                    </div>
+                    <span class="msg" ms-visible="@msg!=''">{{@msg}}</span>
+                </form>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" ms-on-click="@cancel_btn()" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" ms-on-click="@save_btn()" data-am-modal-confirm>提交</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+#parent_msg>.weui-cells{
+    /* margin-top: 1.17647059em; */
+    margin-top:0;
+}
+#parent_msg select{
+    font-size: .9em;
+}
+/*#parent_msg .weui-cells__title {*/
+/*text-align: center;*/
+/*font-size:1.2em;*/
+/*}*/
+#parent_msg textarea{
+    border:1px solid #A9A9A9;
+}
+#parent_msg .button_sp_area{
+    text-align: center;
+    margin-top:30px;
+    cursor:pointer;
+}
+#parent_msg .weui-btn+.weui-btn {
+    /* margin-top: 15px; */
+    margin-top:0;
+}
+#parent_msg .button_sp_area a:first-child{
+    margin-right:20px;
+}
+.weui-btn_mini {
+    /* line-height: 2.3; */
+    line-height:2.6;
+}
+input::-webkit-input-placeholder{
+    font-size:.9em;
+}
+input:-moz-placeholder{
+    font-size:.9em;
+}
+input::-moz-placeholder{
+    font-size:.9em;
+}
+input:-ms-input-placeholder{
+    font-size:.9em;
+}
+textarea::-webkit-input-placeholder{
+    font-size:.9em;
+}
+textarea:-moz-placeholder{
+    font-size:.9em;
+}
+textarea::-moz-placeholder{
+    font-size:.9em;
+}
+textarea:-ms-input-placeholder {
+    font-size:.9em;
+}

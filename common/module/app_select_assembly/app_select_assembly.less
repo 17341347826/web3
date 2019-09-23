@@ -1,0 +1,69 @@
+@charset "utf-8";
+@borderColor:rgb(200,200,200);
+@selectHeadFontSize:16px;
+@selectPaddingLeft:20px;
+@selectWidth:200px;
+@selectHeight:36px;
+@borderRadius:4px;
+@optionHeight:30px;
+@optionSize:14px;
+.base-select{
+  position: relative;
+}
+.select-head{
+  position: relative;
+  min-width: @selectWidth;
+  max-height: @selectHeight;
+  line-height: @selectHeight;
+  padding-left:@selectPaddingLeft ;
+  border: 1px solid @borderColor;
+  text-align: left;
+  font-size: @selectHeadFontSize;
+  color: #777777;
+  border-radius: @borderRadius;
+  cursor: pointer;
+  padding-right: @selectPaddingLeft;
+  .select-icon{
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: inline-block;
+    width: 7px;
+    height: 6px;
+    background: url("../../images/icon/triangle.png") center no-repeat;
+  }
+
+}
+.select-option{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  min-width: @selectWidth;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+  max-height: 120px;
+  overflow: auto;
+  z-index: 100;
+  outline: none;
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    list-style: none;
+    height: @optionHeight;
+    line-height: @optionHeight;
+    text-align: left;
+    padding-left: @selectPaddingLeft;
+    font-size: @optionSize;
+    background-color: #FFFFFF;
+    color: @borderColor;
+    cursor: pointer;
+  }
+  li:hover{
+    background-color: #f0f0f0;
+    color: #2bbba4;
+  }
+
+}

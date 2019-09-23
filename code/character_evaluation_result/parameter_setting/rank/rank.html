@@ -1,0 +1,371 @@
+<div class="hide_scroll" id="set_level" ms-important="set_level">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="tab-titles clearfix">
+        <div class="tab "  ms-click="change_page('content_set')">
+            内容设置
+        </div>
+        <div class="tab" ms-click="change_page('weight')">
+            权重设置
+        </div>
+        <div class="tab chosen">
+            等级设置
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select id="grade"
+                            ms-attr="{disabled:@page_state==2}"
+                            ms-class="[@page_state==2 ? 'disabled-color':'']"
+                            ms-duplex-string="@rule_extend.fk_grade_id"
+                            data-duplex-changed="@grade_change">
+                        <option ms-for="($index,el) in @grade_list" ms-attr="{value:el.value}">
+                            {{el.name}}
+                        </option>
+                    </select>
+                    <input type="text" placeholder="请输入总分" ms-if="@page_state==2&&(@lv_type==1||@lv_type==2 || @lv_type==5)" ms-duplex-number="@level_list.full_score">
+                </div>
+            </div>
+            <div class="select" :visible="@page_state!=1">
+                <div class="old-select" >
+                    <select ms-attr="{disabled:@page_state==1}" data-duplex-changed="@division_change"
+                            ms-duplex-number="@division_method" ms-class="[@page_state==1 ? 'disabled-color':'']">
+                        <option ms-attr="{value:''}">
+                            请选择划分方式
+                        </option>
+                        <option ms-attr="{value:1}">
+                            按分数段
+                        </option>
+                        <option ms-attr="{value:2}">
+                            按人数比例
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select" ms-if="@user_level==2 && @page_state!=1">
+                <div class="old-select">
+                    <select ms-attr="{disabled:@page_state==1}" data-duplex-changed="@standard_change"
+                            ms-duplex="@standard" ms-class="[@page_state==1?'disabled-color':'']">
+                        <option ms-attr="{value:''}">
+                            请选择标准
+                        </option>
+                        <option value="1">
+                            全市统一
+                        </option>
+                        <option value="2" >
+                            按学校规划
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select" ms-if="@user_level==3 && @page_state!=1">
+                <div class="old-select">
+                    <select ms-attr="{disabled:@page_state==1}" data-duplex-changed="@standard_change"
+                            ms-duplex="@standard" ms-class="[@page_state==1?'disabled-color':'']">
+                        <option ms-attr="{value:''}">
+                            请选择标准
+                        </option>
+                        <option value="1" >
+                            区县统一
+                        </option>
+                        <option value="2" >
+                            按学校规划
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select" ms-if="@user_level==4 && @page_state!=1">
+                <div class="old-select">
+                    <select ms-attr="{disabled:@page_state==1}" data-duplex-changed="@standard_change"
+                            ms-duplex="@standard" ms-class="[@page_state==1?'disabled-color':'']">
+                        <option ms-attr="{value:''}">
+                            请选择标准
+                        </option>
+                        <option value="3">
+                            年级统一
+                        </option>
+                        <option value="4">
+                            按班级规划
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select" :visible="@page_state!=1">
+                <div class="old-select">
+                    <select ms-attr="{disabled:@page_state==1 || @lv_type==''}" ms-class="[(@page_state==1 || @lv_type =='')  ? 'disabled-color':'']" data-duplex-changed="@count_change" ms-duplex="@level_count">
+                        <option value="1">
+                            请设置等级个数
+                        </option>
+                        <option value="2">
+                            2
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="5">
+                            5
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn" ms-if="@page_state==2">
+                <input type="button" value="导入" ms-click="@import">
+            </div>
+        </div>
+    </div>
+    <div class="update-level-content">
+
+        <div class="table-module" ms-if="@lv_type==1">
+            <label>等级划分方式：按分数段</label>
+            <label>标准：全市统一</label>
+            <table class="am-table" id="proportion_people_city">
+                <thead>
+                <tr>
+                    <th ms-if="@user_level>3">
+                        班级
+                    </th>
+                    <th ms-if="@user_level<4">
+                        学校
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].score_lv">{{el2.lv}}</th>
+                    <th ms-if="@level_list.lv_partition[0].score_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td ms-if="@user_level>3">
+                        全部班级
+                    </td>
+                    <td ms-if="@user_level<4">
+                        全部学校
+                    </td>
+                    <td ms-for="($index2,el2) in el.score_lv">
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.tall_score"
+                                   ms-on-input="@inputLimits($event,'','',el2)" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.tall_score}}</span>
+                         -
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.low_score"
+                                   ms-on-input="@inputLimits($event,$index2,el.score_lv,el2)" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.low_score}}</span>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-if="@lv_type==2">
+            <label>等级划分方式：按分数段</label>
+            <label ms-if="@user_level<4">标准：按学校划定</label>
+            <label ms-if="@user_level>3">标准：按年级统一</label>
+            <table class="am-table" id="fractional_section_school">
+                <thead>
+                <tr>
+                    <th ms-if="@user_level<4">
+                        学校
+                    </th>
+                    <th ms-if="@user_level>3">
+                        年级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].score_lv">{{el2.lv}}</th>
+                    <th ms-if="@level_list.lv_partition[0].score_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        <span ms-if="@user_level<4">{{el.school_name}}</span><span ms-if="@user_level>3">{{@now_grade_name}}</span>
+                    </td>
+                    <td ms-for="($index2,el2) in el.score_lv">
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.tall_score"
+                                   ms-on-input="@inputLimits($event,'','',el2)" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.tall_score}}</span>
+                        -
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.low_score"
+                                   ms-on-input="@inputLimits($event,$index2,el.score_lv,el2)" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.low_score}}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-if="@lv_type==3">
+            <label>等级划分方式：按人数比例</label>
+            <label>标准：全市统一</label>
+            <table class="am-table" id="fractional_section_city">
+                <thead>
+                <tr>
+                    <th ms-if="@user_level>3">
+                        班级
+                    </th>
+                    <th ms-if="@user_level<4">
+                        学校
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].ratio_lv">{{el2.lv}}</th>
+                    <th ms-if="@level_list.lv_partition[0].ratio_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td ms-if="@user_level>3">
+                        全部班级
+                    </td>
+                    <td ms-if="@user_level<4">
+                        全部学校
+                    </td>
+                    <td ms-for="($index2,el2) in el.ratio_lv">
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.ratio"
+                               ms-on-input="@inputLimits($event,'','','')" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.ratio}}%</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-if="@lv_type==4">
+            <label>等级划分方式：按人数比例</label>
+            <label ms-if="@user_level<4">标准：按学校划定</label>
+            <label ms-if="@user_level>3">标准：按年级统一</label>
+            <table class="am-table" id="proportion_people_school">
+                <thead>
+                <tr>
+                    <th ms-if="@user_level<4">
+                        学校
+                    </th>
+                    <th ms-if="@user_level>3">
+                        年级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].ratio_lv">{{el2.lv}}</th>
+                    <th ms-if="@level_list.lv_partition[0].ratio_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        <span ms-if="@user_level<4">{{el.school_name}}</span><span ms-if="@user_level>3">{{@now_grade_name}}</span>
+                    </td>
+                    <td ms-for="($index2,el2) in el.ratio_lv">
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.ratio"
+                               ms-on-input="@inputLimits($event,'','','')" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.ratio}}%</span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-if="@lv_type==5">
+            <label>等级划分方式：按分数段</label>
+            <label>标准：按班级划分</label>
+            <table class="am-table" id="fractional_section_class">
+                <thead>
+                <tr>
+                    <th>
+                        班级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].score_lv">{{el2.lv}}</th>
+                    <th ms-if="@level_list.lv_partition[0].score_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        {{el.class_name}}
+                    </td>
+                    <td ms-for="($index2,el2) in el.score_lv">
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.tall_score"
+                                   ms-on-input="@inputLimits($event,'','',el2)" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.tall_score}}</span>
+                        -
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.low_score"
+                                   ms-on-input="@inputLimits($event,$index2,el.score_lv,el2)" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.low_score}}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-module" ms-if="@lv_type==6">
+            <label>等级划分方式：按人数比例</label>
+            <label >标准：按班级划分</label>
+            <table class="am-table" id="proportion_people_class">
+                <thead>
+                <tr>
+                    <th >
+                        班级
+                    </th>
+                    <th ms-for="($index2,el2) in @level_list.lv_partition[0].ratio_lv">{{el2.lv}}</th>
+                    <th ms-if="@level_list.lv_partition[0].ratio_lv.length==0">A等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index,el) in @level_list.lv_partition">
+                    <td>
+                        {{el.class_name}}
+                    </td>
+                    <td ms-for="($index2,el2) in el.ratio_lv">
+                        <input type="text" ms-if="@page_state==2" ms-duplex-number="el2.ratio"
+                               ms-on-input="@inputLimits($event,'','','')" maxlength="3">
+                        <span ms-if="@page_state==1">{{el2.ratio}}%</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-module"
+             style="text-align: center;" ms-if="@lv_type==''">
+           暂无等级设置数据
+
+        </div>
+        <div class="update-level-btn">
+            <div class="btns">
+                <button type="button" class="am-btn-primary" ms-if="@page_state==1" ms-click="@update_range">修改</button>
+                <button type="button" class="am-btn-primary" ms-if="@page_state==2" ms-click="@change_state">保存</button>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                导入等级人数比例
+                <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                    ×
+                </a>
+            </div>
+            <div class="am-modal-bd">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <input type="text" ms-duplex="@file_name" id="file-name" disabled class="am-u-sm-10"
+                           style="height: 32px">
+                    <div class="am-form-group am-form-file">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                        <input type="file" id="file" name="file" multiple
+                               onchange="document.getElementById('file-name').value=this.value">
+                        <input type="hidden" name="fk_grade_id" ms-attr="{value:@rule_extend.fk_grade_id}">
+                        <input type="hidden" name="fk_school_id" ms-attr="{value:@rule_extend.fk_unit_id}">
+                        <input type="hidden" name="unit_lv" ms-attr="{value:@rule_extend.unit_lv}">
+                    </div>
+                </form>
+                <div class="am-text-left">
+                    <a ms-on-click="@down_score" style="cursor: pointer">
+                        下载模板
+                    </a>
+                </div>
+                <span ms-if="@modal.msg != ''" style="color: red">
+                    {{ @modal_msg }}
+                </span>
+            </div>
+            <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel="">
+                        取消
+                    </span>
+                <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+                        上传
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

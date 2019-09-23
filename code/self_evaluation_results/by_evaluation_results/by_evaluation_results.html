@@ -1,0 +1,52 @@
+<div ms-important="by_evaluation_results" id="by_evaluation_results">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='list-con' :visible="@get_info.length > 0">
+        <div class="table-module">
+            <table class="am-table am-table-bordered" style="border-radius: 4px;">
+                <thead>
+                    <tr>
+                        <!--ms-for: el in @tbodyThead-->
+                        <th>
+                            {{el}}
+                        </th>
+                        <!--ms-for-end:-->
+                        <th>
+                            日常评价加分
+                        </th>
+                        <th>
+                            累计得分
+                        </th>
+                        <th>
+                            评价等级
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: ($idx,el) in @get_info-->
+                <tr>
+                    <!--ms-for: ($i,cl) in @el.values-->
+                    <td>
+                        {{cl}}
+                    </td>
+                    <!--ms-for-end:-->
+                    <td>
+                        {{el.score_plus}}
+                    </td>
+                    <td>
+                        {{el.zf}}
+                    </td>
+                    <td>
+                        {{el.rank}}
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="no-data" :visible="@get_info.length == 0">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+</div>

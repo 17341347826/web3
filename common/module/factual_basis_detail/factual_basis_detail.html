@@ -1,0 +1,67 @@
+<div class="am-g" >
+    <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+           <div class="am-slider am-slider-default" style="height: 400px;">
+             <ul class="am-slides">
+                <li :if="el.mini_type=='image/jpeg' || el.mini_type=='image/png' || el.mini_type=='image/jpg'"  ms-for="el in @data.attachment">
+                    <div class="am-gallery-item">
+                        <a class="detail_carousel_img">
+                            <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()"/>
+                            <div ms-attr="{title:el.img_text}">
+                                {{ el.desc}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul> 
+        </div>
+        <div class="am-margin-top-sm" style="position: absolute;z-index: 100;">
+            <a :if="has_video" class="am-btn am-btn-primary" ms-on-click="video_click">视频</a>
+            <a :if="has_excel" class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="excel_click">下载文件</a>
+        </div>
+    </div> 
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">学校名称</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @data.school_name }}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">年级名称</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @data.grade_name }}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">获卡人</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @data.name}}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">学籍号</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @data.code}}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">标志性卡名称</span>
+            <span class="am-u-sm-9 am-text-left">{{@data.card_name}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">获卡日期</span>
+            <span class="am-u-sm-9 am-text-left">{{@data.encourage_date}}</span>
+
+        </div>
+
+        <!--<div class="am-u-sm-12" ms-if="@data.title">-->
+            <!--<span class="am-u-sm-3">文案</span>-->
+            <!--<span class="am-u-sm-9 am-text-left">{{@data.title}}</span>-->
+        <!--</div>-->
+        <!--<div class="am-u-sm-12" ms-if="!@data.title">-->
+            <!--<span class="am-u-sm-3">文案</span>-->
+            <!--<span class="am-u-sm-9 am-text-left">无文案</span>-->
+        <!--</div>-->
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div ms-important="goals_plans_set" id="goals_plans_set">
+    <div class="content">
+        <div class="a-name">
+            <span :if="@date_req.module_type==1">自我描述</span>
+            <span :if="@date_req.module_type==2">同学寄语</span>
+            <span :if="@date_req.module_type==3">家长寄语</span>
+            <span :if="@date_req.module_type==4">教师寄语</span>
+            <span :if="@date_req.module_type==5">目标与计划</span>
+            <span :if="@date_req.module_type==6">实现情况</span>
+            <span :if="@date_req.module_type==9">学业成绩</span>
+            <span :if="@date_req.module_type==10">日常表现</span>
+            <span :if="@date_req.module_type==11">写实记录</span>
+            <span :if="@date_req.module_type==12">学生评语</span>
+            <span :if="@date_req.module_type==13">教师评语</span>
+        </div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <div>
+                <label><span style="visibility: hidden">分值分组</span>年级</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select class="select-disabled" ms-duplex="@date_req.grade_id" data-duplex-changed="@grade_change()">
+                            <option ms-attr="{value:''}">
+                                请选择年级
+                            </option>
+                            <!--ms-for:($idx,el) in @grade_list-->
+                            <option ms-attr="{value:el.id}">
+                                {{ el.grade_name }}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="time-change">
+                <div class="start-change">
+                    <label><span style="visibility: hidden">开始</span>开始时间</label>
+                    <div class="form-input">
+                        <input class="form-width-md add_width"  readonly placeholder="开始时间" id="update-start-time"
+                               ms-attr="{value:@date_req.start_time}" ms-on-focus="@update_start_time" type="text"/>
+                    </div>
+                </div>
+                <div class="end-change">
+                    <label>结束时间</label>
+                    <div class="form-input">
+                        <input class="form-width-md add_width" readonly placeholder="结束时间" id="update-end-time"
+                               ms-attr="{value:@date_req.end_time}" ms-on-focus="@update_end_time" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <!--每周基础积分-日常表现才有-暂时没有等后台接口-->
+            <!--<div>-->
+                <!--<label>每周基础积分</label>-->
+                <!--<div class="form-input">-->
+                    <!--<input type="text" ms-duplex="" placeholder="请输入每周基础积分">-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default" :click="@cancel_click">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_data">提交</button>
+        </div>
+    </div>
+</div>

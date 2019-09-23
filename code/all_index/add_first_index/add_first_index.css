@@ -1,0 +1,98 @@
+#add-first-index{
+    width: 100%;
+    background-color: #f1f2f6;
+}
+#add-first-index>.a_f_content{
+    width: 788px;
+    background-color: white;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+#add-first-index>.a_f_content>div{
+    padding-left: 14px;
+}
+#add-first-index .a_f_form{
+    padding-top:25px;
+}
+#add-first-index .a_f_form>div>p{
+    height: 19px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 29px;
+    letter-spacing: 0px;
+    color: #777777;
+    text-align: center;
+    margin-top: 0;
+}
+#add-first-index>div.a_f_content .a_f_form .am-form>div{
+    margin-bottom: 8px;
+}
+#add-first-index>div.a_f_content .a_f_form .am-form>div:last-child{
+    margin-bottom: 28px;
+}
+#add-first-index>div.a_f_content .a_f_form .am-form>div>label{
+    width: 156px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #a2a2a2;
+    display: inline-block;
+    padding-right: 16px;
+}
+#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select{
+    display: inline-block;
+    width: 436px;
+}
+#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select input{
+    color:#c8c8c8;
+    max-height: 36px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select input.disabled_css{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 31px;
+    letter-spacing: 0px;
+    color: #777;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select .select-head,
+#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select .select-head+.select-option
+{
+    width: 100%;
+}
+#add-first-index>.a_f_content .save_cancel{
+    border-top:1px #e4e4e4 dashed;
+    height: 75px;
+    text-align: center;
+}
+#add-first-index>.a_f_content .save_cancel>.btns{
+    margin-top: 20px;
+}
+#add-first-index .select,
+#add-first-index #select2-teacher_select-container
+{
+    height: 36px;
+    line-height: 36px;
+    border-color:#ccc;
+    color:#777;
+    font-size: 16px;
+}
+#add-first-index .select2-container--default .select2-selection--single{
+    height: 36px;
+    border-color:#ccc;
+}
+#add-first-index .select2-container--default .select2-selection--single .select2-selection__arrow b{
+    top:60%;
+    color:#ccc;
+    border-top-color: #ccc;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+#add-first-index .select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 4px;
+}

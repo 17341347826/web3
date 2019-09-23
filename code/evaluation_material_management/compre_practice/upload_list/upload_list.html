@@ -1,0 +1,73 @@
+<div ms-important="upload_list" id="upload_list">
+    <div class="common-select" >
+        <div class="search-cont clearfix" style="padding-left: 16px">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_grade,head_value:'请选择年级',default_value:@default.grade_name}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@sel_class,head_value:'请选择班级',default_value:@default.class_name}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@sel_semester,head_value:'请选择学期',default_value:@default.semester_name}"></xmp>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <!--模块1品德 2艺术活动3社会实践4学业水平5身心健康-->
+                    <select class="sel-color" ms-duplex="extend.mk">
+                        <option ms-attr="{value:1}">思想品德</option>
+                        <option ms-attr="{value:4}">学业水平</option>
+                        <option ms-attr="{value:5}">身心健康</option>
+                        <option ms-attr="{value:2}">艺术素养</option>
+                        <option ms-attr="{value:3}">社会实践</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@extend.xjh" placeholder="请输入学籍号">
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@extend.xsmc" placeholder="请输入姓名">
+            </div>
+        </div>
+    </div>
+    <div class="table-content">
+        <div class="dis-type">
+            <div class="radios">
+                <label class="radios-name">显示方式：</label>
+                <label class="am-radio-inline" ms-click="@presentation_change">
+                    <input type="radio" id="option1" ms-duplex="@html_display" class="rdo" value="1">
+                    <label ms-attr="{for:'option1'}" ms-click="@presentation_change">图文</label>
+                </label>
+                <label class="am-radio-inline" >
+                    <input type="radio" id="option2" ms-duplex="@html_display" class="rdo" value="2">
+                    <label ms-attr="{for:'option2'}">表格</label>
+                </label>
+            </div>
+        </div>
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,is_init:@is_init,remember:false,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+        </xmp>
+
+    </div>
+    <div class="menu d-p-c-nav">
+        <div class="d-p-munu">
+            <div class="outer">
+                <div class="inner">
+                    <ul>
+                        <!--ms-for:($idx,el) in @semester_list-->
+                        <li ms-click="@menu_jump(el.value)" ms-visible="$idx!=0">
+                            <span ms-class="[@current_menu==el.value ? 'now-menu':'']">{{el.name}}</span>
+                            <span class="dotted"></span>
+                            <span :if="@current_menu==el.value" class="out-circle">
+                                        <span :if="@current_menu==el.value" class="inner-circle"></span>
+                                    </span>
+                            <span :if="@current_menu!=el.value" class="small-circular"></span>
+                        </li>
+                        <!--ms-for-end:-->
+                    </ul>
+                    <span class="right-top-point"></span>
+                    <span class="right-bottom-point"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

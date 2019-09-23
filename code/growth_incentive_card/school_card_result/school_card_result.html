@@ -1,0 +1,63 @@
+<div ms-important="school_card_result" id="school_card_result">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--筛选条件-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChangeClass()" ms-duplex="@extend.fk_grade_id">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-->
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@extend.fk_class_id">
+                        <option ms-attr="{value:''}">
+                            请选择班级
+                        </option>
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--学籍号-->
+            <div class="form-input">
+                <input ms-duplex="@other.code" ms-on-blur="@codeExtend()" placeholder="请输入学籍号"
+                       type="text"/>
+            </div>
+            <!--姓名-->
+            <div class="form-input">
+                <input ms-duplex="@other.name" ms-on-blur="nameExtend()" placeholder="请输入姓名"
+                       type="text"/>
+            </div>
+            <!--日期-->
+            <div class="form-input">
+                <input class="form-width-md" data-am-datepicker="" id="my-datepicker"
+                       ms-attr="{value:@other.start_time}" ms-on-focus="@getCompleteDate()"
+                       ms-rules="{required:true}" required="" type="text" placeholder="请输入开始日期" readonly/>
+                至
+                <input class="form-width-md" data-am-datepicker="" id="my-datepickers"
+                       ms-attr="{value:other.end_time}" ms-on-focus="@getCompleteDates()"
+                       ms-rules="{required:true}" required="" type="text" placeholder="请输入结束日期" readonly/>
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',remember:false,url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}"></xmp>
+        </div>
+    </div>
+</div>

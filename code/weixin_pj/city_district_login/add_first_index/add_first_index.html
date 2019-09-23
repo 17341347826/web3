@@ -1,0 +1,51 @@
+<div ms-important="add_first_index" id="add-first-index">
+    <div class="a_f_content">
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">评价维度</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex="@data.index_name" type="text" placeholder="请输入评价维度">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">创建</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" ms-duplex="@data.index_work" disabled>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">作者</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select  class="weui-select" name="select2" ms-duplex="@author_info">
+                        <option value="0">请选择</option>
+                        <option ms-attr="{value:el.teacher_name+'|'+el.guid}" ms-for="el in @teacher_arr">
+                            {{el.teacher_name }}--{{el.teacher_num}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--<div>-->
+                <!--<label class="am-form-label">作者</label>-->
+                <!--<div class="select">-->
+                    <!--<select id="teacher_select" ms-duplex="@author_info">-->
+                        <!--<option value="0">-->
+                            <!--请选择-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:el.teacher_name+'|'+el.guid}" ms-for="el in @teacher_arr">-->
+                            <!--{{ el.teacher_name }}&#45;&#45;{{el.teacher_num}}-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="public_btn_big">
+            <a ms-on-click="@save_data()">提交</a>
+        </div>
+    </div>
+</div>

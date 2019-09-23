@@ -1,0 +1,269 @@
+<div ms-important="automatic_backup" id="automatic_backup">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="title">
+        自动备份设置
+    </div>
+    <div >
+        <div class="auto_con">
+            <div class="common-select">
+                <div class="search-cont clearfix">
+                    <div class="select">
+                        <div class="old-select">
+                            <select ms-duplex="@data.bk_type">
+                                <option value="">
+                                    备份方式
+                                </option>
+                                <option value="0">完全备份</option>
+                                <option value="1">增量备份</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select">
+                        <div class="old-select">
+                            <select ms-duplex="@data.bk_cycle">
+                                <option value="">
+                                    请选择周期
+                                </option>
+                                <option value="3">每月</option>
+                                <option value="2">每周</option>
+                                <option value="1">每天</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select" :if="@data.bk_cycle == 2">
+                        <div class="old-select">
+                            <select ms-duplex-number="@data.bk_week">
+                                <option value="">
+                                    请选择星期
+                                </option>
+                                <option value="2">星期一</option>
+                                <option value="3">星期二</option>
+                                <option value="4">星期三</option>
+                                <option value="5">星期四</option>
+                                <option value="6">星期五</option>
+                                <option value="7">星期六</option>
+                                <option value="1">星期日</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select" :if="@data.bk_cycle == 3">
+                        <div class="old-select">
+                            <select ms-duplex="@data.bk_date">
+                                <option value="">
+                                    请选择备份日期
+                                </option>
+                                <option value="1">每月1号</option>
+                                <option value="2">每月2号</option>
+                                <option value="3">每月3号</option>
+                                <option value="4">每月4号</option>
+                                <option value="5">每月5号</option>
+                                <option value="6">每月6号</option>
+                                <option value="7">每月7号</option>
+                                <option value="8">每月8号</option>
+                                <option value="9">每月9号</option>
+                                <option value="10">每月10号</option>
+                                <option value="11">每月11号</option>
+                                <option value="12">每月12号</option>
+                                <option value="13">每月13号</option>
+                                <option value="14">每月14号</option>
+                                <option value="15">每月15号</option>
+                                <option value="16">每月16号</option>
+                                <option value="17">每月17号</option>
+                                <option value="18">每月18号</option>
+                                <option value="19">每月19号</option>
+                                <option value="20">每月20号</option>
+                                <option value="21">每月21号</option>
+                                <option value="22">每月22号</option>
+                                <option value="23">每月23号</option>
+                                <option value="24">每月24号</option>
+                                <option value="25">每月25号</option>
+                                <option value="26">每月26号</option>
+                                <option value="27">每月27号</option>
+                                <option value="28">每月28号</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select hours_">
+                        <div class="old-select">
+                            <span>选择时间</span>
+                            <select ms-duplex="@chose_hour">
+                                <option value="00">00</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                            </select>
+                            <span class="mar_left">:</span>
+                            <select ms-duplex="@chose_min">
+                                <option value="00">00</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                                <option value="51">51</option>
+                                <option value="52">52</option>
+                                <option value="53">53</option>
+                                <option value="54">54</option>
+                                <option value="55">55</option>
+                                <option value="56">56</option>
+                                <option value="57">57</option>
+                                <option value="58">58</option>
+                                <option value="59">59</option>
+
+                            </select>
+                            <span class="mar_left">:</span>
+                            <select ms-duplex="@chose_second">
+                                <option value="00">00</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                                <option value="51">51</option>
+                                <option value="52">52</option>
+                                <option value="53">53</option>
+                                <option value="54">54</option>
+                                <option value="55">55</option>
+                                <option value="56">56</option>
+                                <option value="57">57</option>
+                                <option value="58">58</option>
+                                <option value="59">59</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select">
+                        <div class="old-select">
+                            <select ms-duplex-number="@data.persist_day">
+                                <option value="">
+                                    请选择保留时常
+                                </option>
+                                <option value="60">60天</option>
+                                <option value="30">30天</option>
+                                <option value="15">15天</option>
+                                <option value="7">7天</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="a-p-btns">
+                <div class="btns">
+                    <button type="button" class="am-btn-default" ms-on-click="@cancel_click">取消</button>
+                    <button type="button" class="am-btn-primary" ms-click="@ajax_add">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

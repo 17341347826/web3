@@ -1,0 +1,30 @@
+#goals_and_plans_teacher_fill{
+    background-color:#f1f2f6;
+}
+#goals_and_plans_teacher_fill>div{
+    background-color: white;
+    padding-left: 16px;
+    margin-top: 4px;
+}
+#goals_and_plans_teacher_fill form.am-form-inline .am-form-group div {
+    display: inline-block;
+    margin: 0 10px;
+}
+#goals_and_plans_teacher_fill>div{
+    padding-right: 16px;
+    padding-left: 16px;
+
+}
+#goals_and_plans_teacher_fill>div table{
+    border-radius: 4px;
+}
+
+#goals_and_plans_teacher_fill table.am-table>tbody>tr>td{
+    white-space: inherit;
+}
+#goals_and_plans_teacher_fill .common-select+div{
+    padding-top: 30px;
+}
+#goals_and_plans_teacher_fill .radios>label:first-child{
+    margin-right:0;
+}

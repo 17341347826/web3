@@ -1,0 +1,114 @@
+<div class="am-g" id="ph_test_list" ms-important="table">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@grade_change()" ms-duplex-number="@extend.fk_grade_id">
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-->
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select data-duplex-changed="@class_change()" ms-duplex="@extend.fk_class_id">-->
+                        <!--&lt;!&ndash;ms-for: el in @class_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.class_id}">-->
+                            <!--{{el.class_name}}班-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--班级--全校、班级公示-->
+            <div class="select" :if="@pub_range == 1 || @pub_range == 3 || @pub_range == 0">
+                <div class="old-select">
+                    <select data-duplex-changed="@class_change()" ms-duplex="@extend.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-年级公示-->
+            <div class="select" :if="@pub_range == 2">
+                <div class="old-select">
+                    <select data-duplex-changed="@class_change()" ms-duplex="@extend.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--<div class="form-input">-->
+                <!--<input type="text" ms-duplex="@stu_num" ms-on-blur="@code_search()" placeholder="请输入学籍号">-->
+            <!--</div>-->
+            <!--<div class="form-input">-->
+                <!--<input type="text" ms-duplex="@stu_name" ms-on-blur="@name_search()" placeholder="请输入姓名">-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div id="physique_assessment_table" class="health-test" :if="@table_list.length > 0">
+        <div class="content-ach-t">
+            <div class="content-ach-o">
+                <table  class="table-tt">
+                    <tr class="content-table-tr">
+                        <td>
+                            序号
+                        </td>
+                        <td>
+                            姓名
+                        </td>
+                        <td>
+                            学籍号
+                        </td>
+
+                        <!--ms-for: el in @course_list-->
+                        <td>
+                            {{el.name}}
+                        </td>
+                        <!--ms-for-end:-->
+                        <td>
+                            操作
+                        </td>
+                    </tr>
+                    <!--ms-for: ($index,el) in @table_list-->
+                    <tr class="healths">
+                        <td>
+                            {{$index+1}}
+                        </td>
+                        <td>
+                            {{el.name}}
+                        </td>
+                        <td>
+                            {{el.code}}
+                        </td>
+
+                        <td ms-for="(k, v) in el.titles">
+                            {{v.score}}
+                        </td>
+                        <td>
+                            <a class='tab-btn tab-objection-btn' ms-click='@raise_objection(el.id)'  title='异议'></a>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="no-data" :if="@table_list.length == 0">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="hide_scroll" id="update-level" ms-important="update-level">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select :if="@highest_level == 4" disabled="disabled" id="grade" ms-duplex="@grade">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_name+'|'+el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                    <select :if="@highest_level == 2 || @highest_level == 3" disabled="disabled" id="" ms-duplex="@grade">
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_name+'|'+el.id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="split_method_change" id="level" ms-duplex="@split_method">
+                        <option ms-attr="{value:''}">
+                            请选择等级划分方式
+                        </option>
+                        <option value="1">
+                            按分数段设置等级
+                        </option>
+                        <option value="2">
+                            按人数比例设置等级
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="strand_change" id="strand" ms-duplex="@strand">
+                        <option ms-attr="{value:''}">
+                            请选择标准
+                        </option>
+                        <option value="1">
+                            年级统一标准
+                        </option>
+                        <option value="2">
+                            按各班级设置
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="level_count_change" id="counts" ms-duplex="@level_count">
+                        <option ms-attr="{value:''}">
+                            请设置等级个数
+                        </option>
+                        <option value="2">
+                            2
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="5">
+                            5
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="查询">
+            </div>
+        </div>
+    </div>
+    <div class="update-level-content">
+        <div class="table-module">
+            <table class="am-table" id="level_config_table">
+                <thead>
+                <tr>
+                    <th ms-attr="{width:@avg_width+'%'}">
+                        班级
+                    </th>
+                    <!--ms-for: el in @level_list-->
+                    <th ms-attr="{width:@avg_width+'%'}">
+                        {{ el }}等级
+                    </th>
+                    <!--ms-for-end:-->
+                </tr>
+
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,cls in @class_list-->
+                <tr>
+                    <td>
+                        {{cls.class_name}}
+                    </td>
+                    <!--ms-for: el in @level_list-->
+                    <td ms-attr="{width:@avg_width}">
+                        <div ms-visible="@split_method==1">
+                            <input ms-duplex="cls[el].startscore" style="display: inline-block"
+                                   type="text"/>
+                            －
+                            <input ms-duplex="cls[el].endscore" style="display: inline-block"
+                                   type="text"/>
+                        </div>
+                        <div ms-visible="@split_method==2">
+                            <input ms-duplex="cls[el].startscore" style="display: inline-block"
+                                   type="text"/>
+                            %
+                        </div>
+                    </td>
+                    <!--ms-for-end:-->
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+        <div class="update-level-btn">
+            <div class="btns">
+                <button :if="is_save_btn==1" type="button" class="am-btn-primary" ms-click="@save_btn">提交</button>
+                <button :if="is_save_btn==2" type="button" class="am-btn-primary" disabled>提交</button>
+            </div>
+        </div>
+
+    </div>
+</div>

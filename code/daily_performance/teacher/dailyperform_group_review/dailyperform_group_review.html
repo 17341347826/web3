@@ -1,0 +1,146 @@
+<div ms-important="dailyperform_group_review" id="dailyperform_group_review">
+    <div class="container">
+        <div class="all-select">
+            <div class="sel-inner">
+                <div class="tab-titles clearfix">
+                    <div class="tab " ms-class="[@tab_state==1 ? 'chosen':'']" ms-click="change_tab(1)">
+                        待审核({{@count | count_filter(@tab_state==1)}})
+                    </div>
+                    <div class="tab" ms-class="[@tab_state==2 ? 'chosen':'']" ms-click="change_tab(2)">
+                        审核未通过({{@count | count_filter(@tab_state==2)}})
+                    </div>
+                </div>
+                <div class="search-content clearfix">
+                    <!--区县-->
+                    <div :if="@highest_level == 2">
+                        <xmp ms-widget="{is:'ms-select-kinds',s_kind:1,show_name:@area_name,data_arr:@area_list,s_change:@areaChange}"></xmp>
+                    </div>
+                    <!--学校-->
+                    <div  :if="@highest_level==2 || @highest_level==3">
+                        <xmp ms-widget="{is:'ms-select-kinds',s_kind:2,show_name:@school_name,data_arr:@school_list,s_change:@schoolChange}"></xmp>
+                    </div>
+                    <!--年级-->
+                    <div :if="@highest_level==2 || highest_level==3 || highest_level==4">
+                        <xmp ms-widget="{is:'ms-select-kinds',s_kind:3,show_name:@grade_name,data_arr:@grade_list,s_change:@gradeChange}"></xmp>
+                    </div>
+                    <!--班级-->
+                    <div :if="@highest_level==2 || highest_level==3 || highest_level==4">
+                        <xmp ms-widget="{is:'ms-select-kinds',s_kind:41,show_name:@class_name,data_arr:@class_list,s_change:@classChange}"></xmp>
+                    </div>
+                    <!--&lt;!&ndash;类型&ndash;&gt;-->
+                    <!--<div class="select">-->
+                        <!--<xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择类型',sel_check:@type_check,data_arr:@type_arr,is_init:true}"></xmp>-->
+                    <!--</div>-->
+                    <div class="select">
+                        <input type="text" placeholder="请输入学生姓名" ms-duplex="@extend.name">
+                    </div>
+                    <div class="select">
+                        <input type="text" placeholder="请输入学生学籍号" ms-duplex="@extend.code">
+                    </div>
+                    <div class="select">
+                        <button ms-click="search">查询</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--ms-for:($idx,el) in @list-->
+    <div class="container">
+        <div class="inner-content">
+            <div class="inner">
+                <div class="m-title">
+                    <div class="person-left">
+                        <img ms-attr="{src:@url_img(@user_photo({guid:el.guid}))}" alt="图片" alt="图片">
+                        <h3>{{el.name}}</h3>
+                    </div>
+                    <div class="person-right">
+                        <div class="persion-title">
+                            |<span>日常表现</span>|
+                        </div>
+                        <div class="person-msg">
+                            <h3>
+                                {{el.grade_name}}{{el.class_name}}班
+                            </h3>
+                            <h3>
+                                {{el.school_name}}
+                            </h3>
+                            <h3>
+                                {{@district}}
+                            </h3>
+                            <h3>
+                                {{el.update_time}}
+                            </h3>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="sm first-sm">
+                    <div class="sm-each">
+                        <h3>评价维度 : </h3>
+                        <p>{{el.frist_index}}</p>
+                    </div>
+                    <!--<div class="sm-each">-->
+                        <!--<h3>评价要素 : </h3>-->
+                        <!--<p>{{el.second_index}}</p>-->
+                    <!--</div>-->
+                    <!--<div class="sm-each">-->
+                        <!--<h3>关键表现 : </h3>-->
+                        <!--<p>{{el.item}}</p>-->
+                    <!--</div>-->
+                    <div class="sm-each">
+                        <h3>评价得分 : </h3>
+                        <p>{{el.score}}</p>
+                    </div>
+                </div>
+                <div class="bg">
+                    <h3>评价要素 : </h3>
+                    <p>{{el.second_index}}</p>
+                </div>
+                <div class="bg">
+                    <h3>关键表现 : </h3>
+                    <p>{{el.item}}</p>
+                </div>
+                <div class="bg">
+                    <h3>记录描述 : </h3>
+                    <p>{{el.description}}</p>
+                </div>
+                <div class="bg" ms-visible="@tab_state==2">
+                    <h3>审核意见 : </h3>
+                    <p>{{el.check_name}}</p>
+                </div>
+
+                <div class="img-container clearfix" ms-if="el.photo_guid && el.photo_guid.length>0">
+                    <h3>活动图片: </h3>
+                    <div ms-class="[(el.is_open? '':'part-img')]" ms-for="el2 in el.photo_guid">
+                        <img  ms-attr="{src:@url_img(el2.guid)}" alt="图片">
+                    </div>
+                </div>
+
+                <div class="bt clearfix">
+                    <div ms-if="!el.is_open" class="open-close open" ms-click="@open_close('open',$idx)">
+                        展开<span></span>
+                    </div>
+                    <div ms-if="el.is_open" class="open-close close" ms-click="@open_close('close',$idx)">
+                        收起<span></span>
+                    </div>
+                    <div class="btns clearfix" ms-if="@tab_state!=2">
+                        <button class="no-pass" ms-click="no_pass(el,$idx)">不通过</button>
+                        <button class="pass" ms-click="pass(el,$idx)">通过</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+    <div class="container" ms-if="@list.length==0">
+        <div style="margin: 0 auto;text-align: center;color: #a2a2a2">加载中/暂无数据</div>
+    </div>
+
+
+    <div id="v_layer">
+        <textarea ms-duplex="@no_pass_msg" placeholder="请填写不通过的理由"></textarea>
+    </div>
+</div>

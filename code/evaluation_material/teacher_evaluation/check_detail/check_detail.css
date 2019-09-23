@@ -1,0 +1,28 @@
+#check_detail{
+    background-color: #f1f2f6;
+    text-align: center;
+    color: #a2a2a2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#check_detail>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#check_detail .c-d-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#check_detail .table_module{
+    overflow: auto;
+}
+#check_detail .table_module>table{
+    border-radius: 4px;
+    border: 1px #ccc solid;
+}
+#check_detail .btns{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

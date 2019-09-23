@@ -1,0 +1,146 @@
+#login .logo {
+    width: 100%;
+    /*padding: 22.67% 0 36.8% 0;*/
+    padding: 22.67% 0 30.8% 0;
+    background: url("bg.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    /*!*overflow-y: hidden;*!*/
+    position: relative;
+}
+
+#login .logo img {
+    width: 74px;
+    height: 56px;
+}
+
+#login .logo {
+    color: #fff;
+    font-size: 24px;
+}
+#login .bg-three{
+    position: absolute;
+    bottom:0;
+    z-index: 99;
+}
+#login .bg-three img{
+    width:100%;
+    float:left;
+}
+#login .bg-two{
+    position: absolute;
+    bottom:0;
+    z-index: 999;
+}
+#login .bg-two img{
+    width:100%;
+    float:left;
+}
+#login .con {
+    padding-bottom: 20px;
+    margin:0 13%;
+}
+#login .weui-cell__hd{
+    border-right:1px solid #D0D0D0;
+    margin-left:8px;
+    padding-right:3px;
+}
+#login .weui-cell__hd img{
+   width:25px;
+}
+#login .wx-pwd{
+    margin-left:13px;
+}
+#login .wx-pwd img{
+    width:20px;
+}
+.login-btn {
+    width: 100%;
+}
+
+#login .weui-cells {
+    /*width: 230px;*/
+    height: 48px;
+    margin: 0 auto;
+}
+
+#login .weui-cell__bd,
+#login .weui-cell,
+#login input {
+    width: 100%;
+    height: 100%;
+}
+
+#login .weui-cell {
+    padding: 0;
+}
+
+#login input {
+    padding-left: 10px;
+}
+
+#login .weui-cells:before,
+#login .weui-cells:after {
+    border-color: #bdbdbd;
+}
+
+#login .weui-cells {
+    border:1px solid #C1C1C1;
+    border-radius: 5px;
+}
+#login .xy-login{
+    border:0;
+}
+#login .weui-cells:nth-child(2) {
+    margin: 14px auto;
+}
+
+#login .weui-btn_primary {
+    background: #2d9efe;
+}
+
+#login .weui-hide {
+    display: none;
+}
+
+#login .weui-text-center {
+    text-align: center;
+}
+#login .weui-footer_fixed-bottom {
+    position: absolute;
+}
+input::-webkit-input-placeholder{
+    font-size: .9em;
+    color:#C1C1C1;
+}
+input:-moz-placeholder{
+    font-size: .9em;
+    color:#C1C1C1;
+}
+input::-moz-placeholder{
+    font-size: .9em;
+    color:#C1C1C1;
+}
+input:-ms-input-placeholder{
+    font-size: .9em;
+    color:#C1C1C1;
+}
+.weui-cells:before {
+    /* border-top: 1px solid #e5e5e5; */
+    border-top:0;
+}
+.weui-cells:after {
+    /*border-bottom: 1px solid #e5e5e5;*/
+    border-bottom:0;
+}
+#login .pj-footer{
+    bottom:.5em;
+    position: fixed;
+    width:100%;
+}
+#login .pj-footer p{
+    padding: 0 .34em;
+    font-size: 12px;
+    color: #999999;
+    text-align: center;
+}

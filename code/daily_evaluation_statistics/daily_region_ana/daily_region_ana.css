@@ -1,0 +1,192 @@
+#region_analysis{
+    background-color: #f5f5f5;
+    width: 100%;
+    height:100%;
+    margin: auto;
+}
+.first-index {
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-left: 13px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 0px 0px 4px 4px;
+    background-color: #fff;
+}
+.first-index > div > div {
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color: #a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.first-index > div > div > img {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.first-index .chosen {
+    color: #2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background: url('../../../common/images/chosen.png') no-repeat top right;
+}
+
+.sec_index{
+    margin-top: 6px;
+    padding: 12px 0;
+    background-color: #ffffff;
+}
+.sec_index .radios{
+    text-align: right;
+    padding-right: 35px;
+}
+.content-title-one{
+    width: 100%;
+    height:146px;
+    background-color: #fff;
+    margin-top: 4px;
+    text-align: center;
+}
+#region_analysis .ra-container div{
+    text-align: center;
+}
+.content-title-one h3{
+    padding-top: 26px;
+    padding-bottom: 22px;
+    font-size: 18px;
+    color: #777777;
+    font-weight:600;
+}
+.content-title-one p{
+    font-size: 16px;
+    color: #a2a2a2;
+}
+/*更改模块中的样式*/
+.highcharts-yaxis-labels text{
+    font-size: 14px !important;
+    color: #9a9a9a;
+}
+.highcharts-xaxis-labels text{
+    font-size: 14px !important;
+    color: #9a9a9a;
+}
+.highcharts-title{
+    font-size: 18px !important;
+    color:#777777 !important;
+    font-weight: 600 !important;
+    fill: #777777 !important;
+    margin-top: -40px !important;
+}
+.highcharts-data-labels g text{
+    color: #9a9a9a !important;
+    font-size: 14px !important;
+    fill: #9a9a9a !important;
+}
+
+/*第1快highcharts*/
+.common-ech-images{
+    padding-top: 60px;
+    background-color: #fff;
+    width: 100%;
+    height:324px;
+    position: relative;
+}
+/*highcharts引用中li*/
+.highcharts-root{
+    background-color: #fff !important;
+}
+.highcharts-legend{
+    display: none;
+}
+.branches{
+    position: absolute;
+    top:0;
+    left:30px;
+    color:#5f5f5f;
+    font-size: 16px;
+}
+.maw{
+    position:absolute;
+    top:0;
+    right:48px;
+}
+.maw div{
+    float: left;
+}
+
+.imga,.imgb,.imgc,.imgd{
+    width: 10px;
+    height: 10px;
+    margin-right: 4px;
+}
+.imga{
+    background-color: #ff6375;
+}
+.imgb{
+    background-color: #0090ff;
+}
+.imgc{
+    background-color: #ffca63;
+}
+.imgd{
+    background-color: #37ddbc;
+}
+.zxs,.xc,.cxjh,.sq{
+    /*水平垂直居中对齐*/
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left: 10px;
+}
+
+.rank{
+    position:absolute;
+    top:200px;
+    right:48px;
+    writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/
+    writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+    color:#777777;
+    font-size: 17px;
+}
+
+/*第2快highcharts*/
+.common-ech-images-b{
+    padding-top: 0px;
+    background-color: #fff;
+    width: 100%;
+    height:300px;
+    position: relative;
+
+}
+.branches-b{
+    position:absolute;
+    top:0;
+    left: 30px;
+    color:#5f5f5f;
+    font-size: 16px;
+}
+.rank-b{
+    position:absolute;
+    top:140px;
+    right: 48px;
+    writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/
+    writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+    color:#777777;
+    font-size: 17px;
+}
+
+#region_analysis .ra-container{
+    background-color: #FFFFFF;
+}
+#region_analysis .ra-container div{
+    margin: 0 auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 370px;
+}

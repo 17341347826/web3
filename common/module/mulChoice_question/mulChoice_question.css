@@ -1,0 +1,270 @@
+.simple-content, .mulChoice_edit {
+    padding: 8px;
+    margin: 5px 0 0;
+    outline: none;
+    background-color: #FFFFFF;
+}
+
+.simple-content {
+    border: 1px solid #FFFFFF;
+}
+
+.simple-content:hover {
+    border: 1px solid #fdb553;
+}
+
+.simple-content:hover > .button-group-container > .button-group,
+.mulChoice_edit:hover > .button-group-container > .button-group-2 {
+    display: block;
+}
+
+.mulChoice_edit {
+    border: 1px solid #0095da;
+}
+
+.simple-top-title > h3 {
+    padding-top: 2px;
+    font-size: 15px;
+    color: #444444;
+    font-weight: bold;
+    height: auto;
+    line-height: 20px;
+}
+
+.simple-top-title > h3 > span {
+    color: red;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.simple-top-option {
+    margin-top: -10px;
+}
+
+.simple-top-option > ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.simple-top-option > ul > li {
+    list-style: none;
+}
+
+.simple-line {
+    width: 100%;
+    margin: 0 10px;
+    border-bottom: 1px solid #efefef;
+    height: 1px;
+}
+
+#simple-top-option-ul .am-radio, #simple-top-option-ul-2 .am-radio {
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.button-group-container {
+    position: relative;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.button-group, .button-group-2 {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+
+/*.button-group {*/
+/*display: none;*/
+/*}*/
+
+.sign-up-ques {
+    background-color: #eff9fe;
+    padding: 15px;
+}
+
+.sign-top-left {
+    max-width: 396px;
+    width: 40%;
+    float: left;
+
+}
+
+.sign-top-left-title {
+    background-color: rgb(226, 224, 225);
+    font-size: 14px;
+    font-weight: bold;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sign-top-left-title h3 {
+    color: #7c6a6a;
+}
+
+.sign-top-left textarea {
+    width: 100%;
+    height: 70px;
+    overflow: auto;
+    padding: 5px 0px 0px 5px;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+.sign-top-right {
+    max-width: 286px;
+    width: 286px;
+    display: inline-block;
+}
+
+.sign-top-right ul {
+    list-style: none;
+}
+
+.sign-top-right ul li {
+    list-style: none;
+    color: #6a6a6a;
+    font-size: 14px;
+    clear: both;
+}
+
+#edit-table > thead > tr > th {
+    height: 40px;
+    background-color: #e1e0e0;
+}
+
+.input-td {
+    width: 8%;
+}
+
+.input-td input {
+    width: 157px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 .5em \0;
+}
+
+.pic-td a {
+    color: #a7acaf;
+}
+
+.pic-td a:hover {
+    color: #3ea3fb;
+}
+
+.pic-td a:focus {
+    color: #f17819;
+}
+
+#edit-table > tbody > tr > td {
+    height: 44px;
+}
+
+#edit-table {
+    margin-bottom: 0;
+}
+
+.circle-td span {
+    width: 20px;
+    height: 20px;
+    color: #8bc752;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.plus-content {
+    font-size: 14px;
+}
+
+.plus-content span {
+    color: rgb(139, 199, 82);
+}
+
+.plus-content span:first-of-type {
+    margin: 3px;
+}
+
+.plus-content span:last-of-type {
+    margin: 3px 3px 3px 12px;
+}
+
+#edit-bottom > .plus-content {
+    width: 30%;
+    float: left;
+}
+
+#edit-bottom > .am-form-group {
+    text-align: right;
+    font-size: 14px;
+}
+
+#edit-bottom > .am-form-group > label {
+    color: #6a6a6a;
+    margin-right: 10px;
+}
+
+.sure-btn-content {
+    text-align: center;
+}
+
+.sure-btn-content button {
+    width: 99%;
+}
+
+.fill-hint {
+    float: left;
+    margin-right: 10px;
+}
+
+.fill-hint + div > input {
+    padding-left: 5px;
+}
+
+.simple-model {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(95, 95, 95, 0.5);
+    z-index: 1000;
+}
+
+.simple-model > div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px;
+    height: 300px;
+}
+.simple-model>div>.input-title{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(225, 224, 224);
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+#input{
+    width: 100%;
+    height: 180px;
+    padding: 5px;
+    font-size: 14px;
+}
+.model-bottom{
+    text-align: center;
+    background-color: #FFFFFF;
+}
+.model-bottom button{
+    margin: 5px 8px;
+}

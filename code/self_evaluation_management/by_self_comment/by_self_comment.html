@@ -1,0 +1,20 @@
+<div ms-important="by_self_comment" id="by_self_comment">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <div class='list-con'>
+        <div class="am-text-left content" id="demand">
+            <div class="title">自我毕业评语</div>
+            <div class="notice">填写说明：基于事实的自我陈述，请填写三年在校期间思想品德、学业水平、身心健康、艺术素养、社会实践等方面的主要事迹、个人特长等，不超过800字。</div>
+            <form class="am-form am-text-center">
+                <div class="am-form-group">
+                    <!--<textarea class="text" rows="15"  ms-duplex="@add_data.stu_remark"></textarea>-->
+                    <textarea :if="@read_type" class="text" rows="15"  ms-duplex="@add_data.stu_remark"></textarea>
+                    <textarea :if="!@read_type" class="text" rows="15"  ms-duplex="@add_data.stu_remark" readonly></textarea>
+                </div>
+                <div class="btns">
+                    <button type="button" class="am-btn am-btn-primary" ms-click="@save()">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

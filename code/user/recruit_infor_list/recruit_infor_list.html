@@ -1,0 +1,57 @@
+<div ms-important="recruit_infor_list" id="recruit_infor_list">
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-click="@gra_change(1)">社团成员</div>
+            <div class="am-fl" ms-click="@gra_change(2)">社团通知</div>
+            <div class="am-fl chosen">招募信息</div>
+        </div>
+    </div>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <!--创建方案-->
+            <div class="click_btn" :click="@create_notice">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <table  class="am-table am-table-hover" :if="@notice_list.length>0">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>标题</th>
+                    <th>发布时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: ($index,el) in @notice_list-->
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{el.bt}}</td>
+                    <td>{{el.fbsj | date("yyyy年MM月dd日")}}</td>
+                    <td>
+                        <span :if="el.fbsj == '' || el.fbsj == null">未发布</span>
+                        <span :if="el.fbsj != '' && el.fbsj != null">已发布</span>
+                    </td>
+                    <td>
+                        <a class="tab-btn" :class="[(el.fbsj != '' && el.fbsj != null) ?'tab-edit-btn-disabled':'tab-edit-btn']"  ms-on-click="@edit_notice(el)"  title="编辑"></a>
+                        <a class='tab-btn' :class="[(el.fbsj != '' && el.fbsj != null) ? 'tab-trash-btn-disabled':'tab-trash-btn']"   ms-on-click='@delete_notice(el)' title='删除'></a>
+                        <a class='tab-btn' :class="[(el.fbsj != '' && el.fbsj != null) ? 'tab-issue-btn-disabled':'tab-issue-btn']"  ms-on-click='@release_notice(el)' title='发布'></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+            <!--暂无数据-->
+            <div class="no-data" :if="@notice_list.length == 0">
+                <div>
+                    <img src="../../../../common/images/none.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

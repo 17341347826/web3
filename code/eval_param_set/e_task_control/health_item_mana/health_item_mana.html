@@ -1,0 +1,32 @@
+<div ms-important="health_item_mana" id="health_item_mana">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex-number="@extend.due_grade">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择年级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.id}">-->
+                            <!--{{ el.remark }}【{{el.id}}】-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--创建方案-->
+            <div class="click_btn" ms-click="@create_scheme">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建测评项</span>
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+    </div>
+</div>

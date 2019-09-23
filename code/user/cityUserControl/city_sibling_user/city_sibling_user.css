@@ -1,0 +1,29 @@
+#city_sibling_user{
+    background-color: #f1f2f6;
+}
+#city_sibling_user>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#city_sibling_user .am-table>tbody>tr>td span:last-child>span {
+    display: none;
+}
+#city_sibling_user .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#city_sibling_user #compileData{
+    color:#c8c8c8;
+}
+#city_sibling_user #compileData input,
+#city_sibling_user #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color: #777;
+}
+#city_sibling_user .table_module #class-module{
+    /*overflow-x: auto;*/
+    /*overflow-y: auto;*/
+    overflow: auto;
+}

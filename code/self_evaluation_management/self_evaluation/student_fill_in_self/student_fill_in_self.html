@@ -1,0 +1,125 @@
+<div class="am-g" ms-important="student_fill_in_self" id="student_fill_in_self">
+    <div>
+        <div style="overflow: hidden;padding-top: 20px">
+            <div class="am-form-group float-left" id="get_title" style="width: 50%;">
+    <span>
+     {{@get_title}}
+    </span>
+            </div>
+            <div class="am-form-group float-right am-text-right" style="width: 50%;">
+    <span>
+     姓名:
+    </span>
+                <span>
+     {{name}}
+    </span>
+                <span class="am-margin-left-sm">
+     学籍号:
+    </span>
+                <span>
+     {{code}}
+    </span>
+                <span class="am-margin-left-sm">
+     年级:
+    </span>
+                <span>
+     {{stu_grade}}
+    </span>
+                <span class="am-margin-left-sm">
+     班级:
+    </span>
+                <span>
+     {{stu_class}}
+    </span>
+            </div>
+        </div>
+        <p style="color: red;text-align: right;">温馨提示:若您未参加评价指标相关的活动，评分不得超过3分。</p>
+
+        <!--直接打分-->
+        <div class='list-con' :if="@num==1">
+            <div class="table-module">
+                <table class="am-table am-table-bordered am-table-hover">
+                    <thead>
+                    <tr>
+                        <th class="th_left_score">
+                            分值题(打分)
+                        </th>
+                        <th class="th_right_score">
+                            分值
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for: $idx,el in @table_list-->
+                    <tr>
+                        <td class="text_desc_width" style="text-align: left;">
+                            {{$idx+1}}、{{el.sub_subject}} ({{el.index_value}}分)
+                        </td>
+                        <td>
+                            <!--<input class="score_td" min="0" ms-duplex="el.value_list" data-duplex-changed="val_change(el)"   ms-on-blur="@inputBlur(el,$idx)"-->
+                                   <!--ms-rules="{required:true,number:true}" type="number"/>-->
+                            <input class="score_td" ms-duplex="el.value_list"
+                                   ms-on-blur="@inputBlur(el,$idx)" type="text"/>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+                <div class="btns am-text-center am-margin-top-lg">
+                    <button type="button" class="am-btn-primary" ms-click="@on_black" style="margin-right: 15px;">返回</button>
+                    <button type="button" class="am-btn-primary" ms-click="@only_save_click">保存</button>
+                </div>
+            </div>
+        </div>
+        <!--选项打分-->
+        <div class='list-con' :if="@num==2">
+            <div class="table-module">
+                <table class="am-table am-table-bordered am-table-hover">
+                <thead>
+                <tr>
+                    <th class="th_left_radio">
+                        自选题(单选项)
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @second_table_list-->
+                <tr>
+                    <td style="text-align: left">
+                        <div class="td_first_div">
+                            {{$idx+1}}、{{el.sub_subject}}
+                        </div>
+                        <div class="td_second_div">
+                            <!--ms-for: $index,cl in el.value_list-->
+                            <span class="am-margin-right-lg radios">
+                                 <label class="am-radio-inline">
+                                      <input ms-attr="{value:$index.toString(), name:'radio'+$idx,id:'option'+$idx+$index}"
+                                             ms-duplex="el.index_option_content" type="radio" class="rdo"/>
+                                      <label ms-attr="{for:'option'+$idx+$index}">{{cl.index_option}}.{{cl.index_option_content}}</label>
+                                 </label>
+                            </span>
+                            <!--ms-for-end:-->
+                        </div>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+                <div class="btns am-text-center am-margin-top-lg">
+                    <button type="button" class="am-btn-primary" ms-click="@on_black" style="margin-right: 15px;">返回</button>
+                    <button type="button" class="am-btn-primary" ms-click="@select_save_click">保存</button>
+                </div>
+            </div>
+        </div>
+        <div :if="@num==3" class="am-text-center">
+            <p class="notice_p am-margin-top-lg">
+                当前时间段没有可评价的内容
+            </p>
+        </div>
+        <div :if="@num==4" class="am-text-center">
+            <p class="notice_p am-margin-top-lg">
+                当前时间段可评价内容已经完成!
+            </p>
+        </div>
+    </div>
+</div>

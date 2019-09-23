@@ -1,0 +1,22 @@
+<div ms-important="result_list" id="result_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择年级', is_init:true,sel_check:@grade_sel,data_arr:@grade_list}"></xmp>
+            </div>
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择学期', is_init:true,sel_check:@semester_sel,data_arr:@semester_list,default_value:semester_defalut}"></xmp>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="创建" ms-click="go_create">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>

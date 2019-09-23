@@ -1,0 +1,202 @@
+<div class="am-g" ms-important="stu_add_check" id="stu_add_check">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="s-a-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+        <!--修改学生信息-->
+        <div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    修改
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                    <p ms-visible="@add_modal.msg != ''" style="color: red">
+                        {{ @add_modal.msg }}
+                    </p>
+                </div>
+                <div class="am-modal-bd">
+                    <div>
+                        <form class="am-form am-form-horizontal">
+                            <p>注意:
+                                <span class="red_span">*</span>
+                                为必填项
+                            </p>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    学校名称
+                                </label>
+                                <div class="am-u-sm-9 am-u-end" style="top: .6rem;">
+                                    {{@add_modal.school_name}}
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    学籍号
+                                    <span class="red_span">*</span>
+                                </label>
+                                <div class="am-u-sm-9 ">
+                                    <input class="am-hide" type="text"/>
+                                    <input class="am-u-sm-10 am-modal-prompt-input" ms-duplex="@add.student_num"
+                                           ms-on-blur="@numReg()" ms-on-focus="@numMsg()" placeholder="请输入学籍号" type="text"/>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    学生姓名
+                                    <span class="red_span">*</span>
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <input class="am-modal-prompt-input" ms-duplex="@add.student_name"
+                                           placeholder="请输入姓名" type="text"/>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    曾用名
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <input class="am-modal-prompt-input" ms-duplex="@add.old_name"
+                                           placeholder="请输入曾用名" type="text"/>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    学生电话
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <input class="am-modal-prompt-input" ms-duplex="@add.phone"
+                                           placeholder="请输入学生电话" type="text"/>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    邮箱
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <input class="am-modal-prompt-input" ms-duplex="@add.email"
+                                           placeholder="请输入邮箱" type="text"/>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    父母姓名
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <input class="am-modal-prompt-input" ms-duplex="@add.parent_name"
+                                           placeholder="请输入父母姓名" type="text"/>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    父母电话
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <input class="am-modal-prompt-input" ms-duplex="@add.parent_phone"
+                                           placeholder="请输入父母电话" type="text"/>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    性别
+                                    <span class="red_span">*</span>
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <select ms-duplex="@add.sex">
+                                        <option ms-attr="{value:'0'}">
+                                            请选择
+                                        </option>
+                                        <!--ms-for: el in @sex-->
+                                        <option ms-attr="{value:el.id}">
+                                            {{el.title}}
+                                        </option>
+                                        <!--ms-for-end:-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    年级
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <select ms-duplex="@add.fk_grade_id" data-duplex-changed="@add_gradeChang">
+                                        <!--ms-for: el in @teach_class_list-->
+                                        <option ms-attr="{value:el.grade_id}">
+                                            {{el.grade_name}}
+                                        </option>
+                                        <!--ms-for-end:-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">班级</label>
+                                <div class="am-u-sm-9 ">
+                                    <select  ms-duplex="@add.fk_class_id">
+                                        <!--ms-for: el in @class_list-->
+                                        <option ms-attr="{value:el.class_id}">{{el.class_name}}</option>
+                                        <!--ms-for-end:-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">科类类别</label>
+                                <div class="am-u-sm-9">
+                                    <select ms-duplex="@add.arts_or_science" disabled>
+                                        <!--ms-for: el in @arts_or_science-->
+                                        <option ms-attr="{value:el.arts_or_science}">{{el.title}}</option>
+                                        <!--ms-for-end:-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    学生类别
+                                    <span class="red_span">*</span>
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <select class="second-index" ms-duplex="@add.current_or_over">
+                                        <option ms-attr="{value:'3'}">
+                                            请选择
+                                        </option>
+                                        <!--ms-for: el in @current_or_over-->
+                                        <option ms-attr="{value:el.id}">
+                                            {{el.title}}
+                                        </option>
+                                        <!--ms-for-end:-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">
+                                    备注
+                                </label>
+                                <div class="am-u-sm-9">
+                                    <input class="am-modal-prompt-input" ms-duplex="@add.remark"
+                                           placeholder="请输入备注" type="text"/>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@add_stu()">
+     提交
+    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

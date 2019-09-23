@@ -1,0 +1,81 @@
+#daily_vertical_ana{
+    background-color: #f1f2f6;;
+}
+#daily_vertical_ana>div{
+    padding-right: 16px;
+    padding-left: 16px;
+    background-color: white;
+}
+#daily_vertical_ana>div.first-index{
+    margin-top: 4px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+#daily_vertical_ana>div.first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: default;
+}
+#daily_vertical_ana>div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+
+#daily_vertical_ana .sec_index{
+    margin-top: 6px;
+    padding: 12px 0;
+}
+#daily_vertical_ana .sec_index .radios{
+    text-align: right;
+    padding-right: 35px;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../common/images/chosen.png') no-repeat top right;
+}
+/*#daily_vertical_ana .old-select select{*/
+    /*width: auto;*/
+/*}*/
+#daily_vertical_ana .scale-tab> thead > tr > th {
+    border-bottom: none;
+}
+.border-right {
+    border-right: 1px solid #f1f2f6;
+}
+.index_count>tbody>tr:last-child>td {
+    border-bottom: none;
+}
+#daily_vertical_ana .first-table{
+    margin-top: 4px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    overflow: auto;
+}
+#daily_vertical_ana .first-table>p{
+    font-size: 18px;
+    text-align: center;
+    color: #0dba9e;
+    padding-top: 18px;
+}
+#daily_vertical_ana .am-table .t_width{
+    max-width: 100px;
+    overflow: hidden;
+    line-height: 40px;
+    text-overflow:ellipsis;
+}
+
+#daily_vertical_ana .no_data{
+    padding: 6px 0;
+    text-align: center;
+    font-size: 16px;
+}

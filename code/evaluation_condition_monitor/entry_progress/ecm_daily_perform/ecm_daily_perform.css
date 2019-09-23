@@ -1,0 +1,95 @@
+#ecm_daily_perform {
+    background-color: #f1f2f6;
+}
+
+#ecm_daily_perform .common-select,
+#ecm_daily_perform .list-con > div {
+    border-radius: 4px 4px 0px 0px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#ecm_daily_perform .common-select,
+#ecm_daily_perform .list-con > div {
+    background-color: white;
+}
+
+/*内容*/
+#ecm_daily_perform .list-con > div {
+    text-align: center;
+}
+
+#ecm_daily_perform .list-con .con-one,
+#ecm_daily_perform .list-con .con-two {
+    padding-top: 12px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+
+#ecm_daily_perform .daily-top{
+    display: flex;
+}
+#ecm_daily_perform .ecm-table-container{
+    flex: 1;
+}
+#ecm_daily_perform .list-con .title {
+    font-size: 18px;
+    color: #0dba9e;
+    padding-top: 18px;
+    padding-bottom: 8px;
+    height: 73px;
+}
+
+#ecm_daily_perform .list-con .info-prom {
+    text-align: center;
+    width: 300px;
+}
+
+#ecm_daily_perform .list-con .info-prom > div > span:first-child {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #28b9ab;
+}
+
+#ecm_daily_perform .list-con .info-prom > div > span:last-child {
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff6656;
+}
+
+/*内容2*/
+#ecm_daily_perform .list-con .con-two {
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+#ecm_daily_perform .list-con .con-two table {
+
+}
+
+/*table2、table3*/
+#ecm_daily_perform .am-table {
+    margin-bottom: 0;
+    border-radius: 4px;
+}
+
+#ecm_daily_perform table {
+    table-layout: fixed; /*固定布局的算法。在这种算法中，表格和列的宽度取决于col对象的宽度总和，假如没有指定，则会取决于第一行每个单元格的宽度。假如表格没有指定宽度( width )属性，则表格被呈递的默认宽度为 100% （注意：此样式是关键）*/
+}
+
+#ecm_daily_perform .stu-progress-table {
+    display: flex;
+}
+
+#ecm_daily_perform .stu-progress-table > div {
+    flex: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.up-count{
+    width: 100px;
+    min-width: 100px;
+}

@@ -1,0 +1,106 @@
+#daily_performance_check{
+    margin-top: 10px;
+    font-family: PingFang-SC-Regular;
+}
+#daily_performance_check .normalPaddding {
+     padding-left: 0;
+     padding-right: 0;
+    padding-bottom: 0;
+}
+#daily_performance_check .screen_demo{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#daily_performance_check .screen_demo .weui-cell_select {
+     margin-bottom: 0;
+     border-bottom: none;
+}
+/*内容*/
+#daily_performance_check .con{
+    /*margin-top:10px;*/
+    padding-top:10px;
+    background-color: #f6f6f6;
+}
+#daily_performance_check .con>div{
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:7px;
+    background-color: #fff;
+}
+#daily_performance_check .con .daily-person{
+
+}
+/*头部*/
+#daily_performance_check .person-head{
+    height:35px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 35px;
+    border-bottom: dotted 1px #eaeaea;
+}
+#daily_performance_check .person-head span{
+    display: inline-block;
+}
+/*时间*/
+#daily_performance_check .person-head span:first-child{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    color: #8d8d8d;
+}
+/*得分*/
+#daily_performance_check .person-head span:last-child{
+    text-align: center;
+    font-size: 13px;
+    font-weight: normal;
+    width: 50px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 5px;
+    float: right;
+    margin-top: 9px;
+}
+/*加分*/
+.add-score{
+    color: #ff5e5e;
+    background-color: #ffe6e6;
+}
+/*减分*/
+.reduce-score{
+    color: #18ada4;
+    background-color: #d1f6ee;
+}
+#daily_performance_check  .person-con{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+#daily_performance_check .record-des{
+    margin-bottom:8px;
+}
+#daily_performance_check .record-des h3{
+    float: left;
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #444444;
+}
+#daily_performance_check .record-des p{
+    font-size: 13px;
+    font-weight: normal;
+    color: #998a87;
+    /*换行*/
+    word-wrap: break-word;
+}
+#daily_performance_check .img-ary{
+    overflow: hidden;
+    border-radius: 5px;
+}
+#daily_performance_check .img-ary img{
+   width:100%;
+    border-radius: 5px;
+}
+/*三级菜单选中*/
+#daily_performance_check .three-menu .menu-check{
+    border-bottom:1px solid #1EBA96;
+    color:#1EBA96;
+}

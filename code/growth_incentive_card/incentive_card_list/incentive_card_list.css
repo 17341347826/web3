@@ -1,0 +1,203 @@
+#incentive_card_list{
+    background-color: #f5f5f5;
+}
+#incentive_card_list >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#incentive_card_list .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+}
+#incentive_card_list .stu-info{
+    padding-top:10px;
+    text-align: right;
+    color:#a2a2a2;
+}
+/*内容部分*/
+#incentive_card_list .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+#incentive_card_list .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#incentive_card_list .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#incentive_card_list .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+}
+#incentive_card_list .list-con .daily-person>div{
+    text-align: center;
+}
+#incentive_card_list .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#incentive_card_list .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#incentive_card_list .list-con .daily-person .stu-info>div>div{
+    float:left;
+}
+#incentive_card_list .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#incentive_card_list .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*学生头像那块*/
+#incentive_card_list .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#incentive_card_list .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#incentive_card_list .stu-head img{
+    width:60px;
+    height:60px;
+}
+#incentive_card_list .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#incentive_card_list .stu-school{
+    position: relative;
+}
+#incentive_card_list .stu-school>div:first-child{
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    /*border:1px solid yellow;*/
+    overflow: hidden;/*为了控制左边框和右边框高度和字体高度一致，都等于18px*/
+}
+#incentive_card_list .stu-school div .d-name{
+    padding-left:10px;
+    padding-right:10px;
+    border-right:1px solid #a2a2a2;;
+    border-left:1px solid #a2a2a2;;
+}
+#incentive_card_list .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#incentive_card_list .stu-school>div:last-child span{
+    margin-right:40px;
+}
+#incentive_card_list .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#incentive_card_list  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#incentive_card_list .daily-info>div{
+    margin-top:10px;
+}
+#incentive_card_list  h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+/*创建方正少儿简体字体*/
+@font-face {
+    font-family:fang zheng;
+    src:url('../../../common/images/icon/fang_zheng.ttf');
+}
+/*图片*/
+#incentive_card_list  .daily-info .d-p-img{
+    border-radius: 4px;
+    position:relative;
+}
+#incentive_card_list  .daily-info .d-p-img .person-name{
+    position:absolute;
+    font-family:fang zheng;
+    top: 163px;
+    left: 70px;
+    color:#FC7157;
+    font-size:1.2em;
+}
+#incentive_card_list  .daily-info .d-p-img img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+/*显示方式*/
+#incentive_card_list .dis-type{
+    text-align: right;
+    padding: 20px 30px 0;
+}
+#incentive_card_list .radios{
+    display:inline-block;
+}
+#incentive_card_list .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+/*表格*/
+#incentive_card_list .table-list{
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+#incentive_card_list .table_module{
+    padding-left:16px;
+    padding-right:16px;
+}
+#incentive_card_list #class-module{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+/*取消按钮*/
+#incentive_card_list .btns{
+    text-align: center;
+    padding-bottom: 20px;
+}
+#incentive_card_list .none-img-wrap{
+    text-align: center;
+}
+#incentive_card_list .none-img-wrap img{
+    display: inline-block;
+}

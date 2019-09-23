@@ -1,0 +1,122 @@
+@charset "utf-8";
+#stu_term_evaluation {
+  padding-bottom: 10px;
+}
+#stu_term_evaluation .weui-cells {
+  margin-top: 0;
+}
+#stu_term_evaluation .teacher_term_comment_con,
+#stu_term_evaluation .con {
+  margin-top: 10px;
+}
+#stu_term_evaluation .every_stu {
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 9px 0px #cecece;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding-bottom:10px;
+}
+#stu_term_evaluation .every_stu > div {
+  padding-left: 13px;
+  padding-right: 13px;
+}
+#stu_term_evaluation .every_stu > .stu_info {
+  height: 47px;
+  line-height: 47px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  letter-spacing: 0px;
+  background-color: #e0ebff;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #2f60b8;
+}
+#stu_term_evaluation .every_stu > .stu_plan {
+  display: flex;
+  line-height: 15px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  letter-spacing: 0px;
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+}
+#stu_term_evaluation .every_stu > .stu_plan > div.stu_plan1 {
+  flex: 1;
+}
+#stu_term_evaluation .every_stu > .stu_plan > div.stu_plan2 {
+  flex: 4;
+}
+#stu_term_evaluation .public_btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px #eeeeee solid;
+}
+#stu_term_evaluation .weui-dialog__hd {
+  background-color: #358afe;
+}
+#stu_term_evaluation .weui-dialog__title {
+  font-size: 13px;
+  font-weight: normal;
+  color: #ffffff;
+}
+#stu_term_evaluation .three-menu {
+  display: flex;
+}
+#stu_term_evaluation .three-menu > div:first-child,
+#stu_term_evaluation .three-menu > div:last-child {
+  flex: 1;
+  text-align: center;
+}
+#stu_term_evaluation .three-menu .line {
+  width: 1px;
+  height: 25px;
+  background-color: #efefef;
+}
+#stu_term_evaluation .three-menu .menu-check {
+  border-bottom: 1px solid red;
+  color: red;
+}
+#stu_term_evaluation .weui-label,
+#stu_term_evaluation .weui-select {
+  font-size: 15px;
+  color: #a2a2a2;
+}
+#stu_term_evaluation .no-msg {
+  text-align: center;
+  font-size: 12px;
+  color: #a2a2a2;
+}
+#stu_term_evaluation .name {
+  margin-left: 8px;
+}
+#stu_term_evaluation .graduation-name,
+#stu_term_evaluation .graduation-textarea {
+  font-size: 14px;
+  color: #a2a2a2;
+}
+#stu_term_evaluation .graduation-textarea textarea::placeholder {
+  font-size: 12px;
+  color: #a2a2a2;
+}
+#stu_term_evaluation .graduation-textarea textarea {
+  color: #999999;
+}
+#stu_term_evaluation .graduation_form {
+  margin-top: -1px;
+}
+#stu_term_evaluation .weui-cell__ft {
+  font-size: 14px;
+}
+#stu_term_evaluation .decs {
+  font-size: 12px;
+}
+#modify_stu_term_ev .weui-cell__bd {
+  font-size: 15px;
+  color: #8d8d8d;
+}
+#modify_stu_term_ev textarea::placeholder {
+  color: #8d8d8d;
+}

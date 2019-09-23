@@ -1,0 +1,495 @@
+.bg_color {
+    background-color: #ffffff;
+}
+#material {
+    background-color: #f2f2f6;
+}
+#material .container {
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 4px;
+}
+#material .all-select {
+    padding-left: 16px;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+#material .all-select .tab-titles {
+    padding-top: 10px;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 10px;
+}
+#material .all-select .tab-titles .tab {
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color: #a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+#material .all-select .tab-titles .chosen {
+    color: #2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background: url("../../../../common/images/chosen.png") no-repeat top right;
+}
+#material .all-select .type-count {
+    padding-top: 10px;
+    font-size: 14px;
+    color: #a2a2a2;
+}
+#material .all-select .type-count span {
+    color: #ff6656;
+}
+#material .all-select .search-content {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+#material .all-select .search-content .select {
+    float: left;
+    margin-right: 14px;
+}
+#material .all-select .search-content .select input {
+    width: 199px;
+    height: 36px;
+    border-radius: 4px;
+    color: #c8c8c8;
+    font-size: 16px;
+    border: 1px solid #c8c8c8;
+    padding-left: 20px;
+    outline: none;
+}
+#material .all-select .search-content .select input::placeholder {
+    color: #c8c8c8;
+}
+#material .count {
+    width: 1089px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #a2a2a2;
+    height: 35px;
+    line-height: 35px;
+}
+#material .count span {
+    font-size: 16px;
+    color: #ff6656;
+}
+#material .width-center {
+    width: 1089px;
+    margin: 0 auto;
+}
+#material .inner-content {
+    background-color: #ffffff;
+    width: 970px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+#material .inner-content .pad-27 {
+    padding-left: 27px;
+    padding-right: 27px;
+}
+#material .inner-content .b-title {
+    padding-left: 27px;
+    padding-right: 27px;
+    font-size: 16px;
+    color: #28b9ab;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #e2e2e2;
+}
+#material .inner-content .table-container {
+    padding-left: 27px;
+    padding-right: 27px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 0 0 4px 4px;
+}
+#material .inner-content .table-container table {
+    word-wrap: break-word;
+    border-radius: 4px;
+}
+#material .inner-content .table-container table tr > td:last-child {
+    width: 459px;
+    text-align: left;
+}
+#material .inner-content .table-container .am-table > tbody > tr > td:last-child {
+    white-space: normal;
+}
+#material .inner-content .table-container2 {
+    padding-top: 20px;
+}
+#material .inner {
+    background-color: #ffffff;
+    max-width: 1000px;
+    padding: 11px;
+    margin-left: 27px;
+}
+#material .m-title {
+    width: 100%;
+    height: 127px;
+    padding-top: 20px;
+    border-bottom: 1px dashed #e2e2e2;
+}
+#material .m-title .person-left {
+    float: left;
+    width: 108px;
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 18px;
+}
+#material .m-title .person-left img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+#material .m-title .person-left h3 {
+    font-size: 16px;
+    color: #ff944d;
+    display: block;
+}
+#material .m-title .person-right {
+    /*padding-top: 20px;*/
+    width: 100%;
+    /*padding-left: 110px;*/
+    max-width: 1000px;
+    /*height: 88px;*/
+    /*border-left: 1px dashed #e2e2e2;*/
+}
+#material .m-title .person-right .persion-title {
+    width: 100%;
+    height: 40px;
+    text-align: right;
+}
+#material .m-title .person-right .persion-title > span {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #a2a2a2;
+}
+#material .m-title .person-right .person-msg {
+    padding-left: 75px;
+    margin-top: 8px;
+    text-align: right;
+}
+#material .m-title .person-right .person-msg h3 {
+    flex: 1;
+    text-align: center;
+    margin-left: 25px;
+}
+#material .file-name-content {
+    display: block;
+}
+#material h3,
+#material p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 16px;
+    color: #a2a2a2;
+    font-weight: normal;
+    vertical-align: top;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#material h3 {
+    padding-right: 5px;
+}
+#material p {
+    max-width: 650px;
+}
+#material .noTopBorder {
+    border-bottom: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+#material .pd20 {
+    padding-left: 20px;
+}
+#material .sm {
+    display: flex;
+    height: 40px;
+    padding-left: 20px;
+}
+#material .sm .sm-each {
+    flex: 1;
+}
+#material .bg {
+    padding-left: 20px;
+    line-height: 28px;
+}
+#material .img-container {
+    padding-left: 20px;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    border-radius: 0 0 4px 4px;
+}
+#material .img-container div {
+    width: 670px;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 77px;
+}
+#material .img-container img {
+    width: 100%;
+}
+#material .part-img {
+    height: 120px;
+    overflow: hidden;
+}
+#material .bt {
+    position: relative;
+    height: 70px;
+    padding-top: 25px;
+}
+#material .bt .open-close {
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 13px;
+    border: 1px solid #2bbba4;
+    font-size: 14px;
+    color: #2bbba4;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#material .bt .open-close:hover {
+    background-color: #2bbba4;
+    color: #FFFFFF;
+}
+#material .bt .open-close span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-left: 2px;
+}
+#material .bt .open span {
+    background: url("../../../../common/images/teacher/down.png") center no-repeat;
+}
+#material .bt .open:hover span {
+    background: url("../../../../common/images/teacher/down1.png") center no-repeat;
+}
+#material .bt .close span {
+    background: url("../../../../common/images/teacher/top.png") center no-repeat;
+}
+#material .bt .close:hover span {
+    background: url("../../../../common/images/teacher/top1.png") center no-repeat;
+}
+#material .btns {
+    position: absolute;
+    right: 0;
+    top: 25px;
+}
+#material .btns button {
+    height: 34px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 34px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+#material .btns .no-pass {
+    background-color: #ff9e47;
+}
+#material .btns .no-pass:hover {
+    background-color: #ff7a45;
+}
+#material .btns .pass {
+    background-color: #2bbba4;
+}
+#material .btns .pass:hover {
+    background-color: #2bbb7c;
+}
+#material .btns .select-material {
+    width: 146px;
+}
+#material .btns .selected-material {
+    width: 174px;
+}
+#material #v_layer {
+    width: 600px;
+    padding: 10px;
+    display: none;
+}
+#material #v_layer textarea {
+    width: 100%;
+    height: 190px;
+    overflow-y: auto;
+    border-radius: 4px;
+    color: #a2a2a2;
+}
+#material #v_layer .files {
+    position: relative;
+    font-size: 16px;
+    color: #a2a2a2;
+    height: 50px;
+    line-height: 50px;
+}
+#material #v_layer .files button {
+    background-color: #2bbba4;
+    border: none;
+    outline: none;
+    height: 34px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    margin-right: 4px;
+}
+#material #v_layer .files button:hover {
+    background-color: #2bbb7c;
+}
+#material #v_layer .files input[type='file'] {
+    height: 34px;
+    position: absolute;
+    top: 10px;
+    left: 115px;
+    opacity: 0;
+}
+#material .no-msg {
+    text-align: center;
+    color: #a2a2a2;
+}
+.clearfix:after {
+    content: ".";
+    /*加一段内容*/
+    display: block;
+    /*让生成的元素以块级元素显示，占满剩余空间*/
+    height: 0;
+    /*避免生成的内容破坏原有布局高度*/
+    clear: both;
+    /*清除浮动*/
+    visibility: hidden;
+    /*让生成的内容不可见*/
+}
+.clearfix {
+    zoom: 1;
+    /*为IE6，7的兼容性设置*/
+}
+/*显示方式*/
+#material  .dis-type{
+    text-align: right;
+    /*margin: 20px 30px 0;*/
+    padding-right:120px;
+    background-color: white;
+}
+#material .radios{
+    display:inline-block;
+}
+#material .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+/*表格*/
+#material .table_module{
+    padding-left:16px;
+    padding-right:16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#material #class-module{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+/*取消按钮*/
+#material .person-btns{
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: white;
+    padding-bottom: 20px;
+}
+#material .person-btns .am-btn-default {
+    background-color: rgba(255, 170, 69, 1);
+    border-color: rgba(255, 170, 69, 1);
+    margin-right: 25px;
+}
+#material .person-btns  button {
+    width: 112px;
+    height: 34px;
+    border-radius: 4px 4px 4px 4px;
+    font-size: 16px;
+    color: #ffffff;
+    outline: none;
+    border: none;
+}
+#material .divide-page{
+    width: 100%;
+    margin-right: 0px;
+    background-color: white;
+    height: 50px;
+    margin-top:0;
+}
+/*模块切换*/
+#material .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    position: relative;
+}
+/*#material  .first-index>div.am-fl{*/
+/*width: 70%;*/
+
+/*}*/
+#material  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+#material >div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+#material >div.first-index>div.am-fr{
+    width: auto;
+    padding-right: 40px;
+
+}
+#material >div.first-index>div.am-fr>a{
+    margin-left: 16px;
+}
+#material >div.first-index>div.am-fr>div{
+    display: inline-block;
+    margin-left: 16px;
+    border-left:1px #e4e4e4 dashed;
+
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+#material .basic-msg span{
+    font-size:16px;
+    color: #a2a2a2;
+}
+#material .basic-msg span:last-child{
+    margin-right: 0;
+}
+
+
+#material .access{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #2bbba4 !important;
+    border: 1px solid #2bbba4;
+    padding: 8px;
+    border-radius: 4px;
+}

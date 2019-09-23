@@ -1,0 +1,20 @@
+<div ms-important="term_evalution_print" id="term_evalution_print">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-g" style="background-color: white;">
+        <div class="clearfix">
+            <div class="search-btn am-fr" ms-click="@back">
+                <input type="button" value="返回">
+            </div>
+            <div class="search-btn am-fr" ms-click="@print">
+                <input type="button" value="打印">
+            </div>
+        </div>
+    </div>
+    <div class="content-ach-t" >
+        <div class="content-ach-o" id="print_content">
+            <xmp ms-widget="{is:'ms-ele-agent-table', no_bind:true,data:@data,remember:@remember,is_init:@is_init,extend:pms_pool,header:header, cbopt:@cbopt,params:@user_type,only_hash:true, pipe:pipe}">
+            </xmp>
+        </div>
+    </div>
+
+</div>

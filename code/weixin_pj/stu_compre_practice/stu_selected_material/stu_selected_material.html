@@ -1,0 +1,186 @@
+<div ms-important="stu_selected_material" id="stu_selected_material" >
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--我记录的材料-->
+        <div class="float-left" :click="@menu_change(1)">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="recording-material-btn"></span>
+            <span>我记录的材料</span>
+            <span class="three-border"></span>
+        </div>
+        <!--未遴选的材料-->
+        <div  :click="@menu_change(2)">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="not-selected-btn"></span>
+            <span>未遴选的材料</span>
+            <span class="three-border"></span>
+        </div>
+        <!--已遴选的材料-->
+        <div class="float-right">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="selected-btn"></span>
+            <span class="menu-check">已遴选的材料</span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <div class="screen_demo">
+            <!--学年学期-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@sel_semester()" ms-duplex="@sem_info">
+                        <!--ms-for: ($index,el) in @semester_arr-->
+                        <option ms-attr="{value:el.name+'|'+el.value}">
+                            {{el.name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--综合实践类型-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@sel_check()" ms-duplex="@extend.mk">
+                        <!--ms-for: ($index,el) in @type_arr-->
+                        <option ms-attr="{value:el.value}">
+                            {{el.name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--综合实践状态-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@change_tab()" ms-duplex="@extend.shzt">
+                        <!--ms-for: ($index,el) in @parctice_type-->
+                        <option ms-attr="{value:el.value}">
+                            {{el.name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="con">
+            <!--ms-for:($idx,el) in @list-->
+            <div class="daily-person clearfix" ms-visible="el.mk != 4">
+                <!--头部-->
+                <div class="person-head clearfix">
+                    <span>{{el.bt}}</span>
+                    <span ms-class="[el.score>0 ? 'add-score':'reduce-score']">{{el.cjsj | time_ten}}&nbsp;&nbsp;{{el.mkmc}}</span>
+                </div>
+                <!--内容和图片-->
+                <div class="person-con">
+                    <div class="record-des">
+                        <h3>活动类型 ：</h3>
+                        <p>{{el.lx}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>起止时间 ：</h3>
+                        <p>{{el.kssj}}--{{el.jssj}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>过程描述 ：</h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>收获感想 ：</h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+                    <div class="record-des" ms-visible="extend.shzt == 3">
+                        <h3>审核意见 ：</h3>
+                        <p>{{el.shyj}}</p>
+                    </div>
+                    <!--图片-->
+                    <div class="img-ary" ms-visible="el.photo_guid && el.photo_guid.length>0">
+                        <div>
+                            <!--ms-for: ($index,col) in @el.img_arr-->
+                            <img  ms-attr="{src:@url_img(col.guid)}" alt="图片">
+                            <!--ms-for-end:-->
+                        </div>
+                    </div>
+                    <div class="img-ary">
+                        <!--ms-for: ($index,col) in @el.video_arr-->
+                        <p class="file-name">
+                            <span class="video my-icon"></span><a ms-click="to_show_video(col.down_href)">{{col.inner_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="img-ary">
+                        <!--ms-for: ($index,col) in @el.file_arr-->
+                        <p class="file-name">
+                            <span class="file my-icon"></span><a ms-attr="{href:col.down_href}">{{col.inner_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="btns clearfix" ms-visible="@extend.shzt==1 && @user_type != 3">
+                        <span class="pass select-material"  ms-click="no_pass(el)">取消遴选为评价材料</span>
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--ms-for:($idx,el) in @list-->
+            <div class="daily-person clearfix" ms-visible="el.mk == 4">
+                <!--头部-->
+                <div class="person-head clearfix">
+                    <span>{{el.bt}}</span>
+                    <span ms-class="[el.score>0 ? 'add-score':'reduce-score']">{{el.xgsj | time_ten}}&nbsp;&nbsp;{{el.mkmc}}</span>
+                </div>
+                <!--内容和图片-->
+                <div class="person-con">
+                    <div class="record-des">
+                        <h3>活动类型 ：</h3>
+                        <p>{{el.lx}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>起止时间 ：</h3>
+                        <p>{{el.kssj}}--{{el.jssj}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>过程描述 ：</h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>收获感想 ：</h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+                    <div class="record-des" ms-visible="extend.shzt == 3">
+                        <h3>审核意见 ：</h3>
+                        <p>{{el.shyj}}</p>
+                    </div>
+                    <!--图片-->
+                    <div class="img-ary" ms-visible="el.photo_guid && el.photo_guid.length>0">
+                        <div>
+                            <!--ms-for: ($index,col) in @el.img_arr-->
+                            <img  ms-attr="{src:@url_img(el2.guid)}" alt="图片">
+                            <!--ms-for-end:-->
+                        </div>
+                    </div>
+                    <div class="img-ary">
+                        <!--ms-for: ($index,col) in @el.video_arr-->
+                        <p class="file-name">
+                            <span class="video my-icon"></span><a ms-click="to_show_video(col.down_href)">{{col.inner_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="img-ary">
+                        <!--ms-for: ($index,col) in @el.file_arr-->
+                        <p class="file-name">
+                            <span class="file my-icon"></span><a ms-attr="{href:col.down_href}">{{col.inner_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="btns clearfix" :visible="@user_type != 3">
+                        <span class="pass select-material" ms-click="no_pass(el)">取消遴选为评价材料</span>
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--暂无数据-->
+            <div ms-if="@list.length==0" class="no-data">
+                <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+<xmp ms-widget="{is:'page_title_div',title:'',reBack:'0'}">
+</xmp>
+<div class="am-g" ms-important="table">
+    <div id="user_div">
+        <div>
+            <form class="am-form am-form-inline am-text-right am-padding-top-sm ">
+                <span class="am-btn am-btn-primary" ms-on-click="@addInfo()">
+     新增
+    </span>
+            </form>
+        </div>
+        <div class="am-margin-top-sm">
+            <table class="am-table am-table-striped am-table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            序号
+                        </th>
+                        <th>
+                            类别代码
+                        </th>
+                        <th>
+                            类别名称
+                        </th>
+                        <th>
+                            备注
+                        </th>
+                        <th>
+                            使用状态
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ms-if="@exam_property.length == 0">
+                        <td ms-attr="{colspan:6}">
+                            暂无数据
+                        </td>
+                    </tr>
+                    <!--ms-for: $idx,el in @exam_property-->
+                    <tr>
+                        <td>
+                            {{$idx+1}}
+                        </td>
+                        <td>
+                            {{el.property_code}}
+                        </td>
+                        <td>
+                            {{el.property_name}}
+                        </td>
+                        <td>
+                            {{el.remark}}
+                        </td>
+                        <td>
+                            <span class="am-icon-toggle-on" ms-on-click="@statusOn(el.id,el.status)" ms-visible="el.status==1">
+       </span>
+                            <span class="am-icon-toggle-off" ms-on-click="@statusOn(el.id,el.status)" ms-visible="el.status==2">
+       </span>
+                        </td>
+                        <td>
+                            <a class="tab-btn tab-trash-btn" ms-on-click="propertyDelete(el.id)" title="删除">
+                            </a>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+        <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+        </xmp>
+    </div>
+    <!--添加修改-->
+    <div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                {{@modal.title}}
+                <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+     ×
+    </a>
+            </div>
+            <div class="am-modal-bd">
+                <form class="am-form am-form-horizontal">
+                    <div class="am-form-group">
+                        <label class="am-u-sm-3 am-form-label">
+                     考试类别
+                    </label>
+                        <div class="am-u-sm-9 ">
+                            <input class="am-hide" type="text" />
+                            <input class="am-modal-prompt-input" ms-duplex="@compileData.property_name" placeholder="请输入班级类别（必填）" type="text" />
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-sm-3 am-form-label">
+                     备注
+                    </label>
+                        <div class="am-u-sm-9">
+                            <input class="am-modal-prompt-input" ms-duplex="@compileData.remark" placeholder="请输入备注" type="text" />
+                        </div>
+                    </div>
+                </form>
+                <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@compile()">
+     提交
+    </span>
+            </div>
+        </div>
+    </div>
+</div>

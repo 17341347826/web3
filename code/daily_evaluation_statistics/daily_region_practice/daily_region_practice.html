@@ -1,0 +1,140 @@
+<div ms-important="daily_comprehensive_practice" class="d_e_progress" id="daily_portrait_target">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl " ms-click="@to_page('daily_region_target')">目标计划与完成情况</div>
+            <div class="am-fl chosen" ms-click="@to_page('daily_region_practice')">综合实践活动</div>
+            <div class="am-fl " ms-click="@to_page('daily_region_special')">日常表现与个性特长</div>
+            <div class="am-fl " ms-click="@to_page('daily_region_award')">获奖情况</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+    </div>
+    <div class="sec_index">
+        <div class="radios">
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(1)" id="option1" ms-duplex-number="@html_display" class="rdo" value="1">
+                <label ms-attr="{for:'option1'}">综合等级</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(2)" id="opition2" ms-duplex-number="@html_display" class="rdo" value="2">
+                <label ms-attr="{for:'opition2'}">评价维度</label>
+            </label>
+            <label class="am-radio-inline" >
+                <input type="radio" ms-click="@presentation_change(3)" id="option3" ms-duplex-number="@html_display" class="rdo" value="3">
+                <label ms-attr="{for:'option3'}">评价要素</label>
+            </label>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            综合实践活动分析（全市）
+        </div>
+        <div class="tb-content" ms-visible="filter_city(@city_process_list).length>0">
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市分析
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">区域</td>
+                        <td ms-attr="{colspan:6}" >综合实践活动材料人均记录数量</td>
+                        <td rowspan="2">平均得分</td>
+                    </tr>
+                    <tr>
+                        <td>思想品德</td>
+                        <td>学业水平</td>
+                        <td>身心健康</td>
+                        <td>艺术素养</td>
+                        <td>社会实践</td>
+                        <td>合计</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr>
+                        <td class="city-td">{{el.qysx}}</td>
+                        <td>{{el.sxpd}}</td>
+                        <td>{{el.xysp}}</td>
+                        <td>{{el.sxjk}}</td>
+                        <td>{{el.yssy}}</td>
+                        <td>{{el.shsj}}</td>
+                        <td>{{filter_undefined(el.hj,2)}}</td>
+                        <td>{{filter_undefined(el.pjdf,2)}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="filter_city(@city_process_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<4">
+        <div class="title">
+            综合实践活动分析（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao district-tb" ms-visible="filter_area(@area_process_list).length>0"  ms-class="@user_level==3? 'district_user':''">
+                <div class="biao-title">
+                    区县分析
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-visible="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area,head_value:@default_area_area}"></xmp>
+                    </div>
+
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="filter_area(@area_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">区域</td>
+                        <td ms-attr="{colspan:6}">综合实践活动材料人均记录数量</td>
+                        <td rowspan="2">平均得分</td>
+                    </tr>
+                    <tr>
+                        <td>思想品德</td>
+                        <td>学业水平</td>
+                        <td>身心健康</td>
+                        <td>艺术素养</td>
+                        <td>社会实践</td>
+                        <td>合计</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                        <td class="district-td">{{el.qysx}}</td>
+                        <td>{{el.sxpd}}</td>
+                        <td>{{el.xysp}}</td>
+                        <td>{{el.sxjk}}</td>
+                        <td>{{el.yssy}}</td>
+                        <td>{{el.shsj}}</td>
+                        <td>{{el.hj}}</td>
+                        <td>{{filter_undefined(el.pjdf)}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="filter_area(@area_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

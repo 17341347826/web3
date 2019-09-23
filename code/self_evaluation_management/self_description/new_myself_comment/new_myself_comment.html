@@ -1,0 +1,31 @@
+<div class="am-g" ms-important="table" id="comment_my">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-text-left" id="demand">
+        <!--<div>is_fill是【{{@is_fill}}】</div>-->
+        <!--<div :if="is_fill == 1">当前可编辑的是{{@current_se_id}}</div>-->
+        <!--<div :if="is_fill == 2">当前不可编辑</div>-->
+
+        <div class="comment_my_div">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th width="220px">学年学期</th>
+                    <th>评语</th>
+                    <th width="100px">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ms-for="item in @semester">
+                        <td>{{item.semester_name}}</td>
+                        <td class="context_my" :if="@item.content != null">{{@item.content.content_my}}</td>
+                        <td class="context_my" :if="@item.content == null">{{@item.content}}</td>
+                        <td>
+                            <a class='tab-btn tab-edit-btn' title='编辑' ms-click="@add_content(item)" :if="@is_fill == 1 && @current_se_id == @item.id "></a>
+                            <a class='tab-btn tab-edit-btn-disabled' title='不可编辑' ms-click="disabled_tips" :if="@is_fill != 1 || @current_se_id != @item.id"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

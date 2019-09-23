@@ -1,0 +1,76 @@
+#evaluation_scale{
+    background-color: #f1f2f6;;
+}
+#evaluation_scale>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#evaluation_scale>div.first-index{
+    margin-top: 4px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+#evaluation_scale>div.first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: default;
+}
+#evaluation_scale>div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../common/images/chosen.png') no-repeat top right;
+}
+#evaluation_scale .old-select select{
+    width: auto;
+}
+#evaluation_scale .scale-tab> thead > tr > th {
+    border-bottom: none;
+}
+.border-right {
+    border-right: 1px solid #f1f2f6;
+}
+.index_count>tbody>tr:last-child>td {
+    border-bottom: none;
+}
+#evaluation_scale .first-table{
+    margin-top: 4px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    overflow: auto;
+}
+
+#evaluation_scale .first-table>p{
+    font-size: 18px;
+    color: #0dba9e;
+    text-align: center;
+    margin-top: 4px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.am-table .t_width{
+    max-width: 100px;
+    overflow: hidden;
+    line-height: 40px;
+    text-overflow:ellipsis;
+}
+
+#evaluation_scale .no_data{
+    padding: 6px 0;
+    text-align: center;
+    font-size: 16px;
+}

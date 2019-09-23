@@ -1,0 +1,39 @@
+<div ms-important="promise_list" id="promise_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <!--ms-for: ($index,el) in @user_list-->
+            <div class="am-fl" :class="[(@user_num==$index ? 'chosen':'')]" ms-on-click="@user_change($index,el)">{{el.name}}</div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <!--区县-->
+            <div class="select" :if="@login_level == 2">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@change_area,head_value:@head_value.area}"></xmp>
+            </div>
+            <div class="select" :if=" @login_level == 3">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@change_area,head_value:@head_value.area}"></xmp>
+            </div>
+            <!--学校-->
+            <div class="select" :if="@type == 2 || @type == 3">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@school_list,sel_check:@change_school,head_value:@head_value.school}"></xmp>
+            </div>
+            <!--年级-->
+            <div class="select" :if="@type == 3 || @type == 4 || @type == 5">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade}"></xmp>
+            </div>
+            <!--班级-->
+            <div class="select" :if="@type == 3 || @type == 4 || @type == 5">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,only_hash:@only_hash,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+    </div>
+</div>

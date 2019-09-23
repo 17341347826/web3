@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <title>眉山市初中学生综合素质评价</title>
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+    <link rel="stylesheet" href="common/lib/amazeui.datetimepicker.css">
+    <!--<link rel="stylesheet" href="common/lib/bootstrap-datetimepicker.min.css">-->
+    <!--<link href="//cdn.bootcss.com/layer/3.0/skin/default/layer.min.css" rel="stylesheet">-->
+    <link href="common/lib/layer.min.css" rel="stylesheet">
+    <link href="common/lib/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./common/public.css">
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+
+    <script src="common/lib/spin.min.js"></script>
+
+    <style>
+        html {
+            background-color: #f1f2f6;
+        }
+
+        body {
+            min-width: 1000px !important;
+            background-color: rgb(251, 251, 251);
+            overflow: visible;
+            overflow-x: hidden;
+            overflow-y: visible;
+            font-family: "微软雅黑";
+        }
+
+        #content_body label {
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        /*背景图片及子系统容器*/
+        #sub-body {
+            position: relative;
+            margin-top: 60px;
+            width: 100%;
+            height: 400px;
+            background-color: red;
+            background: url("./common/images/subsystem.jpg") ;
+            background-size: cover;
+        }
+        @media screen and (max-width: 1366px) {
+            #sub-body {
+                background: url("./common/images/subsystem2.jpg") ;
+                background-size: cover;
+            }
+        }
+
+        #sub-body > .stu-com, #sub-body > .stu-quality, #sub-body > .tea-com {
+            position: absolute;
+            bottom: -100px;
+            padding: 18px 14px 0;
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border: 1px solid #d5d5d5;
+            box-shadow: 5px 5px 5px #888888;
+        }
+
+        /*学生综合素质评价*/
+        #sub-body > .stu-com {
+            left: 5%;
+        }
+
+        /*学生质量检测*/
+        #sub-body > .stu-quality {
+            left: 40%;
+        }
+
+        /*教师综合素质评价*/
+        #sub-body > .tea-com {
+            right: 5%;
+        }
+
+        /*描述*/
+        #sub-body .des {
+            padding: 0 10px;
+            font-size: 16px;
+            text-indent: 40px;
+        }
+        #sub-body .go-in-container{
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+        }
+        #sub-body .go-in{
+            display: inline-block;
+            vertical-align: top;
+            width: 40px;
+            height: 25px;
+            background: url("./common/images/goin.png") center no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div ms-controller="main" class="ms-controller">
+    <xmp ms-widget="{is:'ms-ele-login-header',id:'header', menu:@data.menu, user:@data.user}"></xmp>
+    <div id="sub-body">
+        <div class="stu-com">
+            <label class="am-form-label">学生综合素质评价</label>
+            <p class="des">德智体美劳，全面发展，培养学生兴趣特长的养成</p>
+            <div class="go-in-container">
+                <a href="#" ms-click="@go_in_index">进入<span class="go-in"></span></a>
+            </div>
+
+        </div>
+        <div class="stu-quality">
+            <label class="am-form-label">学生学业质量检测</label>
+            <p class="des">检测学生学业发展质量，科学指导学生制定个性化学习方向</p>
+            <div class="go-in-container">
+                <a href="">进入<span class="go-in"></span></a>
+            </div>
+        </div>
+        <div class="tea-com">
+            <label class="am-form-label">教师综合素质评价</label>
+            <p class="des">促进教师综合素质全面发展，提升个人综合能力</p>
+            <div class="go-in-container" >
+                <a href="#" ms-click="@go_in_teacher">进入<span class="go-in"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wait" style="width:100%;">
+</div>
+<script>
+    var opts = {
+        lines: 11 // The number of lines to draw
+        , length: 30 // The length of each line
+        , width: 2 // The line thickness
+        , radius: 30 // The radius of the inner circle
+        , scale: 1 // Scales overall size of the spinner
+        , corners: 1 // Corner roundness (0..1)
+        , color: '#000' // #rgb or #rrggbb or array of colors
+        , opacity: 0.55 // Opacity of the lines
+        , rotate: 90 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 1 // Rounds per second
+        , trail: 60 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '50%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
+        , shadow: true // Whether to render a shadow
+        , hwaccel: true // Whether to use hardware acceleration
+        , position: 'absolute' // Element positioning
+    };
+    var target = document.getElementById('wait');
+    var content = document.getElementById('content_body');
+    var spinner = new Spinner(opts).spin(target);
+    var height = document.documentElement.clientHeight - 80;
+    target.style.height = height + "px";
+</script>
+<script src="const.js"></script>
+<script src="common/lib/require/require.min.js" defer async="true" data-main="subsystem_list"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<div ms-important="term_new_result" id="term_new_result">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@change_grade,head_value:@data.ca_grade}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@sem_list,sel_check:@change_sem,head_value:@data.ca_semester}"></xmp>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="查询" ms-on-click="@click">
+
+            </div>
+            <div class="search-btn">
+                <input type="button" value="统计" ms-on-click="@start">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>学期</th>
+                    <th>年级</th>
+                    <th>类型</th>
+                    <th>起始时间</th>
+                    <th>截止时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{data.ca_semester}}</td>
+                    <td>{{data.ca_grade}}</td>
+                    <td>行政</td>
+                    <td>{{data.ca_start_semester}}</td>
+                    <td>{{data.ca_end_semester}}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

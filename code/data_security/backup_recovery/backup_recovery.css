@@ -1,0 +1,47 @@
+#backup_recovery{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+}
+#backup_recovery>div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#backup_recovery .table-module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#backup_recovery .teacher_div{
+    border-bottom: 1px #a2a2a2 dashed;
+    padding-bottom: 10px;
+}
+#backup_recovery .teacher_{
+    width: 60%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px #a2a2a2 solid;
+    color: #a2a2a2;
+}
+#backup_recovery .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+#backup_recovery  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#backup_recovery .search-btn input[type='button']{
+    width: auto;
+}

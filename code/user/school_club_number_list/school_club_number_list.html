@@ -1,0 +1,118 @@
+<div class="am-g" id="school_club_number_list" ms-controller="school_club_number_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='ul_tab clearfix'>
+        <div class="am-fl" :if="@highest_level==2" ms-on-click="go_href(1)">按市</div>
+        <div class="am-fl" :if="@highest_level==2 || @highest_level==3" ms-on-click="go_href(2)">按区县</div>
+        <div class="am-fl chosen" ms-on-click="go_href(3)">按学校</div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--区县-->
+            <div class="select" :if="@highest_level==2">
+                <div class="old-select">
+                    <select data-duplex-changed="@disc_change()" ms-duplex="district">
+                        <option ms-attr="{value:''}">
+                            请选择区县
+                        </option>
+                        <!--ms-for: el in @disc_list-->
+                        <option ms-attr="{value:el.id+'|'+el.district}">
+                            {{el.district}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--学校-->
+            <div class="select" :if="@highest_level==2 || @highest_level==3">
+                <div class="old-select">
+                    <select data-duplex-changed="@school_change()" ms-duplex="@school">
+                        <option ms-attr="{value:''}">
+                            请选择学校
+                        </option>
+                        <!--ms-for: el in @school_list-->
+                        <option ms-attr="{value:el.schoolname}">
+                            {{el.schoolname}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="导出" :click="@club_export()">
+            </div>
+            <div class="search-btn">
+                <input type="button" value="打印" :click="@club_printing()">
+            </div>
+        </div>
+    </div>
+    <div :if="!@msg_show" >
+        <div class="table_module"  id="print_content">
+            <table class="am-table am-table-hover ">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        市州
+                    </th>
+                    <th>
+                        区县
+                    </th>
+                    <th>
+                        学校
+                    </th>
+                    <th>
+                        社团个数
+                    </th>
+                    <th>
+                        参加总人数
+                    </th>
+                    <!--<th>-->
+                    <!--参与率-->
+                    <!--</th>-->
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody :if="@evaluation_data.length!=0">
+                <!--ms-for: $idx,el in @evaluation_data-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.city}}
+                    </td>
+                    <td>
+                        {{el.district}}
+                    </td>
+                    <td>
+                        {{el.schoolname}}
+                    </td>
+                    <td>
+                        {{el.community_num}}
+                    </td>
+                    <td>
+                        {{el.person_num}}
+                    </td>
+                    <!--<td>-->
+                    <!--{{el.effective_num/el.total_num*100|('2','')}}%-->
+                    <!--</td>-->
+                    <td>
+                        <a class='tab-btn tab-details-btn' ms-on-click='@detail(el.id)' title='查看'></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="@evaluation_data.length==0">
+                <tr>
+                    <td colspan="7">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

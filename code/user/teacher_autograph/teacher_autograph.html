@@ -1,0 +1,64 @@
+<div class="am-g" id="teacher_autograph" ms-important="teacher_autograph">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange" ms-duplex-number="@data.grade_id">
+                        <!--ms-for:($index,el) in grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@data.class_id" data-duplex-changed="@classChange">
+                        <!--ms-for:($index,el) in class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="teacher_autograph_con">
+        <div class="table_module">
+            <table class="am-table am-table-hover">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>学籍号</th>
+                    <th>姓名</th>
+                    <th>签名内容</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody :if="@list_info.length > 0">
+                <!--ms-for: $index,el in @list_info-->
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{el.student_num}}</td>
+                    <td>{{el.student_name}}</td>
+                    <td class="img_td">
+                        <img ms-attr="{src:el.src}" alt="">
+                    </td>
+                    <td :if="el.is_adopt_audit == 0  && el.sign_img != ''">
+                        <a class='tab-btn tab-pass-btn' ms-on-click="@click_btn(el.guid,1)" title="通过"></a>
+                        <a class='tab-btn tab-pass-no-btn' ms-on-click="@click_btn(el.guid,2)" title="不通过"></a>
+                    </td>
+                    <td :if="el.is_adopt_audit != 0 || el.sign_img == ''">
+                        <a class='tab-btn tab-pass-btn-disabled'  title="通过"></a>
+                        <a class='tab-btn tab-pass-no-btn-disabled'  title="不通过"></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

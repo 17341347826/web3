@@ -1,0 +1,33 @@
+<div ms-important="new_free_test_based" id="new_free_test_based">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div class="add-punishments-content">
+            <!--学生姓名-->
+            <div class="p-line-max">
+                <div class="p-name-max">学生姓名</div>
+                <div class="p-input-max">
+                    <select class="js-example-basic-single" id="student_select">
+                        <option value="0">
+                            请选择
+                        </option>
+                        <option ms-attr="{value:el.guid+'|'+el.name+'|'+el.code+'|'+el.province+'|'+el.district+'|'+el.city+'|'+el.sex+'|'+el.grade_name+'|'+el.class_name}" ms-for="el in @student_arr">
+                            {{ el.name }}{{el.code}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="p-line material">
+                <div class="p-name">证实材料</div>
+                <div class="p-input">
+                    <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'uploader_free_based',id:'uploader_free_based', files:@files, url:@request_data.uploader_url}"></xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-p-btns">
+        <div class="btns">
+            <button type="button" class="am-btn-default" style="margin-left: 85px;" ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_daily()">提交</button>
+        </div>
+    </div>
+</div>

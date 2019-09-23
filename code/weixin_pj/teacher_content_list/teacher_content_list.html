@@ -1,0 +1,25 @@
+<div id="teacher_content_list" ms-important="teacher_content_list">
+    <div>
+        <div class="pointer" :if="@contentList[0].value_list.length == 0">
+            <!--ms-for: $idx,el in @contentList-->
+            <div class="content" ms-click="evaluate_click(el)" :class="[($idx == contentList.length-1 ? 'no_border':'')]">
+                <p>{{$idx+1}}、{{el.sub_subject}}({{el.index_value}})</p>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+        <div class="pointer" :if="@contentList[0].value_list.length > 0">
+            <!--ms-for: $idx,el in @contentList-->
+            <div class="content" ms-click="evaluate_click(el)" :class="[($idx == contentList.length-1 ? 'no_border':'')]">
+                <p>{{$idx+1}}、{{el.sub_subject}}({{el.index_value}})</p>
+                <!--ms-for: $key,col in @el.value_list-->
+                <p>{{col.index_option}}、{{col.index_option_content}}（{{col.item_values}}）</p>
+                <!--ms-for-end:-->
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+</div>
+<div>
+</div>
+
+

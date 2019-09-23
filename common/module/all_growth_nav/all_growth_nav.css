@@ -1,0 +1,27 @@
+#all_growth_nav {
+    position: fixed;
+    z-index:999;
+    top:50%;
+    right: 0;
+    padding: 0;
+    margin-top: -180px;
+    list-style: none;
+    border: 1px solid lightgrey;
+    border-top: none;
+    background:#f2f4f7;
+}
+#all_growth_nav li {
+    border-top: 1px solid lightgrey;
+}
+#all_growth_nav li:hover {
+    background: #4286dc;
+}
+#all_growth_nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+
+}
+#all_growth_nav li:hover a {
+    color: #fff;
+}

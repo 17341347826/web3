@@ -1,0 +1,92 @@
+<div ms-important="a_a_element" id="a_a_element">
+    <div class="a_f_content">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">评价维度</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select  class="weui-select" name="select2" ms-duplex="@frist_id_name"
+                             data-duplex-changed="@first_index_change">
+                        <option ms-attr="{value:''}">
+                            请选择评价维度
+                        </option>
+                        <!--ms-for:($idx,el) in @frist_index-->
+                        <option ms-attr="{value:el.id + '|' + el.index_name}">
+                            {{el.index_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">评价要素</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex="@data.index_name" type="text" placeholder="请输入要素名称">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">考察要点</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" ms-duplex="@data.index_review" placeholder="请输入考察要点" rows="3"></textarea>
+                    <div class="weui-textarea-counter"><span>{{@point_num}}</span>/200</div>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">分值</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex-number="@data.index_value" type="text" placeholder="请输入分值">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">创建</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" ms-duplex="@data.index_work" disabled>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">作者</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2" ms-duplex="@author_info">
+                        <option ms-attr="{value:''}">
+                            请选择
+                        </option>
+                        <!--ms-for:($idx,el) in @teacher_arr-->
+                        <option ms-attr="{value:el.teacher_name+'|'+el.guid}">
+                            {{el.teacher_name }}--{{el.teacher_num}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--<div>-->
+            <!--<label class="am-form-label">作者</label>-->
+            <!--<div class="select">-->
+            <!--<select id="teacher_select" ms-duplex="@frist_id_name">-->
+            <!--<option ms-attr="{value:''}">-->
+                <!--请选择-->
+            <!--</option>-->
+            <!--&lt;!&ndash;ms-for:($idx,el) in @teacher_arr&ndash;&gt;-->
+            <!--<option ms-attr="{value:el.teacher_name+'|'+el.guid}">-->
+                <!--{{el.teacher_name }}&#45;&#45;{{el.teacher_num}}-->
+            <!--</option>-->
+            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="public_btn_big">
+            <a ms-on-click="@save_data()">提交</a>
+        </div>
+    </div>
+</div>

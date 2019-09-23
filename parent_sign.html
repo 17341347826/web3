@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="pwZcyU5Ols"/>
+    <title>眉山市初中学生综合素质评价</title>
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+    <link rel="stylesheet" href="common/lib/amazeui.datetimepicker.css">
+    <script src="common/lib/head_statistics.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+    <style>
+        html, body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        body {
+            min-width: 1000px;
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .wx-box {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .wx-box .wx-ma {
+            display: none;
+            position: absolute;
+            left: -20px;
+        }
+
+        .wx-box:hover .wx-ma {
+            display: block;
+        }
+
+        .am-modal-dialog {
+            width: 300px;
+        }
+
+        /*注册*/
+        #am-modal-diasig {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .am-modal-hd,
+        .am-close,
+        .sign-btn,
+        .txt span {
+            /*color: #fff;*/
+        }
+
+        .am-modal-hd {
+            padding: 12px 10px;
+        }
+
+        .am-close {
+            opacity: .8
+        }
+
+        #sign-modal .msg,
+        #sign-modal .retMsg {
+            color: red;
+        }
+
+        /*注册*/
+        #sign-modal .sign-modelText > div {
+            margin-left: 30px;
+        }
+
+        /*字体颜色*/
+        #sign-modal .sign-modelText div span {
+            display: inline-block;
+            color: #000;
+            height: 30px;
+            line-height: 30px;
+            /*border:1px solid red;*/
+        }
+
+        #sign-modal .sign-modelText div .required {
+            color: red;
+            margin-left: 10px;
+            margin-right: 8px;
+        }
+
+        #sign-modal .sign-modelText div .left-css {
+            margin-right: 20px;
+        }
+
+        #sign-modal .sign-modelText div #kid_guid {
+            margin-left: -8px;
+        }
+
+        #sign-modal .txt span {
+            /*float: left;*/
+            font-size: .9em;
+            /*padding: 0 8px;*/
+        }
+
+        #sign-modal .txt input {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            outline: none;
+            float: none;
+            margin: 0 auto 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        /*input里面的placeholder设置*/
+        #sign-modal .txt input::-webkit-input-placeholder {
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #sign-modal .am-modal-bd {
+            padding: 15px 0;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        #sign-modal .sign-btn {
+            display: inline-block;
+            float: none;
+            /*padding: 7px 0;*/
+            /*letter-spacing: 15px;*/
+            background: #3ea3fe;
+            cursor: pointer;
+            color: #fff;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /*子女*/
+        #kidOut {
+            overflow: hidden;
+        }
+
+        #kids {
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        #kidOut a {
+            padding-top: 30px;
+            color: #3ea3fe;
+        }
+
+        #kidOut a:active {
+            color: red;
+        }
+
+        /*增加*/
+        #sign-modal #kidOut #add-kid {
+            float: left;
+            margin-top: -18px;
+            font-size: .9em;
+        }
+
+        /*删除*/
+        #sign-modal #kidOut #delete-kid {
+            float: left;
+            margin-top: -18px;
+            font-size: .9em;
+        }
+
+        #kidInformation {
+            float: left;
+            /*overflow: hidden;*/
+            /*border:1px solid red;*/
+        }
+
+        #kidInformation .kidName {
+            float: left;
+        }
+
+        #kidInformation #kidName {
+            margin-right: 30px;
+        }
+
+        #kidInformation .kidNumber {
+            float: left;
+        }
+
+        #kidInformation .add-kid {
+            margin-top: 10px;
+        }
+
+        #parent-name {
+            float: left;
+        }
+
+        #sign-modal input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset;
+        }
+
+        #sign-modal #userName, #sign-modal #parName {
+            margin-left: 3px;
+        }
+
+        #sign-modal #phone {
+            margin-left: 2px;
+        }
+
+    </style>
+</head>
+<body ms-controller="sign">
+<!--注册-->
+<div class="" id="sign-modal">
+    <div class="am-modal-dialog" id="am-modal-diasig" style="width:660px;">
+        <div style="color:#000" class="am-modal-hd am-padding-vertical-xl">
+            家长注册
+        </div>
+        <div class="am-modal-bd sign-modelText">
+            <div class="txt">
+                <div class="careful_one" style="color:red;margin-bottom:10px;font-size:.9em;">
+                    注：学生、教师、教育单位账户由系统统一分配，不需要注册
+                </div>
+            </div>
+            <div class="txt">
+                <span class="user-name left-css">用&nbsp;&nbsp;户&nbsp;名</span>
+                <input type="text" class="am-hide"/>
+                <input type="text" id="userName" placeholder="请输入用户名" ms-duplex="@signData.userName"
+                       ms-on-blur="@userName_check()">
+                <span class="required">*</span>
+                <span class="additional-infor">1到20位字母、数字、字母+数字、邮箱地址</span>
+            </div>
+            <div class="txt">
+                <span class="parent-name left-css">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                <input type="text" id="parName" placeholder="请输入姓名" ms-duplex="@signData.parName"
+                       ms-on-blur="@parName_check()">
+                <span class="required">*</span>
+            </div>
+            <!--子女信息-->
+            <div class="txt" id="kidOut">
+                <!--ms-for:($index,el) in @stu_info-->
+                <div id="kids" style="float:left;">
+                    <!--<span class="parent-name left-css" style='float:left;margin-top:13px;'>子&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;女</span>-->
+                    <div id="kidInformation" style="float:left;">
+                        <div class="kidName" id="kidName" style="float:left;">
+                            <span class="kid-name left-css">子女姓名</span>
+                            <input type="text" class="kidName" ms-duplex="el.stu_name" placeholder="请输入子女姓名">
+                            <!--<span class="required">*</span>-->
+                        </div>
+                        <div class="kidNumber">
+                            <span class="kid-number left-css" id="kid_guid">学籍号</span>
+                            <input type="text" class="kidNumber" ms-duplex="el.stu_num" placeholder="请输入子女学籍号">
+                            <span class="required">*</span>
+                        </div>
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+                <!--子女增加按钮-->
+                <a href="javascript: void(0)" id="add-kid" class="add-kid" ms-on-click="@addKid_check()">增加&nbsp;&nbsp;
+                    &nbsp;</a>
+                <!--子女减少按钮-->
+                <a href="javascript: void(0)" id="delete-kid" class="delete-kid" ms-on-click="@delete_check()">删除</a>
+            </div>
+            <div class=" am-text-center msg" ms-visible="@kidmsg != ''" style="font-size:.9em;text-align:left;">
+                {{kidmsg}}
+            </div>
+            <div class=" am-text-center msg" ms-visible="@kidmsg1 != ''" style="font-size:.9em;text-align:left;">
+                {{kidmsg1}}
+            </div>
+            <div class="txt">
+                <span class="input-pwd left-css">输入密码</span>
+                <input type="password" id="inputPwd" placeholder="请输入密码" ms-duplex="@signData.inputPwd"
+                       ms-on-blur="@inputPwd_check()">
+                <span class="required">*</span>
+                <span class="additional-infor">6到16字母、数字或组合</span>
+            </div>
+            <div class="txt">
+                <span class="insure-pwd left-css">确认密码</span>
+                <input type="password" id="insurePwd" placeholder="请输入密码" ms-duplex="@signData.insurePwd"
+                       ms-on-blur="@insurePwd_check()">
+                <span class="required">*</span>
+                <span class="additional-infor">两次密码必须一致</span>
+            </div>
+            <div class="txt">
+                <span class="input-pwd left-css">手&nbsp;&nbsp;机&nbsp;号</span>
+                <input type="text" id="phone" placeholder="请输入手机号" ms-duplex="@signData.phone"
+                       ms-on-blur="@phone_check()">
+            </div>
+            <div class=" am-text-center msg" ms-visible="@msg != ''">{{msg}}</div>
+            <div class=" am-text-center retMsg" ms-visible="@retMsg != '' && @msg == ''">{{retMsg}}</div>
+        </div>
+        <div class="am-padding-vertical-sm am-text-center" style="overflow: hidden">
+            <span class="sign-btn " data-am-modal-confirm ms-on-click="@sign">提交</span>
+        </div>
+        <div class="txt">
+            <span class="careful_one" style="color:red;">注：提交后将在学生端由学生进行确认，确认后家长账户即注册成功，方可使用</span>
+        </div>
+    </div>
+</div>
+<script src="common/lib/jquery.min.js"></script>
+<script src="common/lib/amazeui.js"></script>
+<script src="common/lib/avalon.js"></script>
+<script src="const.js"></script>
+<script src="common/module/request.js"></script>
+<script src="common/lib/bin/jsencrypt.js"></script>
+<script src="common/lib/rsa_public_key.js"></script>
+<!--<script src="//cdn.bootcss.com/layer/3.0/layer.min.js"></script>-->
+<script src="common/lib/layer.min.js"></script>
+<script>
+    avalon.ready(function () {
+//        注册
+        var signUrl = " http://pj.xtyun.net/api/base/parent/regist";
+        var sign = avalon.define({
+            $id: "sign",
+            a1: false,
+            a2: false,
+            a3: false,
+            a4: false,
+            a5: false,
+//            登录数据
+            data: {
+                account: "",
+                password: ""
+            },
+//           子女信息原本数据
+            stu_info: [{
+                stu_name: "",
+                stu_num: ""
+            }],
+//            注册数据
+            signData: {
+                userName: '',
+                parName: '',
+//                kidName:'',
+//                kidNumber:'',
+                inputPwd: '',
+                insurePwd: '',
+                phone: '',
+                stu: []
+            },
+            is_check: "",
+//子女信息提示
+            kidmsg: '',
+            kidmsg1: '',
+//            错误提示信息
+            msg: "",
+            retMsg: '',
+//            注册状态
+            retVal: '',
+//            注册窗口显示
+            signShow: function () {
+//                隐藏登录窗口
+                $("#login-modal").modal({
+                    closeOnConfirm: true
+                });
+                $("#sign-modal").modal({
+                    closeOnConfirm: false
+                });
+                //清空数据
+                this.msg = "";
+                this.signData.userName = '';
+                this.signData.parName = '';
+                this.signData.stu = '';
+                this.stu_info = [{stu_name: "", stu_num: ""}];
+                this.signData.inputPwd = '';
+                this.signData.insurePwd = '';
+                this.signData.phone = ''
+            },
+            // 用户名判断
+            userName_check: function () {
+                var self = this;
+                self.msg = "";
+//                var reg = /^(([a-zA-Z0-9]*)|((1(3|4|5|7|8)\d{9})))$/;
+                //字母、数字
+                var reg = /^(([a-zA-Z0-9]*)|([a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+))$/;
+
+
+                var _txt = $("#userName").val();
+                if ($.trim(_txt) != '' && _txt.length <= 20 && reg.test(_txt)) {
+                    self.a1 = true;
+                    self.msg = "";
+//                        self.parName_check();
+                } else {
+                    self.a1 = false;
+                    self.msg = "请按照用户名要求输入";
+                }
+            },
+//            姓名判断
+            parName_check: function () {
+                var self = this;
+                var reg = /^[\u4e00-\u9fa5]+$/;
+                var _txt = $("#parName").val();
+                if (reg.test(_txt) && $.trim(_txt) != '') {
+                    self.a2 = true;
+                    self.msg = "";
+//                    self.inputPwd_check();
+                } else {
+                    self.a2 = false;
+                    self.msg = "姓名请输入中文";
+                }
+            },
+//            子女
+//            子女添加
+            addKid_check: function () {
+                var stu = {};
+                stu["stu_name"] = "";
+                stu["stu_num"] = "";
+                if (this.stu_info.length < 4) {
+                    this.stu_info.push(stu);
+                }
+                this.kidmsg = '';
+            },
+//            子女删除
+            delete_check: function () {
+                var a = this.stu_info.length;
+                //删除提示
+                if (a == 1) {
+                    this.kidmsg = '当前这样一个子女，不能进行删除';
+                }
+                if (a > 1 && (this.stu_info[a - 1].stu_name != '' || this.stu_info[a - 1].stu_num != '')) {
+                    this.kidmsg1 = '多子女信息已填写,想删除此信息需删除多子女填写的内容';
+                }
+                if (a > 1 && this.stu_info[a - 1].stu_name == '' && this.stu_info[a - 1].stu_num == '') {
+                    //默认删除最后一条数据
+                    this.stu_info.pop();
+                    this.kidmsg1 = '';
+                }
+            },
+            // 密码
+            inputPwd_check: function () {
+                var self = this;
+                var password = $("#inputPwd").val();
+                var reg = /^[a-zA-Z0-9]{6,16}$/
+                if (reg.test(password)) {
+                    self.a3 = true;
+                    self.msg = "";
+//                    self.insurePwd_check();
+                } else {
+                    self.a3 = false;
+                    self.msg = "密码只能由数字、字母或者数字+字母组成、位数为6-16位";
+                }
+            },
+            //确认密码
+            insurePwd_check: function () {
+                var self = this;
+                var pwd1 = $("#inputPwd").val();
+                var pwd2 = $("#insurePwd").val();
+                if (pwd2 != pwd1) {
+                    self.a4 = false;
+                    self.msg = "密码须一致";
+                } else {
+//                    self.phone_check();
+                    self.a4 = true;
+                    self.msg = "";
+                }
+            },
+//            手机号
+            phone_check: function () {
+//                this.retVal=false;
+                var self = this;
+                var reg = /^((1(3|4|5|7|8)\d{9}))$/;
+                var _txt = $("#phone").val();
+                if (reg.test(_txt)) {
+//                    self.retVal=true;
+                    self.a5 = true;
+                    self.msg = "";
+//                    self.userName_check();
+                } else {
+                    self.a5 = false;
+                    self.msg = "请输入正确的手机号";
+                }
+//                return self.retVal;
+            },
+            // 提交
+            sign: function () {
+                var self = this;
+                self.retMsg = '';
+                if (self.a1 == true && self.a2 == true && self.a3 == true && self.a4 == true && self.a5 == true) {
+                    var publicKey = public_key;
+                    var encrypt = new JSEncrypt(); // 实例化加密对象
+                    encrypt.setPublicKey(publicKey); // 设置公钥
+                    var get_password = encrypt.encrypt(self.signData.inputPwd);
+                    ajax_post(signUrl,
+                        {
+                            account: self.signData.userName,
+                            name: self.signData.parName,
+                            password: get_password,
+                            phone: self.signData.phone,
+                            stu: self.stu_info
+                        }, self, self.is_check);
+                } else {
+                    if (self.a1 == false) {
+                        self.msg = '请按照用户名要求输入';
+                    } else if (self.a2 == false) {
+                        self.msg = '姓名请输入中文';
+                    } else if (self.a3 == false) {
+                        self.msg = '密码只能由数字、字母或者数字+字母组成、位数为6-16位';
+                    } else if (self.a4 == false) {
+                        self.msg = '密码须一致';
+                    } else if (self.a5 == false) {
+                        self.msg = '请输入正确的手机号';
+                    }
+                }
+            },
+            msgNull: function () {
+                this.msg = "";
+            },
+////            延迟操作
+//            late:function(){
+//                this.msg='注册成功等待子女确认';
+//                setTimeout('window.location = "http://pj.xtyun.net/Growth/index.html";',8000);
+//            },
+            on_request_complete: function (cmd, status, data, is_suc, msg) {
+                switch (cmd) {
+                    case signUrl:
+                        if (status == 200) {
+                            $("#sign-modal").modal({
+                                closeOnConfirm: false
+                            });
+                            layer.alert('注册完成，为信息安全须您子女用他（她）的账号进入系统，确认家长信息后，方可进入系统', {
+                                closeBtn: 0
+                            }, function () {
+                                window.location = "http://pj.xtyun.net/Growth/new_index.html";
+                            });
+                        } else {
+                            this.retMsg = data.message;
+                        }
+                        break;
+                }
+            },
+        });
+        avalon.scan(document.body);
+    })
+
+</script>
+</body>
+</html>

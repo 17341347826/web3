@@ -1,0 +1,48 @@
+<div ms-important="stu_score_detail" id="stu_score_detail" class="normalPaddding">
+    <!--ms-for: $idx,el in @everyday_list-->
+    <div class="each-event">
+        <div class="title-container">
+            <div>{{el.name}}</div>
+            <div>{{el.code | mtruncate(3,3)}}</div>
+            <div>{{el.everyday_date}}</div>
+        </div>
+        <div class="content">
+            <div class="event">
+                <div class="name">
+                    <span class="point"></span>
+                    <span class="each-name">事项：</span>
+                </div>
+                <div class="msg">
+                    {{el.item}}
+                </div>
+            </div>
+            <div class="event">
+                <div class="name">
+                    <span class="point"></span>
+                    <span class="each-name">描述：</span>
+                </div>
+                <div class="msg">
+                    {{el.description}}
+                </div>
+            </div>
+            <div class="imgs">
+                <!--ms-for: al in el.attachment-->
+                <img alt="图片" ms-attr="{src:@url_for(al.guid)}">
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <!--<div class="bottom">-->
+            <!--<span class="down" ms-if="$idx!=@open_index" ms-on-click="@open_hide($idx)"></span>-->
+            <!--<span class="up" ms-if="$idx==@open_index" ms-on-click="@close_hide($idx)"></span>-->
+        <!--</div>-->
+    </div>
+    <!--ms-for-end:-->
+    <div class="weui-loadmore" ms-if="@is_show_loader_more">
+        <i class="weui-loading">
+        </i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+    <div ms-if="@everyday_list.length == 0 && !@is_show_loader_more" style="text-align: center">
+        <img src="common/images/none.png" alt="图片">
+    </div>
+</div>

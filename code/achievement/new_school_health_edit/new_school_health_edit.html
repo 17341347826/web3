@@ -1,0 +1,224 @@
+<div ms-important="new_school_health_edit" id="new_school_health_edit">
+    <div class="content-title-h">
+        <h3>体质测评成绩录入</h3>
+        <div class="search-cont clearfix">
+            <div class="search-cont clearfix one_left" style="padding-left: 22px;">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade,$id:'score_edit_opt_grade'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'score_edit_opt_class'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester,  $id:'score_edit_opt_sem'}"></xmp>
+                </div>
+                <div class="form-input custom_select2">
+                    <select id="code_select" style="width: 220px;">
+                        <option value="-1">请选择学生学籍号</option>
+                        <option :attr="{value:$idx}" :for="$idx, item in @score_list">{{item.code}}</option>
+                    </select>
+                </div>
+                <div class="form-input custom_select2" >
+                    <select id="name_select" style="width: 220px;">
+                        <option value="-1">请选择学生姓名</option>
+                        <option :attr="{value:$idx}" :for="$idx, item in @score_list">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="content-nr" :visible="current_student_pos!=-1">
+            <div class="sex-tips">
+                <span>当前学生性别：</span>
+                <!--sex:1-男；2-女-->
+                <span>{{@current_stuInfo.sex | sex}}</span>
+            </div>
+            <div class="table-module">
+                <table class="am-table am-table-bordered">
+                    <tr>
+                        <td>身高</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.height" maxlength="3">
+                        </td>
+                        <td>体重</td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.weight" maxlength="5">
+                        </td>
+                        <td>体重评分</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.weight_score" ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>体重等级</td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.weight_lv">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>肺活量</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.vital_capacity"  ms-on-input="@inputLimits($event,10000)">
+                        </td>
+                        <td>肺活量评分</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex-number="@extend.vital_capacity_score" ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>肺活量等级</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex="@extend.vital_capacity_lv">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>50米跑</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_50" maxlength="4">
+                        </td>
+                        <td>50米跑评分</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex-number="@extend.run_50_score" ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>50米跑等级</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex="@extend.run_50_lv">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>立定跳远</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ldty" max="3">
+                        </td>
+                        <td>立定跳远评分</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex-number="@extend.ldty_score" ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>立定跳远等级</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex="@extend.ldty_lv">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>坐位体前屈</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.zqqq" maxlength="2">
+                        </td>
+                        <td>坐位体前屈评分</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex-number="@extend.zqqq_score" ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>坐位体前屈等级</td>
+                        <td colspan="2">
+                            <input type="text" ms-duplex="@extend.zqqq_lv">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>800米跑(女)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_800" ms-attr="{disabled:@current_stuInfo.sex == 1}" maxlength="6">
+                        </td>
+                        <td>800米跑评分(女)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_800_score" ms-attr="{disabled:@current_stuInfo.sex == 1}"
+                                   ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>800米跑等级(女)</td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.run_800_lv" ms-attr="{disabled:@current_stuInfo.sex == 1}">
+                        </td>
+                        <td>800米跑附加分(女)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_800_extra" ms-attr="{disabled:@current_stuInfo.sex == 1}"
+                                   ms-on-input="@inputLimits($event,10)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000米跑(男)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_1000" ms-attr="{disabled:@current_stuInfo.sex == 2}" maxlength="6">
+                        </td>
+                        <td>1000米跑评分(男)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_1000_score" ms-attr="{disabled:@current_stuInfo.sex == 2}"
+                                   ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>1000米跑等级(男)</td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.run_1000_lv" ms-attr="{disabled:@current_stuInfo.sex == 2}">
+                        </td>
+                        <td>1000米跑附加分(男)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_1000_extra" ms-attr="{disabled:@current_stuInfo.sex == 2}"
+                                   ms-on-input="@inputLimits($event,10)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>一分钟仰卧起坐(女)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ywqz" ms-attr="{disabled:@current_stuInfo.sex == 1}" maxlength="3">
+                        </td>
+                        <td>一分钟仰卧起坐评分(女)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ywqz_scor" ms-attr="{disabled:@current_stuInfo.sex == 1}"
+                                   ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>一分钟仰卧起坐等级(女)</td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.ywqz_lv" ms-attr="{disabled:@current_stuInfo.sex == 1}">
+                        </td>
+                        <td>一分钟仰卧起坐附加分(女)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ywqz_extra" ms-attr="{disabled:@current_stuInfo.sex == 1}"
+                                   ms-on-input="@inputLimits($event,10)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>引体向上(男)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ytxs" ms-attr="{disabled:@current_stuInfo.sex == 2}" maxlength="3">
+                        </td>
+                        <td>引体向上评分(男)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ytxs_score" ms-attr="{disabled:@current_stuInfo.sex == 2}"
+                                   ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>引体向上等级(男)</td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.ytxs_lv" ms-attr="{disabled:@current_stuInfo.sex == 2}">
+                        </td>
+                        <td>引体向上附加分(男)</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ytxs_extra" ms-attr="{disabled:@current_stuInfo.sex == 2}"
+                                   ms-on-input="@inputLimits($event,10)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>标准分</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.criteria_score"
+                                   ms-on-input="@inputLimits($event,100)">
+                        </td>
+                        <td>附加分</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.extra_score"
+                                   ms-on-input="@inputLimits($event,40)">
+                        </td>
+                        <td>总分</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.total_score"
+                                   ms-on-input="@inputLimits($event,140)">
+                        </td>
+                        <td>总分等级</td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.total_score_lv">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="hr"></div>
+            <div class="content-bottom">
+                <button class="button-one" :click="cancle()">取消</button>
+                <button class="button-two" :click="save_score()">保存</button>
+            </div>
+        </div>
+    </div>
+    <div class="no-msg" :visible="current_student_pos==-1">
+        请选择学生
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div ms-important="backup_recovery" id="backup_recovery">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@type_list,sel_check:@type_change,head_value:'手动备份'}"></xmp>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="自动备份" ms-click="@choose(1)">
+            </div>
+            <div class="search-btn">
+                <input type="button" value="手动备份" ms-click="@choose(2)">
+            </div>
+        </div>
+    </div>
+    <div class="table-module" :if="@type_sel == 1">
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+        </xmp>
+    </div>
+    <div class="table-module" :if="@type_sel == 2">
+        <div id="class-module">
+            <table class="am-table am-table-hover">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>备份周期</th>
+                    <th :visible="@dataList[0].bk_cycle == 3">备份日期</th>
+                    <th>备份时间</th>
+                    <th>类型</th>
+                    <th :visible="@dataList[0].bk_cycle == 2">备份星期</th>
+                    <th>保留时常</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($index,el) in @dataList-->
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>
+                        <span :visible="el.bk_cycle == 1">每天</span>
+                        <span :visible="el.bk_cycle == 2">每周</span>
+                        <span :visible="el.bk_cycle == 3">每月</span>
+                    </td>
+                    <td :visible="el.bk_cycle == 3">每月{{el.bk_date}}号</td>
+                    <td>{{el.bk_time}}</td>
+                    <td>
+                        <span :visible="el.bk_type == 0">完全备份</span>
+                        <span :visible="el.bk_type == 1">增量备份</span>
+                    </td>
+                    <td :visible="el.bk_cycle == 2">
+                        <span :visible="el.bk_week == 2">周一</span>
+                        <span :visible="el.bk_week == 3">周二</span>
+                        <span :visible="el.bk_week == 4">周三</span>
+                        <span :visible="el.bk_week == 5">周四</span>
+                        <span :visible="el.bk_week == 6">周五</span>
+                        <span :visible="el.bk_week == 7">周六</span>
+                        <span :visible="el.bk_week == 0">周日</span>
+                    </td>
+                    <td>{{el.persist_day}}天</td>
+                    <td>
+                        <a class='tab-btn tab-edit-btn' title='恢复' ms-on-click=''></a>
+                        <a class='tab-btn tab-download' title='下载' ms-on-click=''></a>
+
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

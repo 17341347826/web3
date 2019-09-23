@@ -1,0 +1,19 @@
+#add_wx_practice input{
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    color: black;
+    border: none;
+}
+#add_wx_practice input.weui-uploader__input{
+    height: 79px;
+}
+#add_wx_practice input:focus{
+    outline:none;
+}
+.disabled_class {
+    background-color: #9da29d;
+}
+#add_wx_practice .jilu-label{
+    margin-left: 5px;
+}

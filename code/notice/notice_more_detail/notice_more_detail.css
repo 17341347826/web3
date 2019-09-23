@@ -1,0 +1,44 @@
+#notice_more_detail{
+    padding:16px 16px 40px;
+}
+#notice_more_detail .con{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+#notice_more_detail .con-name,
+#notice_more_detail .con-list{
+    padding:16px 16px 10px;
+}
+#notice_more_detail .con-name{
+    font-size: 16px;
+    font-weight: 600;
+}
+#notice_more_detail .con-list .list-person{
+    margin-bottom:10px;
+}
+/*下载文件*/
+#notice_more_detail .download_files{
+    margin-top:30px;
+}
+#notice_more_detail .download_files a{
+    height: 36px;
+    /*line-height:36px;*/
+    padding-left:10px;
+    padding-right:10px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #2bbba4;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+/*图片*/
+#notice_more_detail .image-ary{
+
+}
+#notice_more_detail .image-ary img{
+    max-width:100%;
+    /*max-height:300px;*/
+    display:block;
+    margin-top:10px;
+}

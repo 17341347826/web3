@@ -1,0 +1,156 @@
+<div ms-important="d_e_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+    
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            审核进度（全市）
+        </div>
+        <div class="tb-content" ms-visible="@filter_city(@city_process_list).length>0">
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市审核进度
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td >单位</td>
+                        <td >年级</td>
+                        <td >上传总数</td>
+                        <td >已审核记录数</td>
+                        <td >未审核记录数</td>
+                        <td >审核完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr>
+                       <td ms-attr="{rowspan:@count(@filter_city(@city_process_list), 'city', el.city)}" ms-visible="$index==0 || row_length==1">
+                            {{el.city}}
+                        </td>                        
+                        <td>{{el.grade_name}}</td>
+                        <td>{{filter_undefined(el.city_cnt.total_records_num)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.audited_records_num)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.unaudited_rec_num)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.audit_finish_rate,2,true)}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="@filter_city(@city_process_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            审核进度（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_area(@area_process_list).length>0">
+                <div class="biao-title">
+                    区县审核进度
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-visible="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area,head_value:'请选择区县'}"></xmp>
+                    </div>
+                   
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_area(@area_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_area(@area_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td >单位</td>
+                        <td >年级</td>
+                        <td >上传总数</td>
+                        <td >已审核记录数</td>
+                        <td >未审核记录数</td>
+                        <td >审核完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.district != filter_area(area_process_list)[$index-1].district" ms-attr="{rowspan:@count(@filter_area(@area_process_list),'district' ,el.district)}" >
+                            {{el.district}}
+                        </td>                        
+                        <td>{{el.grade_name}}</td>
+                        <td>{{filter_undefined(el.district_cnt.total_records_num)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.audited_records_num)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.unaudited_rec_num)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.audit_finish_rate,2,true)}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            审核进度（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_school(@school_process_list).length>0">
+                <div class="biao-title">
+                    学校审核进度
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,default_value:@default_area,sel_check:@sel_change_area_2,head_value:'请选择区县'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <input type="text" placeholder="请输入学校" ms-duplex="@school_p.school_name" data-duplex-changed="@search">
+                    </div>
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_school(@school_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_school(@school_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td >单位</td>
+                        <td >年级</td>
+                        <td >上传总数</td>
+                        <td >已审核记录数</td>
+                        <td >未审核记录数</td>
+                        <td >审核完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@school_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != @filter_school(school_process_list)[$index-1].schoolname" ms-attr="{rowspan:@count(@filter_school(@school_process_list), 'schoolname', el.schoolname)}" >
+                            {{el.schoolname}}
+                        </td> 
+                        <td>{{el.status}}</td>
+                        <td>{{filter_undefined(el.detail.school_cnt.total_records_num)}}</td>
+                        <td>{{filter_undefined(el.detail.school_cnt.audited_records_num)}}</td>
+                        <td>{{filter_undefined(el.detail.school_cnt.unaudited_rec_num)}}</td>
+                        <td>{{filter_undefined(el.detail.school_cnt.audit_finish_rate,2,true)}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

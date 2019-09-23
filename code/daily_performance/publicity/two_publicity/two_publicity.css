@@ -1,0 +1,8 @@
+#two_publicity{
+    background-color: #f1f2f6;
+}
+#two_publicity>div{
+    background-color: white;
+    padding-left:16px;
+    padding-right:16px;
+}

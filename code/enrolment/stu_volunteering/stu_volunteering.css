@@ -1,0 +1,40 @@
+#stu_volunteering{
+    background-color: #f1f2f6;
+}
+#stu_volunteering>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#stu_volunteering .s-v-con{
+    overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#stu_volunteering #class-module{
+    width: 100%;
+    overflow-x: auto;
+}
+
+#stu_volunteering .progress-bar-box{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: -14px;
+}
+#stu_volunteering .progress-bar-box>.progress-bar-num{
+    text-align: center;
+    color:#ffc343;
+    font-size: 18px;
+}
+#stu_volunteering .progress-bar-box>.progress-bar-bg{
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #ebebeb;
+}
+#stu_volunteering .progress-bar-con {
+    height: 100%;
+    border-radius: 3px;
+    background: #ffc343;
+}

@@ -1,0 +1,217 @@
+<div ms-important="achieve_introduct_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            成绩导入进度（全市）
+        </div>
+        <div class="tb-content" ms-visible="@filter_city(@city_process_list).length>0">
+            <div class="tu-biao" >
+                <div class="biao-title biao-title-city">
+                    全市完成率
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge" >
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">市</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">学业成绩</td>
+                        <td colspan="3">体质健康成绩</td>
+                        <td colspan="3">艺术测评成绩</td>
+                        <td rowspan="2">总完成率</td>
+
+                    </tr>
+                    <tr>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                    </tr>
+                     <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr>
+                        <td ms-attr="{rowspan:@row_length}" ms-visible="$index==0 || row_length==1">
+                            {{el.city}}
+                        </td>                        
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{@value(el,"cj.num",0)|people}}</td>
+                        <td>{{el.cj.wdr|people}}</td>
+                        <td>{{el.cj.wcl | percent }}%</td>
+                        <td>{{@value(el,"tzcp.num",0)|people}}</td>
+                        <td>{{el.tzcp.wdr|people}}</td>
+                        <td>{{el.tzcp.wcl | percent }}%</td>
+                        <td>{{@value(el,"ys.num",0)|people}}</td>
+                        <td>{{el.ys.wdr|people}}</td>
+                        <td>{{el.ys.wcl | percent }}%</td>
+                        <td>{{el.wcl|percent }}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="filter_city(@city_process_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            成绩导入进度（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_area(@area_process_list).length>0">
+                <div class="biao-title">
+                    区县完成率
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-visible="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area,head_value:'请选择区县'}"></xmp>
+                    </div>
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_area(@area_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_area(@area_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">区县</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">学业成绩</td>
+                        <td colspan="3">体质健康成绩</td>
+                        <td colspan="3">艺术测评成绩</td>
+                        <td rowspan="2">总完成率</td>
+
+                    </tr>
+                    <tr>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list) -->
+                    <tr>
+                        <td ms-if="$index==0||el.district != @filter_area(area_process_list)[$index-1].district"
+                            ms-attr="{rowspan:@count(@filter_area(area_process_list),'district', el.district)}" >
+                            {{el.district}}
+                        </td>                        
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{@value(el,"cj.num",0)|people}}</td>
+                        <td>{{el.cj.wdr|people}}</td>
+                        <td>{{el.cj.wcl | percent }}%</td>
+                        <td>{{@value(el,"tzcp.num",0)|people}}</td>
+                        <td>{{el.tzcp.wdr|people}}</td>
+                        <td>{{el.tzcp.wcl | percent }}%</td>
+                        <td>{{@value(el,"ys.num",0)|people}}</td>
+                        <td>{{el.ys.wdr|people}}</td>
+                        <td>{{el.ys.wcl | percent }}%</td>
+                        <td>{{el.wcl|percent }}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            成绩导入进度（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_school(@school_process_list).length>0">
+                <div class="biao-title">
+                    学校完成率
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area_2,head_value:'请选择区县',default_value:@default_area}"></xmp>
+                    </div>
+                    <div class="select">
+                        <input type="text" placeholder="请输入学校" ms-duplex="@p_school.school_name" data-duplex-changed="@search">
+                    </div>
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_school(@school_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_school(@school_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">学校</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">学业成绩</td>
+                        <td colspan="3">体质健康成绩</td>
+                        <td colspan="3">艺术测评成绩</td>
+                        <td rowspan="2">总完成率</td>
+
+                    </tr>
+                    <tr>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                    </tr>
+                     <!--ms-for:($index,el) in @filter_school(@school_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != @filter_school(school_process_list)[$index-1].schoolname"
+                            ms-attr="{rowspan:@count(@filter_school(school_process_list), 'schoolname', el.schoolname)}" >
+                            {{el.schoolname}}
+                        </td>                        
+                        <td>{{el.status}}</td>
+                        <td>{{el.detail.used_count}}</td>
+                        <td><span ms-if="el.detail.cj!=0">{{@value(el,"detail.cj.num",0)|people}}</span><span ms-if="el.detail.cj==0">0.00</span></td>
+                        <td><span ms-if="el.detail.cj!=0">{{el.detail.cj.wdr|people}}</span><span ms-if="el.detail.cj==0">0.00</span></td>
+                        <td><span ms-if="el.detail.cj!=0">{{el.detail.cj.wcl | percent }}%</span><span ms-if="el.detail.cj==0">0.00</span></td>
+                        <td><span ms-if="el.detail.tzcp!=0">{{@value(el,"detail.tzcp.num",0)|people}}</span><span ms-if="el.detail.tzcp==0">0.00</span></td>
+                        <td><span ms-if="el.detail.tzcp!=0">{{el.detail.tzcp.wdr|people}}</span><span ms-if="el.detail.tzcp==0">0.00</span></td>
+                        <td><span ms-if="el.detail.tzcp!=0">{{el.detail.tzcp.wcl | percent }}%</span><span ms-if="el.detail.tzcp==0">0.00</span></td>
+                        <td><span ms-if="el.detail.ys!=0">{{@value(el,"detail.ys.num",0)|people}}</span><span ms-if="el.detail.ys==0">0.00</span></td>
+                        <td><span ms-if="el.detail.ys!=0">{{el.detail.ys.wdr|people}}</span><span ms-if="el.detail.ys==0">0.00</span></td>
+                        <td><span ms-if="el.detail.ys!=0">{{el.detail.ys.wcl | percent }}%</span><span ms-if="el.detail.ys==0">0.00</span></td>
+                        <td><span ms-if="el.detail.wcl!=0">{{el.detail.wcl|percent }}%</span><span ms-if="el.detail.wcl==0">0.00%</span></td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

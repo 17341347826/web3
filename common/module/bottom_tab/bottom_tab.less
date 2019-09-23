@@ -1,0 +1,80 @@
+@charset "utf-8";
+@borderColor: #e8e8e8;
+@bottomTabHeight: 44px;
+@bottomTabBackground: #ffffff;
+@img_url: "/common/images/weixin_pj/icon-bottom.png";
+@img_url2: "/common/images/weixin_pj/icon-bottom@2x.png";
+@tabFontSize: 10px;
+@tabFontColor: #b9b9b9;
+@width: 22px;
+@height: 22px;
+@left: 30px;
+@top: 30px;
+@activeColor: #4b93fe;
+#bottom-tab.bottom-tab {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: @bottomTabHeight;
+  border-top: 1px solid @borderColor;
+  background-color: @bottomTabBackground;
+  z-index: 999;
+  display: flex;
+  & > div {
+    flex: 1;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+  .tab-icon {
+    display: block;
+    width: @width;
+    height: @height;
+    margin: 0 auto;
+    background-image: url("@{img_url}");
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2) {
+    .tab-icon {
+      background-image: url("@{img_url2}");
+      background-size: 300px auto;
+    }
+  }
+  .tab-name {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: @tabFontSize;
+    color: @tabFontColor;
+  }
+  .base(@row_order,@top_order) {
+    @left_dis: @row_order*2;
+    @top_dis: @top_order*2;
+    background-position: -(@left+@width*@left_dis) -(@top+@height*@top_dis);
+  }
+  .home > span {
+    .base(0, 0);
+  }
+  .home.active > span {
+    .base(0, 1);
+  }
+  .evaluate > span {
+    .base(1, 0);
+  }
+  .evaluate.active > span {
+    .base(1, 1);
+  }
+  .about-me > span {
+    .base(2, 0);
+  }
+  .about-me.active > span {
+    .base(2, 1);
+  }
+  .active > p {
+    color: @activeColor;
+  }
+
+}
+

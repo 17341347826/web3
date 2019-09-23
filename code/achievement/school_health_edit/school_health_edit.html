@@ -1,0 +1,68 @@
+<div ms-important="school_health_edit" id="school_health_edit">
+    <div class="content-title-h">
+        <h3>体质测评成绩录入</h3>
+        <div class="search-cont clearfix">
+            <div class="search-cont clearfix one_left" style="padding-left: 22px;">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade,$id:'score_edit_opt_grade'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'score_edit_opt_class'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester,  $id:'score_edit_opt_sem'}"></xmp>
+                </div>
+                <div class="form-input custom_select2">
+                    <select id="code_select" style="width: 220px;">
+                        <option value="-1">请选择学生</option>
+                        <option :attr="{value:$idx}" :for="$idx, item in @score_list">{{item.code}}</option>
+                    </select>
+                </div>
+                <div class="form-input custom_select2" >
+                    <select id="name_select" style="width: 220px;">
+                        <option value="-1">请选择学生</option>
+                        <option :attr="{value:$idx}" :for="$idx, item in @score_list">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="content-nr" :visible="current_student_pos!=-1">
+            <div class="content-nr-nn">
+                <div class="content-nr-one">
+                    <h3>按分数记录成绩</h3>
+                    <table class="content-one-table">
+                        <tr>
+                            <td class="padding-td">科目</td>
+                            <td :for="item in @filter_sex(@headers)|limitBy(7,0)">{{item.title}}</td>
+                        </tr>
+                        <tr>
+                            <td class="padding-td">成绩</td>
+                            <td :for="$index,item in @filter_sex(@headers)|limitBy(7,0)">
+                                <input type="number"  :duplex="@score.score[item.alias].value" ms-attr="{disabled:is_disable_input}"/>
+                            </td>
+                        </tr>
+                          <tr  :if="header.length < 7">
+                            <td class="padding-td">科目</td>
+                            <td :for="item in @filter_sex(@headers)|limitBy(7,7)">{{item.title}}</td>
+                        </tr>
+                        <tr  :if="header.length < 7">
+                            <td class="padding-td">成绩</td>
+                            <td :for="$index,item in @filter_sex(@headers)|limitBy(7,7)">
+                                <input type="number" :duplex="@score.score[item.alias].value"  ms-attr="{disabled:is_disable_input}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="hr"></div>
+            <div class="content-bottom">
+                <button class="button-one" :click="cancle()">取消</button>
+                <button class="button-two" :click="save_score()">保存</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="no-msg" :visible="current_student_pos==-1">
+        请筛选
+    </div>
+</div>

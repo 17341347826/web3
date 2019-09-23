@@ -1,0 +1,13 @@
+#school_detail{
+    padding: 16px;
+}
+#school_detail #get_title span{
+    font-size: 16px;
+    color: #a2a2a2;
+}
+#school_detail .am-table>tbody>tr>td{
+    white-space: inherit;
+}
+#school_detail h2{
+    color: rgb(40,185,171);
+}

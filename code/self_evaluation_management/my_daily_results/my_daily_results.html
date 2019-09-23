@@ -1,0 +1,44 @@
+<div ms-important="my_daily_results" id="my_daily_results">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div class="my-t-r">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>学期</th>
+                    <th>发展目标与计划实现情况</th>
+                    <th>日常表现及个性特长表现</th>
+                    <th>综合实践活动</th>
+                    <th>获得荣誉奖励</th>
+                    <th>总分</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr :for="($index,el) in @semester_list">
+                    <td>{{el.semester_name}}</td>
+                    <td>
+                        <span :visible="el.hasOwnProperty('mbjh_fz')">{{el.mbjh_fz|number(2,".")}}</span>
+                        <span :visible="!el.hasOwnProperty('mbjh_fz')"></span>
+                    </td>
+                    <td>
+                        <span :visible="el.hasOwnProperty('rcbx_tc_fz')">{{el.rcbx_tc_fz|number(2,".")}}</span>
+                        <span :visible="!el.hasOwnProperty('rcbx_tc_fz')"></span>
+                    </td>
+                    <td>
+                        <span :visible="el.hasOwnProperty('sjhd_fz')">{{el.sjhd_fz|number(2,".")}}</span>
+                        <span :visible="!el.hasOwnProperty('sjhd_fz')"></span>
+                    </td>
+                    <td>
+                        <span :visible="el.hasOwnProperty('jl_fz')">{{el.jl_fz|number(2,".")}}</span>
+                        <span :visible="!el.hasOwnProperty('jl_fz')"></span>
+                    </td>
+                    <td>
+                        <span :visible="el.hasOwnProperty('z_fz')">{{el.z_fz|number(2,".")}}</span>
+                        <span :visible="!el.hasOwnProperty('z_fz')"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

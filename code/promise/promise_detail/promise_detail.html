@@ -1,0 +1,28 @@
+<div id="promise_detail" ms-important="promise_detail">
+    <!--css样式要写成内联形式，否则打印时样式会乱-->
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="search-btn">
+                <input type="button" value="打印" ms-on-click="@print" :visible="@is_print">
+            </div>
+        </div>
+    </div>
+    <div id="print_div" style="width: 100%">
+        <div class="print_con">
+            <img src="../../../common/images/background_img3.png" alt="">
+            <div class="content_de">
+                <div>
+                    <img ms-attr="{src:@url_img(@cn_con)}" alt="">
+                </div>
+            </div>
+            <div class="print_text">
+                <p class="print_qm">签名:
+                    <img ms-attr="{src:@get_photos}" alt="">
+                </p>
+                <p class="cn_date">日期: {{@cn_sj}}</p>
+            </div>
+            <div class="cn_work">{{@cn_dw}}
+            </div>
+        </div>
+    </div>
+</div>

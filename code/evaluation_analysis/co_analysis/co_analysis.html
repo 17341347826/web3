@@ -1,0 +1,54 @@
+<script src="co_analysis.js"></script>
+<div ms-important="co_analysis" id="co_analysis" xmlns="http://www.w3.org/1999/html">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl chosen" ms-click="@to_page(1)">综合等级</div>
+            <div class="am-fl" ms-click="@to_page(2)">评价维度</div>
+            <div class="am-fl" ms-click="@to_page(3)">评价要素</div>
+        </div>
+    </div>
+    <!--引用公共组件查询-->
+    <div class="common-select">
+        <div class="search-cont clearfix" style="padding-left: 16px;">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择学期'}"></xmp>
+            </div>
+        </div>
+    </div>
+    <!--对比分析标题-->
+    <div class="content-title-h">
+        <h3>{{@title}}各群体学生综合素质评价表现情况</h3>
+    </div>
+    <!--列表引用echarts图例-->
+    <div class="content-list">
+        <div class="ra-container">
+            <div id="ra1" ms-if="@qt_sex_data.length!=0">
+
+            </div>
+            <div ms-if="@qt_sex_data.length==0">
+                <br>
+                <b>无男、女学生比较数据</b>
+            </div>
+            <div id="ra2" ms-if="@qt_zd_data.length!=0">
+
+            </div>
+            <div ms-if="@qt_zd_data.length==0">
+                <br>
+                <b>无寄宿走读学生数据</b>
+            </div>
+        </div>
+        <!--<div class="ra-container">-->
+            <!--<div id="ra3">-->
+
+            <!--</div>-->
+            <!--<div id="ra4">-->
+
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+
+</div>

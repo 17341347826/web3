@@ -1,0 +1,152 @@
+#signCard_echo{
+    background-color: #f1f2f6;
+}
+#signCard_echo>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+#signCard_echo div.add-practice-content{
+    width: 813px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#signCard_echo .p-line{
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+}
+#signCard_echo .p-line-max{
+    /*height: 60px;*/
+    width: 100%;
+    margin-top: 10px;
+}
+#signCard_echo .p-line-max>div{
+    display: inline-block;
+    /*height: 60px;*/
+    /*line-height: 60px;*/
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#signCard_echo .p-line-max textarea{
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    overflow:hidden;
+    vertical-align: top;
+}
+#signCard_echo .p-line>div{
+    display: inline-block;
+    line-height: 40px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#signCard_echo .p-line>div.p-name,
+#signCard_echo .p-line-max>div.p-name-max
+
+{
+    vertical-align: top;
+    width: 10%;
+}
+#signCard_echo .p-line>div.p-input,
+#signCard_echo .p-line-max>div.p-input-max
+{
+    width: 85%;
+}
+#signCard_echo .p-line input{
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    height: 38px;
+    width: 100%;
+}
+#signCard_echo .p-line>.p-input,
+#signCard_echo .p-line-max>.p-input-max{
+    margin-left: 20px;
+}
+#signCard_echo .p-input-max input{
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+}
+#signCard_echo .material{
+    height: auto;
+}
+
+
+
+#signCard_echo .p-line-float{
+    height: 40px;
+    margin-top:10px;
+}
+#signCard_echo .p-line-float>div{
+    /*border: 1px red solid;*/
+    width: 50%;
+    height: 40px;
+}
+#signCard_echo .p-name-float,
+#signCard_echo .p-input-float{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#signCard_echo .p-input-float{
+    width: 65%;
+}
+#signCard_echo .p-input-float>input,
+#signCard_echo .p-input-float>select{
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    height: 38px;
+    width: 100%;
+
+}
+#signCard_echo .p-input-float{
+    margin-left: 36px;
+}
+#signCard_echo .am-fr>.p-name-float{
+    /*margin-left: 20px;*/
+    margin-left:6px;
+}
+#signCard_echo .a-p-btns{
+    padding-left: 0;
+    text-align: center;
+    border-top:1px #cccccc dashed;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+#signCard_echo .am-form-field{
+    background-color: white;
+}
+#signCard_echo .c-arys input{
+    height: 0;
+}
+#signCard_echo .select2-container--default .select2-selection--single{
+    height: 38px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+}
+#signCard_echo .select2-container--default .select2-selection--single .select2-selection__rendered{
+    color:#a2a2a2;
+    line-height: 38px;
+    height: 38px;
+}
+#signCard_echo .select2-container--default .select2-selection--single .select2-selection__arrow{
+    height: 38px;
+}
+/*以前标志卡名称*/
+#signCard_echo .old-name{
+    position: relative;
+    /*border:1px solid red;*/
+}
+#signCard_echo .old-name .card-name{
+    position: absolute;
+    right: -60px;
+}

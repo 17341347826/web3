@@ -1,0 +1,56 @@
+#city_set{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+}
+#city_set .title{
+    height: 64px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 64px;
+    font-family: MicrosoftYaHei;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #40acc1;
+}
+#city_set>div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#city_set .auto_con{
+    width: 60%;
+    margin: 0 auto;
+}
+#city_set .span-text{
+    height: 36px;
+    line-height: 36px;
+    margin-right: 10px;
+}
+#city_set .hours_ select,
+#city_set .second_ select
+{
+    width: 60px!important;
+    height: 24px!important;
+    margin-left: 10px;
+    margin-top: -5px;
+}
+#city_set .hours_{
+    border: 1px solid #c8c8c8;
+    height: 36px;
+    padding: 6px 10px;
+    border-radius:4px;
+    font-size: 16px;
+}
+#city_set .mar_left{
+    margin-left: 5px;
+}
+#city_set .a-p-btns{
+    padding-left: 0;
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    margin-top: 0;
+}

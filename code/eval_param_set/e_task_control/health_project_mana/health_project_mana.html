@@ -1,0 +1,33 @@
+<div ms-important="health_project_mana" id="health_project_mana">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.due_grade">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{ el.remark }}【{{el.id}}】
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--创建方案-->
+            <div class="click_btn" :click="@create_scheme">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建任务</span>
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>

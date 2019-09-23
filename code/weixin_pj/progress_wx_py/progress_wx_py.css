@@ -1,0 +1,71 @@
+#ecm_desc_assessment{
+    background-color: #f1f2f6;
+}
+#ecm_desc_assessment .common-select,
+#ecm_desc_assessment .list-con>div{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#ecm_desc_assessment .common-select,
+#ecm_desc_assessment .list-con>div{
+    background-color: white;
+}
+/*内容*/
+#ecm_desc_assessment .list-con>div{
+    text-align:center;
+}
+#ecm_desc_assessment .list-con .con-one,
+#ecm_desc_assessment .list-con .con-two{
+    padding-top:12px;
+    padding-bottom:20px;
+}
+#ecm_desc_assessment .list-con .con-one table{
+    width:100% !important;
+}
+#ecm_desc_assessment .list-con .title{
+    font-size: 18px;
+    color: #0dba9e;
+    padding-top: 18px;
+    padding-bottom: 8px;
+    height: 73px;
+}
+/*内容2*/
+#ecm_desc_assessment .list-con .con-two{
+    margin-top:4px;
+    overflow: hidden;
+}
+#ecm_desc_assessment .list-con .con-two table{
+
+}
+/*table2、table3*/
+#ecm_desc_assessment .am-table {
+    margin-bottom:0;
+    border-radius:4px;
+}
+/*表格超出部分省略号表示*/
+#ecm_desc_assessment  table{
+    table-layout: fixed;/*固定布局的算法。在这种算法中，表格和列的宽度取决于col对象的宽度总和，假如没有指定，则会取决于第一行每个单元格的宽度。假如表格没有指定宽度( width )属性，则表格被呈递的默认宽度为 100% （注意：此样式是关键）*/
+}
+/*table td超出部分省略号显示*/
+.over-hid{
+    width: 63px;
+    overflow: hidden;/*不显示超过对象尺寸的内容（这个绝对不能少）,也就是说设置td里面的数据无论有多少，都不会换行*/
+    white-space: nowrap;/*设置内容抵达容器边界会不会转到下一行*/
+    text-overflow: ellipsis;/*将被隐藏的那部分用省略号代替。*/
+}
+#ecm_desc_assessment .am-table>tbody>tr>td{
+    white-space: normal;
+}
+.stu-progress-table{
+    display: flex;
+}
+.stu-progress-table>div{
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.min-td{
+    width: 74px;
+    min-width: 74px;
+}

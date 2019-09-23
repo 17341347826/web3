@@ -1,0 +1,164 @@
+<div>
+    <!--完成-->
+    <!--<div class="mulChoice_complete"></div>-->
+    <!--编辑-->
+    <div class="mulChoice_edit">
+        <div class="simple-top">
+            <div class="simple-top-title"><h3>{{@simple_title}}<span ms-if="@must_answer">*</span></h3></div>
+            <div class="simple-top-option">
+                <ul id="simple-top-option-ul-2">
+                    <!--ms-for:($index,el) in @title_arr-->
+                    <li>
+                        <div class="am-radio">
+                            <label>
+                                <input type="radio" name="doc-radio-1" disabled value="option1" >{{el.option_name}}
+                            </label>
+                        </div>
+                    </li>
+                    <!--ms-for-end:-->
+                </ul>
+            </div>
+        </div>
+        <div class="simple-line"></div>
+        <div class="button-group-container ">
+            <div class="button-group-2 am-cf">
+                <button class="am-btn am-btn-secondary am-radius
+                am-btn-xs am-margin-horizontal-xs" ms-click="@complete">
+                    <i class="am-icon-check"></i>
+                    完成
+                </button>
+                <button class="am-btn am-btn-secondary am-radius am-btn-xs am-margin-horizontal-xs">
+                    <i class="am-icon-copy"></i>
+                    复制
+                </button>
+                <button class="am-btn am-btn-secondary am-radius am-btn-xs am-margin-horizontal-xs">
+                    <i class="am-icon-trash"></i>
+                    删除
+                </button>
+                <button class="am-btn am-btn-secondary am-radius am-btn-xs am-margin-horizontal-xs">
+                    <i class="am-icon-arrow-up"></i>
+                    上移
+                </button>
+                <button class="am-btn am-btn-secondary am-radius am-btn-xs am-margin-horizontal-xs">
+                    <i class="am-icon-arrow-down"></i>
+                    下移
+                </button>
+                <button class="am-btn am-btn-secondary am-radius am-btn-xs am-margin-horizontal-xs">
+                    <i class="am-icon-angle-double-up"></i>
+                    最前
+                </button>
+                <button class="am-btn am-btn-secondary am-radius am-btn-xs am-margin-horizontal-xs">
+                    <i class="am-icon-angle-double-down"></i>
+                    最后
+                </button>
+
+            </div>
+        </div>
+        <div class="sign-up-ques">
+            <div class="sign-top">
+                <div class="sign-top-left">
+                    <div class="sign-top-left-title"><h3>标题</h3></div>
+                    <textarea placeholder="请在此输入问题标题" ms-duplex="@simple_title"></textarea>
+                </div>
+                <div class="sign-top-right">
+                    <ul>
+                        <li>
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option1" ms-duplex-checked="@must_answer"> 必答题
+                            </label>
+                        </li>
+                        <li>
+                            <div class="fill-hint">
+                                <label class="am-checkbox-inline">
+                                    <input type="checkbox" value="option1" ms-duplex-checked="@hinted"> 填写提示
+                                </label>
+                            </div>
+                            <div><input type="text" class="am-radius" ms-if="@hinted"/></div>
+                        </li>
+                        <li>
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option1"> 无条件跳题
+                            </label>
+                        </li>
+                        <li>
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option1"> 关联逻辑
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <table class="am-table" id="edit-table">
+                <thead>
+                <tr>
+                    <th>选项文字</th>
+                    <th>图片</th>
+                    <th>说明</th>
+                    <th>允许填空</th>
+                    <th>
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox" value="option1"> 跳题
+                        </label>
+                    </th>
+                    <th>默认</th>
+                    <th>分组</th>
+                    <th>操作</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($index,el) in @title_arr-->
+                <tr>
+                    <td class="input-td">
+                        <input type="text" class="am-form-field am-radius"
+                               ms-duplex="@el.option_name" ms-on-blur="@sure_option($index)"/>
+                    </td>
+                    <td class="pic-td"><a href="javascript:;" class="am-icon-picture-o"></a></td>
+                    <td class="pic-td"><a href="javascript:;" class="am-icon-file-text" ms-click="@show_model($index)"></a></td>
+                    <td>
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox" value="option1">
+                        </label>
+                    </td>
+                    <td></td>
+                    <td>
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox" value="option1">
+                        </label>
+                    </td>
+                    <td>分组</td>
+                    <td class="circle-td">
+                        <span class="am-icon-plus-circle" ms-click="@add_option"></span>
+                        <span class="am-icon-minus-circle" ms-click="@reduce_option($index)"></span>
+                        <span class="am-icon-arrow-circle-o-up"></span>
+                        <span class="am-icon-arrow-circle-o-down"></span>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+
+                </tbody>
+            </table>
+            <div id="edit-bottom" >
+                <div class="plus-content">
+                    <span class="am-icon-plus-circle"></span><a href="">添加选项</a>
+                    <span class="am-icon-ambulance"></span><a href="">批量增加</a>
+                </div>
+                <div class="am-form-group">
+                    <label class="am-checkbox-inline">
+                        <input type="checkbox" value="option1">选项随机
+                    </label>
+                    <select id="doc-select-1">
+                        <option value="option1">横向排列</option>
+                        <option value="option2">纵向排列</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="sure-btn-content">
+                <button type="button" class="am-btn am-btn-warning am-radius" ms-click="@start_edit=false">完成编辑</button>
+            </div>
+
+        </div>
+    </div>
+</div>

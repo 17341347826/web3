@@ -1,0 +1,14 @@
+#teacher_evaluation .pro_list{
+    display:flex;
+    justify-content:space-between;
+    margin-top: 10px;
+}
+#teacher_evaluation .teacher_evaluation_con{
+    color: #8d8d8d;
+    font-size: 15px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#teacher_evaluation .public_btn_big{
+    margin-top: 30px;
+}

@@ -1,0 +1,145 @@
+<div class="am-g" id="city_sibling_user" ms-important="city_sibling_user">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="form-input">
+                <input ms-blur="@nameSearch()" ms-duplex="@other.account" placeholder="请输入账号" type="text"
+                        maxlength="18"/>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="新增" :click="@addInfo()">
+            </div>
+            <div class="search-btn">
+                <input type="button" value="批量状态" :click="@batch_status()">
+            </div>
+            <div class="search-btn">
+                <input type="button" value="批量重置" :click="@batch_resetpwd()">
+            </div>
+            <div class="search-btn">
+                <input type="button" value="批量删除" :click="@batch_del()">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+        <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+        </xmp>
+        <!--添加--修改-->
+        <div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    {{@modal.title}}
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                账号
+                            </label>
+                            <div class="am-u-sm-9">
+                                <input class="am-hide" type="text"/>
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.teacher_num"
+                                       placeholder="请输入账号(必填)" maxlength="18" type="text"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                姓名
+                            </label>
+                            <div class="am-u-sm-9">
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.teacher_name"
+                                       placeholder="请输入姓名(必填)" type="text"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                电话
+                            </label>
+                            <div class="am-u-sm-9">
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.phone" placeholder="请输入电话"
+                                       type="text"/>
+                            </div>
+                        </div>
+                    </form>
+                    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+                </div>
+                <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@compile()">
+     提交
+    </span>
+                </div>
+            </div>
+        </div>
+        <!--角色-->
+        <div class="am-modal am-modal-prompt" id="role-setting" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    角色设置
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <!--ms-for: el in @role_list-->
+                            <label class="am-checkbox-inline" :if="el.role_name != '班主任'">
+                                <input ms-attr="{value:el.id}" ms-duplex-number="@role" type="checkbox"/>
+                                {{el.role_name}}
+                            </label>
+                            <label class="am-checkbox-inline" :if="el.role_name == '班主任'">
+                                <input ms-attr="{value:el.id}" ms-duplex-number="@role" type="checkbox" disabled/>
+                                {{el.role_name}}
+                            </label>
+                            <!--ms-for-end:-->
+                        </div>
+                    </form>
+                    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+                </div>
+                <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@roleSave()">
+     提交
+    </span>
+                </div>
+            </div>
+        </div>
+        <!--批量改变用户状态-->
+        <div class="am-modal" tabindex="-1" id="change_status">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">切换用户状态
+                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <select id="select-kid" ms-duplex="@stu_status">
+                                <option value="1">启用</option>
+                                <option value="2">停用</option>
+                            </select>
+                            <span class="am-form-caret"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" :click="@save_status()" data-am-modal-confirm="">保存</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

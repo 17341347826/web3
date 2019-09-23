@@ -1,0 +1,153 @@
+#upload_list{
+    padding-right: 260px;
+    background-color: #f2f2f6;
+}
+#upload_list .form-input>button{
+    width: 90px;
+    height: 34px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: rgb(2,205,126);
+}
+#upload_list .form-input>button:hover{
+    background-color: #2bbb7c;
+}
+#upload_list .table-content{
+    padding: 16px;
+    background-color: #FFFFFF;
+}
+#upload_list .dis-type{
+    background-color: #FFFFFF;
+    padding: 20px 30px 0;
+    text-align: right;
+    padding-right: 20px;
+}
+#upload_list .radios{
+    display:inline-block;
+}
+#upload_list .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+#upload_list .am-radio-inline label{
+    cursor: pointer;
+}
+#upload_list .menu{
+    position: fixed;
+    right: 16px;
+}
+#upload_list .d-p-c-nav{
+    position: fixed;
+    right: 16px;
+    width: 250px;
+    height: 450px;
+    margin-left: 6px;
+    background-color: #fff;
+    top: 80px;
+}
+#upload_list .d-p-munu,
+#upload_list .small-circular,
+#upload_list .out-circle
+{
+    background-color: #ffffff;
+}
+#upload_list .d-p-munu {
+    /*position: absolute;*/
+    width: 244px;
+    /*top: 0;*/
+    /*right: 0;*/
+    padding-right: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.out-circle, .detail-content, .growth-record ,.model-title{
+    background-color: #FFFFFF;
+}
+#upload_list .d-p-munu .outer {
+    border-right: 1px solid #20bda4;
+}
+#upload_list .d-p-munu .outer .inner {
+    width: 100%;
+    margin-left: 9px;
+    text-align: right;
+    font-size: 16px;
+    color: #a2a2a2;
+    padding-top: 30px;
+    padding-bottom: 1px;
+    position: relative;
+}
+#upload_list .d-p-munu .outer .inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#upload_list .d-p-munu .outer .inner li {
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+#upload_list .d-p-munu .outer .inner .right-top-point,
+#upload_list .d-p-munu .outer .inner .right-bottom-point {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #20bda4;
+}
+#upload_list .d-p-munu .outer .inner .right-top-point {
+    top: -1px;
+    right: 4px;
+}
+#upload_list .d-p-munu .outer .inner .right-bottom-point {
+    bottom: -2px;
+    right: 4px;
+}
+#upload_list .d-p-munu .outer .small-circular {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #a2a2a2;
+    margin-right: 3px;
+    background-color: white;
+}
+#upload_list .d-p-munu .outer .active {
+    font-size: 18px;
+    color: #20bda4;
+}
+#upload_list .d-p-munu .outer .dotted {
+    display: inline-block;
+    width: 15px;
+    height: 13px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background: url(../../../../common/images/file_detail/dotted.png) center no-repeat;
+}
+#upload_list .d-p-munu .outer .out-circle {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid #20bda4;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+#upload_list .d-p-munu .outer .inner-circle {
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #20bda4;
+    top: 6px;
+    left: 6px;
+}

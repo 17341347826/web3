@@ -1,0 +1,13 @@
+#programme_audit_list{
+    background-color: #f1f2f6;
+}
+#programme_audit_list>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#programme_audit_list .p-a-l-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

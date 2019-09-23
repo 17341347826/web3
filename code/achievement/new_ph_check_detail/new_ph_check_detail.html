@@ -1,0 +1,307 @@
+<div class="am-g" id="new_ph_check_detail" ms-important="new_ph_check_detail">
+    <!--<div class="title">体质测评健康详情</div>-->
+    <!--<table class="am-table my-table am-table-bordered">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--&lt;!&ndash;ms-for: ($index,el) in @health_test_detail&ndash;&gt;-->
+            <!--<th>{{el.name}}</th>-->
+            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+            <!--&lt;!&ndash;ms-for: ($index,el) in @health_test_detail&ndash;&gt;-->
+            <!--<td>-->
+                <!--{{el.score}}-->
+            <!--</td>-->
+            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+        <!--</tr>-->
+
+        <!--</tbody>-->
+    <!--</table>-->
+    <div class="title">公示期异议反馈</div>
+    <table class="am-table my-table am-table-bordered">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>提出人</th>
+            <th>提出时间</th>
+            <th class="reason">原由</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--ms-for: ($index,el) in @dissent-->
+        <tr>
+            <td>
+                {{$index+1}}
+            </td>
+            <td>
+                {{el.name}}
+            </td>
+            <td>
+                {{el.join}}
+            </td>
+            <td class="reason" ms-attr="{title:el.content}">
+                {{el.content}}
+            </td>
+        </tr>
+        <!--ms-for-end:-->
+        <tr ms-if="@dissent.length==0">
+            <td colspan="4">
+                暂无数据
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="opinion">
+        核查意见:
+    </div>
+    <div class="am-cf">
+        <div class="am-fl" style="width:100%;">
+            <div class="am-radio radio-style">
+                <label>
+                    <input type="radio" name="doc-radio-1" value="1" ms-duplex="@radio_check">
+                    异议无效
+                </label>
+            </div>
+            <div class="am-radio radio-style">
+                <label>
+                    <input type="radio" name="doc-radio-1" value="2" ms-duplex="@radio_check">
+                    更正结果
+                </label>
+            </div>
+            <div style="overflow: auto">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <td>测评项</td>
+                        <td>姓名</td>
+                        <td>学籍号</td>
+                        <td>性别</td>
+                        <td>身高</td>
+                        <td>体重</td>
+                        <td>体重评分</td>
+                        <td>体重等级</td>
+                        <td>肺活量</td>
+                        <td>肺活量评分</td>
+                        <td>肺活量等级</td>
+                        <td>50米跑</td>
+                        <td>50米跑评分</td>
+                        <td>50米跑等级</td>
+                        <td>立定跳远</td>
+                        <td>立定跳远评分</td>
+                        <td>立定跳远等级</td>
+                        <td>坐位体前屈</td>
+                        <td>坐位体前屈评分</td>
+                        <td>坐位体前屈等级</td>
+                        <td>800米跑</td>
+                        <td>800米跑评分</td>
+                        <td>800米跑等级</td>
+                        <td>800米跑附加分</td>
+                        <td>1000米跑</td>
+                        <td>1000米跑评分</td>
+                        <td>1000米跑等级</td>
+                        <td>1000米跑附加分</td>
+                        <td>一分钟仰卧起坐</td>
+                        <td>一分钟仰卧起坐评分</td>
+                        <td>一分钟仰卧起坐等级</td>
+                        <td>一分钟仰卧起坐附加分</td>
+                        <td>引体向上</td>
+                        <td>引体向上评分</td>
+                        <td>引体向上等级</td>
+                        <td>引体向上附加分</td>
+                        <td>标准分</td>
+                        <td>附加分</td>
+                        <td>总分</td>
+                        <td>总分等级</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>原成绩</td>
+                        <td>{{@health_test_detail.name}}</td>
+                        <td>{{@health_test_detail.code|mtruncate(3,3)}}</td>
+                        <td>{{@health_test_detail.sex==1?'男':'女'}}</td>
+                        <td>{{@health_test_detail.height}}</td>
+                        <td>{{@health_test_detail.weight}}</td>
+                        <td>{{@health_test_detail.weight_score}}</td>
+                        <td>{{@health_test_detail.weight_lv}}</td>
+                        <td>{{@health_test_detail.vital_capacity}}</td>
+                        <td>{{@health_test_detail.vital_capacity_score}}</td>
+                        <td>{{@health_test_detail.vital_capacity_lv}}</td>
+                        <td>{{@health_test_detail.run_50}}</td>
+                        <td>{{@health_test_detail.run_50_score}}</td>
+                        <td>{{@health_test_detail.run_50_lv}}</td>
+                        <td>{{@health_test_detail.ldty}}</td>
+                        <td>{{@health_test_detail.ldty_score}}</td>
+                        <td>{{@health_test_detail.ldty_lv}}</td>
+                        <td>{{@health_test_detail.zqqq}}</td>
+                        <td>{{@health_test_detail.zqqq_score}}</td>
+                        <td>{{@health_test_detail.zqqq_lv}}</td>
+                        <td>{{@health_test_detail.run_800}}</td>
+                        <td>{{@health_test_detail.run_800_score}}</td>
+                        <td>{{@health_test_detail.run_800_lv}}</td>
+                        <td>{{@health_test_detail.run_800_extra}}</td>
+                        <td>{{@health_test_detail.run_1000}}</td>
+                        <td>{{@health_test_detail.run_1000_score}}</td>
+                        <td>{{@health_test_detail.run_1000_lv}}</td>
+                        <td>{{@health_test_detail.run_1000_extra}}</td>
+                        <td>{{@health_test_detail.ywqz}}</td>
+                        <td>{{@health_test_detail.ywqz_scor}}</td>
+                        <td>{{@health_test_detail.ywqz_lv}}</td>
+                        <td>{{@health_test_detail.ywqz_extra}}</td>
+                        <td>{{@health_test_detail.ytxs}}</td>
+                        <td>{{@health_test_detail.ytxs_score}}</td>
+                        <td>{{@health_test_detail.ytxs_lv}}</td>
+                        <td>{{@health_test_detail.ytxs_extra}}</td>
+                        <td>{{@health_test_detail.criteria_score}}</td>
+                        <td>{{@health_test_detail.extra_score}}</td>
+                        <td>{{@health_test_detail.total_score}}</td>
+                        <td>{{@health_test_detail.total_score_lv}}</td>
+                    </tr>
+                    <tr :visible="@radio_check == 2">
+                        <td>更改成绩</td>
+                        <td>{{@health_test_detail.name}}</td>
+                        <td>{{@health_test_detail.code|mtruncate(3,3)}}</td>
+                        <td>{{@health_test_detail.sex==1?'男':'女'}}</td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.height">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.weight">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.weight_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.weight_lv">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.vital_capacity">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.vital_capacity_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.vital_capacity_lv">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_50">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_50_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.run_50_lv">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ldty">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ldty_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.ldty_lv">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.zqqq">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.zqqq_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.zqqq_lv">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_800" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_800_score" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.run_800_lv" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_800_extra" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_1000" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_1000_score" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.run_1000_lv" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.run_1000_extra" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ywqz" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ywqz_scor" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.ywqz_lv" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ywqz_extra" ms-attr="{disabled:@health_test_detail.sex == 1}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ytxs" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ytxs_score" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.ytxs_lv" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.ytxs_extra" ms-attr="{disabled:@health_test_detail.sex == 2}">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.criteria_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.extra_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex-number="@extend.total_score">
+                        </td>
+                        <td>
+                            <input type="text" ms-duplex="@extend.total_score_lv">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="opinion">
+        请说明核实结果:
+    </div>
+    <div>
+        <textarea class="am-margin-horizontal" rows="5" ms-duplex="@extend.content"  id="result-area"></textarea>
+    </div>
+    <div class="opinion">
+        上传核查材料:
+    </div>
+    <div>
+        <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'card_uploader',id:'card_uploader', files:@files, url:@uploader_url}">
+        </xmp>
+    </div>
+    <div class="btns am-cf">
+        <a class="am-btn am-btn-default" href="javascript:history.go(-1);" style="color:#fff;">
+            取消
+        </a>
+        <a class="am-btn am-btn-primary" href="javascript: void(0);" ms-click="@submit_data">
+            确定
+        </a>
+
+    </div>
+
+
+</div>

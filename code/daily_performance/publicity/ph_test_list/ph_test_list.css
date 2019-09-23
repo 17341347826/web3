@@ -1,0 +1,46 @@
+#ph_test_list .am-table>thead>tr>th,
+#ph_test_list .am-table>tbody>tr>td{
+    white-space: inherit;
+}
+#ph_test_list{
+    background-color: #f1f2f6;
+}
+#ph_test_list>div{
+    background-color: white;
+    padding-left:16px;
+    padding-right:16px;
+}
+/*#ph_test_list>div.public_div>div{*/
+    /*position: relative;*/
+    /*width: 400px;*/
+    /*height: 400px;*/
+    /*margin: 0 auto;*/
+/*}#ph_test_list>div.public_div>div>img{*/
+     /*position: absolute;*/
+     /*top:25%;*/
+     /*left:25%;*/
+ /*}*/
+
+/*第二块*/
+#ph_test_list .content-ach-t{
+    background-color: #fff;
+    padding:10px;
+    margin-top: 10px;
+}
+#ph_test_list .content-ach-o{
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: solid 1px #e2e2e2;
+}
+#ph_test_list .table-tt{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #a2a2a2;
+}
+#ph_test_list .table-tt tr{
+    border-bottom:1px solid #e8e8e8 ;
+}

@@ -1,0 +1,68 @@
+
+<div class="am-g am-cf" >
+    <!--ms-for:($index,ell) in @data-->
+     <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+           <div class="am-slider am-slider-default" style="height: 400px;">
+             <ul class="am-slides">
+                <li ms-for="el in @ell.art_enclosures">
+                    <div class="am-gallery-item">
+                        <a class="detail_carousel_img">
+                            <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()"/>
+                            <div ms-attr="{title:el.inner_name}">
+                                {{ el.desc}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul> 
+        </div>   
+    </div> 
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+        <div id="detail_title" class="am-u-sm-12">
+            <span class="am-u-sm-12"> {{ @ell.art_name}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">创建作者</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @ell.art_studentname }}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动名称</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @ell.art_name}}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动类型</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.art_type}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动时间</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.art_start_time}}  至  {{@ell.art_end_time}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动地点</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.art_place}}</span>
+        </div>
+
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">取得成果</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.art_achievements}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动描述</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.art_describe}}</span>
+        </div>
+
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动过程</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.art_process}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动感想</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.art_feel}}</span>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+</div>

@@ -1,0 +1,91 @@
+#term_evaluate_situation_wx{
+    height: 323px;
+    background-color: white;
+    border-radius: 4px;
+}
+#term_evaluate_situation_wx  #evaluate-con{
+    padding:15px;
+}
+#term_evaluate_situation_wx .te_remind{
+    height: auto!important;
+    position:relative;
+}
+#term_evaluate_situation_wx .title_remark{
+    height: 35px;
+    border-bottom:1px rgb(228,228,228) solid;
+}
+#term_evaluate_situation_wx .title_remark>p{
+    padding:5px 0 10px 15px;
+    font-size: 14px;
+    color:#15bf9d;
+}
+#term_evaluate_situation_wx .context_high{
+    padding-left: 15px;
+    margin-right: 15px;
+    /*margin-right: 3px;*/
+    height:250px;
+}
+#term_evaluate_situation_wx .context_high{
+    padding-top: 30px;
+    padding-bottom:5px;
+}
+/*右边表*/
+#term_evaluate_situation_wx .am-table>thead>tr>th,
+#term_evaluate_situation_wx .am-table>tbody>tr>td {
+    height: 26px;
+    font-size: 14px;
+    font-weight: normal;
+}
+#term_evaluate_situation_wx .con-right table tr td{
+    width: 130px;
+    height: 26px;
+}
+#term_evaluate_situation_wx .rig-name{
+    float: left;
+}
+#term_evaluate_situation_wx .num-color{
+    display:inline-block;
+    width: 46px;
+    height: 17px;
+    line-height: 17px;
+    margin-top:5px;
+    background-color: #58adfd;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #ffffff;
+    float: right;
+}
+#term_evaluate_situation_wx .gn-name{
+    cursor: pointer;
+}
+/*说明*/
+#term_evaluate_situation_wx .text_remark {
+    /*border: none;*/
+    /*margin-right: 5%;*/
+    /*cursor: pointer;*/
+    /*height: 38px;*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    margin-top:10px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #c5c5c5;
+}
+/*tips字体颜色、背景色*/
+.layui-layer-tips .layui-layer-content {
+    /*background-color: #fff;*/
+    color: white;
+}
+/*已完成状态*/
+.has-completed{
+    color: #15bf9d !important;
+}
+/*未完成状态*/
+.no-completed{
+    color: #ff7e00 !important;
+}
+#term_evaluate_situation_wx .wx-table>thead>tr>th,
+#term_evaluate_situation_wx .wx-table>tbody>tr>td{
+    padding: 3px;
+}

@@ -1,0 +1,60 @@
+<div class="am-g" id="free_test_audit_detail" ms-controller="free_test_audit_detail">
+    <div class="content">
+        <div class="am-g">
+            <!--依据类型-->
+            <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+                <div class="am-slider am-slider-default" style="height: 400px;">
+                    <ul class="am-slides">
+                        <li :if="el.mini_type=='image/jpeg' || el.mini_type=='image/png' || el.mini_type=='image/jpg'"   ms-for="el in @ach_enclosures">
+                            <div class="am-gallery-item">
+                                <a class="detail_carousel_img">
+                                    <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()" style="height:400px;overflow:hidden;"/>
+                                    <div ms-attr="{title:el.img_text}">
+                                        {{ el.desc}}
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="am-margin-top-sm" style="position: absolute;z-index: 100;">
+                    <a :if="has_video" class="am-btn am-btn-primary" ms-on-click="video_click">视频</a>
+                    <a :if="has_excel" class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="excel_click">下载文件</a>
+                    <!--<a :if="data.ach_state==5 && user_type==2"  class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="@update_img">修正图片</a>-->
+                </div>
+            </div>
+            <!--学生信息-->
+            <div id="detail_text_div" class="am-u-sm-7 text-right" style="font-size:1.2em; padding-top:30px;">
+                <div class="am-u-sm-12">
+                    <span class="am-u-sm-3">姓名</span>
+                    <span class="am-u-sm-9">
+                    {{@dataMsg.name}}
+                </span>
+                </div>
+                <div class="am-u-sm-12">
+                    <span class="am-u-sm-3">学籍号</span>
+                    <span class="am-u-sm-9">{{@dataMsg.code}}</span>
+                </div>
+                <div class="am-u-sm-12">
+                    <span class="am-u-sm-3">年级</span>
+                    <span class="am-u-sm-9"> {{@dataMsg.grade_name}}</span>
+                </div>
+                <div class="am-u-sm-12">
+                    <span class="am-u-sm-3">班级</span>
+                    <span class="am-u-sm-9"> {{@dataMsg.class_name}}</span>
+                </div>
+                <div class="am-u-sm-12" :if="@user_type=='1' && @highest_level=='6' && @dataMsg.flag_exempt==3">
+                    <span class="am-u-sm-3">未通过原因</span>
+                    <span class="am-u-sm-9"> {{@dataMsg.not_pass}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="am-text-center btn" :if="@user_type=='1' && @highest_level=='4'">
+            <button type="button" class="am-btn am-btn-default" ms-on-click="@btn_sure()">通过</button>
+            <button type="button" class="am-btn am-btn-primary" ms-on-click="@btn_no()">不通过</button>
+        </div>
+        <div class="am-text-center btn" :if="@user_type=='1' && @highest_level=='6'">
+            <button type="button" class="am-btn am-btn-primary" ms-on-click="@return_last()">返回</button>
+        </div>
+    </div>
+</div>

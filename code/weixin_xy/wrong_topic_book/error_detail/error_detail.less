@@ -1,0 +1,150 @@
+@charset "utf-8";
+@color_white: #ffffff;
+@bc_color: rgb(244, 244, 244);
+@com_font_size: 14px;
+#error_detail {
+  background-color: @bc_color;
+  padding-bottom: 20px;
+  > div {
+    background-color: @color_white;
+  }
+  > div:first-child {
+    height: 30px;
+    line-height: 30px;
+    font-size: @com_font_size;
+    color: rgb(119, 119, 119);
+    background-color: @bc_color;
+    span {
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .time {
+      float: left;
+    }
+    .err-num {
+      float: right;
+    }
+  }
+  .each-problem {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid @bc_color;
+    >div:first-child{
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+  .problem {
+    float: left;
+    padding-left: 15px;
+    font-size: 16px;
+    color: rgb(255, 136, 19);
+  }
+  .wrong-grade {
+    float: right;
+    font-size: @com_font_size;
+    color: rgb(173, 173, 173);
+    padding-right: 15px;
+    img {
+      height: 12px;
+    }
+  }
+  .problem-pic {
+    padding: 5px;
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .knowledge {
+    > div:first-child {
+      padding-top: 10px;
+      padding-left: 10px;
+      span {
+        font-size: @com_font_size;
+        color: rgb(247, 163, 0);
+        vertical-align: bottom;
+      }
+      span:last-child {
+        margin-left: 10px;
+      }
+    }
+    > div:last-child {
+      margin-top: 10px;
+      span {
+        padding: 6px 17px;
+        color: #ff8c8c;
+        border: 1px solid #ffecec;
+        margin-left: 9px;
+        margin-bottom: 10px;
+        display: inline-block;
+        border-radius: 20px;
+        font-size: 12px;
+      }
+    }
+    .know-icon {
+      display: inline-block;
+      width: 16px;
+      height: 23px;
+      background: url("../../../../common/images/xy/subject/knowledge.png") center no-repeat;
+    }
+    border-bottom: 1px solid @bc_color;
+  }
+  .history-ans {
+    padding-bottom: 12px;
+    border: 1px solid @bc_color;
+    .his-title {
+      height: 28px;
+    }
+    > div:first-child {
+      padding-top: 10px;
+      padding-left: 10px;
+      span {
+        font-size: @com_font_size;
+        color: rgb(178, 134, 233);
+        vertical-align: bottom;
+      }
+      span:last-child {
+        margin-left: 10px;
+      }
+    }
+    .his-icon {
+      display: inline-block;
+      width: 16px;
+      height: 23px;
+      background: url("../../../../common/images/xy/subject/history.png") center no-repeat;
+    }
+  }
+  .right-ans {
+    padding-bottom: 12px;
+    border: 1px solid @bc_color;
+    > div:first-child {
+      padding-top: 10px;
+      padding-left: 10px;
+      span {
+        font-size: @com_font_size;
+        color: rgb(61, 209, 148);
+        vertical-align: bottom;
+      }
+      span:last-child {
+        margin-left: 10px;
+      }
+    }
+    .right-title {
+      height: 28px;
+    }
+    .right-icon {
+      display: inline-block;
+      width: 19px;
+      height: 23px;
+      background: url("../../../../common/images/xy/subject/right.png") center no-repeat;
+    }
+  }
+  .smart {
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: @com_font_size;
+  }
+
+}

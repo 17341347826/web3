@@ -1,0 +1,50 @@
+<div ms-important="real_a_type_set" id="real_a_type_set">
+    <div class="first-index">
+        <div class="clearfix">
+            <div :class="['am-fl',(@sit_type == 1 ? 'chosen':'')]" :click="@sit_change(1)">
+                类型设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 2 ? 'chosen':'')]" :click="@sit_change(2)">
+                上传数量设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 3 ? 'chosen':'')]" :click="@sit_change(3)">
+                积分规则设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 4 ? 'chosen':'')]" :click="@sit_change(4)">
+                任务开发时间设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 5 ? 'chosen':'')]" :click="@sit_change(5)">
+                个性特长
+            </div>
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex-number="@extend.plan_gradeid">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择年级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.id}">-->
+                            <!--{{ el.remark }}【{{el.id}}】-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--创建方案-->
+            <div class="click_btn" :click="@create_type">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>增加类型</span>
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+    </div>
+</div>

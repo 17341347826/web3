@@ -1,0 +1,108 @@
+<div ms-important="daily_comprehensive_practice" class="d_e_progress" id="daily_comprehensive_practice_wd">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-click="@to_page('daily_group_target')">目标计划与完成情况</div>
+            <div class="am-fl" :class="[@form.module_type==4?'chosen':'']" ms-click="@to_page('daily_group_practice')">综合实践活动</div>
+            <div class="am-fl" :class="[@form.module_type==8?'chosen':'']" ms-click="@to_page('daily_group_special')">日常表现与个性特长</div>
+            <div class="am-fl" :class="[@form.module_type==3?'chosen':'']" ms-click="@to_page('daily_group_award')">获奖情况</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:@form.grade_name}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:@fk_semester_name}"></xmp>
+        </div>
+    </div>
+    <div class="sec_index">
+        <div class="radios">
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(1)" id="option1" ms-duplex-number="@html_display" class="rdo" value="1">
+                <label ms-attr="{for:'option1'}">综合等级</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(2)" id="option2" ms-duplex-number="@html_display" class="rdo" value="2">
+                <label ms-attr="{for:'option2'}">评价维度</label>
+            </label>
+            <label class="am-radio-inline" >
+                <input type="radio" ms-click="@presentation_change(3)" id="option3" ms-duplex-number="@html_display" class="rdo" value="3">
+                <label ms-attr="{for:'option3'}">评价要素</label>
+            </label>
+        </div>
+    </div>
+    <div class="clearfix table-module" :if="@zsqk_list.length>0">
+        <p>走/寄读学生{{@tit}}各{{@html_display==2?'维度':'要素'}}分析对比情况</p>
+        <div>
+            <div id="district_chart_id" class="charts-container"></div>
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">序号</th>
+                        <th class="border-right">群体</th>
+                        <th class="border-right">年级</th>
+                        <!--ms-for: el in @zsqk_headers-->
+                        <th class="t_width">{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@evaluation_contrast.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @zsqk_list-->
+                    <tr>
+                        <td class="border-right">{{ind+1}}</td>
+                        <td class="border-right">{{el.type?el.type:'其他'}}</td>
+                        <td class="border-right">{{@form.grade_name}}</td>
+                        <!--ms-for: ind,item in @el.sub_list-->
+                        <td>{{@ceil(item.zb_pjf)}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix table-module" :if="@sex_list.length>0">
+        <p>男/女学生{{@tit}}各{{@html_display==2?'维度':'要素'}}分析对比情况</p>
+        <div>
+            <div id="school_chart_id" class="charts-container"></div>
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">序号</th>
+                        <th class="border-right">群体</th>
+                        <th class="border-right">年级</th>
+                        <!--ms-for: el in @sex_headers-->
+                        <th class="t_width">{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@evaluation_contrast.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @sex_list-->
+                    <tr>
+                        <td class="border-right">{{ind+1}}</td>
+                        <td class="border-right">{{el.type}}</td>
+                        <td class="border-right">{{@form.grade_name}}</td>
+                        <!--ms-for: ind,item in @el.sub_list-->
+                        <td>{{@ceil(item.zb_pjf)}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="nodata clearfix" :if="@zsqk_list.length==0&&@sex_list.length==0">暂时没有数据</div>
+</div>

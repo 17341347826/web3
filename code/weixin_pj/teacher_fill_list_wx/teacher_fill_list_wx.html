@@ -1,0 +1,60 @@
+<div id="teacher_fill_list_wx"  ms-important="teacher_fill_list_wx">
+    <div class="weui-loadmore" :visible="@table_list_x.length == 0">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载,请稍等</span>
+    </div>
+    <div :visible="@table_list_x.length > 0">
+        <div class="stu_n_c">
+            <span>{{name}}</span>
+            <span>{{code}}</span>
+        </div>
+        <!--ms-for: $idx,el in @table_list_x-->
+        <div class="index_info">
+            <p class="performance_title">表现</p>
+            <p class="three_index">
+                【{{el.sub_subjectid}}】{{$idx+1}}、{{el.sub_subject}} ({{el.index_value}}分)
+            </p>
+            <div class="left_bottom"></div>
+            <div class="right_bottom"></div>
+
+        </div>
+        <div class="reference_info">
+            <div class="left_top"></div>
+            <div class="right_top"></div>
+            <p class="performance_title">依据</p>
+            <p class="three_index">
+                <span class="left_span">日常表现加分  {{el.everyday_add}}次</span>
+                <span class="center_span">日常表现减分  {{el.everyday_minus}}次</span>
+                <span class="right_span">写实活动  {{el.xs}}次</span>
+            </p>
+            <div :if="is_select == 1">
+                <div class="input_div">
+                    <!--<input type="text" ms-duplex="el.value_list">-->
+                    <input ms-duplex="el.value_list"
+                           ms-on-blur="@inputBlur(el,$idx)" type="text"/>
+                </div>
+            </div>
+            <div :if="is_select == 2" >
+                <div class="weui-cells weui-cells_radio">
+                    <!--ms-for: $key,col in @el.value_list-->
+                    <label class="weui-cell weui-check__label" ms-attr="{for:'aa'+$idx+$key}">
+                        <div class="weui-cell__bd">
+                            <p>{{col.index_option}}、{{col.index_option_content}}（{{col.item_values}}）</p>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <input type="radio" class="weui-check"   ms-attr="{id:'aa'+$idx+$key,name:'radio'+$idx,value:$key}" ms-duplex="el.index_option_content">
+                            <span class="weui-icon-checked"></span>
+                        </div>
+                    </label>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div class="public_btn_big normalPaddding">
+            <a :visible="@btn_has" ms-on-click="@submit">提交</a>
+            <a :visible="!@btn_has" class="color_gray">提交</a>
+        </div>
+    </div>
+
+</div>

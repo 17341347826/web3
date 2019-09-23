@@ -1,0 +1,84 @@
+<div ms-important="new_teacher_comment" id="new_teacher_comment">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--<span :if="is_fill==1">可编辑-->
+         <!--<span>当前可编辑的年级 {{yearSemester}}</span>-->
+    <!--</span>-->
+    <!--<span :if="is_fill==2">不可编辑</span>-->
+    <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange" ms-duplex-number="@fk_grade_id">
+                        <option ms-attr="{value:el.grade_id}" ms-for="el in @grade_list">
+                            {{ el.grade_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@classChange" ms-duplex-number="@fk_class_id">
+                        <option ms-attr="{value:el.class_id}" ms-for="el in @class_list">
+                            {{ el.class_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--学校筛选-->
+            <div class="select">
+                <div class="old-select">
+                    <select id="semester_select" data-duplex-changed="@semesterChange" ms-duplex="@fk_semester">
+                        <option ms-attr="{value:el.semester_name+'|'+el.id+'|'+el.end_date+'|'+el.start_date}" ms-for="el in @semester_list">
+                            {{el.semester_name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="new_teacher_comment_table" :if="@student_list.length>0">
+        <table class="am-table am-table-bordered  am-table-hover">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>学籍号</th>
+                <th>姓名</th>
+                <th>评语状态</th>
+                <th>评语</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($index,el) in @student_list-->
+            <tr>
+                <td style="min-width: 40px;">{{$index+1}}</td>
+                <td style="min-width: 175px;">{{el.code}}</td>
+                <td style="min-width: 75px;">{{el.name}}</td>
+                <td>
+                    <span :if="el.content_teacher=='' || el.content_teacher==null">未评</span>
+                    <span  :if="el.content_teacher!='' && el.content_teacher!=null">已评</span>
+
+                </td>
+
+                <td class="">
+                    <p style="min-width: 400px;height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden; ">
+                        {{el.content_teacher}}
+                    </p>
+                </td>
+                <td style="min-width: 50px;">
+                    <a :if="@fk_semester==@yearSemester && is_fill==1 && @is_headmaster" class="tab-btn tab-edit-btn" title="编辑" ms-on-click="@edit_btn(el)"></a>
+                    <a :if="@fk_semester!=@yearSemester || is_fill != 1 || !@is_headmaster" class="tab-btn tab-edit-btn-disabled" title="编辑"></a>
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+    </div>
+    <div class="no-data" ms-visible="@student_list.length==0 && @data_had">
+        <img src="../../../../common/images/none.png" alt="">
+    </div>
+    <div ms-visible="@student_list.length==0 && !@data_had" class="data_pedding">
+        正在加载中，请稍等
+    </div>
+</div>

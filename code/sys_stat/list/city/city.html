@@ -1,0 +1,131 @@
+<xmp ms-widget="{is:'page_title_div',title:'',reBack:'0'}">
+</xmp>
+<div class="am-g" id="sys_city" ms-important="sys_city">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-tabs">
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+            <li class="am-active" :if="@highest_level==2"><a href="#/sys_stat/city_list">市统计</a></li>
+            <li :if="@highest_level==2 || @highest_level==3"><a href="#/sys_stat/area_list">区县统计</a></li>
+            <li><a href="#/sys_stat/school_list">学校统计</a></li>
+            <li :if="@highest_level==4"><a href="#/sys_stat/class_list">班级统计</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+            <!--内容-->
+            <div class="am-padding-top-lg am-padding-bottom-lg" style="width:100%;overflow-x: auto;">
+                <table class="am-table am-table-hover ">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">
+                                序号
+                            </th>
+                            <th rowspan="2">
+                                市州
+                            </th>
+
+                            <th rowspan="2">
+                                年级
+                            </th>
+
+                            <th rowspan="1" colspan="5">
+                                教师
+                            </th>
+                            <th rowspan="1" colspan="4">
+                                学生
+                            </th>
+                            <th rowspan="1" colspan="4">
+                                家长
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                总人数
+                            </th>
+                            <th>
+                                班主任
+                            </th>
+                            <th>
+                                今日登录
+                            </th>
+                            <th>
+                                七日登录
+                            </th>
+                            <th>
+                                七日访问量
+                            </th>
+
+
+                            <th>
+                                总人数
+                            </th>
+                            <th>
+                                今日登录
+                            </th>
+                            <th>
+                                七日登录
+                            </th>
+                            <th>
+                                七日访问量
+                            </th>
+
+
+                            <th>
+                                总人数
+                            </th>
+                            <th>
+                                今日登录
+                            </th>
+                            <th>
+                                七日登录
+                            </th>
+                            <th>
+                                七日访问量
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody :if="@dataList.length>0">
+                        <!--ms-for: $idx,el in @dataList-->
+                        <tr>
+                            <td>
+                                {{$idx+1}}
+                            </td>
+                            <td>
+                                {{el.city}}
+                            </td>
+
+                            <td>
+                                {{el.grade}}
+                            </td>
+
+                            <td>{{el.tch_cnt}}</td>
+                            <td>{{el.tch_class_cnt}}</td>
+                            <td>{{el.tch_login}}</td>
+                            <td>{{el.tch_logins}}</td>
+                            <td>{{el.tch_visits}}</td>
+
+                            <td>{{el.stu_cnt}}</td>
+                            <td>{{el.stu_login}}</td>
+                            <td>{{el.stu_logins}}</td>
+                            <td>{{el.stu_visits}}</td>
+
+                            <td>{{el.par_cnt}}</td>
+                            <td>{{el.par_login}}</td>
+                            <td>{{el.par_logins}}</td>
+                            <td>{{el.par_visits}}</td>
+
+
+                        </tr>
+                        <!--ms-for-end:-->
+                    </tbody>
+                    <tbody :if="@dataList.length==0">
+                        <tr>
+                            <td colspan="16">暂无数据</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

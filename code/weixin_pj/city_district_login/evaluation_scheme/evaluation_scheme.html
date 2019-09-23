@@ -1,0 +1,348 @@
+<div ms-important="evaluation_scheme" id="evaluation-scheme">
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select" >
+                <!--<xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade,$id:'eva_sch_opt_grade'}"></xmp>-->
+                <div class="weui-cell weui-cell_select weui-cell_select-after">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">
+                            年级：
+                        </label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <select class="weui-select" data-duplex-changed="@change_grade()" ms-duplex="@grade_info">
+                            <option value="">
+                                请选择年级
+                            </option>
+                            <!--ms-for: ($idx,el) in @grade_list-->
+                            <option ms-attr="{value:$idx + '|' + el.value}">
+                                {{el.name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="select" :if="mod>=2&&user_level!=3&&!is_nor_user">
+                <!--<xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@area_list,sel_check:@change_area,head_value:@head_value.area,$id:'eva_sch_opt_area'}"></xmp>-->
+                <div class="weui-cell weui-cell_select weui-cell_select-after">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">
+                            区县：
+                        </label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <select class="weui-select" data-duplex-changed="@change_area()" ms-duplex="@area_info">
+                            <!--ms-for: ($idx,el) in @area_list-->
+                            <option ms-attr="{value:el.name + '|' + el.value + $idx}">
+                                {{el.name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="form-input custom_select2" :if="mod>=3&&!is_nor_user">-->
+                    <!--<select id="school_select" style="width: 220px;" data-duplex-changed="@change_school(this)">-->
+                        <!--<option :attr="{value:$idx}" :for="$idx, item in school_list">{{item.schoolname}}</option>-->
+                    <!--</select>-->
+            <div class="select" :if="mod>=3&&!is_nor_user">
+                <div class="weui-cell weui-cell_select weui-cell_select-after">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">
+                            学校：
+                        </label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <select class="weui-select" data-duplex-changed="@change_school()" ms-duplex="@school_info">
+                            <!--ms-for: ($idx,el) in @school_list-->
+                            <option ms-attr="{value:$idx}">
+                                {{el.schoolname}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--一级指标-->
+    <div class='first-index clearfix'>
+        <div class="float-left">
+            <div :for="item in cvs">
+                {{item.a}}<input :duplex="item.a">
+                {{item.b}}<input :duplex="item.b">
+            </div>
+            <!--ms-for:($index,el) in @first_index_list-->
+            <div :class="['float-left',(@checked_first_index == $index? 'chosen':'')]" ms-click="@click_first_index($index,el)">{{el.index_name}}</div>
+            <!--ms-for-end:-->
+            <div ms-if="@first_index_list.length==0">
+               暂无指标
+            </div>
+        </div>
+    </div>
+    <!--民主评议-->
+    <div class="d-content eval-review">
+        <div class="d-content-con">
+            <div class="d-content-title clearfix">
+                <div class="am-fl">
+                    <div>民主评议</div>
+                </div>
+            </div>
+            <div :for="$idx,item in @mzpy_list">
+                <div class="index-title clearfix">
+                    <p class="am-fl"></p>
+                    <div class="am-fl" :visible="item.hasOwnProperty('no_info')">{{item.kcyd}}</div>
+                    <div class="am-fl" :visible="!item.hasOwnProperty('no_info')">{{$idx+1}}：{{item.index_name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--日常评价-->
+    <div class="d-content">
+        <!--<div class="d-content-title clearfix">-->
+            <!--<div class="am-fl">-->
+                <!--<div>日常评价</div>-->
+            <!--</div>-->
+            <!--<div class="am-fr">-->
+                <!--<div>-->
+                    <!--注:-->
+                    <!--<img src="../../../common/images/add_score.png" alt="">加分-->
+                    <!--<img src="../../../common/images/down_score.png" alt="">减分-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="d-content-con">
+           <div>
+               <!--日常表现-->
+               <div class="d-content-title clearfix">
+                   <div class="am-fl">
+                       <div>日常评价</div>
+                   </div>
+                   <div class="am-fr">
+                       <div>
+                           注:
+                           <img src="../../../common/images/add_score.png" alt="">加分
+                           <img src="../../../common/images/down_score.png" alt="">减分
+                       </div>
+                   </div>
+               </div>
+               <!--日常表现数据-->
+               <div :for="($idx,item) in rcbx_list">
+                   <div class="index-title clearfix">
+                       <p class="am-fl"></p>
+                       <div class="am-fl" :visible="item.hasOwnProperty('no_info')">{{item.kcyd}}</div>
+                       <div class="am-fl" :visible="!item.hasOwnProperty('no_info')">{{$idx+1}}：{{item.kcyd}}</div>
+
+                   </div>
+                   <div class="index-con" :if="@item.zbmc.length != 0">
+                       <div class="clearfix"  :for="$idx,sl in item.zbmc">
+                           <div class="float-left" :visible="@str_float(item.fzjsqj[$idx]) > 0">
+                               <img src="../../../common/images/add_score.png" alt="">
+                           </div>
+                           <div class="float-left" :visible="@str_float(item.fzqsqj[$idx]) < 0">
+                               <img src="../../../common/images/down_score.png" alt="">
+                           </div>
+                           <div class="float-left fl-con">
+                               <span>{{sl}}&nbsp;{{item.zgfz[$idx]}}</span>
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+           </div>
+          <div :if="@zthd_list.length != 0">
+              <!--综合实践-->
+              <div class="d-content-title clearfix">
+                  <div class="am-fl">
+                      <div>综合实践活动</div>
+                  </div>
+              </div>
+              <!--综合实践数据-->
+              <div class="index-con"  :for="item in zthd_list">
+                  <div class="clearfix">
+                      <div class="float-left">
+                          <img src="../../../common/images/add_score.png" alt="">
+                      </div>
+                      <div class="float-left fl-con">
+                          <span>{{item.LX}}&nbsp;</span>
+                          <span style="color: green">加分</span>
+                      </div>
+
+                  </div>
+                  <!--<div class="clearfix">-->
+                  <!--<div class="am-fl">-->
+                  <!--<img src="../../../common/images/down_score.png" alt="">-->
+                  <!--</div>-->
+                  <!--<div class="am-fl fl-con">-->
+                  <!--<span>放学后及时回家，不在校内外逗留，外出和老师请假</span>-->
+                  <!--</div>-->
+                  <!--</div>-->
+              </div>
+          </div>
+           <div :if="@form_rcpj.zbmc == '学业水平'">
+               <!--阶段测试成绩-->
+               <div class="d-content-title clearfix">
+                   <div class="am-fl">
+                       <div>阶段测试成绩</div>
+                   </div>
+               </div>
+               <!--阶段测试成绩数据-->
+               <div class="index-con">
+                   <div class="clearfix">
+                       <div class="float-left">
+                           <img src="../../../common/images/add_score.png" alt="">
+                       </div>
+                       <div class="float-left fl-con">
+                           <span>学业成绩&nbsp;</span>
+                           <span style="color: green">加分</span>
+                       </div>
+                   </div>
+               </div>
+           </div>
+            <div :if="@bzxcg_list.length != 0">
+                <!--标志性结果-->
+                <div class="d-content-title clearfix">
+                    <div class="am-fl">
+                        <div>成就奖励</div>
+                    </div>
+                </div>
+                <!--标志性结果数据-->
+                <div class="index-con"  :for="item in @bzxcg_list">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <img src="../../../common/images/add_score.png" alt="">
+                        </div>
+                        <div class="float-left fl-con">
+                            <span>{{item.LX}}&nbsp;</span>
+                            <span style="color: green">加分</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div :if="@gxtc_list.length != 0">
+                <!--个性特长-->
+                <div class="d-content-title clearfix">
+                    <div class="am-fl">
+                        <div>个性特长</div>
+                    </div>
+                </div>
+                <!--个性特长数据-->
+                <div class="index-con"  :for="item in @gxtc_list">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <img src="../../../common/images/add_score.png" alt="">
+                        </div>
+                        <div class="float-left fl-con">
+                            <span>{{item.ps_type_name}}&nbsp;</span>
+                            <span style="color: green">加分</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--阶段性评价-->
+    <!--<div class="d-content">-->
+        <!--<div class="d-content-title clearfix">-->
+            <!--<div class="am-fl">-->
+                <!--<div>阶段性评价</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="d-content-con">-->
+            <!--&lt;!&ndash;某一条数据&ndash;&gt;-->
+            <!--<div>-->
+                <!--<div class="index-title clearfix">-->
+                    <!--<p class="am-fl"></p>-->
+                    <!--<div class="am-fl">1.主题活动</div>-->
+                <!--</div>-->
+                <!--<div class="index-con"  :for="item in zthd_list">-->
+                    <!--<div class="clearfix">-->
+                        <!--<div class="am-fl">-->
+                            <!--<img src="../../../common/images/add_score.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="am-fl fl-con">-->
+                            <!--<span>{{item.LX}}&nbsp;</span>-->
+                            <!--<span style="color: green">加分</span>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="clearfix">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="am-fl">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<img src="../../../common/images/down_score.png" alt="">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="am-fl fl-con">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<span>放学后及时回家，不在校内外逗留，外出和老师请假</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<div class="index-title clearfix">-->
+                    <!--<p class="am-fl"></p>-->
+                    <!--<div class="am-fl">2.阶段测试成绩</div>-->
+                <!--</div>-->
+                <!--<div class="index-con">-->
+                    <!--<div class="clearfix">-->
+                        <!--<div class="am-fl">-->
+                            <!--<img src="../../../common/images/add_score.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="am-fl fl-con">-->
+                            <!--<span>学业成绩&nbsp;</span>-->
+                            <!--<span style="color: green">加分</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--<div>-->
+                <!--<div class="index-title clearfix">-->
+                    <!--<p class="am-fl"></p>-->
+                    <!--<div class="am-fl">3.标志性成果</div>-->
+                <!--</div>-->
+                <!--<div class="index-con">-->
+                    <!--<div class="clearfix">-->
+                        <!--<div class="am-fl">-->
+                            <!--<img src="../../../common/images/add_score.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="am-fl fl-con">-->
+                            <!--<span>获得的荣誉称号&nbsp;</span>-->
+                            <!--<span style="color: green">加分</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="index-con">-->
+                    <!--<div class="clearfix">-->
+                        <!--<div class="am-fl">-->
+                            <!--<img src="../../../common/images/add_score.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="am-fl fl-con">-->
+                            <!--<span>个人先进事迹 &nbsp;</span>-->
+                            <!--<span style="color: green">加分</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;个性特长&ndash;&gt;-->
+            <!--<div>-->
+                <!--<div class="index-title clearfix">-->
+                    <!--<p class="am-fl"></p>-->
+                    <!--<div class="am-fl">个性特长</div>-->
+                <!--</div>-->
+                <!--<div class="index-con"  :for="item in @gxtc_list">-->
+                    <!--<div class="clearfix">-->
+                        <!--<div class="am-fl">-->
+                            <!--<img src="../../../common/images/add_score.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="am-fl fl-con">-->
+                            <!--<span>{{item.ps_type_name}}&nbsp;</span>-->
+                            <!--<span style="color: green">加分</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

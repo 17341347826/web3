@@ -1,0 +1,33 @@
+#add_evaluate_div{
+    padding:17px 16px 40px;
+}
+#add_evaluate_div .am-form-group{
+    display: inline-block;
+    color: #777;
+}
+#add_evaluate_div>div{
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.teacher_fill_in>thead>tr>th, .teacher_fill_in>tbody>tr>td{
+    white-space: inherit;
+}
+#teacher_fill_in .stu-refer{
+    display:inline-block;
+    background-color:#0E92D4;
+    padding:5px 15px;
+    color:white;
+    cursor:pointer;
+}
+#teacher_fill_in .btns{
+    /*padding-bottom: 10px;*/
+}
+#teacher_fill_in table{
+    border-radius: 4px;
+}
+/*按钮组*/
+#teacher_fill_in .btns{
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align: center;
+}

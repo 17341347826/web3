@@ -1,0 +1,67 @@
+@charset "utf-8";
+#stu_practice {
+  background-color: #f2f2f6;
+}
+#stu_practice .table-title {
+  font-size: 18px;
+  color: #0dba9e;
+  padding-bottom: 7px;
+}
+#stu_practice h3,
+#stu_practice p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+#stu_practice .container {
+  position: relative;
+  background-color: #ffffff;
+  margin-top: 4px;
+  padding: 16px;
+}
+#stu_practice .center_container {
+  padding: 16px;
+  margin: 0 auto;
+}
+#stu_practice .select-content {
+  padding: 16px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#stu_practice .zan-bi {
+  position: absolute;
+  left: 0;
+  /*width: 210px;*/
+  height: 168px;
+  padding-top: 22px;
+  padding-left: 30px;
+  font-size: 16px;
+  color: #28b9ab;
+}
+#stu_practice .zan-bi span {
+  font-size: 20px;
+  color: #ff6656;
+}
+#stu_practice .progress {
+  margin: 0 auto;
+  text-align: center;
+}
+#stu_practice .progress1 {
+  margin-left: 235px;
+  padding-top: 0;
+}
+#stu_practice .table-container {
+  border-radius: 0 0 4px 4px;
+}
+#stu_practice .table-container table {
+  word-wrap: break-word;
+  border-radius: 4px;
+}
+/*#stu_practice .table-container table tr > td:last-child {*/
+  /*width: 459px;*/
+  /*text-align: left;*/
+/*}*/
+#stu_practice .table-container .am-table > tbody > tr > td:last-child {
+  white-space: normal;
+}

@@ -1,0 +1,31 @@
+<div class="am-g" id="student_self_detail" ms-important="student_self_detail">
+
+    <div class='list-con'>
+        <div class="table-module">
+            <table class="am-table  am-table-hover">
+                <thead>
+                <tr>
+                    <th >
+                        评价内容
+                    </th>
+                </tr>
+                </thead>
+                <tbody :if="@table_list.length>0">
+                <!--ms-for: $idx,el in @table_list-->
+                <tr>
+                    <td style="text-align: left;word-wrap: break-word;word-break: break-all">
+                       {{$idx+1}}、{{el.sub_subject}}
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="num==1" class="am-text-center">
+                <tr>
+                    <td>友情提示:暂时没有方案内容</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+      
+    </div>
+</div>

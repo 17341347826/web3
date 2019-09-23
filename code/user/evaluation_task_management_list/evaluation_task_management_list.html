@@ -1,0 +1,86 @@
+<div class="am-g" ms-important="table"  id="demand">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <span  class="am-btn am-btn-primary am-fr am-margin-right-xs" ms-on-click="@add">
+    新增
+   </span>
+    <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+    </xmp>
+    <!--新增-->
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="add-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">创建</div>
+            <div class="am-modal-bd">
+                <div class="am-text-left">
+                    <form class="am-form am-form-inline">
+                        <div class="am-form-group">
+                            <label class="am-form-label">
+                                模块
+                            </label>
+                            <div class="form-width-sm">
+                                <select ms-duplex="@modal_data.module_type">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <!--ms-for:($index,el) in @module_arr-->
+                                    <option ms-attr="{value:el.id}">
+                                        {{ el.value}}
+                                    </option>
+                                    <!--ms-for-end:-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-form-label">
+                                日期
+                            </label>
+                            <div>
+                                <input class="form-width-md add_width" placeholder="开始时间" readonly id="start-time" ms-attr="{value:@modal_data.start_time}" ms-on-focus="@start_time" type="text"/>
+                                至
+                                <input class="form-width-md add_width" placeholder="结束时间" readonly id="end-time" ms-attr="{value:@modal_data.end_time}" ms-on-focus="@end_time" type="text"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel ms-on-click="@cancel_module">取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm ms-on-click="@add_module(1)">确定</span>
+            </div>
+        </div>
+    </div>
+    <!--修改时间-->
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="update-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">修改</div>
+            <div class="am-modal-bd">
+                <div class="am-text-left">
+                    <form class="am-form am-form-inline">
+                        <div class="am-form-group">
+                            <label class="am-form-label">
+                                模块
+                            </label>
+                            <div class="form-width-sm">
+                                <input type="text" ms-attr="{value:@request_module}" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-form-label">
+                                日期
+                            </label>
+                            <div>
+                                <input class="form-width-md add_width" placeholder="开始时间" readonly id="update-start-time" ms-attr="{value:@modal_data.start_time}" ms-on-focus="@update_start_time" type="text"/>
+                                至
+                                <input class="form-width-md add_width" placeholder="结束时间" readonly id="update-end-time" ms-attr="{value:@modal_data.end_time}" ms-on-focus="@update_end_time" type="text"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel ms-on-click="@cancel_module">取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm ms-on-click="@add_module(2)">确定</span>
+            </div>
+        </div>
+    </div>
+</div>

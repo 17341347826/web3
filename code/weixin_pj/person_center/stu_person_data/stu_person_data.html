@@ -1,0 +1,322 @@
+<div ms-important="stu_person_data" id="stu_person_data">
+    <!--基本信息-->
+    <div class="person-title" ms-click="@open_close(1)">
+        <span class="base-title base">基本信息</span>
+        <img ms-attr="{src:@base_src}" class="r-icon">
+    </div>
+    <div class="person-img" ms-if="@show_base">
+        <span class="img-title">照片</span>
+        <div class="pic">
+            <img ms-attr="{src:@photo_src}" alt="照片">
+            <input id="img-upload" type="file"
+                   accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" >
+        </div>
+        <img src="common/images/wx-right.png" class="img-icon">
+    </div>
+    <div class="weui-cells base-list" ms-if="@show_base">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">姓名</label>
+            </div>
+            <div class="weui-cell__bd">{{@user_info.student_name}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">曾用名</label>
+            </div>
+            <div class="weui-cell__bd">{{@user_info.old_name}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hb">
+                <label class="weui-label">性别</label>
+            </div>
+            <div class="weui-cell__bd">{{@user_info.sex | sex_change}}</div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">民族</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.nation"
+                        data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:''}">
+                        请选择民族
+                    </option>
+                    <option ms-attr="{value:el.name}" ms-for="el in @nationList">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">政治面貌</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.politic"
+                        data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:''}">
+                        请选择政治面貌
+                    </option>
+                    <option ms-attr="{value:el.name}" ms-for="el in @stu_political">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">健康状况</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.body_quality"
+                        data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:''}">
+                        请选择健康状况
+                    </option>
+                    <option ms-attr="{value:el.name}" ms-for="el in @health_list">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">住宿情况</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.live_in"
+                        data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:'借宿'}">借宿</option>
+                    <option ms-attr="{value:'走读'}">走读</option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">出生日期</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="date" value=""
+                       ms-duplex="@user_info.date_of_birth" ms-on-blur="@data_change()">
+            </div>
+        </div>
+
+    </div>
+    <div class="weui-cells base-list" ms-if="@show_base">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">学籍号</label>
+            </div>
+            <div class="weui-cell__bd">{{@user_info.student_num}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">身份证号</label>
+            </div>
+            <div class="weui-cell__bd">{{@user_info.student_code}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"  placeholder="请输入联系电话"
+                       ms-duplex="@user_info.student_phone" ms-on-blur="@data_change()">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title" ms-if="@show_base">通讯地址</div>
+    <div class="weui-cells weui-cells_form" ms-if="@show_base">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="请输入文本" rows="3"
+                          ms-duplex="@user_info.family_site" ms-on-blur="@data_change()"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--家庭情况-->
+    <div class="person-title title-margin" ms-click="open_close(2)">
+        <span class="base-title home">家庭情况</span>
+        <img ms-attr="{src:@family_src}" class="r-icon">
+    </div>
+    <div class="weui-cells base-list" ms-if="@show_parents">
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">父亲姓名</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"  placeholder="请输入姓名"
+                       ms-duplex="@user_info.father_name" ms-on-blur="@data_change()">
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">政治面貌</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.father_political" data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:''}">
+                        请选择政治面貌
+                    </option>
+                    <option ms-attr="{value:el.name}" ms-for="el in @politicalList">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">文化程度</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.father_culture" data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:''}">
+                        请选择文化程度
+                    </option>
+                    <option ms-attr="{value:el.name}" ms-for="el in @cultureList">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">工作单位</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"
+                       placeholder="请输入工作单位" ms-duplex="@user_info.father_work_site" ms-on-blur="@data_change()">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"
+                       placeholder="请输入联系电话" ms-duplex="@user_info.father_call" ms-on-blur="@data_change()">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells base-list" ms-if="@show_parents">
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">母亲姓名</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"  placeholder="请输入姓名" ms-duplex="@user_info.mother_name" ms-on-blur="@data_change()">
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">政治面貌</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.mother_political" data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:''}">
+                        请选择政治面貌
+                    </option>
+                    <option ms-attr="{value:el.name}" ms-for="el in @politicalList">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">文化程度</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.mother_culture" data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:''}">
+                        请选择文化程度
+                    </option>
+                    <option ms-attr="{value:el.name}" ms-for="el in @cultureList">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">工作单位</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"
+                       placeholder="请输入工作单位" ms-duplex="@user_info.mother_work_site" ms-on-blur="@data_change()">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"
+                       placeholder="请输入联系电话" ms-duplex="@user_info.mother_call" ms-on-blur="@data_change()">
+            </div>
+        </div>
+    </div>
+    <!--托管监护情况-->
+    <div class="person-title title-margin" ms-click="open_close(3)">
+        <span class="base-title jianhu">托管监护情况</span>
+        <img ms-attr="{src:@jian_src}" class="r-icon">
+    </div>
+    <div class="weui-cells base-list" ms-if="@show_jq">
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">托管人姓名</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"  placeholder="请输入姓名" ms-duplex="@user_info.trustee_name" ms-on-blur="@data_change()">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">年龄</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"  placeholder="请输入年龄" ms-duplex="@user_info.trustee_age" ms-on-blur="@data_change()">
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">文化程度</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.trustee_culture"
+                        data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:el.name}" ms-for="el in @cultureList" >
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">健康状况</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="select2" ms-duplex="@user_info.trustee_health" data-duplex-changed="@data_change()">
+                    <option ms-attr="{value:el.name}" ms-for="el in @health_list" >
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text"
+                       placeholder="请输入联系电话" ms-duplex="@user_info.trustee_call" ms-on-blur="@data_change()">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">详细地址</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入监护人地址"
+                       ms-on-blur="@data_change()" ms-duplex="@user_info.trustee_site" >
+            </div>
+        </div>
+    </div>
+    <!--个性名片-->
+    <div class="person-title title-margin" ms-click="open_close(4)">
+        <span class="base-title gxmp">个性名片</span>
+        <img ms-attr="{src:@jian_src}" class="r-icon">
+    </div>
+    <div class="weui-cells base-list" ms-if="@show_card">
+        <!--ms-for:($idx,el) in @person_card-->
+        <div class="weui-cells__title">{{el.card_name}}</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="请输入文本" rows="3"
+                          ms-duplex="@person_card[$idx].content | isNull" ms-on-blur="@card_change()"></textarea>
+                </div>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="content_box">
+    <div class="title_remark tab_div">
+        <p>
+            <a href="javascript:;" :class="[(@change_tab_num==1 ? 'avtive':'')]" ms-on-click="change_tab(1)" >新增记录</a> |
+            <a href="javascript:;" :class="[(@change_tab_num==2 ? 'avtive':'')]" ms-on-click="change_tab(2)">使用状态</a>
+        </p>
+    </div>
+    <div class="context_high" :if="@change_tab_num==1">
+        <div id="container"></div>
+    </div>
+    <div class="text_remark" :if="@change_tab_num==1">
+        <div>
+            <div>今日新增日常表现:</div>
+            <div class="num_x">{{@everyday_list[6]}}</div>
+            <div class="am-padding-left-sm">今日新增活动:</div>
+            <div class="num_y">{{@activity_list[6]}}</div>
+        </div>
+    </div>
+    <div class="context_high" :if="@change_tab_num==2">
+        <div id="container_use"></div>
+    </div>
+    <div class="text_remark" :if="@change_tab_num==2">
+        <div>
+            <div>在线用户:</div>
+            <div class="num_x online_x">{{@active}}</div>
+            <div class="am-padding-left-sm">今日登录:</div>
+            <div class="num_x online_y">{{@login[6]}}</div>
+            <div class="am-padding-left-sm">今日访问:</div>
+            <div class="num_x online_z">{{@visit[6]}}</div>
+        </div>
+
+    </div>
+</div>

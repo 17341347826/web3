@@ -1,0 +1,9 @@
+#project_reference .project_reference_con{
+    width: 100%;
+}
+#project_reference #evaluate_div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 90%;
+    margin: 0 auto;
+}

@@ -1,0 +1,153 @@
+#goals_plans_set{
+    background-color: #F1F2F6;
+    text-align: center;
+    color:#a2a2a2;
+}
+#goals_plans_set .old-select select{
+    width:440px;
+    height:34px;
+    border: solid 1px rgba(228, 228, 228, 1);
+}
+#goals_plans_set .form-input input{
+    color:#777;
+}
+#goals_plans_set .content{
+    display:inline-block;
+    width: 788px;
+    /*height: 483px;*/
+    border-radius: 4px 4px 4px 4px;
+    background-color: rgba(255, 255, 255, 1);
+    padding-bottom:20px;
+}
+#goals_plans_set .grade-info{
+    font-size: 16px;
+    color: #c8c8c8;
+    text-align: left;
+    margin-left:18px;
+    margin-top:15px;
+}
+#goals_plans_set .a-name{
+    font-size: 18px;
+    color: #777777;
+    margin-bottom:18px;
+    margin-top:40px;
+}
+#goals_plans_set .select-head {
+    position: relative;
+    width: 440px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 14px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    text-align: left;
+    font-size: 16px;
+    color: #c8c8c8;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#goals_plans_set .select-head .select-icon {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: inline-block;
+    width: 7px;
+    height: 6px;
+    background: url("../../../../common/images/icon/triangle.png") center no-repeat;
+}
+#goals_plans_set .select-option {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 200px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow: auto;
+    z-index: 100;
+    outline: none;
+}
+#goals_plans_set .select-option ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#goals_plans_set .select-option li {
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    color: #c8c8c8;
+    cursor: pointer;
+}
+#goals_plans_set .select-option li:hover {
+    background-color: #f0f0f0;
+    color: #2bbba4;
+}
+/**/
+#goals_plans_set .form-inset{
+    overflow: hidden;
+}
+#goals_plans_set .form-inset>div {
+    margin-bottom:10px;
+}
+#goals_plans_set .form-inset>div:last-child{
+    margin-bottom:0;
+}
+#goals_plans_set .form-inset>div>label,
+#goals_plans_set .time-change label{
+    font-size: 16px;
+    color: #a2a2a2;
+    margin-right:8px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+#goals_plans_set .form-inset>div>div,
+#goals_plans_set .time-change div{
+    display:inline-block;
+}
+#goals_plans_set .form-inset>div>div>input{
+    width: 440px;
+    height:34px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    font-size:16px;
+    padding-left: 20px;
+    color: #c8c8c8;
+}
+#goals_plans_set input::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#goals_plans_set input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#goals_plans_set input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#goals_plans_set input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+/*开始时间、结束时间*/
+#goals_plans_set .time-change div input{
+    width: 180px;
+    height:34px;
+    border-radius: 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    padding-left: 8px;
+}
+#goals_plans_set .time-change .start-change{
+    margin-right:10px;
+}
+/*按钮组*/
+#goals_plans_set .btns{
+    margin-top:20px;
+}

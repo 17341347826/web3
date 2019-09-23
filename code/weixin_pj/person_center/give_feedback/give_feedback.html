@@ -1,0 +1,33 @@
+<script src="give_feedback.js"></script>
+<div id="give_feedback" ms-important="give_feedback">
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--热点问题-->
+        <div class="float-left" :click="@menu_change()">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="hot-issues-btn"></span>
+            <span>热点问题</span>
+            <span class="three-border"></span>
+        </div>
+        <!--意见反馈-->
+        <div class="float-right">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="feedback-btn"></span>
+            <span class="menu-check">意见反馈</span>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="con">
+        <textarea name="opinion" id="opinion" rows="10" class="opinion"  ms-duplex="@extend.yj" ms-on-blur="@text_check()"
+        placeholder="请填写详尽的问题和意见，以便我们提供更好的帮助，10个字以上,200个字以内"></textarea>
+        <!--联系电话-->
+        <div class="phone-info">
+            <label>联系电话：</label>
+            <input type="text" id="phone" placeholder="请输入电话号码" ms-duplex="@extend.dhhm" ms-on-blur="@phone_check()">
+        </div>
+        <div :if="@msg != ''" class="msg"><span>{{@msg}}</span></div>
+        <div class="btn">
+            <a href="javascript:;" class="weui-btn weui-btn_primary" :click="@submit()">提交</a>
+        </div>
+    </div>
+</div>

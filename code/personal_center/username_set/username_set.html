@@ -1,0 +1,24 @@
+<div class="am-g" id="username_set" ms-important="username_set">
+    <div class="update_title">
+        <span>
+            <img src="../../../common/images/update_pwd.png" alt="">
+            <span>设置用户名</span>
+        </span>
+    </div>
+    <div class="update_content">
+        <form class="am-form am-form-horizontal">
+            <!--用户名-->
+            <div class="am-form-group">
+                <div class="parent-phone">
+                    <input type="text" id="username" placeholder="请输入用户名"
+                           ms-duplex="user_name" ms-on-blur="@username_blur()">
+                    <span class="additional-infor" :if="@username_msg != ''">{{@username_msg}}</span>
+                </div>
+            </div>
+            <div class="username_tips">提示：设置后不可更改，可用于登录，中英文均可，6-16个字符</div>
+        </form>
+        <div class="btns am-text-center">
+            <button type="button" class="am-btn-primary" ms-click="@save_click()">保存</button>
+        </div>
+    </div>
+</div>

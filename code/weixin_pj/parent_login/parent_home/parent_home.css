@@ -1,0 +1,86 @@
+#parent_home{
+    background-color: #ffffff;
+    padding-bottom: 59px;
+}
+#parent_home .swiper-wrapper img{
+    width: 100%;
+}
+#parent_home .swiper-container-horizontal>.swiper-pagination-bullets{
+    /*bottom: -10px;*/
+}
+#parent_home .student_home_content{
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 12px;
+    color: #a1a1a1;
+    text-align: center;
+}
+#parent_home .student_home_content>.context_high{
+    margin-top: 17px;
+}
+#parent_home .first_high{
+    margin-top: 13px!important;
+}
+#parent_home .student_home_content p+div{
+    background-color: #ffffff;
+    box-shadow: 0px 3px 32px 0px #dfdfdf;
+    border-radius: 10px;
+    margin-top: 8px;
+    min-height: 190px;
+}
+#parent_home .te_remind{
+    /*height: auto!important;*/
+}
+#parent_home .two_mo{
+    display: flex;
+    font-size: 13px;
+    border-bottom: 1px #efefef solid;
+    cursor: pointer;
+}
+#parent_home .two_mo>div{
+    flex: 1;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+#parent_home .border-lf{
+    border-left: 1px #efefef solid;
+}
+#parent_home .two_mo+div{
+    margin-top: 20px;
+}
+#parent_home .con_rem{
+    /*width: 40%;*/
+    display: flex;
+    padding-left: 26px;
+    padding-right: 10px;
+    margin-bottom: 12px;
+}
+#parent_home .mod_name{
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    color: #a2a2a2;
+    /*flex: 1;*/
+    text-align: left;
+}
+#parent_home .mod_count{
+    flex: 8;
+    text-align: left;
+}
+#parent_home .mod_count>span{
+    background-color: #fad7d7;
+    border-radius: 8px;
+    padding: 0 15px;
+    color: #f76a6a;
+}
+#parent_home .active_x{
+    color:#358afe;
+}
+/*待处理事项*/
+#parent_home .pedding-con{
+    padding-top:10px;
+}
+/*欢迎语*/
+#parent_home .student_home_content .welcoming{
+    /*margin-left: 10px;*/
+    font-size: 14px;
+}

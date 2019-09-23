@@ -1,0 +1,18 @@
+#parentExamine .am-table{
+    margin-bottom: 0px;
+}
+#parentExamine{
+    background-color: #f1f2f6;
+}
+#parentExamine>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    margin-top: 4px;
+}
+
+#parentExamine #three_menu_module{
+    padding-top: 0;
+}

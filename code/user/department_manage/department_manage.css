@@ -1,0 +1,31 @@
+#department_manage{
+    background-color: #f5f5f5;
+}
+#department_manage >div{
+    background-color: #fff;
+    padding-left:16px;
+}
+#department_manage  .con{
+    padding:16px 10px;
+}
+#department_manage .table_module{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+/*#department_manage .select2-container--default .select2-selection--single{*/
+    /*height: 38px;*/
+    /*width: 100%;*/
+    /*border-radius: 4px;*/
+    /*border: 1px #e2e2e2 solid;*/
+/*}*/
+/*#department_manage .select2-container--default .select2-selection--single .select2-selection__rendered{*/
+    /*color:#a2a2a2;*/
+    /*line-height: 38px;*/
+    /*height: 38px;*/
+/*}*/
+/*#department_manage .select2-container--default .select2-selection--single .select2-selection__arrow{*/
+    /*height: 38px;*/
+/*}*/
+#department_manage .select2-container {
+    width: 353px !important;
+}

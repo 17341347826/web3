@@ -1,0 +1,26 @@
+.growth-nav {
+    position: fixed;
+    top:50%;
+    right: 0;
+    padding: 0;
+    margin-top: -160px;
+    list-style: none;
+    border: 1px solid lightgrey;
+    border-top: none;
+    background:#f2f4f7;
+}
+.growth-nav li {
+    border-top: 1px solid lightgrey;
+}
+.growth-nav li:hover {
+    background: #4286dc;
+}
+.growth-nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+
+}
+.growth-nav li:hover a {
+    color: #fff;
+}

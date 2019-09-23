@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跳转中...</title>
+    <!--<script src="//cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js"></script>-->
+    <script src="common/lib/lodash.min.js"></script>
+
+
+</head>
+<body>
+<div style="width: 100%;" align="center">
+    <label id="show" style="font-size: 48px;"></label>
+</div>
+<script>
+
+    var origin = window.location.origin;
+    var origin = _.toLower(origin);
+    var path_name = window.location.pathname;
+    if (_.startsWith(origin, 'http://183.223.236.40:30080') || 1) {
+        window.location.href = origin+"/Growth/new_index.html"
+        //document.getElementById("show").innerText = "升级中..."
+    }
+    else if (_.startsWith(origin, 'http://www.xtyun.net')) {
+
+        window.location.href = "http://pj.xtyun.net/Growth/new_index.html"
+        //document.getElementById("show").innerText = "升级中..."
+    }
+    else if (_.startsWith(origin, 'http://bm.xtyun.net')) {
+        window.location.href = "http://bm.xtyun.net:8088" + path_name;
+    }
+    else if(_.startsWith(origin, "http://xy.xtyun.net")){
+        window.location.href = "http://xy.xtyun.net/xy/front/index"
+    }
+</script>
+</body>
+</html>

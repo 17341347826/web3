@@ -1,0 +1,85 @@
+#a_a_element{
+    width: 100%;
+    /*background-color: #f1f2f6;*/
+}
+#a_a_element>.a_f_content{
+
+}
+/*#a_a_element>div.a_f_content .a_f_form .am-form>div>div.select{*/
+/*display: inline-block;*/
+/*width: 436px;*/
+/*}*/
+/*#a_a_element>div.a_f_content .a_f_form .am-form>div>div.select input{*/
+/*color:#c8c8c8;*/
+/*max-height: 36px;*/
+/*border-radius: 4px;*/
+/*font-size: 16px;*/
+/*}*/
+/*#a_a_element>div.a_f_content .a_f_form .am-form>div>div.select input.disabled_css{*/
+/*font-size: 16px;*/
+/*font-weight: normal;*/
+/*font-stretch: normal;*/
+/*line-height: 31px;*/
+/*letter-spacing: 0px;*/
+/*color: #b6b6b6;*/
+/*border: 1px solid #ccc;*/
+/*background-color: white;*/
+/*}*/
+/*#a_a_element>div.a_f_content .a_f_form .am-form>div>div.select .select-head,*/
+/*#a_a_element>div.a_f_content .a_f_form .am-form>div>div.select .select-head+.select-option*/
+/*{*/
+/*width: 100%;*/
+/*}*/
+/*#a_a_element .select,*/
+/*#a_a_element #select2-teacher_select-container*/
+/*{*/
+/*height: 36px;*/
+/*line-height: 36px;*/
+/*border-color:#ccc;*/
+/*color:#b6b6b6;*/
+/*font-size: 16px;*/
+/*}*/
+/*#a_a_element .select2-container--default .select2-selection--single{*/
+/*height: 36px;*/
+/*border-color:#ccc;*/
+/*}*/
+/*#a_a_element .select2-container--default .select2-selection--single .select2-selection__arrow b{*/
+/*top:60%;*/
+/*color:#ccc;*/
+/*border-top-color: #ccc;*/
+/*border-right-color: transparent;*/
+/*border-bottom-color: transparent;*/
+/*border-left-color: transparent;*/
+/*}*/
+/*#a_a_element .select2-container .select2-selection--single .select2-selection__rendered{*/
+/*padding-left: 4px;*/
+/*}*/
+
+#a_a_element .weui-input{
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#a_a_element .weui-label{
+    font-size: 16px;
+    color: #a2a2a2;
+}
+#a_a_element .weui-cell_select-after .weui-select{
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#a_a_element ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#a_a_element :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#a_a_element ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#a_a_element :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #b6b6b6;
+    font-size: 16px;
+}

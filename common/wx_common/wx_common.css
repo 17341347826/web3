@@ -1,0 +1,439 @@
+@charset "utf-8";
+/*
+类似于首页标题颜色（新增记录，使用状态等）
+*/
+.normal_title {
+  font-size: 12px;
+  color: #a1a1a1;
+}
+/**
+左右边距
+ */
+.normalPaddding {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 59px;
+}
+/**
+字体样式，类似于菜单页面字体
+ */
+.menu_font {
+  font-size: 12px;
+  color: #8d8d8d;
+}
+/*隐藏*/
+.hide_none{
+  display: none;
+}
+/*浮动*/
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clear_both:after {
+  content: ".";
+  /*加一段内容*/
+  display: block;
+  /*让生成的元素以块级元素显示，占满剩余空间*/
+  height: 0;
+  /*避免生成的内容破坏原有布局高度*/
+  clear: both;
+  /*清除浮动*/
+  visibility: hidden;
+  /*让生成的内容不可见*/
+}
+.clear_both {
+  zoom: 1;
+  /*为IE6，7的兼容性设置*/
+}
+/*========================================筛选样式================================*/
+/*参考页面teacher_find_target teacher_find_target_edit*/
+.screen_demo .input_div{
+  padding-bottom: 5px;
+}
+.screen_demo select{
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 15px;
+  letter-spacing: 0px;
+  color: #a2a2a2;
+
+}
+.screen_demo .weui-cell:before{
+  border-top:none;
+}
+.screen_demo .weui-cell_select{
+  height: 40px;
+  background-color: #ffffff;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px #e2e2e2 solid;
+}
+.screen_demo .last_select{
+  border-bottom: none;
+}
+.screen_demo textarea{
+  width: 100%;
+  height: 85px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: solid 1px #f6f6f6;
+  resize:none;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  font-size: 14px;
+  color: #a2a2a2;
+  box-sizing:border-box;
+}
+.screen_demo input{
+  width: 100%;
+  height: 44px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: solid 1px #f6f6f6;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+  color: #a2a2a2;
+  box-sizing:border-box;
+}
+/*小按钮*/
+.public_btn,
+.public_btn_big{
+  text-align: center;
+  cursor: pointer;
+}
+.public_btn a{
+  width: auto;
+  background-color: #78a8ff;
+  box-shadow: 0px 0px 4px 0px #abcfff;
+  border-radius: 12px;
+  padding:3px 20px 3px 20px;
+  font-family: PingFang-SC-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 7px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+/*大按钮----------参考页面：add_first_index*/
+.public_btn_big{
+  padding:15px;
+}
+.public_btn_big a{
+  display: block;
+  width: 100%;
+  height: 39px;
+  background-color: #358afe;
+  border-radius: 5px;
+  font-family: PingFang-SC-Regular;
+  font-size: 18px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  line-height: 39px;
+}
+.color_gray{
+  background-color: #d2d2d2!important;
+  box-shadow: none!important;
+}
+/*textarea不可编辑*/
+.color_disabled{
+  background-color:#f1f1f1!important;
+  border: 1px solid #e2e2e2!important;
+}
+/*文字颜色*/
+.green_color{
+  color:#37b19b!important;
+}
+.red_color{
+  color:#e2815a!important;
+}
+.pointer{
+  cursor: pointer;
+}
+/*=================================三级菜单============================*/
+/*参考页面：teacher_term_comment*/
+/*三级菜单*/
+.three-menu{
+  overflow: hidden;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  font-family: PingFang-SC-Regular;
+  font-size: 11px;
+  letter-spacing: 0px;
+  color: #8d8d8d;
+}
+.three-menu>div{
+  display:inline-block;
+  text-align: center;
+  width:50%;
+  height: 25px;
+  cursor: pointer;
+}
+.three-menu>div .three-border{
+  display:inline-block;
+  height:20px;
+  border-right:1px solid #efefef;
+  float: right;
+  margin-top: 2px;
+}
+.three-menu>div span:first-child{
+  margin-right:15px;
+}
+.three-menu>div span{
+  display:inline-block;
+  vertical-align: top;
+  line-height: 25px;
+}
+
+.nav_progress_tag{
+  padding: 6px 7px 5px 7px;
+}
+
+.nav_progress_tag > ul{
+  list-style: none;
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  height: 40px;
+  background-color: #ffffff;
+}
+
+.nav_progress_tag > ul > li {
+  border-top:solid 1px #358afe;
+  border-left: solid 1px #358afe;;
+  border-bottom: solid 1px #358afe;
+  text-align: center;
+  flex-basis:33%;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  line-height: 40px;
+  width: 100%;
+  color: #358afe;
+}
+
+.nav_progress_tag > ul > li .active{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 8px solid red;
+}
+
+.nav_progress_tag > ul> li:last-child{
+    border-right: solid 1px #358afe;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.nav_progress_tag > ul> li:first-child{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.progress_table
+{
+  padding: 5px 7px 0 7px;
+}
+
+.progress_table ._title {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.progress_table ._title  .col_1{
+
+}
+.progress_table ._title  .col_1{
+
+}
+
+.progress_table > table {
+  width: 100%;
+}
+
+.progress_table > table > thead  > tr{
+    height: 13px;
+	font-family: PingFang-SC-Regular;
+	font-size: 13px;
+	font-weight: normal;
+	font-stretch: normal;
+    height:33px;
+    line-height: 15px;
+	letter-spacing: 0px;
+	color: #444444;
+}
+
+
+.progress_table > table > thead  > tr > th{
+    font-weight:normal;
+}
+.progress_table > table > thead  > tr > td{
+    color: #444444;
+}
+.progress_table > table > tbody > tr{
+	height: 40px;
+	font-family: PingFang-SC-Regular;
+	font-size: 11px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 15px;
+	letter-spacing: 0rem;
+	color: #8d8d8d;
+}
+.progress_table >table >tbody > tr>td{
+   border-left: none;
+    border-right:none;
+    border-top: 1px solid #eeeeee;
+}
+/*select样式 ----参考页面：city_result_progess*/
+.old-select select{
+  /*width: auto;*/
+  width:200px;
+  /*height: 36px;*/
+  /*line-height: 36px;*/
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+  border: 1px solid #c8c8c8;
+  text-align: left;
+  font-size: 16px;
+  color: #777777;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/*清除浮动*/
+.clearfix:after {
+  content: ".";
+  /*加一段内容*/
+  display: block;
+  /*让生成的元素以块级元素显示，占满剩余空间*/
+  height: 0;
+  /*避免生成的内容破坏原有布局高度*/
+  clear: both;
+  /*清除浮动*/
+  visibility: hidden;
+  /*让生成的内容不可见*/
+}
+.clearfix {
+  zoom: 1;
+  /*为IE6，7的兼容性设置*/
+}
+/*input[type='text']开始   ，参考页面：city_result_progess*/
+.search-cont{
+  /*border:1px solid red;*/
+}
+.search-cont .form-input{
+  float:left;
+  margin-right:10px;
+}
+.search-cont .form-input>input[type='text']{
+  position: relative;
+  width: 198px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #c8c8c8;
+  text-align: left;
+  font-size: 16px;
+  color: #777777;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.search-cont .form-input>input::-webkit-input-placeholder { /* WebKit browsers */
+  font-size: 16px;
+  color: #c8c8c8;
+  padding-left:10px;
+}
+.search-cont .form-input>input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  font-size: 16px;
+  color: #c8c8c8;
+  padding-left:10px;
+}
+.search-cont .form-input>input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  font-size: 16px;
+  color: #c8c8c8;
+  padding-left:10px;
+}
+.search-cont .form-input>input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  font-size: 16px;
+  color: #c8c8c8;
+  padding-left:10px;
+}
+/*按钮样式 参考样式city_user_activity*/
+.search-btn {
+  margin-left: 10px;
+  display: inline-block;
+}
+.search-btn input[type='button'] {
+  /*min-width: 70px;*/
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 30px;
+  font-size: 10px;
+  color: #FFFFFF;
+  background-color: #2bbba4;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+/*暂无数据*/
+.no-data{
+  color:#a2a2a2;
+  text-align: center;
+  padding-top:10px;
+}
+/*微信内容居中*/
+.wx-center{
+  text-align: center;
+}
+/*table 公有样式*/
+.wx-table{
+  width: 100%;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+table{
+  max-width: 100%;
+  background-color: transparent;
+  empty-cells: show;
+}
+.wx-table > thead > tr > th,
+.wx-table > tbody > tr > th,
+.wx-table > tfoot > tr > th,
+.wx-table > thead > tr > td,
+.wx-table > tbody > tr > td,
+.wx-table > tfoot > tr > td{
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.wx-table > tbody > tr:first-child > th,
+.wx-table > tbody > tr:first-child > td{
+  border-top: none;
+}
+.wx-table > tbody > tr:last-child > th,
+.wx-table > tbody > tr:last-child > td{
+  border-bottom:none;
+}
+.wx-table>thead>tr>th,
+.wx-table>tbody>tr>td{
+  padding: 0 .7rem;
+  text-align: center;
+  vertical-align: middle;
+}
+/*首页通知模块样式*/
+.notice-msg{
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}

@@ -1,0 +1,221 @@
+<div ms-important="health_item_new_index" id="health_item_new_index">
+    <div class="am-u-sm-12">
+        <div class="am-g">
+            <p>
+                ①:上传评份文件以及附加分文件[
+                <a href="Growth/common/template/初中体育成绩评分标准.zip">
+                    点击下载评分及附加分模板文件
+                </a>
+                ]
+            </p>
+        </div>
+        <form enctype="multipart/form-data" id="form_rule" method="post">
+            <div class="am-u-sm-7" style="padding:15px;">
+                <div class="am-u-sm-6">
+                    <div class="am-form-group">
+                        <label for="doc-ipt-file-1">
+                            设置评分文件:
+                        </label>
+                        <input name="rule" type="file"/>
+                        <p class="am-form-help">
+                            请选择要上传的文件...
+                        </p>
+                    </div>
+                </div>
+                <div class="am-u-sm-6">
+                    <div class="am-form-group">
+                        <label for="doc-ipt-file-1">
+                            设置附加分规则:
+                        </label>
+                        <input name="ext" type="file"/>
+                        <p class="am-form-help">
+                            请选择要上传的文件...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="am-u-sm-12">
+        <div class="am-g">
+            <p>
+                ②:分析文件(点击分析“文件规则”按钮，会自动根据文件生成需要添加的测评项）
+            </p>
+        </div>
+        <div class="am-g" style="padding:15px;">
+   <span class="am-btn am-btn-primary am-btn-sm" ms-on-click="@analyze_item()">
+    分析规则文件
+   </span>
+        </div>
+    </div>
+    <div class="am-u-am-12" style="padding-top: 20px;">
+        <div class="am-g">
+            <p>
+                ③:校验测评项（测评项检测无误后，点击添加按扭，添加测评项）
+            </p>
+        </div>
+        <div class="am-u-sm-12">
+            <!--ms-for: ip,item in @form_list-->
+            <div ms-css="{width:item.hasOwnProperty('ext')?1200:600}" style="width:1200px;float:left;padding: 15px;margin: 10px auto 15px auto;">
+                <div style="background-color: white;border-radius:10px;padding: 15px;">
+                    <div class="am-g">
+                    </div>
+                    <div class="am-g">
+                        <div ms-class="[item.hasOwnProperty('ext')?'am-u-sm-6':'']">
+                            <h3 style="margin: 0px;">
+                                基本信息:
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="am-g">
+      <span style="margin-left: 15px;">
+       名字:
+       <input ms-duplex="item.name" type="text"/>
+      </span>
+                        <span style="margin-left: 15px;">
+       单位:
+       <input ms-duplex="item.unit" type="text"/>
+      </span>
+                    </div>
+                    <div class="am-g">
+                        <div ms-class="[item.hasOwnProperty('ext')?'am-u-sm-6':'']">
+                            <h3 style="margin: 0px;">
+                                评分标准:
+                            </h3>
+                        </div>
+                        <div class="am-u-sm-6" ms-visible="item.hasOwnProperty('ext')">
+                            <h3 style="margin: 0px;">
+                                加分标准:
+                            </h3>
+                        </div>
+                    </div>
+                    <div ms-class="[item.hasOwnProperty('ext')?'am-u-sm-6':'am-u-sm-12']">
+                        <div class="am-g" style="overflow-y: visible;overflow: visible;overflow-x: hidden">
+                            <table class="am-table am-table-radius am-table-compact" style="margin-bottom: -1px;">
+                                <thead>
+                                <tr>
+                                    <th style="width:80px;">
+                                        初一
+                                    </th>
+                                    <th style="width:80px;">
+                                        初二
+                                    </th>
+                                    <th style="width:80px;">
+                                        初三
+                                    </th>
+                                    <th style="width:80px;">
+                                        分值
+                                    </th>
+                                    <th style="width:80px;">
+                                        等级
+                                    </th>
+                                    <th style="">
+                                        操作
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="am-g" style="height:350px;overflow-y: visible;overflow: visible;overflow-x: hidden">
+                            <table class="am-table am-table-radius am-table-compact" style="text-align: center">
+                                <tbody>
+                                <!--ms-for: pos,si in @item.strand-->
+                                <tr style="height:15px;line-height:15px;">
+                                    <td style="width:80px;">
+                                        {{ si.g7 }}
+                                    </td>
+                                    <td style="width:80px;">
+                                        {{ si.g8 }}
+                                    </td>
+                                    <td style="width:80px;">
+                                        {{ si.g9 }}
+                                    </td>
+                                    <td style="width:80px;">
+                                        {{ si.score }}
+                                    </td>
+                                    <td style="width:80px;">
+                                        {{ si.lev }}
+                                    </td>
+                                    <td style="">
+                                        <button class="am-btn am-btn-sm am-btn-default" ms-on-click="@del_strand(ip, pos)">
+                                            <i class="am-icon-trash-o">
+                                            </i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!--ms-for-end:-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="am-u-sm-6" ms-visible="item.hasOwnProperty('ext')">
+                        <div class="am-g" style="overflow-y: visible;overflow: visible;overflow-x: hidden">
+                            <table class="am-table am-table-radius am-table-compact" style="margin-bottom: -1px;">
+                                <thead>
+                                <tr>
+                                    <th style="width:100px;">
+                                        初一
+                                    </th>
+                                    <th style="width:100px;">
+                                        初二
+                                    </th>
+                                    <th style="width:100px;">
+                                        初三
+                                    </th>
+                                    <th style="width:100px;">
+                                        分值
+                                    </th>
+                                    <th style="">
+                                        操作
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="am-g" style="height:350px;overflow-y: visible;overflow: visible;overflow-x: hidden">
+                            <table class="am-table am-table-radius am-table-compact" style="text-align: center">
+                                <tbody>
+                                <!--ms-for: pos,si in @item.ext-->
+                                <tr style="height:15px;line-height:15px;">
+                                    <td style="width:100px;">
+                                        {{ si.g7 }}
+                                    </td>
+                                    <td style="width:100px;">
+                                        {{ si.g8 }}
+                                    </td>
+                                    <td style="width:100px;">
+                                        {{ si.g9 }}
+                                    </td>
+                                    <td style="width:100px;">
+                                        {{ si.score }}
+                                    </td>
+                                    <td style="">
+                                        <button class="am-btn am-btn-sm am-btn-default" ms-on-click="@del_ext(ip, pos)">
+                                            <i class="am-icon-trash-o">
+                                            </i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!--ms-for-end:-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div align="center" class="am-g" style="padding-top: 25px;">
+      <span class="am-btn am-btn-primary am-btn-sm" ms-on-click="@save_as(ip, item)">
+       保存
+      </span>
+                        <span class="am-btn am-btn-default am-btn-sm" ms-on-click="@del_item(ip)" style="margin-left: 10px;">
+       移除
+      </span>
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="content ms-controller" id="login" ms-controller="login">
+ <div>
+  <div class="logo weui-text-center">
+   <div>
+    <img alt="" src="code/weixin_xy/login/logo.png"/>
+   </div>
+   <div>
+    学业质量测评
+   </div>
+   <div class="bg-three">
+    <img alt="" src="code/weixin_xy/login/bg_three.png"/>
+   </div>
+   <div class="bg-two">
+    <img alt="" src="code/weixin_xy/login/bg_two.png"/>
+   </div>
+  </div>
+  <div class="con">
+   <div class="weui-cells">
+    <div class="weui-cell">
+     <div class="weui-cell__hd">
+      <img alt="" src="common/images/wx_user.png"/>
+     </div>
+     <div class="weui-cell__bd">
+      <input class="weui-hide" type="text"/>
+      <input class="weui-input" ms-blur="showFooter()" ms-duplex="@data.account" ms-focus="@hideFooter()" placeholder="请输入账号" type="text"/>
+     </div>
+    </div>
+   </div>
+   <div class="weui-cells">
+    <div class="weui-cell">
+     <div class="weui-cell__hd wx-pwd">
+      <img alt="" src="common/images/wx_pwd.png"/>
+     </div>
+     <div class="weui-cell__bd">
+      <input class="weui-input" ms-blur="showFooter()" ms-duplex="@data.password" ms-focus="@hideFooter()" placeholder="请输入密码" type="password"/>
+     </div>
+    </div>
+   </div>
+   <div class="weui-cells xy-login">
+    <div class="weui-cell">
+     <a class="weui-btn weui-btn_primary login-btn" href="javascript:;" id="login-btn" ms-on-click="@login()">
+      登录
+     </a>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="pj-footer" ms-if="@show=='1'">
+  <p class="footer-text">
+   Copyright © 成都兴唐信息技术有限公司
+  </p>
+ </div>
+</div>

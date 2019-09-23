@@ -1,0 +1,69 @@
+<div id="control_line" ms-important="control_line">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="search-btn">
+                <input type="button" value="导入分数线" :click="@click_btn">
+            </div>
+        </div>
+    </div>
+    <div class="c_line_div">
+        <div class="c_l_con" :visible="@kz_line.length > 0">
+            <p class="am-text-center am-padding-top-sm am-padding-top-sm">市、县（区）最低控制线</p>
+            <div class="box">
+                <!--ms-for: ($index,el) in @kz_line-->
+                <div>
+                    <span>{{el.dw_name}}</span>
+                    <span class="am-padding-left-sm">{{el.score_line}}</span>
+                </div>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <div :visible="@kz_line.length == 0" class="no-data">
+            <img src="../../../common/images/none.png" alt="">
+        </div>
+        <!--导入-->
+        <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    导入
+                    <a class="am-close am-close-spin" data-am-modal-close="" ms-on-click="@cancel()">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form id="uploadForm" method="post" enctype="multipart/form-data">
+                        <input type="text" ms-duplex="@file_name" id="file-name" disabled class="am-u-sm-10"
+                               style="height: 32px">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                            <input type="file" id="file" name="file" multiple
+                                   onchange="document.getElementById('file-name').value=this.value">
+                        </div>
+                    </form>
+                    <div class="am-text-left">
+                        <a ms-on-click="@down_index">
+                            下载模板
+                        </a>
+                    </div>
+                    <span ms-visible="@modal_msg != ''" style="color: red">
+                    {{ @modal_msg }}
+                    </span>
+                    <div :class="[(false_data.length > 0 ? 'false_msg' :'')]">
+                        <!--ms-for: ($index,el) in @false_data-->
+                        <p>{{el.row}}{{el.name}}{{el.err_info}}</p>
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel="" ms-on-click="@cancel()">
+                        取消
+                    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+                        上传
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

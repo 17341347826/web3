@@ -1,0 +1,82 @@
+<div ms-important="person_info" id="person_info" >
+    <div>
+        <!--头像+，密码设置那块-->
+        <div class="con">
+            <!--背景色-->
+            <div class="head-back"></div>
+            <div>
+                <!--头像部分-->
+                <div class="head-info">
+                    <!--头像-->
+                    <div class="user-head" style="cursor: pointer;">
+                        <img :visible="@head_photos == ''" src="../../../common/images/icon/person_head_mr.png" alt="">
+                        <img :visible="@head_photos != ''" ms-attr="{src:@head_photos}" alt="">
+                        <div class="weui-uploader__input-box"  id="report"
+                             style="position: absolute;z-index: 999;top: 0; opacity: 0;">
+                            <!--<input class="weui-uploader__input report" type="file" accept="image/*"-->
+                                   <!--multiple="">-->
+                        </div>
+                    </div>
+                    <div class="user-name">
+                        <span>{{@user_name}}</span>
+                        <div :click="@name_up()" :if="@userType != 2">
+                            <!--<img src="../../../../common/images/weixin_pj/head_edit.png" alt="">-->
+                            <span class="edit-circle-btn" title="编辑"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--密码设置-->
+                <div class="set-help-about">
+                    <div :click="@pwd_turn()">
+                        <img src="../../../../common/images/weixin_pj/pwd_setting.png" alt="">
+                        <div>密码设置</div>
+                    </div>
+                    <div :click="@help_turn()">
+                        <img src="../../../../common/images/weixin_pj/person_help.png" alt="">
+                        <div>帮助与反馈</div>
+                    </div>
+                    <div :click="@about_turn()">
+                        <img src="../../../../common/images/weixin_pj/person_about.png" alt="">
+                        <div>关于</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--跳转-->
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__ft stu-data" :if="@ident_type == 2" ms-click="@stu_data()">
+                <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-cell__bd">基本资料</div>
+                    <span class="weui-cell__ft"></span>
+                </a>
+            </div>
+            <div class="weui-panel__ft" ms-click="@phone_turn()">
+                <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-cell__bd">手机号</div>
+                    <span class="weui-cell__ft"></span>
+                </a>
+            </div>
+            <div class="weui-panel__ft" :click="@sign_out()">
+                <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-cell__bd">退出当前账号</div>
+                    <span class="weui-cell__ft"></span>
+                </a>
+            </div>
+            <!--<div class="weui-panel__ft">-->
+                <!--<a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">-->
+                    <!--<div class="weui-cell__bd">关闭学唐云</div>-->
+                    <!--<span class="weui-cell__ft"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+        </div>
+        <!--<div class="weui-uploader__input-box">-->
+            <!--<input class="weui-uploader__input report" type="file" accept="image/*"-->
+                   <!--multiple=""   id="report" ms-on-change="@input_change">-->
+        <!--</div>-->
+    </div>
+    <!--
+    cur_tab:home首页，evaluate评价，about-me我的
+    跳转链接请加到bottom_tab.js的tab_href数组中
+    -->
+    <xmp ms-widget="{is:'ms-bottom-tab',cur_tab:'about-me',ident_type:@ident_type}"></xmp>
+</div>

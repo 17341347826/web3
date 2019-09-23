@@ -1,0 +1,57 @@
+#ecm_target_plan{
+    background-color: #f1f2f6;
+}
+#ecm_target_plan .am-table>tbody>tr>td{
+    white-space: normal;
+}
+#ecm_target_plan .common-select,
+#ecm_target_plan .list-con>div{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#ecm_target_plan .common-select,
+#ecm_target_plan .list-con>div{
+    background-color: white;
+}
+/*内容*/
+#ecm_target_plan .list-con>div{
+    text-align:center;
+}
+#ecm_target_plan .list-con .con-one,
+#ecm_target_plan .list-con .con-two{
+    padding-top:12px;
+    padding-bottom:20px;
+}
+
+#ecm_target_plan .list-con .title{
+    font-size: 18px;
+    color: #0dba9e;
+    padding-top: 18px;
+    padding-bottom: 8px;
+    height: 73px;
+}
+/*内容2*/
+#ecm_target_plan .list-con .con-two{
+    margin-top:4px;
+    overflow: hidden;
+}
+#ecm_target_plan table tr>td:nth-child(3){
+    width: 218px;
+}
+/*table2、table3*/
+#ecm_target_plan .am-table {
+    margin-bottom:0;
+    border-radius:4px;
+}
+#ecm_target_plan  table{
+    table-layout: fixed;/*固定布局的算法。在这种算法中，表格和列的宽度取决于col对象的宽度总和，假如没有指定，则会取决于第一行每个单元格的宽度。假如表格没有指定宽度( width )属性，则表格被呈递的默认宽度为 100% （注意：此样式是关键）*/
+}
+.stu-progress-table{
+    display: flex;
+}
+.stu-progress-table>div{
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+}

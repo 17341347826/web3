@@ -1,0 +1,41 @@
+#control_line{
+    background-color: #f1f2f6;
+}
+#control_line>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#control_line .c_line_div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#control_line .c_l_con{
+    width: 80%;
+    border: 1px #e2e2e2 solid;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+#control_line .box{
+    display: flex;
+    justify-content:center;
+    padding-bottom: 20px;
+}
+#control_line .box>div{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+ #control_line .no-data{
+    color:#e2e2e2;
+    height:473px;
+    text-align:center;
+    padding-top:65px;
+}
+#control_line .false_msg{
+    max-height: 250px;
+    overflow-y: auto;
+}
+#control_line .false_msg>p{
+    color: red;
+}

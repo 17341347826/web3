@@ -1,0 +1,8 @@
+.finish-ans{
+    position: fixed;
+    top:100px;
+    right: 2%;
+}
+#more-filling-top-option-ul1 input{
+    min-height: 60px;
+}

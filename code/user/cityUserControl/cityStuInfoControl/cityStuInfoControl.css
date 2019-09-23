@@ -1,0 +1,34 @@
+#cityStuInfoControl{
+    background-color: #f1f2f6;
+}
+#cityStuInfoControl>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#cityStuInfoControl .city-stu-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#cityStuInfoControl .search-btn input[type='button']{
+    width: auto;
+}
+#cityStuInfoControl #compileData{
+    color:#777;
+}
+#cityStuInfoControl #compileData input,
+#cityStuInfoControl #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color:#777;
+}
+#cityStuInfoControl #compileData .am-selected-list{
+    border: 1px #c8c8c8 solid;
+    background-color: white;
+    width: 100%;
+}
+#cityStuInfoControl #compileData .am-selected-list li{
+    background-color: white;
+}

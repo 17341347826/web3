@@ -1,0 +1,31 @@
+#evaluation_project_create{
+    background-color: #f1f2f6;
+}
+#evaluation_project_create>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    padding-top: 40px;
+    margin-top: 4px;
+    overflow:hidden;
+}
+#evaluation_project_create label{
+    color:#a2a2a2;
+    font-size: 16px;
+}
+#evaluation_project_create .scheme-config{
+    color:#777;
+    font-weight: 500;
+}
+#evaluation_project_create input,
+#evaluation_project_create select{
+    border-radius: 4px;
+    color: #777;
+    border: 1px #ccc solid;
+}
+#evaluation_project_create .btns{
+    text-align: center;
+}
+#evaluation_project_create .epc_input{
+    background-color: #FFFFFF;
+}

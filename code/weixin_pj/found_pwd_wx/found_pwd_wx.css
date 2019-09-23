@@ -1,0 +1,82 @@
+.weui-cells__title {
+    text-align: center;
+    color:#2b2b2b;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#found-pwd-wx .attention{
+    /*color:red;*/
+    color: #999;
+}
+.weui-cells__tips {
+    margin-top: 20px;
+}
+.weui-cells {
+    /* margin-top: 1.17647059em; */
+    margin-top:0px;
+}
+.weui-cell__hd label{
+    font-size:1em;
+}
+/*input里面的placeholder设置*/
+#found-pwd-wx .weui-cells_form input::-webkit-input-placeholder{
+    font-size:.9em;
+    height: 30px;
+    line-height: 30px;
+}
+/*#found-pwd-wx .weui-cells_form .prompt-content{*/
+/*border-bottom:none;*/
+/*}*/
+#found-pwd-wx .weui-cells_form .prompt{
+    margin-top: .3em;
+    /*color: #999;*/
+    color:red;
+    font-size: 14px;
+    /*border-bottom:none;*/
+}
+.weui-cells:before {
+    /* border-top: 1px solid #d9d9d9; */
+    border-top:none;
+}
+.weui-cell:after {
+    /* border-top: 1px solid #d9d9d9; */
+    border-top:none;
+    border-bottom:1px solid #d9d9d9;
+}
+.kids-btn{
+    border-top:1px solid #d9d9d9;
+    /*border:1px solid red;*/
+    padding-left:55%;
+}
+.kids-btn a{
+    margin-left:15px;
+}
+/*注册*/
+.weui-btn_primary {
+    /*background-color: #1aad19;*/
+    background-color: #2C88D8;
+}
+.sign-btn a{
+    width:98%;
+    margin-top:30px;
+}
+.weui-cells:after {
+    /* border-bottom: 1px solid #d9d9d9; */
+    border-bottom:none;
+}
+/*验证码*/
+#found-pwd-wx .identfy{
+    width: 90px;
+    /*height: 30px;*/
+    /*line-height:30px;*/
+    /*margin-top:10px;*/
+    font-size:14px;
+}
+#found-pwd-wx #identfy-none,
+#found-pwd-wx #identfy-two{
+    background-color:#A8A7A8;
+}
+#found-pwd-wx #identfy-none,
+#found-pwd-wx #identfy-two{
+    color:#fff;
+}

@@ -1,0 +1,64 @@
+#username_set>.update_title{
+    line-height: 80px;
+    color:#40acc1;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px #e4e4e4 solid;
+}
+#username_set>.update_title span span{
+    margin-left:20px;
+}
+#username_set>.update_content{
+    width: 360px;
+    margin: 40px auto;
+}
+#username_set>.update_content input{
+    width: 360px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color:#afafaf;
+    border-radius: 5px;
+}
+#username_set .parent-phone input{
+    display: inline-block;
+}
+/*验证码*/
+#username_set .ident-info input{
+    width: 235px;
+    margin-right: 14px;
+    display: inline-block;
+}
+#username_set .ident-info div{
+    display: inline-block;
+}
+/*发送验证码、重新发送*/
+#username_set .ident-info #identfy-one,
+#username_set .ident-info #identfy-three {
+    cursor: pointer;
+}
+#username_set .ident-info .ident-code{
+    display: inline-block;
+    float: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 28px;
+    width: 110px;
+    height: 35px;
+    font-size: 16px;
+    line-height: 35px;
+    /*margin-left: 5px;*/
+}
+#username_set .additional-infor{
+    position:absolute;
+    font-size:14px;
+    margin-top:14px;
+    color:red;
+    margin-left:10px;
+}
+/*用户名提示语*/
+#username_set .username_tips{
+    color:red;
+    font-size:14px;
+    margin-bottom: 30px;
+}

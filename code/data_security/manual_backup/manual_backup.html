@@ -1,0 +1,39 @@
+<div ms-important="manual_backup" id="manual_backup">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="title">
+        我要备份
+    </div>
+    <div>
+        <div class="form-inset manual_con">
+            <div>
+                <label>文件描述</label>
+                <div class="form-input">
+                    <input type="text"  ms-duplex="@data.bk_desc" placeholder="请输入备份描述">
+                </div>
+            </div>
+            <div class="evaluation-sub">
+                <label>备份方式</label>
+                <div class="radios">
+                    <label class="am-radio-inline">
+                        <input type="radio" name="doc-radio-1" id="option1" class="rdo" value="0"
+                               ms-duplex="@data.bk_type">
+                        <label ms-attr="{for:'option1'}">完全备份</label>
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="doc-radio-2" id="option2" class="rdo" value="1"
+                               ms-duplex="@data.bk_type">
+                        <label ms-attr="{for:'option2'}">增量备份</label>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="a-p-btns">
+            <div class="btns">
+                <button type="button" class="am-btn-default" ms-on-click="@cancel_click">取消</button>
+                <button type="button" class="am-btn-primary" ms-on-click="@ajax_add">保存</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

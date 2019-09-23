@@ -1,0 +1,169 @@
+.banner {
+    width: 100%;
+    min-width: 1000px;
+    height: 60px;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    position: fixed;
+    color: white;
+
+}
+
+.nav-left {
+    padding-top: 17px;
+    width: 80px;
+    position: fixed;
+    left: 0px;
+    top: 60px;
+    height: 100%;
+    margin-left: 0px;
+    background-color: #FBFBFB;
+    border: 0px;
+    border-right: 1px solid #d3dcee;
+}
+
+.nav-left .nav-left-item {
+    width: 80px;
+    height: 104px;
+    font-size: 14.5px;
+    border-right: 3px solid transparent;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.nav-left-item p {
+    margin: 0px;
+    color: black;
+}
+
+.nav-left .tfocus {
+    background-color: #daeeff;
+    border-right: 3px solid #3ea3fb;
+}
+
+.nav-pop-menu-div {
+    position: fixed;
+    left: 80px;
+    right: 0px;
+    margin-top: 60px;
+    height: 100%;
+    z-index: 900;
+}
+
+.nav-pop-menu-div .nav-pop-menu-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #f0f2f6;
+    padding-top: 17px;
+}
+
+.content-area {
+    padding-top: 93px;
+    padding-left: 251px;
+}
+
+.banner_title {
+    margin-right: 17px;
+    width: auto;
+    height: 65px;
+    margin-top: 15px;
+    max-width: 1012px;
+    position: relative;
+    background-size: 100% 100%;
+    line-height: 65px;
+}
+
+.banner_title label {
+    font-size: 16.5px;
+    font-weight: normal;
+    border-left: 3px solid royalblue;
+}
+
+.nav-pop-menu-div .links-title {
+    font-size: 16px;
+    color: #3ea3fb;
+    font-weight: normal;
+}
+
+.nav-pop-menu-div .links {
+    font-size: 13.5px;
+    color: #333333;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.nav-pop-menu-div .funs-set {
+    height: 104px;
+    padding-left: 10px;
+}
+
+.nav-pop-menu-content .nav_focus {
+    background-color: #d3dcee;
+}
+
+#user_banner_div > span {
+    line-height: 60px;
+}
+
+#user_banner_div #icon_user_div {
+    line-height: 40px;
+}
+
+#user_banner_div > a {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: white;
+    position: relative;
+    margin-right: 40px;
+}
+
+#user_banner_div > a > span {
+    position: absolute;
+    left: 11px;
+    top: -1px;
+    color: #3ea3fb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#icon_user_div {
+    position: relative;
+    cursor: pointer;
+}
+
+#icon_user_div > ul {
+    position: absolute;
+    left: -50px;
+    z-index:  1000;
+    width: 100px;
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+    background-color: white;
+}
+
+#icon_user_div > ul > li {
+    cursor: pointer;
+    color: #3ea3fb;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px lightgrey solid;
+}
+
+.am-form select,
+.am-form input[type="text"],
+.am-form input[type="number"],
+.am-form-horizontal .am-form-label,
+.am-form-inline .am-form-label {
+    font-size: 14px;
+}
+.funs_more .nav-menu {
+    display: inline-block;
+    float: left;
+    width: 50%;
+}

@@ -1,0 +1,13 @@
+#all_publicity{
+    background-color: #f1f2f6;
+}
+#all_publicity>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#all_publicity .table-module{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

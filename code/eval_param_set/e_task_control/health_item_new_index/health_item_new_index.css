@@ -1,0 +1,6 @@
+#health_item_new_index>div{
+    background-color: #fff;
+}
+#health_item_new_index>div:first-child{
+    padding-top:16px;
+}

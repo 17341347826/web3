@@ -1,0 +1,76 @@
+#home_x div.content_box>.context_high>div{
+    overflow-y: auto;
+}
+#home_x div.content_box>.context_high .stay_check{
+    padding-top: 5px;
+}
+/*------------------------------------------------滚动条样式-----------------------------*/
+.home_x ::-webkit-scrollbar{display: none;}
+.wait_do::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.wait_do::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.05);
+}
+.wait_do::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.05);
+}
+/*--------------------------------------------滚动条样式------------------------------------*/
+#home_x div.content_box>.context_high.stay_check:first-child{
+    border-right:1px #e4e4e4 dashed;
+}
+#home_x div.content_box>.context_high> p{
+    font-size: 12px;
+    color: #5f5f5f;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+#home_x div.content_box>.context_high>div ul{
+    list-style-type: none;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+#home_x div.content_box>.context_high>div ul>li{
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    color: #8c8c8c;
+    line-height: 40px;
+    padding-left: 15px;
+}
+#home_x div.content_box>.context_high>div ul .am-u-sm-10{
+    padding: 0;
+    margin: 0;
+}
+#home_x div.content_box>.context_high>div ul>li .affair-num > span {
+    display: inline-block;
+    width: 60px;
+    height:20px;
+    line-height: 20px;
+    border-radius: 14px;
+    background-color: #ff8b63;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+#home_x div.content_box>.context_high>div ul>li:nth-of-type(odd){/*偶数行 */
+    background-color: #ffffff;
+}
+#home_x div.content_box>.context_high>div ul>li:nth-of-type(even){/*奇数行 */
+    background-color: #f5f9fd;
+}
+#home_x div.content_box>.context_high>div ul>li:hover{
+    background-color: #e2e6f0;
+}
+#home_x .to_be_treated.moudle-name{
+
+}

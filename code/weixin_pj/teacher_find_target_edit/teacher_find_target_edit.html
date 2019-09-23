@@ -1,0 +1,28 @@
+<div ms-important="teacher_find_target_edit" id="teacher_find_target_edit" class="normalPaddding">
+    <div class="screen_demo">
+        <div class="input_div">
+            <input type="text" ms-duplex="@name" disabled class="color_disabled">
+        </div>
+        <div class="input_div">
+            <input type="text" ms-duplex="@class" disabled class="color_disabled">
+        </div>
+        <div class="input_div">
+            <input type="text" ms-duplex="@semester" disabled class="color_disabled">
+        </div>
+        <div>
+            <textarea ms-duplex="@tar_targetplan" disabled class="color_disabled"></textarea>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" ms-duplex="@module_score">
+                    <option value='1'>好（1分）</option>
+                    <option value='0.5'>一般（0.5分）</option>
+                    <option value='0'>未完成（0分）</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="public_btn_big">
+        <a ms-on-click="@submit">提交</a>
+    </div>
+</div>

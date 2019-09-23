@@ -1,0 +1,128 @@
+<div ms-important="subject_score" id="school_achievement">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+
+    <!--引用公共组件-->
+    <!--<div class="content-one" >-->
+    <div class="am-g" style="background-color: white;">
+        <div class="search-cont clearfix one_left">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade, $id:'score_edit_opt_grade'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'score_edit_opt_class'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester,  $id:'score_edit_opt_sem'}"></xmp>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入学籍号" :duplex="@filter.code">
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入姓名" :duplex="@filter.name">
+            </div>
+        </div>
+
+        <div class="search-cont clearfix two_right">
+            <div class="search-btn" ms-on-click="@query_score">
+                <input type="button" value="查询">
+            </div>
+            <div class="search-btn" ms-on-click="@input_score">
+                <input type="button" value="录入">
+            </div>
+            <div class="search-btn" ms-on-click="@publicity">
+                <input type="button" value="公示">
+            </div>
+            <div class="search-btn" :if="@login_level == 6" ms-on-click="@free_test">
+                <input type="button" value="免测">
+            </div>
+            <div class="search-btn bulk-load" ms-click="@uploadingModal">
+                <input type="button" value="批量导入">
+            </div>
+
+        </div>
+
+    </div>
+    <div class="content-ach-t">
+        <div class="content-ach-o">
+            <table class="am-table am-table-hover">
+                <tr class="content-table-tr">
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>学籍号</td>
+                    <td :for="item in headers">{{item.title}}</td>
+                </tr>
+                <tr :if="is_show_table">
+                    <td>{{el.title}}</td>
+                </tr>
+                <tr :for="$idx,item in @score_list"
+                    :visible="item.code.indexOf(@filter.code)>=0&&item.name.indexOf(@filter.name)>=0">
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.code|mtruncate(3,3)}}</td>
+                    <td :for="sub in @headers">
+                        {{item.score[sub.alias].lev}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--上传文件-->
+    <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                批量导入学生成绩
+                <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                    ×
+                </a>
+            </div>
+            <div class="am-modal-bd">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <input type="text" ms-duplex="@file_name" id="file-name" disabled class="am-u-sm-10"
+                           style="height: 32px">
+                    <div class="am-form-group am-form-file">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                        <input type="file" id="file" name="file" multiple
+                               onchange="document.getElementById('file-name').value=this.value">
+                        <input type="hidden" name="fk_class_id" ms-attr="{value:@form_list_score.fk_class_id}">
+                        <input type="hidden" name="fk_grade_id" ms-attr="{value:@form_uploader.fk_grade_id}">
+                        <input type="hidden" name="subject_id" ms-attr="{value:@form_uploader.subject_id}">
+                        <input type="hidden" name="phase" ms-attr="{value:@form_uploader.phase}">
+                        <input type="hidden" name="fk_school_id" ms-attr="{value:@form_list_score.fk_school_id}">
+                        <input type="hidden" name="project_id" ms-attr="{value:@form_list_score._id}">
+                        <input type="hidden" name="subject_name" ms-attr="{value:@form_uploader.subject_name}">
+                        <input type="hidden" name="province" ms-attr="{value:@form_uploader.province}">
+                        <input type="hidden" name="city" ms-attr="{value:@form_uploader.city}">
+                        <input type="hidden" name="district" ms-attr="{value:@form_uploader.district}">
+                        <input type="hidden" name="class_name" ms-attr="{value:@form_uploader.class_name}">
+                        <input type="hidden" name="grade_name" ms-attr="{value:@form_uploader.grade_name}">
+                        <input type="hidden" name="semester_id" ms-attr="{value:@form_uploader.semester_id}">
+
+                        <input type="hidden" name="year_start" ms-attr="{value:@form_uploader.year_start}">
+                        <input type="hidden" name="year_end" ms-attr="{value:@form_uploader.year_end}">
+
+                    </div>
+                </form>
+                <div class="am-text-left">
+                    <a ms-on-click="@down_score">
+                        下载模板
+                    </a>
+                </div>
+                <!--<span ms-visible="@modal.msg != ''" style="color: red">-->
+                    <!--{{ @modal.msg }}-->
+                <!--</span>-->
+                <div ms-visible="@modal.msg != '' && @modal.msg != '正在上传，请勿取消'" class="am-text-left" style="margin-top:10px;margin-botttom:5px;">错误信息，请检查：</div>
+                <div ms-visible="@modal.msg != ''" ms-html="@modal.msg"  style="color: red;max-height: 300px;overflow: auto;"></div>
+            </div>
+            <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel="">
+                        取消
+                    </span>
+                <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+                        上传
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

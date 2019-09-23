@@ -1,0 +1,98 @@
+<div ms-important="school_user_activity" id="school_user_activity">
+    <!--<div class="weui-cells give-out-cells">-->
+        <!--<div class="weui-cell weui-cell_select weui-cell_select-after">-->
+            <!--<div class="weui-cell__hd">-->
+                <!--<label class="weui-label" for="select1">-->
+                    <!--年级：-->
+                <!--</label>-->
+            <!--</div>-->
+            <!--<div class="weui-cell__bd">-->
+                <!--<select class="weui-select" data-duplex-changed="@grade_check()" id="select1"-->
+                        <!--ms-duplex="@grade_info">-->
+                    <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+                    <!--<option ms-attr="{value:el.name+'|'+el.value}">-->
+                        <!--{{el.name}}-->
+                    <!--</option>-->
+                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="progess-con">
+        <div class="tips" :if="@data_school.list.length>0 || @data_class.list.length>0">说明：以下为学生、家长、教师七日内登录人数与总人数的比率，七日内重复登陆只计算一次</div>
+        <!--用户活跃度（学校）-->
+        <div class="progress-person" :if="@data_school.list.length>0">
+            <div class="table-name">用户活跃度（学校）</div>
+            <div class="table-module">
+                <table class="table-class">
+                    <tbody>
+                    <tr>
+                        <td>年级</td>
+                        <td>教师</td>
+                        <td>学生</td>
+                        <td>家长</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_school(@data_school.list)">
+                        <td>{{el.grade}}</td>
+                        <td>{{(el.tch_logins/el.tch_class_cnt) | rj_filter}}%</td>
+                        <td>{{(el.stu_logins/el.stu_cnt) | rj_filter}}%</td>
+                        <td>{{(el.par_logins/el.par_cnt) | rj_filter}}%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--用户活跃度（班级）-->
+        <div class="progress-person">
+            <div class="table-name">用户活跃度（班级）</div>
+            <!--筛选条件-->
+            <div class="common-select">
+                <div class="search-cont clearfix">
+                    <!--年级-->
+                    <div class="select">
+                        <label>年级：</label>
+                        <div class="old-select">
+                            <select data-duplex-changed="@grade_check" ms-duplex="@grade_id">
+                                <!--ms-for: el in @grade_list-->
+                                <option ms-attr="{value:el.value}">
+                                    {{el.name}}
+                                </option>
+                                <!--ms-for-end:-->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-module" :if="@data_class.list.length>0">
+                <table class="table-class">
+                    <tbody>
+                    <tr>
+                        <td>班级</td>
+                        <td>教师</td>
+                        <td>学生</td>
+                        <td>家长</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @data_class.list">
+                        <td>{{el.grade}}-{{el.class_name}}班</td>
+                        <td>{{(el.tch_logins/el.tch_cnt) | rj_filter}}%</td>
+                        <td>{{(el.stu_logins/el.stu_cnt) | rj_filter}}%</td>
+                        <td>{{(el.par_logins/el.par_cnt) | rj_filter}}%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--暂无数据-->
+        <div ms-if="@data_school.list == null && @data_class.list == null" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+
+    <!--<div class="weui-loadmore" ms-if="@is_show_loader_more">-->
+    <!--<i class="weui-loading">-->
+    <!--</i>-->
+    <!--<span class="weui-loadmore__tips">-->
+    <!--正在加载-->
+    <!--</span>-->
+    <!--</div>-->
+</div>

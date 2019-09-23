@@ -1,0 +1,77 @@
+<div class="am-g" id="student_add_self_evaluation" ms-important="student_self_add">
+    <div class="content">
+        <div class="form-inset" ms-validate="@validate">
+            <!--项目名称-->
+            <div>
+                <label>项目名称:</label>
+                <div class="form-input">
+                    <input type="text" id="name_input" ms-duplex="@request_data.pro_name" ms-rules="{required:true}"
+                           placeholder="请输入项目名称,如:初三学生综合素质评价自评">
+                </div>
+            </div>
+            <!--应用年级-->
+            <div>
+                <label>应用年级:</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select class="select-disabled" data-duplex-changed="@get_apply_grade" ms-duplex="@grade_info" disabled>
+                            <!--<option ms-attr="{value:''}">-->
+                                <!--请选择年级-->
+                            <!--</option>-->
+                            <!--&lt;!&ndash;ms-for:($idx,el) in @response_data.grade_arr&ndash;&gt;-->
+                            <!--<option ms-attr="{value:el.remark+'|'+el.id}">-->
+                                <!--{{ el.remark }}-->
+                            <!--</option>-->
+                            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                            <option ms-attr="{value:@grade_info}">
+                                {{@grade_name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--选用方案-->
+            <div>
+                <label>选用方案:</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@get_reference_scheme" ms-duplex="@reference_arr">
+                            <option ms-attr="{value:''}">
+                                请选择选用方案
+                            </option>
+                            <!--ms-for:($idx,el) in  @reference_scheme_arr-->
+                            <option  ms-attr="{value:el.plan_name+'|'+el.id+'|'+el.plan_level}">
+                                {{ el.plan_name }}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--时间-->
+            <div class="time-change">
+                <div class="start-change">
+                    <label>开始时间:</label>
+                    <div class="form-input">
+                        <input class="am-form-field epc_input" id="start_time_input" ms-duplex="@request_data.pro_start_time" ms-attr="{value:''}"
+                               ms-on-focus="@get_start_date" readonly type="text" placeholder="请选择开始时间"/>
+                    </div>
+                </div>
+                <div class="end-change">
+                    <label>结束时间:</label>
+                    <div class="form-input">
+                        <input class="am-form-field epc_input" id="end_time_input" ms-duplex="@request_data.pro_end_time" ms-attr="{value:''}"
+                               ms-on-focus="@get_end_date" readonly type="text" placeholder="请选择结束时间"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default" ms-click="@cancel_click">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@add_click">提交</button>
+        </div>
+    </div>
+</div>

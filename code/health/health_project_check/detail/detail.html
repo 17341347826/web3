@@ -1,0 +1,151 @@
+<div ms-important="edit_health_project">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+
+    <div class="am-g" id="health_add_new">
+        <div>
+            <form class="am-form am-form-horizontal am-padding-top-lg">
+                <div id="health_add_new_div">
+                    <table class="am-table am-table-bordered am-table-striped am-table-hover">
+                        <tbody>
+                        <tr>
+                            <td>
+                                项目名称
+                            </td>
+                            <td colspan="3">
+                                {{@data.name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                适用年级
+                            </td>
+                            <td>
+                                {{@data.due_grade}}年级
+                            </td>
+                            <td>
+                                选用方案
+                            </td>
+                            <td>
+                                {{@data.solution.solu_name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                开始时间
+                            </td>
+                            <td>
+                                {{@data.start}}
+                            </td>
+                            <td>
+                                结束时间
+                            </td>
+                            <td>
+                                {{@data.end}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                方案名称
+                            </td>
+                            <td colspan="3">
+                                {{@solu_data.solu_name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                适用年级
+                            </td>
+                            <td>
+                                <select disabled="" ms-duplex="@solu_data.due_grade">
+                                    <option value="7">
+                                        初一
+                                    </option>
+                                    <option value="8">
+                                        初二
+                                    </option>
+                                    <option value="9">
+                                        初三
+                                    </option>
+                                    <!-- <option value="9">高一</option>
+                                                               <option value="9">高二</option>
+                                                               <option value="9">高三</option> -->
+                                </select>
+                            </td>
+                            <td>
+                                方案状态
+                            </td>
+                            <td>
+                                <label class="am-radio-inline am-margin-right-xl">
+                                    <input disabled="" ms-duplex="@solu_data.status" name="docInlineRadio" type="radio"
+                                           value="0"/>
+                                    启用
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input disabled="" ms-duplex="@solu_data.status" name="docInlineRadio" type="radio"
+                                           value="1"/>
+                                    停用
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                测试内容(男)
+                            </td>
+                        </tr>
+                        <!--ms-for: el in @form_list-->
+                        <tr :if="el.for_sex==1" class="am-border-bottom">
+                            <td>
+                                <input disabled="" ms-attr="{value:el._id}" ms-duplex="@select_health" type="checkbox"/>
+                                {{el.name}}
+                            </td>
+                            <td colspan="3">
+                                {{el.rate}}%
+                            </td>
+                        </tr>
+                        <!--ms-for-end:-->
+                        <tr>
+                            <td colspan="4">
+                                测试内容(女)
+                            </td>
+                        </tr>
+                        <!--ms-for: el in @form_list-->
+                        <tr :if="el.for_sex==2" class="am-border-bottom">
+                            <td>
+                                <input disabled="" ms-attr="{value:el._id}" ms-duplex="@select_health" type="checkbox"/>
+                                {{el.name}}
+                            </td>
+                            <td colspan="3">
+                                {{el.rate}}%
+                            </td>
+                        </tr>
+                        <!--ms-for-end:-->
+                        <tr>
+                            <td colspan="4">
+                                总计
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                男生
+                            </td>
+                            <td>
+                                {{@boy}}%
+                            </td>
+                            <td>
+                                女生
+                            </td>
+                            <td>
+                                {{@girl}}%
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btns am-text-center am-margin-top-lg am-margin-bottom-lg">
+                    <button type="button" class="am-btn am-btn-default" ms-on-click="@back()">取消</button>
+                    <button type="button" class="am-btn am-btn-primary" ms-on-click="@click()">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

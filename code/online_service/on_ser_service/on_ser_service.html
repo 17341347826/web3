@@ -1,0 +1,78 @@
+<div class="on-line-bc" ms-important="start">
+    <div class="online-title">
+  <span>
+   兴唐客服
+  </span>
+        <span class="is-online">
+  </span>
+    </div>
+    <div class="online">
+        <div class="online-main">
+            <div class="main-left am-fl">
+                <div class="no-msg">
+                    没有聊天记录了
+                </div>
+                <div class="chat-time">
+                    {{@self_currentdate}}
+                </div>
+                <!--<div class="business" >-->
+                <!--<div class="bus-title">兴唐客服</div>-->
+                <!--<div class="bus-list">-->
+                <!--<ul>-->
+                <!--<li>请选择咨询业务</li>-->
+                <!--<li><a href="#"><span>?</span>请选择咨询订单</a></li>-->
+                <!--<li><a href="#"><span>?</span>请选择咨询订单</a></li>-->
+                <!--<li><a href="#"><span>?</span>请选择咨询订单</a></li>-->
+                <!--<li><a href="#"><span>?</span>请选择咨询订单</a></li>-->
+                <!--<li><a href="#"><span>?</span>请选择咨询订单</a></li>-->
+                <!--<li><a href="#"><span>?</span>请选择咨询订单</a></li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</div>-->
+                <ul id="chat-msg">
+                </ul>
+            </div>
+        </div>
+        <div class="send-msg-container">
+            <form enctype="multipart/form-data" id="uploadForm" method="post">
+                <div class="send-icons">
+                    <button class="am-btn am-btn-default am-btn-sm smile-icon" type="button">
+                        <i class="icon iconfont icon-xiaolian">
+                        </i>
+                    </button>
+                    <div class="am-form-group am-form-file uploader-icon">
+                        <button class="am-btn am-btn-default am-btn-sm" type="button">
+                            <i class="am-icon-file-photo-o">
+                            </i>
+                        </button>
+                        <input accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" id="uploaderInput"
+                               type="file"/>
+                    </div>
+                </div>
+            </form>
+            <div class="am-form-group input-container">
+                <div class="edit" contenteditable="true" id="msg" ms-html="@msg_content" ms-keydown="send($event)">
+                </div>
+                <!--<textarea class="msg-input msg" rows="5" id="msg" ms-keydown="send(event)"></textarea>-->
+                <button class="am-btn am-btn-danger send-btn" ms-click="sendMsg()" type="button">
+                    发送
+                </button>
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="rg-head">
+                用户等待列表
+            </div>
+            <div class="rg-msg">
+                <ul ms-html="@list_html">
+                    <!--<li ><a href="javascript:;" ms-click="@choose_person()">dsfsasafa</a></li>-->
+                    <!--<li><a href="javascript:;"><span class="rg-title">角色:</span>fdafsafafs<span class="rg-title">账号：</span>fdsafasfa</a></li>-->
+                    <!--<li><a href="javascript:;" ms-click="@choose_person(+'user_map[key].id'+)"><span class="rg-title">角色:</span>'+user_map[key].name+'<span class="rg-title">账号：</span>'+user_map[key].num+'</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="msg-fade" ms-on-click="@close_fade" ms-visible="@show_fade">
+        <img ms-attr="{src:@img_url}" ms-click="@fade_img_click($event)"/>
+    </div>
+</div>

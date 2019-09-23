@@ -1,0 +1,89 @@
+
+<div class="am-g" id="teacher_add_evaluation" ms-important="teacher_add">
+    <div>
+        <form class="am-form am-form-inline am-margin-bottom" ms-validate="@validate">
+            <div class="am-u-sm-12 am-margin-bottom">
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    项目名称
+                </label>
+                <div class="am-u-sm-4">
+                    <input id="name_input" ms-duplex="@request_data.pro_name" ms-rules="{required:true}"
+                           placeholder="请输入项目名称,如:初三学生综合素质评价自评" type="text"/>
+                </div>
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    评价方案
+                </label>
+                <div class="am-u-sm-4">
+                    <select ms-duplex-number="@request_data.evaluate_mode">
+                        <option value="1">
+                            请选择
+                        </option>
+                        <option value="2">
+                            按评价项
+                        </option>
+                        <option value="1">
+                            按评价人
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-margin-bottom">
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    应用年级
+                </label>
+                <div class="am-u-sm-4">
+                    <select data-duplex-changed="@get_apply_grade" ms-duplex="@grade_info" disabled>
+                        <!--<option>-->
+                            <!--请选择-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:el.remark+'|'+el.id}" ms-for="el in @response_data.grade_arr">-->
+                            <!--{{ el.remark }}-->
+                        <!--</option>-->
+                        <option ms-attr="{value:@grade_info}">
+                            {{@grade_name}}
+                        </option>
+                    </select>
+                </div>
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    选用方案
+                </label>
+                <div class="am-u-sm-4 am-u-end">
+                    <select data-duplex-changed="@get_reference_scheme" ms-duplex="@reference_arr">
+                        <option value="0">
+                            请选择
+                        </option>
+                        <option ms-attr="{value:el.plan_name+'|'+el.id+'|'+el.plan_level}" ms-for="el in @reference_scheme_arr">
+                            {{ el.plan_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-margin-bottom">
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    开始时间
+                </label>
+                <div class="am-u-sm-4">
+                    <input class="am-form-field" id="start_time_input" readonly ms-duplex="@request_data.pro_start_time" ms-attr="{value:''}"
+                           ms-on-focus="@get_start_date" type="text" placeholder="请选择开始时间" title="请点击，选择时间"/>
+                    <!--<input type="text" id="start_time_input" class="form_datetime">-->
+                </div>
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    结束时间
+                </label>
+                <div class="am-u-sm-4">
+                    <input class="am-form-field" id="end_time_input" readonly ms-duplex="@request_data.pro_end_time" ms-attr="{value:''}"
+                           ms-on-focus="@get_end_date" type="text" placeholder="请选择结束时间" title="请点击，选择时间"/>
+                    <!--<input type="text" id="end_time_input" class="form_datetime">-->
+                </div>
+            </div>
+            <div class="am-form-group am-u-sm-12 am-text-center add-btns">
+                <button type="button" class="am-btn am-btn-default cancel-btn" ms-click="@cancel_click">
+                    取消
+                </button>
+                <button class="am-btn am-btn-primary submit-btn" ms-click="@add_click" type="button">
+                    添加
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

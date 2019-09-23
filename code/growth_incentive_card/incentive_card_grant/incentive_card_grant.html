@@ -1,0 +1,89 @@
+<div  id="incentive_card_grant" ms-important="incentive_card_grant">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div  class="add-practice-content">
+            <div class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float"><span style="visibility: hidden">年级</span>年级</div>
+                    <div class="p-input-float">
+                        <select data-duplex-changed="@gradeChange()" ms-duplex="@other.grade_name">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <!--ms-for: el in @grade_list-->
+                            <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                                {{el.grade_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float"><span style="visibility: hidden">班级是</span>班级</div>
+                    <div class="p-input-float">
+                        <select data-duplex-changed="@classChange()" ms-duplex="@other.class_name">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <!--ms-for: el in @class_list-->
+                            <option ms-attr="{value:el.class_id+'|'+el.class_name}">
+                                {{el.class_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float"><span style="visibility: hidden">学生</span>学生</div>
+                    <div class="p-input-float">
+                        <select class="js-example-basic-single multiSelect" id="student_select">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.guid+'|'+el.name+'/'+el.code}" ms-for="el in @stu_list">
+                                {{ el.name }}-{{el.code}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float">成长激励卡</div>
+                    <div class="p-input-float">
+                        <select ms-duplex="@data.mark_card_id">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <!--ms-for: el in @card_list-->
+                            <option ms-attr="{value:el.id}">
+                                {{el.card_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="p-line-max">
+                <div class="p-name-max">奖励时间</div>
+                <div class="p-input-max">
+                    <input class="art_input am-form-field" data-am-datepicker="" id="my-datepicker"
+                           ms-attr="{value:@data.encourage_date}" ms-on-focus="@getCompleteDate()"
+                           ms-rules="{required:true}" required="" type="text" readonly/>
+                </div>
+            </div>
+            <div class="p-line material">
+                <div class="p-name">上传依据</div>
+                <div class="p-input">
+                    <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'card_uploader',id:'card_uploader', files:@files, url:@uploader_url}">
+                    </xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-p-btns"  :if="@module_type != 0">
+        <div class="btns">
+            <button type="button" class="am-btn-primary" ms-on-click="@submitSure()">提交</button>
+        </div>
+    </div>
+</div>

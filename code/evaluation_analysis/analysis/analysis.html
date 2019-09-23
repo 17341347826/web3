@@ -1,0 +1,18 @@
+<div ms-important="analysis" class="analysis" id="analysis">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="title">学生综合素质发展纵向分析</div>
+    <div class="dec" ms-if="!no_data">
+        {{@stu_name}}同学从入学至今已完成{{@semester_count}}个学期的综合素质评价，加权综合素质指数为<span>{{@zhsz_zs}}</span>，其各评价维度和评价要素发展情况如下：
+    </div>
+    <div class="top" ms-if="!no_data">
+        <div id="dimension-spider"></div>
+        <div id="factor-spider"></div>
+    </div>
+    <div id="compare1" ms-if="!no_data"></div>
+    <div id="dimension-compare" ms-if="!no_data"></div>
+    <div id="factor-compare" ms-if="!no_data"></div>
+    <div ms-if="no_data" style="text-align: center">
+        <img src="common/images/none.png" alt="图片">
+    </div>
+
+</div>

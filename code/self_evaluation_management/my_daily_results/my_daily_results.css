@@ -1,0 +1,16 @@
+#my_daily_results{
+    background-color: #f1f2f6;
+}
+#my_daily_results>div{
+    background-color: white;
+    padding-left:16px;
+    padding-right:16px;
+}
+#my_daily_results .my-t-r{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#my_daily_results table{
+    border-radius: 4px;
+
+}

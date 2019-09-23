@@ -1,0 +1,38 @@
+<div ms-important="self_task" id="self_task">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="chosen am-fl">自评任务</div>
+            <div class="am-fl"  ms-on-click="@go_href">自评方案</div>
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange()" ms-duplex="@grade_info">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.id+'|'+el.remark}">
+                            {{ el.remark }}【{{el.id}}】
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--创建方案-->
+            <div class="click_btn" :click="@create_btn">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建任务</span>
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh, cbopt:@cbopt,only_hash:@only_hash}">
+            </xmp>
+        </div>
+    </div>
+</div>

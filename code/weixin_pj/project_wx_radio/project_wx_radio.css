@@ -1,0 +1,169 @@
+#project_wx_radio {
+    background-color: #f5f5f5;
+}
+#project_wx_radio .stu_n_c{
+    padding: 8px 25px 6px 25px;
+    font-size: 12px;
+}
+#project_wx_radio .index_info,
+#project_wx_radio .reference_info{
+    /*height: 205px;*/
+    background-color: #ffffff;
+    /*border-radius: 5px;*/
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-top: 9px;
+    position: relative;
+}
+#project_wx_radio .reference_info{
+    padding-top: 0px;
+}
+#project_wx_radio .index_info{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#project_wx_radio .reference_info{
+    margin-bottom: 6px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 12px;
+}
+#project_wx_radio .index_info>p,
+#project_wx_radio .reference_info>p{
+    margin-left:20px;
+    margin-right:20px;
+}
+#project_wx_radio .index_info>.three_index{
+    font-size: 12px;
+    color: #777777;
+    line-height: 16px;
+    margin-top: 7px;
+    padding-bottom: 15px;
+    border-bottom: 1px #eaeaea dashed;
+}
+#project_wx_radio .index_info>.performance_title{
+    background-color: #d1e1f6;
+    border-radius: 5px;
+    color: #3772c5;
+    font-size: 11px;
+    text-align: center;
+    vertical-align: middle;
+    width: 32px;
+}
+#project_wx_radio .reference_info>.performance_title{
+    background-color: #d4f6d1;
+    border-radius: 5px;
+    color: #37c5a2;
+    font-size: 11px;
+    text-align: center;
+    vertical-align: middle;
+    width: 32px;
+}
+#project_wx_radio .reference_info>.three_index{
+    font-size: 12px;
+    color: #777777;
+    line-height: 16px;
+    margin-top: 7px;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+}
+#project_wx_radio .weui-cell:before{
+    left: 0;
+}
+
+#project_wx_radio .weui-cells_radio{
+    font-size: 12px;
+    color: #777777;
+    /*padding-left: 5px;*/
+}
+#project_wx_radio .reference_info .left_span,
+#project_wx_radio .reference_info .right_span{
+    width:100px;
+    height:28px;
+}
+#project_wx_radio .reference_info .right_span{
+    width: 150px;
+    text-align: center;
+}
+#project_wx_radio .center_span{
+    flex-grow: 1;
+    text-align: center;
+}
+
+#project_wx_radio .left_bottom,
+#project_wx_radio .right_bottom,
+#project_wx_radio .left_top ,
+#project_wx_radio .right_top{
+    position:absolute;
+    z-index:9999;
+    width: 16px;
+    height: 16px;
+    background-color:#f5f5f5;
+}
+#project_wx_radio .left_bottom{
+    left:0;
+    bottom: 0;
+    border-radius: 0 16px 0 0;
+}
+#project_wx_radio .right_bottom{
+    right: 0;
+    bottom: 0;
+    border-radius: 16px 0 0 0;
+}
+#project_wx_radio .left_top{
+    left:0;
+    top: 0;
+    border-radius: 0 0 16px 0;
+}
+#project_wx_radio .right_top{
+    right:0;
+    top: 0;
+    border-radius: 0 0 0 16px;
+}
+#project_wx_radio .input_div>input{
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    color: #78a8ff;
+    height: 24px;
+    box-shadow: 0px 0px 4px 0px #abcfff;
+    border-radius: 5px;
+    border: solid 1px #78a8ff;
+    text-align: center;
+}
+#project_wx_radio .input_div{
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    padding-bottom: 14px;
+}
+#project_wx_radio .public_btn_big{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#project_wx_radio .input_btn{
+    text-align: center;
+    padding-bottom: 10px;
+}
+#project_wx_radio .input_btn>span{
+    height: 24px;
+    background-color: #78a8ff;
+    box-shadow: 0px 0px 4px 0px #abcfff;
+    border-radius: 12px;
+    padding: 4px 40px;
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ffffff;
+}
+#project_wx_radio .weui-loadmore{
+    background-color: white;
+    margin: 20em auto;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}

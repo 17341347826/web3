@@ -1,0 +1,89 @@
+<div ms-important="teacher_see_punishment" id="teacher_practice_see" class="">
+    <div class="screen_demo normalPaddding">
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select"  data-duplex-changed="@gradeChange" ms-duplex-number="@req_data.gradeid">
+                    <option ms-attr="{value:el.grade_id}" ms-for="el in @grade_list">
+                        {{ el.grade_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@classChange" ms-duplex-number="@req_data.gradeid">
+                    <option ms-attr="{value:el.class_id}" ms-for="el in @class_list">
+                        {{ el.class_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@semesterChange" ms-duplex="@semester_info">
+                    <option ms-attr="{value:el.start_date + '|' +el.end_date}" ms-for="el in @semester_list">
+                        {{ el.semester_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select last_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@stuChange" ms-duplex-number="@req_data.punished_person_id">
+                    <option ms-attr="{value:el.guid}" ms-for="el in @stu_list">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="list-con" :visible="@punish_list.length > 0">
+        <div class="content_info">
+            <!--ms-for:($idx,el) in @punish_list-->
+            <div class="daily-person" ms-class="['s'+el.fk_xq_id]" ms-visible="el.mk != 6 && el.mk != 7">
+                <!--学生基本信息-->
+                <div class="stu-info left_mar right_mar">
+                    <div class="stu-info-img">
+                        <div class="stu-img">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:el.punished_person_id}))}">
+                        </div>
+                    </div>
+                    <div class="stu-info-info">
+                        <div>
+                            <div class="stu-name">【{{$idx+1}}】{{el.punished_person}}</div>
+                            <div class="stu-xjh">{{el.punished_person_num}}</div>
+                        </div>
+                        <div class="top_pad">
+                            <div class="stu-mkmc">{{el.punish_name}}</div>
+                            <div class="stu-cjsj">{{el.punish_time}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mk_info left_mar right_mar">
+                    <span>{{el.punish_type}}</span>
+                    <div class="row top_pad">
+                        <div>名称</div>
+                        <div>{{el.punish_name}}</div>
+                    </div>
+                    <div class="row">
+                        <div>处分说明</div>
+                        <div>{{el.punish_cause}}</div>
+                    </div>
+                    <div class="img-ary" style="">
+                        <!--ms-for:($idx2,e2l) in  @data_change(el.basis)-->
+                        <img ms-attr="{src:@url_img(e2l.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <div :visible="@punish_list.length == 0" class="no-data">
+        <img src="../../../common/images/weixin_pj/no_data.png" alt="">
+    </div>
+    <!--<div class="weui-loadmore" :visible="show_loader">-->
+        <!--<i class="weui-loading"></i>-->
+        <!--<span class="weui-loadmore__tips">正在加载</span>-->
+    <!--</div>-->
+</div>

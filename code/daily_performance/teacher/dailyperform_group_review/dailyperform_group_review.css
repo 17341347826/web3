@@ -1,0 +1,356 @@
+.bg_color {
+    background-color: #ffffff;
+}
+#dailyperform_group_review {
+    background-color: #f2f2f6;
+}
+#dailyperform_group_review .container {
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 4px;
+}
+#dailyperform_group_review .all-select {
+    width: 1089px;
+    margin: 0 auto;
+    padding-left: 16px;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+#dailyperform_group_review .all-select .sel-inner {
+    width: 800px;
+    margin: 0 auto;
+}
+#dailyperform_group_review .all-select .tab-titles {
+    padding-top: 10px;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 10px;
+}
+#dailyperform_group_review .all-select .tab-titles .tab {
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color: #a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+#dailyperform_group_review .all-select .tab-titles .chosen {
+    color: #2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background: url("../../../../common/images/chosen.png") no-repeat top right;
+}
+#dailyperform_group_review .all-select .search-content {
+    /*padding-top: 14px;*/
+    padding-bottom: 14px;
+}
+#dailyperform_group_review .all-select .search-content .select {
+    float: left;
+    margin-right: 14px;
+    margin-top: 12px;
+}
+#dailyperform_group_review .all-select .search-content .select input {
+    width: 199px;
+    height: 36px;
+    border-radius: 4px;
+    color: #c8c8c8;
+    font-size: 16px;
+    border: 1px solid #c8c8c8;
+    padding-left: 20px;
+    outline: none;
+}
+#dailyperform_group_review .all-select .search-content .select input::placeholder {
+    color: #c8c8c8;
+}
+#dailyperform_group_review .all-select .search-content .select button {
+    width: 90px;
+    height: 34px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: #02cd7e;
+}
+#dailyperform_group_review .all-select .search-content .select button:hover {
+    background-color: #2bbb7c;
+}
+#dailyperform_group_review .count {
+    width: 1089px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #a2a2a2;
+    height: 35px;
+    line-height: 35px;
+}
+#dailyperform_group_review .count span {
+    font-size: 16px;
+    color: #ff6656;
+}
+#dailyperform_group_review .width-center {
+    width: 1089px;
+    margin: 0 auto;
+}
+#dailyperform_group_review .inner-content {
+    width: 1089px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+#dailyperform_group_review .inner-content .pad-27 {
+    padding-left: 27px;
+    padding-right: 27px;
+}
+#dailyperform_group_review .inner-content .b-title {
+    padding-left: 27px;
+    padding-right: 27px;
+    font-size: 16px;
+    color: #28b9ab;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #e2e2e2;
+}
+#dailyperform_group_review .inner-content .table-container {
+    padding-left: 27px;
+    padding-right: 27px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 0 0 4px 4px;
+    border-bottom: 2px solid #f2f2f6;
+}
+#dailyperform_group_review .inner-content .table-container table {
+    word-wrap: break-word;
+    border-radius: 4px;
+}
+#dailyperform_group_review .inner-content .table-container table tr > td:last-child {
+    width: 459px;
+    text-align: left;
+}
+#dailyperform_group_review .inner-content .table-container .am-table > tbody > tr > td:last-child {
+    white-space: normal;
+}
+#dailyperform_group_review .inner {
+    width: 800px;
+    padding: 11px;
+    margin: 0 auto;
+}
+#dailyperform_group_review .m-title {
+    width: 100%;
+    height: 127px;
+    padding-top: 20px;
+    border-bottom: 1px dashed #e2e2e2;
+}
+#dailyperform_group_review .m-title .person-left {
+    float: left;
+    width: 108px;
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 18px;
+}
+#dailyperform_group_review .m-title .person-left img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+#dailyperform_group_review .m-title .person-left h3 {
+    font-size: 16px;
+    color: #ff944d;
+    display: block;
+}
+#dailyperform_group_review .m-title .person-right {
+    float: left;
+    padding-top: 20px;
+    width: 664px;
+    height: 88px;
+    border-left: 1px dashed #e2e2e2;
+}
+#dailyperform_group_review .m-title .person-right .persion-title {
+    width: 100%;
+    text-align: right;
+}
+#dailyperform_group_review .m-title .person-right .persion-title > span {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #a2a2a2;
+}
+#dailyperform_group_review .m-title .person-right .person-msg {
+    display: flex;
+    margin-top: 8px;
+}
+#dailyperform_group_review .m-title .person-right .person-msg h3 {
+    flex: 1;
+    text-align: right;
+}
+#dailyperform_group_review h3,
+#dailyperform_group_review p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 16px;
+    color: #a2a2a2;
+    font-weight: normal;
+    vertical-align: top;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#dailyperform_group_review h3 {
+    padding-right: 5px;
+}
+#dailyperform_group_review p {
+    max-width: 650px;
+}
+#dailyperform_group_review .noTopBorder {
+    border-bottom: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+#dailyperform_group_review .pd20 {
+    padding-left: 20px;
+}
+#dailyperform_group_review .sm {
+    display: flex;
+    padding-left: 20px;
+}
+#dailyperform_group_review .sm-each {
+    flex: 1;
+
+}
+#dailyperform_group_review .bg {
+    padding-left: 20px;
+    line-height: 28px;
+}
+#dailyperform_group_review .img-container {
+    padding-left: 20px;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    border-radius: 0 0 4px 4px;
+}
+#dailyperform_group_review .img-container div {
+    width: 670px;
+    border-radius: 4px;
+    padding: 5px;
+}
+#dailyperform_group_review .img-container img {
+    width: 100%;
+}
+#dailyperform_group_review .part-img {
+    height: 120px;
+    overflow: hidden;
+}
+#dailyperform_group_review .bt {
+    position: relative;
+    height: 70px;
+    padding-top: 25px;
+}
+#dailyperform_group_review .bt .open-close {
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 13px;
+    border: 1px solid #2bbba4;
+    font-size: 14px;
+    color: #2bbba4;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#dailyperform_group_review .bt .open-close:hover {
+    background-color: #2bbba4;
+    color: #FFFFFF;
+}
+#dailyperform_group_review .bt .open-close span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-left: 2px;
+}
+#dailyperform_group_review .bt .open span {
+    background: url("../../../../common/images/teacher/down.png") center no-repeat;
+}
+#dailyperform_group_review .bt .open:hover span {
+    background: url("../../../../common/images/teacher/down1.png") center no-repeat;
+}
+#dailyperform_group_review .bt .close span {
+    background: url("../../../../common/images/teacher/top.png") center no-repeat;
+}
+#dailyperform_group_review .bt .close:hover span {
+    background: url("../../../../common/images/teacher/top1.png") center no-repeat;
+}
+#dailyperform_group_review .btns {
+    position: absolute;
+    right: 0;
+    top: 25px;
+}
+#dailyperform_group_review .btns button {
+    width: 70px;
+    height: 34px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 34px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+#dailyperform_group_review .btns .no-pass {
+    background-color: #ff9e47;
+}
+#dailyperform_group_review .btns .no-pass:hover {
+    background-color: #ff7a45;
+}
+#dailyperform_group_review .btns .pass {
+    background-color: #2bbba4;
+}
+#dailyperform_group_review .btns .pass:hover {
+    background-color: #2bbb7c;
+}
+#dailyperform_group_review #v_layer {
+    width: 600px;
+    padding: 10px;
+    display: none;
+}
+#dailyperform_group_review #v_layer textarea {
+    width: 100%;
+    height: 190px;
+    overflow-y: auto;
+    border-radius: 4px;
+    color: #a2a2a2;
+}
+#dailyperform_group_review .radio-group {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+#dailyperform_group_review .radios .am-radio-inline {
+    color: #a2a2a2;
+    margin-right: 15px;
+    margin-top: 8px;
+}
+#dailyperform_group_review .radios label {
+    margin: 0;
+}
+#dailyperform_group_review .am-checkbox-inline {
+    margin-top: 5px;
+}
+.clearfix:after {
+    content: ".";
+    /*加一段内容*/
+    display: block;
+    /*让生成的元素以块级元素显示，占满剩余空间*/
+    height: 0;
+    /*避免生成的内容破坏原有布局高度*/
+    clear: both;
+    /*清除浮动*/
+    visibility: hidden;
+    /*让生成的内容不可见*/
+}
+.clearfix {
+    zoom: 1;
+    /*为IE6，7的兼容性设置*/
+}

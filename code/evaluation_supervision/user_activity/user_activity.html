@@ -1,0 +1,228 @@
+<div ms-important="d_e_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_check,head_value:'请选择年级'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-if="@user_level<3">
+        <div class="title">
+            用户活跃度（全市）
+        </div>
+        <div class="tb-content" ms-visible="@filter_city(@data_city.list).length>0">
+            <div class="tu-biao">
+                <div class="user-state" id="user_active_img">
+                    <xmp ms-widget="{is:'ms-use-state'}"></xmp>
+                </div>
+            </div>
+            <div class="biao-ge" style="padding-top: 51px" >
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td colspan="5">教师</td>
+                        <td colspan="4">学生</td>
+                        <td colspan="4">家长</td>
+                    </tr>
+                    <tr>
+                        <td >总人数</td>
+                        <td >班主任</td>
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量</td>
+                        <td >总人数</td>
+
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量</td>
+                        <td >总人数</td>
+
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_city(@data_city.list)">
+                        <td  ms-if="$idx==0||el.city != @data_city.list[$idx-1].city"
+                             ms-attr="{rowspan:@count(@filter_city(@data_city.list), 'city', el.city)}">
+                            {{el.city}}
+                        </td>
+                        <td>{{el.grade}}</td>
+                        <td>{{el.tch_cnt}}</td>
+                        <td>{{el.tch_class_cnt}}</td>
+                        <td>{{el.tch_login}}</td>
+                        <td>{{el.tch_logins}}</td>
+                        <td>{{el.tch_visits}}</td>
+
+                        <td>{{el.stu_cnt}}</td>
+                        <td>{{el.stu_login}}</td>
+                        <td>{{el.stu_logins}}</td>
+                        <td>{{el.stu_visits}}</td>
+
+                        <td>{{el.par_cnt}}</td>
+                        <td>{{el.par_login}}</td>
+                        <td>{{el.par_logins}}</td>
+                        <td>{{el.par_visits}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="@filter_city(@data_city.list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+    </div>
+    <div class="table-content clearfix" >
+        <div class="title">
+            用户活跃度（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="filter_area(@data_area.list).length>0">
+                <div class="biao-title">
+                    区县用户活跃度
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge" >
+                <div class="tb-select clearfix" ms-if="@user_level<3">
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@area_check,head_value:'请选择区县'}"></xmp>
+                    </div>
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="filter_area(@data_area.list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td colspan="5">教师</td>
+                        <td colspan="4">学生</td>
+                        <td colspan="4">家长</td>
+                    </tr>
+                    <tr>
+                        <td >总人数</td>
+                        <td >班主任</td>
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量</td>
+                        <td >总人数</td>
+
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量</td>
+                        <td >总人数</td>
+
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量{{@current_grade}}</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_area(@data_area.list)">
+                        <td  ms-if="$idx==0||el.district != @filter_area(data_area.list)[$idx-1].district"
+                             ms-attr="{rowspan:@count(@filter_area(@data_area.list), 'district', el.district)}">
+                            {{el.district}}
+                        </td>
+                        <td>{{el.grade}}</td>
+                        <td>{{el.tch_cnt}}</td>
+                        <td>{{el.tch_class_cnt}}</td>
+                        <td>{{el.tch_login}}</td>
+                        <td>{{el.tch_logins}}</td>
+                        <td>{{el.tch_visits}}</td>
+
+                        <td>{{el.stu_cnt}}</td>
+                        <td>{{el.stu_login}}</td>
+                        <td>{{el.stu_logins}}</td>
+                        <td>{{el.stu_visits}}</td>
+
+                        <td>{{el.par_cnt}}</td>
+                        <td>{{el.par_login}}</td>
+                        <td>{{el.par_logins}}</td>
+                        <td>{{el.par_visits}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="filter_area(@data_area.list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            用户活跃度（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" style="padding-top: 80px" ms-visible="filter_school(@data_school.list).length>0">
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge" >
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@school_area_check,head_value:'请选择区县'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <input type="text" placeholder="请输入学校" ms-duplex="@current_school" data-duplex-changed="@search">
+                    </div>
+                    <div class="search-btn">
+                        <input type="button" value="查询" >
+                    </div>
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="filter_school(@data_school.list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td colspan="5">教师</td>
+                        <td colspan="4">学生</td>
+                        <td colspan="4">家长</td>
+                    </tr>
+                    <tr>
+                        <td >总人数</td>
+                        <td >班主任</td>
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量</td>
+                        <td >总人数</td>
+
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量</td>
+                        <td >总人数</td>
+
+                        <td >今日登录</td>
+                        <td >七日登录</td>
+                        <td >七日访问量{{@current_grade}}</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_school(@data_school.list)">
+                        <td ms-if="$idx==0||el.school != @filter_school(data_school.list)[$idx-1].school" ms-attr="{rowspan:@count(@filter_school(@data_school.list), 'school', el.school)}">
+                            {{el.school}}
+                        </td>
+                        <td>{{el.status}}</td>
+                        <td>{{el.detail.tch_cnt}}</td>
+                        <td>{{el.detail.tch_class_cnt}}</td>
+                        <td>{{el.detail.tch_login}}</td>
+                        <td>{{el.detail.tch_logins}}</td>
+                        <td>{{el.detail.tch_visits}}</td>
+
+                        <td>{{el.detail.stu_cnt}}</td>
+                        <td>{{el.detail.stu_login}}</td>
+                        <td>{{el.detail.stu_logins}}</td>
+                        <td>{{el.detail.stu_visits}}</td>
+
+                        <td>{{el.detail.par_cnt}}</td>
+                        <td>{{el.detail.par_login}}</td>
+                        <td>{{el.detail.par_logins}}</td>
+                        <td>{{el.detail.par_visits}}</td>
+                    </tr>
+                    <!--------------------------------->
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="filter_school(@data_school.list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,445 @@
+#new_compre_practice_see{
+    background-color: #f1f2f6;
+}
+/*绪论*/
+#new_compre_practice_see .introduction{
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-bottom:2px;
+    width: calc(100% - 256px);
+}
+#new_compre_practice_see .introduction>div>div{
+    color:#a2a2a2;
+    position: relative;
+    cursor: default;
+    font-size: 14px;
+}
+#new_compre_practice_see .introduction .intro-name{
+    /*margin-left:50px;*/
+    margin-left: 10px;
+    width: 100px;
+    display: inline-block;
+}
+#new_compre_practice_see .introduction .intro-score{
+    color: #ff6656;
+}
+/*几种状态*/
+#new_compre_practice_see>div.first-index{
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-bottom:2px;
+    width: calc(100% - 256px);
+}
+#new_compre_practice_see .first-index #add-record{
+    background-color: #2bbba4;
+    color:#fff;
+    border:none;
+    cursor: pointer;
+}
+#new_compre_practice_see .first-index #add-record:hover{
+    background-color:#2bbb7c;
+}
+#new_compre_practice_see>div.first-index>div.am-fl>div{
+    padding-right: 16px;
+    padding-left: 16px;
+    height: 34px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: default;
+}
+/*内容部分*/
+#new_compre_practice_see .fg-line{
+    height:4px;
+    width:100%;
+    background-color: #F1F2F6;
+}
+#new_compre_practice_see .list-con{
+    background-color: #fff;
+    width: calc(100% - 256px);
+    /*overflow-y: auto;*/
+}
+#new_compre_practice_see .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#new_compre_practice_see .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#new_compre_practice_see .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+    margin-bottom:4px;
+}
+#new_compre_practice_see .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#new_compre_practice_see .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#new_compre_practice_see .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#new_compre_practice_see .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#new_compre_practice_see .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#new_compre_practice_see .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*#new_compre_practice_see .line-two{*/
+/*display:inline-block;*/
+/*width: 1px;*/
+/*height: 18px;*/
+/*background-color: #a2a2a2;*/
+/*}*/
+/*学生头像那块*/
+#new_compre_practice_see .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#new_compre_practice_see .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#new_compre_practice_see .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#new_compre_practice_see .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#new_compre_practice_see .stu-school{
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+/*班团活动*/
+#new_compre_practice_see .stu-school .btn-operation{
+    text-align: right;
+    margin-top: 14px;
+    margin-bottom: 16px;
+}
+#new_compre_practice_see .stu-school .btn-operation .d-name{
+    /*float:left;*/
+    font-size: 18px;
+    line-height:18px;
+    font-weight: bold;
+    color: #a2a2a2;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #a2a2a2;
+    border-left: 1px solid #a2a2a2;
+}
+#new_compre_practice_see .stu-school .btn-operation .access{
+    font-size: 14px;
+    color: #2bbba4;
+    border: 1px solid #2bbba4;
+    padding: 8px;
+    border-radius: 4px;
+}
+#new_compre_practice_see .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#new_compre_practice_see .stu-school>div:last-child span{
+    margin-right:42px;
+}
+#new_compre_practice_see .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#new_compre_practice_see  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#new_compre_practice_see  .list-con .daily-person .daily-info .two-info>span{
+    margin-right: 30px;
+}
+#new_compre_practice_see .daily-info>div{
+    margin-top:10px;
+}
+#new_compre_practice_see  .daily-info .one-two-index span:first-child{
+    margin-right:148px;
+}
+#new_compre_practice_see .daily-info>div p:first-child{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+#new_compre_practice_see .daily-info h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+    margin:0;
+}
+#new_compre_practice_see .daily-info p{
+    margin:0;
+    padding-left:85px;
+}
+/*图片*/
+#new_compre_practice_see  .daily-info .img-ary{
+    border-radius: 4px;
+}
+#new_compre_practice_see  .daily-info .img-ary img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+#new_compre_practice_see  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+/*学年学期*/
+#new_compre_practice_see .d-p-c-nav{
+    width: 250px;
+    /*height: 450px;*/
+    margin-left: 6px;
+    background-color: #fff;
+    position: fixed;
+    right:16px;
+    top: 80px;
+}
+#new_compre_practice_see .d-p-munu .outer .inner li .new-record{
+    color:#a2a2a2;
+}
+#new_compre_practice_see .d-p-munu .outer .inner .active .new-record {
+    color: #20bda4;
+}
+/*----------------------------------------------------滚动条样式--------------------------------------*/
+#new_compre_practice_see .d-p-munu,
+#new_compre_practice_see .small-circular,
+#new_compre_practice_see .out-circle
+{
+    background-color: #ffffff;
+}
+#new_compre_practice_see .d-p-munu {
+    /*position: absolute;*/
+    width: 244px;
+    /*top: 0;*/
+    /*right: 0;*/
+    padding-right: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.out-circle, .detail-content, .growth-record ,.model-title{
+    background-color: #FFFFFF;
+}
+#new_compre_practice_see .d-p-munu .outer {
+    border-right: 1px solid #20bda4;
+}
+#new_compre_practice_see .d-p-munu .outer .inner {
+    width: 100%;
+    margin-left: 9px;
+    text-align: right;
+    font-size: 16px;
+    color: #a2a2a2;
+    padding-top: 30px;
+    padding-bottom: 1px;
+    position: relative;
+}
+#new_compre_practice_see .d-p-munu .outer .inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#new_compre_practice_see .d-p-munu .outer .inner li {
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 30px;
+    cursor: default;
+}
+#new_compre_practice_see .d-p-munu .outer .inner .right-top-point,
+#new_compre_practice_see .d-p-munu .outer .inner .right-bottom-point {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #20bda4;
+}
+#new_compre_practice_see .d-p-munu .outer .inner .right-top-point {
+    top: -1px;
+    right: 4px;
+}
+#new_compre_practice_see .d-p-munu .outer .inner .right-bottom-point {
+    bottom: -2px;
+    right: 4px;
+}
+#new_compre_practice_see .d-p-munu .outer .small-circular {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #a2a2a2;
+    margin-left: 34px;
+    margin-right: 3px;
+    background-color: white;
+}
+#new_compre_practice_see .d-p-munu .outer .active {
+    font-size: 16px;
+    color: #20bda4;
+}
+#new_compre_practice_see .d-p-munu .outer .dotted {
+    display: inline-block;
+    width: 25px;
+    height: 13px;
+    margin-left: 4px;
+    background: url(../../../../common/images/file_detail/dotted.png) center no-repeat;
+}
+#new_compre_practice_see .d-p-munu .outer .out-circle {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid #20bda4;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+#new_compre_practice_see .d-p-munu .outer .inner-circle {
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #20bda4;
+    top: 6px;
+    left: 6px;
+}
+#new_compre_practice_see .no-data{
+    color:#a2a2a2;
+    text-align: center;
+    height:473px;
+    padding-top:20px;
+}
+#new_compre_practice_see .btn-operation a{
+    margin-top: -9px;
+    margin-left: 5px;
+}
+/*显示方式*/
+#new_compre_practice_see .dis-type{
+    text-align: right;
+    margin: 20px 30px 0;
+}
+#new_compre_practice_see .radios{
+    display:inline-block;
+}
+#new_compre_practice_see .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+/*表格*/
+#new_compre_practice_see .table_module{
+    padding-left:16px;
+    padding-right:16px;
+}
+#new_compre_practice_see #class-module{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+/*取消按钮*/
+#new_compre_practice_see .btns{
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*模块切换*/
+#new_compre_practice_see .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    position: relative;
+}
+/*#new_compre_practice_see  .first-index>div.am-fl{*/
+    /*width: 70%;*/
+
+/*}*/
+#new_compre_practice_see  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+#new_compre_practice_see >div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+#new_compre_practice_see >div.first-index>div.am-fr{
+    width: auto;
+    padding-right: 40px;
+
+}
+#new_compre_practice_see >div.first-index>div.am-fr>a{
+    margin-left: 16px;
+}
+#new_compre_practice_see >div.first-index>div.am-fr>div{
+    display: inline-block;
+    margin-left: 16px;
+    border-left:1px #e4e4e4 dashed;
+
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+
+
+

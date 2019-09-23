@@ -1,0 +1,258 @@
+#achievement_reward_pub{
+    background-color: #f1f2f6;
+}
+#achievement_reward_pub .common-select{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#achievement_reward_pub .common-select,
+#achievement_reward_pub .list-con>div{
+    background-color: white;
+}
+/*内容部分*/
+#achievement_reward_pub .list-con{
+    /*overflow: hidden;*/
+    /*padding:*/
+}
+#achievement_reward_pub .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#achievement_reward_pub .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#achievement_reward_pub .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+}
+#achievement_reward_pub .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#achievement_reward_pub .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#achievement_reward_pub .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#achievement_reward_pub .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#achievement_reward_pub .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#achievement_reward_pub .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*#achievement_reward_pub .line-two{*/
+/*display:inline-block;*/
+/*width: 1px;*/
+/*height: 18px;*/
+/*background-color: #a2a2a2;*/
+/*}*/
+/*学生头像那块*/
+#achievement_reward_pub .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#achievement_reward_pub .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#achievement_reward_pub .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#achievement_reward_pub .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#achievement_reward_pub .stu-school{
+    /*border:1px solid red;*/
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+#achievement_reward_pub .stu-school>div:first-child{
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    /*border:1px solid yellow;*/
+    overflow: hidden;/*为了控制左边框和右边框高度和字体高度一致，都等于18px*/
+}
+#achievement_reward_pub .stu-school div .d-name{
+    padding-left:10px;
+    padding-right:10px;
+    border-right:1px solid #a2a2a2;;
+    border-left:1px solid #a2a2a2;;
+}
+#achievement_reward_pub .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#achievement_reward_pub .stu-school>div:last-child span{
+    margin-right:40px;
+}
+#achievement_reward_pub .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#achievement_reward_pub  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#achievement_reward_pub .daily-info>div{
+    margin-top:10px;
+}
+/*图片*/
+#achievement_reward_pub  .daily-info .d-p-img{
+    border-radius: 4px;
+}
+#achievement_reward_pub  .daily-info .d-p-img img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+.img-ary-height{
+    height:150px !important;
+    overflow: hidden;
+}
+.img-ary-height-open{
+    height:auto !important;
+}
+#achievement_reward_pub  .daily-info .one-two-index span:first-child{
+    margin-right:72px;
+}
+#achievement_reward_pub  h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+/*图片*/
+#achievement_reward_pub  .daily-info .img-ary{
+    border-radius: 4px;
+    /*height:150px;*/
+    /*overflow: hidden;*/
+}
+#achievement_reward_pub  .daily-info .img-ary img{
+    margin-bottom:5px;
+    width:766px;
+}
+#achievement_reward_pub  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+.img-ary-height{
+    height:150px !important;
+    overflow: hidden;
+}
+.img-ary-height-open{
+    height:auto !important;
+}
+/*展开提异议*/
+#achievement_reward_pub  .daily-info .img-objection{
+    text-align: center;
+    position: relative;
+    margin-top:10px;
+}
+#achievement_reward_pub  .daily-info .img-objection>div{
+    display:inline-block;
+    cursor: pointer;
+}
+#achievement_reward_pub .img-objection .img-switch{
+    width: 80px;
+    height: 28px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    line-height:28px;
+    text-align: center;
+    border: solid 1px #2bbba4;
+    color: #2bbba4;
+}
+#achievement_reward_pub .img-objection .img-switch:hover{
+    background-color: #2bbba4;
+    color: #fff;
+}
+/*展开*/
+#achievement_reward_pub .img-objection .img-open span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/down.png");
+    margin-left:5px;
+}
+#achievement_reward_pub .img-objection .img-open:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/down1.png");
+}
+/*收起*/
+#achievement_reward_pub .img-objection .img-close span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/top.png");
+    margin-left:5px;
+}
+#achievement_reward_pub .img-objection .img-close:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/top1.png");
+}
+#achievement_reward_pub .img-objection .ask-dissent{
+    width: 98px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #ff9e47;
+    border-radius: 4px;
+    color:#fff;
+    position: absolute;
+    right:0;
+}
+#achievement_reward_pub .img-objection .ask-dissent:hover{
+    background-color: #ff7a45;
+}
+/*异议内容*/
+#achievement_reward_pub .yy-con{
+    color: #ff6656;
+}
+#achievement_reward_pub .jianju{
+    display: inline-block;
+    width: 30px;
+}
+#achievement_reward_pub .list-con a{
+    text-decoration: underline;
+}

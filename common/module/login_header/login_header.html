@@ -1,0 +1,25 @@
+<div >
+    <div class="banner default-primary-color">
+        <div class="am-u-lg-3 am-u-md-4 am-u-sm-5 am-u-xs-5">
+            <a href="/">
+                <img src="pj.xtyun.net/common/images/logo.png" style="margin-left: 0px; margin-top: 13px;" />
+            </a>
+        </div>
+
+
+        <div id="user_banner_div" class="am-u-lg-9 am-u-md-8 am-u-sm-7 am-u-xs-7" align="right" style="z-index: 100;">
+            <span class="am-padding-right-xs">欢迎您,</span>
+            <span class="am-padding-right-xs">{{ @user.school_name }}</span>
+            <span class="am-padding-right-xs">{{ @user.name }}</span>
+            <span id="icon_user_div" ms-on-mouseenter="icon_user_div_enter" ms-on-mouseleave="icon_user_div_leave" class="am-icon-user am-padding-right-xl">
+                <ul :if="is_show">
+                    <li :if="info_li" ms-click="user_update_information">个人资料</li>
+                    <li ms-click="user_update_password">修改密码</li>
+                </ul>
+            </span>
+            <a ms-on-click="@quit">
+                <span>退出</span>
+            </a>
+        </div>
+    </div>
+</div>

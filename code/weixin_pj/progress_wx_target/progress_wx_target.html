@@ -1,0 +1,45 @@
+<div ms-important="ecm_target_plan" id="ecm_target_plan">
+    <div class="common-select">
+        <div class="search-cont clearfix">
+
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester, $id:'ecm_daily_opt_sem'}"></xmp>
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade,$id:'ecm_daily_opt_grade'}"></xmp>
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,$id:'ecm_daily_opt_class'}"></xmp>
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@query_type_list,sel_check:@change_type,head_value:''}"></xmp>
+
+        </div>
+    </div>
+
+    <div class="list-con" style="margin-top: 5px;">
+
+        <div class="progress_table" :if="@student_list.length>0">
+            <div class="_title">
+                <div class="col_1">班级人数:{{student_count}}</div>
+                <div class="col_2">未评人数:<span style="color: red">{{student_wp}}</span></div>
+            </div>
+            <table cellspacing="0">
+                <thead>
+                <tr>
+                    <th width="10%">序号</th>
+                    <th width="30%">姓名</th>
+                    <th width="30%">学籍号</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr :for="$index, item in student_list">
+                    <td>{{ $index+1}}</td>
+                    <td>{{item.xsxm}}</td>
+                    <td>{{item.xsxjh|mtruncate(3,3)}}</td>
+                    <td :visible="query_type!=2" :css="{color:@font_color(item.mbjh)}">{{item.mbjh}}</td>
+                    <td :visible="query_type!=1" :css="{color:@font_color(item.sxqk)}">{{item.sxqk}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--暂无数据-->
+        <div ms-if="@student_list.length==0" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+</div>

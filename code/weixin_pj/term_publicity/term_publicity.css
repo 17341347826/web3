@@ -1,0 +1,16 @@
+@charset "utf-8";
+#term_publicity .weui-cells {
+  margin-top: -1px;
+  text-align: center;
+}
+#term_publicity .weui-cell,
+#term_publicity .weui-select {
+  font-size: 14px;
+  color: #a2a2a2;
+}
+#term_publicity .no-msg {
+  text-align: center;
+}
+#term_publicity .table-tc {
+  cursor: pointer;
+}

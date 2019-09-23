@@ -1,0 +1,27 @@
+#citySchoolControl{
+    background-color: #f1f2f6;
+}
+#city-school{
+    padding: 16px;
+    background-color: #f1f2f6;
+}
+#city-school .am-table > thead > tr > th,
+#city-school .am-table > tbody > tr > td {
+    white-space: nowrap;
+}
+#city-school .am-table > tbody > tr > td:nth-child(6) {
+    white-space: normal;
+}
+#citySchoolControl .common-select{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-bottom: 4px;
+}
+#citySchoolControl .table-wc{
+    background-color: #fff;
+    padding:17px 16px 20px;
+}
+#citySchoolControl #user_div>div{
+   border-radius:0;
+}

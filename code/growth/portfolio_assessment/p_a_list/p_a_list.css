@@ -1,0 +1,38 @@
+#p_a_list{
+    background-color: #f5f5f5;
+}
+#p_a_list >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#p_a_list .list-con{
+     padding-top:17px;
+     padding-bottom:40px;
+     overflow: hidden;
+ }
+/*!*select*!*/
+/*.old-select select{*/
+    /*width: 200px;*/
+    /*height: 36px;*/
+    /*line-height: 36px;*/
+    /*padding-left: 20px;*/
+    /*border: 1px solid #c8c8c8;*/
+    /*text-align: left;*/
+    /*font-size: 16px;*/
+    /*color: #c8c8c8;*/
+    /*border-radius: 4px;*/
+    /*cursor: pointer;*/
+/*}*/
+/*学校模糊查询*/
+#schoolInfo{
+    /*width:280px;*/
+    min-width:200px;
+    position: absolute;
+    z-index: 100;
+    max-height: 172px;
+    background: #fff;
+    border: 1px solid #ccc;
+    overflow: auto;
+    color: #c8c8c8;
+}

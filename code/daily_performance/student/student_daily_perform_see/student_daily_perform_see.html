@@ -1,0 +1,305 @@
+<div ms-important="daily_perform_see" id="daily_perform_see" class="clearfix">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+   <div class="content">
+       <!--记录列表-->
+       <div class="am-fl list-con">
+           <!--显示方式-->
+           <div class="dis-type" ms-visible="@list.length != 0">
+               <div class="radios">
+                   <label class="radios-name">显示方式：</label>
+                   <label class="am-radio-inline">
+                       <input type="radio" id="option1" ms-duplex="@html_display"  class="rdo" value="1">
+                       <label ms-attr="{for:'option1'}">图文</label>
+                   </label>
+                   <label class="am-radio-inline" :click="@radio_table()">
+                       <input type="radio" id="option2" ms-duplex="@html_display" class="rdo" value="2">
+                       <label ms-attr="{for:'option2'}">表格</label>
+                   </label>
+               </div>
+           </div>
+           <!--table-->
+           <div :if="@html_display == 2 && @list_detail == 1 && @list.length>0">
+               <div class="table_module am-padding-top-sm am-padding-bottom-sm">
+                   <div id="class-module">
+                       <table class="am-table am-table-hover">
+                           <thead style="text-align: center">
+                           <tr>
+                               <td>序号</td>
+                               <td>姓名</td>
+                               <td>学籍号</td>
+                               <td>关键表现</td>
+                               <td>表现时间</td>
+                               <td>得分</td>
+                               <td>操作</td>
+                           </tr>
+                           </thead>
+                           <tbody>
+                           <!--ms-for:($idx,el) in @list-->
+                           <tr>
+                               <td>{{@set_index($idx+1,@currentPage)}}</td>
+                               <td>{{el.name}}</td>
+                               <td>{{el.code}}</td>
+                               <td class="text_desc_width">{{el.description}}</td>
+                               <td>{{el.everyday_date}}</td>
+                               <td>{{el.score}}</td>
+                               <td><a class='tab-btn tab-details-btn' ms-on-click='@person_honor(el)' title='查看'></a></td>
+                           </tr>
+                           <!--ms-for-end:-->
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+               <!--分页-->
+               <div class="divide-page am-cf" ms-visible="@totalPageArr.length!=0 && @count>10" data-am-widget="pagination">
+                   <div style="float: right; margin-right:16px;">
+                       <div class="page-info">
+                           <span>共{{@count}}条数据</span>
+                           <!--<span>当前为第{{@currentPage}}页</span>-->
+                           <span>共{{@totalPage}}页</span>
+                       </div>
+                       <div class="pages">
+                           <div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(1)">
+                               首页
+                           </div>
+                           <div class="pre-page" ms-visible="@currentPage != 1" ms-on-click="@currentPageDate(@currentPage-1)">
+                               上一页
+                           </div>
+                           <!--ms-for: ($index,el) in @totalPageArr -->
+                           <div class="com-page" ms-class="[el==@currentPage?'page-active':'']" ms-on-click="@currentPageDate(el)">
+                               {{el}}
+                           </div>
+                           <!--ms-for-end:-->
+                           <div class="next-page" ms-visible="@currentPage != @totalPage"
+                                ms-on-click="@currentPageDate(@currentPage+1)">
+                               下一页
+                           </div>
+                           <div class="last-page" ms-visible="@currentPage != @totalPage"
+                                ms-on-click="@currentPageDate(@totalPage)">
+                               末页
+                           </div>
+                       </div>
+                       <div class="turn-page">
+                           <div>跳转到：</div>
+                           <div class="s-page"><input type="text" ms-duplex-number="@pageNo"/></div>
+                           <div class="go-page" ms-on-click="@pageNOSure(@pageNo)">GO</div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <!--table单条记录列表详情-->
+           <div :if="@html_display == 2 && @list_detail == 2">
+               <div class="daily-person clearfix" ms-class="['s'+person_detail.fk_semester_id]">
+                   <!--学生基本信息-->
+                   <div class="stu-info">
+                       <div>
+                           <!--头像-->
+                           <div class="stu-head">
+                               <div class="stu-img">
+                                   <img ms-attr="{src:@url_img(@user_photo({guid:person_detail.guid}))}">
+                               </div>
+                               <div class="stu-name">
+                                   <span>{{person_detail.name}}</span>
+                               </div>
+                           </div>
+                           <div class="line-one"></div>
+                           <!--学校信息-->
+                           <div class="stu-school">
+                               <div class="btn-operation">
+                                   <!--<span class="d-name">日常表现</span>-->
+                                   <!-- <a class='tab-btn tab-edit-btn' title="编辑"></a>
+                                   <a class='tab-btn tab-trash-btn' title="删除"></a> -->
+                               </div>
+                               <div>
+                                   <span>{{person_detail.grade_name}} {{person_detail.class_name}}班</span>
+                                   <span>{{person_detail.school_name}}</span>
+                                   <span>{{@district_name}}</span>
+                                   <span>{{@person_detail.everyday_date|date}}</span>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <!--日常表现信息-->
+                   <div class="daily-info">
+                       <div class="one-two-index">
+                           <span>评价维度 ：{{person_detail.frist_index}}</span>
+                           <span>评价要素 ：{{person_detail.second_index}}</span>
+                       </div>
+                       <div class="three-index">
+                           <h3>关键表现 ：</h3>
+                           <p>{{person_detail.item}}</p>
+                       </div>
+                       <div class="record-des">
+                           <h3>记录描述 ：</h3>
+                           <p>{{person_detail.description}}</p>
+                       </div>
+                       <div class="pj-score">评价得分 ：{{person_detail.score}}</div>
+                       <div class="record-des" ms-if="el.status==2">
+                           <h3>审核未通过原因 ：</h3>
+                           <p>{{person_detail.check_opinion}}</p>
+                       </div>
+                       <!--图片-->
+                       <div  class="img-ary">
+                           <h3 ms-visible="@person_detail.img_arr.length>0">图片材料 ：</h3>
+                           <!--ms-for:($index,al) in person_detail.img_arr-->
+                           <img  ms-attr="{src:@url_img(al.guid)}" alt="图片">
+                           <!--ms-for-end:-->
+                       </div>
+                       <div class="text-content">
+                           <h3 ms-visible="@person_detail.video_arr.length>0 || @person_detail.file_arr.length>0">文件材料：</h3>
+                           <ul>
+                               <li ms-for="col in @person_detail.video_arr">
+                                   <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                               </li>
+                               <li ms-for="col in @person_detail.file_arr">
+                                   <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+               <div class="btns">
+                   <button type="button" class="am-btn-default"  ms-on-click="@back()">返回</button>
+               </div>
+           </div>
+           <!--图文-->
+           <div :if="@html_display == 1">
+                <!--ms-for:($idx,el) in @list-->
+                <div class="daily-person clearfix" ms-class="['s'+el.fk_semester_id]">
+                    <!--学生基本信息-->
+                    <div class="stu-info">
+                        <div>
+                            <!--头像-->
+                            <div class="stu-head">
+                                <div class="stu-img">
+                                    <img ms-attr="{src:@url_img(@user_photo({guid:el.guid}))}">
+                                </div>
+                                <div class="stu-name">
+                                    <span>{{el.name}}</span>
+                                </div>
+                            </div>
+                            <div class="line-one"></div>
+                            <!--学校信息-->
+                            <div class="stu-school">
+                                <div class="btn-operation">
+                                    <!--<span class="d-name">日常表现</span>-->
+                                    <!-- <a class='tab-btn tab-edit-btn' title="编辑"></a>
+                                    <a class='tab-btn tab-trash-btn' title="删除"></a> -->
+                                </div>
+                                <div>
+                                    <span>{{el.grade_name}} {{el.class_name}}班</span>
+                                    <span>{{el.school_name}}</span>
+                                    <span>{{@district_name}}</span>
+                                    <span>{{@el.everyday_date|date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--日常表现信息-->
+                    <div class="daily-info">
+                        <div class="one-two-index">
+                            <span>评价维度 ：{{el.frist_index}}</span>
+                            <span>评价要素 ：{{el.second_index}}</span>
+                        </div>
+                        <div class="three-index">
+                            <h3>关键表现 ：</h3>
+                            <p>{{el.item}}</p>
+                        </div>
+                        <div class="record-des">
+                            <h3>记录描述 ：</h3>
+                            <p>{{el.description}}</p>
+                        </div>
+                        <div class="pj-score">评价得分 ：{{el.score}}</div>
+                        <div class="record-des" ms-if="el.status==2">
+                            <h3>审核未通过原因 ：</h3>
+                            <p>{{el.check_opinion}}</p>
+                        </div>
+                        <!--图片-->
+                        <div  class="img-ary">
+                            <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                            <!--ms-for:($index,al) in el.img_arr-->
+                            <img  ms-attr="{src:@url_img(al.guid)}" alt="图片">
+                            <!--ms-for-end:-->
+                        </div>
+                        <div class="text-content">
+                            <h3 ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0">文件材料：</h3>
+                            <ul>
+                                <li ms-for="col in @el.video_arr">
+                                    <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                                </li>
+                                <li ms-for="col in @el.file_arr">
+                                    <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="fg-line" ms-visible="$idx!=@list.length-1"></div>
+                <!--ms-for-end:-->
+               <div class="divide-page am-cf" ms-visible="@totalPageArr.length!=0 && @count>10" data-am-widget="pagination">
+                   <div style="float: right; margin-right:16px;">
+                       <div class="page-info">
+                           <span>共{{@count}}条数据</span>
+                           <!--<span>当前为第{{@currentPage}}页</span>-->
+                           <span>共{{@totalPage}}页</span>
+                       </div>
+                       <div class="pages">
+                           <div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(1)">
+                               首页
+                           </div>
+                           <div class="pre-page" ms-visible="@currentPage != 1" ms-on-click="@currentPageDate(@currentPage-1)">
+                               上一页
+                           </div>
+                           <!--ms-for: ($index,el) in @totalPageArr -->
+                           <div class="com-page" ms-class="[el==@currentPage?'page-active':'']" ms-on-click="@currentPageDate(el)">
+                               {{el}}
+                           </div>
+                           <!--ms-for-end:-->
+                           <div class="next-page" ms-visible="@currentPage != @totalPage"
+                                ms-on-click="@currentPageDate(@currentPage+1)">
+                               下一页
+                           </div>
+                           <div class="last-page" ms-visible="@currentPage != @totalPage"
+                                ms-on-click="@currentPageDate(@totalPage)">
+                               末页
+                           </div>
+                       </div>
+                       <div class="turn-page">
+                           <div>跳转到：</div>
+                           <div class="s-page"><input type="text" ms-duplex-number="@pageNo"/></div>
+                           <div class="go-page" ms-on-click="@pageNOSure(@pageNo)">GO</div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div ms-visible="@list.length==0 && @data_had" class="no-data">
+               <img src="../../../../common/images/none.png" alt="">
+           </div>
+           <div ms-visible="@list.length==0 && !@data_had" class="data_pedding">
+              正在加载中，请稍等
+           </div>
+       </div>
+       <!--学年学期选择-->
+       <div class="am-fr d-p-c-nav">
+           <div class="d-p-munu">
+               <div class="outer">
+                   <div class="inner">
+                       <ul>
+                           <!--ms-for:($idx,el) in @semester_list-->
+                           <li ms-click="@menu_jump(el.value)">
+                               <span ms-class="[@current_menu==el.value ? 'now-menu':'']">{{el.name}}</span>
+                               <span  class="dotted"></span>
+                               <span :if="@current_menu==el.value" class="out-circle">
+                                        <span :if="@current_menu==el.value" class="inner-circle"></span>
+                                    </span>
+                               <span :if="@current_menu!=el.value" class="small-circular"></span>
+                           </li>
+                           <!--ms-for-end:-->
+                       </ul>
+                       <span class="right-top-point"></span>
+                       <span class="right-bottom-point"></span>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>

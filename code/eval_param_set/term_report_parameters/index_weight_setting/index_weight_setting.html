@@ -1,0 +1,55 @@
+<div class="am-g" id="index_weight_setting" ms-important="index_weight_setting">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div class="common-select" >
+            <div class="search-cont clearfix">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@grade_check,head_value:@head_value}"></xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="w-set-table">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>评价维度</th>
+                    <th>评价要素</th>
+                    <th>权重</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: ($index,el) in @dataInfo-->
+                <tr>
+                    <td>{{el.index_name}}【{{el.id}}】
+                        <input class="disabled_input" disabled type="text" ms-attr="{value:el.cs_proweight+'%'}">
+                    </td>
+                    <td>
+                        <!--ms-for: ($key,col) in el.second_list-->
+                        <div :class="[($key == el.second_list.length-1 ? 'no-border':'')]">{{col.index_name}}</div>
+                        <!--ms-for-end:-->
+                    </td>
+                    <td>
+                        <!--ms-for: ($id,vl) in @find_count[el.id].list-->
+                        <div :class="[($id == vl.length-1 ? 'no-border':'')]">
+
+                            <input type="text" ms-on-blur="@blur($index,@find_count[el.id].list)" ms-attr="{value:vl.cs_proweight}" ms-duplex="vl.cs_proweight">%
+                        </div>
+                        <!--ms-for-end:-->
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+
+                </tbody>
+            </table>
+        </div>
+        <div class="btns">
+            <!--<button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>-->
+            <button type="button" class="am-btn-primary" ms-click="@save_data">提交</button>
+        </div>
+    </div>
+
+
+</div>
+

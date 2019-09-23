@@ -1,0 +1,15 @@
+<div ms-important="home_x" class="home_x" id="home_x">
+    <div class="am-container">
+        <!--<div class="">-->
+            <!--<p class="notice_p">这里是公告这里是公告这里是公告这里是公告这里是公告这里是公告这里是公告</p>-->
+        <!--</div>-->
+        <div class="am-g-content" style="width: 100%;">
+            <!--ms-for: $index,el in @orderList-->
+                <div :class="[(el.remark ? 'two_module' :'')]">
+                    <!--新增记录-->
+                    <xmp ms-widget="{is:el.module_name}"></xmp>
+                </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+</div>

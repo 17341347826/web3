@@ -1,0 +1,14 @@
+#add_wx_achievement input{
+    width: 100%;
+    height: 30px;
+    border: none;
+}
+#add_wx_achievement input.weui-uploader__input{
+    height: 79px;
+}
+#add_wx_achievement input:focus{
+    outline:none;
+}
+.disabled_class {
+    background-color: #9da29d;
+}

@@ -1,0 +1,59 @@
+<div ms-important="teacher_evaluation" id="teacher_evaluation" class="normalPaddding">
+    <div class="screen_demo">
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select"  data-duplex-changed="@gradeChange" ms-duplex-number="@get_grade_id">
+                    <option ms-attr="{value:el.grade_id}" ms-for="el in @grade_list">
+                        {{ el.grade_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@classChange" ms-duplex-number="@get_class_id">
+                    <option ms-attr="{value:el.class_id}" ms-for="el in @class_list">
+                        {{ el.class_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@projectChange"  ms-duplex-number="@pro_id">
+                    <option ms-attr="{value:el.id}" ms-for="el in @project_arr">
+                        {{ el.pro_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="teacher_evaluation_con">
+        <div class="pro_list">
+            <span>评价状态</span>
+            <span :class="[(@default_pro.is_time == '进行中' ? 'green_color' :'red_color')]">{{@default_pro.is_time}}</span>
+        </div>
+        <div class="pro_list">
+            <span>开始时间</span>
+            <span>{{@default_pro.pro_start_time}}</span>
+        </div>
+        <div class="pro_list">
+            <span>结束时间</span>
+            <span>{{@default_pro.pro_end_time}}</span>
+        </div>
+        <div class="pro_list" >
+            <span>班级人数 {{stu_data.zrs}}人</span>
+            <span class="green_color">已评 {{stu_data.yscrs}}人</span>
+            <span class="red_color">未评 {{stu_data.wscrs}}人</span>
+        </div>
+    </div>
+    <div class="public_btn_big">
+        <!--<a :visible="@default_pro.is_time == '进行中'" ms-on-click="@go_into">进入评价</a>-->
+        <!--<a :visible="@default_pro.is_time == '评价已结束'" ms-on-click="@go_into">查看</a>-->
+        <!--<a :visible="@default_pro.is_time == '未开始'" class="color_gray">评价未开始</a>-->
+        <a :visible="@default_pro.is_time == '进行中' && @is_switch" ms-on-click="@go_into">进入评价</a>
+        <a :visible="@default_pro.is_time == '评价已结束' && @is_switch" class="color_gray">评价已结束</a>
+        <a :visible="@default_pro.is_time == '未开始' && @is_switch" class="color_gray">评价未开始</a>
+        <a :visible="!@is_switch" class="color_gray">任务已关闭</a>
+    </div>
+</div>

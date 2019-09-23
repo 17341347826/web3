@@ -1,0 +1,96 @@
+<div class="am-g am-margin-top-xl" id="review_detail_div">
+    <!--ms-for: index,el in @review-->
+    <table id="title_table" class="am-margin-bottom am-margin-left-xl">
+        <tr>
+            <td id="first_title" class="title_nowrap"><span>第{{index+1}}次审核情况</span></td>
+            <td>
+                <img src="Growth/common/images/title_line.png" alt="">
+            </td>
+        </tr>
+    </table>
+    <div class="am-margin-bottom-lg" style="overflow: hidden">
+        <div class="am-u-sm-12 am-margin-bottom-sm">
+            <div class="am-u-sm-2 am-text-right">
+                核查时间：
+            </div>
+            <div class="am-u-sm-10 am-u-end">
+                {{@el.check_time}}
+            </div>
+        </div>
+        <div class="am-u-sm-12 am-margin-bottom-sm">
+            <div class="am-u-sm-2 am-text-right">
+                异议：
+            </div>
+            <div class="am-u-sm-10 am-u-end">
+                <table class="am-table am-table-striped am-table-hover">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>提出人</th>
+                        <th>提出时间</th>
+                        <th>原由</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ms-if="el.dissents.length==0">
+                        <td colspan="4">无异议</td>
+                    </tr>
+                    <!--ms-for: $idx,$el in el.dissents-->
+                    <tr>
+                        <td>{{$idx+1}}</td>
+                        <td>{{$el.owner_name}}</td>
+                        <td>{{$el.create_time}}</td>
+                        <td>{{$el.content}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="am-u-sm-12 am-margin-bottom-sm">
+            <div class="am-u-sm-2 am-text-right">
+                核查人：
+            </div>
+            <div class="am-u-sm-10  am-u-end">
+                {{@el.check_name}}
+            </div>
+        </div>
+        <div class="am-u-sm-12 am-margin-bottom-sm">
+            <div class="am-u-sm-2 am-text-right">
+                核查结果：
+            </div>
+            <div class="am-u-sm-10 am-u-end">
+                {{@el.check_opinion}}
+            </div>
+        </div>
+        <div class="am-u-sm-12 am-margin-bottom-sm">
+            <div class="am-u-sm-2 am-text-right">
+                核查材料：
+            </div>
+            <div class="am-u-sm-10 am-u-end">
+                <div ms-if="el.check_attachments.length==0">
+                    无核查材料
+                </div>
+                <div class="am-slider am-slider-default am-u-sm-8" style="height: 400px;"
+                     ms-if="el.check_attachments.length!=0">
+                    <ul class="am-slides">
+                        <!--ms-for: cl in el.check_attachments-->
+                        <li>
+                            <div class="am-gallery-item">
+                                <a class="detail_carousel_img" ms-attr="{href:@url_for(cl.guid)}">
+                                    <img ms-attr="{src:@url_for(cl.inner_name)}"/>
+                                    <div ms-attr="{title:cl.img_text}">
+                                        {{ cl.desc}}
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <!--ms-for-end:-->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+</div>

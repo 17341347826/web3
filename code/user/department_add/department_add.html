@@ -1,0 +1,74 @@
+<div ms-important="department_add" id="department_add">
+    <div class="content">
+        <div class="a-name" :if="@office_type == 1">新增部门</div>
+        <div class="a-name" :if="@office_type == 2">修改部门</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <!--部门名称-->
+            <div class="a-element">
+                <label><span style="visibility: hidden">分</span>部门名称</label>
+                <div class="form-input">
+                    <input type="text" ms-duplex="@extend.o_name" placeholder="请输入部门名称">
+                </div>
+            </div>
+            <!--部门负责人-->
+            <div class="a-author">
+                <label>部门负责人</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select class="js-example-basic-single" id="tea-charge"  ms-duplex="@charge_echo">
+                            <option ms-attr="{value:''}">
+                                请选择部门负责人
+                            </option>
+                            <!--ms-for:($idx,el) in @charge_ary-->
+                            <option ms-attr="{value:el.teacher_name+'|'+el.id}">
+                                {{ el.teacher_name }}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--部门成员添加-->
+            <div class="depar-memeber">
+                <label><span style="visibility: hidden">分</span>部门成员</label>
+                <!--<div class="c-arys" :if="@member_ary.length>0">-->
+                    <!--&lt;!&ndash;ms-for:($idx,el) in @member_ary&ndash;&gt;-->
+                    <!--<div :if="$idx%3 == 0" class="am-fl" style="text-align: left;">-->
+                        <!--{{el.teacher_name}}<span>({{el.teacher_num | first_num}}***{{el.teacher_num | last_num}})</span>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div :if="$idx%3 == 1" style="display:inline-block">&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{el.teacher_name}}<span>({{el.teacher_num | first_num}}***{{el.teacher_num | last_num}})</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--<span :if="$idx%3 == 1" style="display:inline-block">-->
+                        <!--{{el.teacher_name}}<span>({{el.teacher_num | first_num}}***{{el.teacher_num | last_num}})</span>-->
+                    <!--</span>-->
+                    <!--<div :if="$idx%3 == 2" class="am-fr"  style="text-align: right;">-->
+                        <!--{{el.teacher_name}}<span>({{el.teacher_num | first_num}}***{{el.teacher_num | last_num}})</span>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                <!--</div>-->
+                <div class="base-select">
+                    <div class="old-select">
+                        <select class="js-example-basic-single" id="member_select" ms-duplex="mem_echo">
+                            <!--<option ms-attr="{value:''}">-->
+                                <!--请选择部门成员-->
+                            <!--</option>-->
+                            <!--ms-for:($idx,el) in @depar_memeber-->
+                            <option ms-attr="{value:el.teacher_name+'|'+el.id+'|'+el.teacher_num}">
+                                {{ el.teacher_name }}<span>({{el.teacher_num | first_num}}***{{el.teacher_num | last_num}})</span>
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                    <!--<a class="add-member" ms-click="@add_member()">添加</a>-->
+                </div>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_data()">提交</button>
+        </div>
+    </div>
+</div>

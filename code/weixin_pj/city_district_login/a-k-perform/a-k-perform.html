@@ -1,0 +1,223 @@
+<div ms-important="a-k-perform" id="a-k-perform">
+    <div class="a_f_content">
+        <div class="weui-cells">
+            <!--评价维度-->
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">评价维度</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select  class="weui-select" name="select2"
+                             data-duplex-changed="change_firstIndex" ms-duplex="@frist_id_name">
+                        <option ms-attr="{value:''}">
+                            请选择评价维度
+                        </option>
+                        <!--ms-for:($idx,el) in @frist_index-->
+                        <option ms-attr="{value:el.id +'|'+el.index_name}">
+                            {{el.index_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--评价要素-->
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">评价要素</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2" ms-duplex="@second_id_name">
+                        <option ms-attr="{value:''}">
+                            请选择评价要素
+                        </option>
+                        <!--ms-for:($idx,el) in @second_index-->
+                        <option ms-attr="{value:el.id + '|' + el.index_name}">
+                            {{el.index_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--关键表现-->
+            <div class="weui-cell border-bottom">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">关键表现</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex="@data.index_name" type="text" placeholder="请输入关键表现">
+                </div>
+            </div>
+            <!--评价主体-->
+            <div class="weui-cells__title">评价主体</div>
+            <div class="weui-cells weui-cells_checkbox">
+                <!--ms-for:($index,el) in @eval_ary-->
+                <label class="weui-cell weui-check__label" ms-attr="{for:'option'+el.value}">
+                    <div class="weui-cell__hd">
+                        <input type="checkbox" class="weui-check" name="checkbox1" ms-duplex="@eval_subs"
+                               ms-attr="{value:el.name,id:'option'+el.value}" data-duplex-changed="@check_btn(el.value)">
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>{{el.name}}</p>
+                    </div>
+                </label>
+                <!--ms-for-end:-->
+            </div>
+            <!--考察要点-->
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">考察要点</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" ms-duplex="@data.index_review" placeholder="请输入考察要点" rows="3"></textarea>
+                    <div class="weui-textarea-counter"><span>{{@mainPoints_num}}</span>/200</div>
+                </div>
+            </div>
+            <!--答案选项数量-->
+            <div class="weui-cell weui-cell_select weui-cell_select-after" :if="!@con_type">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">答案选项数量</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select  class="weui-select" name="select2" data-duplex-changed="@change_totalAnswerNum"
+                             ms-attr="{disabled : @is_disabled}"  ms-duplex-number="@totalAnswerNum">
+                        <option value="0">
+                            0
+                        </option>
+                        <option value="2">
+                            2
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="4">
+                            4
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--答案选项-->
+            <div class="weui-cells border-bottom" :if="!@con_type && @totalAnswerNum!=0">
+                <!--ms-for:($index,el) in @arr_option-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">{{el.title}}</label>
+                    </div>
+                    <div class="weui-cell__bd answer-choose">
+                        <input class="weui-input" class="am-margin-vertical-xs am-margin-left-xs" ms-duplex="el.question"
+                               placeholder="请输入答案选项" type="text"/>
+                        <input class="weui-input" class=" am-margin-left-xs" ms-duplex="el.score" placeholder="请输入答案分值" type="number"/>
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+            </div>
+            <!--最大分值-->
+            <div class="weui-cell border-bottom" :visible="@toggle" :if="!@con_type">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">最大分值</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex-number="@data.index_value" type="text" placeholder="请输入分值">
+                </div>
+            </div>
+            <!--分值起始区间-->
+            <div class="weui-cell" :if="@con_type">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">分值起始区间</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex="@data.index_start_interval" type="text" placeholder="请输入分值起始区间">
+                </div>
+            </div>
+            <!--分值结束区间-->
+            <div class="weui-cell" :if="@con_type">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">分值结束区间</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex-number="@data.index_end_interval" type="text" placeholder="请输入分值结束区间">
+                </div>
+            </div>
+            <!--默认加减分值-->
+            <div class="weui-cell border-bottom" :visible="@toggle" :if="@con_type">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">默认加减分值</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex-number="@data.index_value" type="text" placeholder="请输入分值起始区间">
+                </div>
+            </div>
+            <!--使用年级-->
+            <div class="weui-cells__title">使用年级</div>
+            <div class="weui-cells weui-cells_checkbox">
+                <label class="weui-cell weui-check__label" for="7">
+                    <div class="weui-cell__hd">
+                        <input type="checkbox" class="weui-check" name="checkbox2"
+                               ms-duplex="@grade" ms-attr="{value:7+'|'+'七年级'}" id="7">
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>七年级</p>
+                    </div>
+                </label>
+                <label class="weui-cell weui-check__label" for="8">
+                    <div class="weui-cell__hd">
+                        <input type="checkbox" name="checkbox2" class="weui-check"
+                               ms-duplex="@grade" ms-attr="{value:8+'|'+'八年级'}" id="8">
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>八年级</p>
+                    </div>
+                </label>
+                <label class="weui-cell weui-check__label" for="9">
+                    <div class="weui-cell__hd">
+                        <input type="checkbox" name="checkbox2" class="weui-check"
+                               ms-duplex="@grade"  ms-attr="{value:9+'|'+'九年级'}" id="9">
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>九年级</p>
+                    </div>
+                </label>
+            </div>
+            <!--作者-->
+            <div class="weui-cell weui-cell_select weui-cell_select-after border-bottom">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">作者</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2" ms-duplex="@author_info">
+                        <option ms-attr="{value:''}">
+                            请选择作者
+                        </option>
+                        <!--ms-for:($idx,el) in @teacher_arr-->
+                        <option ms-attr="{value:el.teacher_name+'|'+el.guid}">
+                            {{ el.teacher_name }}--{{el.teacher_num}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+
+            <!--<div>-->
+            <!--<label class="am-form-label">作者</label>-->
+            <!--<div class="select">-->
+            <!--<select class="js-example-basic-single" id="teacher_select">-->
+                <!--<option ms-attr="{value:''}">-->
+                    <!--请选择作者-->
+                <!--</option>-->
+                <!--&lt;!&ndash;ms-for:($idx,el) in @teacher_arr&ndash;&gt;-->
+                <!--<option ms-attr="{value:el.teacher_name+'|'+el.guid}">-->
+                    <!--{{ el.teacher_name }}&#45;&#45;{{el.teacher_num}}【{{el.guid}}】-->
+                <!--</option>-->
+                <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="public_btn_big">
+            <a ms-on-click="@save_data()">提交</a>
+        </div>
+    </div>
+</div>

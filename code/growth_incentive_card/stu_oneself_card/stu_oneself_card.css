@@ -1,0 +1,237 @@
+#stu_oneself_card{
+    background-color: #f5f5f5;
+}
+#stu_oneself_card >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#stu_oneself_card .stu-info{
+    padding-top:10px;
+    text-align: right;
+    color:#a2a2a2;
+}
+/*内容部分*/
+#stu_oneself_card .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+#stu_oneself_card .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#stu_oneself_card .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#stu_oneself_card .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+}
+#stu_oneself_card .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#stu_oneself_card .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#stu_oneself_card .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#stu_oneself_card .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#stu_oneself_card .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#stu_oneself_card .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*学生头像那块*/
+#stu_oneself_card .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#stu_oneself_card .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#stu_oneself_card .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#stu_oneself_card .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#stu_oneself_card .stu-school{
+    /*border:1px solid red;*/
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+#stu_oneself_card .stu-school>div:first-child{
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    /*border:1px solid yellow;*/
+    overflow: hidden;/*为了控制左边框和右边框高度和字体高度一致，都等于18px*/
+}
+#stu_oneself_card .stu-school div .d-name{
+    padding-left:10px;
+    padding-right:10px;
+    border-right:1px solid #a2a2a2;;
+    border-left:1px solid #a2a2a2;;
+}
+#stu_oneself_card .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#stu_oneself_card .stu-school>div:last-child span{
+    margin-right:40px;
+}
+#stu_oneself_card .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#stu_oneself_card  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#stu_oneself_card .daily-info>div{
+    margin-top:10px;
+}
+#stu_oneself_card  h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+/*图片*/
+#stu_oneself_card  .daily-info .d-p-img{
+    border-radius: 4px;
+}
+#stu_oneself_card  .daily-info .d-p-img img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+/*显示方式*/
+#stu_oneself_card .dis-type{
+    text-align: right;
+    padding: 20px 30px 0;
+}
+#stu_oneself_card .radios{
+    display:inline-block;
+}
+#stu_oneself_card .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+/*表格*/
+#stu_oneself_card .table-list{
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+#stu_oneself_card .table_module{
+    padding-left:16px;
+    padding-right:16px;
+}
+#stu_oneself_card #class-module{
+    /*border: 1px #d3d3d3 solid;*/
+    border-radius: 4px;
+}
+/*取消按钮*/
+#stu_oneself_card .btns{
+    text-align: center;
+    padding-bottom: 20px;
+}
+/*创建方正少儿简体字体*/
+@font-face {
+    font-family:fang zheng;
+    src:url('../../../common/images/icon/fang_zheng.ttf');
+}
+#stu_oneself_card .model-text{
+    /*font-family: "fang zheng";*/
+    font-family:fang zheng;
+    font-size:1.2em;
+}
+/*弹框*/
+#stu_oneself_card #card-modal{
+    background-color: rgba(0,0,0,0.1);
+}
+#stu_oneself_card .am-modal-dialog {
+    /* background: #f8f8f8; */
+    /*background: none;*/
+    position: relative;
+    width:591px;
+    height:420px;
+    overflow: hidden;
+}
+#stu_oneself_card .am-modal-bd {
+    border-bottom:none;
+}
+/*文本信息*/
+#stu_oneself_card .model-text{
+    position: absolute;
+    z-index: 99;
+    text-align: left;
+    /*border: 1px solid red;*/
+    width: 100%;
+    left:-1px;
+}
+#stu_oneself_card .model-text .stu-name{
+    position: absolute;
+    top: 121px;
+    left: 65px;
+    color:#FC7157;
+}
+#stu_oneself_card .model-text .card-date{
+    position: absolute;
+    top: 195px;
+    right: 58px;
+}
+#stu_oneself_card .card-div{
+    width:571px;
+    height:400px;
+    position: absolute;
+}
+#stu_oneself_card .card-photo{
+    width:100%;
+}

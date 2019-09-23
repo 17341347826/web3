@@ -1,0 +1,70 @@
+#new-health-solu .am-form {
+    padding-top: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-top: none;
+    overflow: hidden;
+}
+#new-health-solu .am-form>div {
+    border-top: 1px solid #eee;
+    padding: 0;
+}
+#new-health-solu .am-border-left {
+    border-left:1px solid #eee;
+}
+#new-health-solu .am-border-bottom {
+    border-bottom:1px solid #eee;
+    overflow: hidden;
+}
+#new-health-solu .am-border-top {
+    border-top:1px solid #eee;
+}
+#new-health-solu .am-border-right {
+    border-right:1px solid #eee;
+}
+#new-health-solu .am-padding-none {
+    padding: 0;
+}
+#new-health-solu label {
+    position: relative;
+    top:6px;
+    margin-bottom: 0;
+}
+#new-health-solu .am-height {
+    height: 61px;
+}
+#new-health-solu .am-min-height {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 58px;
+    overflow: hidden;
+}
+#new-health-solu .am-min-height input[type="number"] {
+    display: inline-block;
+    width: 80px;
+}
+#new-health-solu .am-padding-span {
+    padding: 18px 0;
+}
+#new-health-solu .am-btn{
+    width:120px;
+    height: 40px;
+    border-radius: 5px;
+}
+#new-health-solu{
+    background-color: #f1f2f6;
+}
+#new-health-solu>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    padding-top: 10px;
+}
+#new-health-solu{
+    color:#a2a2a2;
+}
+#new-health-solu input,
+#new-health-solu select{
+    border-radius: 4px;
+}

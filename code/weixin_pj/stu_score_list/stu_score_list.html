@@ -1,0 +1,47 @@
+<div id="stu_score_list" ms-important="stu_score_list">
+    <div class="weui-cells">
+        <div class="weui-cell weui-flex table-tc">
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    姓名
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    学籍号
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    状态
+                </p>
+            </div>
+        </div>
+ 
+        <!--ms-for: $idx,el in @student_arr-->
+        <div class="weui-cell weui-flex table_font"  ms-click="evaluate_click(el)">
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    {{el.name}}
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                {{el.code | mtruncate(3,3)}}
+            </div>
+
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    <a href="javascript:;" :if="el.status=='已评价'" ms-class="[el.status=='已评价' ? 'disabled':'']">已评价</a>
+                    <a href="javascript:;" :if="el.status=='未评价'" ms-click="evaluate_click(el)">未评价</a>
+                </p>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div class="weui-cell weui-flex" ms-if="@student_arr.length==0">
+            <div class="weui-cell__bd weui-flex__item no-msg">
+                暂无信息
+            </div>
+        </div>
+    </div>
+
+</div>

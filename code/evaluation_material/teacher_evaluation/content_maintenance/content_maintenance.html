@@ -1,0 +1,82 @@
+<div id="daily_content_div" ms-important="table">
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="search-btn">
+                <input type="button" value="添加" :click="@add_content()">
+            </div>
+        </div>
+    </div>
+    <div class="d-con-div">
+        <div class="table_module" :if="@num==1">
+            <table class="am-table am-table-hover" id="first_table">
+                <thead>
+                <tr>
+                    <th class="th_left_score">
+                        分值题(打分)
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @first_table_list-->
+                <tr>
+                    <td style="text-align: left;">
+                        {{$idx+1}}、{{el.sub_subject}}
+                        <input class="am-margin-left-lg" ms-attr="{value:el.sub_subject_data.index_value}"
+                               ms-duplex="el.sub_subject_data.index_value" type="text"/>
+                        <a class="tab-btn tab-trash-btn" ms-on-click="del_click(el)" title="删除">
+                        </a>
+                        <a class="tab-btn tab-pass-btn" ms-on-click="save_first_click($idx,el)" title="保存">
+                        </a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+        <div class="table_module" :if="@num==2">
+            <table class="am-table am-table-hover" id="second_table">
+                <thead>
+                <tr>
+                    <th class="th_left_radio" colspan="3">
+                        自选题(单选项)
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @second_table_list-->
+                <tr>
+                    <td style="max-width: 500px;">
+                        <p>
+                            {{$idx+1}}、{{el.sub_subject}}
+                        </p>
+                    </td>
+                    <td style="text-align: left">
+                        <!--ms-for: $index,cl in el.sub_subject_data.arr_option-->
+                        <span class="am-margin-left-xs">{{cl.title}}:{{cl.question}}</span>
+                        <input class="am-margin-left-sm am-margin-right-sm" ms-attr="{value:cl.score}" ms-duplex="cl.score" type="text"/>
+                        <!--ms-for-end:-->
+                    </td>
+                    <td>
+                        <a class="tab-btn tab-pass-btn" ms-on-click="save_click($idx,el)" title="保存">
+                        </a>
+                        <a class="tab-btn tab-trash-btn" ms-attr="{value:el.sub_subjectid}"
+                           ms-on-click="del_click(el)" title="删除">
+                        </a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+        <div :if="@num==3" class="no-data">
+            <div>
+                <img src="../../../../common/images/none.png" alt="">
+            </div>
+        </div>
+        <div>
+            <div class="btns" style="text-align: center;margin-top: 15px;">
+                <button type="button" class="am-btn-default"  ms-on-click="@back()">返回</button>
+            </div>
+        </div>
+    </div>
+</div>

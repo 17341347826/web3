@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="applicable-device"content="mobile">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <title>眉山市初中学生综合素质评价</title>
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">-->
+    <link rel="stylesheet" href="common/lib/weui.min.css">
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">-->
+    <link rel="stylesheet" href="common/lib/jquery-weui.min.css">
+    <script src="./common/wx_common/public_fun.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+
+    <![endif]-->
+    <style>
+        html{
+            background-color: #fff;
+        }
+        body {
+            overflow: visible;
+            overflow-x: hidden;
+            overflow-y: visible;
+            font-family:PingFang-SC-Medium;
+        }
+        .text-center{
+            text-align: center;
+        }
+        #wx-scan-binding{
+
+        }
+        #wx-scan-binding .content_body{
+            padding-top:7px;
+        }
+        #wx-scan-binding .content_body .con-login{
+            width:96px;
+            height:96px;
+            display:inline-block;
+        }
+        #wx-scan-binding .content_body .con-login img{
+            width:96px;
+        }
+        #wx-scan-binding .content_body .con-name{
+            color:#333;
+            font-size:18px;
+            margin-top: 9px;
+        }
+        #wx-scan-binding  .login_div_input{
+            margin-top:58px;
+        }
+        #wx-scan-binding  .login_div_input>p{
+            width:calc(100% - 118px);
+        }
+        #wx-scan-binding  .login_div_input img{
+            width:28px;
+            vertical-align: bottom;
+            margin-right: 19px;
+        }
+        #wx-scan-binding .login_div_input_acc,
+        #wx-scan-binding .login_div_input_pwd {
+            margin: auto;
+            /*overflow: hidden;*/
+            /*background: white;*/
+            /*padding: 7px 0 10px 0px;*/
+            margin-bottom: 21px;
+            /*background: rgba(255, 255, 255, 0.01);*/
+        }
+        #wx-scan-binding .login_div_input_acc input ,
+        #wx-scan-binding  .login_div_input_pwd input{
+            background: rgba(255, 255, 255, 0.01);
+            outline: none;
+            border: none;
+            width: 200px;
+            font-size: 15px;
+            padding-left: 10px;
+            border-bottom:1px solid rgba(222,222,222,1);
+        }
+
+        #wx-scan-binding  input:-webkit-autofill {
+            -webkit-text-fill-color: #a2a2a2 !important;
+            background-color: transparent;
+            background-image: none;
+            transition: background-color 50000s ease-in-out 0s;
+        }
+        input::-webkit-input-placeholder {
+            color: #A2A2A2;
+            font-size: 12px;
+        }
+
+        input:-moz-placeholder{
+            color: #A2A2A2;
+            font-size: 12px;
+        }
+
+        input::-moz-placeholder{
+            color: #A2A2A2;
+            font-size: 12px;
+        }
+
+        input:-ms-input-placeholder{
+            color: #A2A2A2;
+            font-size: 12px;
+        }
+        #wx-scan-binding .content_body .msg{
+            font-size:12px;
+            color:red;
+        }
+        #wx-scan-binding .content_body .class-btn{
+            margin-top: 70px;
+            width:320px;
+            display:inline-block;
+        }
+        #wx-scan-binding .content_body .class-btn a{
+            height:37px;
+            line-height:37px;
+        }
+        #wx-scan-binding .content_body .class-btn .weui-btn_primary {
+            background-color: #34865D;
+        }
+        #wx-scan-binding .content_body .class-btn .weui-btn_primary:hover {
+            background-color: #187f4c;
+        }
+        #wx-scan-binding .content_body .class-btn .weui-btn_default {
+            background-color: #F8F8F8;
+        }
+        #wx-scan-binding .content_body .class-btn .weui-btn{
+            font-size:16px;
+        }
+    </style>
+</head>
+<body>
+<div id="wx-scan-binding" ms-controller="wx_scan_binding">
+    <div class="content_body text-center">
+        <div class="con-login">
+            <img src="./common/images/images/wx_scan_binding.png" alt="">
+        </div>
+        <div class="con-name">
+            <span> 眉山市初中学生综合素质评价</span>
+        </div>
+        <div class="login_div_input text-center">
+            <p class="login_div_input_acc">
+                <img ms-attr="{src:@acc_choose_img == false? './common/images/weixin_pj/bind_account.png' : './common/images/weixin_pj/bind_account_hover.png'}"
+                     alt="">
+                <input type="text" placeholder="请输入账号" ms-duplex="@extend.account" ms-focus="@focus_acc()"
+                       ms-blur="@blur_acc()">
+
+            </p>
+            <p class="login_div_input_pwd">
+                <img ms-attr="{src:@pwd_choose_img == false? './common/images/weixin_pj/bind_pwd.png' : './common/images/weixin_pj/bind_pwd_hover.png'}"
+                     alt="">
+                <input type="password" placeholder="请输入密码" ms-duplex="@extend.password" ms-blur="@blur_pwd()"
+                       ms-focus="@focus_pwd()">
+            </p>
+        </div>
+        <p class="msg text-center" ms-visible="@msg != ''">{{msg}}</p>
+        <div class="class-btn">
+            <a href="javascript:;" class="weui-btn weui-btn_primary" :click="@bing_insure()">确认</a>
+            <a href="javascript:;" class="weui-btn weui-btn_default" :click="@bind_cancel()" style="color:#666;">取消</a>
+        </div>
+    </div>
+</div>
+<script src="common/lib/jquery.min.js"></script>
+<script src="common/lib/jquery-weui.min.js"></script>
+<script src="common/lib/avalon.js"></script>
+<script src="const_wx_pj.js"></script>
+<script src="common/module/request.js"></script>
+<script src="common/lib/bin/jsencrypt.js"></script>
+<script src="common/lib/rsa_public_key.js"></script>
+<script>
+    avalon.ready(function() {
+        var HTTP_X = location.origin;
+        var HTTP_API = HTTP_X;
+        // //获取微信用户openid
+        // var get_openid = HTTP_API + '/api/weixin/controller/get_openid';
+        //登录
+        var wx_account_login = HTTP_API + '/api/base/baseUser/wx_account_login';
+        //取消扫描登录
+        var login_cancel = HTTP_API + '/api/base/baseUser/login_cancel';
+        var vm = avalon.define({
+            $id: "wx_scan_binding",
+            //扫描状态：0-绑定确认前，1-去绑定
+            binging_bofore:1,
+            //账号是否获取焦点
+            acc_choose_img:false,
+            //密码是否获取焦点
+            pwd_choose_img:false,
+            //绑定数据
+            extend:{
+                account:'',
+                //用户openid	string	当选中【自动登录】则传递值，若未选中则传空即可@mock=123456789
+                openid:'',
+                password:'',
+                token:'',
+            },
+            //提示信息
+            msg:'',
+            //初始化
+            init: function(){
+                // var url = location.href;
+                // // var url = 'http://127.0.0.1/Growth/wx_scan.html?token=19909090'; var b = url.substr(url.indexOf('token'),url.length);console.log(b);
+                // var b= url.split('code=');
+                // this.code = b[1].split('&')[0];
+                // var c= url.split('token=');
+                // this.token = c[1].split('&')[0];
+                // var d =  url.split('openid=');
+                // this.extend.openid = d[1].split('&')[0];
+                var url = location.search;
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = strs[i].split("=")[1];
+                    }
+                }
+                this.extend.token = theRequest.token;
+                this.extend.openid = theRequest.openid;
+                window.sessionStorage.setItem("token",this.token);
+            },
+            //账号焦点
+            focus_acc:function(){
+                this.acc_choose_img = true;
+                this.msg = '';
+            },
+            //账号失去焦点
+            blur_acc:function(){
+                this.acc_choose_img = false;
+            },
+            //密码焦点
+            focus_pwd:function(){
+                this.pwd_choose_img = true;
+                this.msg = '';
+            },
+            //密码失去焦点
+            blur_pwd:function(){
+                this.pwd_choose_img = false;
+            },
+            //绑定确认
+            bing_insure:function(){
+                if (this.extend.account != "" &&
+                    this.extend.password != "") {
+                    var publicKey = public_key;
+                    var encrypt = new JSEncrypt(); // 实例化加密对象
+                    encrypt.setPublicKey(publicKey); // 设置公钥
+                    var get_password = encrypt.encrypt(this.data.password);
+                    //方便微信登录
+                    localStorage.setItem('account',this.extend.account);
+                    localStorage.setItem('password',this.extend.password);
+                    localStorage.setItem("is_auto", "1");
+                    ajax_post(wx_account_login, this.extend.$model, this, this.is_check)
+                } else {
+                    this.msg = "请输入账号和密码"
+                }
+                ajax_post(wx_account_login,this.extend.$model,this);
+            },
+            //绑定取消
+            bind_cancel:function(){
+                var self = this;
+                $.confirm({
+                    title: '提示',
+                    text: '取消微信登录',
+                    onOK: function () {
+                        ajax_post_code(login_cancel,{Token:self.token},self);
+                    },
+                    onCancel: function () {
+
+                    }
+                });
+            },
+            on_request_complete: function(cmd, status, data, is_suc, msg) {
+                if(is_suc){
+                    switch (cmd) {
+                        //登录
+                        case wx_account_login:
+                            this.complete_wx_account_login(data);
+                            break;
+                    //        取消
+                        case login_cancel:
+                            this.complete_login_cancel(data);
+                            break;
+                    }
+                }else{
+                    $.alert(msg);
+                }
+            },
+            complete_wx_account_login:function(data){
+                $.alert({
+                    title: '提示',
+                    text: '绑定成功（电脑端已登录）',
+                    onOK: function () {//点击确认
+                        //微信自带自动关闭当前浏览器内置函数
+                        WeixinJSBridge.call('closeWindow');
+                    }
+                });
+            },
+            //取消扫描登录
+            complete_login_cancel:function(data){
+                window.close();
+                //微信自带自动关闭当前浏览器内置函数
+                WeixinJSBridge.call('closeWindow');
+            },
+        });
+        vm.$watch('onReady', function () {
+            vm.init();
+        });
+        avalon.scan(document.body);
+    })
+</script>
+</body>
+
+</html>

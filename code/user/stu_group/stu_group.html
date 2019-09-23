@@ -1,0 +1,150 @@
+<div class="am-g" id="stu_group" ms-important="stu_group">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange()" ms-duplex="@grade_info">
+                        <!--ms-for: el in @teach_class_list-->
+                        <option ms-attr="{value:el.grade_name+'|'+el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duple="@class_info" data-duplex-changed="@classChange()">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_name+'|'+el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@semesterChange()" ms-duplex="@semester_info">
+                        <!--ms-for: el in @semester_list-->
+                        <option ms-attr="{value:el.start_date+'|'+el.end_date+'|'+el.id}">
+                            {{el.semester_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="分组" :click="@modal_open()">
+            </div>
+            <div class="search-btn" :if="@add_stu_group.number == 1">
+                <input type="button" value="随机分组" class="random_input" :click="@random_click()">
+            </div>
+        </div>
+    </div>
+    <div class="c-t-con">
+        <div class="table_module">
+            <table class="am-table am-table-hover ">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        分组名称
+                    </th>
+                    <th>
+                        成员
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody :if="@table_info.length>0">
+                <!--ms-for: $idx,el in @table_info-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        第{{$idx+1}}组
+                    </td>
+                    <td>
+                        <div class="am-text-left">
+                            <!--ms-for: $key,col in @el.arr-->
+                            <div class="am-fl am-margin-right-lg"> {{col.name}}</div>
+                            <!--ms-for-end:-->
+                        </div>
+                    </td>
+                    <td>
+                        <a class='tab-btn tab-edit-btn'  title='编辑' ms-on-click="@edit_btn(el)"></a>
+                        <a class='tab-btn tab-trash-btn'  title='删除' ms-on-click="@delete_btn(el)"></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="@table_info.length==0">
+                <tr>
+                    <td colspan="4">暂无分组</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--添加-->
+        <div class="am-modal am-modal-prompt" tabindex="-1" id="add-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">批量选择学生
+                    <p>{{add_title}}</p>
+                    <!--<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>-->
+                </div>
+                <div class="am-modal-bd">
+                    <div class="am-text-left">
+                        <div class="am-form-group" :if="@module_student_arr.length>0">
+                            <!--ms-for: ($index,el) in @module_student_arr-->
+                            <div style="display: inline-block;width: 94px;" class="am-margin-left-sm am-margin-right-sm">
+                                <label class="am-checkbox-inline">
+                                    <input type="checkbox"  ms-attr="{value:el.guid+'|'+el.name}" ms-duplex="@checkbox_arr"> {{el.name}}
+                                </label>
+                            </div>
+                            <!--ms-for-end:-->
+                        </div>
+                        <div class="am-form-group" :if="@module_student_arr.length==0">
+                            <p>{{@o_msg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-confirm=""  ms-on-click="@add_student">确定</span>
+                </div>
+            </div>
+        </div>
+        <!--修改-->
+        <div class="am-modal am-modal-prompt" tabindex="-1" id="update-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">批量选择学生
+                    <p>{{update_title}}</p>
+                    <!--<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>-->
+                </div>
+                <div class="am-modal-bd">
+                    <div class="am-text-left">
+                        <div class="am-form-group">
+                            <!--ms-for: ($index,el) in @update_module_student_arr-->
+                            <div style="display: inline-block;width: 94px;" class="am-margin-left-sm am-margin-right-sm">
+                                <label class="am-checkbox-inline">
+                                    <input type="checkbox"  ms-attr="{value:el.guid+'|'+el.name}" ms-duplex="@update_checkbox_arr"> {{el.name}}
+                                </label>
+                            </div>
+                            <!--ms-for-end:-->
+                        </div>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-confirm=""  ms-on-click="@update_add_student">确定</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

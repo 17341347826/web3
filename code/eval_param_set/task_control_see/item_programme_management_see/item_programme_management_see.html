@@ -1,0 +1,56 @@
+<!--市管理 or 区管理查看方案列表-->
+<div class="am-g ipm"  id="ipm_x" ms-important="table">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--自评-->
+    <div :visible="@url_type == 1" class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-on-click="@go_href">自评任务</div>
+            <div class="chosen am-fl">自评方案</div>
+        </div>
+    </div>
+    <!--互评-->
+    <div :visible="@url_type == 2" class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-on-click="@go_href">互评任务</div>
+            <div class="am-fl chosen">互评方案</div>
+            <div class="am-fl" ms-on-click="@go_href(0)">分组参数</div>
+        </div>
+    </div>
+    <!--教师评-->
+    <div :visible="@url_type == 3" class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-on-click="@go_href">教师评任务</div>
+            <div class="am-fl chosen">教师评方案</div>
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select" :visible="@level == 4">
+                    <select ms-duplex-number="@extend.plan_gradeid" disabled>
+                        <option ms-attr="{value:@extend.plan_gradeid}">
+                            {{@grade_name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="old-select" :visible="@level != 4">
+                    <select ms-duplex-number="@extend.plan_gradeid">
+                        <option value="">
+                            请选择年级
+                        </option>
+                        <option ms-attr="{value:el.id}" ms-for="el in @request_data.grade_arr">
+                            {{ el.remark }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="item-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>
+

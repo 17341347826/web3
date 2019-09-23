@@ -1,0 +1,194 @@
+<xmp ms-widget="{is:'page_title_div',title:'',reBack:'0'}">
+</xmp>
+<div class="am-g" ms-important="table">
+ <div id="users-management">
+  <div class="am-text-left" id="demand">
+   <form class="am-form am-form-inline">
+    <div class="am-form-group">
+     <label class="am-form-label">
+      省份
+     </label>
+     <div class="form-width-sm">
+      <select ms-duplex="@extend.province" name="province">
+      </select>
+     </div>
+    </div>
+    <div class="am-form-group">
+     <label class="am-form-label">
+      市州
+     </label>
+     <div class="form-width-sm">
+      <select ms-duplex="@extend.city" name="city">
+      </select>
+     </div>
+    </div>
+    <div class="am-form-group">
+     <label class="am-form-label">
+      区县
+     </label>
+     <div class="form-width-sm">
+      <select ms-duplex="@extend.district" name="area">
+      </select>
+     </div>
+    </div>
+    <div class="am-form-group">
+     <label class="am-form-label">
+      学校代码
+     </label>
+     <div class="form-width-lg">
+      <input ms-blur="@nameSearch()" ms-duplex="@user.schoolcode" placeholder="请输入学校代码" type="text"/>
+     </div>
+    </div>
+    <div class="am-form-group">
+     <label class="am-form-label">
+      使用状态
+     </label>
+     <div class="form-width-sm">
+      <select ms-duplex-number="@extend.status">
+       <option ms-attr="{value:''}">
+        请选择
+       </option>
+       <option ms-attr="{value:1}">
+        启用
+       </option>
+       <option ms-attr="{value:2}">
+        停用
+       </option>
+      </select>
+     </div>
+    </div>
+    <span class="am-btn am-btn-primary am-margin-right-xs" ms-on-click="@addInfo()">
+     新增
+    </span>
+   </form>
+  </div>
+  <div class="am-margin-top-sm">
+   <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}">
+   </xmp>
+  </div>
+  <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+  </xmp>
+ </div>
+ <!--添加修改-->
+ <div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">
+  <div class="am-modal-dialog">
+   <div class="am-modal-hd">
+    {{@modal.title}}
+    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+     ×
+    </a>
+   </div>
+   <div class="am-modal-bd">
+    <form class="am-form am-form-horizontal">
+     <div class="am-form-group">
+      <label class="am-u-sm-3 am-form-label">
+       单位名称
+      </label>
+      <div class="am-u-sm-9">
+       <input class="am-hide" type="text"/>
+       <input class="am-modal-prompt-input" ms-duplex="@compileData.schoolname" ms-on-focus="@regMsg()" placeholder="请输入中文单位名称（必填）" type="text"/>
+      </div>
+     </div>
+     <div class="am-form-group">
+      <label class="am-u-sm-3 am-form-label">
+       单位代码
+      </label>
+      <div class="am-u-sm-9">
+       <input class="am-modal-prompt-input" ms-duplex="@compileData.schoolcode" ms-on-blur="@numReg()" ms-on-focus="@regMsg()" placeholder="（必填）,例:11或a11或11a或A11或11A" type="text"/>
+      </div>
+     </div>
+     <div class="am-form-group">
+      <label class="am-u-sm-3 am-form-label">
+       单位等级
+      </label>
+      <div class="am-u-sm-9">
+       <select ms-duplex-number="@compileData.department_level">
+        <option ms-attr="{value:''}">
+         请选择（必选）
+        </option>
+        <option ms-attr="{value:1}">
+         省级
+        </option>
+        <option ms-attr="{value:2}">
+         市级
+        </option>
+        <option ms-attr="{value:3}">
+         区县
+        </option>
+        <option ms-attr="{value:4}">
+         校级
+        </option>
+       </select>
+      </div>
+     </div>
+     <div class="am-form-group" ms-visible="@compileData.department_level==1
+                    ||@compileData.department_level==2 ||@compileData.department_level==3
+||@compileData.department_level==4">
+      <label class="am-u-sm-3 am-form-label">
+       省份
+      </label>
+      <div class="am-u-sm-9">
+       <select ms-duplex="@compileData.province" name="province1">
+       </select>
+      </div>
+     </div>
+     <div class="am-form-group" ms-visible="@compileData.department_level==2
+                    ||@compileData.department_level==3||@compileData.department_level==4">
+      <label class="am-u-sm-3 am-form-label">
+       市州
+      </label>
+      <div class="am-u-sm-9">
+       <select ms-duplex="@compileData.city" name="city1">
+       </select>
+      </div>
+     </div>
+     <div class="am-form-group" ms-visible="@compileData.department_level==3
+||@compileData.department_level==4">
+      <label class="am-u-sm-3 am-form-label">
+       区县
+      </label>
+      <div class="am-u-sm-9 am-u-end">
+       <select ms-duplex="@compileData.district" name="area1">
+       </select>
+      </div>
+     </div>
+     <div class="am-form-group">
+      <label class="am-u-sm-3 am-form-label">
+       联系人
+      </label>
+      <div class="am-u-sm-9 ">
+       <input class="am-modal-prompt-input" ms-duplex="@compileData.linkman" ms-on-focus="@regMsg()" placeholder="请输入联系人" type="text"/>
+      </div>
+     </div>
+     <div class="am-form-group">
+      <label class="am-u-sm-3 am-form-label">
+       联系电话
+      </label>
+      <div class="am-u-sm-9">
+       <input class="am-modal-prompt-input" ms-duplex="@compileData.phone" ms-on-blur="@phoneReg()" ms-on-focus="@regMsg()" placeholder="请输入联系电话" type="text"/>
+      </div>
+     </div>
+     <div class="am-form-group">
+      <label class="am-u-sm-3 am-form-label">
+       通讯地址
+      </label>
+      <div class="am-u-sm-9">
+       <input class="am-modal-prompt-input" ms-duplex="@compileData.address" ms-on-focus="@regMsg()" placeholder="请输入通讯地址" type="text"/>
+      </div>
+     </div>
+    </form>
+    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+   </div>
+   <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@compile()">
+     提交
+    </span>
+   </div>
+  </div>
+ </div>
+</div>

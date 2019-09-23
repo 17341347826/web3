@@ -1,0 +1,229 @@
+<div ms-important="stu_upload_material" id="stu_upload_material">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_grade,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@sel_class,head_value:'请选择班级'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@sel_semester,head_value:'请选择学期'}"></xmp>
+            </div>
+            <!--<div class="select">-->
+                <!--<xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择类型',sel_check:@sel_type,data_arr:@type_arr,is_init:true}"></xmp>-->
+            <!--</div>-->
+            <div class="select">
+                <div class="old-select">
+                    <!--模块1品德 2艺术活动3社会实践4学业水平5身心健康-->
+                    <select class="sel-color" data-duplex-changed="@sel_type()" ms-duplex="@module_checked">
+                        <option ms-attr="{value:1}">思想品德</option>
+                        <option ms-attr="{value:4}">学业水平</option>
+                        <option ms-attr="{value:5}">身心健康</option>
+                        <option ms-attr="{value:2}">艺术素养</option>
+                        <option ms-attr="{value:3}">社会实践</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@extend.xjh" placeholder="请输入学籍号">
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@extend.xsmc" placeholder="请输入姓名">
+            </div>
+
+            <div class="form-input">
+                <button ms-click="search">查询</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="content clearfix">
+        <!--记录列表-->
+        <div class="am-fl list-con " id="top">
+            <div class="dis-type">
+                <div class="radios">
+                    <label class="radios-name">显示方式：</label>
+                    <label class="am-radio-inline" >
+                        <input type="radio" id="option1" ms-duplex="@html_display" class="rdo" value="1">
+                        <label ms-attr="{for:'option1'}">图文</label>
+                    </label>
+                    <label class="am-radio-inline" ms-click="@presentation_change">
+                        <input type="radio" id="option2" ms-duplex="@html_display" class="rdo" value="2">
+                        <label ms-attr="{for:'option2'}" ms-click="@presentation_change">表格</label>
+                    </label>
+                </div>
+            </div>
+            <!--ms-for:($idx,el) in @list-->
+            <div class="daily-person" ms-class="['s'+el.fk_xq_id]" ms-visible="el.mk!=4">
+                <!--学生基本信息-->
+                <div class="stu-info">
+                    <div>
+                        <!--头像-->
+                        <div class="stu-head">
+                            <div class="stu-img">
+                                <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}" alt="图片">
+                            </div>
+                            <div class="stu-name">
+                                <span>{{el.xsxm}}</span>
+                            </div>
+                        </div>
+                        <div class="line-one"></div>
+                        <!--学校信息-->
+                        <div class="stu-school">
+                            <div class="btn-operation">
+                                <span class="d-name">{{el.mkmc}}</span>
+                            </div>
+                            <div>
+                                <span>{{el.njmc}}{{el.bjmc}}班</span>
+                                <span> {{el.xxmc}}</span>
+                                <span>{{@district}}</span>
+                                <span> {{el.xgsj}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--日常表现信息-->
+                <div class="daily-info">
+                    <div class="two-info">
+                        <span>名称 ：{{el.bt}}</span>
+                        <span>类型 ：{{el.lx}}</span>
+                    </div>
+                    <div class="three-index">
+                        <h3>参与成员 ：</h3>
+                        <p>{{el.cy}}</p>
+                    </div>
+                    <div class="two-info">
+                        <span>时长 ：{{el.sc}}</span>
+                        <span>地点 ：{{el.dd}}</span>
+                    </div>
+                    <div class="three-index">
+                        <h3>开始时间 ：</h3>
+                        <p>{{el.kssj}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>结束时间 ：</h3>
+                        <p>{{el.jssj}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>活动描述 ：</h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>感想 ：</h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+
+                    <!--图片-->
+                    <div class="img-ary">
+                        <!--ms-for:($idx2,e2l) in el.photo_guid-->
+                        <img ms-attr="{src:@url_img(e2l.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <div class="daily-person" ms-class="['s'+el.fk_xq_id]" ms-visible="el.mk==4">
+                <!--学生基本信息-->
+                <div class="stu-info">
+                    <div>
+                        <!--头像-->
+                        <div class="stu-head">
+                            <div class="stu-img">
+                                <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}" alt="图片">
+                            </div>
+                            <div class="stu-name">
+                                <span>{{el.xsxm}}</span>
+                            </div>
+                        </div>
+                        <div class="line-one"></div>
+                        <!--学校信息-->
+                        <div class="stu-school">
+                            <div class="btn-operation">
+                                <span class="d-name">{{el.mkmc}}</span>
+                            </div>
+                            <div>
+                                <span>{{el.njmc}}{{el.bjmc}}班</span>
+                                <span> {{el.xxmc}}</span>
+                                <span>{{@district}}</span>
+                                <span> {{el.xgsj}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--日常表现信息-->
+                <div class="daily-info">
+                    <div class="two-info">
+                        <span>名称 ：{{el.bt}}</span>
+                        <span>类型 ：{{el.lx}}</span>
+                    </div>
+                    <div class="three-index">
+                        <h3>参与成员 ：</h3>
+                        <p>{{el.cy}}</p>
+                    </div>
+                    <div class="two-info">
+                        <span>时长 ：{{el.sc}}</span>
+                        <span>地点 ：{{el.dd}}</span>
+                    </div>
+                    <div class="two-info">
+                        <span>开始时间 ：{{el.kssj}}</span>
+                        <span>结束时间 ：{{el.jssj}}</span>
+                    </div>
+                    <div class="two-info">
+                        <span>指导老师 ：{{el.zdjs}}</span>
+                        <span>担任角色 ：{{el.drjs}}</span>
+                    </div>
+                    <div class="two-info">
+                        <span>承担任务 ：{{el.cdrw}}</span>
+                        <span>研究主题 ：{{el.yjzt}}</span>
+                    </div>
+                    <div class="record-des">
+                        <h3>活动描述 ：</h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>感想 ：</h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+
+                    <!--图片-->
+                    <div class="img-ary">
+                        <!--ms-for:($idx2,e2l) in el.photo_guid-->
+                        <img ms-attr="{src:@url_img(e2l.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <div class="no-data" ms-visible="@list.length==0">
+                <div>
+                    <img src="../../../../common/images/none.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!--学年学期选择-->
+        <div class="am-fr d-p-c-nav">
+            <div class="d-p-munu">
+                <div class="outer">
+                    <div class="inner">
+                        <ul>
+
+                            <!--ms-for:($idx,el) in @semester_list-->
+                            <li ms-click="@menu_jump(el.value)" ms-visible="$idx!=0">
+                                <span ms-class="[@current_menu==el.value ? 'now-menu':'']">{{el.name}}</span>
+                                <span class="dotted"></span>
+                                <span :if="@current_menu==el.value" class="out-circle">
+                                        <span :if="@current_menu==el.value" class="inner-circle"></span>
+                                    </span>
+                                <span :if="@current_menu!=el.value" class="small-circular"></span>
+                            </li>
+                            <!--ms-for-end:-->
+                        </ul>
+                        <span class="right-top-point"></span>
+                        <span class="right-bottom-point"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

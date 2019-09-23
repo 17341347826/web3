@@ -1,0 +1,78 @@
+<div class="content" id="marks" ms-controller="marks">
+    <div class="weui-cells pro-name">
+        <a class="weui-cell weui-cell_access" href="javascript:;" ms-click="@projec_query">
+            <div class="weui-cell__bd" id="name">
+                <p>{{project.name}}</p>
+            </div>
+            <div class="weui-cell__ft">
+            </div>
+        </a>
+    </div>
+    <div id="container" style="width:100%;">
+    </div>
+    <div class="score-content">
+        <!--ms-for: $idx,el in @score_list-->
+        <div class="score">
+            <ul>
+                <li>
+                <span class="all-score">
+                    {{el.subject_total_my | fil_grade}}
+                </span>
+                </li>
+                <li class="each-score">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item each-score-item">
+                            <h3>{{el.subject_over_city | fil_grade}}%</h3>
+                            <p>超越全市</p>
+                        </div>
+                        <div class="weui-flex__item each-score-item">
+                            <h3>{{el.subject_over_school | fil_grade}}%</h3>
+                            <p>超越全校</p>
+                        </div>
+                        <div class="weui-flex__item each-score-item">
+                            <h3>{{el.subject_over_class | fil_grade}}%</h3>
+                            <p>超越全班</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                <span class="score-title">
+                    {{el.subject_name}}
+                </span>
+                </li>
+                <li class="each-score">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item each-score-item">
+                            <h3>{{el.subject_city_avg | fil_grade}}</h3>
+                            <p>市平均</p>
+                        </div>
+                        <div class="weui-flex__item each-score-item">
+                            <h3>{{el.subject_school_avg | fil_grade}}</h3>
+                            <p>校平均</p>
+                        </div>
+                        <div class="weui-flex__item each-score-item">
+                            <h3>{{el.subject_class_avg | fil_grade}}</h3>
+                            <p>班平均</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div ms-if="$idx!=0" class="operation">
+            <div class="small-score" ms-click="@go_page(el,'point_score')">
+                <span class="oper-icon small"></span><span class="oper-title">小题得分</span>
+            </div>
+            <div class="topic-analysis" ms-click="@go_page(el,'topic_analysis')">
+                <span class="oper-icon analysis"></span><span class="oper-title">题目解析</span>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div class="no-data" ms-if="@score_list.length==0">
+            暂无分数统计
+        </div>
+
+    </div>
+
+</div>

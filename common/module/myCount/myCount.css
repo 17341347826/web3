@@ -1,0 +1,96 @@
+.parent {
+    display: flex;
+    padding: 2px 0;
+    background: #f1f2f6;
+}
+
+.btn-div {
+    position: relative;
+}
+
+.child {
+    flex: 1;
+    height: 70px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.child + .child {
+    margin-left: 2px;
+}
+
+.img-div {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.img-div img {
+    width: 46px;
+    height: 46px;
+}
+
+.title-div {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 34px 0 46px;
+}
+
+.btn-title {
+    display: block;
+    font-size: 28px;
+    line-height: 70px;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.btn-div .num {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn-active-img {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: none;
+}
+
+.btn-active-img img {
+    position: relative;
+    top: -6px;
+}
+
+.child:hover .btn-active-img,
+.btn-active .btn-active-img {
+    display: block;
+}
+
+.add {
+    background: #7abfef;
+}
+/*已归档*/
+.archive {
+    background: #f1d16e;
+}
+
+.caogao {
+    background: #6fd79e;
+}
+
+.nopass {
+    background: #85a2ed;
+}
+
+.pass {
+    background: #98d6b8;
+}
+/*待审核*/
+.pending_audit {
+    background: #f1996e;
+}

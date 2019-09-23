@@ -1,0 +1,187 @@
+<div ms-important="new_school_achievement" id="new_school_achievement">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--引用公共组件-->
+    <!--<div class="content-one" >-->
+    <div class="am-g" style="background-color: white;">
+        <div class="search-cont clearfix one_left">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade, $id:'score_edit_opt_grade'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'score_edit_opt_class'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester,  $id:'score_edit_opt_sem'}"></xmp>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入学籍号" :duplex="@form_list_score.code">
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入姓名" :duplex="@form_list_score.name">
+            </div>
+        </div>
+
+        <div class="search-cont clearfix two_right">
+            <div class="search-btn" ms-on-click="@query_score">
+                <input type="button" value="查询">
+            </div>
+            <div class="search-btn" ms-on-click="@input_score">
+                <input type="button" value="录入">
+            </div>
+            <div class="search-btn bulk-load" ms-click="@uploadingModal">
+                <input type="button" value="批量导入">
+            </div>
+            <div class="search-btn" ms-on-click="@public_click" :if="@show_public_click">
+                <input type="button" value="发布公示">
+            </div>
+            <div class="search-btn" ms-on-click="@cancel_click" :if="@show_public_click">
+                <input type="button" value="撤销公示">
+            </div>
+        </div>
+
+    </div>
+    <div class="content-ach-t">
+        <div class="table_module am-padding-top-sm am-padding-bottom-sm ">
+            <div id="class-module">
+                <table class="am-table am-table-hover am-table-bordered" style="overflow-x: auto;">
+                    <thead style="text-align: center">
+                    <tr>
+                        <td>序号</td>
+                        <td>姓名</td>
+                        <td>学籍号</td>
+                        <!--ms-for:($idx,el) in @head_list-->
+                        <td>{{el.title}}</td>
+                        <!--ms-for-end:-->
+                        <td>状态</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($idx,el) in @score_list-->
+                    <tr>
+                        <td>{{el.index}}</td>
+                        <td>{{el.name}}</td>
+                        <td>{{el.code | mtruncate(3,3)}}</td>
+                        <!--ms-for:($index,item) in @el.values-->
+                        <td>{{item}}</td>
+                        <!--ms-for-end:-->
+                        <td>{{el.current_process}}</td>
+                        <td><a class='tab-btn tab-edit-btn' title='编辑' ms-on-click="@score_edit($idx,el)"></a></td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr :visible="@score_list.length == 0">
+                        <td ms-attr="{colspan:5+@head_list.length}">
+                            <div class="no-data"  ms-visible="@score_list.length==0 && @data_had">
+                                <img src="../../../../common/images/none.png" alt="图片">
+                            </div>
+                            <div ms-visible="@score_list.length==0 && !@data_had" class="data_pedding">
+                                正在加载中，请稍等
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--分页-->
+        <!--<div class="divide-page" ms-visible="@score_list.length!=0 && @count>15" data-am-widget="pagination" style="padding-right: 16px;">-->
+            <!--<div class="page-info">-->
+                <!--<span>共{{@count}}条数据</span>-->
+                <!--&lt;!&ndash;<span>当前为第{{@currentPage}}页</span>&ndash;&gt;-->
+                <!--<span>共{{@totalPage}}页</span>-->
+            <!--</div>-->
+            <!--<div class="pages">-->
+                <!--<div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(1)">-->
+                    <!--首页-->
+                <!--</div>-->
+                <!--<div class="pre-page" ms-visible="@currentPage != 1" ms-on-click="@currentPageDate(@currentPage-1)">-->
+                    <!--上一页-->
+                <!--</div>-->
+                <!--&lt;!&ndash;ms-for: ($index,el) in @totalPageArr &ndash;&gt;-->
+                <!--<div class="com-page" ms-class="[el==@currentPage?'page-active':'']" ms-on-click="@currentPageDate(el)">-->
+                    <!--{{el}}-->
+                <!--</div>-->
+                <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                <!--<div class="next-page" ms-visible="@currentPage != @totalPage" ms-on-click="@currentPageDate(@currentPage+1)">-->
+                    <!--下一页-->
+                <!--</div>-->
+                <!--<div class="last-page" ms-visible="@currentPage != @totalPage" ms-on-click="@currentPageDate(@totalPage)">-->
+                    <!--末页-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="turn-page">-->
+                <!--<div>跳转到：</div>-->
+                <!--<div class="s-page"><input type="text" ms-duplex-number="@pageNo"/></div>-->
+                <!--<div class="go-page" ms-on-click="@pageNOSure(@pageNo)">GO</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <!--上传文件-->
+    <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                批量导入学生成绩
+                <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                    ×
+                </a>
+            </div>
+            <div class="am-modal-bd">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <input type="text" ms-duplex="@file_name" id="file-name" disabled class="am-u-sm-10"
+                           style="height: 32px">
+                    <div class="am-form-group am-form-file" :visible="!@is_progress_show">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                        <input type="file" id="file" name="file" multiple
+                               onchange="document.getElementById('file-name').value=this.value">
+                        <input type="hidden" name="fk_class_id" ms-attr="{value:@form_list_score.fk_class_id}">
+                        <input type="hidden" name="fk_grade_id" ms-attr="{value:@form_list_score.fk_grade_id}">
+                        <input type="hidden" name="phase" ms-attr="{value:@form_list_score.phase}">
+                        <input type="hidden" name="fk_school_id" ms-attr="{value:@form_list_score.fk_school_id}">
+                        <input type="hidden" name="subject_id" ms-attr="{value:@form_list_score.subject_id}">
+                        <input type="hidden" name="subject_name" ms-attr="{value:@form_list_score.subject_name}">
+                        <input type="hidden" name="province" ms-attr="{value:@form_list_score.province}">
+                        <input type="hidden" name="city" ms-attr="{value:@form_list_score.city}">
+                        <input type="hidden" name="district" ms-attr="{value:@form_list_score.district}">
+                        <input type="hidden" name="class_name" ms-attr="{value:@form_list_score.class_name}">
+                        <input type="hidden" name="grade_name" ms-attr="{value:@form_list_score.grade_name}">
+                        <input type="hidden" name="semester_id" ms-attr="{value:@form_list_score.semester_id}">
+                    </div>
+                </form>
+                <div class="am-text-left" style="color:red;font-size:12px;display:inline-block;">
+                    <span>
+                        注意：学校系统管理员统一导入时，需导入全年级学生，在发布前每次导入会覆盖上一次
+                        导入数据；每次导入只会导入当前学期数据
+                    </span>
+                </div>
+                <div class="am-text-left" :visible="!@is_progress_show">
+                    <a ms-on-click="down_score">
+                        下载模板
+                    </a>
+                </div>
+                <!--<span ms-visible="@modal.msg != ''" style="color: red">-->
+                <!--{{ @modal.msg }}-->
+                <!--</span>-->
+                <!--加载进度条-->
+                <div :visible="@is_progress_show" class="sj-tj">数据导入中，请等待...</div>
+                <div :visible="@is_progress_show" class="am-progress am-progress-striped am-progress-sm am-active">
+                    <div class="am-progress-bar am-progress-bar-secondary" :css="{width:@progress_scale}">{{@progress_scale}}</div>
+                </div>
+                <div ms-if="@error_has" class="am-text-left" style="margin-top:10px;margin-botttom:5px;">错误信息，请检查：</div>
+                <div ms-if="@error_has" ms-html="@modal.msg"  style="color: red;max-height: 300px;overflow: auto;"></div>
+            </div>
+            <div class="am-modal-footer" :visible="!@is_progress_show">
+                    <span class="am-modal-btn" data-am-modal-cancel="">
+                        取消
+                    </span>
+                <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+                        上传
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--&lt;!&ndash;加载进度条&ndash;&gt;-->
+    <!--<div :visible="@is_progress_show" class="am-progress am-progress-striped am-progress-sm am-active mask-parent">-->
+        <!--<div class="sj-tj">数据统计中，请等待...</div>-->
+        <!--<div class="am-progress-bar am-progress-bar-secondary mask-kid" :css="{width:@progress_scale + '%'}">{{@progress_scale}}</div>-->
+    <!--</div>-->
+</div>

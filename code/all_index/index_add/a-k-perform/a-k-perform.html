@@ -1,0 +1,172 @@
+<div ms-important="a-k-perform" id="a-k-perform">
+    <div class="content">
+        <div class="grade-info">年级：七年级</div>
+        <div class="a-name">新增关键表现</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <div>
+                <label><span style="visibility: hidden">分值</span>评价维度</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select data-duplex-changed="change_firstIndex" ms-duplex="@frist_id_name">
+                            <option ms-attr="{value:''}">
+                                请选择评价维度
+                            </option>
+                            <!--ms-for:($idx,el) in @frist_index-->
+                            <option ms-attr="{value:el.id +'|'+el.index_name}">
+                                {{el.index_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label><span style="visibility: hidden">分值</span>评价要素</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@second_id_name">
+                            <option ms-attr="{value:''}">
+                                请选择评价要素
+                            </option>
+                            <!--ms-for:($idx,el) in @second_index-->
+                            <option ms-attr="{value:el.id + '|' + el.index_name}">
+                                {{el.index_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="a-element">
+                <label><span style="visibility: hidden">分值</span>关键表现</label>
+                <div class="form-input key-per">
+                    <input type="text" ms-duplex="@data.index_name" placeholder="请输入关键表现">
+                </div>
+            </div>
+            <div class="evaluation-sub">
+                <label><span style="visibility: hidden">分值</span>评价主体</label>
+                <div class="c-arys">
+                    <!--ms-for:($index,el) in @eval_ary-->
+                    <label class="am-checkbox-inline">
+                        <!--ms-duplex="@data.index_apply"-->
+                        <input type="checkbox"  ms-duplex="@eval_subs" ms-attr="{value:el.name,id:'option'+el.value}"
+                              data-duplex-changed="@check_btn(el.value)">
+                        <label ms-attr="{for:'option'+el.value}">{{el.name}}</label>
+                    </label>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <div class="invest-point">
+                <label><span style="visibility: hidden">分值</span>考察要点</label>
+                <div class="form-input">
+                    <textarea ms-duplex="@data.index_review" placeholder="请输入考察要点"></textarea>
+                </div>
+            </div>
+            <div :if="!@con_type">
+                <label>答案选项数量</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@change_totalAnswerNum" ms-attr="{disabled : @is_disabled}"
+                                ms-duplex-number="@totalAnswerNum">
+                            <option value="0">
+                                0
+                            </option>
+                            <option value="2">
+                                2
+                            </option>
+                            <option value="3">
+                                3
+                            </option>
+                            <option value="4">
+                                4
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div :if="!@con_type && @totalAnswerNum!=0">
+                <label><span style="visibility: hidden">答案选项</span></label>
+                <div class="base-select">
+                    <!--ms-for:($index,el) in @arr_option-->
+                    <div class="answer_info">
+                        <label>{{el.title}}</label>
+                        <input class="am-margin-vertical-xs am-margin-left-xs" ms-duplex="el.question"
+                               placeholder="请输入答案选项" type="text"/>
+                        <input class=" am-margin-left-xs" ms-duplex="el.score" placeholder="请输入答案分值" type="number"/>
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <div class="a-value" :visible="@toggle" :if="!@con_type">
+                <label><span style="visibility: hidden">分值</span>最大分值</label>
+                <div class="form-input">
+                    <input type="text" ms-duplex-number="@data.index_value" placeholder="请输入分值">
+                </div>
+            </div>
+            <div class="a-value" :if="@con_type">
+                <label>分值起始区间</label>
+                <div class="form-input">
+                    <input type="text" ms-duplex="@data.index_start_interval" placeholder="请输入分值起始区间">
+                </div>
+            </div>
+            <div class="a-value" :if="@con_type">
+                <label>分值结束区间</label>
+                <div class="form-input">
+                    <input type="text" ms-duplex-number="@data.index_end_interval" placeholder="请输入分值结束区间">
+                </div>
+            </div>
+            <div class="a-value" :visible="@toggle" :if="@con_type">
+                <label>默认加减分值</label>
+                <div class="form-input">
+                    <input type="text" ms-duplex-number="@data.index_value" placeholder="请输入默认加减分值">
+                </div>
+            </div>
+            <div class="use-grade">
+                <label><span style="visibility: hidden">分值</span>使用年级</label>
+                <div class="c-arys">
+                    <label class="am-checkbox-inline">
+                        <input type="checkbox" ms-duplex="@grade" ms-attr="{value:7+'|'+'七年级'}" id="7">
+                        <label for="7">七年级</label>
+                    </label>
+                    <label class="am-checkbox-inline">
+                        <input type="checkbox" ms-duplex="@grade" ms-attr="{value:8+'|'+'八年级'}" id="8">
+                        <label for="8">八年级</label>
+                    </label>
+                    <label class="am-checkbox-inline">
+                        <input type="checkbox" ms-duplex="@grade"  ms-attr="{value:9+'|'+'九年级'}" id="9">
+                        <label for="9">九年级</label>
+                    </label>
+                    <!--&lt;!&ndash;ms-for:($index,el) in @arr_grade&ndash;&gt;-->
+                    <!--<label class="am-checkbox-inline">-->
+                        <!--<input type="checkbox" ms-duplex="@grade" ms-attr="{value:el.id,id:'grade'+$index}">-->
+                        <!--<label ms-attr="{for:'grade'+$index}">{{el.remark}}</label>-->
+                    <!--</label>-->
+                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                </div>
+            </div>
+            <div class="a-author">
+                <label><span style="visibility: hidden">作者作者</span>作者</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select class="js-example-basic-single" id="teacher_select" ms-duplex="@author_info">
+                            <option ms-attr="{value:''}">
+                                请选择作者
+                            </option>
+                            <!--ms-for:($idx,el) in @teacher_arr-->
+                            <option ms-attr="{value:el.teacher_name+'|'+el.guid}">
+                                {{ el.teacher_name }}--{{el.teacher_num}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_data">提交</button>
+        </div>
+    </div>
+</div>

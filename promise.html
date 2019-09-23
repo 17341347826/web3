@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="pwZcyU5Ols" />
+    <title>眉山市初中学生综合素质评价</title>
+    <!--<link href="//cdn.bootcss.com/amazeui/2.7.2/css/amazeui.css" rel="stylesheet">-->
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+    <link rel="stylesheet" href="common/lib/amazeui.datetimepicker.css">
+    <link rel="stylesheet" href="code/personal_center/person_info/darkroom.css">
+    <link rel="stylesheet" href="common/lib/page.css">
+    <script src="common/lib/head_statistics.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+    <style>
+        #promise>h1 {
+            color: #201f1f;
+            font-size: 30px;
+            font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", sans-serif;
+            font-weight: normal;
+        }
+
+        #promise #promise_content {
+            position: relative;
+         
+            width: 920px;
+            height: 615px;
+            margin: 18px auto 20px auto;
+            color: #676767;
+            font-size: 14px;
+            border-radius: 5px;
+            padding: 0 60px;
+            background: #ffffff;
+            padding-bottom: 50px;
+            /* overflow: hidden; */
+            background: url("common/images/background_img3.png")
+        }
+        #promise .cn_nr_div{
+            position: absolute;
+            right: 72px;
+            top:16%;
+            width: 40%;
+        }
+        #promise_content .cn_work{
+            position: absolute;
+            bottom:66px;
+            /*left:25%;*/
+            right: 65%;
+            font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+            font-size: 16px;
+            color: #313131;
+            margin: 0;
+        }
+        #promise>#is_btn {
+            overflow: hidden;
+            width: 450px;
+            position: absolute;
+            right: -55px;
+            bottom: 2px;
+        }
+
+        #promise>#is_btn div {
+            width: 120px;
+            height: 40px;
+            border-radius: 6px;
+            color: white;
+            display: inline-block;
+            margin: 0 auto;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        #promise>#is_btn>.sure_click {
+            text-align: center;
+            background-color: cornflowerblue;
+            margin-left: 60px;
+        }
+
+        #promise .g_no{
+            outline: none;
+            border: none;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 100px;
+            font-size: 12px;
+            border-radius: 4px;
+            color: white;
+            background-color: #b7b794;
+            margin-left: 60px;
+        }
+        #promise .g_no:hover{
+            background-color: #ff9d46;
+        }
+        #promise>#is_btn>.g_yes {
+            margin: auto;
+            outline: none;
+            border: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 110px;
+            font-size: 20px;
+            border-radius: 7px;
+            color: white;
+            background-color: #bfbfbf;
+        }
+
+        #promise>#is_btn>.g_yes:hover {
+            background-color: #2bbb7c !important;
+        }
+
+        .a-upload {
+            /*padding: 4px 10px;*/
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+            cursor: pointer;
+            color: white;
+            background: #00b7ee;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            display: inline-block;
+            text-align: center;
+            *display: inline;
+            *zoom: 1
+        }
+
+        .a-upload input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer
+        }
+
+        .a-upload:hover {
+            color: white;
+            background: deepskyblue;
+            border-color: #ccc;
+            text-decoration: none
+        }
+
+        #promise_content .title-p {
+            margin: 0px;
+            text-align: center;
+            font-weight: bold;
+            margin: 0 auto;
+            width: 495px;
+            padding: 40px 40px 0px 55px;
+            font-size: 24px;
+            color: #3b3b3b;
+        }
+        #promise_content .title-p-integrity {
+            margin: 0;
+            text-align: center;
+            font-weight: bold;
+            margin: auto;
+            width: 495px;
+            padding: 0px 40px 0px 55px;
+            font-size: 26px;
+            margin-bottom: 18px;
+            color: red;
+
+        }
+        #promise_content .promise_content-p {
+            margin: 0;
+            font-family: "FangSong";
+            font-weight: bold;
+            font-size: 22px;
+            text-indent: 2em;
+            position: absolute;
+            bottom: 112px;
+            right: 115px;
+        }
+        #promise_content .promise_content-p-reading {
+            margin: 0;
+            font-family: "FangSong";
+            font-weight: bold;
+            font-size: 22px;
+            /*text-indent: 2em;*/
+            position: absolute;
+            bottom: 90px;
+            right: 87px;
+        }
+        #promise_content .promise_content-p2 {
+            margin: 0;
+            font-family: "FangSong";
+            font-weight: bold;
+            font-size: 22px;
+            text-indent: 2em;
+            position: absolute;
+            bottom: 162px;
+            right: 115px;
+
+        }
+        #promise_content .promise_content-signature {
+            margin: 0;
+            font-family: "FangSong";
+            font-weight: bold;
+            font-size: 18px;
+            text-indent: 2em;
+        }
+        #promise_content .signature {
+            outline: none;
+            border: none;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 100px;
+            font-size: 12px;
+            border-radius: 4px;
+            color: white;
+            background-color: #85d6d5;
+            margin-left: 60px;
+        }
+        #promise_content .signature:hover {
+            background-color: #38d9b9;
+        }
+        #true-checkbox{
+            position: relative;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+        }
+        #promise_content .book-img {
+            width: 100%;
+            position: absolute;
+            bottom: 42px;
+        }
+        #promise .enter{
+            margin: auto;
+            outline: none;
+            border: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 110px;
+            font-size: 20px;
+            border-radius: 7px;
+            color: white;
+            background-color: #32d99c;
+            position: absolute;
+            top: 115px;
+            right: -228px;
+        }
+        #promise .head_insure{
+            color: #0e90d2;
+            cursor: pointer;
+        }
+        /*多选按钮开始（input[type='checkbox']）----参考页面：a-k-perform*/
+        #promise .c-arys>label>label,
+        #promise .c-arys>label>label{
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            /*color: #777;*/
+            color: #313131;
+            margin-left: -20px;
+
+        }
+        #promise .c-arys input[type="checkbox"] + label::before {
+            content: "\a0";  /*不换行空格*/
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            background-color: #fff;
+            border: solid 1px rgba(200, 200, 200, 1);
+            line-height:16px;  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+            margin-right:5px;
+        }
+        /*给复选框的勾选状态添加不同的样式*/
+        #promise  .c-arys input[type="checkbox"]:checked + label::before {
+            content: "\2713";
+            /*background-color: rgba(13, 186, 158, 1);*/
+            background-color: #D6201E;
+            border:none;
+            color:#fff;
+            line-height:20px;
+            text-align: center;
+        }
+        #promise .c-arys input[type="checkbox"]:checked + label{
+            /*color: #0dba9e;*/
+            color: #D6201E;
+        }
+        /*隐藏自带的复选框*/
+        #promise .c-arys input[type="checkbox"]{
+            /*position: absolute;*/
+            /*clip: rect(0, 0, 0, 0);*/
+            visibility: hidden;
+        }
+        /*多选按钮结束*/
+    </style>
+    <script src="menu.js"></script>
+</head>
+
+<body ms-controller="promise">
+
+<div id="promise">
+    <div id="promise_content">
+        <div class="cn_nr_div">
+            <div>
+                <img ms-attr="{src:@url_img(@cn_con)}" alt="">
+            </div>
+        </div>
+        <p class="cn_work">{{@cn_dw}}</p>
+        <div class="c-arys promise_content-p-reading">
+            <label class="am-checkbox-inline">
+                <input type="checkbox"  ms-duplex="@read_checked" data-duplex-changed="@reading_btn()"
+                       ms-attr="{value:1,id:'reading'}"/>
+                <label ms-attr="{for:'reading'}">我已认真阅读承诺书内容并郑重承诺严格遵守</label>
+            </label>
+        </div>
+        <!--暂时屏蔽：这是诚信承诺签名入口-->
+        <!--<p :if="!@get_photos && is_no_cn == false" class="promise_content-p" style="color:red;">-->
+            <!--<button class="signature" :click="signature_btn">同意并签名</button>-->
+            <!--<button class="g_no" ms-on-click="btn_click(1)">不同意</button>-->
+        <!--</p>-->
+        <!--<p :if="@get_photos" class="promise_content-p2" style="color:red;">-->
+            <!--<button  class="enter" :if="!@get_photos" ms-on-click="btn_click(2)">进入</button>-->
+            <!--<button  class="enter" :if="@get_photos" ms-on-click="btn_click(3)">进入</button>-->
+
+        <!--</p>-->
+        <!--<div class="book-img" :if="!@get_photos">-->
+            <!--<div style="height: 80px;float: right;margin-right:155px;position: relative;top: 20px">-->
+                <!--<p>签名:________</p>-->
+            <!--</div>-->
+            <!--<div class="am-cf"></div>-->
+        <!--</div>-->
+        <!--<div class="book-img" :if="@get_photos">-->
+            <!--<div style="height: 80px;float: right;margin-right:155px;">-->
+
+                <!--<div :if="@get_photos" style="overflow: hidden;width: 100%">-->
+                    <!--<div style="height: 80px;float: right" class="am-fr">-->
+                        <!--<span>签名:</span>-->
+                        <!--&lt;!&ndash; <img ms-attr="{src:@get_photos}" alt="" style="width:auto;height:auto;max-width:100%;max-height:100%;"-->
+                             <!--class="am-margin-left-lg"> &ndash;&gt;-->
+                             <!--<img ms-attr="{src:@get_photos}" alt="" style="width:115px;height:80px;"-->
+                             <!--class="am-margin-left-lg">-->
+                    <!--</div>-->
+                    <!--<div class="am-cf"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div id="is_btn" class="am-text-center am-margin-top-lg">
+
+                <!-- <button class="g_yes" disabled ms-on-click="btn_click(2)">进入</button> -->
+                <!-- <div class="sure_click" :if="@get_photos" ms-on-click="btn_click(2)">进入系统</div> -->
+                <!--<div class="g_no" ms-on-click="btn_click(1)">不同意</div>-->
+                <!-- <button class="g_yes" :if="!@get_photos" disabled ms-on-click="btn_click(2)">进入</button> -->
+                <!-- <button class="g_yes" :if="@get_photos" ms-on-click="btn_click(3)">进入</button> -->
+            </div>
+
+        </div>
+        <div class="am-modal am-modal-confirm" tabindex="-1"  id="my-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">请进行签名</div>
+                <div class="am-modal-bd">
+                    <div class="am-form-group">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="2" name="docInlineRadio" ms-on-click="@radio_click(2)"
+                                   ms-duplex-number="@data.data_source"> 电子签名
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" value="1" name="docInlineRadio" ms-on-click="@radio_click(1)"
+                                   ms-duplex-number="@data.data_source"> 图片签名
+                        </label>
+                    </div>
+                    <div :if="@data.data_source == 2">
+                        <a href="javascript:;" class="a-upload" ms-on-click="@start_sign">开始签名</a>
+                    </div>
+                    <div :if="@up_img && data.data_source ==1" style="border-top:2px dashed lightgray;" class="am-margin-top-lg">
+                        <form class="am-padding-top-lg" enctype="multipart/form-data" method="post" id='formBox'
+                              name="form">
+                            <a href="javascript:;" class="a-upload">
+                                <input type="file" name="file" id="chooseImage" ms-on-change="@file_change">选择文件
+                            </a>
+                        </form>
+                        <div id="content" :if="@img_src">
+                            <div class="container">
+                                <section class="copy">
+                                    <div class="figure-wrapper">
+                                        <figure class="image-container target">
+                                            <img ms-attr="{src:@img_src}" alt="DomoKun" id="target">
+                                        </figure>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <p style="color:#dd4646;" :if="@msg != '图片'">{{@msg}}</p>
+                        <p style="color:#dd4646;" :if="@msg == '图片'">请先点击保存（<span class="am-icon-save" style="color: #5F6368;"></span>）再点击确定</p>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                    <span class="head_insure" ms-on-click="@up_ajax">确定</span>
+                </div>
+            </div>
+        </div>
+
+        <link href="common/lib/toastr.min.css" rel="stylesheet">
+        <script src="common/lib/jquery.min.js"></script>
+        <script src="common/lib/toastr.min.js"></script>
+        <script src="common/lib/amazeui.js"></script>
+        <script src="common/lib/avalon.js"></script>
+        <script src="const.js"></script>
+        <script src="common/module/request.js"></script>
+        <script src="common/lib/bin/jsencrypt.js"></script>
+        <script src="common/lib/rsa_public_key.js"></script>
+        <!--<script src="//cdn.bootcss.com/layer/3.0/layer.min.js"></script>-->
+        <script src="common/lib/layer.min.js"></script>
+        <script src="common/lib/fabric.js"></script>
+        <script src="common/lib/darkroom.js"></script>
+        <script>
+            toastr.options = {
+                closeButton: true,
+                debug: false,
+                progressBar: true,
+                positionClass: "toast-top-right-30",
+                onclick: null,
+                showDuration: "300",
+                hideDuration: "1000",
+                timeOut: "2500",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            };
+
+            avalon.ready(function () {
+                var HTTP_X = location.origin;
+                var api_get_user = HTTP_X + "/api/base/baseUser/sessionuser.action";
+                //上传签名
+                var api_uploader_base = HTTP_X + "/api/file/uploader_base64";
+                var url_api_file = api.api + "file/get";
+                //开启签名
+                var api_start_sign = 'http://127.0.0.1:19098/start_sign';
+                //获取签名结果
+                var api_get_sign = 'http://127.0.0.1:19098/get_sign';
+                //保存签名
+                var api_save_sign = HTTP_X + "/api/GrowthRecordBag/add_user_sign";
+                //查询诚信承诺内容
+                var api_cn_content = HTTP_X + "/api/GrowthRecordBag/login_query_goodFaithCommitment";
+                //获取系统当前时间
+                var api_get_server_time = HTTP_X + '/api/base/baseUser/current_time';
+                var vm = avalon.define({
+                    $id: "promise",
+                    up_img: false,
+                    input_value: "",
+                    img_src: "",
+                    get_photos: "",
+                    msg: "",
+                    radio_value: "",
+                    flag_agree: false,
+                    flag_up: false,
+                    cn_con:"",
+                    //单位
+                    cn_dw:"",
+                    //是否阅读承诺书内容:1-d代表阅读，空-代表没有阅读
+                    read_checked:[],
+                    user: function () {
+                        ajax_post(api_get_user, {}, this)
+                    },
+                    data: {
+                        cxcnbbsj:"",
+                        data_source: "",
+                        sign_code: "",
+                        sign_img: "",
+                        cxcnqzsj:""
+                    },
+                    //阅读承诺书5s以上进入系统
+                    reading_btn:function(){
+                        var self = this;
+                        //没有点击
+                        if(this.read_checked.length == 0) return;
+                        //点击
+                        toastr.success('5s后将进入系统');
+                        window.setTimeout(function(){
+                            ajax_post(api_save_sign,{
+                                cxcnbbsj:'',
+                                cxcnqzsj:'',
+                                data_source:'',
+                                sign_code:'',
+                                sign_img:'',
+                            },self);
+                        },5000);
+                    },
+                    radio_click: function (num) {
+                        if(num == 2){
+                            toastr.warning('请先连接设备')
+                        }
+                        this.data.sign_code = '';
+                        this.data.sign_img = '';
+                    },
+                    btn_click: function (num) {
+                        if (num == 1) { //不同意
+                            window.location = HTTP_X + "/Growth/new_index.html#";
+                        } else if (num == 2) {
+//                               window.location = HTTP_X + '/Growth/index.html#';
+//                            ajax_post(api_update_sign, {}, this);
+                            this.flag_agree = true;
+                            this.up_img = true;
+                            $("#my-confirm").modal({
+                                closeOnConfirm: true
+                            });
+                        } else {
+                            if (this.flag_up == true && this.flag_agree == true) {
+                                window.location = HTTP_X + '/Growth/index.html#';
+                            }
+                            window.location = HTTP_X + '/Growth/index.html#';
+                        }
+                    },
+                    //签名事件
+                    signature_btn: function () {
+//                        window.location = HTTP_X + '/Growth/index.html#';
+                        this.flag_agree = true;
+                        this.up_img = true;
+                        $("#my-confirm").modal({
+                            closeOnConfirm: true
+                        });
+                    },
+                    file_change: function () {
+                        this.img_src = '';
+                        var get_chooseImage = document.getElementById('chooseImage');
+                        var imgFile = get_chooseImage.files[0];
+                        var filePath = $("#chooseImage").val(),
+                            fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
+                            src = window.URL.createObjectURL(imgFile); //转成可以在本地预览的格式
+                        // 检查是否是图片
+                        if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+                            layer.msg('上传错误,文件格式必须为：png/jpg/jpeg');
+                            return;
+                        }
+                        this.img_src = src;
+                        var dkrm = new Darkroom('#target', {
+                            // Size options
+                            minWidth: 50,
+                            minHeight: 20,
+                            maxWidth: 540,
+                            maxHeight: 300,
+                            ratio: 4 / 3,
+                            backgroundColor: '#000',
+
+                            // Plugins options
+                            plugins: {
+                                //save: false,
+                                crop: {
+                                    quickCropKey: 67, //key "c"
+//                                    maxHeight: 72,
+//                                    maxWidth: 180,
+//                                    ratio: 4/3
+                                }
+                            },
+
+                            // Post initialize script
+                            initialize: function () {
+                                var cropPlugin = this.plugins['crop'];
+                                // cropPlugin.selectZone(170, 25, 300, 300);
+                                cropPlugin.requireFocus();
+                            }
+                        });
+
+                    },
+                    up_ajax: function () {
+                        var obj = $("#content > div > section > div > figure > img");
+                        var src = obj.attr("src");
+                        if (src == undefined) {
+//                            this.msg = '请先保存载提交';
+                            this.msg = '图片';
+                            return;
+                        } else {
+                            ajax_post(api_uploader_base, {
+                                file: src
+                            }, this);
+                            $("#my-confirm").modal({
+                                closeOnConfirm: false
+                            });
+                        }
+                    },
+                    int: "",
+                    start_sign: function () {
+                        //开启签名
+                        ajax_post(api_start_sign, {}, this);
+                    },
+                    //开始签名
+                    complete_start_sign: function (data) {
+                        var self = this;
+                        self.int = setInterval(function () {
+                            self.getSign()
+                        }, 3000);
+                    },
+                    //同意 复选框事件
+                    trueCheckbox: function () {
+                        $("#true-checkbox").click(function () {
+                            if ($("#true-checkbox").prop("checked") == true) {
+                                $(".g_yes").attr("disabled", false)
+                                $(".g_yes").css("background", "#00c695")
+
+                            } else {
+                                $(".g_yes").attr("disabled", true)
+                                $(".g_yes").css("background", "#bfbfbf")
+                            }
+                        });
+                    },
+
+                    //获取签名结果
+                    getSign: function () {
+                        //获取签名结果
+                        ajax_post(api_get_sign, {}, this);
+                    },
+                    //获取签名结果
+                    complete_get_sign: function (data) {
+                        if (data.data.img && data.data.sign_code) {
+                            clearInterval(this.int);
+                            this.data.sign_img = data.data.img;
+                            this.data.sign_code = data.data.sign_code;
+                            $("#my-confirm").modal({
+                                closeOnConfirm: true
+                            });
+                            ajax_post(api_save_sign, this.data, this);
+                        }
+                    },
+                    is_no_cn:false,
+                    on_request_complete: function (cmd, status, data, is_suc, msg) {
+                        if (is_suc) {
+                            switch (cmd) {
+                                case api_get_user:
+                                    this.complete_get_user(data);
+                                    break;
+                                case api_cn_content:
+                                    this.complete_cn_content(data);
+                                    break;
+                                //传签名
+                                case api_uploader_base:
+                                    this.complete_uploader_base(data);
+                                    break;
+                                case api_get_server_time:
+                                    this.complete_get_server_time(data);
+                                    break;
+                                //开启签名
+                                case api_start_sign:
+                                    this.complete_start_sign(data);
+                                    break;
+                                //获取签名结果
+                                case api_get_sign:
+                                    this.complete_get_sign(data);
+                                    break;
+                                //保存签名
+                                case api_save_sign:
+                                    if(this.read_checked.length>0){
+                                        window.location = HTTP_X + '/Growth/index.html#';
+                                    }
+                                    // this.complete_save_sign(data);
+                                    break;
+                            }
+                        } else {
+                            if (cmd != api_get_sign) {
+                                // layer.msg(msg)
+                            }
+                            if (cmd == api_start_sign) {
+                                toastr.warning('请连接设备');
+                                return;
+                            }
+                            if(cmd == api_cn_content){
+                                this.is_no_cn = true;
+                            }
+                            toastr.warning(msg);
+                        }
+
+
+                    },
+                    complete_get_user:function (data) {
+                        var syr_dj = data.data.highest_level;
+                        var syr_lx = '';
+                        if(syr_dj == 3 || syr_dj == 4){
+                            syr_lx = '0,1';
+                        }else if(syr_dj == 6){
+                            syr_lx = '1'
+                        }else if(syr_dj == 7){
+                            syr_lx = '7';
+                        }
+                        ajax_post(api_cn_content,{status:2},this);
+                    },
+                    complete_cn_content:function (data) {
+                        this.cn_con = data.data.cxcnsj;
+                        this.cn_dw = data.data.cjr_dw_mc;
+                        this.data.cxcnbbsj = data.data.xgsj;
+                    },
+                    url_img:function(img_data) {
+                        var token = sessionStorage.getItem("token");
+                        return HTTP_X + "/api/file/get?token=" + token + "&img=" + img_data;
+                    },
+                    complete_update_sign: function (data) {
+                        this.flag_agree = true;
+                        this.up_img = true;
+                        $("#my-confirm").modal({
+                            closeOnConfirm: true
+                        });
+                    },
+                    complete_uploader_base: function (data) {
+                        this.up_img = false;
+                        this.img_src = '';
+                        this.data.sign_img = data.data.inner_name;
+                        ajax_post(api_get_server_time, {}, this);
+
+                    },
+                    complete_get_server_time: function (data) {
+                        this.data.cxcnqzsj = data.data.current_time;
+                        ajax_post(api_save_sign, this.data, this);
+
+                    },
+                    complete_save_sign: function (data) {
+                        this.flag_up = true;
+                        if(data.data.sign_code == '') { //上传的图片
+                            this.get_photos = url_api_file + "?token=" + sessionStorage.getItem(
+                                    "token") +
+                                "&img=" + data.data.sign_img;
+                        } else {
+                            this.get_photos = data.data.sign_img;
+
+                        }
+                    }
+
+                });
+
+                vm.$watch('onReady', function () {
+                    this.user();
+                    this.trueCheckbox();
+                })
+                avalon.scan(document.body);
+            })
+        </script>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-23657373-2', 'mattketmo.github.io');
+            ga('send', 'pageview');
+        </script>
+    </div>
+</div>
+</body>
+
+</html>
+

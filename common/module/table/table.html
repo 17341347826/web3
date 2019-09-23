@@ -1,0 +1,109 @@
+<div id="class-module">
+    <table class="am-table am-table-hover">
+        <thead>
+        <tr>
+            <!--ms-for: el in @theadTh-->
+            <th>
+                <div ms-html="el.title"></div>
+            </th>
+            <!--ms-for-end:-->
+        </tr>
+        </thead>
+        <tbody>
+        <!--ms-for: $idx,el in @tbodyTd-->
+        <tr>
+            <!--ms-for: col in @theadTh-->
+            <td ms-if="col.type == 'index'">{{@setIndex($idx+1,@currentPage)}}</td>
+            <td ms-if="col.type == 'text'||col.type=='cover_text'">{{@showDate(col,el)|isNll}}</td>
+            <td ms-if="col.type == 'min_text'" ms-class="[col.hasOwnProperty('min_width') ? 'white-space':'']">
+                {{@showDate(col,el)|isNll}}
+            </td>
+            <td ms-if="col.type == 'html'" ms-html="@showDate(col,el)"></td>
+            <td ms-if="col.type == 'text_title'" ms-attr="{title:@showDate(col,el)} | isNll">
+                {{@showDate(col,el)|isNll}}
+            </td>
+            <td ms-if="col.type == 'text_desc'" ms-attr="{title:@showDate(col,el)} | isNll">
+                {{@showDate(col,el)|isNll}}
+            </td>
+            <td class="text-more" ms-if="col.type == 'text_more'" ms-attr="{title:@showDate(col,el)} | isNll">
+                {{@showDate(col,el)|isNll}}
+            </td>
+            <td class="text-small" ms-if="col.type == 'text_small'" ms-attr="{title:@showDate(col,el)} | isNll">
+                {{@showDate(col,el)|isNll}}
+            </td>
+            <td ms-if="col.type == 'text_desc_width'" ms-attr="{title:@showDate(col,el)} | isNll">
+                <p class="text_desc_width">{{@showDate(col,el)|isNll}}</p>
+            </td>
+            <td ms-if="col.type == 'ranking' && ($idx==0||$idx==1||$idx==2)">
+                <a class='tab-btn'
+                   ms-class="[($idx==0? 'rank-no1':''),($idx==1? 'rank-no2':''),($idx==2? 'rank-no3':'')]"
+                   ms-on-click='@oncbopt({current:$idx, type:1})' title='查看'></a>
+            </td>
+            <td ms-if="col.type == 'ranking' && $idx!=0 && $idx!=1 && $idx!=2">
+                <a class='tab-btn'
+                   ms-class="[($idx==0? 'rank-no1':''),($idx==1? 'rank-no2':''),($idx==2? 'rank-no3':'')]">{{$idx+1}}</a>
+            </td>
+            <td ms-if="col.type == 'thumbs_up'">
+                <a class='tab-btn' ms-on-click='@oncbopt({current:$idx, type:8})'
+                   ms-class="[(el.is_like==false? 'thumbs-up':'thumbs-down')]"></a>
+            </td>
+            <td ms-if="col.type == 'list'">
+                <p class="text_str">{{@showDate(col,el)}}</p>
+            </td>
+            <!--ms-for-end:-->
+        </tr>
+        <!--ms-for-end:-->
+        <tr ms-if="@tbodyTd.length==0&&is_init">
+            <td ms-attr="{colspan:@theadTh.length}">
+                <div class="no-data">
+                    <div><img src="../../../../common/images/none.png" alt=""></div>
+                </div>
+            </td>
+        </tr>
+        <tr ms-if="@tbodyTd.length==0&&!is_init">
+            <td ms-attr="{colspan:@theadTh.length}">
+                暂无数据
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="divide-page" ms-visible="@totalPageArr != '' && @tbodyTd.length != 0 " data-am-widget="pagination">
+        <div class="page-info">
+            <span>共{{@count}}条数据</span>
+            <!--<span>当前为第{{currentPage+1}}页</span>-->
+            <span>共{{@totalPage}}页</span>
+        </div>
+        <div class="pages">
+            <div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(0)">
+                首页
+            </div>
+            <div class="pre-page" ms-visible="@currentPage != 0" ms-on-click="@currentPageDate(@currentPage-1)">
+                上一页
+            </div>
+            <!--ms-for: ($index,el) in @totalPageArr -->
+            <div class="com-page" ms-class="[@offset+$index==@currentPage?'page-active':'']"
+                 ms-on-click="@currentPageDate(@offset+$index)">
+                {{@offset+$index+1}}
+            </div>
+            <!--ms-for-end:-->
+            <div class="next-page" ms-visible="@currentPage+1 != @totalPage"
+                 ms-on-click="@currentPageDate(@currentPage+1)">
+                下一页
+            </div>
+            <div class="last-page" ms-visible="@currentPage+1 != @totalPage"
+                 ms-on-click="@currentPageDate(@totalPage-1)">
+                末页
+            </div>
+        </div>
+        <div class="turn-page">
+            <div>跳转到：</div>
+            <div class="s-page"><input type="text" ms-duplex-number="@pageNo"/></div>
+            <div class="go-page" ms-on-click="@pageNOSure(@pageNo)">GO</div>
+        </div>
+
+    </div>
+    <!--<div class="am-text-center page-msg" ms-visible="@pageNoMsg!=''">-->
+    <!--{{@pageNoMsg}}-->
+
+    <!--</div>-->
+</div>

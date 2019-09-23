@@ -1,0 +1,50 @@
+<div ms-important="add-first-index" id="add-first-index">
+    <div class="a_f_content">
+        <div>
+            <!--<div class="common-select" >-->
+                <!--<div class="search-cont clearfix">-->
+                    <!--<div class="select">-->
+                        <!--<xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@sel_check,head_value:'请选择年级'}"></xmp>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="a_f_form">
+                <div>
+                     <p>新增评价维度</p>
+                    <form class="am-form am-form-horizontal">
+                        <div>
+                            <label class="am-form-label">评价维度</label>
+                            <div class="select">
+                                <input class="color-serven" type="text" ms-duplex="@data.index_name" placeholder="请输入评价维度">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="am-form-label">创建</label>
+                            <div class="select">
+                                <input type="text" class="disabled_css"  ms-duplex="@data.index_work" disabled>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="am-form-label">作者</label>
+                            <div class="select">
+                                <select id="teacher_select" ms-duplex="@author_info">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:el.teacher_name+'|'+el.guid}" ms-for="el in @teacher_arr">
+                                        {{ el.teacher_name }}--{{el.teacher_num}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="save_cancel">
+            <div class="btns">
+                <button type="button" class="am-btn-primary" ms-on-click="@save_data()">提交</button>
+            </div>
+        </div>
+    </div>
+</div>

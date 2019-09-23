@@ -1,0 +1,155 @@
+<div ms-important="add-practice" id="add-practice"  class="hide_scroll">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <p class="p_title">请选择下方维度,录入相应材料</p>
+        <div class="am-fl" :visible="@is_update == false">
+            <!--ms-for:($index,el) in @wd_list-->
+            <div :class="['am-fl',(@wd_list_selected == $index? 'chosen':'')]" ms-click="@moduleChange(el,$index)">{{el.name}}</div>
+            <!--ms-for-end:-->
+        </div>
+        <div class="am-fl" :visible="@is_update == true">
+            <!--ms-for:($index,el) in @wd_list-->
+            <div :class="['am-fl',(@hx_type == el.value? 'chosen':'')]">{{el.name}}</div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <div class="clearfix p_title am-padding-bottom-sm am-padding-top-sm" :if="@explain_display">
+        <div class="am-fl">说明:</div>
+        <div class="am-fl am-margin-left-sm">
+            <div>请如实做好综合实践活动材料的记录，各评价维度记录内容包含</div>
+            <div>1.思想品德：班团活动、社区服务（劳动）、校（家）劳动、志愿者服务、学雷锋活动</div>
+            <div>2.学业水平：研究性文章、发明制作、科技创新</div>
+            <div>3.身心健康：体育活动</div>
+            <div>4.艺术素养：影视、戏曲、文学、绘画、舞蹈、雕塑、音乐等艺术活动或艺术社团</div>
+            <div>5.社会实践：社团活动、军训、参观学习、公益活动、社区服务（实践）、环境保护、研学旅行、校外实践</div>
+
+        </div>
+    </div>
+    <div>
+       <div  :visible="@module_type != 0" class="add-practice-content">
+           <div class="clearfix p-line-float">
+               <div class="am-fl">
+                   <div class="p-name-float">活动名称</div>
+                   <div class="p-input-float">
+                       <input type="text" ms-duplex="data.name">
+                   </div>
+                   <span>*</span>
+               </div>
+               <div class="am-fr">
+                   <div class="p-name-float">活动类型</div>
+                   <div class="p-input-float">
+                       <select ms-duplex="@data.activity_type" data-duplex-changed="@typeChange">
+                           <option ms-attr="{value:el.value}" ms-for="el in @activity_type">
+                               {{ el.type_name }}
+                           </option>
+                       </select>
+                   </div>
+                   <span>*</span>
+               </div>
+           </div>
+           <div class="clearfix p-line-float">
+               <div class="am-fl">
+                   <div class="p-name-float">开始时间</div>
+                   <div class="p-input-float">
+                       <input type="text" class="am-form-field" id="start_time"
+                              ms-attr="{value:@data.start}" ms-on-focus="@get_start_date" ms-on-click="@start_click" readonly="">
+                   </div>
+                   <span>*</span>
+               </div>
+               <div class="am-fr">
+                   <div class="p-name-float">结束时间</div>
+                   <div class="p-input-float">
+                       <input type="text" class="am-form-field" id="end_time"
+                              ms-attr="{value:@data.end}" ms-on-focus="@get_end_date" ms-on-click="@end_click" readonly="">
+                   </div>
+                   <span>*</span>
+               </div>
+           </div>
+           <div class="p-line">
+               <div class="p-name">活动地点</div>
+               <div class="p-input">
+                   <input type="text" ms-duplex="data.place">
+               </div>
+               <span>*</span>
+           </div>
+           <div class="p-line">
+               <div class="p-name">参与成员</div>
+               <div class="p-input">
+                   <input type="text" ms-duplex="data.member">
+               </div>
+               <span>*</span>
+           </div>
+           <div :if="@module_type == 6" class="clearfix p-line-float">
+               <div class="am-fl">
+                   <div class="p-name-float">指导老师</div>
+                   <div class="p-input-float">
+                       <input type="text" ms-duplex="data.teacher">
+                   </div>
+                   <span ms-visible="@module_type == 6">*</span>
+               </div>
+               <div class="am-fr">
+                   <div class="p-name-float">担任角色</div>
+                   <div class="p-input-float">
+                       <input type="text" ms-duplex="data.role">
+                   </div>
+                   <span ms-visible="@module_type == 6">*</span>
+               </div>
+           </div>
+           <div :if="@module_type == 6" class="clearfix p-line-float">
+               <div class="am-fl">
+                   <div class="p-name-float">承担任务</div>
+                   <div class="p-input-float">
+                       <input type="text" ms-duplex="data.task">
+                   </div>
+                   <span ms-visible="@module_type == 6">*</span>
+               </div>
+               <div class="am-fr">
+                   <div class="p-name-float">研究主题</div>
+                   <div class="p-input-float">
+                       <input type="text" ms-duplex="data.theme">
+                   </div>
+                   <span ms-visible="@module_type == 6">*</span>
+               </div>
+           </div>
+           <div class="p-line-max">
+               <div class="p-name-max">详细描述</div>
+               <div class="p-input-max">
+                   <textarea ms-duplex="data.describe"></textarea>
+               </div>
+               <span>*</span>
+           </div>
+           <div class="p-line-max">
+               <div class="p-name-max">收获感想</div>
+               <div class="p-input-max">
+                   <textarea ms-duplex="data.thoughts"></textarea>
+               </div>
+               <span>*</span>
+           </div>
+           <div class="p-line material">
+               <div class="p-name">证实材料</div>
+               <div class="p-input">
+                   <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'uploader_practice',id:'uploader_practice', files:@files, url:@uploader_url}"></xmp>
+               </div>
+           </div>
+           <div class="p-line" :if="@personality_list.indexOf(@data.activity_type) > -1">
+               <div class="p-name"></div>
+               <div class="p-input">
+                   <div class="c-arys">
+                       <label class="am-checkbox-inline">
+                           <input type="checkbox" id="option1" ms-duplex="@sftc_arr" data-duplex-changed="@checkboxChange" value="11">
+                           <label for="option1"></label>
+                       </label>
+                       标注为个性特长材料  <strong>说明：标注为特长材料，该材料将自动遴选为评价材料</strong>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+    <div class="a-p-btns"  :if="@module_type != 0">
+        <div class="btns">
+            <button type="button" class="am-btn-warning" ms-click="@onBlack()" style="margin-right: 25px;">返回</button>
+            <button type="button" :visible="@is_click == 1" class="am-btn-primary" ms-click="@save_data">提交</button>
+            <button type="button" :visible="@is_click == 2" class="am-btn-gray">提交</button>
+        </div>
+    </div>
+</div>

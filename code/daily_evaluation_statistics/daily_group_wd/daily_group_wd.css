@@ -1,0 +1,81 @@
+#daily_comprehensive_practice_wd{
+    background-color: #f5f5f5;
+}
+#daily_comprehensive_practice_wd>div{
+    background-color: #fff;
+}
+#daily_comprehensive_practice_wd .first-index {
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-left: 13px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 0px 0px 4px 4px;
+}
+#daily_comprehensive_practice_wd .first-index > div > div {
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color: #a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#daily_comprehensive_practice_wd .first-index > div > div > img {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#daily_comprehensive_practice_wd .first-index .chosen {
+    color: #2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background: url('../../../common/images/chosen.png') no-repeat top right;
+}
+
+#daily_comprehensive_practice_wd .search-content {
+    height: 60px;
+    padding-left: 12px;
+    padding-right: 26px;
+    padding-top: 12px;
+    margin: 2px 0;
+}
+#daily_comprehensive_practice_wd .sec_index{
+    margin-top: 6px;
+    padding: 12px 0;
+}
+#daily_comprehensive_practice_wd .sec_index .radios{
+    text-align: right;
+    padding-right: 35px;
+}
+#daily_comprehensive_practice_wd .nodata{
+    margin-top: 0;
+    background-color: #fff;
+    text-align: center;
+    padding-bottom: 18px;
+    font-size: 16px;
+}
+
+#daily_comprehensive_practice_wd .table-module{
+    margin-top: 6px;
+    padding:0 12px 6px 12px;
+}
+#daily_comprehensive_practice_wd .table-module>div{
+    overflow: auto;
+}
+#daily_comprehensive_practice_wd .table-module>p{
+    font-size: 18px;
+    text-align: center;
+    color: #0dba9e;
+    padding-top: 18px;
+}
+
+#daily_comprehensive_practice_wd .am-table .t_width{
+    max-width: 100px;
+    overflow: hidden;
+    line-height: 40px;
+    text-overflow:ellipsis;
+}

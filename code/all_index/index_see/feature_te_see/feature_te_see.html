@@ -1,0 +1,164 @@
+<div ms-important="feature_te_see" id="feature_te_see">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="查询">
+            </div>
+        </div>
+    </div>
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <!--ms-for:($index,el) in @first_index_list-->
+            <div :class="['am-fl',(@checked_first_index == $index ? 'chosen':'')]" ms-attr="{id:'first-index'+$index}"
+                 ms-click="@click_first_index($index,el)" ms-on-mouseenter='@first_index_enter($index,el)'>{{el.index_name}}</div>
+            <!--ms-for-end:-->
+        </div>
+        <div class="am-fr">
+            <!--
+            share_index_state:共享状态  0: '未共享',1: '共享待审核', 2: '共享通过',3: '共享不通过'
+            index_state:审核状态  1: '创建待审核',2: '创建通过',3: '创建未通过'
+            index_author:作者
+            index_founderid:创建人
+            index_use_state:1指标启用 2指标停用
+            -->
+
+
+
+            <div style="display: inline-block" :if="@first_col.index_workid == @login_schoolId && @login_level == 4 && @login_type == 0">
+                <a :class="[(@first_col.index_use_state == 1 ? 'tab-toggle-on-btn':'tab-toggle-off-btn'),'toggle-a']" class='tab-btn'></a>
+            </div>
+        </div>
+    </div>
+    <!--二级指标查看-->
+    <div class="second-index">
+        <div class="clearfix">
+            <div class="am-fl title-name">评价要素</div>
+        </div>
+        <div class="table-module">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th style="max-wdith:80px;width:80px;">序号</th>
+                    <th>评价要素</th>
+                    <th>创建单位</th>
+                    <th>作者</th>
+                    <th>使用状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($index,el) in @second_index_list-->
+                <tr>
+                    <td style="max-wdith:80px;width:80px;">{{$index + 1}}</td>
+                    <td>{{el.index_name}}</td>
+                    <td>{{el.index_work}}</td>
+                    <td>{{el.index_author}}</td>
+                    <td>
+                        <span :if="el.index_use_state == 1 && @login_level == 6">停用</span>
+                        <span :if="el.index_use_state == 2 && @login_level == 6">启用</span>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                <tr ms-visible="@second_index_list.length==0">
+                    <td colspan="6">
+                        暂无数据
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--三级指标查看-->
+    <div class="three-index">
+        <div class="clearfix">
+            <div class="am-fl title-name">关键表现</div>
+
+        </div>
+        <div class="table-module">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th style="max-wdith:80px;width:80px;">序号</th>
+                    <th style="max-wdith:500px;width:500px;">评价表现</th>
+                    <th>所属要素</th>
+                    <th>创建单位</th>
+                    <th>作者</th>
+                    <th>使用状态</th>
+                    <th class="do_th">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($index,el) in @third_index_list-->
+                <tr>
+                    <td  style="max-wdith:80px;width:80px;">{{$index + 1}}</td>
+                    <td class="max-width-td">{{el.index_name}}</td>
+                    <td>{{el.index_secondary}}</td>
+                    <td>{{el.index_work}}</td>
+                    <td>{{el.index_author}}</td>
+                    <td>
+                        <div :if="@login_level != 4 || @login_type != 0 || @login_work != el.index_work || el.index_state == 1">
+                            <span :if="el.index_use_state == 1">启用</span>
+                            <span :if="el.index_use_state == 2">停用</span>
+                        </div>
+                    </td>
+                    <td>
+                        <a class='tab-btn tab-details-btn' ms-on-click='@method(el,$index,2)' title='查看'></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                <tr ms-visible="@third_index_list.length==0">
+                    <td colspan="7">
+                        暂无数据
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--批量导入指标-->
+        <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    批量导入特色指标
+                    <a class="am-close am-close-spin" data-am-modal-close="" ms-on-click="@cancel()">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form id="uploadForm" method="post" enctype="multipart/form-data">
+                        <input type="text" ms-duplex="@file_name" id="file-name" disabled class="am-u-sm-10"
+                               style="height: 32px">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                            <input type="file" id="file" name="file" multiple
+                                   onchange="document.getElementById('file-name').value=this.value">
+                        </div>
+                    </form>
+                    <div class="am-text-left">
+                        <a ms-on-click="@down_index">
+                            下载模板
+                        </a>
+                    </div>
+                    <span ms-visible="@modal_msg != ''" style="color: red">
+                    {{ @modal_msg }}
+                    </span>
+                    <div :class="[(false_data.length > 0 ? 'false_msg' :'')]">
+                        <!--ms-for: ($index,el) in @false_data-->
+                        <p :visible="el.is_pass == false">第【{{el.row_no}}】行{{el.error_msg}}</p>
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                   <span class="am-modal-btn" data-am-modal-cancel="" ms-on-click="@cancel()">
+                        取消
+                    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+                        上传
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

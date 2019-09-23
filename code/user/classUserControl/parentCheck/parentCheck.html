@@ -1,0 +1,150 @@
+<div class="am-g" id="parentCheck" ms-important="parentCheck">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange" ms-duplex="@grade_id">
+                        <!--ms-for:($index,el) in grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.class_id">
+                        <!--ms-for:($index,el) in class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn" ms-on-click="@uploadingModal()">
+                <input type="button" value="导入">
+            </div>
+        </div>
+    </div>
+    <div class="p-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh, cbopt:@cbopt,params:@user_type}">
+            </xmp>
+        </div>
+        <!--批量导入-->
+        <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    批量导入家长信息
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form id="uploadForm" method="post" enctype="multipart/form-data">
+                        <input type="text" ms-duplex="@fileName" id="file-name" disabled class="am-u-sm-10"
+                               style="height: 32px">
+                        <div class="am-form-group am-form-file" ms-on-click="fileChange()">
+                            <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                            <input type="file" id="file" name="file" multiple
+                                   onchange="document.getElementById('file-name').value=this.value">
+                        </div>
+                    </form>
+                    <div class="am-text-left">
+                        <a href="common/template/家长信息模板.xls">
+                            下载模板
+                        </a>
+                    </div>
+                    <span ms-visible="@modal.msg != ''" style="color: red">{{ @modal.msg }}</span>
+                    <!--家长姓名为空-->
+                    <div class="am-text-left" ms-visible="@uploadForm.parent_empty.length != 0">
+                     <span>
+                      家长姓名为空：
+                     </span>
+                        <ol>
+                            <!--<!- -ms-for: el in @uploadForm.parent_empty&ndash;&gt;-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <!--电话号码格式错误-->
+                    <div class="am-text-left" ms-visible="@uploadForm.phone_error.length != 0">
+                     <span>
+                      电话号码格式错误：
+                     </span>
+                        <ol>
+                            <!--ms-for: el in @uploadForm.phone_error-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <!--电话号码已存在-->
+                    <div class="am-text-left" ms-visible="@uploadForm.phone_exist.length != 0">
+                     <span>
+                      电话号码已存在：
+                     </span>
+                        <ol>
+                            <!--ms-for: el in @uploadForm.phone_exist-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <!--电话号码重复-->
+                    <div class="am-text-left" ms-visible="@uploadForm.phone_repeat.length != 0">
+                     <span>
+                      电话号码重复：
+                     </span>
+                        <ol>
+                            <!--ms-for: el in @uploadForm.phone_repeat-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <!--学生学籍号不存在-->
+                    <div class="am-text-left" ms-visible="@uploadForm.stu_not_exist.length != 0">
+                     <span>
+                      学生学籍号不存在：
+                     </span>
+                        <ol>
+                            <!--ms-for: el in @uploadForm.stu_not_exist-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <!--学生学籍号和姓名不匹配-->
+                    <div class="am-text-left" ms-visible="@uploadForm.stu_not_map.length != 0">
+                     <span>
+                      学生学籍号和姓名不匹配：
+                     </span>
+                        <ol>
+                            <!--ms-for: el in @uploadForm.stu_not_map-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel="">取消</span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">上传</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

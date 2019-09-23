@@ -1,0 +1,43 @@
+<div ms-important="p_a_list" id="p_a_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--筛选条件-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--区县-->
+
+            <div :if="@highest_level == 2">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:1,show_name:'请选择区县',data_arr:@area_list,s_change:@areaChange}"></xmp>
+            </div>
+            <!--学校模糊查询-->
+
+            <div  :if="@highest_level==2 || @highest_level==3">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:2,show_name:'请选择学校',data_arr:@school_list,s_change:@schoolChange}"></xmp>
+            </div>
+
+            <div :if="@highest_level==2 || highest_level==3 || highest_level==4">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:3,show_name:'请选择年级',data_arr:@grade_list,s_change:@gradeChange}"></xmp>
+            </div>
+            <div :if="@highest_level==11">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:3,show_name:@grade_name,data_arr:@grade_list,s_change:@gradeChange}"></xmp>
+            </div>
+
+            <div :if="@highest_level==2 || highest_level==3 || highest_level==4">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:5,show_name:'请选择班级',data_arr:@class_list,s_change:@classChange}"></xmp>
+            </div>
+
+            <div :if="@highest_level==11">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:41,show_name:@class_name,data_arr:@class_list,s_change:@classChange}"></xmp>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入学籍号" :blur="@code_search()" :duplex="@extend.code">
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入姓名" :blur="@name_search()" :duplex="@extend.name">
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <xmp ms-widget="{is:'ms-ele-table',filter:@filter,url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh, cbopt:@cbopt,params:@user_type,only_hash:@only_hash}">
+        </xmp>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div ms-important="attribution_relationship" class="d_e_progress" id="daily_portrait_target">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@sel_change_semester}"></xmp>
+        </div>
+    </div>
+    <div id="relation_img">
+       <img src="common/images/none.png">
+    </div>
+    <div class="detail">
+        通过上图可知，<span ms-for="el in direct_ratio">{{el}},</span><span ms-if="direct_ratio.length>0">学业水平指标的得分成正比。</span>
+        <span ms-for="el in inverse_ratio">{{el}},</span><span ms-if="inverse_ratio.length>0">学业水平指标的得分成反比。</span>
+        <span ms-if="remarkable.length>0">不过</span><span ms-for="el in remarkable">{{el}},</span><span ms-if="remarkable.length>0">曲线趋势更为显著</span><span ms-if="remarkable.length>0">,</span>
+        <span ms-if="not_significant.length>0">而</span><span ms-for="el in not_significant">{{el}}</span><span ms-if="not_significant.length>0">的得分无明显变化。</span>
+        <span ms-if="remarkable.length>0">故，</span><span ms-if="remarkable.length>0">学生的</span><span ms-for="el in remarkable">{{el}},</span><span ms-if="remarkable.length>0">对学生学业水平的发展有直接影响</span>
+        <span ms-if="remarkable.length>0">,</span>
+        <span ms-for="el in not_significant">{{el}}</span><span ms-if="not_significant.length>0">对学生的学业水平发展无直接影响。</span>
+    </div>
+</div>

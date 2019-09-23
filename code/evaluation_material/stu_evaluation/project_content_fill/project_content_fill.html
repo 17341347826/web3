@@ -1,0 +1,60 @@
+<div class="am-g" id="project_content_fill" ms-important="project_content_fill">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="p-c-f-con">
+        <div :if="value_table">
+            <h2 class="am-margin-top-lg am-margin-bottom-lg">当前评价内容:{{@add_answer.pj_subject}}({{@every_value}}分)</h2>
+            <button class="am-btn am-btn-primary am-margin-left-lg" ms-click="@resources_click" type="button">
+                学生表现参考
+            </button>
+            <div>
+                <p style="color: red;">温馨提示:若该学生未参加评价指标相关的活动，评分不得超过3分。</p>
+            </div>
+            <div class="table_module">
+                <table class="am-table  am-table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            序号
+                        </th>
+                        <th>
+                            学号
+                        </th>
+                        <th>
+                            姓名
+                        </th>
+                        <!--<th>-->
+                        <!--评价状态-->
+                        <!--</th>-->
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for: $idx,el in @student_arr-->
+                    <tr>
+                        <td>
+                            {{$idx+1}}
+                        </td>
+                        <td>
+                            {{el.pj_cover_name_num}}
+                        </td>
+                        <td>
+                            {{el.pj_cover_name}}({{el.my_value}}分)
+                        </td>
+                        <td>
+                            <!--<input type="number" class="fill-input" ms-duplex="el.pj_value" ms-on-blur="blur_input(el)">-->
+                            <input  class="fill-input" ms-duplex="el.pj_value"
+                                   ms-on-blur="@blur_input(el,$idx)" type="text"/>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="btns am-text-center">
+                <button type="button" class="am-btn-primary" ms-click="@value_click">提交</button>
+            </div>
+        </div>
+    </div>
+</div>

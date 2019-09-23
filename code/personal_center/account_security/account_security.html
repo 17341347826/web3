@@ -1,0 +1,51 @@
+<div class="am-g" id="account_security" ms-important="account_security">
+    <div class="account_title">
+        <span>
+            <img src="../../../common/images/update_pwd.png" alt="">
+            账户安全
+        </span>
+    </div>
+    <div class="account_content">
+        <!--手机号码-->
+        <div  :if="@user_type != 2">
+            <img src="../../../common/images/icon/account_phone.png" title="手机号码">
+            <span>手机号码</span>
+            <span class="true-info" :visible="@phone != ''">{{@phone}}</span>
+            <div>
+                <span class="change-btn" :visible="@phone != ''" :click="@phone_up(2)">修改</span>
+                <span class="change-btn" :visible="@phone == ''" :click="@phone_up(1)">设置</span>
+            </div>
+        </div>
+        <div>
+            <img src="../../../common/images/icon/username_set.png" title="用户名">
+            <span>用户名<span style="visibility: hidden;">邮</span></span>
+            <span class="true-info" :visible="@username_exist != ''">{{@username_exist}}</span>
+            <div :if="@username_exist == ''">
+                <span class="change-btn" :click="@username_set()">设置</span>
+            </div>
+        </div>
+        <div>
+            <img src="../../../common/images/icon/account_pwd.png" title="账号密码">
+            <span>账号密码</span>
+            <div :click="@pwd_up()">
+                <span class="change-btn">修改</span>
+            </div>
+        </div>
+        <div>
+            <img src="../../../common/images/icon/account_email.png" title="邮箱">
+            <span>邮箱<span style="visibility: hidden;">邮箱</span></span>
+            <span class="true-info" :visible="@email != ''">{{@email}}</span>
+            <div>
+                <span class="change-btn" :visible="@email != ''" :click="@mailbox_set(2)">修改</span>
+                <span class="change-btn" :visible="@email == ''" :click="@mailbox_set(1)">设置</span>
+            </div>
+        </div>
+        <div :if="@user_type == 2">
+            <img src="../../../common/images/icon/parent_insure.png" title="家长信息">
+            <span>家长信息</span>
+            <div :click="@parent_insure()">
+                <span class="change-btn">查看</span>
+            </div>
+        </div>
+    </div>
+</div>

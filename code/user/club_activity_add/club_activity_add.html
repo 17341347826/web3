@@ -1,0 +1,98 @@
+<div ms-important="club_activity_add" id="club_activity_add">
+    <div class="content">
+        <div class="a-name">新增社团</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <div class="a-element">
+                <label>社团名称</label>
+                <div class="form-input">
+                    <input class="am-u-sm-10 am-modal-prompt-input" ms-duplex="@compileData.communityName"
+                           placeholder="请输入社团名称" type="text"/>
+                </div>
+            </div>
+            <div>
+                <label><span style="visibility: hidden">分</span>负责人</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@charge_info" data-duplex-changed="@charge_change()">
+                            <option ms-attr="{value:''}">
+                                请选择负责人
+                            </option>
+                            <!--ms-for: el in @charge_list-->
+                            <option ms-attr="{value:el.guid + '|' +el.name}">
+                                {{el.name}}【{{el.code}}】
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="a-element">
+                <label>联系方式</label>
+                <div class="form-input">
+                    <input class="am-modal-prompt-input" id="phone" ms-duplex="@compileData.tel"
+                           ms-on-blur="@phone_check" placeholder="请输入联系方式" type="text"/>
+                </div>
+            </div>
+            <div class="a-element">
+                <label>指导老师</label>
+                <div class="base-select">
+                    <div class="old-select" id="par">
+                        <select class="js-example-basic-single" id="guide-teach" ms-duplex="@guide_info">
+                            <option ms-attr="{value:el.guid+'|'+el.name}" ms-for="el in @guide_teach">
+                                {{ el.name }}【{{el.code}}】
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="invest-point">
+                <label>社团人数</label>
+                <div class="form-input">
+                    <input class="am-modal-prompt-input" ms-duplex="@compileData.communityNum"
+                           placeholder="请输入社团人数" type="text"/>
+                </div>
+            </div>
+            <div class="invest-point">
+                <label>男女比例</label>
+                <div class="form-input">
+                    <input class="am-modal-prompt-input" id="proportion" ms-duplex="@compileData.proportion"
+                           :blur = '@proportion_check()' placeholder="请输入'1:2'这种类型的男女比例" type="text"/>
+                </div>
+            </div>
+            <div class="invest-point">
+                <label>社团类型</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@compileData.communityType">
+                            <option ms-attr="{value:''}">
+                                请选择
+                            </option>
+                            <!--ms-for: el in @club_type-->
+                            <option ms-attr="{value:el.type_name}">
+                                {{el.type_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="invest-point">
+                <label><span style="visibility: hidden">备注</span>备注</label>
+                <div class="form-input">
+                    <input class="am-modal-prompt-input" ms-duplex="@compileData.remark"
+                           placeholder="请输入备注" type="text"/>
+                </div>
+            </div>
+            <!--错误提示-->
+            <div class="invest-point bad-msg">
+                <span>{{@bad_msg}}</span>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@add_club()">提交</button>
+        </div>
+    </div>
+</div>

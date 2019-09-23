@@ -1,0 +1,47 @@
+#grade_management{
+    background-color: #f1f2f6;
+}
+#grade_management>div{
+    padding-left:16px;
+    padding-right:16px;
+    background-color: white;
+}
+#grade_management .common-select .click_btn{
+    display:inline-block;
+    height:36px;
+    line-height: 36px;
+    background-color: rgba(43, 187, 164, 1);
+    border-radius: 4px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor: pointer;
+}
+#grade_management .common-select .click_btn img{
+    margin-top: -4px;
+}
+#grade_management .common-select .click_btn>span{
+    display:inline-block;
+    color:#fff;
+    font-size: 16px;
+    margin-left:7px;
+}#grade_management .table-module{
+     padding-top: 10px;
+     padding-bottom: 10px;
+ }
+#grade_management .table-module table{
+    border:1px #ccc solid;
+    border-radius: 4px;
+}
+#grade_management #compileData{
+    color:#c8c8c8;
+}
+#grade_management #compileData input,
+#grade_management #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color: #777;
+}
+#grade_management .am-modal{
+    background-color: transparent;
+}
+

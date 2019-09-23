@@ -1,0 +1,12 @@
+@charset "utf-8";
+#teacher_graduation_comment_edit .weui-cells {
+  margin-top: -1px;
+}
+#teacher_graduation_comment_edit .weui-cell {
+  font-size: 15px;
+}
+#teacher_graduation_comment_edit .weui-cell,
+#teacher_graduation_comment_edit .weui-cell__ft,
+#teacher_graduation_comment_edit .weui-textarea::placeholder {
+  color: #a2a2a2;
+}

@@ -1,0 +1,35 @@
+<div ms-important="growth_stu_list" id="growth_stu_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@area_list,sel_check:@area_change,head_value:'请选择区县'}"></xmp>
+        </div>
+        <div class="select">
+            <select class="js-example-basic-single multiSelect"  ms-duplex="extend.fk_xx_id" id="school_select">
+                <option value="0">
+                    请选择
+                </option>
+                <option ms-attr="{value:el.fk_xx_id}" ms-for="el in @school_list">
+                    {{ el.xxmc }}
+                </option>
+            </select>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,head_value:'请选择年级'}"></xmp>
+        </div>
+
+        <div class="select">
+            <input type="text" placeholder="请输入姓名" class="name" ms-duplex="@extend.xsxm">
+        </div>
+        <div class="select">
+            <input type="text" placeholder="请输入学籍号" class="name" ms-duplex="@extend.xjh">
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@batch_arr,sel_check:@batch_change,head_value:'志愿批次'}"></xmp>
+        </div>
+    </div>
+    <div class="city-stu-con">
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,remember:false,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}"></xmp>
+    </div>
+
+</div>

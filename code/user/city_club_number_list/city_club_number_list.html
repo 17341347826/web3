@@ -1,0 +1,76 @@
+<div class="am-g" id="city_club_number_list" ms-important="city_club_number_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='ul_tab clearfix'>
+        <div class="chosen am-fl" :if="@highest_level==2" ms-on-click="go_href(1)">按市</div>
+        <div class="am-fl" :if="@highest_level==2 || @highest_level==3" ms-on-click="go_href(2)">按区县</div>
+        <div class="am-fl" ms-on-click="go_href(3)">按学校</div>
+    </div>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="search-btn">
+                <input type="button" value="导出" :click="@club_export()">
+            </div>
+            <div class="search-btn">
+                <input type="button" value="打印" :click="@club_printing()">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="table_module"  id="print_content">
+            <table class="am-table am-table-hover ">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        市州
+                    </th>
+                    <th>
+                        社团个数
+                    </th>
+                    <th>
+                        参加总人数
+                    </th>
+                    <!--<th>-->
+                    <!--参与率-->
+                    <!--</th>-->
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody :if="@dataList.length>0">
+                <!--ms-for: $idx,el in @dataList-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.city}}
+                    </td>
+                    <td>
+                        {{el.community_num}}
+                    </td>
+                    <td>
+                        {{el.person_num}}
+                    </td>
+                    <!--<td>-->
+                    <!--{{el.participation_rate}}-->
+                    <!--</td>-->
+                    <td>
+                        <a class='tab-btn tab-details-btn' ms-on-click='@detail(el.id)' title='查看'></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="@dataList.length==0">
+                <tr>
+                    <td colspan="5">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <title>眉山市初中学生综合素质评价</title>
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+    <link rel="stylesheet" href="common/lib/amazeui.datetimepicker.css">
+    <!--<link rel="stylesheet" href="common/lib/bootstrap-datetimepicker.min.css">-->
+    <!--<link href="//cdn.bootcss.com/layer/3.0/skin/default/layer.min.css" rel="stylesheet">-->
+    <link href="common/lib/layer.min.css" rel="stylesheet">
+    <link href="common/lib/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./common/public.css">
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+
+    <script src="common/lib/spin.min.js"></script>
+
+    <style>
+        html {
+            background-color: #f1f2f6;
+        }
+
+        body {
+            min-width: 1000px !important;
+            background-color: rgb(251, 251, 251);
+            overflow: visible;
+            overflow-x: hidden;
+            overflow-y: visible;
+            font-family: "微软雅黑";
+        }
+
+        #content_body label {
+            font-weight: normal;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div ms-controller="main" class="ms-controller">
+    <xmp ms-widget="{is:'ms-ele-header',id:'header', menu:@data.menu, user:@data.user,local_href:'http://pj.xtyun.net/Growth/tpj.html'}"></xmp>
+    <div id="content_body" style="padding: 60px 15px 0 95px;">
+        <div ms-html="@data.body.view"></div>
+    </div>
+</div>
+<div id="wait" style="width:100%;">
+</div>
+<script>
+    var opts = {
+        lines: 11 // The number of lines to draw
+        , length: 30 // The length of each line
+        , width: 2 // The line thickness
+        , radius: 30 // The radius of the inner circle
+        , scale: 1 // Scales overall size of the spinner
+        , corners: 1 // Corner roundness (0..1)
+        , color: '#000' // #rgb or #rrggbb or array of colors
+        , opacity: 0.55 // Opacity of the lines
+        , rotate: 90 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 1 // Rounds per second
+        , trail: 60 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '50%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
+        , shadow: true // Whether to render a shadow
+        , hwaccel: true // Whether to use hardware acceleration
+        , position: 'absolute' // Element positioning
+    };
+    var target = document.getElementById('wait');
+    var content = document.getElementById('content_body');
+    var spinner = new Spinner(opts).spin(target);
+    var height = document.documentElement.clientHeight - 80;
+    target.style.height = height + "px";
+</script>
+<script src="const.js"></script>
+<script src="common/lib/require/require.min.js" defer async="true" data-main="pj_main"></script>
+</body>
+</html>

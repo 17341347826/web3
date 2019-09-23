@@ -1,0 +1,83 @@
+<xmp ms-widget="{is:'page_title_div',title:'评价项目',reBack:'0'}">
+</xmp>
+<div class="am-g" id="daily_layered_div" ms-important="table">
+    <div class="am-text-left" id="demand">
+        <form class="am-form am-form-inline" ms-validate="@validate">
+            <div class="am-form-group ">
+                <label class="am-form-label">
+                    班级
+                </label>
+                <div class="form-width-sm">
+                    <select ms-duplex="@selected_grade" style="width: 135px"
+                            data-duplex-changed="@grade_change"
+                            ms-attr="{disabled:@user_type==2}">
+                        <!--ms-for: el in @select_list-->
+                        <option ms-attr="{value:el.garde_id+','+el.grade_name+','+el.class_id+','+el.class_name}">
+                            {{el.grade_name}}-{{el.class_name}}班
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div id="physique_assessment_table" class="health-test">
+        <table class="am-table am-table-striped am-table-hover am-margin-top-sm" >
+            <thead>
+            <tr id="health-title">
+                <th>
+                    序号
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    学籍号
+                </th>
+
+                <!--ms-for: el in @course_list-->
+                <th>
+                    {{el.name}}
+                </th>
+                <!--ms-for-end:-->
+                <th>
+                    操作
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($index,el) in @table_list-->
+            <tr class="healths">
+                <td>
+                    {{$index+1}}
+                </td>
+                <td>
+                    {{el.name}}
+                </td>
+                <td>
+                    {{el.code}}
+                </td>
+
+                <td ms-for="(k, v) in el.titles">
+                    {{v.score}}
+                </td>
+                <td>
+                    <a href="javascript: void(0)" ms-click="@raise_objection(el.id)">提异议</a>
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            <tr class="healths" ms-if="@table_list.length==0&&is_show_none">
+                <td ms-attr="{colspan:@course_list.length+4}">
+                   暂无数据
+                </td>
+            </tr>
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,74 @@
+<div id="found-pwd-wx" ms-important="found_pwd_wx">
+    <div class="weui-cells__title">
+        忘记密码
+    </div>
+    <div class="weui-cells weui-cells_form">
+        <!--手机号-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    <span style="visibility: hidden">收</span>手机号
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="phone" ms-duplex="@signData.phone" ms-on-keyup="@phone_ident()" ms-on-blur="@phone_check()" placeholder="请输入11位手机号" type="text"/>
+            </div>
+        </div>
+        <!--验证码-->
+        <div class="weui-cell weui-cell_vcode">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    <span style="visibility: hidden">收</span>验证码
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="identifying" type="text" ms-duplex="@signData.identfy" ms-on-blur="@identfy_check()" placeholder="请输入验证码">
+            </div>
+            <div class="weui-cell__ft">
+                <button class="weui-vcode-btn identfy" id="identfy-none"  :if="@ident_type==0">获取验证码</button>
+                <button class="weui-vcode-btn identfy" id="identfy-one"   :if="@ident_type==1" ms-on-click="@identOne()">获取验证码</button>
+                <button class="weui-vcode-btn identfy" id="identfy-two"   :if="@ident_type==2">{{@countdown}}秒</button>
+                <button class="weui-vcode-btn identfy" id="identfy-three" :if="@ident_type==3" ms-on-click="@identThree()">重新发送</button>
+            </div>
+        </div>
+        <!--密码-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    登录密码
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="inputPwd" ms-duplex="@signData.inputPwd" ms-on-blur="@inputPwd_check()" placeholder="请输入登录密码" type="password"/>
+            </div>
+        </div>
+        <div class="weui-cell prompt-content">
+            <div class="weui-cell__bd prompt">
+                8-16位且包含大写、小写、数字、特殊字符至少3种
+            </div>
+        </div>
+        <!--确认密码-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    确认密码
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="insurePwd" ms-duplex="@signData.insurePwd" ms-on-blur="@insurePwd_check()" placeholder="请输入确认密码" type="password"/>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__tips" ms-visible="@msg != ''" style="color:red;text-align: center;font-size: 1em;">
+        {{@tips_msg}}
+    </div>
+    <!--提交-->
+    <div class="sign-btn">
+        <a class="weui-btn weui-btn_primary" href="javascript:;" ms-on-click="@found_pwd()">
+           提交
+        </a>
+    </div>
+    <!--<div class="weui-cells__tips attention">-->
+    <!--注：提交后将在学生端由学生进行确认，确认后家长账户即注册成功，方可使用-->
+    <!--</div>-->
+</div>

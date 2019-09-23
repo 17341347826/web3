@@ -1,0 +1,150 @@
+<div id="add_wx_achievement">
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="margin-left: 6px"><label class="weui-label">成就名称：</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="@data.form.ach_name">
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+            <label class="weui-label">
+                成就性质：
+            </label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select" ms-duplex="@data.form.xz" data-duplex-changed="@ach_xz_change">
+                <option value="0">请选择</option>
+                <option ms-attr="{value:el.ach_type}" ms-for="el in @data.achievementType">
+                    {{ el.ach_type }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd" >
+            <label class="weui-label">
+                成就类型：
+            </label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select"  ms-duplex="@data.form.ach_type" :click="@ach_type_click()">
+                <option value="0">请选择</option>
+                <option ms-attr="{value:el.type_name}" ms-for="el in @data.typeList">
+                    {{ el.type_name }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+            <label class="weui-label" >
+                成就级别：
+            </label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select" ms-duplex="@data.form.ach_level" data-duplex-changed="@ach_level_change" :click="@ach_level_click()">
+                <option value="0">请选择</option>
+                <option ms-attr="{value:el.ach_level}" ms-for="el in @data.achievementLevel">
+                    {{ el.ach_level }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_select weui-cell_select-after" :visible='@data.form.xz!="荣誉称号"'>
+        <div class="weui-cell__hd">
+            <label class="weui-label">
+                成就等级：
+            </label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select" ms-duplex="@data.form.ach_rank" data-duplex-changed="@rankChange()" :click="@rankClick()">
+                <option value="0">请选择</option>
+                <option ms-attr="{value:el.ach_rank}" ms-for="el in @data.achievementRank">
+                    {{ el.ach_rank }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd" style="margin-left: 5px"><label class="weui-label">获得时间:</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" value="" id="achievement_input" placeholder="请选择获奖时间"
+                   ms-duplex="@data.form.ach_date" readonly>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" ms-duplex="@data.form.ach_feel" placeholder="请输入成就感想" rows="3"></textarea>
+            <div class="weui-textarea-counter">
+            </div>
+        </div>
+    </div>
+    <!-------------上传文件-------------------->
+    <form enctype="multipart/form-data" id="uploadForm" method="post">
+        <div class="weui-gallery" id="gallery">
+            <span class="weui-gallery__img" id="galleryImg"></span>
+            <div class="weui-gallery__opr"></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <div class="weui-uploader">
+                    <div class="weui-uploader__hd">
+                        <p class="weui-uploader__title yiju">
+                            依 据 (最多可上传9个附件)
+                        </p>
+                    </div>
+                    <div class="weui-uploader__bd">
+                        <ul class="weui-uploader__files" id="uploaderFiles">
+                            <!--<li class="weui-uploader__file" style="background-image:url('../imgs/0.jpg')"></li>-->
+                        </ul>
+                        <div class="weui-uploader__input-box">
+                            <input class="weui-uploader__input" id="uploaderInput" multiple="" name="" type="file"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="weui-panel">
+        <div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_text dec">
+                <p class="weui-media-box__desc">
+                    视频要求：格式mp4、mov、avi、flv、swf，大小≤100MB（兆）;
+                </p>
+                <p class="weui-media-box__desc">
+                    图片要求：格式jpg、jpeg、png，宽或高≥300像素，0.5≤宽高比≤1;
+                </p>
+                <p class="weui-media-box__desc">
+                    其他要求：格式pdf、xls、xlsx、doc、docx、ppt、pptx、txt;
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_checkbox" :if="@personality_list.indexOf(@data.activity_type) > -1">
+        <label class="weui-cell weui-check__label" for="s11">
+            <div class="weui-cell__hd">
+                <input type="checkbox" class="weui-check"
+                       ms-duplex="@sftc_arr" data-duplex-changed="@checkboxChange" value="11"
+                       name="checkbox1" id="s11" checked="checked">
+                <i class="weui-icon-checked"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>标注为个性特长材料(说明：标注为特长材料，该材料将自动遴选为评价材料)</p>
+            </div>
+        </label>
+    </div>
+
+    <!--<a class="weui-btn weui-btn_primary" href="javascript:;" ms-class="[(@sub_disabled? 'disabled_class':'')]"-->
+       <!--ms-click="@save_data">-->
+        <!--提交-->
+    <!--</a>-->
+    <a :if="@sub_disabled" class="weui-btn weui-btn_primary disabled_class" href="javascript:;" title="依据正在上传中，请等待">
+        提交
+    </a>
+    <a :if="!@sub_disabled && !@btn_had" class="weui-btn weui-btn_primary disabled_class" href="javascript:;" title="成就奖励正在上传中，请等待">
+        提交
+    </a>
+    <a :if="!@sub_disabled && @btn_had" class="weui-btn weui-btn_primary" href="javascript:;" ms-click="@save_data">
+        提交
+    </a>
+</div>

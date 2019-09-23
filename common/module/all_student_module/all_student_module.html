@@ -1,0 +1,28 @@
+
+<div class="am-modal am-modal-prompt" tabindex="-1" id="add-confirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">批量选择学生</div>
+        <div class="am-modal-bd">
+            <div class="am-text-left">
+                <div class="am-form-group">
+                    <div class="am-margin-left-sm">
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox"  value="">全选
+                        </label>
+                    </div>
+                    <!--ms-for: ($index,el) in @student_arr-->
+                    <div style="display: inline-block;width: 95px;" class="am-margin-left-sm am-margin-right-sm">
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox"  ms-attr="{value:el.guid+'|'+el.name+'|'+el.code}" ms-duplex="@checkbox_arr"> {{el.name}}
+                        </label>
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel ms-on-click="@cancel_student">取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm ms-on-click="@add_student">确定</span>
+        </div>
+    </div>
+</div>

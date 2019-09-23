@@ -1,0 +1,26 @@
+<xmp  ms-widget="{is:'page_title_div',title:'',reBack:'0'}"/>
+<div class="am-g" ms-important="table" id="auditList">
+ <div class="am-tabs " data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
+  <ul class="am-tabs-nav am-nav am-nav-tabs">
+   <li class="am-active">
+    <a href="javascript: void(0)" ms-on-click="@firstIndexList()">
+     一级指标
+    </a>
+   </li>
+   <li>
+    <a href="javascript: void(0)" ms-on-click="@secondIndexList()">
+     二级指标
+    </a>
+   </li>
+   <li>
+    <a href="javascript: void(0)" ms-on-click="@thirdIndexList()">
+     评价内容
+    </a>
+   </li>
+  </ul>
+  <div id="index_audit_div">
+   <xmp ms-widget="{is:'ms-ele-table',only_hash:true, url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}">
+   </xmp>
+  </div>
+ </div>
+</div>

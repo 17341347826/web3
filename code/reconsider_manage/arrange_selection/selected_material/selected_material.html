@@ -1,0 +1,631 @@
+<div ms-important="um" id="material">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="container">
+        <div class="all-select">
+            <div class="tab-titles clearfix">
+                <div class="tab" ms-class="[@extend.shzt==1 ? 'chosen':'']" ms-click="change_tab(1)" >
+                    待审核
+                </div>
+                <div class="tab" ms-class="[@extend.shzt==3 ? 'chosen':'']" ms-click="change_tab(3)">
+                    未通过
+                </div>
+                <div class="tab" ms-class="[@extend.shzt==2 ? 'chosen':'']" ms-click="change_tab(2)">
+                    已通过
+                </div>
+                <div class="tab" ms-class="[@extend.shzt==4 ? 'chosen':'']" ms-click="change_tab(4)">
+                    已归档
+                </div>
+            </div>
+            <div class="type-count">
+                <div>
+                    你累计已通过
+                    <!--ms-for:($idx,el) in @count_list-->
+                    {{el.mkmc}}<span>{{el.num}}</span>份;
+                    <!--ms-for-end:-->
+                </div>
+                <div>
+                    你本学期已通过
+                    <!--ms-for:($idx,el) in @semester_count-->
+                    {{el.mkmc}}<span>{{el.num}}</span>份;
+                    <!--ms-for-end:-->
+                </div>
+
+            </div>
+            <div class="search-content clearfix">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择学年学期',sel_check:sel_semester,data_arr:@semester_arr,is_init:true}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择类型',sel_check:@sel_check,data_arr:@type_arr,is_init:true}"></xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--显示方式-->
+    <div class="dis-type" ms-visible="@list.length != 0">
+        <div class="radios">
+            <label class="radios-name">显示方式：</label>
+            <label class="am-radio-inline">
+                <input type="radio" id="option1" ms-duplex="@html_display"  class="rdo" value="1">
+                <label ms-attr="{for:'option1'}">图文</label>
+            </label>
+            <label class="am-radio-inline" :click="@radio_table()">
+                <input type="radio" id="option2" ms-duplex="@html_display" class="rdo" value="2">
+                <label ms-attr="{for:'option2'}">表格</label>
+            </label>
+        </div>
+    </div>
+    <!--table-->
+    <div :if="@html_display == 2 && @list_detail == 1 && @list.length>0">
+        <div class="table_module am-padding-top-sm am-padding-bottom-sm">
+            <div id="class-module">
+                <table class="am-table am-table-hover">
+                    <thead style="text-align: center">
+                    <tr>
+                        <td>序号</td>
+                        <td>学校</td>
+                        <td>年级</td>
+                        <td>姓名</td>
+                        <td>学籍号</td>
+                        <td>活动主题</td>
+                        <td>类型</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($idx,el) in @list-->
+                    <tr>
+                        <td>{{@set_index($idx+1,@currentPage)}}</td>
+                        <td>{{el.xxmc}}</td>
+                        <td>{{el.xqmc}}</td>
+                        <td>{{el.xsxm}}</td>
+                        <td>{{el.xjh}}</td>
+                        <td class="text_desc_width">{{el.bt}}</td>
+                        <td>{{el.lx}}</td>
+                        <td><a class='tab-btn tab-details-btn' ms-on-click='@person_honor($idx,el)' title='查看'></a></td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!--分页-->
+        <div class="divide-page am-cf" ms-visible="@totalPageArr.length!=0 && @count>10" data-am-widget="pagination">
+            <div style="float: right; margin-right:16px;">
+                <div class="page-info">
+                    <span>共{{@count}}条数据</span>
+                    <!--<span>当前为第{{@currentPage}}页</span>-->
+                    <span>共{{@totalPage}}页</span>
+                </div>
+                <div class="pages">
+                    <div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(1)">
+                        首页
+                    </div>
+                    <div class="pre-page" ms-visible="@currentPage != 1" ms-on-click="@currentPageDate(@currentPage-1)">
+                        上一页
+                    </div>
+                    <!--ms-for: ($index,el) in @totalPageArr -->
+                    <div class="com-page" ms-class="[el==@currentPage?'page-active':'']" ms-on-click="@currentPageDate(el)">
+                        {{el}}
+                    </div>
+                    <!--ms-for-end:-->
+                    <div class="next-page" ms-visible="@currentPage != @totalPage"
+                         ms-on-click="@currentPageDate(@currentPage+1)">
+                        下一页
+                    </div>
+                    <div class="last-page" ms-visible="@currentPage != @totalPage"
+                         ms-on-click="@currentPageDate(@totalPage)">
+                        末页
+                    </div>
+                </div>
+                <div class="turn-page">
+                    <div>跳转到：</div>
+                    <div class="s-page"><input type="text" ms-duplex-number="@pageNo"/></div>
+                    <div class="go-page" ms-on-click="@pageNOSure(@pageNo)">GO</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--table单条记录列表详情-->
+    <div :if="@html_display == 2 && @list_detail == 2">
+        <div class="container" ms-visible="person_detail.mk!=4">
+            <div class="inner-content">
+                <!---------------------------------->
+                <div class="b-title">
+                    材料记录详情
+                </div>
+                <div class="inner">
+                    <div class="m-title">
+                        <div class="person-left">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:person_detail.fk_xsyh_id}))}" alt="图片">
+                            <h3>{{person_detail.xsxm}}</h3>
+                        </div>
+                        <div class="person-right">
+                            <div class="persion-title">
+                                |<span>{{person_detail.mkmc}}</span>|
+                            </div>
+                            <div class="person-msg">
+                                <h3>
+                                    {{person_detail.njmc}}{{person_detail.bjmc}}班
+                                </h3>
+                                <h3>
+                                    {{person_detail.xxmc}}
+                                </h3>
+                                <h3>
+                                    {{@district}}
+                                </h3>
+                                <h3>
+                                    {{person_detail.xgsj}}
+                                </h3>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{person_detail.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型 : </h3>
+                            <p>{{person_detail.lx}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>时长 : </h3>
+                            <p>{{person_detail.sc}}</p>
+                        </div>
+                    </div>
+                    <div class="bg">
+                        <h3>参与成员 : </h3>
+                        <p>{{person_detail.cy}}</p>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>开始时间 : </h3>
+                            <p>{{person_detail.kssj}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>结束时间 : </h3>
+                            <p>{{person_detail.jssj}}</p>
+                        </div>
+
+                    </div>
+
+                    <div class="bg" ms-visible="extend.shzt==3">
+                        <h3>审核意见 : </h3>
+                        <p>{{person_detail.shyj}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>地点 : </h3>
+                        <p>{{person_detail.dd}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>获奖感想 : </h3>
+                        <p>{{person_detail.gx}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>个性特长 : </h3>
+                        <!--特长标识0非特长 1特长-->
+                        <p :visible="person_detail.sftc == 1">是</p>
+                        <p :visible="person_detail.sftc == 0">否</p>
+                    </div>
+                    <div class="img-container clearfix"
+                         ms-visible="person_detail.img_arr.length>0">
+                        <h3>活动图片: </h3>
+                        <div ms-class="[(person_detail.is_open? '':'part-img')]"
+                             ms-for="el2 in person_detail.img_arr">
+                            <img ms-attr="{src:@url_img(el2.guid)}" alt="图片">
+                        </div>
+                    </div>
+
+                    <div class="img-container clearfix"
+                         ms-visible="person_detail.file_arr.length>0">
+                        <!--ms-for: ($index,col) in @person_detail.file_arr-->
+                        <p class="file-name-content">
+                            <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="img-container clearfix"
+                         ms-visible="person_detail.video_arr.length>0">
+                        <!--ms-for: ($index,col) in @person_detail.video_arr-->
+                        <p class="file-name-content">
+                            <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="bt clearfix">
+                        <div ms-visible="!person_detail.is_open" class="open-close open" ms-click="@open_close('open',current_index)">
+                            展开<span></span>
+                        </div>
+                        <div ms-visible="person_detail.is_open" class="open-close close" ms-click="@open_close('close',current_index)">
+                            收起<span></span>
+                        </div>
+                        <div class="btns clearfix" ms-attr="{value:extend.shzt}" ms-visible="@extend.shzt!=2">
+                            <button class="pass select-material" id="cancelSelect" ms-click="no_pass(person_detail)">取消遴选为评价材料</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container" ms-visible="person_detail.mk==4">
+            <div class="inner-content">
+                <!---------------------------------->
+                <div class="b-title">
+                    材料记录详情
+                </div>
+                <div class="inner">
+                    <div class="m-title">
+                        <div class="person-left">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:person_detail.fk_xsyh_id}))}" alt="图片">
+                            <h3>{{person_detail.xsxm}}</h3>
+                        </div>
+                        <div class="person-right">
+                            <div class="persion-title">
+                                |<span>{{person_detail.mkmc}}</span>|
+                            </div>
+                            <div class="person-msg">
+                                <h3>
+                                    {{person_detail.njmc}}{{person_detail.bjmc}}班
+                                </h3>
+                                <h3>
+                                    {{person_detail.xxmc}}
+                                </h3>
+                                <h3>
+                                    {{@district}}
+                                </h3>
+                                <h3>
+                                    {{person_detail.xgsj}}
+                                </h3>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{person_detail.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型 : </h3>
+                            <p>{{person_detail.lx}}</p>
+                        </div>
+                        <div class="sm-each" :visible="person_detail.df!=null">
+                            <h3>得分 : </h3>
+                            <p>{{person_detail.df}}</p>
+                        </div>
+                    </div>
+                    <div class="bg">
+                        <h3>参与成员 : </h3>
+                        <p>{{person_detail.cy}}</p>
+                    </div>
+                    <div class="sm">
+                        <div class="sm-each">
+                            <h3>指导老师 : </h3>
+                            <p>{{person_detail.zdjs}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>担任角色 : </h3>
+                            <p>{{person_detail.drjs}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>承担任务 :</h3>
+                            <p>{{person_detail.cdrw}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>研究主题</h3>
+                            <p>{{person_detail.yjzt}}</p>
+                        </div>
+                    </div>
+                    <div class="bg">
+                        <h3>开始时间 : </h3>
+                        <p>{{person_detail.kssj}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>结束时间 : </h3>
+                        <p>{{person_detail.jssj}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>收获感想 : </h3>
+                        <p>{{person_detail.gx}}</p>
+                    </div>
+
+                    <div class="img-container clearfix"
+                         ms-visible="person_detail.img_arr.length>0">
+                        <h3>活动图片: </h3>
+                        <div ms-class="[(person_detail.is_open? '':'part-img')]"
+                             ms-for="el2 in person_detail.img_arr">
+                            <img ms-attr="{src:@url_img(el2.guid)}" alt="图片">
+                        </div>
+                    </div>
+
+                    <div class="img-container clearfix"
+                         ms-visible="person_detail.file_arr.length>0">
+                        <!--ms-for: ($index,col) in @person_detail.file_arr-->
+                        <p class="file-name-content">
+                            <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="img-container clearfix"
+                         ms-visible="person_detail.video_arr.length>0">
+                        <!--ms-for: ($index,col) in @person_detail.video_arr-->
+                        <p class="file-name-content">
+                            <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="bt clearfix">
+                        <div ms-visible="!person_detail.is_open" class="open-close open" ms-click="@open_close('open',current_index)">
+                            展开<span></span>
+                        </div>
+                        <div ms-visible="person_detail.is_open" class="open-close close" ms-click="@open_close('close',current_index)">
+                            收起<span></span>
+                        </div>
+                        <div class="btns clearfix" ms-attr="{value:extend.shzt}" ms-visible="@extend.shzt!=2">
+                            <button class="pass select-material" id="cancelSelect" ms-click="no_pass(person_detail)">取消遴选为评价材料</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="person-btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+        </div>
+    </div>
+   <div :if="@html_display == 1">
+       <!--ms-for:($idx,el) in @list-->
+       <div class="container" ms-visible="el.mk!=4">
+           <div class="inner-content">
+               <!---------------------------------->
+               <div class="b-title">
+                   材料记录详情
+               </div>
+               <div class="inner">
+                   <div class="m-title">
+                       <div class="person-left">
+                           <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}" alt="图片">
+                           <h3>{{el.xsxm}}</h3>
+                       </div>
+                       <div class="person-right">
+                           <div class="persion-title">
+                               |<span>{{el.mkmc}}</span>|
+                           </div>
+                           <div class="person-msg">
+                               <h3>
+                                   {{el.njmc}}{{el.bjmc}}班
+                               </h3>
+                               <h3>
+                                   {{el.xxmc}}
+                               </h3>
+                               <h3>
+                                   {{@district}}
+                               </h3>
+                               <h3>
+                                   {{el.xgsj}}
+                               </h3>
+                           </div>
+
+                       </div>
+
+                   </div>
+                   <div class="sm first-sm">
+                       <div class="sm-each">
+                           <h3>名称 : </h3>
+                           <p>{{el.bt}}</p>
+                       </div>
+                       <div class="sm-each">
+                           <h3>类型 : </h3>
+                           <p>{{el.lx}}</p>
+                       </div>
+                       <div class="sm-each">
+                           <h3>时长 : </h3>
+                           <p>{{el.sc}}</p>
+                       </div>
+                   </div>
+                   <div class="bg">
+                       <h3>参与成员 : </h3>
+                       <p>{{el.cy}}</p>
+                   </div>
+                   <div class="sm first-sm">
+                       <div class="sm-each">
+                           <h3>开始时间 : </h3>
+                           <p>{{el.kssj}}</p>
+                       </div>
+                       <div class="sm-each">
+                           <h3>结束时间 : </h3>
+                           <p>{{el.jssj}}</p>
+                       </div>
+
+                   </div>
+
+                   <div class="bg" ms-visible="extend.shzt==3">
+                       <h3>审核意见 : </h3>
+                       <p>{{el.shyj}}</p>
+                   </div>
+                   <div class="bg">
+                       <h3>地点 : </h3>
+                       <p>{{el.dd}}</p>
+                   </div>
+                   <div class="bg">
+                       <h3>获奖感想 : </h3>
+                       <p>{{el.gx}}</p>
+                   </div>
+                   <div class="bg">
+                       <h3>个性特长 : </h3>
+                       <!--特长标识0非特长 1特长-->
+                       <p :visible="el.sftc == 1">是</p>
+                       <p :visible="el.sftc == 0">否</p>
+                   </div>
+                   <div class="img-container clearfix" ms-visible="el.img_arr.length>0">
+                       <h3>活动图片 : </h3>
+                       <div ms-class="[(el.is_open? '':'part-img')]" ms-for="el2 in el.img_arr">
+                           <img ms-attr="{src:@url_img(el2.guid)}" alt="图片">
+                       </div>
+                   </div>
+
+                   <div class="img-container clearfix" ms-visible="el.file_arr.length>0">
+                       <!--ms-for: ($index,col) in @el.file_arr-->
+                       <p class="file-name-content">
+                           <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                       </p>
+                       <!--ms-for-end:-->
+                   </div>
+                   <div class="img-container clearfix" ms-visible="el.video_arr.length>0">
+                       <!--ms-for: ($index,col) in @el.video_arr-->
+                       <p class="file-name-content">
+                           <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                       </p>
+                       <!--ms-for-end:-->
+                   </div>
+                   <div class="bt clearfix">
+                       <div ms-visible="!el.is_open" class="open-close open" ms-click="@open_close('open',$idx)">
+                           展开<span></span>
+                       </div>
+                       <div ms-visible="el.is_open" class="open-close close" ms-click="@open_close('close',$idx)">
+                           收起<span></span>
+                       </div>
+                       <div class="btns clearfix" ms-attr="{value:extend.shzt}" ms-visible="@extend.shzt!=2">
+                           <button class="pass select-material" ms-click="no_pass(el)">取消遴选为评价材料</button>
+                       </div>
+                   </div>
+               </div>
+               </div>
+
+           </div>
+       </div>
+       <!--ms-for-end:-->
+       <!--ms-for:($idx,el) in @list-->
+       <div class="container" ms-visible="el.mk==4">
+           <div class="inner-content">
+               <!---------------------------------->
+               <div class="b-title">
+                   材料记录详情
+               </div>
+               <div class="inner">
+                   <div class="m-title">
+                       <div class="person-left">
+                           <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}" alt="图片">
+                           <h3>{{el.xsxm}}</h3>
+                       </div>
+                       <div class="person-right">
+                           <div class="persion-title">
+                               |<span>{{el.mkmc}}</span>|
+                           </div>
+                           <div class="person-msg">
+                               <h3>
+                                   {{el.njmc}}{{el.bjmc}}班
+                               </h3>
+                               <h3>
+                                   {{el.xxmc}}
+                               </h3>
+                               <h3>
+                                   {{@district}}
+                               </h3>
+                               <h3>
+                                   {{el.xgsj}}
+                               </h3>
+                           </div>
+
+                       </div>
+
+                   </div>
+                   <div class="sm first-sm">
+                       <div class="sm-each">
+                           <h3>名称 : </h3>
+                           <p>{{el.bt}}</p>
+                       </div>
+                       <div class="sm-each">
+                           <h3>类型 : </h3>
+                           <p>{{el.lx}}</p>
+                       </div>
+                       <div class="sm-each" :visible="el.df!=null">
+                           <h3>得分 : </h3>
+                           <p>{{el.df}}</p>
+                       </div>
+                   </div>
+                   <div class="bg">
+                       <h3>参与成员 : </h3>
+                       <p>{{el.cy}}</p>
+                   </div>
+                   <div class="sm">
+                       <div class="sm-each">
+                           <h3>指导老师 : </h3>
+                           <p>{{el.zdjs}}</p>
+                       </div>
+                       <div class="sm-each">
+                           <h3>担任角色 : </h3>
+                           <p>{{el.drjs}}</p>
+                       </div>
+                       <div class="sm-each">
+                           <h3>承担任务 :</h3>
+                           <p>{{el.cdrw}}</p>
+                       </div>
+                       <div class="sm-each">
+                           <h3>研究主题</h3>
+                           <p>{{el.yjzt}}</p>
+                       </div>
+                   </div>
+                   <div class="bg">
+                       <h3>开始时间 : </h3>
+                       <p>{{el.kssj}}</p>
+                   </div>
+                   <div class="bg">
+                       <h3>结束时间 : </h3>
+                       <p>{{el.jssj}}</p>
+                   </div>
+                   <div class="bg">
+                       <h3>收获感想 : </h3>
+                       <p>{{el.gx}}</p>
+                   </div>
+
+                   <div class="img-container clearfix" ms-visible="el.img_arr.length>0">
+                       <h3>活动图片 : </h3>
+                       <div ms-class="[(el.is_open? '':'part-img')]" ms-for="el2 in el.img_arr">
+                           <img ms-attr="{src:@url_img(el2.guid)}" alt="图片">
+                       </div>
+                   </div>
+
+                   <div class="img-container clearfix" ms-visible="el.file_arr.length>0">
+                       <!--ms-for: ($index,col) in @el.file_arr-->
+                       <p class="file-name-content">
+                           <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                       </p>
+                       <!--ms-for-end:-->
+                   </div>
+                   <div class="img-container clearfix" ms-visible="el.video_arr.length>0">
+                       <!--ms-for: ($index,col) in @el.video_arr-->
+                       <p class="file-name-content">
+                           <span>材料文件 : </span> <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                       </p>
+                       <!--ms-for-end:-->
+                   </div>
+                   <div class="bt clearfix">
+                       <div ms-visible="!el.is_open" class="open-close open" ms-click="@open_close('open',$idx)">
+                           展开<span></span>
+                       </div>
+                       <div ms-visible="el.is_open" class="open-close close" ms-click="@open_close('close',$idx)">
+                           收起<span></span>
+                       </div>
+                       <div class="btns clearfix" ms-attr="{value:extend.shzt}" ms-visible="@extend.shzt!=2">
+                           <button class="pass select-material" ms-click="no_pass(el)">取消遴选为评价材料</button>
+                       </div>
+                   </div>
+               </div>
+
+           </div>
+       </div>
+       <!--ms-for-end:-->
+   </div>
+    <div class="container no-data" ms-visible="@list.length==0 && @data_had">
+        <img src="../../../../common/images/none.png" alt="图片">
+    </div>
+    <div ms-visible="@list.length==0 && !@data_had" class="data_pedding">
+        正在加载中，请稍等
+    </div>
+</div>

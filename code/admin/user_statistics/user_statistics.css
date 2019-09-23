@@ -1,0 +1,24 @@
+/*#leaders-form-inline>div{*/
+    /*background-color: white;*/
+    /*border-radius: 5px;*/
+/*}*/
+#user_statistics .am-form-inline .am-form-group {
+    margin: 0 10px 15px;
+}
+
+#user_statistics .am-form-inline .am-form-group div {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#user_statistics .am-form-inline .am-form-group select {
+    width: auto;
+    display: inline-block;
+}
+
+#user_statistics .am-form-inline .am-form-group input {
+    width: 190px;
+}
+#user_statistics .am-form-inline .am-form-field {
+    display: inline-block;
+}

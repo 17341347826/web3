@@ -1,0 +1,43 @@
+#name_input{
+    margin-left: -7px;
+}
+#second_table > tbody > tr > td:nth-of-type(odd){
+    text-align: left;
+}
+
+#add-programme>form{
+    padding-top: 40px;
+    overflow: hidden;
+}
+#add-programme .am-form-label {
+    margin-top: 6px;
+}
+#submitBtnDiv a{
+    width: 66px;
+    height: 37px;
+}
+#add-programme label{
+    font-size: 16px;
+}
+#add-programme label{
+    color: rgb(162,162,162);
+}
+#add-programme input[type='text'],
+#add-programme select{
+    color: #777;
+    border-radius: 4px;
+}
+#add-programme .radios .am-radio-inline label{
+    color: #777;
+}
+#add-programme .rdo:checked+label{
+    color: #0dba9e;
+}
+.radio-content{
+    padding-top: 5px;
+}
+#add-programme .btns{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}

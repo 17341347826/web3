@@ -1,0 +1,51 @@
+<div id="notice_module" class="content_box" ms-class="[(@ident == 4 || @ident == 6 || @ident == 7) ? 'dand_style':'' ]">
+    <div class="title_remark tab_div">
+        <p><a href="javascript:;" :class="[(@change_tab_num==1 ? 'avtive':'')]" ms-on-click="change_tab(1)" >通知公告</a> |
+            <a href="javascript:;" :class="[(@change_tab_num==2 ? 'avtive':'')]" ms-on-click="change_tab(2)">版本更新</a>
+        </p>
+    </div>
+    <div class="context_high">
+        <div class="notice-container" ms-if="@change_tab_num==1">
+            <div class="notice-msg">
+                <h3 :if="@notice_data.title && @ident != 4 && @ident != 6 && @ident != 7" class="notice-title am-padding-top-sm">{{@notice_data.title}}</h3>
+                <div :if="@notice_data.content && @ident != 4 && @ident != 6 && @ident != 7" class="notice-des" ms-html="@notice_data.content">
+                </div>
+                <h3 :if="@ident == 4 || @ident == 6 || @ident == 7" class="notice-title">
+                    关于本学期初中学生综合素质评价通知：
+                </h3>
+                <div :if="@ident == 4 || @ident == 6 || @ident == 7" class="notice-des">
+                    <span style="visibility: hidden;">周老</span> 2018-2019学年（春季）学期的综合素质评价工作正在进行中，教师、学生、家长可在2019年9月20日前完成相关材料上传及评价。
+                    服务电话：<br/>
+                    办公室<span style="visibility: hidden;">周</span>02838178960、4000284088<br/>
+                    周老师<span style="visibility: hidden;">周</span>17313216782<span style="visibility: hidden;">周老师</span>谭老师<span style="visibility: hidden;">周</span>13795529633<br/>
+                    张老师<span style="visibility: hidden;">周</span>15282337767<span style="visibility: hidden;">周老师</span>冯老师<span style="visibility: hidden;">周</span>17780526630<br/>
+                    鲜老师<span style="visibility: hidden;">周</span>18123313856<span style="visibility: hidden;">周老师</span>投诉<span style="visibility: hidden;">周</span>14726153211<br/>
+                </div>
+                <h2  :if="@ident == 4 || @ident == 6 || @ident == 7" class="notice-title">
+                    学生需要完成任务：
+                </h2>
+                <div :if="@ident == 4 || @ident == 6 || @ident == 7" class="notice-des">
+                    1、学生在“<span style="font-size:15px;font-weight: bold;">我的目标计划</span>”中填写 “本学期目标计划”。<br/>
+                    2、学生在“<span style="font-size:15px;font-weight: bold;">我要记录材料</span>”中上传
+                    本学期“<span style="font-size:15px;font-weight: bold;">综合实践材料</span>”与“
+                    <span style="font-size:15px;font-weight: bold;">成就奖励材料</span>”。上传完成后
+                    在“<span style="font-size:15px;font-weight: bold;">我的材料查看</span>”-“
+                    <span style="font-size:15px;font-weight: bold;">综合实践材料</span>”-
+                    “<span style="font-size:15px;font-weight: bold;">未遴选材料</span>”中，选择上传的合格材料并提交给班主任进行审核。<br/>
+                    3、老师审核综合实践材料并通过，经过3天公示无异议，归档成功后，学生再进行
+                    “<span style="font-size:15px;font-weight: bold;">我要评价自己</span>”
+                    “<span style="font-size:15px;font-weight: bold;">我要评价同学</span>” 两项操作。<br/>
+                </div>
+            </div>
+        </div>
+        <div class="refresh" ms-if="@change_tab_num==2">
+            <div class="refresh-msg" ms-html="@version_content" :if="@version_content">
+            </div>
+        </div>
+    </div>
+    <div class="text_remark am-cf" ms-if="@change_tab_num==1 && @ident != 4 && @ident != 6 && @ident != 7">
+        <div class="am-fr" :click="@notice_more()">
+            <div class="more_notice">更多>></div>
+        </div>
+    </div>
+</div>

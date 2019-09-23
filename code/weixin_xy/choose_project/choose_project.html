@@ -1,0 +1,18 @@
+<div class="content" id="choose-project" ms-controller="projects">
+ <div class="pro-title">
+  <span>
+   考试项目
+  </span>
+ </div>
+ <div class="project-list" ms-for="(ind, el) in @data" ms-on-click="@exam_detail(el.project_id, el.exam_name)">
+  <div>
+   {{el.exam_name}}
+   <span>
+    >>
+   </span>
+  </div>
+ </div>
+ <div class="weui-text-center msg">
+  {{errmsg}}
+ </div>
+</div>

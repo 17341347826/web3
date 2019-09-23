@@ -1,0 +1,471 @@
+#person_info{
+    min-height:400px;
+    color: #777777;
+    font-size:16px;
+}
+#person_info .account_title{
+    line-height: 80px;
+    color:#40acc1;
+    font-size: 18px;
+    border-bottom: 1px #e4e4e4 solid;
+}
+#person_info .account_content{
+     margin-top:25px;
+     /*border:1px solid red;*/
+     width:957px;
+     display: inline-block;
+    /*overflow: hidden;*/
+    padding-bottom:40px;
+ }
+#person_info .account_content>div{
+    /*width:857px;*/
+    width:100%;
+}
+/*头像*/
+#person_info .head-info{
+
+}
+#person_info .head-info .user-head{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #dbd8d8;
+}
+#person_info .head-info .user-head>img{
+    width: 90px;
+    height: 90px;
+    /*width:100%;*/
+}
+/*修改头像*/
+#person_info .user-head{
+    position: relative;
+    cursor: pointer;
+}
+#person_info .user-head:hover .up-head{
+    display:block;
+}
+#person_info .user-head .up-head{
+    position: absolute;
+    z-index:99;
+    /*top: 33px;*/
+    /*left: 12px;*/
+    display:none;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    margin-top: -90px;
+    background-color: rgba(0,0,0,.6);
+}
+#person_info .user-head .up-head span{
+    color: #E8E8E8;
+}
+#person_info .head-info>div:last-child{
+    margin-top:10px;
+    /*border:1px solid red;*/
+    position: relative;
+    height: 29px;
+    line-height: 29px;
+}
+#person_info #head-confirm .am-modal-hd{
+    border-bottom: none;
+}
+#person_info #head-confirm .canvas-container,
+#person_info #head-confirm .canvas-container .lower-canvas{
+    width:387px !important;
+}
+/*头像结束*/
+#person_info .head-info>div:last-child div{
+    display:inline-block;
+    margin-left:35px;
+    position: absolute;
+}
+#person_info .account_content .change-btn:hover{
+    background-color: #00c695;
+}
+/*个人基本信息*/
+#person_info .stu-info-head,
+#person_info .parent-info-head{
+    margin-bottom:20px;
+    overflow: hidden;
+}
+#person_info .stu-head,
+#person_info .parent-head{
+    font-size: 18px;
+    width: 87px;
+    height: 29px;
+    line-height: 29px;
+    background-color: #f3f3f3;
+    border-radius: 4px;
+}
+#person_info .stu-info .stu-info-head>div:first-child,
+#person_info .bse-msg .am-table>thead>tr>th,
+#person_info .bse-msg .am-table>tbody>tr>td{
+    color: #777777;
+}
+#person_info .bse-msg .person-img {
+    width: 100%;
+    max-height: 228px;
+}
+/*图片*/
+#person_info  #card-photo,
+#person_info  #card-photo-x{
+    position: relative;
+    /*width: 100%;*/
+    max-height: 228px;
+    max-width: 160px;
+}
+#person_info  #card-photo img,
+#person_info  #card-photo-x img{
+    /*width: auto;*/
+    /*height: auto;*/
+    max-width: 100%;
+    /*max-height: 100%;*/
+}
+#person_info .report,
+#person_info .report-x{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    filter: alpha(opacity=20);
+    cursor: pointer;
+    color: #e8e8e8;
+    background-color: rgba(0,0,0,.6);
+}
+#person_info  #card-photo:hover .report ,
+#person_info  #card-photo-x:hover .report {
+    display: block;
+}
+/*个性名片--编辑状态*/
+/*#person_info .personal-card h3{*/
+    /*margin:0;*/
+    /*padding:0;*/
+/*}*/
+/*#person_info .personal-card {*/
+    /*!*width: 100%;*!*/
+    /*width:99.5%;*/
+    /*margin-top: 8px;*/
+    /*margin-bottom: 8px;*/
+    /*background-color: #FFFFFF;*/
+    /*background-image: url("../../../../common/images/file_detail/circle.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: bottom right;*/
+    /*box-shadow: 0px 0px 13px 0px #eaeaea;*/
+/*}*/
+/*#person_info .personal-card .card-left {*/
+    /*height: 100%;*/
+    /*width: 140px;*/
+    /*min-height: 552px;*/
+    /*padding-top: 155px;*/
+    /*background-color: #ff9e63;*/
+    /*padding-left: 40px;*/
+    /*float: left;*/
+    /*border-top-left-radius: 5px;*/
+    /*border-bottom-left-radius: 5px;*/
+/*}*/
+/*#person_info .personal-card .card-right {*/
+    /*float: left;*/
+    /*margin-left: -8px;*/
+    /*padding-top: 61px;*/
+    /*padding-bottom: 61px;*/
+/*}*/
+/*#person_info .personal-card .card-right span {*/
+    /*display: inline-block;*/
+/*}*/
+/*#person_info .personal-card .card-right .card-out {*/
+    /*width: 17px;*/
+    /*height: 17px;*/
+    /*border-radius: 50%;*/
+    /*background-color: #FFFFFF;*/
+    /*vertical-align: top;*/
+    /*margin-top: 6px;*/
+    /*margin-right: 48px;*/
+/*}*/
+/*#person_info .personal-card .card-right .card-in {*/
+    /*width: 7px;*/
+    /*height: 7px;*/
+    /*border-radius: 50%;*/
+    /*margin-bottom: 7px;*/
+    /*margin-left: 5px;*/
+    /*background-color: #ff9e63;*/
+/*}*/
+/*#person_info .personal-card .card-right .each-card {*/
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    /*text-align: left;*/
+/*}*/
+/*#person_info .personal-card .card-right .each-card h3 {*/
+    /*font-size: 18px;*/
+    /*color: #13cbb3;*/
+    /*font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;*/
+/*}*/
+/*#person_info .personal-card .card-right .each-card p {*/
+    /*font-size: 14px;*/
+    /*color: #777777;*/
+    /*margin: 0;*/
+/*}*/
+/*#person_info .personal-card .card-right .each-card div {*/
+    /*display: inline-block;*/
+/*}*/
+/*按钮*/
+.click-btn{
+    height: 29px;
+    border-radius: 4px;
+    color:#fff;
+    font-size: 16px;
+    display:inline-block;
+    line-height: 29px;
+    text-align: center;
+    cursor: pointer;
+}
+/*编辑按钮*/
+#person_info .edit-btn{
+    width: 60px;
+    background-color: #ffa88a;
+}
+/*保存按钮*/
+#person_info .save-btn{
+    width: 60px;
+    background-color: #34bfaa;
+}
+/*更改签名按钮*/
+#person_info .qm-btn{
+    background-color: #34bfaa;
+    padding-left:15px;
+    padding-right:15px;
+}
+/*上传头像*/
+#person_info .a-upload {
+    /* padding: 4px 10px; */
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+    background: #00b7ee;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+}
+#person_info .a-upload input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+#person_info #content-head,
+#person_info #content{
+    margin-top: 60px;
+    /*margin-left: 60px;*/
+    display:inline-block;
+    text-align: center;
+}
+#person_info .head-info .user-head #content-head img,
+#person_info  #content img{
+   max-width: 100%;
+}
+#person_info .head_insure{
+    color: #0e90d2;
+    cursor: pointer;
+}
+
+
+/*波浪线*/
+.wave-line{
+    margin-top: -10px;
+    margin-bottom: 15px;
+    color:#e4e4e4;
+    width:757px;
+}
+.wave {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(118, 218, 255);
+    border-radius: 50%;
+}
+.wave:before,.wave:after{
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 0;
+    left: 50%;
+    background-color: rgba(255, 255, 255, .4);
+    border-radius: 45%;
+    transform: translate(-50%, -70%) rotate(0);
+    animation: rotate 6s linear infinite;
+    z-index: 10;
+}
+
+.wave:after {
+    border-radius: 47%;
+    background-color: rgba(255, 255, 255, .9);
+    transform: translate(-50%, -70%) rotate(0);
+    animation: rotate 10s linear -5s infinite;
+    z-index: 20;
+}
+
+@keyframes rotate {
+    50% {
+        transform: translate(-50%, -73%) rotate(180deg);
+    }
+    100% {
+        transform: translate(-50%, -70%) rotate(360deg);
+    }
+}
+
+
+
+/*个性名片--保存状态*/
+#person_info .card{
+    /*border:1px solid red;*/
+    /*overflow: hidden;*/
+    text-align: left;
+    position: relative;
+    min-height: 552px;
+    width: 99.5%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: #FFFFFF;
+    background-image: url(../../../../common/images/file_detail/circle.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    box-shadow: 0px 0px 13px 0px #eaeaea;
+}
+#person_info .card>div{
+    /*float:left;*/
+    /*display:inline-block;*/
+    /*vertical-align: top;*/
+    /*position: absolute;*/
+}
+/*左边*/
+#person_info .card .card-left{
+    position: absolute;
+    height: 100%;
+    width: 140px;
+    background-color: #ff9e63;
+    padding-left: 40px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    /*border:1px solid blue;*/
+    /*min-height: 552px;*/
+    padding-top: 155px;
+}
+/*右边*/
+#person_info .card .card-right{
+    /*left:132px;*/
+    padding-top: 61px;
+    padding-bottom: 61px;
+    padding-left: 132px;
+}
+#person_info .card .card-right div{
+    /*display:inline-block;*/
+}
+/*每天人生格言*/
+#person_info .card .card-right .each-card{
+    margin-top: 10px;
+    padding-right: 20px;
+}
+#person_info .card .card-right .card-out {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    vertical-align: top;
+    margin-top: 6px;
+    /*margin-right: 48px;*/
+    position: absolute;
+}
+#person_info .card .card-right .card-in {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: #ff9e63;
+    position: absolute;
+    /*bottom: 5px;*/
+}
+#person_info .card .card-right .card-name{
+    margin-left: 48px;
+    font-size: 18px;
+    color: #13cbb3;
+    font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+#person_info .card .card-right .card-con{
+    margin-left: 50px;
+    font-size: 14px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+/*编辑状态-文本框*/
+#person_info textarea{
+    width:100%;
+    /*min-height: 30px;*/
+}
+/*家长部分样式*/
+#person_info .parent-info .contact-kid-title{
+    margin-right:58px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #444444;
+}
+#person_info .parent-info .kid-list>div{
+    margin-bottom:10px;
+}
+#person_info .parent-info .kid-list div>span{
+    margin-right:50px;
+}
+#person_info .parent-info .kid-list div>span:last-child{
+    margin-right:0;
+}
+#person_info .parent-info .add-kid{
+    font-size: 16px;
+    font-weight: normal;
+    color: #34bfaa;
+    cursor: pointer;
+}
+/*模态框*/
+#person_info .am-modal-dialog {
+    border-radius: 4px;
+    width:430px;
+}
+#person_info .am-modal-hd {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dedede;
+}
+#person_info .am-modal-hd + .am-modal-bd {
+    padding-top: 15px;
+}
+#person_info #kid-model {
+    /*color: #a2a2a2;*/
+    color: #777;
+}
+#person_info #kid-model label{
+    font-size:14px;
+    font-weight: normal;
+}
+#person_info #kid-model input{
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    color: #c8c8c8;
+}
+/*子女确认信息*/
+#person_info #kid-model .kid-insure{
+    color:red;
+    font-size:14px;
+    margin-left:32px;
+}

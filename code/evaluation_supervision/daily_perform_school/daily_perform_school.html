@@ -1,0 +1,109 @@
+<div ms-important="daily_perform_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+
+    </div>
+
+    <div class="table-content clearfix">
+        <div class="title">
+            学生日常表现上传进度（校）
+        </div>
+        <div class="tb-content" ms-visible="@filter_school(@order_by_grade).length>0">
+            <div class="tu-biao" >
+                <div class="biao-title">
+                    各年级上传学生占比
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>年级</td>
+                        <td>学生人数</td>
+                        <td>上传总数</td>
+                        <td>人均上传数</td>
+                        <td>已上传人数</td>
+                        <td>未上传人数</td>
+                        <td>上传学生占比</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@order_by_grade)-->
+                    <tr>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{filter_undefined(el.school_cnt.total_input_num)}}</td>
+                        <td>{{(filter_undefined(el.school_cnt.total_input_num)/el.used_count).toFixed(1)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.recorded_num)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.wsc)|people}}</td>
+                        <td>{{el.school_cnt.sczb *100| percent}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@order_by_grade.length==0">
+                        <td colspan="8">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="filter_school(@order_by_grade).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            学生日常表现上传进度（班）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@order_by_class.length>0">
+                <div class="biao-title">
+                    各年级上传学生占比
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_grade,head_value:'请选择年级'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',is_class:true,data_arr:@class_list,sel_check:@sel_class,head_value:'请选择班级'}"></xmp>
+                    </div>
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@order_by_class.length>0">
+                    <tbody>
+                    <tr>
+                        <td>班级</td>
+                        <td>学生人数</td>
+                        <td>上传总数</td>
+                        <td>人均上传数</td>
+                        <td>已上传人数</td>
+                        <td>未上传人数</td>
+                        <td>上传学生占比</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @order_by_class-->
+                    <tr >
+                        <td>{{el.njmc}}-{{el.bjmc}}班</td>
+                        <td>{{el.xssl}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.total_input_num)}}</td>
+                        <td>{{filter_undefined((el.school_class_cnt.total_input_num/el.xssl).toFixed(1))}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.recorded_num)}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.wsc)}}</td>
+                        <td>{{el.school_class_cnt.sczb | percent}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@order_by_class.length==0">
+                        <td colspan="7">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="no-msg-img" ms-visible="order_by_class.length==0">
+                <img src="common/images/none.png" alt="图片">
+            </div>
+        </div>
+    </div>
+
+</div>

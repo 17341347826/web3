@@ -1,0 +1,124 @@
+@charset "utf-8";
+@color_white: #ffffff;
+@bc_color: rgb(244, 244, 244);
+@com_font_size: 14px;
+#singl_subject {
+  background-color: @bc_color;
+  padding-bottom: 20px;
+  > div {
+    background-color: @color_white;
+  }
+  .top-title {
+    height: 68px;
+    line-height: 68px;
+    text-align: center;
+    > div:first-child {
+      width: 40px;
+      height: 40px;
+      padding: @com_font_size;
+      float: left;
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    >div:nth-child(2){
+      font-size: 24px;
+      color: rgb(51, 51, 51);
+      font-weight: 400;
+      float: left;
+      width: 60%;
+    }
+
+    .screen-icon{
+      display: inline-block;
+      height: 40px;
+      padding: @com_font_size;
+      width: 22px;
+      float: right;
+      background: url('../../../../common/images/xy/subject/screen.png') center no-repeat;
+    }
+  }
+  > div:nth-child(2) {
+    height: 27px;
+    line-height: 27px;
+    font-size: @com_font_size;
+    color: rgb(119, 119, 119);
+    background-color: @bc_color;
+    border:1px solid red;
+    span {
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .time {
+      float: left;
+    }
+    .err-num {
+      float: right;
+    }
+  }
+  .master {
+    height: 26px;
+    line-height: 26px;
+    font-size: @com_font_size;
+    border-bottom: 1px solid @bc_color;
+    span {
+      display: inline-block;
+    }
+    > div {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    > div:first-child {
+      border-right: 1px solid @bc_color;
+      span {
+        color: rgb(255, 136, 19);
+      }
+      span:first-child {
+        float: left;
+      }
+      span:last-child {
+        float: right;
+      }
+    }
+    > div:last-child {
+      span {
+        color: rgb(20, 209, 127);
+      }
+      span:first-child {
+        float: left;
+      }
+      span:last-child {
+        float: right;
+      }
+    }
+  }
+  .each-problem{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid @bc_color;
+  }
+  .problem {
+    float: left;
+    padding-left: 15px;
+    font-size: 16px;
+    color: rgb(255, 136, 19);
+  }
+  .wrong-grade {
+    float: right;
+    font-size: @com_font_size;
+    color: rgb(173,173,173);
+    padding-right: 15px;
+    img{
+      height: 12px;
+    }
+  }
+  .problem-pic {
+    padding: 5px;
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

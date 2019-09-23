@@ -1,0 +1,75 @@
+<div ms-important="kid_honor_reward" id="kid_honor_reward" >
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--成就奖励-->
+        <div class="float-left">
+            <span class="performance-records-btn"></span>
+            <span class="menu-check">成就奖励</span>
+            <span class="three-border"></span>
+        </div>
+        <!--惩戒处罚-->
+        <div class="float-right" :click="@menu_change()">
+            <span class="weekly-integral-btn"></span>
+            <span>惩戒处罚</span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <div class="screen_demo">
+            <!--学年学期-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@semesterChange()" ms-duplex="@sem_info">
+                        <option ms-attr="{value:''}">
+                            全部
+                        </option>
+                        <!--ms-for: ($index,el) in @sem_list-->
+                        <option ms-attr="{value:$index+'|'+el.start_date+'|'+el.end_date}">
+                            {{el.semester_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--综合实践状态-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@divide()" ms-duplex="@type_num">
+                        <!--ms-for: ($index,el) in @type_arr-->
+                        <option ms-attr="{value:el.value}">
+                            {{el.name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="con">
+            <!--ms-for:($idx,el) in @honor_list-->
+            <div class="daily-person clearfix">
+                <!--头部-->
+                <div class="person-head">
+                    <span>{{@el.ach_name}}</span>
+                </div>
+                <!--内容和图片-->
+                <div class="person-con">
+                    <div class="record-des">
+                        <h3>收获感想 ：</h3>
+                        <p>{{el.ach_feel}}</p>
+                    </div>
+                    <!--图片-->
+                    <div class="img-ary">
+                        <!--ms-for:($index,al) in @data_change(el.ach_enclosure)-->
+                        <img ms-attr="{src:@url_for(al.guid)}">
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--暂无数据-->
+            <div ms-if="@honor_list.length==0" class="no-data">
+                <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

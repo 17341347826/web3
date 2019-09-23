@@ -1,0 +1,60 @@
+<div class="am-g" >
+    <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+        <div class="am-slider am-slider-default" style="height: 400px;">
+            <ul class="am-slides">
+                <li :if="el.mini_type=='image/jpeg' || el.mini_type=='image/png' || el.mini_type=='image/jpg'"   ms-for="el in @data.ach_enclosures">
+                    <div class="am-gallery-item">
+                        <a class="detail_carousel_img">
+                            <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()" />
+                            <div ms-attr="{title:el.img_text}">
+                                {{ el.desc}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="am-margin-top-sm" style="position: absolute;z-index: 100;">
+            <a :if="has_video" class="am-btn am-btn-primary" ms-on-click="video_click">视频</a>
+            <a :if="has_excel" class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="excel_click">下载文件</a>
+            <a :if="data.ach_state==5 && user_type==2"  class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="@update_img">修正图片</a>
+
+        </div>
+    </div>
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+        <div id="detail_title" class="am-u-sm-12">
+            <span class="am-u-sm-12">{{@data.ach_name}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">获奖作者</span>
+            <span class="am-u-sm-9">
+                        {{ @data.ach_studentname }}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">成就名称</span>
+            <span class="am-u-sm-9">{{@data.ach_name}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">成就类型</span>
+            <span class="am-u-sm-9">{{@data.ach_type}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">获得时间</span>
+            <span class="am-u-sm-9">{{@data.ach_date}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">成就级别</span>
+            <span class="am-u-sm-9">{{@data.ach_level}}</span>
+        </div>
+        <div class="am-u-sm-12" :if="@data.ach_rank!=''">
+            <span class="am-u-sm-3">成就等级</span>
+            <span class="am-u-sm-9">{{@data.ach_rank}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">创作感想</span>
+            <span class="am-u-sm-9">{{@data.ach_feel}}</span>
+        </div>
+    </div>
+
+</div>

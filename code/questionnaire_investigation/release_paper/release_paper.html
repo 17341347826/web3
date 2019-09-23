@@ -1,0 +1,66 @@
+<div class="am-g" id="release" ms-important="add_papers">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+
+    <div class="release-container">
+        <form class="am-form am-form-horizontal am-padding-top-lg">
+            <div class="am-form-group">
+                <label class="am-u-sm-2 am-form-label ">
+                    开始时间:
+                </label>
+                <div class="am-u-sm-6 ">
+                    <input id="start_time_input" readonly ms-attr="{value:@data.start_time}" ms-on-focus="@get_start_date"
+                           type="text"/>
+                </div>
+                <label class="am-u-sm-4 am-form-label prompt-class">
+                </label>
+            </div>
+            <div class="am-form-group">
+                <label class="am-u-sm-2 am-form-label ">
+                    结束时间:
+                </label>
+                <div class="am-u-sm-6 ">
+                    <input id="end_time_input" readonly ms-attr="{value:@data.end_time}" ms-on-focus="@get_end_date"
+                           type="text"/>
+                </div>
+                <label class="am-u-sm-4 am-form-label prompt-class">
+                    *结束时间不能小于开始时间
+                </label>
+            </div>
+            <div class="am-form-group">
+                <label class="am-u-sm-2 am-form-label label-padding">
+                    主体:
+                </label>
+                <div class="am-u-sm-6 am-u-end cb-content">
+                    <!--ms-for:($index,el) in @role_list-->
+                    <label>
+                        <input data-duplex-changed="@change_check" ms-attr="{value:el.id}"
+                               ms-duplex-number="@data.power" type="checkbox"/>
+                        {{el.role_name}}
+                    </label>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <div class="am-form-group" ms-if="@is_show_grade">
+                <label class="am-u-sm-2 am-form-label label-padding">
+                    年级:
+                </label>
+                <div class="am-u-sm-9 am-u-end cb-content">
+                    <!--ms-for:($index,el) in @grade_list-->
+                    <label>
+                        <input ms-attr="{value:el.id}" ms-duplex="@data.gradeIds" type="checkbox"/>
+                        {{el.grade_name}}
+                    </label>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <div class="am-cf btn-content">
+                <a class="am-btn am-btn-primary am-margin" href="javascript:;" ms-click="@release_btn" role="button">
+                    发布
+                </a>
+                <a class="am-btn am-btn-default am-margin" href="javascript:history.go(-1);" role="button">
+                    取消
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

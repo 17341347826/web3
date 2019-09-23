@@ -1,0 +1,75 @@
+<div ms-important="incentive_card_detail" id="incentive_card_detail">
+    <div :if="@user_type != 2 && @user_type != 3" class="return-div am-cf"  :click="@return_back()">
+        <span class="return-back am-fr">返回</span>
+    </div>
+    <div class="list-con">
+        <div class="daily-person">
+            <!--学生基本信息-->
+            <div class="stu-info">
+                <div>
+                    <!--头像-->
+                    <div class="stu-head">
+                        <div class="stu-img">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:@data_list.student_guid}))}">
+                        </div>
+                        <div class="stu-name">
+                            <span>{{@data_list.name}}</span>
+                        </div>
+                    </div>
+                    <div class="line-one"></div>
+                    <!--学校信息-->
+                    <div class="stu-school">
+                        <div>
+                            <!--<span class="d-name">日常表现</span>-->
+                        </div>
+                        <div>
+                            <span>{{@data_list.grade_name}} {{@data_list.class_name}}班</span>
+                            <span>{{@data_list.school_name}}</span>
+                            <span>{{@district_name}}</span>
+                            <span>{{@data_list.create_time | date("yyyy-MM-dd HH:mm:ss")}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--日常表现信息-->
+            <div class="daily-info">
+                <div class="three-index h-style">
+                    <h3>学校名称 ：</h3>
+                    <p> {{@data_list.school_name}}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>年级名称 ：</h3>
+                    <p>{{@data_list.grade_name }}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>获卡人 ：</h3>
+                    <p>{{@data_list.name}}</p>
+                </div>
+                <div class="three-index h-style">
+                    <h3>学籍号 ：</h3>
+                    <p> {{@data_list.code }}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>标志性卡名称 ：</h3>
+                    <p>{{@data_list.card_name }}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>获卡日期 ：</h3>
+                    <p>{{@data_list.encourage_date}}</p>
+                </div>
+                <div class="d-p-img">
+                    <!--ms-for:($index,al) in @data_list.attachment-->
+                    <img ms-attr="{src:@url_for(al.guid)}">
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <!--学生家长才会存在取消按钮-->
+            <div class="btns" :if="@user_type == 2 || @user_type == 3">
+                <button type="button" class="am-btn-default"  ms-on-click="@back()">返回</button>
+            </div>
+        </div>
+        <div :if="@data_list==null" style="color:#a2a2a2;text-align: center;padding-top:20px;padding-bottom:30px;">
+            暂无数据
+        </div>
+    </div>
+</div>

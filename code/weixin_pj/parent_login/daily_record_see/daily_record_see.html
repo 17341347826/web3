@@ -1,0 +1,68 @@
+<div ms-important="daily_record_see" id="daily_record_see" >
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--表现记录详情-->
+        <div class="float-left">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="performance-records-btn"></span>
+            <span class="menu-check">表现记录详情</span>
+            <span class="three-border"></span>
+        </div>
+        <!--周积分-->
+        <div class="float-right" :click="@menu_change()">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="weekly-integral-btn"></span>
+            <span>周积分</span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <div class="screen_demo">
+            <!--学年学期-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@menu_jump()" ms-duplex="@current_menu">
+                        <!--ms-for:($idx,el) in @semester_list-->
+                        <option ms-attr="{value:el.value}">
+                            {{el.name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="con">
+            <!--ms-for:($idx,el) in @list-->
+            <div class="daily-person clearfix">
+                <!--头部-->
+                <div class="person-head">
+                    <span>{{@el.everyday_date|date}}</span>
+                    <span ms-class="[el.score>0 ? 'add-score':'reduce-score']">{{el.score}}</span>
+                </div>
+                <!--内容和图片-->
+                <div class="person-con">
+                    <div class="record-des">
+                        <h3>关键表现 ：</h3>
+                        <p>{{el.item}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>表现描述 ：</h3>
+                        <p>{{el.description}}</p>
+                    </div>
+                    <!--图片-->
+                    <div class="img-ary">
+                        <!--ms-for:($index,al) in el.attachment-->
+                        <img  ms-attr="{src:@url_img(al.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                        <!--<img src="../../../../common/images/weixin_pj/teacher_home_banner1.png">-->
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--暂无数据-->
+            <div ms-if="@list.length==0" class="no-data">
+                <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

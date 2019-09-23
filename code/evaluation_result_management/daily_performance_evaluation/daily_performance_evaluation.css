@@ -1,0 +1,317 @@
+#daily-performance-evaluation{
+    background-color: #f1f2f6;
+}
+#daily-performance-evaluation>div.common-select{
+    padding-left: 16px;
+    background-color: white;
+}
+#daily-performance-evaluation>div.d-p-eva{
+    margin-top: 4px;
+}
+#daily-performance-evaluation>div.d-p-content{
+    background-color: #f1f2f6;
+    margin-top: 6px;
+}
+#daily-performance-evaluation>div.d-p-content>div{
+    background-color: white;
+    margin-bottom: 10px;
+}
+#daily-performance-evaluation .d-p-c-info{
+    width: calc(100% - 256px);
+    overflow-y: auto;
+}
+#daily-performance-evaluation .d-p-c-info>div{
+    margin-bottom: 16px;
+}
+
+#daily-performance-evaluation .d-p-c-nav{
+    width: 250px;
+    height: 450px;
+    margin-left: 6px;
+}
+#daily-performance-evaluation .d-p-get-info{
+    height: 120px;
+    border-bottom: 1px #d5d5d5 dashed;
+}
+#daily-performance-evaluation .d-p-get-info>div{
+    height: 88px;
+    margin-top:16px;
+}
+#daily-performance-evaluation .left-info{
+    width: 176px;
+    border-right:1px #d5d5d5 dashed;
+}
+#daily-performance-evaluation .left-info>div{
+    width: 60px;
+    margin: 0 auto;
+}
+#daily-performance-evaluation .d-p-img-div{
+    width: 60px;
+    height: 60px;
+    /*background-color: #ffffff;*/
+    /*box-shadow: 0px 0px 12px 0px #d0d0d0;*/
+    /*border: solid 2px #ffffff;*/
+    /*border-radius: 30px;*/
+    border-radius: 50%;
+    overflow: hidden;
+}
+#daily-performance-evaluation .d-p-img-div>img{
+    /*width: 100%;*/
+    height:60px;
+    width:60px;
+}
+#daily-performance-evaluation .d-p-name{
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ff944d;
+    margin-top: 10px;
+}
+#daily-performance-evaluation .right-info{
+    width:calc(100% - 261px);/*177+38+46*/
+    height: 56px;
+    margin-top: 28px;
+    margin-left: 38px;
+    /*text-align: center;*/
+    /*border: 1px red solid;*/
+}
+#daily-performance-evaluation .stu_info{
+    /*padding-left:5%;*/
+    /*padding-right:5%;*/
+}
+#daily-performance-evaluation .right-info-title{
+    height: 20px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    border-left:1px #a2a2a2 solid;
+    border-right:1px #a2a2a2 solid;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#daily-performance-evaluation .right-info-class{
+    margin-top:20px;
+}
+#daily-performance-evaluation .right-info-class>div{
+    display:inline-block;
+}
+#daily-performance-evaluation  .stu_sch>span:first-child,
+#daily-performance-evaluation  .stu_address>span:first-child{
+    margin-right:30px;
+}
+#daily-performance-evaluation .right-info-class span{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    /*margin-left: 15px;*/
+}
+#daily-performance-evaluation .right-info-class span:first-child{
+    margin-left: 0;
+}
+#daily-performance-evaluation .index-detail{
+    margin-top: 22px;
+    margin-bottom: 28px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    padding-left: 76px;
+    padding-right: 72px;
+}
+#daily-performance-evaluation .index-detail>div{
+    margin-bottom: 12px;
+}
+#daily-performance-evaluation .index-detail>div>p{
+    margin: 0;
+}
+#daily-performance-evaluation .index-detail>div>p:last-child{
+    width:calc(100% - 80px);
+}
+#daily-performance-evaluation .second-index-span{
+    margin-left: 152px;
+}
+
+
+#daily-performance-evaluation .d-p-img{
+    padding-left: 76px;
+    padding-right: 72px;
+    margin-bottom: 18px;
+    width: 100%;
+}
+#daily-performance-evaluation .d-p-img>img{
+    width: 100%;
+    border-radius: 4px;
+}
+#daily-performance-evaluation .d-p-margin{
+    background-color: #f1f2f6;
+    height: 16px;
+}
+/*----------------------------------------------------滚动条样式--------------------------------------*/
+.daily-performance-evaluation ::-webkit-scrollbar {display:none}
+
+/*----------------------------------------------------滚动条样式--------------------------------------*/
+#daily-performance-evaluation .d-p-munu,
+#daily-performance-evaluation .small-circular,
+#daily-performance-evaluation .out-circle
+{
+    background-color: #ffffff;
+}
+#daily-performance-evaluation .d-p-munu {
+    /*position: absolute;*/
+    width: 250px;
+    /*top: 0;*/
+    /*right: 0;*/
+    padding-right: 12px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background-color: #FFFFFF;
+}
+.out-circle, .detail-content, .growth-record ,.model-title{
+    background-color: #FFFFFF;
+}
+#daily-performance-evaluation .d-p-munu .outer {
+    border-right: 1px solid #20bda4;
+}
+#daily-performance-evaluation .d-p-munu .outer .inner {
+    width: 100%;
+    margin-left: 9px;
+    text-align: right;
+    font-size: 16px;
+    color: #a2a2a2;
+    padding-top: 30px;
+    padding-bottom: 1px;
+    position: relative;
+}
+#daily-performance-evaluation .d-p-munu .outer .inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#daily-performance-evaluation .d-p-munu .outer .inner li {
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 30px;
+    cursor: default;
+}
+#daily-performance-evaluation .d-p-munu .outer .inner .right-top-point,
+#daily-performance-evaluation .d-p-munu .outer .inner .right-bottom-point {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #20bda4;
+}
+#daily-performance-evaluation .d-p-munu .outer .inner .right-top-point {
+    top: -1px;
+    right: 4px;
+}
+#daily-performance-evaluation .d-p-munu .outer .inner .right-bottom-point {
+    bottom: -2px;
+    right: 4px;
+}
+#daily-performance-evaluation .d-p-munu .outer .small-circular {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #a2a2a2;
+    margin-left: 34px;
+    margin-right: 3px;
+    background-color: white;
+}
+#daily-performance-evaluation .d-p-munu .outer .active {
+    font-size: 17px;
+    color: #20bda4;
+}
+#daily-performance-evaluation .d-p-munu .outer .dotted {
+    display: inline-block;
+    width: 25px;
+    height: 13px;
+    margin-left: 4px;
+    background: url(../../../common/images/file_detail/dotted.png) center no-repeat;
+}
+#daily-performance-evaluation .d-p-munu .outer .out-circle {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid #20bda4;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+#daily-performance-evaluation .d-p-munu .outer .inner-circle {
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #20bda4;
+    top: 6px;
+    left: 6px;
+}
+#daily-performance-evaluation .no-msg{
+    padding-top: 20px;
+    text-align: center;
+}
+/*显示方式*/
+#daily-performance-evaluation .dis-type{
+    text-align: right;
+    margin: 20px 30px 0;
+}
+#daily-performance-evaluation .radios{
+    display:inline-block;
+}
+#daily-performance-evaluation .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+/*表格*/
+#daily-performance-evaluation .table_module{
+    padding-left:16px;
+    padding-right:16px;
+}
+#daily-performance-evaluation #class-module{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+/*取消按钮*/
+#daily-performance-evaluation .btns{
+    text-align: center;
+}
+#daily-performance-evaluation .pages .com-page {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#daily-performance-evaluation .page-info {
+    margin-right: 10px;
+}
+#daily-performance-evaluation .pages {
+     margin-right: 0;
+}
+#daily-performance-evaluation .turn-page .go-page {
+    margin-left: 5px;
+}
+#daily-performance-evaluation .pages>div {
+    margin-right: 3px;
+}
+#daily-performance-evaluation .text-content ul{
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}

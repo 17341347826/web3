@@ -1,0 +1,53 @@
+<div class="am-g" id="special_personality_see" ms-important="special_personality_see">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="first-index">
+        <div class="clearfix">
+            <div :class="['am-fl',(@sit_type == 1 ? 'chosen':'')]" :click="@sit_change(1)">
+                类型设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 2 ? 'chosen':'')]" :click="@sit_change(2)">
+                上传数量设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 3 ? 'chosen':'')]" :click="@sit_change(3)">
+                积分规则设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 5 ? 'chosen':'')]" :click="@sit_change(5)">
+                个性特长
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>写实模块</th>
+                    <th>特长类型</th>
+                </tr>
+                </thead>
+                <tbody :if="@list_info.length > 0">
+                <!--ms-for: ($index,el) in @list_info-->
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{el.realistic_modulet}}</td>
+                    <td>{{el.ps_type_name}}</td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="3">
+                            <!--暂无数据-->
+                            <div class="no-data" :if="@list_info.length == 0">
+                                <div>
+                                    <img src="../../../../common/images/none.png" alt="">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

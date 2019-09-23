@@ -1,0 +1,90 @@
+<xmp ms-widget="{is:'page_title_div',title:'编辑',reBack:'0'}">
+</xmp>
+<div class="am-g" id="page_title_div" ms-important="input_type">
+    <form class="am-form am-form-horizontal am-padding-top-lg" id="growth_form" ms-validate="@validate">
+        <div class="am-g am-g-fixed">
+            <div class="am-form-group am-u-sm-12">
+                <label class="am-u-sm-2 am-form-label">
+     业务类型:
+    </label>
+                <div class="am-u-sm-10">
+                    <select ms-duplex="@data.type">
+                          <option value="1">
+                           作品作业
+                          </option>
+                          <option value="2">
+                           品德发展
+                          </option>
+                        <option value="2">
+                            品德发展
+                        </option>
+                          <option value="4">
+                           实践活动
+                          </option>
+                          <option value="5">
+                           艺术素养
+                          </option>
+                          <option value="6">
+                           研究性学习
+                          </option>
+                          <option value="7">
+                           身心健康
+                          </option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group am-u-sm-12">
+                <label class="am-u-sm-2 am-form-label">
+     类型名称:
+    </label>
+                <div class="am-u-sm-10">
+                    <input ms-duplex="@data.type_name" type="text" />
+                </div>
+            </div>
+            <div class="am-form-group am-u-sm-12">
+                <label class="am-u-sm-2 am-form-label">
+     描  述:
+    </label>
+                <div class="am-u-sm-10">
+                    <textarea ms-duplex="@data.type_remark" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="am-form-group am-u-sm-12">
+                <label class="am-u-sm-2 am-form-label">
+     基本要求:
+    </label>
+                <div class="am-u-sm-10">
+                    <textarea ms-duplex="@data.rule" rows="5"></textarea>
+                </div>
+            </div>
+
+
+            <div class="am-form-group am-u-sm-12">
+                <label class="am-u-sm-2 am-form-label">
+                    指标:
+                </label>
+                <div class="am-u-sm-10">
+                    <select ms-duplex="@data.index_id">
+                        <option ms-attr="{value:''}">
+                            全部
+                        </option>
+                        <!--ms-for:($index,el) in @second_indexs-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.index_parent}}>>{{el.index_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+
+            <div class="am-form-group am-u-sm-12 am-text-center" id="submitBtnDiv">
+                <a class="am-btn am-btn-default am-margin-left-lg" href="javascript:history.go(-1);">
+     取消
+    </a>
+                <button class="am-btn am-btn-primary am-margin-left-lg" ms-click="@save_type" type="button">
+     提交
+    </button>
+            </div>
+        </div>
+    </form>
+</div>

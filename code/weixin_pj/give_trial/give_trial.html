@@ -1,0 +1,89 @@
+<div id="give_trial" ms-important="give_trial">
+    <div class="weui-cells__title title">
+        -申请注册-
+    </div>
+    <div class="weui-cells weui-cells_form">
+        <!--试用产品-->
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__hd">
+                <img src="common/images/trial_product.png"/>
+            </div>
+            <div class="weui-cell__bd">
+                <!--<span class="select-pro weui-select" ms-if="@pro_type" ms-on-click="@option_move()">试用产品（必填）</span>-->
+                <select class="weui-select" id="trial-product" name="select1" ms-duplex="@signData.tryout" data-duplex-changed="@product_check()">
+                    <option ms-attr="{value:''}">试用产品（必填）</option>
+                    <!--ms-for:($id,el) in @product_ary-->
+                    <option style="color:#000;" ms-attr="{value:el.product}">{{el.product}}</option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--公司-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <img src="common/images/trial_factory.png"/>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="trial-factory" ms-duplex="@signData.company" ms-on-blur="@factory_check()" placeholder="单位（必填）" type="text"/>
+            </div>
+        </div>
+        <!--姓名-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <img src="common/images/trial_name.png"/>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="trial-name" ms-duplex="@signData.username" ms-on-blur="@name_check()" placeholder="姓名（必填）" type="text"/>
+            </div>
+        </div>
+        <!--电话-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <img src="common/images/trial_tel.png"/>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="trial-tel" ms-duplex="@signData.phone" ms-on-blur="@phone_check()" placeholder="电话（必填）" type="text"/>
+            </div>
+        </div>
+        <!--邮箱-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <img src="common/images/trial_mail.png"/>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="trial-mail" ms-duplex="@signData.mail" ms-on-blur="@mail_check()" placeholder="邮箱" type="text"/>
+            </div>
+        </div>
+        <!--地址-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <img src="common/images/trial_address.png"/>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="trial-address" ms-duplex="@signData.useraddress" placeholder="地址" type="text"/>
+            </div>
+        </div>
+        <!--留言-->
+        <div class="weui-cell trialMsg">
+            <div class="weui-cell__hd">
+                <img src="common/images/trial_msg.png"/>
+            </div>
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" id="trial_msg" ms-duplex="@signData.usermessage" placeholder="请输入留言" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--提示信息-->
+    <div class="weui-cells__tips msg" ms-visible="@msg != ''">
+        {{@msg}}
+    </div>
+    <!--提交-->
+    <!--<div class="sign-btn">-->
+        <!--<a class="sign-btn weui-btn weui-btn_primary"  ms-on-click="@sign">-->
+            <!--提交-->
+        <!--</a>-->
+    <!--</div>-->
+    <a class="sign-btn weui-btn weui-btn_primary"  ms-on-click="@sign">
+        提交
+    </a>
+</div>

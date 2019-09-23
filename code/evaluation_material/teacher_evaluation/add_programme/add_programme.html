@@ -1,0 +1,170 @@
+
+<!--民主评价 创建方案-->
+<div class="am-g">
+    <div class="am-tabs">
+        <div id="add-programme" ms-important="add_programme">
+            <form class="am-form am-form-inline am-margin-bottom">
+                <div class="am-u-sm-12 am-margin-bottom">
+                    <label class="am-u-sm-2 am-form-label am-text-right">
+                        方案名称
+                    </label>
+                    <div class="am-u-sm-10">
+                        <input ms-duplex="@request_data.plan_name" ms-rules="{required:true}"
+                               placeholder="请输入方案名称,如:六年级学生自评方案一" type="text"/>
+                    </div>
+                </div>
+                <div class="am-u-sm-12 am-margin-bottom">
+                    <label class="am-u-sm-2 am-form-label am-text-right">
+                        评价主体
+                    </label>
+                    <div class="am-u-sm-4">
+                        <select data-duplex-changed="@get_apply_subject" ms-duplex="@request_data.plan_subjectid">
+                            <option ms-attr="{value:''}">
+                                请选择评价主体
+                            </option>
+                            <option ms-attr="{value:4}">
+                                自评/组评/班评
+                            </option>
+                            <option ms-attr="{value:1}">
+                               自评
+                            </option>
+                            <option ms-attr="{value:2}">
+                                组评
+                            </option>
+                            <option ms-attr="{value:3}">
+                                班评
+                            </option>
+                        </select>
+                    </div>
+                    <label class="am-u-sm-2 am-form-label am-text-right">
+                        适用年级
+                    </label>
+                    <div class="am-u-sm-4">
+                        <select data-duplex-changed="@get_apply_grade" ms-duplex="@grade_info">
+                            <option>
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.remark+'|'+el.id}" ms-for="el in @response_data.grade_arr">
+                                {{ el.remark }}
+                            </option>
+                            <!--<option ms-attr="{value:@grade_info}">-->
+                                <!--{{@grade_name}}-->
+                            <!--</option>-->
+                        </select>
+                    </div>
+                </div>
+                <div class="am-u-sm-12 am-margin-bottom">
+                    <label class="am-u-sm-2 am-form-label am-text-right">
+                        方案类型
+                    </label>
+                    <!--根据产品需要，目前直接将方案类型选定为直接评分，不能删除-->
+                    <!--<div class="am-u-sm-4">-->
+                        <!--<select data-duplex-changed="@type_click" ms-duplex-number="@plan_type">-->
+                            <!--<option>-->
+                                <!--请选择-->
+                            <!--</option>-->
+                            <!--<option value="1">-->
+                                <!--选择选项-->
+                            <!--</option>-->
+                            <!--<option value="2">-->
+                                <!--直接评分-->
+                            <!--</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <div class="am-u-sm-4">
+                        <select class="select-disabled" ms-duplex-number="@plan_type" disabled>
+                            <option value="2">
+                                直接评分
+                            </option>
+                        </select>
+                    </div>
+                    <label class="am-u-sm-2 am-form-label am-text-right">
+                        参考方案
+                    </label>
+                    <div class="am-u-sm-4">
+                        <select data-duplex-changed="@get_reference_scheme" ms-duplex="@reference_arr">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.plan_name+'|'+el.id+'|'+el.plan_level}" ms-for="el in @reference_scheme_arr">
+                                {{ el.plan_name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="am-u-sm-12 am-form-group">
+                    <label class="am-u-sm-2 am-form-label am-text-right" style="margin-top: 4px">
+                        使用状态
+                    </label>
+                    <div class="am-u-sm-4 am-u-end radio-content" >
+                        <div class="radios">
+                            <label class="am-radio-inline">
+                                <input type="radio" name="doc-radio-1" id="option1" class="rdo" value="1"
+                                       ms-duplex-number="@request_data.plan_use_state">
+                                <label ms-attr="{for:'option1'}">启用</label>
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="doc-radio-1" id="option2" class="rdo" value="2"
+                                       ms-duplex-number="@request_data.plan_use_state" >
+                                <label ms-attr="{for:'option2'}">停用</label>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <table :if="@num==1" class="am-table">
+                    <thead>
+                    <tr>
+                        <th>
+                            分值题(直接打分)
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for: $idx,el in @first_table_list-->
+                    <tr>
+                        <td style="text-align: left;">
+                            {{$idx+1}}、{{el.sub_subject}}
+                            <span class="am-margin-left-lg">
+         ({{el.index_value}}分)
+        </span>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+                <table :if="@num==2" class="am-table am-table-striped am-table-hover" id="second_table">
+                    <thead>
+                    <tr>
+                        <th>
+                            自选题(单选项)
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for: $idx,el in @second_table_list-->
+                    <tr>
+                        <td>
+                            {{$idx+1}}、{{el.sub_subject}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!--ms-for: $index,cl in el.value_list-->
+                            <span class="am-margin-right-sm">
+         {{cl.index_option}}.{{cl.index_option_content}}
+        </span>
+                            <!--ms-for-end:-->
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+                <div class="btns">
+                    <button type="button" class="am-btn am-btn-default" ms-on-click="@cancel_click">取消</button>
+                    <button type="button" class="am-btn am-btn-primary" ms-on-click="@add_click">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

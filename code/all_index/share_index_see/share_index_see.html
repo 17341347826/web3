@@ -1,0 +1,140 @@
+<div ms-important="share-index-see" id="share-index-see">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,head_value:'请选择年级',sel_check:@sel_grade}"></xmp>
+            </div>
+            <!-- <div class="search-btn">
+                <input type="button" value="查询">
+            </div> -->
+        </div>
+    </div>
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <!--ms-for:($index,el) in @first_index_list-->
+            <div :class="['am-fl',(@checked_first_index == el.id? 'chosen':'')]" ms-click="@click_first_index(el.id)">{{el.index_name}}</div>
+            <!--ms-for-end:-->
+             <div ms-visible="@first_index_list.length==0">
+                暂无数据
+            </div> 
+        </div>
+    </div>
+    <div class="second-index">
+        <div class="clearfix">
+            <div class="am-fl second-title">评价要素</div>
+        </div>
+        <div class="table-module">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th class="table-number">排名</th>
+                    <th class="table-three-index-th">要素名称</th>
+                    <th class="table-second-index">单位</th>
+                    <th>姓名</th>
+                    <th class="do_th">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($index,el) in @second_index_list-->
+                <tr>
+
+                    <td class="table-number" ms-if="$index == 0">
+                        <a class='tab-btn tab-btn-rank rank-no1'></a>
+                    </td>
+                    <td class="table-number" ms-if="$index == 1">
+                        <a class='tab-btn tab-btn-rank rank-no2'></a>
+                    </td>
+                    <td class="table-number" ms-if="$index == 2">
+                        <a class='tab-btn tab-btn-rank rank-no3'></a>
+                    </td>
+                    <td class="table-number" ms-if="$index > 2">
+                        {{$index + 1}}
+                    </td>
+                    <td ms-attr="{title:el.index_secondary}">{{el.index_secondary}}</td>
+                    <td>{{el.index_work}}</td>
+                    <td>{{el.index_founder}}</td>
+                     <td>
+                        <a class='tab-btn thumbs-up' title="点赞"></a>
+                        <a class='tab-btn tab-accept-btn' title="采纳"></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                <tr>
+                    <td colspan="5" ms-visible="@second_index_list.length==0">
+                        暂无数据
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="three-index">
+        <div class="clearfix">
+            <div class="am-fl second-title">关键表现</div>
+            <div class="am-fr sort-type">
+                <p class="am-fl">排序方式：</p>
+                <!--ms-for: ($index,el) in @sort_list-->
+                 <div class="am-fl s-t-name" ms-on-click="@sort_type_change($index)">
+                    <span class="sort-type-click" :class="[(@sort_idx!=$index ? 'sort-type-click-before':'sort-type-click-after')]"></span>
+                    <span>{{el.name}}</span>
+                </div> 
+                <!--ms-for-end:-->
+            </div>
+
+        </div>
+        <div class="table-module" style="overflow-y: auto;">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th class="table-number">序号</th>
+                    <th class="table-three-index-th">表现</th>
+                    <th class="table-second-index">所属要素</th>
+                    <th>单位</th>
+                    <th>姓名</th>
+                    <th class="do_th">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($index,el) in @third_index_list-->
+                <tr>
+                    <td class="table-number" ms-if="$index == 0">
+                        <a class='tab-btn tab-btn-rank rank-no1'></a>
+                    </td>
+                    <td class="table-number" ms-if="$index == 1">
+                        <a class='tab-btn tab-btn-rank rank-no2'></a>
+                    </td>
+                    <td class="table-number" ms-if="$index == 2">
+                        <a class='tab-btn tab-btn-rank rank-no3'></a>
+                    </td>
+                    <td class="table-number" ms-if="$index > 2">
+                        {{$index + 1}}
+                    </td>
+                    <td ms-attr="{title:el.index_name}">{{el.index_name}}</td>
+                    <td>{{el.index_secondary}}</td>
+                    <td>{{el.index_work}}</td>
+                    <td>{{el.index_founder}}</td>
+                    <td>
+                        <a class='tab-btn tab-details-btn' ms-on-click='@click_see(el)' title='查看'></a>
+                        <a :class="['tab-btn' ,(el.is_like ? 'thumbs-down':'thumbs-up')]" ms-on-click="@click_like(el.id,el.fk_index_id,el.is_like)" title="点赞"></a>
+                        <!--index_adoption_state:0:没有采纳 1:已采纳 待审核和审核通过的都属于已采纳-->
+                        <a class='tab-btn tab-accept-btn' title="采纳"  ms-on-click="@click_adopt($index,el)"
+                           :if="@login_schoolId!=el.index_workid && el.adopt_status == 0 && @user_type == 0"></a>
+                        <!--<a class='tab-btn tab-accept-btn-disabled' title="不可采纳" :if="@login_schoolId == el.index_workid && @user_type == 0 && @department_level == 4"></a>-->
+                        <!--<a class='tab-btn tab-accept-btn-disabled' title="不可采纳" :if="@user_type == 0 &&-->
+                        <!--(@department_level == 4 || @department_level == 2) && (@login_schoolId == el.index_workid  ||  el.adopt_status == 1)"></a>-->
+                        <a class='tab-btn tab-accept-btn-disabled' title="不可采纳"
+                           :if="@login_schoolId == el.index_workid  ||  el.adopt_status == 1"></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                <tr>
+                    <td colspan="6" ms-visible="@third_index_list.length==0">
+                        暂无数据
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

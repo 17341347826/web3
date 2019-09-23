@@ -1,0 +1,88 @@
+@charset "utf-8";
+/*----------字体------------*/
+@font-face {
+    font-family: "iconfont";
+    src: url('font/iconfont.eot?t=1508398861934');
+    src: url('font/iconfont.eot?t=1508398861934#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAVYAAsAAAAAB8QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kfuY21hcAAAAYAAAABcAAABhplIBr5nbHlmAAAB3AAAAYsAAAGwnZ21UmhlYWQAAANoAAAALwAAADYPPTQQaGhlYQAAA5gAAAAgAAAAJAfgA4NobXR4AAADuAAAAAwAAAAMC+kAAGxvY2EAAAPEAAAACAAAAAgAdgDYbWF4cAAAA8wAAAAfAAAAIAESAF1uYW1lAAAD7AAAAUUAAAJtPlT+fXBvc3QAAAU0AAAAIwAAADTF6dt3eJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2Bk/sE4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVDxjYW7438AQw9zA0AAUZgTJAQAjqAxweJzFkMENgDAMAy9t6AMxCA8G4sUcnbhrFBPKgwlqybHiWEoUYAGyeIgOdmE8OOVa+Jk1fI9MkRqJ2rx39Z8qolkJTSqFabB5q//You6j01eogzqx+UvSDVcfC594nD1PPU/bUBR95z3sOJA4xHbsxMFJnBS/IsBSjXGEEGFBEUEMBBZgSoawtVOqLBChCmQGJNi6V5X6J/glZULtzIJUdTI8PsTV1Tnn6twj3UskQh7v2A0rEp18JJ/IBtkhBPI86ip14PLQp/MouFLBMlTGG9xNNeo+W4NVlw0ziELPklNyDioqWHKDiPuUYzls0VUEpgOUyvaeNjujsWtMFnnlPNmiP1CoNmZyrcWks7BuBDVdGWU0raRpl4osSQqlEzkVny0zLaUn5eSnlLMLN9U5WkWmxO3tg2ytrPUvwi/OrJUGTk+hl2vqr/W8nRd9bJu6VkpNZ5WinW18MDD6O1XUM473h4iaeAHQ/yRPXLJIVsSnKlI+uBc2W2hWYJkG91EXLxlWBUHUjEII+9VTwcS2EGL0wX7vP1xdPex73hsfdm//3e7q+q6grpG0BzFj8eAopjQ+2uxR2uu8IJRRDMSj5fPoVURn34bj8dBpO8PxyVenndy/xwYxvj/n+pT2Nzs9cf0TQU1VBgB4nGNgZGBgAOJ+lgnr4vltvjJwszCAwDW+Cl4E/f8hCyOzBJDLwcAEEgUA+a8IXgB4nGNgZGBgbvjfwBDDwsDA8P8/CyMDUAQFMAMAcfEEawQAAAAD6QAABAAAAAAAAAAAdgDYeJxjYGRgYGBmCGRgZQABJiDmAkIGhv9gPgMAEPcBcAB4nGWPTU7DMBCFX/oHpBKqqGCH5AViASj9EatuWFRq911036ZOmyqJI8et1ANwHo7ACTgC3IA78EgnmzaWx9+8eWNPANzgBx6O3y33kT1cMjtyDRe4F65TfxBukF+Em2jjVbhF/U3YxzOmwm10YXmD17hi9oR3YQ8dfAjXcI1P4Tr1L+EG+Vu4iTv8CrfQ8erCPuZeV7iNRy/2x1YvnF6p5UHFockikzm/gple75KFrdLqnGtbxCZTg6BfSVOdaVvdU+zXQ+ciFVmTqgmrOkmMyq3Z6tAFG+fyUa8XiR6EJuVYY/62xgKOcQWFJQ6MMUIYZIjK6Og7VWb0r7FDwl57Vj3N53RbFNT/c4UBAvTPXFO6stJ5Ok+BPV8bUnV0K27LnpQ0kV7NSRKyQl7WtlRC6gE2ZVeOEXpc0Yk/KGdI/wAJWm7IAAAAeJxjYGKAAC4G7ICZkYmRmZGFgbGCLTkjMTsxj4EBABVAAwEA') format('woff'), url('font/iconfont.ttf?t=1508398861934') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('font/iconfont.svg?t=1508398861934#iconfont') format('svg');
+
+    /* IE9*/
+    /* iOS 4.1- */
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-chakan:before {
+    content: "\e604";
+}
+/*-----------字体居中------------------------------*/
+#city_user_activity {
+    color: #a2a2a2;
+    background-color: #f6f6f6;
+}
+#city_user_activity .tips{
+    padding-left:16px;
+    padding-right:16px;
+    padding-top:10px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #c5c5c5;
+}
+#city_user_activity .weui-cells {
+    margin-top: 0;
+}
+#city_user_activity .weui-cells,
+#city_user_activity .weui-select,
+#city_user_activity .weui-input::placeholder,
+#city_user_activity .table-tf label,
+#city_user_activity .no-msg {
+    font-size: 15px;
+    color: #a2a2a2;
+}
+/*筛选*/
+#city_user_activity .common-select{
+    padding-left:16px;
+    padding-right:16px;
+    padding-top:10px;
+}
+#city_user_activity .old-select{
+    display:inline-block;
+}
+#city_user_activity  .form-input{
+    margin-top:10px;
+}
+/*内容*/
+#city_user_activity .progess-con{
+    background-color:white;
+    margin-top:5px;
+    font-size: 14px;
+}
+#city_user_activity .table-name{
+    font-size: 16px;
+    color: #0dba9e;
+    padding-top: 18px;
+    text-align: center;
+}
+/*表格*/
+#city_user_activity .table-module{
+    padding:10px 16px;
+}
+#city_user_activity .table-module .table-class{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    border-collapse: collapse;
+    width: 100%;
+}
+#city_user_activity .table-module .table-class tbody>tr>td {
+    height: 40px;
+    /*padding: 0 .7rem;*/
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    /*border-collapse: collapse;*/
+}

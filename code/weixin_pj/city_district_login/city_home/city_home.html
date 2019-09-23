@@ -1,0 +1,50 @@
+<div id="city_home" ms-important="city_home">
+    <!--
+    cur_tab:home首页，evaluate评价，about-me我的
+    跳转链接请加到bottom_tab.js的tab_href数组中
+    -->
+    <xmp ms-widget="{is:'ms-bottom-tab',cur_tab:'home',ident_type:4}"></xmp>
+    <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../../../common/images/weixin_pj/teacher_home_banner1.png" alt=""></div>
+            <div class="swiper-slide"><img src="../../../common/images/weixin_pj/teacher_home_banner1.png" alt=""></div>
+            <div class="swiper-slide"><img src="../../../common/images/weixin_pj/teacher_home_banner1.png" alt=""></div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-bullets">
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+            <span class="swiper-pagination-bullet"></span>
+        </div>
+    </div>
+    <div class="city_home_content">
+        <div class="welcoming">
+            欢迎您，{{@login_info.name}}（{{@login_info.school_name}}）
+        </div>
+        <div class="context_high">
+            <p>一 通知公告 一</p>
+            <div id="container_notice">
+                <div class="notice-msg">
+                    <h3 :if="@notice_data.title" class="notice-title am-padding-top-sm">{{@notice_data.title}}</h3>
+                    <div :if="@notice_data.content" class="notice-des" ms-html="@notice_data.content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="context_high first_high add-jl">
+            <p>一 新增记录 一</p>
+            <div id="container_add"></div>
+            <div class="text_remark">
+                <div class="add-rc">今日新增日常表现:<span>{{@everyday_list[6]}}</span></div>
+                <div class="add-hd">今日新增活动:<span>{{@activity_list[6]}}</span></div>
+            </div>
+        </div>
+        <div class="context_high user-type">
+            <p>一 使用状态 一</p>
+            <div id="container_use"></div>
+            <div class="text_remark">
+                <div class="online-user">在线用户:<span>{{@active}}</span></div>
+                <div class="today-login">今日登录:<span>{{@login[6]}}</span></div>
+                <div class="today-visit">今日访问:<span>{{@visit[6]}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>

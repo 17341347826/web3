@@ -1,0 +1,64 @@
+<div class="am-g" >
+    <!--ms-for:ell in @data-->
+    <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+            <div class="am-slider am-slider-default" style="height: 400px;">
+                <ul class="am-slides">
+                    <li ms-for="el in @ell.attachments">
+                        <div class="am-gallery-item">
+                            <a class="detail_carousel_img">
+                                <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()"/>
+                                <div ms-attr="{title:el.inner_name}">
+                                    {{el.desc}}
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+        <div id="detail_title" class="am-u-sm-12">
+            <span class="am-u-sm-3"> {{ell.title}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">作品作者</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.student_name}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">作品名称</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ell.title}}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">作品类型</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.product_type}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">指导老师</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.tutor}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">担任角色</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.role}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">小组成员</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.member}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">耗用时长</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.hour_consume}}   小时</span>
+            <!--<span class="am-u-sm-2 am-u-end">小时</span>-->
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">作品描述</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.product_describe}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">创作感想</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.feel}}</span>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+</div>

@@ -1,0 +1,63 @@
+#account_security{
+    min-height:400px;
+}
+#account_security .account_title{
+    line-height: 80px;
+    color:#40acc1;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px #e4e4e4 solid;
+}
+#account_security .account_content{
+    margin: 40px auto;
+    margin-left:40%;
+}
+#account_security .account_content>div{
+    margin-bottom:15px;
+}
+#account_security .account_content>div:last-child{
+    margin-bottom:0;
+}
+#account_security .account_content>div img{
+    width:26px;
+    margin-right:68px;
+    display:inline-block;
+    vertical-align: top;
+}
+#account_security .account_content>div>span{
+    font-size: 18px;
+    font-weight: normal;
+    color: #AEAEAE;
+}
+#account_security .true-info{
+    margin-left:20px;
+}
+#account_security .account_content>div>div{
+    display:inline-block;
+    vertical-align: top;
+    margin-left:68px;
+}
+#account_security .account_content>div>div>span{
+    font-size: 16px;
+    font-weight: normal;
+    color: #AEAEAE;
+}
+#account_security .account_content>div:first-child>div>span:first-child{
+    margin-right:36px;
+}
+/*按钮*/
+#account_security .account_content .change-btn{
+    display: inline-block;
+    width: 60px;
+    height: 29px;
+    line-height: 29px;
+    background-color: #34bfaa;
+    /*background-color: #00c695;*/
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+#account_security .account_content .change-btn:hover{
+    background-color: #00c695;
+}

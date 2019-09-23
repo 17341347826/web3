@@ -1,0 +1,19 @@
+<div ms-important="plan_wx_student_edit" id="plan_wx_student_edit" class="normalPaddding">
+    <div class="screen_demo">
+        <div class="input_div">
+            <input type="text" ms-duplex="@semester" disabled class="color_disabled">
+        </div>
+        <div class="input_div">
+            <input type="text" ms-duplex="@name" disabled class="color_disabled">
+        </div>
+        <div class="input_div">
+            <input type="text" ms-duplex="@code" disabled class="color_disabled">
+        </div>
+        <div>
+            <textarea placeholder="请填写目标计划" ms-duplex="@data.tar_targetplan | con_filters"></textarea>
+        </div>
+    </div>
+    <div class="public_btn_big">
+        <a ms-on-click="@submit">提交</a>
+    </div>
+</div>

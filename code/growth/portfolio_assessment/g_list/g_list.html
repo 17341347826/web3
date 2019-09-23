@@ -1,0 +1,138 @@
+<div ms-important="g_list" id="g_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--筛选条件-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--<div class="select" :if="@highest_level==2">-->
+                <!--<div class="old-select">-->
+                    <!--<select data-duplex-changed="@areaChange()" ms-duplex="@area_info">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择区县-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @area_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.district}">-->
+                            <!--{{el.district}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div :if="@highest_level == 2">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:1,show_name:'请选择区县',data_arr:@area_list,s_change:@areaChange}"></xmp>
+            </div>
+            <!--学校模糊查询-->
+            <!--<div class="form-input" :if="@highest_level==2 || @highest_level==3">-->
+                <!--<input type="text" placeholder="请输入学校" ms-duplex="@school_name"-->
+                       <!--ms-on-focus="@school_focus()" ms-blur="@school_blur()" ms-on-keyup="@s_name_search()">-->
+                <!--<ul class="am-selected-list am-text-left" id="schoolInfo" :if="@is_show_school"-->
+                    <!--ms-on-mouseout="@s_list_out()" ms-on-mouseover="@s_list_over()">-->
+                    <!--&lt;!&ndash;ms-for: el in @school_list&ndash;&gt;-->
+                    <!--<li ms-click="@click_li(el.id,el.schoolname)">-->
+                        <!--{{el.schoolname}}-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--学校-->
+            <!--<div class="select" :if="@highest_level==2 || @highest_level==3">-->
+                <!--<div class="old-select">-->
+                    <!--<select data-duplex-changed="@schoolChange()" ms-duplex="@school_info">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择学校-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @school_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.id}">-->
+                            <!--{{el.schoolname}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div  :if="@highest_level==2 || @highest_level==3">
+                <xmp ms-widget="{is:'ms-select-kinds', empty_allert:'请选择区县后再选择学校',s_kind:2,show_name:'请选择学校',data_arr:@school_list,s_change:@schoolChange}"></xmp>
+            </div>
+            <!--年级-->
+            <!--<div class="select" :if="@highest_level==2 || highest_level==3 || highest_level==4">-->
+                <!--<div class="old-select">-->
+                    <!--<select data-duplex-changed="@gradeChange()" ms-duplex-number="@grade_info">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择年级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.grade_id}">-->
+                            <!--{{el.grade_name}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="select" :if="@highest_level==11">-->
+                <!--<div class="old-select">-->
+                    <!--<select data-duplex-changed="@gradeChange()" ms-duplex-number="@grade_info">-->
+                        <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.grade_id}">-->
+                            <!--{{el.grade_name}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div :if="@highest_level==2 || highest_level==3 || highest_level==4">
+                <xmp ms-widget="{is:'ms-select-kinds',empty_allert:'请选择学校后再选择年级',s_kind:3,show_name:'请选择年级',data_arr:@grade_list,s_change:@gradeChange}"></xmp>
+            </div>
+            <div :if="@highest_level==11">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:3,show_name:@grade_name,data_arr:@grade_list,s_change:@gradeChange}"></xmp>
+            </div>
+            <!--班级-->
+            <!--<div class="select" :if="@highest_level==2 || highest_level==3 || highest_level==4">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex-number="@class_info" data-duplex-changed="@classChange()">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择班级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @class_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.value}">-->
+                            <!--{{el.name}}班-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div :if="@highest_level==2 || highest_level==3 || highest_level==4">
+                <xmp ms-widget="{is:'ms-select-kinds',empty_allert:'请选择年级后再选择班级',s_kind:5,show_name:'请选择班级',data_arr:@class_list,s_change:@classChange}"></xmp>
+            </div>
+            <!--<div class="select" :if="@highest_level==11">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex-number="@class_info" data-duplex-changed="@classChange()">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择班级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @class_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.class_id}">-->
+                            <!--{{el.class_name}}班-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div :if="@highest_level==11">
+                <xmp ms-widget="{is:'ms-select-kinds',s_kind:41,show_name:@class_name,data_arr:@class_list,s_change:@classChange}"></xmp>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入学籍号" :duplex="extend.code">
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入姓名" :duplex="extend.name">
+            </div>
+            <!--<div class="form-input">-->
+                <!--<input type="button" value="批量导出" ms-click="@export_all">-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--table-->
+    <div class='list-con'>
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh, cbopt:@cbopt,params:@user_type,only_hash:@only_hash}">
+            </xmp>
+        </div>
+    </div>
+</div>

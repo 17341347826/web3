@@ -1,0 +1,47 @@
+#teacherUsersControl>#role-con .am-table>tbody>tr>td span:last-child>span {
+   display: none;
+}
+#teacherUsersControl{
+   background-color: #f1f2f6;
+}
+#teacherUsersControl>div{
+   padding-left: 16px;
+   padding-right: 16px;
+   background-color: white;
+   margin-top: 4px;
+   overflow: hidden;
+}
+#teacherUsersControl>#role-con{
+   padding-bottom: 20px;
+}
+#teacherUsersControl .city-stu-con{
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+#teacherUsersControl .search-btn input[type='button']{
+   /*width: auto;*/
+}
+#teacherUsersControl #compileData{
+   color:#c8c8c8;
+}
+#teacherUsersControl #compileData input,
+#teacherUsersControl #compileData select{
+   border: 1px solid #c8c8c8;
+   border-radius:4px;
+   color:#c8c8c8;
+}
+#teacherUsersControl #compileData .am-selected-list{
+   border: 1px #c8c8c8 solid;
+   background-color: white;
+   width: 100%;
+}
+#teacherUsersControl #compileData .am-selected-list li{
+   background-color: white;
+}
+#teacherUsersControl .table_module{
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+#teacherUsersControl .tab-btn+.tab-btn{
+   margin-left: 0;
+}

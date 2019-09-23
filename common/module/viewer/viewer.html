@@ -1,0 +1,35 @@
+<div class="am-g doc-am-g group_image" ms-on-mouseenter="on_mouse_enter()" ms-on-mouseleave="@on_mouse_leave()">
+    <div :if="image_info.mini_type=='image/jpeg' || image_info.mini_type=='image/png' || image_info.mini_type=='image/jpeg' " class="am-u-sm-12" align="center" style="padding: 0px;margin: 0px;height: 100%">
+        <img class="imgWrap" ms-attr="{src:@src}" ms-css="@rotation_str()" style="height: 100%">
+        <!--<video ms-attr="{src:@video_src}"></video>-->
+
+        <div class="file-panel" style="height: 30px;background-color: #be590a;top:0px;" ms-visible="@show_opt == true">
+            <span class="cancel" ms-on-click="@on_delete(@params)">删除</span>
+            <span class="rotateRight" ms-on-click="@rotate(90)">向右旋转</span>
+            <span class="rotateLeft" ms-on-click="@rotate(-90)">向左旋转</span>
+            <!--<i class="am-icon-pencil edit"></i>-->
+        </div>
+        <p class="title" style="display: block;">
+
+            <input type="text" class="title"
+                   ms-attr="@modify==true?'':'disabled'"
+                   style="display: block;color: black" ms-duplex="@image_info.desc|isNll" placeholder="在这里输入描述"/>
+        </p>
+        <img ms-attr="{src:@icon_success}" ms-visible="@image_info.status=='success'" class="view-img"/>
+    </div>
+    <div :if="image_info.mini_type!='image/jpeg' && image_info.mini_type!='image/png' && image_info.mini_type!='image/jpeg' " class="am-u-sm-12" align="center" style="padding: 0px;margin: 0px;height: 100%">
+        <p style="line-height: 258px;">文件暂不支持预览</p>
+        <div class="file-panel" style="height: 30px;background-color: #be590a;top:0px;" ms-visible="@show_opt == true">
+            <span class="cancel" ms-on-click="@on_delete(@params)">删除</span>
+            <span class="rotateRight" ms-on-click="@rotate(90)">向右旋转</span>
+            <span class="rotateLeft" ms-on-click="@rotate(-90)">向左旋转</span>
+            <!--<i class="am-icon-pencil edit"></i>-->
+        </div>
+        <p class="title" style="display: block;">
+
+           {{image_info.name}}
+        </p>
+        <img ms-attr="{src:@icon_success}" ms-visible="@image_info.status=='success'" class="view-img"/>
+    </div>
+</div>
+

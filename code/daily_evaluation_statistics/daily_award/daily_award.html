@@ -1,0 +1,203 @@
+<div ms-important="daily_award" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl " ms-click="@to_page('daily_target')">目标计划与完成情况</div>
+            <div class="am-fl" ms-click="@to_page('daily_comprehensive_practice')">综合实践活动</div>
+            <div class="am-fl" ms-click="@to_page('daily_special')">日常表现与个性特长</div>
+            <div class="am-fl chosen" ms-click="@to_page('daily_award')">获奖情况</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+    </div>
+    <div class="sec_index">
+        <div class="radios">
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(1)" id="option1" ms-duplex-number="@html_display" class="rdo" value="1">
+                <label ms-attr="{for:'option1'}">综合等级</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(2)" id="opition2" ms-duplex-number="@html_display" class="rdo" value="2">
+                <label ms-attr="{for:'opition2'}">评价维度</label>
+            </label>
+            <label class="am-radio-inline" >
+                <input type="radio" ms-click="@presentation_change(3)" id="option3" ms-duplex-number="@html_display" class="rdo" value="3">
+                <label ms-attr="{for:'option3'}">评价要素</label>
+            </label>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            获奖情况分析（全市）
+        </div>
+        <div class="tb-content" ms-visible="@filter_city(@city_process_list).length>0">
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市进度
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td ms-attr="{colspan:@city_process_list[0].city_cnt.sub_list.length+1}" >获奖人均记录数量</td>
+                        <td rowspan="2">平均得分</td>
+                    </tr>
+                    <tr>
+                        <td ms-for="el in @city_process_list[0].city_cnt.sub_list">{{el.jbmc}}</td>
+                        <td>合计</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr ms-if="@city_process_list[0].city_cnt.length!=0">
+                        <td ms-attr="{rowspan:@count(@filter_city(@city_process_list), 'city', el.city)}" ms-visible="$index==0 || row_length==1">
+                            {{el.city}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td ms-for="el2 in el.city_cnt.sub_list">{{filter_undefined(el2.rj_cl)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.rj_cl_hj)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.pj_df)}}</td>
+
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr  ms-visible="@city_process_list.length==0">
+                        <td ms-attr="{colspan:9}">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="filter_city(@city_process_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<4">
+        <div class="title">
+            获奖情况分析（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_area(@area_process_list).length>0">
+                <div class="biao-title">
+                    区县进度
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-visible="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area,head_value:'请选择区县'}"></xmp>
+                    </div>
+
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_area(@area_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td ms-attr="{colspan:@area_process_list[0].district_cnt.sub_list.length+1}" >获奖人均记录数量</td>
+                        <td rowspan="2">平均得分</td>
+                    </tr>
+                    <tr>
+                        <td ms-for="el in @area_process_list[0].district_cnt.sub_list">{{el.jbmc}}</td>
+                        <td>合计</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.district != filter_area(area_process_list)[$index-1].district"
+                            ms-attr="{rowspan:@count(@filter_area(@area_process_list),'district' ,el.district)}" >
+                        {{el.district}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td ms-for="el2 in el.district_cnt.sub_list">{{filter_undefined(el2.rj_cl)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.rj_cl_hj)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.pj_df)}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@area_process_list.length==0">
+                        <td ms-attr="{colspan:9}">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="@filter_area(@area_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            获奖情况分析（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_school(@school_process_list).length>0">
+                <div class="biao-title">
+                    校级进度
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area_2,head_value:'请选择区县'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <input type="text" placeholder="请输入学校" ms-duplex="@school_p.school_name" data-duplex-changed="@search">
+                    </div>
+                    <!--<div class="search-btn">-->
+                        <!--<input type="button" value="查询" ms-on-click="@search">-->
+                    <!--</div>-->
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_school(@school_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td ms-attr="{colspan:@sublist_count+1}" >获奖人均记录数量</td>
+                        <td rowspan="2">平均得分</td>
+                    </tr>
+                    <tr>
+                        <td ms-for="el in @sublist">{{el.jbmc}}</td>
+                        <td>合计</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@school_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != @filter_school(school_process_list)[$index-1].schoolname"
+                            ms-attr="{rowspan:@count(@filter_school(@school_process_list), 'schoolname', el.schoolname)}" >
+                            {{el.schoolname}}
+                        </td>
+                        <td>{{el.status}}</td>
+                        <td ms-if="el.detail.school_cnt!=0" ms-for="el2 in el.detail.school_cnt.sub_list">{{filter_undefined(el2.rj_cl)}}</td>
+                        <td ms-if="el.detail.school_cnt==0" ms-for="el2 in @sublist">0</td>
+                        <td>{{filter_undefined(el.detail.school_cnt.rj_cl_hj)}}</td>
+                        <td>{{filter_undefined(el.detail.school_cnt.pj_df)}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@school_process_list.length==0">
+                        <td ms-attr="{colspan:9}">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="@filter_school(@school_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

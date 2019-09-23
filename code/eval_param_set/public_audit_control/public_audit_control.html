@@ -1,0 +1,160 @@
+<div class="am-g" id="public_audit_control" ms-important="quota">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="title">
+        审核公示管控
+    </div>
+    <div>
+        <table class="am-table am-table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>公示内容</th>
+                <th>是否需要审核</th>
+                <th>公示范围</th>
+                <th>公示时间</th>
+                <th :visible="@ident_type<2 && @highest_level == 2">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ms-for="($index,el) in @list">
+                <td>
+                    {{$index+1}}
+                </td>
+                <td>{{el.content}}</td>
+                <td>{{el.department | check}}</td>
+                <td>{{el.range | range}}</td>
+                <td>
+                    {{el.time}}
+                    <span :if="el.time != ''">天</span>
+                </td>
+                <!--编辑：只有市管理员才有-->
+                <td :visible="@ident_type<2 && @highest_level == 2"><a class='tab-btn tab-edit-btn' ms-on-click='@edit(el)' title='编辑'></a></td>
+            </tr>
+            <tr ms-visible="@list.length==0">
+                <td colspan="6">暂无数据</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--编辑-日常表现-->
+    <div id="daily_layer">
+        <!--<div>-->
+            <!--<span>学生确认</span>-->
+            <!--<div class="c-arys right">-->
+                <!--<label class="am-checkbox-inline">-->
+                    <!--<input type="checkbox" id="need" ms-duplex-checked="!@is_need" data-duplex-changed="@change_check">-->
+                    <!--<label for="need">需要</label>-->
+                <!--</label>-->
+                <!--<label class="am-checkbox-inline">-->
+                    <!--<input type="checkbox" id="no_need" ms-duplex-checked="@is_need" >-->
+                    <!--<label for="no_need">不需要</label>-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div>
+            <span>是否审核</span>
+            <div class="right">
+                <select ms-duplex="@par_check">
+                    <option ms-attr="{value:''}">请选择</option>
+                    <option ms-attr="{value:'1'}">是</option>
+                    <option ms-attr="{value:'0'}">否</option>
+                </select>
+            </div>
+        </div>
+        <div :if="@par_check == 1">
+            <div class="c-arys right" style="text-align: center;display: inherit;">
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="need" value="2" ms-duplex="@kid_check">
+                <label for="need">学生录入教师审</label>
+                </label>
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="no_need" value="3" ms-duplex="@kid_check">
+                <label for="no_need">教师录入评价小组审</label>
+            </label>
+            </div>
+        </div>
+        <!--<div>-->
+            <!--<span>需要学生确认</span>-->
+            <!--<div class="right">-->
+                <!--<select ms-duplex="@edit_req.xsqr">-->
+                    <!--<option ms-attr="{value:''}">请选择</option>-->
+                    <!--<option ms-attr="{value:'1'}">是</option>-->
+                    <!--<option ms-attr="{value:'0'}">否</option>-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div>
+            <span>公示范围</span>
+            <div class="right">
+               <select ms-duplex="@edit_req.gsfw">
+                   <option ms-attr="{value:''}">请选择</option>
+                   <option ms-attr="{value:'1'}">全校可见</option>
+                   <option ms-attr="{value:'2'}">本年级可见</option>
+                   <option ms-attr="{value:'3'}">本班级可见</option>
+                   <option ms-attr="{value:'0'}">不公示</option>
+               </select>
+            </div>
+        </div>
+        <div :if="@edit_req.gsfw != '' && @edit_req.gsfw != 0">
+            <span>公示时间</span>
+            <div class="right">
+                <select ms-duplex="@edit_req.gssj">
+                    <option ms-attr="{value:''}">请选择</option>
+                    <option ms-attr="{value:'1'}">1天</option>
+                    <option ms-attr="{value:'2'}">2天</option>
+                    <option ms-attr="{value:'3'}">3天</option>
+                    <option ms-attr="{value:'7'}">7天</option>
+                    <option ms-attr="{value:'10'}">10天</option>
+                    <option ms-attr="{value:'15'}">15天</option>
+                    <option ms-attr="{value:'20'}">20天</option>
+                    <option ms-attr="{value:'30'}">30天</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+    <!--编辑-除日常表现外-->
+    <div id="other_layer">
+        <!--//模块id.1.日常表现2.综合实践活动3.成就奖励4.学业成绩5.体质健康测评6.标志性卡7.学期评价8.毕业评价9艺术测评-->
+        <div :if="@edit_req.mkid != 4 && @edit_req.mkid != 5 && @edit_req.mkid != 9">
+            <span>是否审核</span>
+            <div class="right">
+                <select ms-duplex="@edit_req.sfsh">
+                    <option ms-attr="{value:''}">请选择</option>
+                    <option ms-attr="{value:'1'}">是</option>
+                    <option ms-attr="{value:'0'}">否</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <span>公示范围</span>
+            <div class="right">
+                <select ms-duplex="@edit_req.gsfw">
+                    <option ms-attr="{value:''}">请选择</option>
+                    <option ms-attr="{value:'1'}">全校可见</option>
+                    <option ms-attr="{value:'2'}">本年级可见</option>
+                    <option ms-attr="{value:'3'}">本班级可见</option>
+                    <option ms-attr="{value:'0'}">不公示</option>
+                </select>
+            </div>
+        </div>
+        <div :if="@edit_req.gsfw != '' && @edit_req.gsfw != 0">
+            <span>公示时间</span>
+            <div class="right">
+                <select ms-duplex="@edit_req.gssj">
+                    <option ms-attr="{value:''}">请选择</option>
+                    <option ms-attr="{value:'1'}">1天</option>
+                    <option ms-attr="{value:'2'}">2天</option>
+                    <option ms-attr="{value:'3'}">3天</option>
+                    <option ms-attr="{value:'7'}">7天</option>
+                    <option ms-attr="{value:'10'}">10天</option>
+                    <option ms-attr="{value:'15'}">15天</option>
+                    <option ms-attr="{value:'20'}">20天</option>
+                    <option ms-attr="{value:'30'}">30天</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+</div>
+

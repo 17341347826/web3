@@ -1,0 +1,95 @@
+<div id="check_detail" ms-important="check_detail">
+    <div class="c-d-con">
+        <div id="get_title">
+            <h2>{{@get_group}}:{{@get_title}}</h2>
+        </div>
+        <div class="table_module" :if="@num==1">
+            <table class="am-table am-table-hover">
+                <thead>
+                <tr>
+                    <th class="th_left_score">
+                        分值题(打分)
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @first_table_list-->
+                <tr>
+                    <td style="text-align: left;">
+                        {{$idx+1}}、{{el.sub_subject}}
+                        <span class="am-margin-left-lg">
+        {{el.sub_subject_data.index_value}}分
+       </span>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+            <div :if="@is_show" class="am-text-center">
+                <p style="color: red">
+                    温馨提示:正在进行互评人数初始化,请耐心等待!!!
+                </p>
+            </div>
+            <div class="btns am-text-center" :if="is_show_click">
+                <button type="button" class="am-btn-default"  ms-on-click="@not_pass_click">不通过</button>
+                <button type="button" class="am-btn-primary" ms-click="@pass_click">通过</button>
+            </div>
+            <div class="btns am-text-center" :if="is_show">
+                <button type="button" class="am-btn-default"  disabled="disabled">不通过</button>
+                <button type="button" class="am-btn-primary" disabled="disabled">通过</button>
+            </div>
+        </div>
+        <div  class="table_module" :if="@num==2">
+            <table class="am-table am-table-hover" id="second_table">
+                <thead>
+                <tr>
+                    <th class="th_left_radio">
+                        自选题(单选项)
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @second_table_list-->
+                <tr>
+                    <td style="text-align: left">
+                        <div class="td_first_div">
+                            {{$idx+1}}、{{el.sub_subject}}
+                        </div>
+                        <div class="td_second_div">
+                            <!--ms-for: $index,cl in el.value_list-->
+                            <span class="am-margin-right-lg">
+         {{cl.index_option}}.{{cl.index_option_content}}
+        </span>
+                            <!--ms-for-end:-->
+                        </div>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+            <div :if="@is_show" class="am-text-center">
+                <p style="color: red">
+                    温馨提示:正在进行互评人数初始化,请耐心等待!!!
+                </p>
+            </div>
+            <div class="btns am-text-center" :if="is_show_click">
+                <button type="button" class="am-btn-default"  ms-click="@pass_click">通过</button>
+                <button type="button" class="am-btn-primary" ms-click="@not_pass_click" >不通过</button>
+            </div>
+            <div class="btns am-text-center" :if="is_show">
+                <button type="button" class="am-btn-default"  disabled="disabled">通过</button>
+                <button type="button" class="am-btn-primary" disabled="disabled">不通过</button>
+            </div>
+        </div>
+        <div :if="@num==3" class="am-text-center">
+            <p style="color: red;">
+                暂时没有项目内容
+            </p>
+            <div class="evaluation_submit">
+                <a class="am-btn am-btn-default" href="javascript:history.go(-1);">
+                    返回
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

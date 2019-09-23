@@ -1,0 +1,47 @@
+<!--民主评价项目审核-->
+<div class="am-g" id="check_list" ms-important="table">
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.pro_type">
+                        <option value="0">
+                            请选择评价主体
+                        </option>
+                        <option value="1">
+                            学生自评
+                        </option>
+                        <option value="2">
+                            学生互评
+                        </option>
+                        <option value="4">
+                            教师评价
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@get_apply_grade" ms-duplex="@grade_info">
+                        <option value="">
+                            请选择应用年级
+                        </option>
+                        <option ms-attr="{value:el.grade_name+'|'+el.id}" ms-for="el in @response_data.grade_arr">
+                            {{ el.grade_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="c-l-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@user_type}">
+            </xmp>
+        </div>
+
+    </div>
+
+</div>

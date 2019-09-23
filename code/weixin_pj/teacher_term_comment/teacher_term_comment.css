@@ -1,0 +1,105 @@
+/*!*三级菜单*!*/
+/*.three-menu{*/
+    /*overflow: hidden;*/
+    /*padding-top: 7px;*/
+    /*padding-bottom: 7px;*/
+    /*border-top: 1px solid #efefef;*/
+    /*border-bottom: 1px solid #efefef;*/
+    /*font-family: PingFang-SC-Regular;*/
+    /*font-size: 11px;*/
+    /*letter-spacing: 0px;*/
+    /*color: #8d8d8d;*/
+/*}*/
+/*.three-menu>div{*/
+    /*display:inline-block;*/
+    /*text-align: center;*/
+    /*width:50%;*/
+    /*height: 25px;*/
+/*}*/
+/*.three-menu>div .three-border{*/
+    /*display:inline-block;*/
+    /*height:20px;*/
+    /*border-right:1px solid #efefef;*/
+    /*float: right;*/
+    /*margin-top: 2px;*/
+/*}*/
+/*.three-menu>div img{*/
+    /*margin-right:15px;*/
+/*}*/
+/*.three-menu>div span{*/
+    /*display:inline-block;*/
+    /*vertical-align: top;*/
+    /*line-height: 25px;*/
+/*}*/
+#teacher_term_comment .teacher_term_comment_con{
+    margin-top: 10px;
+}
+#teacher_term_comment .con{
+    margin-top:10px;
+}
+#teacher_term_comment .every_stu{
+    /*height: 155px;*/
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px #cecece;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#teacher_term_comment .every_stu>div{
+    padding-left: 26px;
+    padding-right: 26px;
+}
+#teacher_term_comment .every_stu>.stu_info{
+    height: 47px;
+    background-color: #e0ebff;
+    line-height: 47px;
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #2f60b8;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#teacher_term_comment .every_stu>.stu_plan{
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    letter-spacing: 0px;
+    color: #8d8d8d;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    display: flex;
+}
+#teacher_term_comment .every_stu>.stu_plan>div.stu_plan1{
+    flex: 1;
+}
+#teacher_term_comment .every_stu>.stu_plan>div.stu_plan2{
+    flex: 4;
+}
+/*按钮*/
+#teacher_term_comment .public_btn{
+    border-top:1px #eeeeee solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/*修改prompt弹框，待优化*/
+.weui-dialog.weui-dialog--visible, .weui-dialog.weui-toast--visible, .weui-toast.weui-dialog--visible, .weui-toast.weui-toast--visible {
+    border-radius: 5px;
+}
+.weui-dialog__hd {
+    background-color: #358afe;
+}
+.weui-dialog__title {
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    font-weight: normal;
+    color: #ffffff;
+}
+/*三级菜单选中*/
+#teacher_term_comment .three-menu .menu-check{
+    border-bottom:1px solid #F58C43;
+    color:#F58C43;
+}

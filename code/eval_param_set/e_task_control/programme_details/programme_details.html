@@ -1,0 +1,48 @@
+<div ms-important="programme-details" id="eval-check-details">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="eval-check-info">
+        <div class="eval-check-title">
+            <div>
+                <span>评价方案【{{@get_plan_name}}】详情</span>
+            </div>
+        </div>
+        <div class="eval-check-t-info">
+            <div>
+                <span>创建单位：{{@get_plan_founder}}</span>
+                <span>使用主体：{{@plan_subject}}</span>
+                <span>适用年级：{{@grade}}</span>
+                <span :if="@get_plan_type == 1">评价类型：选项评分</span>
+                <span :if="@get_plan_type == 2">评价类型：直接评分</span>
+            </div>
+        </div>
+    </div>
+    <div class="eval-check-table">
+        <div class="table-module">
+            <table class="am-table am-table-hover">
+                <thead>
+                <tr>
+                    <th class="table-number">评价维度</th>
+                    <th class="table-second-index">评价要素</th>
+                    <th class="table-three-index-th">关键表现</th>
+                    <th>分值</th>
+                </tr>
+                </thead>
+                <tbody :if="@first_table_list.length > 0">
+                <!--ms-for: $idx,el in @first_table_list-->
+                <tr>
+                    <td class="table-number">{{el.sub_subject_data.index_parent}}</td>
+                    <td class="table-second-index">{{el.sub_subject_data.index_secondary}}</td>
+                    <td class="table-three-index">{{el.sub_subject}}</td>
+                    <td> {{el.sub_subject_data.index_value}}</td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="@first_table_list.length == 0">
+                <tr>
+                    <td colspan="4">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

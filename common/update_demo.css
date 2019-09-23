@@ -1,0 +1,382 @@
+@charset "utf-8";
+.tab-btn {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/icon/all-icon.png");
+  background-repeat: no-repeat;
+}
+/*查看详情*/
+.tab-details-btn {
+  background-position: -456px -48px;
+}
+.tab-details-btn:hover {
+  background-position: -456px -96px;
+}
+.tab-details-btn-disabled {
+  background-position: -456px -144px;
+}
+/*编辑*/
+.tab-edit-btn {
+  background-position: -216px -48px;
+}
+.tab-edit-btn:hover {
+  background-position: -216px -96px;
+}
+.tab-edit-btn-disabled {
+  background-position: -216px -144px;
+}
+/*查看*/
+.tab-detail-btn {
+  background-position: -504px -48px;
+}
+.tab-detail-btn:hover {
+  background-position: -504px -96px;
+}
+.tab-other-edit-btn-disabled {
+  background-position: -504px -144px;
+}
+/*编辑按钮*/
+.tab-other-edit-btn {
+  background-position: -264px -48px;
+}
+.tab-other-edit-btn:hover {
+  background-position: -264px -96px;
+}
+.tab-other-edit-btn-disabled {
+  background-position: -264px -144px;
+}
+/*设置按钮*/
+.tab-setting-btn {
+  background-position: -216px -192px;
+}
+.tab-setting-btn:hover {
+  background-position: -216px -240px;
+}
+.tab-setting-btn-disabled {
+  background-position: -216px -288px;
+}
+/*删除*/
+.tab-trash-btn {
+  background-position: -312px -192px;
+}
+.tab-trash-btn:hover {
+  background-position: -312px -240px;
+}
+.tab-trash-btn-disabled {
+  background-position: -312px -288px;
+}
+/**配置按钮*/
+.tab-configure-btn {
+  background-position: -504px -192px;
+}
+.tab-configure-btn:hover {
+  background-position: -504px -240px;
+}
+.tab-configure-btn-disabled {
+  background-position: -504px -288px;
+}
+/*角色设置*/
+.tab-role-btn {
+  background-position: -984px -48px;
+}
+.tab-role-btn:hover {
+  background-position: -984px -96px;
+}
+.tab-role-btn-disabled {
+  background-position: -984px -144px;
+}
+/*选择*/
+.tab-change-btn {
+  background-position: -120px -48px;
+}
+.tab-change-btn:hover {
+  background-position: -120px -96px;
+}
+.tab-change-btn-disabled {
+  background-position: -120px -144px;
+}
+/*采纳*/
+.tab-accept-btn {
+  background-position: -408px -48px;
+}
+.tab-accept-btn:hover {
+  background-position: -408px -96px;
+}
+.tab-accept-btn-disabled {
+  background-position: -408px -144px;
+}
+/*点赞*/
+.thumbs-up {
+  background-position: -696px -48px;
+}
+.thumbs-up:hover {
+  background-position: -696px -96px;
+}
+/*撤销*/
+.tab-repeal-btn {
+  background-position: -552px -48px;
+}
+.tab-repeal-btn:hover {
+  background-position: -552px -96px;
+}
+.tab-repeal-btn-disabled {
+  background-position: -552px -144px;
+}
+/*共享*/
+.tab-share-btn {
+  background-position: -888px -48px;
+}
+.tab-share-btn:hover {
+  background-position: -888px -96px;
+}
+.tab-share-btn-disabled {
+  background-position: -888px -144px;
+}
+/*确认*/
+.tab-affirm-btn {
+  background-position: -264px -192px;
+}
+.tab-affirm-btn:hover {
+  background-position: -264px -240px;
+}
+.tab-affirm-btn-disabled {
+  background-position: -264px -288px;
+}
+/*审核*/
+.tab-audit-btn {
+  background-position: -408px -192px;
+}
+.tab-audit-btn:hover {
+  background-position: -408px -240px;
+}
+.tab-audit-btn-disabled {
+  background-position: -408px -288px;
+}
+/*学生层次*/
+.tab-level-btn {
+  background-position: -792px -192px;
+}
+.tab-level-btn:hover {
+  background-position: -792px -240px;
+}
+.tab-level-btn-disabled {
+  background-position: -792px -288px;
+}
+/*异议*/
+.tab-objection-btn {
+  background-position: -840px -192px;
+}
+.tab-objection-btn:hover {
+  background-position: -840px -240px;
+}
+.tab-objection-btn-disabled {
+  background-position: -840px -288px;
+}
+/*重置密码*/
+.tab-rest-btn {
+  background-position: -888px -192px;
+}
+.tab-rest-btn:hover {
+  background-position: -888px -240px;
+}
+.tab-rest-btn-disabled {
+  background-position: -888px -288px;
+}
+/*不通过*/
+.tab-pass-no-btn {
+  background-position: -312px -48px;
+}
+.tab-pass-no-btn:hover {
+  background-position: -312px -96px;
+}
+.tab-pass-no-btn-disabled {
+  background-position: -312px -144px;
+}
+/*发布*/
+.tab-issue-btn {
+  background-position: -744px -48px;
+}
+.tab-issue-btn:hover {
+  background-position: -744px -96px;
+}
+.tab-issue-btn-disabled {
+  background-position: -744px -144px;
+}
+/*内容维护*/
+.tab-maintenance-btn {
+  background-position: -168px -192px;
+}
+.tab-maintenance-btn:hover {
+  background-position: -168px -240px;
+}
+.tab-maintenance-btn-disabled {
+  background-position: -168px -288px;
+}
+/*申诉*/
+.tab-appeal-btn {
+  background-position: -360px -192px;
+}
+.tab-appeal-btn:hover {
+  background-position: -360px -240px;
+}
+.tab-appeal-btn-disabled {
+  background-position: -360px -288px;
+}
+/*生成*/
+.tab_produce_btn {
+  background-position: -456px -192px;
+}
+.tab_produce_btn:hover {
+  background-position: -456px -240px;
+}
+.tab_produce_btn_disabled {
+  background-position: -456px -288px;
+}
+/*通过*/
+.tab-pass-btn {
+  background-position: -696px -192px;
+}
+.tab-pass-btn:hover {
+  background-position: -696px -240px;
+}
+.tab-pass-btn-disabled {
+  background-position: -696px -288px;
+}
+/*统计*/
+.tab-statistics-btn {
+  background-position: -744px -192px;
+}
+.tab-statistics-btn:hover {
+  background-position: -744px -240px;
+}
+.tab-statistics-btn-disabled {
+  background-position: -744px -288px;
+}
+/*保存*/
+.tab-save-btn {
+  background-position: -168px -48px;
+}
+.tab-save-btn:hover {
+  background-position: -168px -96px;
+}
+.tab-save-btn-disabled {
+  background-position: -168px -144px;
+}
+/*导入*/
+.tab-import-btn {
+  background-position: -648px -48px;
+}
+.tab-import-btn:hover {
+  background-position: -648px -96px;
+}
+.import-disabled {
+  background-position: -648px -144px;
+}
+/*导出*/
+.tab-export-btn {
+  background-position: -600px -48px;
+}
+.tab-export-btn:hover {
+  background-position: -600px -96px;
+}
+.tab-export-btn-disabled {
+  background-position: -600px -144px;
+}
+/*免测*/
+.tab-free-btn {
+  background-position: -120px -192px;
+}
+.tab-free-btn:hover {
+  background-position: -120px -240px;
+}
+.free-disable {
+  background-position: -120px -288px;
+}
+/*添加按钮*/
+.tab-add-btn {
+  background-position: -120px -336px;
+}
+.tab-add-btn:hover {
+  background-position: -120px -384px;
+}
+.add-disable {
+  background-position: -120px -432px;
+}
+/*排名*/
+.rank-no1 {
+  background-position: -72px -336px;
+}
+.rank-no2 {
+  background-position: -72px -384px;
+}
+.rank-no3 {
+  background-position: -72px -432px;
+}
+/*查看审核 ---放大镜搜索*/
+.tab-cause-btn {
+  background-position: -216px -336px;
+}
+.tab-cause-btn:hover {
+  background-position: -216px -384px;
+}
+.tab-cause-btn-disabled {
+  background-position: -216px -432px;
+}
+/*下载*/
+.tab-download {
+  background-position: -168px -336px;
+}
+.tab-download:hover {
+  background-position: -168px -384px;
+}
+.download-disable {
+  background-position: -168px -432px;
+}
+/*已点赞*/
+.thumbs-down {
+  background-position: -264px -336px;
+}
+/**
+公示
+ */
+.tab-publicity {
+  background-position: -312px -336px;
+}
+.tab-publicity:hover {
+  background-position: -312px -384px;
+}
+/**取消公示
+*/
+.tab-cancel-public {
+  background-position: -360px -336px;
+}
+.tab-cancel-public:hover {
+  background-position: -360px -384px;
+}
+.tab_cancel-public_disabled {
+  background-position: -360px -432px;
+}
+/**
+计算
+ */
+.calculation-btn {
+  background-position: -408px -336px;
+}
+.calculation-btn:hover {
+  background-position: -408px -384px;
+}
+.calculation-btn-disabled {
+  background-position: -408px -432px;
+}
+.broadcast-btn {
+  background-position: -456px -336px;
+}
+.broadcast-btn:hover {
+  background-position: -456px -384px;
+}
+.broadcast-btn-disabled {
+  background-position: -408px -432px;
+}

@@ -1,0 +1,299 @@
+<div ms-important="table" id="cityStuInfoControl">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--区县-->
+            <div class="select" ms-if="@user_level<3">
+                <div class="old-select">
+                    <select class="am-hide" disabled="disabled" name="province">
+                    </select>
+                    <select class="am-hide" disabled="disabled" name="city">
+                    </select>
+                    <select ms-duplex="@extend.district" name="area">
+                    </select>
+                </div>
+            </div>
+            <div class="form-input" ms-if="@user_level<4">
+                <input type="text" placeholder="请输入学校名称" :duplex="@demandData.school_name" ms-on-blur="@schoolNameSearch()"/>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入学籍号" ms-duplex="@demandData.student_num" ms-on-blur="@studentNumDemand()"/>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入姓名" :duplex="demandData.student_name" ms-on-blur="@studentNameDemand()"/>
+            </div>
+            <div class="search-btn" ms-on-click="@uploadingModal()">
+                <input type="button" value="批量导入">
+            </div>
+            <!--<div class="search-btn" :click="@batch_del()">-->
+                <!--<input type="button" value="批量删除">-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="city-stu-con">
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}">
+        </xmp>
+        <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+        </xmp>
+        <!--添加修改-->
+        <div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    {{@modal.title}}
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                学校代码
+                            </label>
+                            <div class="am-u-sm-9 name-search">
+                                <input class="am-hide" type="text"/>
+                                <input class="am-modal-prompt-input" ms-duplex="@demandData.school_code"
+                                       ms-on-blur="@nameListHide()" ms-on-focus="@nameListShow()"
+                                       ms-on-keyup="@nameSearch()" placeholder="请输入并选择(必选)" type="text"/>
+                                <ul class="am-u-sm-11 am-selected-list am-text-left" ms-on-mouseout="@nameFlagFalse()"
+                                    ms-on-mouseover="@nameFlagTrue()" ms-visible="@nameListFlag==1">
+                                    <!--ms-for: el in @school_code-->
+                                    <li ms-on-click="@nameInput(el.id,el.schoolname,el.schoolcode)">
+                                        {{el.schoolcode}} - {{el.schoolname}}
+                                    </li>
+                                    <!--ms-for-end:-->
+                                    <li ms-visible="@school_code.length==0" style="color: red">
+                                        暂时没有数据
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                学校名称
+                            </label>
+                            <div class="am-u-sm-9 am-u-end" style="top: .6rem;">
+                                {{@compileData.school_name}}
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                学籍号
+                            </label>
+                            <div class="am-u-sm-9 ">
+                                <input class="am-u-sm-10 am-modal-prompt-input" ms-duplex="@compileData.student_num"
+                                       ms-on-blur="@numReg()" ms-on-focus="@numMsg()" placeholder="请输入学籍号" type="text"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                姓名
+                            </label>
+                            <div class="am-u-sm-9">
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.student_name"
+                                       placeholder="请输入姓名" type="text"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                性别
+                            </label>
+                            <div class="am-u-sm-9">
+                                <select ms-duplex="@compileData.sex">
+                                    <option ms-attr="{value:''}">
+                                        请选择
+                                    </option>
+                                    <!--ms-for: el in @sex-->
+                                    <option ms-attr="{value:el.sex}">
+                                        {{el.title}}
+                                    </option>
+                                    <!--ms-for-end:-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                年级
+                            </label>
+                            <div class="am-u-sm-9">
+                                <select ms-duplex="@compileData.fk_grade_id">
+                                    <option ms-attr="{value:''}">
+                                        请选择
+                                    </option>
+                                    <!--ms-for: el in @grade_name-->
+                                    <option ms-attr="{value:el.id}">
+                                        {{el.grade_name}}
+                                    </option>
+                                    <!--ms-for-end:-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                班级
+                            </label>
+                            <div class="am-u-sm-9 ">
+                                <select ms-duplex="@compileData.fk_class_id">
+                                    <option ms-attr="{value:''}">
+                                        请选择
+                                    </option>
+                                    <!--ms-for: el in @class_name-->
+                                    <option ms-attr="{value:el.id}">
+                                        {{el.class_name}}
+                                    </option>
+                                    <!--ms-for-end:-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                学生类别
+                            </label>
+                            <div class="am-u-sm-9">
+                                <select class="second-index" ms-duplex="@compileData.current_or_over">
+                                    <option ms-attr="{value:''}">
+                                        请选择
+                                    </option>
+                                    <!--ms-for: el in @current_or_over-->
+                                    <option ms-attr="{value:el.current_or_over}">
+                                        {{el.title}}
+                                    </option>
+                                    <!--ms-for-end:-->
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+                </div>
+                <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@compile()">
+     提交
+    </span>
+                </div>
+            </div>
+        </div>
+        <!--上传文件-->
+        <div class="am-modal am-modal-prompt" id="file-uploading" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    {{@modal.title}}
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form enctype="multipart/form-data" id="uploadForm" method="post">
+                        <input class="am-u-sm-10" disabled="" id="file-name" ms-duplex="@fileName" style="height: 32px"
+                               type="text"/>
+                        <div class="am-form-group am-form-file" ms-on-click="fileChange()">
+                            <button class="am-btn am-btn-default am-btn-sm" type="button">
+                                选择文件
+                            </button>
+                            <input id="file" multiple="" name="file"
+                                   onchange="document.getElementById('file-name').value=this.value" type="file"/>
+                        </div>
+                    </form>
+                    <div class="am-text-left">
+                        <a href="/common/template/上传参数说明.txt">
+                            上传参数说明
+                        </a>
+                    </div>
+                    <div class="am-text-left">
+                        <a href="/common/template/学生信息模板.xls">
+                            下载模板
+                        </a>
+                    </div>
+                    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+                    <div class="am-text-left" ms-visible="@importData.exist_student.length != 0">
+     <span>
+      已经存在的学籍号：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.exist_student-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.format_error.length != 0">
+     <span>
+      文件格式错误的工作表：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.format_error-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.refuse_class.length != 0">
+     <span>
+      校验未通过的班级：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.refuse_class-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.refuse_grade.length != 0">
+     <span>
+      校验未通过的年级：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.refuse_grade-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.refuse_school.length != 0">
+     <span>
+      校验未通过的学校：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.refuse_school-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.repeate_student.length != 0">
+     <span>
+      在当前文件中重复的学籍号：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.repeate_student-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+     上传
+    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+#programme_audit_detail{
+    background-color: #f1f2f6;
+}
+#programme_audit_detail>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    padding-top: 10px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#programme_audit_detail .city-stu-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#programme_audit_detail .table_module{
+    border-radius: 4px;
+    border: 1px #ccc solid;
+    overflow-x: scroll;
+}
+#programme_audit_detail .btns{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+

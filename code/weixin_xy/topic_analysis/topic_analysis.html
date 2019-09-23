@@ -1,0 +1,57 @@
+<div ms-important="topic_analysis" id="topic_analysis">
+    <!--<div class="topic">-->
+        <!--<span class="point-icon"></span>-->
+        <!--<div class="topic-title">-->
+            <!--无数据-->
+        <!--</div>-->
+        <!--<div class="topic-title">-->
+            <!--知识点：<span>无数据</span>-->
+        <!--</div>-->
+        <!--<div class="topic-img">-->
+            <!--<img src="common/images/xy/test.png" alt="图片">-->
+        <!--</div>-->
+        <!--<div class="weui-flex topic-bottom">-->
+            <!--<div class="weui-flex__item"><span>答案/解析</span></div>-->
+            <!--<div class="weui-flex__item"><span>加入重点</span></div>-->
+            <!--<div class="weui-flex__item"><span class="my-btn" ms-click="@add_into_error(el)">加入错题集</span></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--ms-for: $idx,el in @question_list-->
+    <div class="topic">
+        <span class="point-icon"></span>
+        <div class="topic-title">
+            {{el.question_name}}
+        </div>
+        <div class="topic-title">
+            知识点：<span>{{el.question_knowledge_level_2}}</span>
+        </div>
+        <div class="topic-img">
+            <img ms-attr="{src:el.img_url}" alt="图片">
+        </div>
+
+        <div class="weui-flex topic-bottom">
+            <div class="weui-flex__item"><span class="my-btn" ms-click="@go_detail(el)">答案/解析</span></div>
+            <div class="weui-flex__item"><span class="my-btn">加入重点</span></div>
+            <div class="weui-flex__item"><span class="my-btn" ms-click="@add_into_error(el)">加入错题集</span></div>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+    <div class="topic" ms-if="@question_list.length==0">
+        <span class="point-icon"></span>
+        <div class="topic-title">
+            无数据
+        </div>
+        <div class="topic-title">
+            知识点：<span>无数据</span>
+        </div>
+        <div class="topic-img">
+            <img src="common/images/xy/test.png" alt="图片">
+        </div>
+        <div class="weui-flex topic-bottom">
+            <div class="weui-flex__item"><span>答案/解析</span></div>
+            <div class="weui-flex__item"><span>加入重点</span></div>
+            <div class="weui-flex__item"><span class="my-btn" ms-click="@add_into_error(el)">加入错题集</span></div>
+        </div>
+    </div>
+
+</div>

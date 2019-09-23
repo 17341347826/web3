@@ -1,0 +1,57 @@
+<div class="am-g" id="teacher_fill" ms-important="teacher_fill">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div :if="table_show" id="evaluate_div">
+        <div class="table-container">
+            <table class="am-table am-table-bordered am-table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        学号
+                    </th>
+                    <th>
+                        姓名
+                    </th>
+                    <th>
+                        评价状态
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @student_arr_a-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.code}}
+                    </td>
+                    <td>
+                        {{el.name}}
+                    </td>
+                    <td :css="@color_green" :if="el.status=='已评价'">
+                        {{el.status}}
+                    </td>
+                    <td :css="@color_red" :if="el.status=='未评价'">
+                        {{el.status}}
+                    </td>
+                    <td>
+                        <!--<a :if="el.status=='已评价'" class="tab-btn tab-edit-btn-disabled" disabled="disabled" title="不可录入">-->
+                        <!--</a>-->
+                        <!--<a :if="el.status=='未评价'" class="tab-btn tab-edit-btn" ms-click="evaluate_click(el)" title="录入">-->
+                        <!--</a>-->
+                        <a class="tab-btn tab-edit-btn" ms-click="evaluate_click(el)" title="录入">
+                        </a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+
+<div class="am-g" id="project_reference" ms-important="project_reference">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="project_reference_con">
+        <div id="evaluate_div" :if="@dataList.length>0">
+            <div class="table-container">
+                <table class="am-table am-table-bordered am-table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            序号
+                        </th>
+                        <th>
+                            姓名
+                        </th>
+                        <th>
+                            性别
+                        </th>
+                        <th>
+                            学籍号
+                        </th>
+                        <th colspan="2">
+                            日常表现
+                        </th>
+                        <th>
+                            写实记录
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+                            表扬次数
+                        </th>
+                        <th>
+                            提示次数
+                        </th>
+                        <th>
+                            次数
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for: $idx,el in @dataList-->
+                    <tr>
+                        <td>
+                            {{$idx+1}}
+                        </td>
+                        <td>
+                            {{el.name}}
+                        </td>
+                        <td :if="el.sex == 1">
+                            男
+                        </td>
+                        <td :if="el.sex == 2">
+                            女
+                        </td>
+                        <td>
+                            {{el.code}}
+                        </td>
+                        <td>
+                            {{el.everyday_add}}
+                        </td>
+                        <td>
+                            {{el.everyday_minus}}
+                        </td>
+                        <td>
+                            {{el.xs}}
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

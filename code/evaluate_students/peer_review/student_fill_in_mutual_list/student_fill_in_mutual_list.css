@@ -1,0 +1,15 @@
+/*列表*/
+#student_fill_in_mutual_list .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+    padding-left:16px;
+    padding-right:16px;
+}
+#student_fill_in_mutual_list .list-con .table-module{
+    /*border-radius: 4px 4px 4px 4px;*/
+    /*border: solid 1px rgba(211, 211, 211, 1);*/
+}
+.am-table-bordered {
+    border-radius: 4px;
+}

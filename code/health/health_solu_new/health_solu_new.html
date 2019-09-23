@@ -1,0 +1,116 @@
+<div ms-important="health_solu_new" id="health_solu_new">
+    <div class="content">
+        <div class="a-name">创建体质测评方案</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <div>
+                <label>方案名称</label>
+                <div class="form-input">
+                    <input ms-duplex="@data.solu_name" placeholder="请输入方案名称" type="text"/>
+                </div>
+            </div>
+            <!--使用年级-->
+            <div>
+                <label>适用年级</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@data.due_grade">
+                            <option value="7">
+                                七年级
+                            </option>
+                            <option value="8">
+                                八年级
+                            </option>
+                            <option value="9">
+                                九年级
+                            </option>
+                            <!-- <option value="9">高一</option>
+                                  <option value="9">高二</option>
+                                  <option value="9">高三</option> -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--方案状态-->
+            <div class="evaluation-sub">
+                <label>方案状态</label>
+                <div class="radios">
+                    <label class="am-radio-inline">
+                        <input type="radio" value="0" name="use-sheme" id="option2" class="rdo"
+                               ms-duplex="@data.status" name="docInlineRadio">
+                        <label ms-attr="{for:'option2'}">启用</label>
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" value="1" name="use-sheme" id="option1" class="rdo"
+                               ms-duplex="@data.status" name="docInlineRadio">
+                        <label ms-attr="{for:'option1'}">停用</label>
+                    </label>
+                </div>
+            </div>
+            <!--测评项表-->
+            <div class="test-table">
+                <table class="am-table am-table-bordered" style="width:50%">
+                    <thead>
+                        <tr>
+                            <td>测试内容(男)</td>
+                            <td>权重(%)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ms-for:($idx, el) in @form_list-->
+                        <tr :if="el.for_sex==1">
+                            <td class="test-name">
+                                <label class="am-checkbox am-secondary">
+                                    <input type="checkbox"  ms-attr="{value:el._id,id:'test'+$idx}" ms-duplex="@select_health">
+                                    <label ms-attr="{for:'test'+$idx}">{{el.name}}</label>
+                                </label>
+                            </td>
+                            <td class="weight-value">
+                                <input ms-attr="{id:el._id}" ms-duplex="el.rate" type="number"/>
+                                %
+                            </td>
+                        </tr>
+                        <!--ms-for-end:-->
+                        <tr>
+                            <td>总计</td>
+                            <td>{{@boy}}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="am-table am-table-bordered" style="width:50%">
+                    <thead>
+                        <tr>
+                            <td>测试内容(女)</td>
+                            <td>权重(%)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($idx, el) in @form_list-->
+                    <tr :if="el.for_sex==2">
+                        <td class="test-name">
+                            <label class="am-checkbox am-secondary">
+                                <input type="checkbox"  ms-attr="{value:el._id,id:'test'+$idx}" ms-duplex="@select_health">
+                                <label ms-attr="{for:'test'+$idx}">{{el.name}}</label>
+                            </label>
+                        </td>
+                        <td class="weight-value">
+                            <input ms-attr="{id:el._id}" ms-duplex="el.rate" type="number"/>
+                            %
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr>
+                        <td>总计</td>
+                        <td>{{@girl}}%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default" ms-on-click="@cancel_click()">取消</button>
+            <button type="button" class="am-btn-primary" ms-on-click="@save_as()">提交</button>
+        </div>
+    </div>
+</div>

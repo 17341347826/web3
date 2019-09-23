@@ -1,0 +1,27 @@
+#new_stu_comment{
+    background-color: #f1f2f6;
+}
+#new_stu_comment>div{
+    padding-left: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#new_stu_comment #new_teacher_comment_table{
+    /*width: 90%;*/
+    /*margin:0 auto;*/
+    padding:17px 16px 40px;
+}
+#new_stu_comment>#new_teacher_comment_table>table{
+    border-radius: 4px;
+}
+
+#new_stu_comment .old-select select{
+    padding-left: 0;
+}
+#new_stu_comment p{
+    margin: 0;
+}
+#new_stu_comment .am-table>thead>tr>th, .am-table>tbody>tr>td{
+    white-space:normal;
+    max-width: 500px;
+}

@@ -1,0 +1,57 @@
+<div ms-important="common_problem" id="common_problem">
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl chosen">常见问题</div>
+            <div class="am-fl"  ms-click="@gra_change()">操作手册</div>
+        </div>
+    </div>
+    <div>
+        <div class="problem-left am-cf">
+            <div class="cp_title">
+                <p>常见问题</p>
+            </div>
+            <div class="m_con">
+                <!--ms-for:($index,el) in @list-->
+                <div class="cp_every old_border">
+                    <div class="cp_every_con clearfix">
+                        <div class="am-fl cp_index">
+                            {{$index+1}}
+                        </div>
+                        <div class="am-fl cp_con">
+                            <div class="clearfix">
+                                <div class="am-fl cp_con_line"></div>
+                                <div class="am-fl cp_con_que">
+                                    {{el.question}}
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="am-fl cp_con_line am-hide"></div>
+                                <div class="am-fl cp_answer">
+                                    {{el.answer}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+                <div class="last_div"></div>
+            </div>
+        </div>
+        <div class="problem-right am-cf">
+            <div class="lxfs-title">联系方式</div>
+            <div class="lxfs-way"><span class="problem-icon qq"></span>在线客服</div>
+            <div>工作日 ： 9:00-18:00</div>
+            <div class="lxkf">
+                <div ms-click="customer_service">联系客服</div>
+            </div>
+            <div class="lxfs-way"><span class="problem-icon phone"></span>400-028-4088</div>
+            <div style="text-align: center">7*24小时</div>
+            <div class="lxfs-way wx"><span class="problem-icon wechat"></span>微信公众号</div>
+            <div style="text-align: center">
+                <img src="common/images/problem/ewm.png">
+            </div>
+
+        </div>
+    </div>
+
+</div>

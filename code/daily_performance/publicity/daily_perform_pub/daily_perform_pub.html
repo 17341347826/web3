@@ -1,0 +1,151 @@
+<div ms-important="daily_perform_pub" id="daily_perform_pub">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange()" ms-duplex="@grade_info">
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级--全校、班级公示-->
+            <div class="select" :if="@pub_range == 1 || @pub_range == 3 || @pub_range == 0">
+                <div class="old-select">
+                    <select ms-duplex-number="@form_list_score.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-年级公示-->
+            <div class="select" :if="@pub_range == 2">
+                <div class="old-select">
+                    <select  ms-duplex-number="@form_list_score.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@stu_num" placeholder="请输入学籍号" :click="@code_search()">
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@stu_name" placeholder="请输入姓名" :click="@name_search()">
+            </div>
+            <button type="button" class="am-btn am-btn-success"
+                    style="margin-top: 10px;border-radius: 4px" ms-click="to_search">查询</button>
+        </div>
+    </div>
+    <div class="list-con" id="daily_perform_pub_content">
+        <!--ms-for:($idx,el) in @daily_list-->
+        <div class="daily-person">
+            <!--学生基本信息-->
+            <div class="stu-info">
+                <div>
+                    <!--头像-->
+                    <div class="stu-head">
+                        <div class="stu-img">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}">
+                        </div>
+                        <div class="stu-name">
+                            <span>{{el.xsxm}}</span>
+                        </div>
+                    </div>
+                    <div class="line-one"></div>
+                    <!--学校信息-->
+                    <div class="stu-school">
+                        <div>
+                            <span class="d-name">日常表现</span>
+                        </div>
+                        <div>
+                            <span>{{el.njmc}} {{el.bjmc}}班</span>
+                            <span>{{el.xxmc}}</span>
+                            <span>{{@district_name}}</span>
+                            <span>{{el.cjsj}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--日常表现信息-->
+            <div class="daily-info">
+                <div class="one-two-index">
+                    <span>评价维度 ：{{el.yjzb_mc}}</span>
+                    <span>评价要素 ：{{el.ejzb_mc}}</span>
+                </div>
+                <div class="three-index h-style">
+                    <h3>关键表现 ：</h3>
+                    <p>  {{el.sjzb_mc}}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>评价描述 ：</h3>
+                    <p>{{el.xxms}}</p>
+                </div>
+                <div class="pj-score">评价得分 ：{{el.df}}</div>
+
+                <div class="d-p-img" ms-visible="@el.img_arr.length>0" ms-class="[(@daily_num==$idx? '':'part-img')]">
+                    <h3>图片材料 ：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(al.guid)}">
+                    <!--ms-for-end:-->
+                </div>
+                <div class="text-content" ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0">
+                    <!--<h3>文件材料：</h3>-->
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--展开、提异议-->
+                <div class="img-objection" ms-if="@data_change(el.fjdz).length!=0">
+                    <div class="img-open img-switch" :if="@open_close==false || @daily_num!=$idx" :click="@img_open($idx,1)">
+                        <span>展开</span>
+                        <span></span>
+                    </div>
+                    <div class="img-close img-switch" :if="@open_close==true && @daily_num==$idx" :click="@img_open($idx,0)">
+                        <span>收起</span>
+                        <span></span>
+                    </div>
+                    <div class="ask-dissent" :click="@ask_dis(el.fk_synthesize_id,$idx)">
+                        <span>我要提异议</span>
+                    </div>
+                </div>
+                <div class="img-objection" ms-if="@data_change(el.fjdz).length==0" style="height: 34px;">
+                    <div class="ask-dissent" :click="@ask_dis(el.fk_synthesize_id,$idx)">
+                        <span>我要提异议</span>
+                    </div>
+                </div>
+                <!--ms-for:cl in @el.dissent_list-->
+                <div class="yy-con" :if="cl.owner_name == @ident_name">
+                    <span>我提出的异议 ：{{cl.content}}</span>
+                </div>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <!--ms-for-end:-->
+    </div>
+    <!--暂无数据-->
+    <div class="no-data" :if="@daily_list.length==0 && @data_had">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+    <div ms-visible="@daily_list.length==0 && !@data_had" class="data_pedding">
+        正在加载中，请稍等
+    </div>
+</div>

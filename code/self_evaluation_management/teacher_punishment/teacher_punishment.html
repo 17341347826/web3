@@ -1,0 +1,98 @@
+<div  id="teacher_punishment" ms-important="teacher_punishment">
+    <div>
+        <div  class="add-practice-content">
+            <!--校身份：年级、班级-->
+            <div class="clearfix p-line-float" :if="@ident_type=='4'">
+                <div class="am-fl">
+                    <div class="p-name-float"><span style="visibility: hidden">年级</span>年级</div>
+                    <div class="p-input-float">
+                        <select ms-duplex="@grade_info" data-duplex-changed="@grade_change()">
+                            <option value="0">
+                                请选择年级
+                            </option>
+                            <option ms-attr="{value:el.id+'|'+el.grade_name}" ms-for="el in @grade_list">
+                                {{ el.grade_name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float"><span style="visibility: hidden">班级</span>班级</div>
+                    <div class="p-input-float">
+                        <select ms-duplex="@class_info" data-duplex-changed="@class_change()">
+                            <option value="0">
+                                请选择班级
+                            </option>
+                            <option ms-attr="{value:el.id+'|'+el.class_name}" ms-for="el in @class_list">
+                                {{ el.class_name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float">被处罚人</div>
+                    <div class="p-input-float">
+                        <select class="js-example-basic-single multiSelect" id="student_select"
+                                ms-attr="{disabled:@is_disabled}">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.guid+'|'+el.name+'|'+el.code}" ms-for="el in @stu_list">
+                                {{ el.name }}{{el.code}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float">处罚时间</div>
+                    <div class="p-input-float">
+                        <input class="am-form-field" data-am-datepicker="" id="my-datepicker"
+                               ms-attr="{value:@extend.punish_time}" ms-on-focus="@getDate" ms-rules="{required:true}"
+                               readonly="" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float">处分名称</div>
+                    <div class="p-input-float">
+                        <input id="punish_name" ms-duplex="@extend.punish_name" type="text"/>
+                    </div>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float">处分类型</div>
+                    <div class="p-input-float">
+                        <select id="punish_select" ms-duplex="@extend.punish_type">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.value}" ms-for="el in @punish_list">
+                                {{ el.type_name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="p-line-max">
+                <div class="p-name-max">处分原由</div>
+                <div class="p-input-max">
+                    <textarea id="punish_reason" ms-duplex="@extend.punish_cause"></textarea>
+                </div>
+            </div>
+            <div class="p-line material">
+                <div class="p-name">证实材料</div>
+                <div class="p-input">
+                    <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'uploader_add_daily',id:'uploader_add_daily', files:@files, url:@uploader_url}"></xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-p-btns"  :if="@module_type != 0">
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_daily">提交</button>
+        </div>
+    </div>
+</div>

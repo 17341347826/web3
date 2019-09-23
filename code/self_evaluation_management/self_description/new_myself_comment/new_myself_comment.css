@@ -1,0 +1,20 @@
+#comment_my{
+    background-color: #f5f5f5;
+}
+#comment_my>div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#comment_my .context_my{
+    max-width: 600px;white-space: inherit;padding-top:5px;padding-bottom: 5px;
+}
+#comment_my div.comment_my_div{
+    /*width: 90%;*/
+    margin: 0 auto;
+    /*padding-top: 30px;*/
+    padding-bottom: 40px;
+}
+#comment_my div.comment_my_div>table{
+    border-radius: 4px;
+}

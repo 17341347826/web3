@@ -1,0 +1,29 @@
+#teacher_add_evaluation.epd{
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.index-title,.index-msg{
+    width: 78%;
+    margin: 0 auto;
+}
+.index-msg{
+    margin-bottom: 40px;
+}
+.index-title{
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 20px;
+}
+.index-msg>ol>li{
+    font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+    font-size: 14px;
+}
+.index-ans{
+    list-style: none;
+    margin-top: 0;
+}
+#teacher_add_evaluation .index-ans{
+    margin: 0;
+    padding: 0;
+}

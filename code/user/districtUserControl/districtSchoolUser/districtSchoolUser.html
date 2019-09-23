@@ -1,0 +1,46 @@
+<div class="am-g" id="districtSchoolUser" ms-important="table">
+ <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+ <!--<div class="am-text-left" id="demand">-->
+  <!--<form class="am-form am-form-inline">-->
+   <!--<div class="am-form-group">-->
+    <!--<label class="am-form-label">-->
+     <!--学校名称-->
+    <!--</label>-->
+    <!--<div class="form-width-lg">-->
+     <!--<input ms-blur="@schoolNameSearch()" ms-duplex="@other.schoolname" placeholder="请输入学校名称" type="text"/>-->
+    <!--</div>-->
+   <!--</div>-->
+   <!--<div class="am-form-group">-->
+    <!--<label class="am-form-label">-->
+     <!--学校代码-->
+    <!--</label>-->
+    <!--<div class="form-width-lg">-->
+     <!--<input ms-blur="@schoolCodeSearch()" ms-duplex="@other.schoolcode" placeholder="请输入学校代码" type="text"/>-->
+    <!--</div>-->
+   <!--</div>-->
+  <!--</form>-->
+ <!--</div>-->
+ <div class="common-select" >
+    <div class="search-cont clearfix">
+      <div class="form-input">
+        <input ms-blur="@schoolNameSearch()" ms-duplex="@other.schoolname" placeholder="请输入学校名称" type="text"/>
+      </div>
+     <div class="form-input">
+      <input ms-blur="@schoolCodeSearch()" ms-duplex="@other.schoolcode" placeholder="请输入学校代码" type="text"/>
+     </div>
+      <!--<div class="search-btn" ms-on-click="@addInfo()">-->
+       <!--<input type="button" value="新增">-->
+      <!--</div>-->
+    </div>
+ </div>
+ <div>
+  <!--tabel-->
+    <div class="table_module">
+     <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+     </xmp>
+    </div>
+  <!--modal-->
+    <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+    </xmp>
+ </div>
+</div>

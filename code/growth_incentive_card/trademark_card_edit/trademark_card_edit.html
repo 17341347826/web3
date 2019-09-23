@@ -1,0 +1,130 @@
+<div class="hide_scroll" ms-important="trademark_card_edit" id="trademark_card_edit">
+    <div>
+        <div class="add-practice-content">
+            <!--评价卡名称、年级-->
+            <div class="clearfix p-line-float">
+                <!--评价卡名称-->
+                <div class="am-fl">
+                    <div class="p-name-float"><span style="visibility: hidden">年级</span>评价卡名称</div>
+                    <div class="p-input-float">
+                        <input ms-duplex="@data.card_name" placeholder="请输入评价卡名称（必填）" type="text"/>
+                    </div>
+                </div>
+                <!--实用年级-->
+                <div class="am-fr">
+                    <div class="p-name-float"><span style="visibility: hidden">评价卡名称</span>年级</div>
+                    <div class="p-input-float">
+                        <select data-duplex-changed="@gradeChange()" ms-duplex="@other.grade">
+                            <option ms-attr="{value:''}">
+                                请选择（必选）
+                            </option>
+                            <!--ms-for: el in @grade_list-->
+                            <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                                {{el.grade_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--发卡周期、周期内限制数量-->
+            <div class="clearfix p-line-float">
+                <div class="am-fr">
+                    <div class="p-name-float"><span style="visibility: hidden">周期内</span>发卡周期</div>
+                    <div class="p-input-float">
+                        <select ms-duplex="@data.cycle_type">
+                            <option ms-attr="{value:''}">
+                                请选择（必选）
+                            </option>
+                            <option ms-attr="{value:1}">
+                                每天
+                            </option>
+                            <option ms-attr="{value:2}">
+                                每周
+                            </option>
+                            <option ms-attr="{value:3}">
+                                每月
+                            </option>
+                            <option ms-attr="{value:4}">
+                                每学期
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="am-fl">
+                    <div class="p-name-float">周期内限制数量</div>
+                    <div class="p-input-float">
+                        <input ms-duplex="@data.max_number" ms-on-blur="@numReg()" placeholder="请输入正整数（必填）" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <!--发卡主体-->
+            <div class="p-line">
+                <div class="p-name"><span style="visibility: hidden">发你的</span>发卡主体</div>
+                <div class="p-input">
+                    <select ms-duplex="@data.user_type">
+                        <option ms-attr="{value:''}">
+                            请选择（必选）
+                        </option>
+                        <option ms-attr="{value:1}">
+                            教师
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--卡片描述-->
+            <div class="p-line">
+                <div class="p-name"><span style="visibility: hidden">发你的</span>卡片描述</div>
+                <div class="p-input">
+                    <input ms-duplex="@data.card_describe" placeholder="请输入卡片描述" type="text"/>
+                </div>
+            </div>
+            <!--卡片标准-->
+            <div class="p-line">
+                <div class="p-name"><span style="visibility: hidden">发你的</span>卡片标准</div>
+                <div class="p-input">
+                    <input ms-duplex="@data.card_norm" placeholder="请输入发卡标准" type="text"/>
+                </div>
+            </div>
+            <!--卡片文案-->
+            <div class="p-line">
+                <div class="p-name"><span style="visibility: hidden">发你的</span>卡片文案</div>
+                <div class="p-input">
+                    <input ms-duplex="@data.title" placeholder="请输入评价卡（实物）文案,如：因XXX表现特发此卡，以资奖章鼓励！" type="text"/>
+                </div>
+            </div>
+            <!--备注-->
+            <div class="p-line">
+                <div class="p-name"><span style="visibility: hidden">发你的卡片</span>备注</div>
+                <div class="p-input">
+                    <input ms-duplex="@data.remark" placeholder="请输入备注" type="text"/>
+                </div>
+            </div>
+            <!--评价卡logo-->
+            <div class="p-line material">
+                <div class="p-name"><span style="visibility: hidden">发你</span>评价卡logo</div>
+                <div class="p-input">
+                    <div id="card-photo">
+                        <div ms-if="@photos ==''">
+                            <div>暂无照片</div>
+                            <div>请选择上传</div>
+                            <div>建议尺寸（宽:高=3:4）</div>
+                            <div>图片格式：jpg/jpeg/png</div>
+                            <!--<div>建议:选用天蓝色背景，身着校服</div>-->
+                        </div>
+                        <img ms-if="@photos != ''" ms-attr="{src:@photos}" alt="">
+                        <div id="report" class="report">
+                            上传图片
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-p-btns am-text-center">
+        <div class="btns">
+            <button type="button" class="am-btn-default" ms-on-click="@cancel()">取消</button>
+            <button type="button" class="am-btn-primary" ms-on-click="@submitSure()">提交</button>
+        </div>
+    </div>
+</div>

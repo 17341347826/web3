@@ -1,0 +1,85 @@
+<div ms-important="content_set" id="content_set">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="tab-titles clearfix">
+        <div class="tab chosen" >
+            内容设置
+        </div>
+        <div class="tab" ms-click="change_page('weight')">
+            权重设置
+        </div>
+        <div class="tab" ms-click="change_page('rank')">
+            等级设置
+        </div>
+    </div>
+
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,head_value:'请选择年级',sel_check:@grade_change,data_arr:@grade_arr,default_value:@default_value}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="ct">
+
+        <div class="evaluation-sub">
+            <label class="title">呈现方式</label>
+            <div class="radios">
+                <label class="am-radio-inline">
+                    <input type="radio" name="doc-radio-1" id="option1" class="rdo" value="1" ms-duplex="1">
+                    <label ms-attr="{for:'option1'}">按等级</label>
+                </label>
+                <label class="am-radio-inline">
+                    <input type="radio" name="doc-radio-1" id="option2" class="rdo" value="2">
+                    <label ms-attr="{for:'option2'}">按分数</label>
+                </label>
+            </div>
+        </div>
+        <div class="evaluation-sub">
+            <label class="title">统计指标类型</label>
+            <div class="c-arys">
+
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="special" disabled ms-attr="{value:2}" ms-duplex-number="@index_type">
+                    <label ms-attr="{for:'special'}">特色指标</label>
+                </label>
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="executive" ms-attr="{value:'1'}" ms-duplex-number="@index_type">
+                    <label ms-attr="{for:'executive'}">行政指标</label>
+                </label>
+
+            </div>
+        </div>
+        <div class="evaluation-sub">
+            <label class="title">评价任务</label>
+            <div class="c-arys">
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="option-1" ms-attr="{value:1}" ms-duplex-number="@module">
+                    <label ms-attr="{for:'option-1'}">民主评议</label>
+                </label>
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="option-2" ms-attr="{value:2}" ms-duplex-number="@module">
+                    <label ms-attr="{for:'option-2'}">学业成绩</label>
+                </label>
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="option-3" ms-attr="{value:3}" ms-duplex-number="@module">
+                    <label ms-attr="{for:'option-3'}">目标计划</label>
+                </label>
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="option-4" ms-attr="{value:4}" ms-duplex-number="@module">
+                    <label ms-attr="{for:'option-4'}">日常表现和个性特长</label>
+                </label>
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="option-5" ms-attr="{value:6}" ms-duplex-number="@module">
+                    <label ms-attr="{for:'option-5'}">综合实践</label>
+                </label>
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" id="option-6" ms-attr="{value:7}" ms-duplex-number="@module">
+                    <label ms-attr="{for:'option-6'}">获奖</label>
+                </label>
+
+            </div>
+            <div class="btns"><button type="button" class="am-btn-primary" ms-click="@save">保存</button></div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div ms-important="portrait_analysis_graduate" id="portrait_analysis_graduate">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-click="@gra_change(1)">综合实践</div>
+            <div class="am-fl chosen">评价维度</div>
+        </div>
+    </div>
+    <!--筛选条件-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--区县-->
+            <div class="select"  :if="@ident_type == 2">
+                <div class="old-select">
+                    <select data-duplex-changed="@area_change()" ms-duplex = "@area_info">
+                        <option ms-attr="{value:''}">
+                            请选择区县
+                        </option>
+                        <!--ms-for: el in @area_list-->
+                        <option ms-attr="{value:el.id + '|' + el.district}">
+                            {{el.district}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--学校-->
+            <div class="select" :if="@ident_type < 4">
+                <div class="old-select">
+                    <select data-duplex-changed="@school_change()" ms-duplex = "@school_info">
+                        <option ms-attr="{value:''}">
+                            请选择学校
+                        </option>
+                        <!--ms-for: el in @school_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.schoolname}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <div class="table_module" :if="@head_list.length>0">
+            <table  class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>年级</th>
+                    <!--ms-for:($idx,el) in @head_list-->
+                    <th>{{el.zb_mc}}</th>
+                    <!--ms-for-end:-->
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: ($index,el) in @data_list-->
+                <tr :if="el.sub_list.length > 0">
+                    <td>{{el.grade_name}}</td>
+                    <!--ms-for:al in el.sub_list-->
+                    <td>{{al.zb_pjf}}</td>
+                    <!--ms-for-end:-->
+                </tr>
+                <tr :if="el.sub_list.length == 0">
+                    <td>{{el.grade_name}}</td>
+                    <!--ms-for:($idx,el) in @head_list-->
+                    <td>0</td>
+                    <!--ms-for-end:-->
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+        <!--暂无数据-->
+        <div class="no-data" :if="@head_list.length == 0">
+            <div>
+                <img src="../../../../common/images/none.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

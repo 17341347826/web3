@@ -1,0 +1,43 @@
+<div class="am-g" id="update_phone" ms-important="update_phone">
+    <div class="update_title">
+        <span>
+            <img src="../../../common/images/update_pwd.png" alt="">
+            <span :if="@type == 1">设置手机号</span>
+            <span :if="@type == 2">修改手机号</span>
+        </span>
+    </div>
+    <div class="update_content">
+        <form class="am-form am-form-horizontal">
+            <!--手机号-->
+            <div class="am-form-group">
+                <div class="parent-phone">
+                    <input type="text" id="phone" placeholder="请输入11位手机号" ms-duplex="@extend.phone"
+                           ms-on-keyup="@phone_ident()" ms-on-blur="@phone_check()">
+                    <span class="additional-infor" :if="@phone_type==1">手机号不正确</span>
+                </div>
+            </div>
+            <!--验证码-->
+            <div class="am-form-group">
+                <div class="ident-info">
+                    <input type="text" id="identifying" placeholder="请输入验证码"
+                           ms-duplex="@extend.validcode" ms-on-blur="@identfy_check()">
+                    <div class="ident-code" ms-class="@ident_type == 1 || @ident_type == 3 ? 'identfy-check':'identfy-no-check'">
+                        <span class="identfy" id="identfy-none" :visible="@ident_type == 0">获取验证码</span>
+                        <span class="identfy" id="identfy-one" :visible="@ident_type == 1" ms-on-click="@identOne()">获取验证码</span>
+                        <span class="identfy" id="identfy-two" :visible="@ident_type == 2">{{@countdown}}秒</span>
+                        <span class="identfy" id="identfy-three" :visible="@ident_type == 3" ms-on-click="@identThree()">重新发送</span>
+                    </div>
+                    <span class="additional-infor"  :if="@prompt_type==1">验证码不正确</span>
+                </div>
+            </div>
+        </form>
+        <!--<div class="am-text-center" id="submitBtnDiv">-->
+            <!--<a class="am-btn am-btn-primary" ms-click="@save_click()">-->
+                <!--保存-->
+            <!--</a>-->
+        <!--</div>-->
+        <div class="btns am-text-center">
+            <button type="button" class="am-btn-primary" ms-click="@save_click()">保存</button>
+        </div>
+    </div>
+</div>

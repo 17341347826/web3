@@ -1,0 +1,129 @@
+#feature_index_see{
+    background-color: #f1f2f6;
+}
+#feature_index_see>div{
+    padding-left: 16px;
+    background-color: white;
+}
+#feature_index_see .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    position: relative;
+}
+#feature_index_see  .first-index>div.am-fl{
+   width: 70%;
+
+}
+#feature_index_see  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+#feature_index_see >div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+#feature_index_see >div.first-index>div.am-fr{
+    width: auto;
+    padding-right: 40px;
+
+}
+#feature_index_see >div.first-index>div.am-fr>a{
+    margin-left: 16px;
+}
+#feature_index_see >div.first-index>div.am-fr>div{
+    display: inline-block;
+    margin-left: 16px;
+    border-left:1px #e4e4e4 dashed;
+
+}
+#feature_index_see .toggle-a{
+    margin-left: 32px;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+#feature_index_see>div.second-index,
+#feature_index_see>div.three-index{
+    padding-top: 12px;
+    padding-bottom:20px;
+}
+#feature_index_see>div.second-index .title-name,#feature_index_see>div.three-index .title-name{
+
+/*#feature_index_see .title-name{*/
+    width: 73px;
+    height: 24px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #0dba9e;
+    border-bottom: 1px #0dba9e solid;
+}
+#feature_index_see  .add-index{
+    margin-right: 45px;
+}
+/*table组件*/
+#feature_index_see .table-module{
+    margin-top: 12px;
+    padding-right: 16px;
+    background-color: #ffffff;
+}
+#feature_index_see .table-module table{
+    border-radius: 4px;
+    border: solid 1px #d3d3d3;
+}
+/*三级指标--关键表现*/
+#feature_index_see .three-index{
+    margin-top:4px;
+}
+#feature_index_see .add-index{
+    background-color: #2bbba4;
+    margin-right: 10px;
+    cursor: pointer;
+}
+#feature_index_see .second-index .add-index,#feature_index_see .three-index .add-index{
+    margin-right: 45px;
+}
+#feature_index_see .btn{
+    width: 112px;
+    height: 34px;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    line-height: 34px;
+}
+#feature_index_see img.btn-img{
+    margin-right: 4px;
+}
+
+#feature_index_see #file-uploading p{
+    color: red;
+}
+#feature_index_see .false_msg{
+    max-height: 250px;
+    overflow-y: auto;
+}
+#feature_index_see td{
+    width: 300px;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

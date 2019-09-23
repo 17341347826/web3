@@ -1,0 +1,27 @@
+<div class="am-g" id="body_weight" ms-important="main_weight">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div class="common-select" >
+            <div class="search-cont clearfix">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_check,head_value:'请选择年级'}"></xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="b-w-con">
+            <div class="clearfix">
+                <div class="am-fl" ms-for="($index,el) in @main_weight.main_ratio">
+                    {{el.name | nameChange}}权重:
+                    <input type="text" ms-visible="@page_state==2" ms-duplex="el.ratio">
+                    <span ms-visible="@page_state==1">{{el.ratio | to_number}}</span>%
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <button type="button" class="am-btn-primary" ms-visible="@page_state==1" ms-click="@page_state=2">修改</button>
+            <button type="button" class="am-btn-primary" ms-visible="@page_state==2" ms-click="@save">保存</button>
+        </div>
+    </div>
+</div>

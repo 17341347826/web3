@@ -1,0 +1,25 @@
+#by_evaluation_results{
+    background-color: #f5f5f5;
+}
+#by_evaluation_results >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#by_evaluation_results .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+    min-height: 630px;
+}
+#by_evaluation_results>div.no-data>div{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+#by_evaluation_results>div.public_div>div>img{
+    position: absolute;
+    top:25%;
+    left:25%;
+}

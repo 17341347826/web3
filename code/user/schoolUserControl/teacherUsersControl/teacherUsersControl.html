@@ -1,0 +1,61 @@
+<div class="am-g" id="teacherUsersControl" ms-important="teacherUsersControl">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="form-input">
+                <input ms-duplex="@demandData.account" ms-on-blur="@accountNumDemand()" placeholder="请输入账号"
+                       type="text"/>
+            </div>
+            <div class="form-input">
+                <input ms-duplex="@demandData.user_name" ms-on-blur="@teacherNameDemand()" placeholder="请输入姓名"
+                       type="text"/>
+            </div>
+        </div>
+    </div>
+    <div id="role-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+        <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+        </xmp>
+        <!--角色-->
+        <div>
+            <div class="am-modal am-modal-prompt" id="role-setting" tabindex="-1">
+                <div class="am-modal-dialog">
+                    <div class="am-modal-hd">
+                        角色设置
+                        <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                            ×
+                        </a>
+                    </div>
+                    <div class="am-modal-bd">
+                        <form class="am-form am-form-horizontal">
+                            <div class="am-form-group">
+                                <!--ms-for: el in @role_list-->
+                                <label class="am-checkbox-inline" ms-attr="{disabled:(el.id==7||el.id==5||el.id==6)}">
+                                    <input ms-attr="{value:el.id,disabled:(el.id==7||el.id==5||el.id==6)}"
+                                           ms-duplex-number="@role" type="checkbox"/>
+                                    {{el.role_name}}
+                                </label>
+                                <!--ms-for-end:-->
+                            </div>
+                        </form>
+                        <span ms-visible="@modal.msg != ''" style="color: red">
+      {{ @modal.msg }}
+     </span>
+                    </div>
+                    <div class="am-modal-footer">
+     <span class="am-modal-btn" data-am-modal-cancel="">
+      取消
+     </span>
+                        <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@roleSave()">
+      提交
+     </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

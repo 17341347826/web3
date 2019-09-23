@@ -1,0 +1,45 @@
+<div ms-important="parent_msg" id="parent_msg">
+    <!--学年学期筛选-->
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">学年学期</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@semesterChange()" ms-duplex="@semester">
+                    <option ms-attr="{value:''}">
+                        请选择
+                    </option>
+                    <!--ms-for:($idx,el) in @semesterAry-->
+                    <option ms-attr="{value:el.semester_name+'|'+el.semester_index + '|' + el.start_date+'|'+el.end_date}">
+                        {{el.semester_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="content" ms-if="@semester!=''">
+        <!--<div class="weui-cells__title">{{@semester_name}}</div>-->
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">评语</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input ms-if="@remarl_content!=''" ms-attr="{value:@remarl_content}" class="weui-input" type="text">
+                    <!--<input ms-if="@remarl_content==''" class="weui-textarea" placeholder="请输入评语（一学期只允许评一次！！）"  ms-duplex="@remarl.content_guardian">-->
+                    <textarea ms-if="@remarl_content==''" class="weui-textarea" placeholder="请输入评语（一学期只允许评一次！！）" rows="10"  ms-duplex="@remarl.content_guardian"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="button_sp_area" ms-if="@remarl_content==''">
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default" ms-on-click="@cancel_btn()">取消</a>
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" ms-on-click="@save_btn()">确定</a>
+        </div>
+        <div class="button_sp_area" ms-if="@remarl_content!=''">
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" ms-on-click="@update_btn()">修改</a>
+        </div>
+    </div>
+</div>

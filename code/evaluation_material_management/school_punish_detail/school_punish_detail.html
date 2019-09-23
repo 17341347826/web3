@@ -1,0 +1,133 @@
+<div ms-important="daily_perform_pub" id="daily_perform_pub">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--<div class="common-select" >-->
+    <!--<div class="search-cont clearfix">-->
+    <!--<div class="select">-->
+    <!--<xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_semester,head_value:'请选择年级', $id:'daily_pub_opt_grade'}"></xmp>-->
+    <!--</div>-->
+    <!--<div class="select">-->
+    <!--<xmp ms-widget="{is:'ms-select-assembly',data_arr:@class_list,sel_check:@sel_change_grade,head_value:'请选择班级', $ic:'daily_pub_opt_class', $id:'daily_pub_opt_class'}"></xmp>-->
+    <!--</div>-->
+    <!--<div class="form-input">-->
+    <!--<input type="text" placeholder="请输入学籍号" :duplex="@filter.code">-->
+    <!--</div>-->
+    <!--<div class="form-input">-->
+    <!--<input type="text" placeholder="请输入姓名" :duplex="@filter.name">-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <!--<div class="select">-->
+            <!--<div class="old-select">-->
+            <!--<select data-duplex-changed="@gradeChange()" ms-duplex="@grade_info">-->
+            <!--<option ms-attr="{value:''}">-->
+            <!--请选择年级-->
+            <!--</option>-->
+            <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+            <!--<option ms-attr="{value:el.id}">-->
+            <!--{{el.grade_name}}-->
+            <!--</option>-->
+            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--班级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@class_change()" ms-duplex-number="@form_list_score.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}班【{{el.class_id}}】
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@stu_num" placeholder="请输入学籍号">
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@stu_name" placeholder="请输入姓名">
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <!--ms-for:($idx,el) in @daily_list-->
+        <div class="daily-person">
+            <!--学生基本信息-->
+            <div class="stu-info">
+                <div>
+                    <!--头像-->
+                    <div class="stu-head">
+                        <div class="stu-img">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}">
+                        </div>
+                        <div class="stu-name">
+                            <span>{{el.xsxm}}</span>
+                        </div>
+                    </div>
+                    <div class="line-one"></div>
+                    <!--学校信息-->
+                    <div class="stu-school">
+                        <div>
+                            <span class="d-name">日常表现</span>
+                        </div>
+                        <div>
+                            <span>{{el.njmc}} {{el.bjmc}}班</span>
+                            <span>{{el.xxmc}}</span>
+                            <span>{{@district_name}}</span>
+                            <span>{{el.cjsj}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--日常表现信息-->
+            <div class="daily-info">
+                <div class="one-two-index">
+                    <span>评价维度 ：{{el.yjzb_mc}}</span>
+                    <span>评价要素 ：{{el.ejzb_mc}}</span>
+                </div>
+                <div class="three-index h-style">
+                    <h3>关键表现 ：</h3>
+                    <p>  {{el.sjzb_mc}}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>评价描述 ：</h3>
+                    <p>{{el.xxms}}</p>
+                </div>
+                <div class="pj-score">评价得分 ：{{el.df}}</div>
+                <div class="d-p-img" ms-class="[@daily_num==$idx ? 'img-ary-height-open':'img-ary-height']">
+                    <!--ms-for:($index,al) in @data_change(el.fjdz)-->
+                    <img ms-attr="{src:@url_for(al.guid)}">
+                    <!--ms-for-end:-->
+                </div>
+                <!--展开、提异议-->
+                <div class="img-objection">
+                    <div class="img-open img-switch" :if="@open_close==false || @daily_num!=$idx" :click="@img_open($idx,1)">
+                        <span>展开</span>
+                        <span></span>
+                    </div>
+                    <div class="img-close img-switch" :if="@open_close==true && @daily_num==$idx" :click="@img_open($idx,0)">
+                        <span>收起</span>
+                        <span></span>
+                    </div>
+                    <div class="ask-dissent" :click="@ask_dis(el.fk_synthesize_id)">
+                        <span>我要提异议</span>
+                    </div>
+                </div>
+                <!--ms-for:cl in @el.dissent_list-->
+                <div class="yy-con" :if="cl.owner_name=@ident_name">
+                    <span>{{cl.content}}</span>
+                </div>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div :if="@daily_list.length==0" style="color:#a2a2a2;text-align: center;padding-top:20px;padding-bottom:30px;">
+            暂无数据
+        </div>
+    </div>
+</div>

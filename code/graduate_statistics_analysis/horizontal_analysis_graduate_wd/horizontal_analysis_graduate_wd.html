@@ -1,0 +1,194 @@
+<div ms-important="horizontal_analysis_graduate_wd" class="d_e_progress" id="horizontal_analysis_graduate_wd">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl "  :click="to_page('#horizontal_analysis_graduate')">综合等级</div>
+            <div class="am-fl chosen"  :click="to_page('#horizontal_analysis_graduate_wd')">评价维度</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+            <!--<xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:@grade_name}"></xmp>-->
+        </div>
+    </div>
+    <!--市-->
+    <div class="clearfix table-module" :if="@city_analyze_list.length>0">
+        <p>{{@user.city}}综合素质评价各维度市对比情况</p>
+        <div>
+            <div id="district_chart_id" class="charts-container"></div>
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">市州</th>
+                        <th class="border-right">年级</th>
+                        <!--ms-for: el in @city_headers-->
+                        <th>{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@city_analyze_list.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @city_analyze_list-->
+                    <tr>
+                        <td class="border-right" ms-attr="{rowspan:@merge_cell(@city_analyze_list,'city_name',el.city_name,ind)}"
+                        :visible = "ind == 0 || @merge_cell(@city_analyze_list,'city_name',el.city_name,ind) > 0">
+                            {{el.city_name}}
+                        </td>
+                        <td class="border-right">{{@nameId_change(el.fk_grade_id)}}</td>
+                        <!--ms-for: ind,item in @el.sub_list-->
+                        <td>{{item.zb_pjf}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--区县-->
+    <div class="clearfix table-module" :if="@district_analyze_list.length>0">
+        <p>{{@user.city}}综合素质评价各维度区县对比情况</p>
+        <!--区县：市级用户才会有筛选条件-->
+        <div class="area-select clearfix" :if="@ident_type == 2">
+            <div class="select">
+                <!--<xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>-->
+
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@area_list,sel_check:@sel_change_area,head_value:'请选择区县'}"></xmp>
+            </div>
+        </div>
+        <div>
+            <!--<div id="school_chart_id" class="charts-container"></div>-->
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">区县</th>
+                        <th class="border-right">年级</th>
+                        <!--ms-for: el in @district_headers-->
+                        <th>{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@district_analyze_list.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @district_analyze_list-->
+                    <tr>
+                        <td class="border-right" ms-attr="{rowspan:@merge_cell(@district_analyze_list,'district_name',el.district_name,ind)}"
+                            :visible = "ind == 0 || @merge_cell(@district_analyze_list,'district_name',el.district_name,ind) > 0">
+                            {{el.district_name}}
+                        </td>
+                        <td class="border-right">{{@nameId_change(el.fk_grade_id)}}</td>
+                        <!--ms-for: ind,item in @el.sub_list-->
+                        <td>{{item.zb_pjf}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--学校-->
+    <div class="clearfix table-module" :if="@school_analyze_list.length>0">
+        <p>{{@user.city}}综合素质评价各维度学校对比情况</p>
+        <!--学校：市、区用户才有-->
+        <div class="school-select search-cont clearfix">
+            <div class="form-input" :if="@ident_type < 4">
+                <input type="text" ms-duplex="@school_name" ms-on-blur="@school_search()" placeholder="请输入学校">
+            </div>
+        </div>
+        <div>
+            <!--<div id="class_chart_id" class="charts-container"></div>-->
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">学校</th>
+                        <th class="border-right">年级</th>
+                        <!--ms-for: el in @school_headers-->
+                        <th>{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@school_analyze_list.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @school_analyze_list-->
+                    <tr>
+                        <td class="border-right" ms-attr="{rowspan:@merge_cell(@school_analyze_list,'school_name',el.school_name,ind)}"
+                            :visible = "ind == 0 || @merge_cell(@school_analyze_list,'school_name',el.school_name,ind) > 0">
+                            {{el.school_name}}
+                        </td>
+                        <td class="border-right">{{@nameId_change(el.fk_grade_id)}}</td>
+                        <!--ms-for: ind,item in @el.sub_list-->
+                        <td>{{item.zb_pjf}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--班级-->
+    <div class="clearfix table-module" :if="@class_analyze_list.length>0">
+        <p>{{@user.city}}综合素质评价各维度班级对比情况</p>
+        <!--班级：校级用户才会有筛选条件-->
+        <div class="class-select clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@sel_change_class,head_value:'请选择班级',empty_alert:'请先选择年级在选择班级'}"></xmp>
+            </div>
+        </div>
+        <div>
+            <!--<div id="class_chart_id" class="charts-container"></div>-->
+            <div class="table-box">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="border-right">年级</th>
+                        <th class="border-right">班级</th>
+                        <!--ms-for: el in @class_headers-->
+                        <th>{{el}}</th>
+                        <!--ms-for-end:-->
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ms-if="@class_analyze_list.length == 0">
+                        <td ms-attr="{colspan:13}">暂时没有数据</td>
+                    </tr>
+                    <!--ms-for: ind,el in @class_analyze_list-->
+                    <tr>
+                        <td class="border-right" ms-attr="{rowspan:@merge_cell(@class_analyze_list,'grade_name',el.grade_name,ind)}"
+                            :visible = "ind == 0 || @merge_cell(@class_analyze_list,'grade_name',el.grade_name,ind) > 0">
+                            {{el.grade_name}}
+                        </td>
+                        <td class="border-right">{{el.class_name}}</td>
+                        <!--ms-for: ind,item in @el.sub_list-->
+                        <td>{{item.zb_pjf}}</td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--暂无数据-->
+    <div class="no-data"  :if="@district_analyze_list.length == 0 &&
+    @school_analyze_list.length == 0 && @class_analyze_list.length == 0">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+</div>

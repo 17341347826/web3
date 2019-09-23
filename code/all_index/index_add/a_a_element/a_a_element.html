@@ -1,0 +1,70 @@
+<div ms-important="a_a_element" id="a_a_element">
+   <div class="content">
+       <div class="grade-info">年级：七年级</div>
+       <div class="a-name">新增评价要素</div>
+       <!--填写信息-->
+       <div class="form-inset">
+           <div class="a-dimention">
+               <label>评价维度</label>
+               <div class="base-select">
+                   <div class="old-select">
+                       <select ms-duplex="@frist_id_name" data-duplex-changed="@first_index_change">
+                           <option ms-attr="{value:''}">
+                               请选择评价维度
+                           </option>
+                           <!--ms-for:($idx,el) in @frist_index-->
+                           <option ms-attr="{value:el.id + '|' + el.index_name}">
+                               {{el.index_name}}
+                           </option>
+                           <!--ms-for-end:-->
+                       </select>
+                   </div>
+               </div>
+           </div>
+           <div class="a-element">
+               <label>评价要素</label>
+               <div class="form-input">
+                   <input type="text" ms-duplex="@data.index_name" placeholder="请输入要素名称">
+               </div>
+           </div>
+           <div class="invest-point">
+               <label>考察要点</label>
+               <div class="form-input">
+                  <textarea rows="3" cols="20" ms-duplex="@data.index_review" placeholder="请输入考察要点"></textarea>
+               </div>
+           </div>
+           <div class="a-value">
+               <label><span style="visibility: hidden">分值</span>分值</label>
+               <div class="form-input">
+                   <input type="text" ms-duplex-number="@data.index_value" placeholder="请输入分值">
+               </div>
+           </div>
+           <div class="a-set">
+               <label><span style="visibility: hidden">分值</span>创建</label>
+               <div class="form-input">
+                   <input type="text" disabled="" ms-duplex="@data.index_work" >
+               </div>
+           </div>
+           <div class="a-author">
+               <label><span style="visibility: hidden">分值</span>作者</label>
+               <div class="base-select">
+                   <div class="old-select">
+                       <select id="teacher_select" ms-duplex="@author_info">
+                           <option ms-attr="{value:''}">
+                               请选择
+                           </option>
+                           <!--ms-for:($idx,el) in @teacher_arr-->
+                           <option ms-attr="{value:el.teacher_name+'|'+el.guid}">
+                               {{el.teacher_name }}--{{el.teacher_num}}
+                           </option>
+                           <!--ms-for-end:-->
+                       </select>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="btns">
+           <button type="button" class="am-btn am-btn-primary" ms-on-click="@save_data()">提交</button>
+       </div>
+   </div>
+</div>

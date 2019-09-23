@@ -1,0 +1,44 @@
+#marks .weui-title {
+    color: #fff;
+    padding: 10px 15px;
+    background: #3b94f0;
+}
+#marks .weui-title span {
+    float: right;
+}
+#marks .tab-title {
+    position: fixed;
+    top: 45px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    color: #2ddbc6;
+   background: #2e5274;
+}
+#marks .tab-con {
+    margin-top: 90px;
+}
+#marks .weui-cell:before,
+#marks .weui-cell:after {
+    border: none;
+}
+
+#marks .weui-cell>div {
+    width: 25%; /* default 0 */
+    text-align: center;
+}
+#marks .green-word {
+    color: #2ddbc6;
+}
+#marks .subject-score {
+    color: #3b94f0;
+}
+#marks .subject-score:nth-child(odd) {
+   background: #f9f9f9;
+}
+#marks .border-right  {
+    border-right:1px solid #d9d9d9;
+}
+#marks .border-left {
+    border-left:1px solid #d9d9d9;
+}

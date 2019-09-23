@@ -1,0 +1,12 @@
+<div class="three-menu am-cf" id="three-menu">
+    <div class="menu-info">
+        <ul>
+            <!--ms-for:($idx,el) in @three_menu.elements-->
+            <li>
+                <a ms-attr="{href:el.href}">{{el.title}}</a>
+                <span :if="$idx!=@three_menu.elements.length-1" class="li-line"></span>
+            </li>
+            <!--ms-for-end:-->
+        </ul>
+    </div>
+</div>

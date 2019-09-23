@@ -1,0 +1,120 @@
+<div ms-important="ecm_daily_perform" id="ecm_daily_perform">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester, $id:'ecm_daily_opt_sem'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade,$id:'ecm_daily_opt_grade'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,$id:'ecm_daily_opt_class'}"></xmp>
+            </div>
+
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="con-one">
+            <div class="title">学生日常表现上传进度</div>
+            <div class="daily-top clearfix">
+                <div class="info-prom">
+                    <div>
+                        <span>人均上传材料(份) ：</span>
+                        <span>{{process[0].rc_rjscs.toFixed(1)}}</span>
+                    </div>
+                    <div>
+                        <span><span style="visibility: hidden">(苏)</span>上传学生占比 ：</span>
+                        <span>{{process[0].zh_scxszb.toFixed(2)}}%</span>
+                    </div>
+                </div>
+                <div class="ecm-table-container">
+                    <table class="am-table am-table-bordered">
+                        <thead>
+                        <tr>
+                            <th>在籍学生人数</th>
+                            <th>上传总数</th>
+                            <th>归档总数</th>
+                            <th>人均上传数</th>
+                            <th>已上传人数</th>
+                            <th>未上传人数</th>
+                            <th>上传学生占比</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr :if="@process.length > 0">
+                            <td>{{process[0].bjrs}}</td>
+                            <td>{{process[0].rc_lrzs}}</td>
+                            <td>{{process[0].rc_gd}}</td>
+                            <td>{{process[0].rc_rjscs|rj_filter}}</td>
+                            <td>{{process[0].rc_lrrs}}</td>
+                            <td>{{process[0].rc_wlrrs}}</td>
+                            <td>{{process[0].zh_scxszb | double_filter}}</td>
+                        </tr>
+                        <tr :if="@process.length==0">
+                            <td colspan="7">暂无数据</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="con-two">
+            <div class="title">班级学生进度详情</div>
+            <div class="stu-progress-table">
+                <div>
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td >序号</td>
+                            <td>姓名</td>
+                            <td >学籍号</td>
+                            <td >加分材料</td>
+                            <td >减分材料</td>
+                            <td class="up-count">上传材料总数</td>
+                        </tr>
+                        <tr :if="@student_list.length >0" :for="$index, item in student_list|limitBy(line_offset, 0)">
+                            <td>{{$index+1}}</td>
+                            <td>{{item.xm}}</td>
+                            <td>{{item.xjh|mtruncate(3,3)}}</td>
+                            <td>{{item.plus}}</td>
+                            <td>{{item.reduce}}</td>
+                            <td>{{item.gds}}</td>
+                        </tr>
+                        <tr :if="@student_list.length == 0">
+                            <td colspan="6">暂无数据</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table class="am-table am-table-bordered ">
+                        <tbody>
+                        <tr>
+                            <td >序号</td>
+                            <td >姓名</td>
+                            <td >学籍号</td>
+                            <td >加分材料</td>
+                            <td >减分材料</td>
+                            <td class="up-count">上传材料总数</td>
+                        </tr>
+                        <tr :if="@student_list.length >0" :for="$index, item in student_list|limitBy(line_offset, line_offset)">
+                            <td>{{ line_offset+$index+1}}</td>
+                            <td>{{item.xm}}</td>
+                            <td>{{item.xjh|mtruncate(3,3)}}</td>
+                            <td>{{item.plus}}</td>
+                            <td>{{item.reduce}}</td>
+                            <td>{{item.gds}}</td>
+                        </tr>
+                        <tr :if="@student_list.length == 0">
+                            <td colspan="6">暂无数据</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

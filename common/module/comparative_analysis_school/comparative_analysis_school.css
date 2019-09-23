@@ -1,0 +1,7 @@
+#school_analysis{
+    display: flex;
+}
+#school_analysis div:last-child{
+    flex: 1;
+    overflow: auto;
+}

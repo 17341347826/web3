@@ -1,0 +1,24 @@
+#update_pwd{
+    font-family: PingFang-SC-Regular;
+}
+#update_pwd .weui-cell .weui-cell__hd{
+    font-size: 12px;
+    font-weight: normal;
+    color: #191a19;
+}
+#update_pwd .weui-cell .weui-cell__bd{
+    font-size: 12px;
+    font-weight: normal;
+    color: #777777;
+}
+/*提示语*/
+#update_pwd .reminder{
+    font-size: 12px;
+    text-align: center;
+    color:#ff5959;
+    margin-top:10px;
+}
+/*确认*/
+#update_pwd .public_btn_big{
+    margin-top: 15px;
+}

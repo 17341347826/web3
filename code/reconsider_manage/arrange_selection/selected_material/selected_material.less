@@ -1,0 +1,396 @@
+@bgColor: #FFFFFF;
+@borderColor: rgb(21, 165, 146);
+@bgTitleWidth: 90px;
+@bgTitleHeight: 34px;
+@bgTitleSize: 18px;
+@normalColor: rgb(162, 162, 162);
+@normalSize: 16px;
+@normalBorderColor: rgb(226, 226, 226);
+@partImgHeight: 120px;
+@img_path: '../../../../common';
+@borderRadius: 4px;
+@contentWidth:1089px;
+.bg_color {
+  background-color: @bgColor;
+}
+
+#material {
+  background-color: #f2f2f6;
+  .container{
+    width: 100%;
+    .bg_color;
+    margin-top: 4px;
+  }
+  .all-select {
+    padding-left: @normalSize;
+    border-radius: @borderRadius;
+    .bg_color;
+    .tab-titles {
+      padding-top: 10px;
+      border-bottom: 1px solid @normalBorderColor;
+      padding-bottom: 10px;
+      .tab{
+        padding-right: 18px;
+        padding-left: 18px;
+        height: 34px;
+        border-radius: 4px;
+        border: solid 1px #e4e4e4;
+        color: #a2a2a2;
+        text-align: center;
+        line-height: 34px;
+        margin-right: 10px;
+        position: relative;
+        float: left;
+        cursor: pointer;
+      }
+      .chosen{
+        color: #2bbba4!important;
+        border: solid 1px #2bbba4!important;
+        background: url("@{img_path}/images/chosen.png") no-repeat top right;
+      }
+    }
+    .type-count{
+      padding-top: 10px;
+      font-size: 14px;
+      color: #a2a2a2;
+      span{
+        color: #ff6656;
+      }
+    }
+    .search-content {
+      padding-top: 14px;
+      padding-bottom: 14px;
+      .select {
+        float: left;
+        margin-right: 14px;
+        input {
+          width: 199px;
+          height: 36px;
+          border-radius: @borderRadius;
+          color: #c8c8c8;
+          font-size: @normalSize;
+          border: 1px solid #c8c8c8;
+          padding-left: 20px;
+          outline: none;
+        }
+        input::placeholder {
+          color: #c8c8c8;
+        }
+      }
+    }
+  }
+  .count {
+    .width-center;
+    font-size: 12px;
+    color:rgb(162,162,162);
+    height: 35px;
+    line-height: 35px;
+    span{
+      font-size: @normalSize;
+      color: rgb(255,102,86);
+    }
+  }
+  .width-center{
+    width: @contentWidth;
+    margin: 0 auto;
+  }
+  .inner-content {
+    .bg_color;
+    width: 970px;
+    margin: 0 auto;
+    border-radius: @borderRadius;
+    .pad-27{
+      padding-left: 27px;
+      padding-right: 27px;
+    }
+    .b-title{
+      .pad-27;
+      font-size: @normalSize;
+      color: rgb(40,185,171);
+      height: 48px;
+      line-height: 48px;
+      border-bottom: 1px solid @normalBorderColor;
+    }
+    .table-container{
+      .pad-27;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-radius: 0 0 4px 4px;
+      table{
+        //table-layout:fixed;
+        word-wrap:break-word;
+        border-radius: @borderRadius;
+
+        tr>td:last-child{
+          width: 459px;
+          text-align: left;
+        }
+      }
+      .am-table>tbody>tr>td:last-child{
+        white-space: normal;
+      }
+    }
+    .table-container2{
+      padding-top: 20px;
+    }
+  }
+  .inner {
+    .bg_color;
+    //width: 800px;
+    //margin: 0 auto;
+    max-width: 1000px;
+    padding: 11px;
+    margin-left: 27px;
+  }
+  .m-title {
+    width: 100%;
+    height: 127px;
+    padding-top: 20px;
+    border-bottom: 1px dashed #e2e2e2;
+    .person-left {
+      float: left;
+      width: 108px;
+      text-align: center;
+      padding-top: 5px;
+      padding-right: 18px;
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+      h3 {
+        font-size: @normalSize;
+        color: rgb(255, 148, 77);
+        display: block;
+      }
+    }
+    .person-right {
+      //float: left;
+      padding-top: 20px;
+      //width: 664px;
+      width: 100%;
+      padding-left: 110px;
+      max-width: 1000px;
+      height: 88px;
+      border-left: 1px dashed #e2e2e2;
+      .persion-title {
+        width: 100%;
+        text-align: right;
+        & > span {
+          display: inline-block;
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 18px;
+          font-weight: bold;
+          color: rgb(162, 162, 162);
+        }
+      }
+      .person-msg {
+        display: flex;
+        margin-top: 8px;
+        h3 {
+          flex: 1;
+          text-align: right;
+        }
+      }
+
+    }
+  }
+  h3, p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: @normalSize;
+    color: @normalColor;
+    font-weight: normal;
+    vertical-align: top;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  h3 {
+    padding-right: 5px;
+  }
+  p {
+    max-width: 650px;
+  }
+  .noTopBorder {
+    border-bottom: 1px solid @normalBorderColor;
+    border-left: 1px solid @normalBorderColor;
+    border-right: 1px solid @normalBorderColor;
+  }
+  .pd20 {
+    padding-left: 20px;
+  }
+
+  .sm {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    .pd20;
+    .sm-each {
+      flex: 1;
+    }
+  }
+
+  .bg {
+    .pd20;
+    line-height: 28px;
+  }
+  .img-container {
+    .pd20;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    border-radius: 0 0 @borderRadius @borderRadius;
+    div {
+      width: 670px;
+      border-radius: @borderRadius;
+      padding: 5px;
+      margin-left: 77px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .part-img {
+    height: 120px;
+    overflow: hidden;
+  }
+  .bt {
+    position: relative;
+    height: 70px;
+    padding-top: 25px;
+    .open-close {
+      width: 80px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 13px;
+      border: 1px solid rgb(43, 187, 164);
+      font-size: 14px;
+      color: rgb(43, 187, 164);
+      text-align: center;
+      margin: 0 auto;
+      cursor: pointer;
+      &:hover {
+        background-color: #2bbba4;
+        color: #FFFFFF;
+      }
+      span {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        margin-left: 2px;
+      }
+    }
+    .open {
+      span {
+        background: url("@{img_path}/images/teacher/down.png") center no-repeat;
+      }
+      &:hover {
+        span {
+          background: url("@{img_path}/images/teacher/down1.png") center no-repeat;
+        }
+      }
+    }
+    .close {
+      span {
+        background: url("@{img_path}/images/teacher/top.png") center no-repeat;
+      }
+      &:hover {
+        span {
+          background: url("@{img_path}/images/teacher/top1.png") center no-repeat;
+        }
+      }
+    }
+  }
+  .btns {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    button {
+      height: 34px;
+      color: #FFFFFF;
+      font-size: @normalSize;
+      line-height: 34px;
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+    .no-pass {
+      background-color: rgb(255, 158, 71);
+      &:hover {
+        background-color: #ff7a45;
+      }
+    }
+    .pass {
+      background-color: rgb(43, 187, 164);
+      &:hover {
+        background-color: #2bbb7c;
+      }
+    }
+    .select-material{
+      width: 146px;
+    }
+    .selected-material{
+      width: 174px;
+    }
+  }
+  #v_layer {
+    width: 600px;
+    padding: 10px;
+    display: none;
+    textarea {
+      width: 100%;
+      height: 190px;
+      overflow-y: auto;
+      border-radius: @borderRadius;
+      color: @normalColor;
+    }
+    .files{
+      position: relative;
+      font-size: @normalSize;
+      color: @normalColor;
+      height: 50px;
+      line-height: 50px;
+      button{
+        background-color: rgb(43, 187, 164);
+        border: none;
+        outline: none;
+        height: 34px;
+        color: #FFFFFF;
+        border-radius: 4px;
+        margin-right: 4px;
+        &:hover{
+          background-color: #2bbb7c;
+        }
+      }
+      input[type='file']{
+        height: 34px;
+        position: absolute;
+        top: 10px;
+        left: 115px;
+        opacity: 0;
+      }
+    }
+  }
+  .no-msg{
+    text-align: center;
+    color: #a2a2a2;
+  }
+}
+
+.clearfix:after {
+  content: ".";
+  /*加一段内容*/
+  display: block;
+  /*让生成的元素以块级元素显示，占满剩余空间*/
+  height: 0;
+  /*避免生成的内容破坏原有布局高度*/
+  clear: both;
+  /*清除浮动*/
+  visibility: hidden;
+  /*让生成的内容不可见*/
+}
+
+.clearfix {
+  zoom: 1;
+  /*为IE6，7的兼容性设置*/
+}

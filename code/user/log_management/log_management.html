@@ -1,0 +1,61 @@
+<div ms-important="log_management" id="log_management">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--区县-->
+            <div class="select" :if="@login_level == 2">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@change_area,head_value:@head_value.area}"></xmp>
+            </div>
+            <!--学校-->
+            <div class="select" :if="@login_level != 4">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@school_list,sel_check:@change_school,head_value:@head_value.school}"></xmp>
+            </div>
+            <!--年级-->
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade}"></xmp>
+            </div>
+            <!--班级-->
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class}"></xmp>
+            </div>
+            <!--操作类型-->
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@type_list,sel_check:@change_type,head_value:@head_value.type}"></xmp>
+            </div>
+            <div class="select">
+                <div class="form-input">
+                    <input type="text" data-am-datepicker="" id="my-datepicker"
+                           ms-attr="{value:@extend.time_start}" readonly ms-on-focus="@getCompleteDate" placeholder="请选择开始时间"
+                           ms-rules="{required:true}">
+                </div>
+            </div>
+            <div class="select">
+                <div class="form-input">
+                    <input  data-am-datepicker="" id="my-datepickers"
+                            ms-attr="{value:@extend.time_end}" readonly ms-on-focus="@getCompleteDates"  placeholder="请选择结束时间"
+                            ms-rules="{required:true}" type="text"/>
+                </div>
+            </div>
+            <div class="select">
+                <div class="form-input">
+                    <input type="text" class="name" placeholder="操作者帐号或姓名" :duplex="@fill_do">
+                </div>
+            </div>
+            <div class="select">
+                <div class="form-input">
+                    <input type="text" class="name" placeholder="被操作者帐号或姓名" :duplex="@fill_did" >
+                </div>
+            </div>
+
+            <div class="search-btn">
+                <input type="button" value="查询" ms-on-click="@search">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh}">
+            </xmp>
+        </div>
+    </div>
+</div>

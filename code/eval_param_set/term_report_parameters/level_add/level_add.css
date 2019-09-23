@@ -1,0 +1,32 @@
+#level_add{
+    background-color: #f1f2f6;
+}
+#level_add>div{
+    background-color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#level_add>div.update-level-content{
+    margin-top: 4px;
+}
+#level_add .update-level-content input{
+    width: 48px;
+    height: 22px;
+    border-radius: 4px;
+    border: solid 1px #a2a2a2;
+}
+#level_add .update-level-btn{
+    margin-top: 48px;
+    text-align: center;
+}
+#level_add .update-level-btn>.btns{
+    padding-bottom: 28px;
+}
+#level_add #level_config_table{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+#level_add .update-level-content>div{
+    padding-top: 46px;
+}
+.hide_scroll ::-webkit-scrollbar {display:none}

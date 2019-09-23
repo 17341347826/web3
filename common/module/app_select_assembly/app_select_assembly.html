@@ -1,0 +1,9 @@
+<div class="weui-cell weui-cell_select">
+    <div class="weui-cell__bd">
+        <select class="weui-select" ms-duplex="sel_value">
+            <!--ms-for:$index, el in @data_arr-->
+            <option :attr="{value:$index}">{{el.name}}</option>
+            <!--ms-for-end:-->
+        </select>
+    </div>
+</div>

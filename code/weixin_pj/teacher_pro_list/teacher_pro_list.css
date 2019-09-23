@@ -1,0 +1,39 @@
+#teacher_pro_list .teacher_pro_list_con{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#teacher_pro_list .teacher_pro_list_con>div{
+
+}
+#teacher_pro_list .teacher_pro_list_con>ul>li{
+    text-align:center;
+    height: 40px;
+    line-height: 40px;
+    border-bottom:1px #EEEEEE solid;
+}
+#teacher_pro_list .span_1{
+    height: 40px;
+    line-height: 40px;
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    color: #444444;
+}
+#teacher_pro_list .span_2{
+    color: #8d8d8d;
+    font-size: 11px;
+}
+#teacher_pro_list ul>li>div{
+    float: left;
+}
+#teacher_pro_list .div_1{
+    width: 10%;
+}
+#teacher_pro_list .div_2{
+    width: 50%;
+}
+#teacher_pro_list .div_3{
+    width: 25%;
+}
+#teacher_pro_list .div_4{
+    width: 15%;
+}

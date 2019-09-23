@@ -1,0 +1,19 @@
+<div ms-controller="notice_more" id="notice-more">
+    <div class="con" :if="@notice_list.length > 0">
+        <div class="con-name">公告列表</div>
+        <div class="con-list">
+            <!--ms-for:($idx,el) in @notice_list-->
+            <div class="list-person am-cf" :click="@notice_detail(el)">
+                <div class="am-fl">{{$idx+1}}、{{el.title}}</div>
+                <div class="am-fr">{{el.createTime}}</div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <!--暂无数据-->
+    <div class="no-data" :if="@notice_list.length == 0">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+</div>

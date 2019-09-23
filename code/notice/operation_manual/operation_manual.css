@@ -1,0 +1,126 @@
+#operation_manual{
+    background-color: #f1f2f6;
+    padding-left: 53px;
+    padding-right: 53px;
+}
+#operation_manual>div{
+    background-color: white;
+}
+#operation_manual .m_con{
+    margin-top: 1px;
+    padding-top: 20px;
+}
+#operation_manual .cp_title{
+    height: 64px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 64px;
+    font-family: MicrosoftYaHei;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #40acc1;
+}
+#operation_manual .cp_every{
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 24px;
+    padding-bottom: 12px;
+    margin-bottom: 26px;
+}
+#operation_manual .old_border{
+    border: solid 1px #e0e0e0;
+}
+#operation_manual .cp_every:hover{
+    border-color: #ea6f1c;
+}
+#operation_manual .cp_index{
+    font-family: MicrosoftYaHei;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #444444;
+    width: 5%;
+    text-align: center;
+    vertical-align: top;
+}
+#operation_manual .cp_con{
+    width: 95%;
+}
+#operation_manual .cp_every_con{
+    padding-right: 138px;
+}
+#operation_manual .cp_con_line{
+    width: 2px;
+    height: 18px;
+    background-color: #ea6f1c;
+    margin-top: 7px;
+}
+#operation_manual .cp_con_que{
+    width: 95%;
+    margin-left: 12px;
+    border-bottom: 1px #e0e0e0 dashed;
+    font-family: MicrosoftYaHei;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #444444;
+    line-height: 32px;
+    padding-bottom: 8px;
+}
+#operation_manual .href-name{
+    cursor: pointer;
+}
+#operation_manual .cp_answer{
+    margin-left: 12px;
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #777777;
+    /*padding-top: 8px;*/
+    margin-top: 8px;
+    display: block;
+    cursor: pointer;
+}
+#operation_manual .last_div{
+    height: 90px;
+}
+#operation_manual  .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    background-color: #FFFFFF;
+}
+#operation_manual  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#operation_manual  >div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}

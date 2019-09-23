@@ -1,0 +1,16 @@
+<div class="content" id="choose-sub" ms-controller="choose_sub">
+    <div class="sub-title">
+        <span>
+            考试科目
+        </span>
+    </div>
+    <div class="project-list" ms-for="(ind, el) in @data" ms-on-click="@sub_detail(el.subjectCode, el.subjectName)">
+        <div>
+            {{el.subjectName}}
+            <span></span>
+        </div>
+    </div>
+    <div class="msg" ms-if="@msg!=''">
+        {{msg}}
+    </div>
+</div>

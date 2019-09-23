@@ -1,0 +1,28 @@
+@charset "utf-8";
+#analysis {
+  background-color: #f2f2f6;
+  color: #a2a2a2;
+}
+#analysis > div {
+  background-color: #FFFFFF;
+  padding: 16px;
+}
+#analysis > .title {
+  font-size: 18px;
+  text-align: center;
+  color: #0dba9e;
+}
+#analysis .dec {
+  font-size: 16px;
+}
+#analysis .dec span {
+  font-size: 18px;
+  color: red;
+}
+#analysis .top {
+  display: flex;
+}
+#analysis .top > div {
+  flex: 1;
+  height: 450px;
+}

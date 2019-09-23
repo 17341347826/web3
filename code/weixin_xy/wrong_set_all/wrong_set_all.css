@@ -1,0 +1,163 @@
+#wrong-set-all{
+    background-color:#F4F4F4;
+    padding:0 20px;
+}
+#wrong-set-all #exam_name{
+    /*background-color: #00b7ee;*/
+    /*color:#fff;*/
+    height:50px;
+    line-height:50px;
+    text-align: center;
+}
+/*错题列表*/
+#wrong-set-all .wrong-div .exam-per{
+    background-color: #fff;
+    /*margin-bottom:10px;*/
+    border-radius:6px;
+    padding-bottom:10px;
+}
+#wrong-set-all .wrong-div .title-border{
+    border-bottom: 1px solid #EEEEEE;
+    margin: 0 10px 8px;
+}
+#wrong-set-all .wrong-div .answer-img{
+    margin:0 10px;
+    border:1px solid #E9E9E9;
+    border-radius:6px;
+    overflow: hidden;
+    height:170px;
+}
+#wrong-set-all .wrong-div .answer-img img{
+    width:100%;
+    height:100%;
+}
+.big-img{
+    height:300px;
+}
+#wrong-set-all .wrong-div .answer{
+    margin:10px 0;
+}
+#wrong-set-all .wrong-div .exam-per p{
+    /*background-color: #C1C1C1; !important;*/
+    padding: 5px;
+}
+/*题目*/
+#wrong-set-all .wrong-title{
+    color:#2EC292;
+}
+/*得分*/
+#wrong-set-all .score{
+    color:#F34568;
+    float: right;
+}
+#wrong-set-all .wrong-div img{
+    height: 100px;
+    width: 100%;
+}
+/*#wrong-set-all .wrong-div>div:nth-child(2){*/
+/*display: none;*/
+/*}*/
+
+#wrong-set-all .wrong-div .bottom-div {
+    /*margin-top: 3px;*/
+    text-align: center;
+    /*background-color: #fff;*/
+    margin-bottom:10px;
+    /*border-bottom-left-radius: 6px;*/
+    /*border-bottom-right-radius: 6px;*/
+}
+#wrong-set-all .wrong-div .bottom-div>span:nth-child(1){
+    float: left;
+    margin-left: 10px;
+}
+#wrong-set-all .wrong-div .bottom-div>span:nth-child(1)>span:nth-child(2){
+    margin-left: 5px;
+}
+#wrong-set-all .wrong-div .bottom-div>span:nth-child(1){
+    color:#FBAC47;
+}
+#wrong-set-all .wrong-div .bottom-div>span:nth-child(3){
+    float: right;
+    margin-right: 10px;
+    color:#FBAC47;
+}
+#wrong-set-all .wrong-div .bottom-div>span:nth-child(3)>span:nth-child(2){
+    margin-left: 5px;
+}
+/*收起*/
+#wrong-set-all .wrong-div .bottom-div-up{
+    background-color: #fff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+/*展开*/
+#wrong-set-all .wrong-div .bottom-div-down{
+    background-color: #ccc;
+    border-radius:6px;
+    /*border-bottom-left-radius: 6px;*/
+    /*border-bottom-right-radius: 6px;*/
+}
+/*展开，收起*/
+#wrong-set-all .double-up,
+#wrong-set-all .double-down{
+    color:#31C396;
+}
+/*条件*/
+#wrong-set-all .condition-select{
+    color:#8B8B8B;
+}
+/*答错原因*/
+#wrong-set-all .active{
+    background-color: #F5A856;
+    color: #FFFFFF;
+}
+#wrong-set-all .no-active{
+    background-color: #fff;
+    color: #F5A856;
+}
+#wrong-set-all .active0{
+    background-color: #FFFFFF;
+    color: #3FD08B;
+}
+#wrong-set-all .active1{
+    background-color: #3FD08B;
+    color: #FFFFFF;
+}
+#wrong-set-all button {
+    padding: 5px;
+}
+#wrong-set-all tr{
+    margin-bottom: 10px;
+    display: inline-block;
+}
+#wrong-set-all tr td{
+    display:inline-block;
+    margin-right:10px;
+    cursor:pointer;
+}
+#wrong-set-all tr td:first-child{
+    cursor:auto;
+}
+#wrong-set-all tr td:last-child{
+     margin-right:0;
+ }
+#wrong-set-all td span:last-child{
+    margin-right:0;
+}
+#wrong-set-all td span{
+    width:60px;
+    padding:3px 0px;
+    text-align:center;
+    margin-right:5px;
+    display:inline-block;
+    border-radius: 6px;
+}
+#wrong-set-all p, hr, ul, ol, dl, blockquote, pre, address, fieldset, figure {
+    /* margin: 0 0 1.6rem 0; */
+    margin:0;
+}
+/*提示信息*/
+#wrong-set-all .notice-msg{
+    color:red;
+    text-align: center;
+}

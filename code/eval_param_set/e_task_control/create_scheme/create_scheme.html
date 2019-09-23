@@ -1,0 +1,88 @@
+<div ms-important="create_scheme" id="create_scheme">
+    <div class="content">
+        <div class="a-name">创建自评方案</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <div>
+                <label>方案名称</label>
+                <div class="form-input">
+                    <input type="text" ms-duplex="@request_data.plan_name" ms-rules="{required:true}" placeholder="请输入要素名称，如:六年级学生自评方案一">
+                </div>
+            </div>
+            <div>
+                <label>适用年级</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@get_apply_grade" ms-duplex="@grade_info">
+                            <option>
+                                请选择年级
+                            </option>
+                            <!--ms-for:($idx,el) in @remark-->
+                            <option ms-attr="{value:el.remark+'|'+el.id}" ms-for="el in @response_data.grade_arr">
+                                {{ el.remark }}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label>评价方式</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@type_click" ms-duplex-number="@plan_type" >
+                            <option ms-attr="{value:''}">
+                                请选择评价类型
+                            </option>
+                            <!--ms-for:($idx,el) in @grade_list-->
+                            <option value="1">
+                                选择选项
+                            </option>
+                            <option value="2">
+                                直接评分
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label>参考方案</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@get_reference_scheme" ms-duplex="@reference_arr" >
+                            <option ms-attr="{value:''}">
+                                请选择方案
+                            </option>
+                            <!--ms-for:($idx,el) in @grade_list-->
+                            <option ms-attr="{value:el.plan_name+'|'+el.id+'|'+el.plan_level}" ms-for="el in @reference_scheme_arr">
+                                {{ el.plan_name }}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="evaluation-sub">
+                <label>使用状态</label>
+                <div class="radios">
+                    <label class="am-radio-inline">
+                        <input type="radio" value="1" name="use-sheme" id="option2" class="rdo"
+                               ms-duplex-number="@request_data.plan_use_state" name="docInlineRadio">
+                        <label ms-attr="{for:'option2'}">开</label>
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" value="2" name="use-sheme" id="option1" class="rdo"
+                               ms-duplex-number="@request_data.plan_use_state">
+                        <label ms-attr="{for:'option1'}">关</label>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default" ms-on-click="@cancel_click()">取消</button>
+            <button type="button" class="am-btn-primary" ms-on-click="@add_click()">提交</button>
+        </div>
+    </div>
+</div>

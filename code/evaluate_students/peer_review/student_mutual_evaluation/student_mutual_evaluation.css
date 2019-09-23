@@ -1,0 +1,73 @@
+#student_mutual_evaluation{
+    background-color: #f1f2f6;
+}
+#student_mutual_evaluation>div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+    margin-bottom:4px;
+}
+/*创建方案*/
+#student_mutual_evaluation .common-select .click_btn{
+    display:inline-block;
+    height:36px;
+    line-height: 36px;
+    background-color: rgba(43, 187, 164, 1);
+    border-radius: 4px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor: pointer;
+    float:left;
+}
+#student_mutual_evaluation .common-select .param-set{
+    margin-left:10px;
+}
+#student_mutual_evaluation .common-select .click_btn>span:last-child{
+    display:inline-block;
+    color:#fff;
+    font-size: 16px;
+    margin-left:7px;
+}
+/*列表*/
+#student_mutual_evaluation .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+}
+#student_mutual_evaluation .list-con .table-module{
+    border-radius: 4px 4px 4px 4px;
+    /*border: solid 1px rgba(211, 211, 211, 1);*/
+}
+#student_mutual_evaluation .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+#student_mutual_evaluation  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#student_mutual_evaluation >div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+#student_mutual_evaluation .click_btn>img{
+    margin-top: -4px;
+}

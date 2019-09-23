@@ -1,0 +1,18 @@
+#stu_score_list .weui-cells{
+    margin-top: -1px;
+    font-size: 14px;
+    text-align: center;
+    color: #777;
+}
+#stu_score_list .table-tc{
+    color: #444444;
+}
+#stu_score_list .weui-flex__item a{
+    color: #e2815a;
+}
+#stu_score_list .weui-flex__item a.disabled{
+    color: green;
+}
+#stu_score_list .table_font{
+    cursor: pointer;
+}

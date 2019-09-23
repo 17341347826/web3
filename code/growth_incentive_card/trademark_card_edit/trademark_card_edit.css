@@ -1,0 +1,177 @@
+#trademark_card_edit{
+    background-color: #f1f2f6;
+}
+#trademark_card_edit>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+#trademark_card_edit div.add-practice-content{
+    width: 1013px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#trademark_card_edit .p-line{
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+}
+#trademark_card_edit .p-line-max{
+    height: 60px;
+    width: 100%;
+    margin-top: 10px;
+}
+#trademark_card_edit .p-line-max>div{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#trademark_card_edit .p-line-max textarea{
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    /*overflow:hidden;*/
+    vertical-align: top;
+}
+.hide_scroll ::-webkit-scrollbar {
+    display:none
+}
+#trademark_card_edit .p-line>div{
+    display: inline-block;
+    line-height: 40px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#trademark_card_edit .p-line>div.p-name,
+#trademark_card_edit .p-line-max>div.p-name-max
+{
+    vertical-align: top;
+    /*width: 10%;*/
+}
+#trademark_card_edit .p-line>div.p-input,
+#trademark_card_edit .p-line-max>div.p-input-max
+{
+    width: 85%;
+}
+#trademark_card_edit .p-line input,
+#trademark_card_edit .p-line select{
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    height: 38px;
+    width: 100%;
+    color: #777;
+    padding-left: 8px;
+}
+#trademark_card_edit .p-line>.p-input,
+#trademark_card_edit .p-line-max>.p-input-max{
+    margin-left: 20px;
+}
+#trademark_card_edit .material{
+    height: auto;
+}
+
+
+
+#trademark_card_edit .p-line-float{
+    height: 40px;
+    margin-top:10px;
+}
+#trademark_card_edit .p-line-float>div{
+    /*border: 1px red solid;*/
+    width: 50%;
+    height: 40px;
+}
+#trademark_card_edit .p-name-float,
+#trademark_card_edit .p-input-float{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#trademark_card_edit .p-input-float{
+    width: 65%;
+}
+#trademark_card_edit .p-input-float>input,
+#trademark_card_edit .p-input-float>select{
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    height: 38px;
+    width: 100%;
+    padding-left: 8px;
+    color: #777;
+}
+#trademark_card_edit .p-input-float{
+    margin-left: 20px;
+}
+#trademark_card_edit .am-fr>.p-name-float{
+    margin-left: 20px;
+}
+#trademark_card_edit .a-p-btns{
+    padding-left: 0;
+    text-align: center;
+    border-top:1px #cccccc dashed;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+#trademark_card_edit .am-form-field{
+    background-color: white;
+}
+#trademark_card_edit .c-arys input{
+    height: 0;
+}
+#trademark_card_edit input::-webkit-input-placeholder{ /* WebKit browsers */
+    font-size: 16px;
+    color: #a2a2a2;
+}
+#trademark_card_edit input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+    color: #a2a2a2;
+}
+#trademark_card_edit input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 16px;
+    color: #a2a2a2;
+}
+#trademark_card_edit input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 16px;
+    color: #a2a2a2;
+}
+#trademark_card_edit  #card-photo{
+    padding-left:10px;
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    height:240px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+#trademark_card_edit  #card-photo img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+#trademark_card_edit  .report{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    background: #000;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    cursor: pointer;
+}
+#trademark_card_edit  #card-photo:hover .report{
+    display: block;
+}

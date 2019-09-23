@@ -1,0 +1,74 @@
+@charset "utf-8";
+@size_14: 14px;
+@color_white: #ffffff;
+@color_green: rgb(49, 199, 137);
+@bc_color: rgb(244, 244, 244);
+#screen {
+  background-color: @bc_color;
+  padding-bottom: 20px;
+  div {
+    background-color: @color_white;
+  }
+  .bottom-btn {
+    background-color: @bc_color;
+    padding-top: 10px;
+    a {
+      height: 30px;
+      line-height: 30px;
+      width: 200px;
+      border-radius: 12px;
+    }
+  }
+}
+
+.sort {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  font-size: @size_14;
+  color: rgb(109, 109, 109);
+  border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+.screen-titles {
+  height: 48px;
+  line-height: 48px;
+  font-size: @size_14;
+  text-align: center;
+  span {
+    width: 59px;
+    height: 22px;
+    border-radius: 20px;
+    background-color: @color_green;
+    padding: 5px 12px;
+    color: @color_white;
+  }
+}
+
+.knowledge-content {
+  margin: 4px;
+  background-color: @color_white;
+  border: 1px solid @color_green;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: @size_14;
+  text-align: center;
+  span {
+    padding: 5px 11px;
+    display: inline-block;
+    border-radius: 20px;
+    margin: 5px;
+  }
+  .selected {
+    background-color: #ff9d33;
+    color: @color_white;
+  }
+  .unSelect {
+    background-color: #e5e5e5;
+    color: #6d6d6d;
+  }
+}
+
+
+
+

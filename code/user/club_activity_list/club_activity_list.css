@@ -1,0 +1,58 @@
+#club_activity_list{
+    background-color: #f1f2f6;
+}
+#club_activity_list>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#club_activity_list>#user_div{
+    padding-bottom: 20px;
+}
+#club_activity_list .city-stu-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#club_activity_list .search-btn input[type='button']{
+    /*width: auto;*/
+}
+#club_activity_list #compileData{
+    color:#c8c8c8;
+}
+#club_activity_list #compileData input,
+#club_activity_list #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color:#c8c8c8;
+}
+#club_activity_list #compileData .am-selected-list{
+    border: 1px #c8c8c8 solid;
+    background-color: white;
+    width: 100%;
+}
+#club_activity_list #compileData .am-selected-list li{
+    background-color: white;
+}
+#club_activity_list .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#club_activity_list .select2-container--default .select2-selection--single{
+    height: 38px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+}
+#club_activity_list .select2-container--default .select2-selection--single .select2-selection__rendered{
+    color:#a2a2a2;
+    line-height: 38px;
+    height: 38px;
+}
+#club_activity_list .select2-container--default .select2-selection--single .select2-selection__arrow{
+    height: 38px;
+}
+#club_activity_list .select2-container {
+    width: 100% !important;
+}

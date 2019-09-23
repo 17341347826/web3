@@ -1,0 +1,72 @@
+#incentive_card_see_list{
+    background-color: #f5f5f5;
+}
+#incentive_card_see_list >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#incentive_card_see_list .stu-info{
+    padding-top:10px;
+    text-align: right;
+    color:#a2a2a2;
+}
+#incentive_card_see_list .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+}
+
+/*创建方正少儿简体字体*/
+@font-face {
+    font-family:fang zheng;
+    src:url('../../../common/images/icon/fang_zheng.ttf');
+}
+#incentive_card_see_list .model-text{
+    /*font-family: "fang zheng";*/
+    font-family:fang zheng;
+    font-size:1.2em;
+}
+/*弹框*/
+#incentive_card_see_list #card-modal{
+    background-color: rgba(0,0,0,0.1);
+}
+#incentive_card_see_list .am-modal-dialog {
+    /* background: #f8f8f8; */
+    /*background: none;*/
+    position: relative;
+    width:591px;
+    height:420px;
+    overflow: hidden;
+}
+#incentive_card_see_list .am-modal-bd {
+    border-bottom:none;
+}
+/*文本信息*/
+#incentive_card_see_list .model-text{
+    position: absolute;
+    z-index: 99;
+    text-align: left;
+    /*border: 1px solid red;*/
+    width: 100%;
+    left:-1px;
+}
+#incentive_card_see_list .model-text .stu-name{
+    position: absolute;
+    top: 121px;
+    left: 65px;
+    color:#FC7157;
+}
+#incentive_card_see_list .model-text .card-date{
+    position: absolute;
+    top: 195px;
+    right: 58px;
+}
+#incentive_card_see_list .card-div{
+    width:571px;
+    height:400px;
+    position: absolute;
+}
+#incentive_card_see_list .card-photo{
+    width:100%;
+}

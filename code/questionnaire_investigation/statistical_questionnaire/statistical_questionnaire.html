@@ -1,0 +1,35 @@
+<div class="am-g" ms-important="test" id="statistical">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+
+    <!--ms-for:($index,el) in @statistical_data.data-->
+    <div class="question-content">
+        <div class="question-type">第{{el.q_index}}题:{{el.title}}<span class="q-type">[{{el.question_type}}]</span></div>
+        <table class="am-table am-table-bordered" ms-if="el.question_type!='多项填空题'&&el.question_type!='单项填空题'">
+            <thead>
+            <tr class="qe-title">
+                <th>选项</th>
+                <th>小计</th>
+                <th>比例</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for:($index2,el2) in @el.option-->
+            <tr>
+                <td>{{el2.option_name}}</td>
+                <td>{{el2.num}}</td>
+                <td>{{el2.num/statistical_data.sum_num*100}}%</td>
+            </tr>
+            <!--ms-for-end:-->
+            <tr class="bottom">
+                <td>本题有效填写人次</td>
+                <td>{{statistical_data.sum_num}}</td>
+                <td></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!--ms-for-end:-->
+
+</div>
+

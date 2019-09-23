@@ -1,0 +1,74 @@
+#activity_statistics{
+    background-color: #f1f2f6;
+}
+#activity_statistics>div .analysis-class{
+    padding:30px 16px 20px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+/*年级、学年学期筛选*/
+#activity_statistics>div.common-select .search-cont{
+    padding-bottom:12px;
+    padding-left:16px;
+    padding-right:16px;
+}
+/*内容*/
+/*内容左边部分*/
+#activity_statistics .con-right{
+    text-align: center;
+}
+#activity_statistics .title{
+    font-size: 18px;
+    color: #0dba9e;
+    padding-top: 18px;
+    padding-bottom: 8px;
+    height: 73px;
+}
+#activity_statistics .am-table{
+    margin-bottom: 0;
+}
+#activity_statistics .table-module{
+    padding-bottom: 40px;
+    padding-top:17px;
+    overflow: hidden;
+    display: flex;
+}
+
+#activity_statistics .am-table > thead > tr > th {
+    border-bottom:none;
+}
+#activity_statistics .analysis-class{
+   display:flex;
+}
+/*table宽度*/
+.table-width{
+    flex: 1;
+}
+.table-width-all{
+    width:100%;
+}
+/*学校*/
+#activity_statistics .analysis-class table .school-name{
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*比例*/
+.propor{
+    max-width:75px;
+}
+/*highcharts图形样式改变*/
+/**/
+#activity_statistics .char-tu{
+    width:300px;
+    margin-right:30px;
+    /*height:600px;*/
+    /*border:1px solid red;*/
+    margin-top: 65px;
+}
+/*表上有筛选条件的图表距离顶部距离*/
+.chart-top{
+    margin-top:125px !important;
+}

@@ -1,0 +1,85 @@
+#add-first-index{
+    width: 100%;
+    /*background-color: #f1f2f6;*/
+}
+#add-first-index>.a_f_content{
+
+}
+/*#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select{*/
+    /*display: inline-block;*/
+    /*width: 436px;*/
+/*}*/
+/*#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select input{*/
+    /*color:#c8c8c8;*/
+    /*max-height: 36px;*/
+    /*border-radius: 4px;*/
+    /*font-size: 16px;*/
+/*}*/
+/*#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select input.disabled_css{*/
+    /*font-size: 16px;*/
+    /*font-weight: normal;*/
+    /*font-stretch: normal;*/
+    /*line-height: 31px;*/
+    /*letter-spacing: 0px;*/
+    /*color: #b6b6b6;*/
+    /*border: 1px solid #ccc;*/
+    /*background-color: white;*/
+/*}*/
+/*#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select .select-head,*/
+/*#add-first-index>div.a_f_content .a_f_form .am-form>div>div.select .select-head+.select-option*/
+/*{*/
+    /*width: 100%;*/
+/*}*/
+/*#add-first-index .select,*/
+/*#add-first-index #select2-teacher_select-container*/
+/*{*/
+    /*height: 36px;*/
+    /*line-height: 36px;*/
+    /*border-color:#ccc;*/
+    /*color:#b6b6b6;*/
+    /*font-size: 16px;*/
+/*}*/
+/*#add-first-index .select2-container--default .select2-selection--single{*/
+    /*height: 36px;*/
+    /*border-color:#ccc;*/
+/*}*/
+/*#add-first-index .select2-container--default .select2-selection--single .select2-selection__arrow b{*/
+    /*top:60%;*/
+    /*color:#ccc;*/
+    /*border-top-color: #ccc;*/
+    /*border-right-color: transparent;*/
+    /*border-bottom-color: transparent;*/
+    /*border-left-color: transparent;*/
+/*}*/
+/*#add-first-index .select2-container .select2-selection--single .select2-selection__rendered{*/
+    /*padding-left: 4px;*/
+/*}*/
+
+#add-first-index .weui-input{
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#add-first-index .weui-label{
+    font-size: 16px;
+    color: #a2a2a2;
+}
+#add-first-index .weui-cell_select-after .weui-select{
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#add-first-index ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#add-first-index :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#add-first-index ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #b6b6b6;
+    font-size: 16px;
+}
+#add-first-index :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #b6b6b6;
+    font-size: 16px;
+}

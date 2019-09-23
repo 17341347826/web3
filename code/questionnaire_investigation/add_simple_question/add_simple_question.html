@@ -1,0 +1,130 @@
+<div class="am-g" id="add_topic" ms-important="add_topic">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="simple-question">
+        <div class="simple-content-edit">
+            <div class="simple-top">
+                <div class="simple-top-title">
+                    <h3>
+                        {{@simple_title}}
+                        <span ms-if="@must_answer">*</span>
+                    </h3>
+                </div>
+                <div class="simple-top-option">
+                    <ul id="simple-top-option-ul-2">
+                        <!--ms-for:($index,el) in @title_arr-->
+                        <li>
+                            <div class="am-radio">
+                                <label>
+                                    <input disabled="" name="doc-radio-1" type="radio" value="option1"/>
+                                    {{el.option_name}}:
+                                </label>
+                                <div class="option-desc" ms-if="el.option_desc.length>14">
+                                    <span ms-html="el.option_desc" ms-if="el.option_desc!=''"></span>
+                                </div>
+                                <div class="option-desc-1" ms-if="el.option_desc.length<15">
+                                    <span ms-html="el.option_desc" ms-if="el.option_desc!=''"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <!--ms-for-end:-->
+                    </ul>
+                </div>
+            </div>
+            <div class="simple-line">
+            </div>
+            <div class="sign-up-ques">
+                <div class="sign-top am-cf">
+                    <div class="sign-top-left">
+                        <div class="sign-top-left-title">
+                            <h3>
+                                标题
+                            </h3>
+                        </div>
+                        <textarea ms-duplex="@simple_title" placeholder="请在此输入问题标题"></textarea>
+                    </div>
+                    <div class="sign-top-right">
+                        <ul>
+                            <li>
+                                <label class="am-checkbox-inline">
+                                    <input ms-duplex-checked="@must_answer" type="checkbox" value="option1"/>
+                                    必答题
+                                </label>
+                            </li>
+                            <li>
+                                <div class="fill-hint-container">
+                                    <label class="am-checkbox-inline">
+                                        <input ms-duplex-checked="@hinted" type="checkbox" value="option1"/>
+                                        填写提示
+                                    </label>
+                                    <input class="am-radius" ms-duplex="@prompt" ms-if="@hinted" type="text"/>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <table class="am-table" id="edit-table">
+                    <thead>
+                    <tr>
+                        <th>
+                            选项文字
+                        </th>
+                        <th>
+                            说明
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($index,el) in @title_arr-->
+                    <tr>
+                        <td class="input-td">
+                            <input class="am-form-field am-radius" ms-duplex="@el.option_name"
+                                   ms-on-blur="@sure_option($index)" type="text"/>
+                        </td>
+                        <td class="pic-td">
+                            <a class="am-icon-file-text" href="javascript:;" ms-click="@show_model($index)">
+                            </a>
+                        </td>
+                        <td class="circle-td">
+        <span class="am-icon-plus-circle" ms-click="@add_option">
+        </span>
+                            <span class="am-icon-minus-circle" ms-click="@reduce_option($index)">
+        </span>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+                <div class="am-cf" id="edit-bottom">
+                    <div class="plus-content">
+      <span class="am-icon-plus-circle">
+      </span>
+                        <a href="javascript:;" ms-click="@add_option">
+                            添加选项
+                        </a>
+                    </div>
+                </div>
+                <div class="sure-btn-content">
+                    <button class="am-btn am-btn-warning am-radius" ms-on-click="@complete_simple" type="button">
+                        完成编辑
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="simple-model" ms-if="@is_show_model">
+            <div class="textarea-container">
+                <textarea id="input" ms-duplex="@model_desc"></textarea>
+                <div class="model-bottom">
+                    <button class="am-btn am-btn-primary am-radius" ms-click="@model_save" type="button">
+                        保存
+                    </button>
+                    <button class="am-btn am-btn-default" ms-click="@model_cancel" type="button">
+                        取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

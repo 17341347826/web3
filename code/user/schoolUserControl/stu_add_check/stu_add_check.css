@@ -1,0 +1,38 @@
+/*#stu_add_check .am-modal-bd>div{*/
+    /*height: 450px;*/
+    /*overflow-y: auto;*/
+/*}*/
+/*#stu_add_check .red_span{*/
+    /*color:red;*/
+/*}*/
+#stu_add_check{
+    background-color: #f1f2f6;
+}
+#stu_add_check>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#stu_add_check>.s-a-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#stu_add_check #compileData{
+    color:#c8c8c8;
+}
+#stu_add_check #compileData input,
+#stu_add_check #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color:#c8c8c8;
+}
+#stu_add_check #compileData .am-selected-list{
+    border: 1px #c8c8c8 solid;
+    background-color: white;
+    width: 100%;
+}
+#stu_add_check #compileData .am-selected-list li{
+    background-color: white;
+}

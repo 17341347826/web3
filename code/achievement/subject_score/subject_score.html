@@ -1,0 +1,138 @@
+<div class="am-g" id="subject_score" ms-important="subject_score">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@semesterChange" ms-duplex="@data.semester_name">
+                        <option value="0">
+                            请选择
+                        </option>
+                        <!--ms-for: el in @data.semester_name_arr-->
+                        <option ms-attr="{value:el.start_date+'|'+el.end_date+'|'+el.semester_index+'|'+el.id}">
+                            {{el.semester_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange" ms-duplex="@data.grade_str">
+                        <option value="0">
+                            请选择
+                        </option>
+                        <!--ms-for: el in @data.teach_class_list-->
+                        <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@classChange" ms-duplex="@data.class">
+                        <option value="0">
+                            请选择
+                        </option>
+                        <!--ms-for: el in @data.class_list-->
+                        <option ms-attr="{value:el.class_id+'|'+el.class_name}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="查询" :click="@checkBtn()">
+            </div>
+            <div class="search-btn s-b-import">
+                <input type="button" value="批量导入" :click="@uploadingModal()">
+            </div>
+        </div>
+    </div>
+
+    <div class="content-ach-t" :if="is_show_table">
+        <div class="content-ach-o">
+            <table  class="table-tt">
+                <tr class="content-table-tr">
+                    <!--ms-for:el in @theadTh-->
+                    <td >
+                        {{el.title}}
+                    </td>
+                    <!--ms-for-end:-->
+                </tr>
+                <!--ms-for: $idx,el in @tbodyex-->
+                <tr>
+                    <!--ms-for: col in @theadTh-->
+                    <td ms-if="col.type == 'index'">
+                        {{$idx+1}}
+                    </td>
+                    <td ms-if="col.type == 'text' && col.from!='account'" >
+                        {{ @showDate(col,el) }}
+                    </td>
+                    <td ms-if="col.type == 'text' && col.from=='account'" >
+                        {{ @showDate(col,el)}}
+                    </td>
+                    <!--非体质测评-->
+                    <td ms-if="col.type == 'import'">
+                        <!--{{ @show_json(el) }}-->
+                        <!--{{json(el)}}-->
+                        <span ms-if="!el[col.key].hasOwnProperty('value')">
+                            {{ el[col.key].level}}
+                        </span>
+                        <span ms-if="el[col.key].value!='' && el[col.key].hasOwnProperty('value')">
+                            {{ el[col.key].value|number(1,".")}}
+                        </span>
+                    </td>
+                    <td ms-html="@showDate(col,el)" ms-if="col.type == 'html'">
+                    </td>
+                    <!--ms-for-end:-->
+                </tr>
+                <!--ms-for-end:-->
+            </table>
+        </div>
+    </div>
+
+    <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                批量导入学生成绩
+                <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                    ×
+                </a>
+            </div>
+            <div class="am-modal-bd">
+
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <input type="text" ms-duplex="@fileName"  id="file-name" disabled class="am-u-sm-10" style="height: 32px">
+                    <div class="am-form-group am-form-file">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm" >选择文件</button>
+                        <input type="file" id="file" name="file" multiple onchange="document.getElementById('file-name').value=this.value">
+                        <input type="hidden" name="phase" ms-attr="{value:@uploadForm.phase}">
+                        <input type="hidden" name="subject_id" ms-attr="{value:@uploadForm.subject_id}">
+                        <input type="hidden" name="year_start" ms-attr="{value:@uploadForm.year_start}">
+                        <input type="hidden" name="year_end" ms-attr="{value:@uploadForm.year_end}">
+                    </div>
+                </form>
+                <div class="am-text-left">
+                    <a ms-on-click="down_score">
+                        下载模板
+                    </a>
+                </div>
+                <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+            </div>
+            <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+     上传
+    </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+#print_info{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+}
+#print_info>div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#print_info .table-module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

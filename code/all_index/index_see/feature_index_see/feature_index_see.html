@@ -1,0 +1,225 @@
+<div ms-important="feature_index_see" id="feature_index_see">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+            </div>
+            <!--<div class="search-btn">-->
+                <!--<input type="button" value="查询">-->
+            <!--</div>-->
+            <div class="search-btn" :visible="@level != 2">
+                <input type="button" value="导入" ms-on-click="@index_import">
+            </div>
+        </div>
+    </div>
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <!--ms-for:($index,el) in @first_index_list-->
+            <div :class="['am-fl',(@checked_first_index == $index ? 'chosen':'')]" ms-attr="{id:'first-index'+$index}"
+                 ms-click="@click_first_index($index,el)" ms-on-mouseenter='@first_index_enter($index,el)'>{{el.index_name}}</div>
+            <!--ms-for-end:-->
+        </div>
+        <div class="am-fr">
+                <!--
+                share_index_state:共享状态  0: '未共享',1: '共享待审核', 2: '共享通过',3: '共享不通过'
+                index_state:审核状态  1: '创建待审核',2: '创建通过',3: '创建未通过'
+                index_author:作者
+                index_founderid:创建人
+                index_use_state:1指标启用 2指标停用
+                -->
+
+                <a :if='@first_col.index_authorid == @login_guid && @first_col.index_state == 2 && @first_col.share_index_state!=1 && @first_col.share_index_state!=2 && @first_col.index_use_state == 1 && login_level !=2'
+                   class="tab-btn tab-share-btn"
+                   title="共享"></a>
+            <!--<a :if='@first_col.index_authorid == @login_guid && @first_col.index_state == 2 && @first_col.share_index_state!=1 && @first_col.share_index_state!=2 && @first_col.index_use_state == 1'-->
+               <!--ms-on-click='@method(@first_col,@checked_first_index,6)'  class="tab-btn tab-share-btn"-->
+               <!--title="共享"></a>-->
+
+                <a :if="@first_col.index_founderid == @login_guid && @first_col.index_state!=2" class="tab-btn tab-edit-btn" title="编辑" ms-on-click='@method(@first_col,null,2)'></a>
+                <a :if='@first_col.index_founderid == @login_guid && @first_col.index_state!=2' class="tab-btn tab-trash-btn" title="删除" ms-on-click="@del_index"></a>
+                <a :visible="@level != 2" class="tab-btn tab-add-btn" title="添加" ms-on-click="@firstIndexAdd(1)"></a>
+                <div style="display: inline-block" :if="@first_col.index_workid == @login_schoolId && @login_type == 0">
+                    <a :class="[(@first_col.index_use_state == 1 ? 'tab-toggle-on-btn':'tab-toggle-off-btn'),'toggle-a']" class='tab-btn' ms-on-click="@update_use_state('',@first_col)"></a>
+                </div>
+        </div>
+    </div>
+    <!--二级指标查看-->
+    <div class="second-index">
+        <div class="clearfix">
+            <div class="am-fl title-name">评价要素</div>
+            <div :visible="@level != 2" class="am-fr btn add-index" ms-on-click="@firstIndexAdd(2)"><img src="../../../common/images/add-1.png" class="btn-img">添加要素</div>
+
+        </div>
+        <div>
+            <div class="table_module am-padding-top-sm am-padding-bottom-sm" style="padding-right:16px;">
+                <xmp ms-widget="{is:'ms-ele-table',url:@se_url,data:@se_data,remember:@remember,is_init:@se_is_init,extend:@se_extend,theadTh:@se_theadTh,cbopt:@cbopt,params:@params}">
+                </xmp>
+            </div>
+            <!--<div class="table_module am-padding-top-sm am-padding-bottom-sm">-->
+                <!--<div id="class-module">-->
+                    <!--<table class="am-table am-table-hover">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th style="max-wdith:80px;width:80px;">序号</th>-->
+                            <!--<th>评价要素</th>-->
+                            <!--<th>创建单位</th>-->
+                            <!--<th>作者</th>-->
+                            <!--<th>来源</th>-->
+                            <!--<th>使用状态</th>-->
+                            <!--<th class="do_th">操作</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--&lt;!&ndash;ms-for:($index,el) in @second_index_list&ndash;&gt;-->
+                        <!--<tr>-->
+                            <!--<td style="max-wdith:80px;width:80px;">{{@set_index($index+1,@se_currentPage,2)}}</td>-->
+                            <!--<td ms-attr="{title:el.index_name}">{{el.index_name}}</td>-->
+                            <!--<td>{{el.index_work}}</td>-->
+                            <!--<td>{{el.index_author}}</td>-->
+                            <!--<td>-->
+                                <!--<span :visible="el.ssdwmc == null || el.ssdwmc == '' || el.ssdwmc == undefined">自建特色指标</span>-->
+                                <!--<span :visible="el.ssdwmc != null && el.ssdwmc != '' && el.ssdwmc != undefined">来自共享指标</span>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                                <!--&lt;!&ndash;	index_use_state	使用状态(1:启用 2:停用)&ndash;&gt;-->
+                                <!--<a :if="@el.index_workid == @login_schoolId && (@login_level == 4 || @login_level == 3) && @login_type == 0" :class="[(el.index_use_state == 1 ? 'tab-toggle-on-btn':'tab-toggle-off-btn')]" class='tab-btn' ms-on-click="@update_use_state($index,el)"></a>-->
+                                <!--<span :if="el.index_use_state == 1 &&  (@login_level != 4 || @login_level != 3)"></span>-->
+                                <!--<span :if="el.index_use_state == 2 &&  (@login_level != 4 || @login_level != 3)"></span>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                                <!--<a class='tab-btn tab-edit-btn' ms-if='el.index_founderid==@login_guid && el.index_state!=2' ms-on-click='@method(el,$index,4)' title='编辑'></a>-->
+                                <!--<a class='tab-btn tab-edit-btn-disabled' ms-if='el.index_founderid!=@login_guid || el.index_state==2' ms-on-click='@method(el,$index,7)' title='不可编辑'></a>-->
+                                <!--<a class='tab-btn tab-trash-btn' ms-if='el.index_founderid==@login_guid && el.index_state!=2' ms-on-click='@method(el,$index,5)' title='删除'></a>-->
+                                <!--<a class='tab-btn tab-trash-btn-disabled' ms-if='el.index_founderid!=@login_guid || el.index_state==2' ms-on-click='@method(el,$index,8)' title='不可删除'></a>-->
+                                <!--&lt;!&ndash;<a class='tab-btn tab-share-btn' ms-if='el.index_authorid==@login_guid && el.index_state==2 && el.share_index_state!=1 && el.share_index_state!=2 && el.index_use_state==1' ms-on-click='@method(el,$index,6)' title='共享'></a>&ndash;&gt;-->
+                                <!--<a class='tab-btn tab-share-btn' ms-if='el.index_authorid==@login_guid && el.index_state==2 && el.share_index_state!=1 && el.share_index_state!=2 && el.index_use_state==1'  title='共享'></a>-->
+                                <!--<a class='tab-btn tab-share-btn-disabled' ms-if='el.index_authorid!=@login_guid || el.index_state!=2 || el.share_index_state==1 || el.share_index_state==2 || el.index_use_state!=1'  title='不可共享'></a>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--<tr ms-visible="@second_index_list.length==0">-->
+                            <!--<td colspan="7">-->
+                                <!--暂无数据-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--三级指标查看-->
+    <div class="three-index">
+        <div class="clearfix">
+            <div class="am-fl title-name">关键表现</div>
+            <div :visible="@level != 2" class="am-fr btn add-index" ms-on-click="@firstIndexAdd(3)"><img src="../../../common/images/add-1.png" class="btn-img">添加表现</div>
+
+        </div>
+        <div class="table_module am-padding-top-sm am-padding-bottom-sm" style="padding-right:16px;">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh, cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+        <!--未分页的特色指标查询-->
+        <!--<div class="table-list">-->
+            <!--<div class="table_module am-padding-top-sm am-padding-bottom-sm">-->
+                <!--<div class="table-module">-->
+                    <!--<table class="am-table">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th style="max-wdith:80px;width:80px;">序号</th>-->
+                            <!--<th style="max-wdith:500px;width:500px;">评价表现</th>-->
+                            <!--<th>所属要素</th>-->
+                            <!--<th>创建单位</th>-->
+                            <!--<th>作者</th>-->
+                            <!--<th>来源</th>-->
+                            <!--<th>使用状态</th>-->
+                            <!--<th class="do_th">操作</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--&lt;!&ndash;ms-for:($index,el) in @third_index_list&ndash;&gt;-->
+                        <!--<tr>-->
+                            <!--<td  style="max-wdith:80px;width:80px;">{{$index + 1}}</td>-->
+                            <!--<td >{{el.index_name}}</td>-->
+                            <!--<td>{{el.index_secondary}}</td>-->
+                            <!--<td>{{el.index_work}}</td>-->
+                            <!--<td>{{el.index_author}}</td>-->
+                            <!--<td>-->
+                                <!--<span :visible="el.ssdwmc == null || el.ssdwmc == '' || el.ssdwmc == undefined">自建特色指标</span>-->
+                                <!--<span :visible="el.ssdwmc != null && el.ssdwmc != '' && el.ssdwmc != undefined">来自共享指标</span>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                                <!--<div :if="@el.index_work == @login_work && @login_type == 0 && el.index_state == 2">-->
+                                    <!--<a :class="[(el.index_use_state == 1 ? 'tab-toggle-on-btn':'tab-toggle-off-btn')]" class='tab-btn' ms-on-click="@update_use_state($index,el)"></a>-->
+                                <!--</div>-->
+                                <!--<div :if="@login_type != 0 || @login_work != el.index_work || el.index_state != 2">-->
+                                    <!--<span :if="el.index_use_state == 1">启用</span>-->
+                                    <!--<span :if="el.index_use_state == 2">停用</span>-->
+                                <!--</div>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                                <!--<a class='tab-btn tab-details-btn' ms-on-click='@method(el,$index,2)' title='查看'></a>-->
+                                <!--<a class='tab-btn tab-edit-btn' ms-if='el.index_founderid==@login_guid && el.index_state!=2' ms-on-click='@method(el,$index,4)' title='编辑'></a>-->
+                                <!--<a class='tab-btn tab-edit-btn-disabled' ms-if='el.index_founderid!=@login_guid || el.index_state==2' ms-on-click='@method(el,$index,7)' title='不可编辑'></a>-->
+                                <!--<a class='tab-btn tab-trash-btn' ms-if='el.index_founderid==@login_guid && el.index_state!=2' ms-on-click='@method(el,$index,5)' title='删除'></a>-->
+                                <!--<a class='tab-btn tab-trash-btn-disabled' ms-if='el.index_founderid!=@login_guid || el.index_state==2' ms-on-click='@method(el,$index,8)' title='不可删除'></a>-->
+                                <!--<a class='tab-btn tab-share-btn' ms-if='el.index_authorid==@login_guid && el.index_state==2 && el.share_index_state!=1 && el.share_index_state!=2 && el.index_use_state==1' ms-on-click='@method(el,$index,6)' title='共享'></a>-->
+                                <!--<a class='tab-btn tab-share-btn-disabled' ms-if='el.index_authorid!=@login_guid || el.index_state!=2 || el.share_index_state==1 || el.share_index_state==2 || el.index_use_state!=1'  title='不可共享'></a>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                        <!--<tr ms-visible="@third_index_list.length==0">-->
+                            <!--<td colspan="8">-->
+                                <!--暂无数据-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <!--批量导入指标-->
+    <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                批量导入特色指标
+                <a class="am-close am-close-spin" data-am-modal-close="" ms-on-click="@cancel()">
+                    ×
+                </a>
+            </div>
+            <div class="am-modal-bd">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <input type="text" ms-duplex="@file_name" id="file-name" disabled class="am-u-sm-10"
+                           style="height: 32px">
+                    <div class="am-form-group am-form-file">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                        <input type="file" id="file" name="file" multiple
+                               onchange="document.getElementById('file-name').value=this.value">
+                    </div>
+                </form>
+                <div class="am-text-left">
+                    <a ms-on-click="@down_index">
+                        下载模板
+                    </a>
+                </div>
+                <span ms-visible="@modal_msg != ''" style="color: red">
+                    {{ @modal_msg }}
+                    </span>
+                <div :class="[(false_data.length > 0 ? 'false_msg' :'')]">
+                    <!--ms-for: ($index,el) in @false_data-->
+                    <p :visible="el.is_pass == false">第【{{el.row_no}}】行{{el.error_msg}}</p>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <div class="am-modal-footer">
+                   <span class="am-modal-btn" data-am-modal-cancel="" ms-on-click="@cancel()">
+                        取消
+                    </span>
+                <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+                        上传
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

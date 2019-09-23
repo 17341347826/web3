@@ -1,0 +1,64 @@
+<div ms-important="real_a_t_t_set" id="real_a_t_t_set">
+    <div class="first-index">
+        <div class="clearfix">
+            <div :class="['am-fl',(@sit_type == 1 ? 'chosen':'')]" :click="@sit_change(1)">
+                类型设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 2 ? 'chosen':'')]" :click="@sit_change(2)">
+                上传数量设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 3 ? 'chosen':'')]" :click="@sit_change(3)">
+                积分规则设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 4 ? 'chosen':'')]" :click="@sit_change(4)">
+                任务开发时间设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 5 ? 'chosen':'')]" :click="@sit_change(5)">
+                个性特长
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <!--填写信息-->
+        <div class="form-inset">
+            <div>
+                <label><span style="visibility: hidden">分值分组</span>年级</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@date_req.grade_id" data-duplex-changed="@grade_change()">
+                            <option ms-attr="{value:''}">
+                                请选择年级
+                            </option>
+                            <!--ms-for:($idx,el) in @grade_list-->
+                            <option ms-attr="{value:el.id}">
+                                {{ el.grade_name }}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="time-change">
+                <div class="start-change">
+                    <label><span style="visibility: hidden">开始</span>开始时间</label>
+                    <div class="form-input">
+                        <input class="form-width-md add_width" readonly placeholder="开始时间" id="update-start-time"
+                               ms-attr="{value:@date_req.start_time}" ms-on-focus="@update_start_time" type="text"/>
+                    </div>
+                </div>
+                <div class="end-change">
+                    <label>结束时间</label>
+                    <div class="form-input">
+                        <input class="form-width-md add_width" readonly placeholder="结束时间" id="update-end-time"
+                               ms-attr="{value:@date_req.end_time}" ms-on-focus="@update_end_time" type="text"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default" :click="@cancel_click">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_data">提交</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div id="project_wx_radio" ms-important="project_wx_radio">
+    <div>
+        <div class="stu_n_c">
+            <p>当前评价内容:{{@add_answer.pj_subject}}</p>
+            <p>
+                <!--ms-for: $idx,el in @sub_info-->
+                <span>
+                    {{el.index_option}}:{{el.index_option_content}}({{el.item_values}}分)
+                </span>
+                <!--ms-for-end:-->
+            </p>
+        </div>
+        <!--ms-for: $idx,el in @student_arr-->
+        <div class="index_info">
+            <p class="performance_title">学生</p>
+            <p class="three_index">
+                {{$idx+1}}、{{el.name}} {{el.account}}
+            </p>
+            <div class="left_bottom"></div>
+            <div class="right_bottom"></div>
+
+        </div>
+        <div class="reference_info">
+            <div class="left_top"></div>
+            <div class="right_top"></div>
+            <p class="performance_title">依据</p>
+            <p class="three_index">
+                <span class="left_span">日常表现加分  {{el.everyday_add}}次</span>
+                <span class="center_span">日常表现减分  {{el.everyday_minus}}次</span>
+                <span class="right_span">写实活动  {{el.xs}}次</span>
+            </p>
+            <div>
+                <div class="weui-cells weui-cells_radio">
+                    <!--ms-for: $key,col in @sub_info-->
+                    <label class="weui-cell weui-check__label" ms-attr="{for:'aa'+$idx+$key}">
+                        <div class="weui-cell__bd">
+                            <p>{{col.index_option}}、{{col.index_option_content}}（{{col.item_values}}）</p>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <input type="radio" class="weui-check"   ms-attr="{id:'aa'+$idx+$key,name:'radio'+$idx,value:col.index_option}" ms-duplex="el.pj_answer">
+                            <span class="weui-icon-checked"></span>
+                        </div>
+                    </label>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div class="public_btn_big normalPaddding">
+            <a ms-on-click="@value_click">提交</a>
+        </div>
+    </div>
+
+</div>

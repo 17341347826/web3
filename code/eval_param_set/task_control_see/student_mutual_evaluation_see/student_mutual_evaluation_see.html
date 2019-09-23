@@ -1,0 +1,90 @@
+<div class="am-g" id="student_mutual_evaluation_see" ms-important="student_mutual_evaluation_see">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="chosen am-fl">互评任务</div>
+            <div class="am-fl"  ms-on-click="@go_href">互评方案</div>
+            <div class="am-fl" ms-on-click="@parameter_add">分组参数</div>
+        </div>
+    </div>
+    <!--筛选条件-->
+    <div class="common-select" ms-validate="@validate">
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@extend.pro_grade" disabled>
+                        <!--<option ms-attr="{value:''}">-->
+                        <!--请选择年级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @request_data.grade_arr&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.remark}">-->
+                        <!--{{el.remark}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                        <option ms-attr="{value:@extend.pro_grade}">
+                            {{@extend.pro_grade}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--项目名称-->
+            <div class="form-input">
+                <input type="text" ms-duplex="@extend.pro_name" ms-rules="{required:true}" placeholder="请输入项目名称">
+            </div>
+            <!--项目级别-->
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@extend.pro_rank">
+                        <option value="0">
+                            请选择项目级别
+                        </option>
+                        <option value="1">
+                            省级
+                        </option>
+                        <option value="2">
+                            市级
+                        </option>
+                        <option value="3">
+                            区县级
+                        </option>
+                        <option value="4">
+                            校级
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--审核状态-->
+            <div class="select">
+                <div class="old-select">
+                    <select  ms-duplex-number="@extend.pro_state">
+                        <option value="0">
+                            请选择审核状态
+                        </option>
+                        <option value="2">
+                            审核通过
+                        </option>
+                        <option value="3">
+                            审核不通过
+                        </option>
+                        <option value="1">
+                            待审核
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--开始时间-->
+            <div class="form-input">
+                <input type="text" id="start_time_input" ms-attr="{value:@extend.pro_start_time}" readonly ms-on-focus="@get_start_date" placeholder="请输入开始时间">
+            </div>
+            <!--结束时间-->
+            <div class="form-input">
+                <input type="text" id="end_time_input" ms-attr="{value:@extend.pro_end_time}" readonly ms-on-focus="@get_end_date" placeholder="请输入结束时间">
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,params:@params,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+        </xmp>
+    </div>
+</div>

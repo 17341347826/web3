@@ -1,0 +1,127 @@
+<div ms-important="result_check_list" id="result_check_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择年级', is_init:true,sel_check:@grade_sel,data_arr:@grade_list}"></xmp>
+            </div>
+
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择学期', is_init:true,sel_check:@semester_sel,data_arr:@semester_list,default_value:semester_defalut}"></xmp>
+            </div>
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:project_default, is_init:true,sel_check:@project_sel,data_arr:@project_list}"></xmp>
+            </div>
+
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择班级', is_init:true,sel_check:@class_sel,data_arr:@class_list,empty_alert:'请先选择年级和学年学期'}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="img-table">
+        <div id="rank_img" ms-if="@rank_table.length!=0">
+
+        </div>
+        <div class="rank-table">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>等级</td>
+                    <td ms-for="el in @rank_table">{{el.lv}}</td>
+                    <td ms-if="@rank_table.length==0">暂无等级</td>
+                </tr>
+                <tr>
+                    <td>人数</td>
+                    <td ms-for="el in @rank_table">{{el.num}}</td>
+                    <td ms-if="@rank_table.length==0">暂无人数</td>
+                </tr>
+                <tr>
+                    <td>比例</td>
+                    <td ms-for="el in @rank_table">{{el.bfb}}</td>
+                    <td ms-if="@rank_table.length==0">暂无百分比</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="common-select">
+            <div class="search-cont clearfix">
+                <div class="select am-fl">
+                    <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择等级', is_init:true,sel_check:@rank_sel,data_arr:@rank_list}"></xmp>
+                </div>
+            </div>
+        </div>
+        <div class="table_module">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>学籍号</td>
+                    <td>年级</td>
+                    <td>班级</td>
+                    <td ms-for="el in @result_data[0].first_list_data">{{el.first_name}}</td>
+
+                    <td>加分</td>
+                    <td>学期综合得分</td>
+                    <td>学期评价等级</td>
+                    <td>特色报告</td>
+                </tr>
+                <tr ms-for="($index,el) in @result_data">
+                    <td>{{@set_index($index+1,@currentPage)}}</td>
+                    <td>{{el.student_name}}</td>
+                    <td>{{el.student_number}}</td>
+                    <td>{{@fk_grade_name}}</td>
+                    <td>{{el.class_name}}</td>
+                    <td ms-for="el2 in el.first_list_data">{{el2.score}}</td>
+                    <td>{{el.plus_score}}</td>
+                    <td>{{el.score.toFixed(2)}}</td>
+                    <td>{{el.lv}}</td>
+                    <td><a class='tab-btn tab-details-btn' ms-on-click='check_detail(el)' title='查看'></a></td>
+
+                </tr>
+
+                <tr ms-if="@result_data.length==0">
+                    <td colspan="14">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="divide-page am-cf" ms-visible="@totalPageArr.length!=0" data-am-widget="pagination">
+            <div style="float: right; margin-right:16px;">
+                <div class="page-info">
+                    <span>共{{@count}}条数据</span>
+                    <!--<span>当前为第{{@currentPage}}页</span>-->
+                    <span>共{{@totalPage}}页</span>
+                </div>
+                <div class="pages">
+                    <div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(1)">
+                        首页
+                    </div>
+                    <div class="pre-page" ms-visible="@currentPage != 1" ms-on-click="@currentPageDate(@currentPage-1)">
+                        上一页
+                    </div>
+                    <!--ms-for: ($index,el) in @totalPageArr -->
+                    <div class="com-page" ms-class="[el==@currentPage?'page-active':'']" ms-on-click="@currentPageDate(el)">
+                        {{el}}
+                    </div>
+                    <!--ms-for-end:-->
+                    <div class="next-page" ms-visible="@currentPage != @totalPage"
+                         ms-on-click="@currentPageDate(@currentPage+1)">
+                        下一页
+                    </div>
+                    <div class="last-page" ms-visible="@currentPage != @totalPage"
+                         ms-on-click="@currentPageDate(@totalPage)">
+                        末页
+                    </div>
+                </div>
+                <div class="turn-page">
+                    <div>跳转到：</div>
+                    <div class="s-page"><input type="text" ms-duplex-number="@pageNo"/></div>
+                    <div class="go-page" ms-on-click="@pageNOSure(@pageNo)">GO</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

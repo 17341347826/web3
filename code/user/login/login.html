@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+  <meta content="webkit" name="renderer">
+   <title>
+    登录
+   </title>
+   <!--<link href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.css" rel="stylesheet"/>-->
+  <link href="../../../common/lib/amazeui.css" rel="stylesheet"/>
+   <link href="login.css" rel="stylesheet"/>
+  </meta>
+ </head>
+ <body>
+  <!--内容-->
+  <div class="content ms-controller" ms-controller="login">
+   <div class="text-center form-box">
+    <h1 class="am-text-center">
+     学生综合素质评价
+    </h1>
+    <div class="group-input">
+     <label class="group-label">
+      用户名
+     </label>
+     <input ms-duplex="@data.account" type="text"/>
+    </div>
+    <div class="group-input">
+     <label class="group-label">
+      密
+      <span class=" pwd">
+       码
+      </span>
+     </label>
+     <input ms-duplex="@data.password" type="password"/>
+    </div>
+    <div class="am-text-center btn-login" ms-on-click="@login()">
+     <span>
+      登录
+     </span>
+    </div>
+    <div class="am-text-center msg">
+     {{msg}}
+    </div>
+   </div>
+  </div>
+  <script src="../../../common/lib/jquery.min.js">
+  </script>
+  <script src="../../../common/lib/avalon.js">
+  </script>
+  <script>
+   avalon.ready(function () {
+        var loginUrl="http://pj.xtyun.net/api/base/baseUser/login.action";
+        var login = avalon.define({
+            $id: "login",
+            data: {
+                account: "",
+                password: ""
+            },
+            msg: "",
+            login: function () {
+                if(this.data.account!=""&&
+                    this.data.password!=""){
+                    var self=this;
+                    $.ajax({
+                        method: "POST",
+                        url: loginUrl,
+                        dataType: "json",
+                        contentType: "application/json",
+                        data:JSON.stringify({account:this.data.account,password:this.data.password}) ,
+                        success:function (repsData) {
+
+                            if(repsData.status==200){
+                                var token=repsData.data.token;
+                                sessionStorage.setItem("token", token);
+                                window.location="http://pj.xtyun.net/Growth/index.html"
+                            }else {
+                                self.msg=repsData.message;
+                            }
+                        }
+                    });
+                }else {
+                    this.msg="请输入用户名和密码"
+                }
+            }
+        });
+        avalon.scan(document.body);
+    })
+  </script>
+ </body>
+</html>

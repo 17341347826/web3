@@ -1,0 +1,45 @@
+<div ms-important="parameter_setting" id="parameter_setting">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl"  :if="@highest_level == 4">
+            <div class="am-fl" ms-on-click="@go_href(1)">组评任务</div>
+            <!--<div class="am-fl"  ms-on-click="@go_href(2)">组评方案</div>-->
+            <div class="am-fl chosen">分组参数</div>
+        </div>
+        <div class="am-fl" :if="@highest_level != 4">
+            <!--<div class="am-fl" ms-on-click="@city_href(1)">评价方案</div>-->
+            <div class="am-fl"  ms-on-click="@city_href(2)">评价任务</div>
+            <div class="am-fl chosen">分组参数</div>
+        </div>
+    </div>
+    <div class="content">
+        <!--填写信息-->
+        <div class="form-inset">
+            <div style="margin-bottom: 30px;">
+                <label>组评人数限制<span style="visibility: hidden">组评</span></label>
+                <div class="form-input">
+                    <input ms-duplex="@request_data.evaluate_number" ms-rules="{required:true}" placeholder="请输入正整数" type="text"/>
+                </div>
+                <p class="notice_p">
+                    *用于指定被评学生要有指定人数的同学对其进行评价
+                    例：填 3，则在组评时每位同学将被3名同学评价
+                </p>
+            </div>
+            <div>
+                <label>参与统计分数下限</label>
+                <div class="form-input">
+                    <input ms-duplex="@request_data.score_limit" ms-rules="{required:true}" placeholder="请输入正整数" type="text"/>
+                </div>
+                <p class="notice_p">
+                    *用于指定被评学生的组评成绩低于该分值的成绩不参与统计
+                    例：填 50，则50分以下的不参与统计
+                </p>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns" :visible="@user_type == 0">
+            <button type="button" class="am-btn-default" :click="@cancel_click">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@add_click">提交</button>
+        </div>
+    </div>
+</div>

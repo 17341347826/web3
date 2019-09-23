@@ -1,0 +1,266 @@
+<div ms-important="graduation_results" id="graduation_results">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select" >
+                <div class="old-select">
+                    <select data-duplex-changed="changGrade" ms-duplex-number="@form.grade_id"
+                            ms-rules="{required:true}">
+                        <!--ms-for: el in @grade_lists-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--区县-->
+            <div class="select" :if="@user_level<3">
+                <div class="old-select">
+                    <select data-duplex-changed="changeArea" ms-duplex="@cur_area" ms-rules="{required:true}">
+                        <option ms-attr="{value:''}">
+                            请选择区县
+                        </option>
+                        <!--ms-for: el in @area_lists-->
+                        <option ms-attr="{el.district}">
+                            {{ el.district }}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--学校-->
+            <div class="select" :if="@user_level<4">
+                <div class="old-select">
+                    <select data-duplex-changed="changSchool" ms-duplex="@cur_school_id"
+                            ms-rules="{required:true}">
+                        <option ms-attr="{value:''}">
+                            请选择学校
+                        </option>
+                        <!--ms-for: el in @school_lists-->
+                        <option ms-attr="{value:el.value.split('|')[0]}">
+                            {{ el.name }}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+
+            <!--班级-->
+            <div class="select" >
+                <div class="old-select">
+                    <select data-duplex-changed="@changeClass" ms-duplex-number="@cur_class_id">
+                        <option ms-attr="{value:''}">
+                            请选择班级
+                        </option>
+                        <!--ms-for: el in @class_lists-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@student_num" placeholder="请输入学籍号" ms-blur="@num_change()">
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@student_name" placeholder="请输入姓名" ms-blur="@name_change()">
+            </div>
+            <!--<div class="qcfd"></div>-->
+            <div class="search-btn">
+                <input type="button" value="导出" :click="@export()">
+            </div>
+        </div>
+        <div class="content-two">
+            <div class="content-title-h">
+                <h3>毕业学生综合素质评价等级分布情况</h3>
+            </div>
+            <div class="content-sub">
+                <div class="content-cha-left" ms-if="@tubiao_data.length!=0">
+                    <div id="range_tubiao"></div>
+                </div>
+                <div class="content-tr-right" ms-if="@tubiao_data.length!=0">
+                    <table class="am-table am-table-bordered">
+                        <thead>
+                        <tr>
+                            <td>等级</td>
+                            <!--ms-for: el in @tubiao_data-->
+                            <td>{{el.dj}}</td>
+                            <!--ms-for-end:-->
+                            <td ms-visible="@tubiao_data.length==0" >无数据</td>
+                        </tr>
+                        <tr>
+                            <td>人数</td>
+                            <!--ms-for: el in @tubiao_data-->
+                            <td>{{el.djrs}}</td>
+                            <!--ms-for-end:-->
+                            <td ms-visible="@tubiao_data.length==0" >无数据</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>比例</td>
+                            <!--ms-for: el in @tubiao_data-->
+                            <td>{{el.bfb}}%</td>
+                            <!--ms-for-end:-->
+                            <td ms-visible="@tubiao_data.length==0" >无数据</td>
+
+
+                        </tr>
+                        </thead>
+
+
+                    </table>
+                </div>
+                <!--暂无数据-->
+                <div class="no-data" :if="@tubiao_data.length == 0">
+                    <div>
+                        <img src="../../../../common/images/none.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-three">
+            <div class="content-title-h">
+                <h3>毕业学生综合素质评价结果详情</h3>
+            </div>
+            <div class="content-yy clearfix">
+                <div class="select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@rankChange" ms-duplex-string="@form.rank">
+                            <option ms-attr="{value:''}">
+                                请选择等级
+                            </option>
+                            <!--ms-for: el in @rank_count_arr-->
+                            <option ms-attr="{value:el.c_rank}">
+                                {{el.c_rank}}级
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+                <div class="print-btn" ms-on-click="@to_print">
+                    <input type="button" value="打印预览">
+                </div>
+            </div>
+            <!--数据-->
+            <div class="content-table-tt" :if="@get_info.length>0">
+
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            序号
+                        </th>
+                        <th>
+                            姓名
+                        </th>
+                        <th>
+                            学籍号
+                        </th>
+                        <!--ms-for: el in @tbodyThead-->
+                        <th>
+                            {{el}}
+                        </th>
+                        <!--ms-for-end:-->
+                        <th>
+                            加分
+                        </th>
+                        <th>
+                            综合分值
+                        </th>
+                        <th>
+                            综合评价
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for: ($idx,el) in @get_info-->
+                    <tr>
+                        <td>
+                            {{@set_index($idx+1,@currentPage)}}
+                        </td>
+                        <td>
+                            {{el.stu_name}}
+                        </td>
+                        <td>
+                            {{el.stu_num}}
+                        </td>
+                        <!--ms-for: ($i,cl) in @el.values-->
+                        <td>
+                            {{cl}}
+                        </td>
+                        <!--ms-for-end:-->
+                        <td>
+                            {{el.score_plus}}
+                        </td>
+                        <td>
+                            {{el.zf}}
+                        </td>
+                        <td>
+                            {{el.rank}}
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                    <!--<tbody :if="@get_info.length==0">-->
+                    <!--<tr>-->
+                        <!--&lt;!&ndash;<td ms-attr="{colspan:@tbodyThead.length+8}">暂无数据</td>&ndash;&gt;-->
+                        <!--<td ms-attr="{colspan:@tbodyThead.length+8}">-->
+                            <!--<div class="no-data">-->
+                                <!--<img src="./../../../common/images/weixin_pj/no_data.png" alt="">-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                </table>
+                <!--分页-->
+                <div class="divide-page" ms-visible="@totalPageArr != '' && @tbodyThead.length != 0 && @count>10"
+                     data-am-widget="pagination">
+                    <div class="page-info">
+                        <span>共{{@count}}条数据</span>
+                        <!--<span>当前为第{{@currentPage}}页</span>-->
+                        <span>共{{@totalPage}}页</span>
+                    </div>
+                    <div class="pages">
+                        <div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(1)">
+                            首页
+                        </div>
+                        <div class="pre-page" ms-visible="@currentPage != 1"
+                             ms-on-click="@currentPageDate(@currentPage-1)">
+                            上一页
+                        </div>
+                        <!--ms-for: ($index,el) in @totalPageArr -->
+                        <div class="com-page" ms-class="[el==@currentPage?'page-active':'']"
+                             ms-on-click="@currentPageDate(el)">
+                            {{el}}
+                        </div>
+                        <!--ms-for-end:-->
+                        <div class="next-page" ms-visible="@currentPage != @totalPage"
+                             ms-on-click="@currentPageDate(@currentPage+1)">
+                            下一页
+                        </div>
+                        <div class="last-page" ms-visible="@currentPage != @totalPage"
+                             ms-on-click="@currentPageDate(@totalPage)">
+                            末页
+                        </div>
+                    </div>
+                    <div class="turn-page">
+                        <div>跳转到：</div>
+                        <div class="s-page"><input type="text" ms-duplex-number="@pageNo"/></div>
+                        <div class="go-page" ms-on-click="@pageNOSure(@pageNo)">GO</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--暂无数据-->
+            <div class="no-data" :if="@tubiao_data.length == 0">
+                <div>
+                    <img src="../../../../common/images/none.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

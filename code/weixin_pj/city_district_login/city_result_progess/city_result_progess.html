@@ -1,0 +1,171 @@
+<div ms-important="city_result_progess" id="city_result_progess">
+    <div class="weui-cells give-out-cells">
+        <div class="weui-cell weui-cell_select weui-cell_select-after table-tf">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select2">
+                    学年学期：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@sel_change_semester()" id="select2"
+                        ms-duplex="@semester">
+                    <!--ms-for: el in @semester_list-->
+                    <option ms-attr="{value:el.value}">
+                        {{el.name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select1">
+                    年级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@sel_change_grade()" id="select1"
+                        ms-duplex="@choose_grade">
+                    <!--ms-for: el in @grade_list-->
+                    <option ms-attr="{value:el.value}">
+                        {{el.name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+    </div>
+    <!--结果生成进度（全市）-->
+    <div class="progess-con">
+        <div class="progress-person" ms-visible="@user_level<3 && @city_process_list.length>0">
+            <div class="table-name">结果生成进度（全市）</div>
+            <div class="table-module">
+                <table class="table-class">
+                    <tbody>
+                    <tr>
+                        <td>单位</td>
+                        <td>年级</td>
+                        <td>总人数</td>
+                        <td>未生成人数</td>
+                        <td>完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr>
+                        <td ms-attr="{rowspan:@count(@filter_city(@city_process_list), 'city', el.city)}"
+                            ms-visible="$index==0 || row_length==1">
+                            {{el.city}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{filter_undefined(el.city_cnt.total_num)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.invalid_num)}}</td>
+                        <td>{{el.city_cnt.wcl | rj_filter}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="progress-person" ms-visible="@area_process_list.length>0">
+            <div class="table-name">结果生成进度（区县）</div>
+            <!--筛选条件-->
+            <div class="common-select" ms-visible="@user_level<3">
+                <div class="search-cont clearfix">
+                    <!--区县-->
+                    <div class="select">
+                        <label>区县：</label>
+                        <div class="old-select">
+                            <select data-duplex-changed="@sel_change_area" ms-duplex="@area_area">
+                                <!--ms-for: el in @area_list-->
+                                <option ms-attr="{value:el.name}">
+                                    {{el.name}}
+                                </option>
+                                <!--ms-for-end:-->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-module">
+                <table class="table-class">
+                    <tbody>
+                    <tr>
+                        <td>单位</td>
+                        <td>年级</td>
+                        <td>总人数</td>
+                        <td>未生成人数</td>
+                        <td>完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.district != @filter_area(area_process_list)[$index-1].district"
+                            ms-attr="{rowspan:@count(@filter_area(@area_process_list),'district' ,el.district)}">
+                            {{el.district}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{filter_undefined(el.district_cnt.total_num)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.invalid_num)}}</td>
+                        <td>{{el.district_cnt.wcl | rj_filter}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="progress-person" ms-visible="@school_process_list.length>0">
+            <div class="table-name">结果生成进度（学校）</div>
+            <!--筛选条件-->
+            <div class="common-select" >
+                <div class="search-cont clearfix">
+                    <!--区县-->
+                    <div class="select" ms-visible="@user_level<3">
+                        <label>区县：</label>
+                        <div class="old-select">
+                            <select data-duplex-changed="@sel_change_area_2" ms-duplex="@school_area">
+                                <!--ms-for: el in @area_list-->
+                                <option ms-attr="{value:el.name}">
+                                    {{el.name}}
+                                </option>
+                                <!--ms-for-end:-->
+                            </select>
+                        </div>
+                    </div>
+                    <!--学校-->
+                    <div class="form-input">
+                        <label>学校：</label>
+                        <input type="text" placeholder="请输入学校" ms-duplex="@school_p.school_name" data-duplex-changed="@search">
+                    </div>
+                </div>
+            </div>
+            <div class="table-module">
+                <table class="table-class">
+                    <tbody>
+                    <tr>
+                        <td>单位</td>
+                        <td>年级</td>
+                        <td>总人数</td>
+                        <td>未生成人数</td>
+                        <td>完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@school_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != @filter_school(school_process_list)[$index-1].schoolname"
+                            ms-attr="{rowspan:@count(@filter_school(@school_process_list), 'schoolname', el.schoolname)}">
+                            {{el.schoolname}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{filter_undefined(el.school_cnt.total_num)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.invalid_num)}}</td>
+                        <td>{{el.school_cnt.wcl | rj_filter}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--暂无数据-->
+        <div ms-if="@city_process_list.length==0 && @area_process_list.length == 0 && @school_process_list.length == 0" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+
+</div>

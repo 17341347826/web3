@@ -1,0 +1,250 @@
+<div ms-important="lrregularities_violation" id="lrregularities_violation">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="introduction clearfix">
+        <div class="am-fl">
+            <div>
+                <span>学期上传 |</span>
+                <span class="intro-name">违规违纪
+                        <span class="intro-score">{{@sem_count}}</span>
+                    </span>
+            </div>
+            <!--<div>-->
+                <!--<span><span style="visibility: hidden">本</span>累计材料 |</span>-->
+                <!--<span class="intro-name">违规违纪-->
+                        <!--<span class="intro-score">{{@count}}</span>-->
+                    <!--</span>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="content">
+        <!--记录列表-->
+        <div class="am-fl list-con" id="list-con">
+            <!--显示方式-->
+            <div class="dis-type" :if="@punish_list.length>0">
+                <div class="radios">
+                    <label class="radios-name">显示方式：</label>
+                    <label class="am-radio-inline">
+                        <input type="radio" id="option1" ms-duplex="@html_display"  class="rdo" value="1">
+                        <label ms-attr="{for:'option1'}">图文</label>
+                    </label>
+                    <label class="am-radio-inline" :click="@radio_table()">
+                        <input type="radio" id="option2" ms-duplex="@html_display" class="rdo" value="2">
+                        <label ms-attr="{for:'option2'}">表格</label>
+                    </label>
+                </div>
+            </div>
+            <!--table-->
+            <div :if="@html_display == 2 && @list_detail == 1 && @punish_list.length>0">
+                <div class="table_module am-padding-top-sm am-padding-bottom-sm">
+                    <div id="class-module">
+                        <table class="am-table am-table-hover">
+                            <thead style="text-align: center">
+                            <tr>
+                                <td>序号</td>
+                                <td>年级</td>
+                                <td>班级</td>
+                                <td>姓名</td>
+                                <td>学籍号</td>
+                                <td>处分名称</td>
+                                <td>处分类型</td>
+                                <td>处分时间</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody :if="@punish_list.length > 0">
+                            <!--ms-for:($idx,el) in @punish_list-->
+                            <tr>
+                                <td>{{$idx+1}}</td>
+                                <td>{{el.gradename}}</td>
+                                <td>{{el.classname}}班</td>
+                                <td>{{el.punished_person}}</td>
+                                <td>{{el.punished_person_num}}</td>
+                                <td class="text_desc_width">{{el.punish_name}}</td>
+                                <td>{{el.punish_type | deal_type}}</td>
+                                <td>{{el.punish_time}}</td>
+                                <td><a class='tab-btn tab-details-btn' ms-on-click='@person_honor(el)' title='查看'></a></td>
+                            </tr>
+                            <!--ms-for-end:-->
+                            </tbody>
+                            <tbody :if="@punish_list.length == 0 || @punish_list == null || @punish_list == undefined">
+                            <tr>
+                                <td colspan="5">暂无数据</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--table单条记录列表详情-->
+            <div :if="@html_display == 2 && @list_detail == 2">
+                <div class="daily-person">
+                    <!--学生基本信息-->
+                    <div class="stu-info">
+                        <div>
+                            <!--头像-->
+                            <div class="stu-head">
+                                <div class="stu-img">
+                                    <img ms-attr="{src:@url_img(@user_photo({guid:person_detail.punished_person_id}))}">
+                                </div>
+                                <div class="stu-name">
+                                    <span>{{person_detail.punished_person}}</span>
+                                </div>
+                            </div>
+                            <div class="line-one"></div>
+                            <!--学校信息-->
+                            <div class="stu-school">
+                                <div class="btn-operation">
+                                    <!--<span class="d-name">日常表现</span>-->
+                                    <!--<a class='tab-btn tab-edit-btn' title="编辑"></a>-->
+                                    <!--<a class='tab-btn tab-trash-btn' title="删除"></a>-->
+                                </div>
+                                <div>
+                                    <span>{{person_detail.gradename}}{{person_detail.classname}}</span>
+                                    <span>{{@school_name}}</span>
+                                    <span>{{@distrit_name}}</span>
+                                    <span>{{ person_detail.cjsj | date("yyyy MM dd:HH:mm:ss")}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--日常表现信息-->
+                    <div class="daily-info">
+                        <div class="three-index">
+                            <h3>处分名称 ：</h3>
+                            <p>{{person_detail.punish_name}}</p>
+                        </div>
+                        <div class="three-index">
+                            <h3>处分时间 ：</h3>
+                            <p>{{person_detail.punish_time}}</p>
+                        </div>
+                        <div class="record-des">
+                            <h3>处分类型 ：</h3>
+                            <p>{{person_detail.punish_type  | deal_type}}</p>
+                        </div>
+                        <div class="record-des">
+                            <h3>处分说明 ：</h3>
+                            <p>{{person_detail.punish_cause}}</p>
+                        </div>
+                        <!--图片-->
+                        <div class="img-ary">
+                            <!--ms-for:($index,al) in @data_change(person_detail.basis)-->
+                            <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                            <!--ms-for-end:-->
+                        </div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+                </div>
+            </div>
+            <!--图文-->
+            <div :if="@html_display == 1">
+                <!--ms-for:($idx,el) in @punish_list-->
+                <div class="daily-person">
+                    <!--学生基本信息-->
+                    <div class="stu-info">
+                        <div>
+                            <!--头像-->
+                            <div class="stu-head">
+                                <div class="stu-img">
+                                    <!--<img ms-attr="{src:@url_for(@stu_head.guid)}" ms-css="@rotation_str()">-->
+                                    <!--<img ms-attr="{src:@url_for(@stu_head.guid)}">-->
+                                    <!--<img ms-attr="{src:@url_img(@user_photo({guid:el.guid}))}">-->
+                                    <img ms-attr="{src:@url_img(@user_photo({guid:el.punished_person_id}))}">
+                                </div>
+                                <div class="stu-name">
+                                    <span>{{el.punished_person}}</span>
+                                </div>
+                            </div>
+                            <div class="line-one"></div>
+                            <!--学校信息-->
+                            <div class="stu-school">
+                                <div class="btn-operation">
+                                    <!--<span class="d-name">日常表现</span>-->
+                                    <!--<a class='tab-btn tab-edit-btn' title="编辑"></a>-->
+                                    <!--<a class='tab-btn tab-trash-btn' title="删除"></a>-->
+                                </div>
+                                <div>
+                                    <span>{{el.gradename}}{{el.classname}}</span>
+                                    <span>{{@school_name}}</span>
+                                    <span>{{@distrit_name}}</span>
+                                    <span>{{ el.cjsj | date("yyyy MM dd:HH:mm:ss")}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--日常表现信息-->
+                    <div class="daily-info">
+                        <div class="three-index">
+                            <h3>处分名称 ：</h3>
+                            <p>{{el.punish_name}}</p>
+                        </div>
+                        <div class="three-index">
+                            <h3>处分时间 ：</h3>
+                            <p>{{el.punish_time}}</p>
+                        </div>
+                        <div class="record-des">
+                            <h3>处分类型 ：</h3>
+                            <p>{{el.punish_type  | deal_type}}</p>
+                        </div>
+                        <div class="record-des">
+                            <h3>处分说明 ：</h3>
+                            <p>{{el.punish_cause}}</p>
+                        </div>
+                        <!--图片-->
+                        <div class="img-ary">
+                            <!--ms-for:($index,al) in @data_change(el.basis)-->
+                            <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                            <!--ms-for-end:-->
+                        </div>
+                    </div>
+                </div>
+                <div class="fg-line"></div>
+                <!--ms-for-end:-->
+            </div>
+            <!--暂无数据-->
+            <div class="no-data" :if="@punish_list.length==0 && @data_had">
+                <div>
+                    <img src="../../../../common/images/none.png" alt="">
+                </div>
+            </div>
+            <div ms-visible="@punish_list.length==0 && !@data_had" class="data_pedding">
+                正在加载中，请稍等
+            </div>
+        </div>
+        <!--学年学期选择-->
+        <div class="am-fr d-p-c-nav">
+            <div class="d-p-munu">
+                <div class="outer">
+                    <div class="inner">
+                        <ul>
+                            <!--<li :class="[(@semester_remark==-1 ? 'active':'')]">-->
+                               <!--<a href="#lrregularities_violation" ms-on-click-1="@semesterChange(-1,0,0)" ms-on-click-2="@my_turn">-->
+                                   <!--<span class="new-record">最新记录</span>-->
+                                   <!--<span :visible="@semester_remark==-1" class="dotted"></span>-->
+                                   <!--<span :visible="@semester_remark==-1" class="out-circle">-->
+                                        <!--<span class="inner-circle"></span>-->
+                                   <!--</span>-->
+                                   <!--<span :visible="@semester_remark!=-1" class="small-circular"></span>-->
+                               <!--</a>-->
+                            <!--</li>-->
+                            <!--ms-for: ($index,el) in @semester_list-->
+                            <li :class="[(@semester_remark==$index ? 'active':'')]"
+                            ms-on-click="@semesterChange($index,el.start_date,el.end_date)">
+                                <span>{{el.semester_name}}</span>
+                                <span :visible="@semester_remark==$index" class="dotted"></span>
+                                <span :visible="@semester_remark==$index" class="out-circle">
+                                    <span class="inner-circle"></span>
+                                </span>
+                                <span :visible="@semester_remark!=$index" class="small-circular"></span>
+                            </li>
+                            <!--ms-for-end:-->
+                        </ul>
+                        <span class="right-top-point"></span>
+                        <span class="right-bottom-point"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="content_box">
+    <div class="title_remark desktop_remark am-cf">
+        <p>常用功能</p>
+        <span class="am-fr" ms-on-click="@desktop_detail">
+            <img src="common/images/icon/desktop_ed.png" alt=""> 编辑
+        </span>
+    </div>
+    <div class="context_high">
+        <div id="content_module">
+            <!--ms-for: el in @nav_list-->
+            <div class="am-fl" ms-on-click="@go_click(el.url)">{{el.second_power}}</div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+</div>

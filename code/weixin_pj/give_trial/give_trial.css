@@ -1,0 +1,103 @@
+#give_trial .title{
+    background-color:#13c5a1;
+    color:white;
+    height:50px;
+    line-height:50px;
+    font-size:1.1em;
+    text-align:center;
+    margin-bottom:20px;
+}
+#give_trial .weui-cells{
+    margin:0 25px 15px;
+}
+.weui-cell:before {
+    /*border-top: 1px solid #d9d9d9;*/
+    border-top:0;
+}
+#give_trial .weui-cell{
+    border:1px solid #d9d9d9;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+#give_trial .weui-cells:before {
+    /* border-top: 1px solid #d9d9d9; */
+    border-top:0;
+}
+#give_trial .weui-cells:after {
+    /*border-bottom: 1px solid #d9d9d9;*/
+    border-bottom:0;
+}
+#give_trial .weui-cell__hd img {
+    width: 25px;
+}
+#give_trial .weui-cell__hd{
+    border-right:1px solid #E1E1E1;
+    margin-right: 15px;
+    padding-right: 3px;
+}
+/*留言*/
+#give_trial .trialMsg{
+    position:relative;
+}
+#give_trial .trialMsg .weui-cell__hd{
+    position:absolute;
+    top:10px;
+}
+#give_trial .trialMsg .weui-cell__bd{
+    margin-left:48px;
+}
+/*提交*/
+#give_trial .sign-btn{
+    margin:0 25px;
+    cursor:pointer;
+}
+#give_trial .weui-btn_primary {
+    /*background-color: #1aad19;*/
+    background-color: rgb(255,142,50);
+}
+#give_trial .weui-cells__title {
+    /* margin-top: .77em; */
+   margin-top:0;
+}
+#give_trial .weui-cell_select .weui-cell__hd{
+    padding-left:15px;
+}
+#give_trial .weui-cell_select .weui-cell__bd{
+    margin-right:0;
+}
+#give_trial .weui-select{
+    /* padding-left: 15px; */
+    padding-left:0;
+}
+/*select第一个子元素样式*/
+#give_trial .weui-select{
+    color:#CFCFCF;
+}
+#give_trial .select-pro{
+    /*color:#CFCFCF;*/
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:#CFCFCF;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#CFCFCF;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#CFCFCF;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:#CFCFCF;
+}
+#give_trial .weui-cell:hover{
+    border:1px solid #37C4AB;
+}
+/*提示信息*/
+#give_trial  .msg{
+    color:red;
+    text-align: center;
+    font-size: 1em;
+    margin-bottom:15px;
+}
+#give_trial  .sign-btn{
+    margin-bottom:10px;
+}

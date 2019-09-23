@@ -1,0 +1,15 @@
+#hot_issues {
+    /*background-color: #f5f5f5;*/
+}
+/*选中颜色*/
+#hot_issues .menu-check{
+    border-bottom: 1px solid #5abaf3;
+}
+#hot_issues .con{
+    color: #777;
+    font-size: 14px;
+    padding: 16px;
+}
+#hot_issues .con>div{
+    margin-bottom: 10px;
+}

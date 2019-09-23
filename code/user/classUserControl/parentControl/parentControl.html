@@ -1,0 +1,19 @@
+<div class="am-g" id="parentExamine" ms-important="parentExamine">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@class_change,head_value:'请选择班级'}"></xmp>
+        </div>
+
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init, remember:false,extend:@extend,theadTh:@theadTh, cbopt:@cbopt,only_hash:@only_hash}">
+            </xmp>
+        </div>
+    </div>
+
+</div>

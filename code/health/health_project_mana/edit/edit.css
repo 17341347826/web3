@@ -1,0 +1,164 @@
+#health_project_edit{
+    background-color: #F1F2F6;
+    text-align: center;
+    color:#a2a2a2;
+}
+#health_project_edit .old-select select{
+    width:440px;
+    height:34px;
+    border: solid 1px rgba(228, 228, 228, 1);
+}
+#health_project_edit .form-input input{
+    color:#a2a2a2;
+}
+#health_project_edit .content{
+    display:inline-block;
+    width: 788px;
+    /*height: 483px;*/
+    border-radius: 4px 4px 4px 4px;
+    background-color: rgba(255, 255, 255, 1);
+    padding-bottom:20px;
+}
+#health_project_edit .grade-info{
+    font-size: 16px;
+    color: #c8c8c8;
+    text-align: left;
+    margin-left:18px;
+    margin-top:15px;
+}
+#health_project_edit .a-name{
+    font-size: 18px;
+    color: #777777;
+    margin-bottom:18px;
+    margin-top:40px;
+}
+#health_project_edit .select-head {
+    position: relative;
+    width: 440px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 14px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    text-align: left;
+    font-size: 16px;
+    color: #c8c8c8;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#health_project_edit .select-head .select-icon {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: inline-block;
+    width: 7px;
+    height: 6px;
+    background: url("../../../../common/images/icon/triangle.png") center no-repeat;
+}
+#health_project_edit .select-option {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 200px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow: auto;
+    z-index: 100;
+    outline: none;
+}
+#health_project_edit .select-option ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#health_project_edit .select-option li {
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    color: #c8c8c8;
+    cursor: pointer;
+}
+#health_project_edit .select-option li:hover {
+    background-color: #f0f0f0;
+    color: #2bbba4;
+}
+/**/
+#health_project_edit .form-inset{
+    overflow: hidden;
+}
+#health_project_edit .form-inset>div {
+    margin-bottom:10px;
+}
+#health_project_edit .form-inset>div:last-child{
+    margin-bottom:0;
+}
+#health_project_edit .form-inset>div>label,
+#health_project_edit .time-change label{
+    font-size: 16px;
+    color: #a2a2a2;
+    margin-right:8px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+#health_project_edit .form-inset>div>div,
+#health_project_edit .time-change div{
+    display:inline-block;
+}
+#health_project_edit .form-inset>div>div>input{
+    width: 440px;
+    height:34px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    font-size:16px;
+    padding-left: 8px;
+    color: #777;
+}
+#health_project_edit input::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#health_project_edit input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#health_project_edit input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#health_project_edit input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+/*开始时间、结束时间*/
+#health_project_edit .time-change div input{
+    width: 180px;
+    height:34px;
+    border-radius: 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+}
+#health_project_edit .time-change .start-change{
+    margin-right:10px;
+}
+/*评价主体、使用年级*/
+#health_project_edit .evaluation-sub{
+    margin-bottom:6px;
+    color:#a2a2a2;
+}
+#health_project_edit .evaluation-sub>div {
+    width: 440px;
+    text-align: left;
+    display: inline-block;
+    /*height:16px;*/
+    /*line-height: 16px;*/
+}
+/*按钮组*/
+#health_project_edit .btns{
+    margin-top:20px;
+}

@@ -1,0 +1,171 @@
+#teacher_fill_list_wx {
+    background-color: #f5f5f5;
+}
+#teacher_fill_list_wx .stu_n_c{
+    display: flex;
+    padding: 8px 25px 6px 25px;
+}
+#teacher_fill_list_wx .stu_n_c>span{
+    flex: 1;
+}
+#teacher_fill_list_wx .index_info,
+#teacher_fill_list_wx .reference_info{
+    /*height: 205px;*/
+    background-color: #ffffff;
+    /*border-radius: 5px;*/
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-top: 9px;
+    position: relative;
+}
+#teacher_fill_list_wx .reference_info{
+    padding-top: 0px;
+}
+#teacher_fill_list_wx .index_info{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#teacher_fill_list_wx .reference_info{
+    margin-bottom: 6px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 12px;
+}
+#teacher_fill_list_wx .index_info>p,
+#teacher_fill_list_wx .reference_info>p{
+    margin-left:20px;
+    margin-right:20px;
+}
+#teacher_fill_list_wx .index_info>.three_index{
+    font-size: 12px;
+    color: #777777;
+    line-height: 16px;
+    margin-top: 7px;
+    padding-bottom: 15px;
+    border-bottom: 1px #eaeaea dashed;
+}
+#teacher_fill_list_wx .index_info>.performance_title{
+    background-color: #d1e1f6;
+    border-radius: 5px;
+    color: #3772c5;
+    font-size: 11px;
+    text-align: center;
+    vertical-align: middle;
+    width: 32px;
+}
+#teacher_fill_list_wx .reference_info>.performance_title{
+    background-color: #d4f6d1;
+    border-radius: 5px;
+    color: #37c5a2;
+    font-size: 11px;
+    text-align: center;
+    vertical-align: middle;
+    width: 32px;
+}
+#teacher_fill_list_wx .reference_info>.three_index{
+    font-size: 12px;
+    color: #777777;
+    line-height: 16px;
+    margin-top: 7px;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+}
+#teacher_fill_list_wx .weui-cell:before{
+    left: 0;
+}
+
+#teacher_fill_list_wx .weui-cells_radio{
+    font-size: 12px;
+    color: #777777;
+    /*padding-left: 5px;*/
+}
+#teacher_fill_list_wx .reference_info .left_span,
+#teacher_fill_list_wx .reference_info .right_span{
+    width:100px;
+    height:28px;
+}
+#teacher_fill_list_wx .reference_info .right_span{
+    width: 150px;
+    text-align: center;
+}
+#teacher_fill_list_wx .center_span{
+    flex-grow: 1;
+}
+
+#teacher_fill_list_wx .left_bottom,
+#teacher_fill_list_wx .right_bottom,
+#teacher_fill_list_wx .left_top ,
+#teacher_fill_list_wx .right_top{
+    position:absolute;
+    z-index:9999;
+    width: 16px;
+    height: 16px;
+    background-color:#f5f5f5;
+}
+#teacher_fill_list_wx .left_bottom{
+    left:0;
+    bottom: 0;
+    border-radius: 0 16px 0 0;
+}
+#teacher_fill_list_wx .right_bottom{
+    right: 0;
+    bottom: 0;
+    border-radius: 16px 0 0 0;
+}
+#teacher_fill_list_wx .left_top{
+    left:0;
+    top: 0;
+    border-radius: 0 0 16px 0;
+}
+#teacher_fill_list_wx .right_top{
+    right:0;
+    top: 0;
+    border-radius: 0 0 0 16px;
+}
+#teacher_fill_list_wx .input_div>input{
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    color: #78a8ff;
+    height: 24px;
+    box-shadow: 0px 0px 4px 0px #abcfff;
+    border-radius: 5px;
+    border: solid 1px #78a8ff;
+    text-align: center;
+}
+#teacher_fill_list_wx .input_div{
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    padding-bottom: 14px;
+}
+#teacher_fill_list_wx .public_btn_big{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#teacher_fill_list_wx .input_btn{
+    text-align: center;
+    padding-bottom: 10px;
+}
+#teacher_fill_list_wx .input_btn>span{
+    height: 24px;
+    background-color: #78a8ff;
+    box-shadow: 0px 0px 4px 0px #abcfff;
+    border-radius: 12px;
+    padding: 4px 40px;
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ffffff;
+}
+#teacher_fill_list_wx .weui-loadmore{
+    background-color: white;
+    margin: 20em auto;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}

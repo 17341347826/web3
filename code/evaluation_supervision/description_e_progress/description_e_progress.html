@@ -1,0 +1,237 @@
+<div ms-important="description_e_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            描述性评价录入进度（全市）
+        </div>
+        <div class="tb-content" ms-visible="filter_city(@city_table_list).length>0">
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市录入进度
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自我描述</td>
+                        <td colspan="3">同学寄语</td>
+                        <td colspan="3">老师寄语</td>
+                        <td rowspan="2">总完成率</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_city(@city_table_list)">
+                        <td ms-visible="$idx==0||el.city != @city_table_list[$idx-1].city"
+                            ms-attr="{rowspan:@count(@filter_city(@city_table_list), 'city', el.city)}">{{user.city}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{filter_undefined(el.city_cnt.zw_yp)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.zw_wp)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.zw_wcl)|percent}}%</td>
+                        <td>{{filter_undefined(el.city_cnt.tx_yp)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.tx_wp)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.tx_wcl)|percent}}%</td>
+                        <td>{{filter_undefined(el.city_cnt.js_yp)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.js_wp)}}</td>
+                        <td>{{filter_undefined(el.city_cnt.js_wcl)|percent}}%</td>
+                        <td>{{el.city_cnt.wcl|percent}}%</td>
+                    </tr>
+                    <tr ms-visible="@city_table_list.length==0">
+                        <td colspan="13">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="filter_city(@city_table_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            描述性评价录入进度（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_area(@area_table_list).length>0">
+                <div class="biao-title">
+                    区县录入进度
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-visible="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@area_check,head_value:'请选择区县'}"></xmp>
+                    </div>
+
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_area(@area_table_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_area(@area_table_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自我描述</td>
+                        <td colspan="3">同学寄语</td>
+                        <td colspan="3">老师寄语</td>
+                        <td rowspan="2">总完成率</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_area(@area_table_list)">
+                        <td ms-visible="$idx==0||el.district != @filter_area(area_table_list)[$idx-1].district"
+                            ms-attr="{rowspan:@count(@filter_area(@area_table_list), 'district', el.district)}">
+                            {{el.district}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{filter_undefined(el.district_cnt.zw_yp)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.zw_wp)}}</td>
+                        <td>{{el.district_cnt.zw_wcl|percent}}%</td>
+                        <td>{{filter_undefined(el.district_cnt.tx_yp)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.tx_wp)}}</td>
+                        <td>{{el.district_cnt.tx_wcl|percent}}%</td>
+                        <td>{{filter_undefined(el.district_cnt.js_yp)}}</td>
+                        <td>{{filter_undefined(el.district_cnt.js_wp)}}</td>
+                        <td>{{el.district_cnt.js_wcl|percent}}%</td>
+                        <td>{{el.district_cnt.wcl|percent}}%</td>
+                    </tr>
+                    <tr ms-visible="@area_table_list.length==0">
+                        <td colspan="13">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            描述性评价录入进度（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_school(@school_table_list).length>0">
+                <div class="biao-title">
+                    学校录入进度
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@school_area_check,default_value:@default_area,head_value:'请选择区县'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <input type="text" placeholder="请输入学校" ms-duplex="@current_school"
+                               data-duplex-changed="@search">
+                    </div>
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_school(@school_table_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_school(@school_table_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自我描述</td>
+                        <td colspan="3">同学寄语</td>
+                        <td colspan="3">老师寄语</td>
+                        <td rowspan="2">总完成率</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_school(@school_table_list)">
+                        <td ms-visible="$idx==0||el.schoolname != @filter_school(school_table_list)[$idx-1].schoolname"
+                            ms-attr="{rowspan:@count(@filter_school(@school_table_list), 'schoolname', el.schoolname)}">
+                            {{el.schoolname}}
+                        </td>
+                        <td>{{el.status}}</td>
+                        <td>{{el.detail.used_count}}</td>
+                        <td><span
+                                ms-if="el.detail.school_cnt!=0">{{filter_undefined(el.detail.school_cnt.zw_yp)}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span></td>
+                        <td><span
+                                ms-if="el.detail.school_cnt!=0">{{filter_undefined(el.detail.school_cnt.zw_wp)}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span></td>
+                        <td><span ms-if="el.detail.school_cnt!=0">{{el.detail.school_cnt.zw_wcl|percent}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span>%
+                        </td>
+                        <td><span
+                                ms-if="el.detail.school_cnt!=0">{{filter_undefined(el.detail.school_cnt.tx_yp)}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span></td>
+                        <td><span
+                                ms-if="el.detail.school_cnt!=0">{{filter_undefined(el.detail.school_cnt.tx_wp)}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span></td>
+                        <td><span ms-if="el.detail.school_cnt!=0">{{el.detail.school_cnt.tx_wcl|percent}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span>%
+                        </td>
+                        <td><span
+                                ms-if="el.detail.school_cnt!=0">{{filter_undefined(el.detail.school_cnt.js_yp)}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span></td>
+                        <td><span
+                                ms-if="el.detail.school_cnt!=0">{{filter_undefined(el.detail.school_cnt.js_wp)}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span></td>
+                        <td><span ms-if="el.detail.school_cnt!=0">{{el.detail.school_cnt.js_wcl|percent}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span>%
+                        </td>
+                        <td><span ms-if="el.detail.school_cnt!=0">{{el.detail.school_cnt.wcl|percent}}</span><span
+                                ms-if="el.detail.school_cnt==0">0.00</span>%
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

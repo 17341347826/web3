@@ -1,0 +1,132 @@
+<div ms-important="review_progress_school" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+        </div>
+    </div>
+
+    <div class="table-content clearfix">
+        <div class="title">
+            上传材料审核进度
+        </div>
+        <div class="tb-content">
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td> 年级</td>
+                        <td>类型</td>
+                        <td>需审核材料总数</td>
+                        <td>已审核材料数</td>
+                        <td>未审核材料数</td>
+                        <td>审核完成率</td>
+                    </tr>
+                    <tr ms-for="($index,el) in @sccl_list">
+                        <td>{{el.njmc}}</td>
+                        <td>{{el.lxmc}}</td>
+                        <td>{{el.xsh}}</td>
+                        <td>{{el.ysh}}</td>
+                        <td>{{el.wsh}}</td>
+                        <td>{{el.wcl}}</td>
+                    </tr>
+                    <tr ms-visible="@sccl_list.length==0">
+                        <td colspan="6">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="title">
+            申诉复议审核进度
+        </div>
+        <div class="tb-content">
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td> 年级</td>
+                        <td>类型</td>
+                        <td>提出异议人数</td>
+                        <td>被提出异议材料数</td>
+                        <td>已审核数</td>
+                        <td>未审核数</td>
+                        <td>审核完成率</td>
+                    </tr>
+                    <tr ms-for="($index,el) in @ssfy_list">
+                        <td>{{el.njmc}}</td>
+                        <td>{{el.lxmc}}</td>
+                        <td>{{el.tcyyrs}}</td>
+                        <td>{{el.btcyycls}}</td>
+                        <td>{{el.ysh}}</td>
+                        <td>{{el.wsh}}</td>
+                        <td>{{el.wcl}}</td>
+                    </tr>
+                    <tr ms-visible="@ssfy_list.length==0">
+                        <td colspan="7">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-content clearfix">
+        <div class="title">
+            各班级审核进度
+        </div>
+        <div class="tb-content">
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+                    </div>
+                </div>
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2"> 班级</td>
+                        <td colspan="3">上传材料审核进度</td>
+                        <td colspan="8">申诉复议审核进度</td>
+                    </tr>
+                    <tr>
+                        <td>日常表现</td>
+                        <td>综合实践</td>
+                        <td>荣誉奖励</td>
+
+                        <td>日常表现</td>
+                        <td>综合实践</td>
+                        <td>荣誉奖励</td>
+                        <td>学业成绩</td>
+                        <td>国家体质健康</td>
+                        <td>艺术测评成绩</td>
+                        <td>成长激励卡</td>
+                        <td>学期评价结果</td>
+                        <td>毕业评价结果</td>
+                    </tr>
+                    <tr ms-for="($index,el) in @gbj_list">
+                        <td>{{el.bjmc}}</td>
+                        <td>{{el.sc_rcbx_wcl}}</td>
+                        <td >{{el.sc_zhsj_wcl}}</td>
+                        <td >{{el.sc_cjjl_wcl}}</td>
+                        <td >{{el.rcbx_wcl}}</td>
+                        <td >{{el.zhsj_wcl}}</td>
+                        <td >{{el.cjjl_wcl}}</td>
+                        <td >{{el.xycj_wcl}}</td>
+                        <td >{{el.tzjk_wcl}}</td>
+                        <td >{{el.yscj_wcl}}</td>
+                        <td>{{el.jlk_wcl}}</td>
+                        <td>{{el.xqpj_wcl}}</td>
+                        <td>{{el.bypj_wcl}}</td>
+                    </tr>
+                    <tr ms-visible="@gbj_list.length==0">
+                        <td colspan="12">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,32 @@
+#city_management_create_scheme{
+    background-color: #f1f2f6;
+}
+#city_management_create_scheme>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    padding-top: 40px;
+    margin-top: 4px;
+    overflow:hidden;
+}
+#city_management_create_scheme label{
+    color:#a2a2a2;
+    font-size: 16px;
+}
+#city_management_create_scheme input,
+#city_management_create_scheme select{
+    border-radius: 4px;
+    color:#c8c8c8;
+    border: 1px #ccc solid;
+}
+#city_management_create_scheme .btns{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#city_management_create_scheme label.am-radio-inline{
+    margin-top: 5px;
+}
+#city_management_create_scheme label.am-radio-inline>input{
+    margin-top: 5px;
+}

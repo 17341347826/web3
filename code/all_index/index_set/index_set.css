@@ -1,0 +1,127 @@
+#index-set{
+    background-color: #f1f2f6;
+}
+#index-set>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+#index-set>div.first-index{
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+#index-set>div.first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: default;
+}
+#index-set .table-second-index{
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+#index-set>div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../common/images/chosen.png') no-repeat top right;
+}
+#index-set>div.first-index>div.am-fr{
+    padding-right: 45px;
+}
+
+#index-set .btn{
+    width: 112px;
+    height: 34px;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    line-height: 34px;
+}
+#index-set .table-three-index{
+    width: 300px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#index-set img.btn-img{
+    margin-right: 4px;
+}
+#index-set .add-index{
+    background-color: #2bbba4;
+    margin-right: 10px;
+    cursor: pointer;
+}
+#index-set .del-index{
+    background-color: #ffaa45;
+    margin-right: 10px;
+    cursor: pointer;
+}
+#index-set .update-index{
+    background-color: #587fc1;
+    cursor: pointer;
+}
+#index-set>div.second-index,#index-set>div.three-index{
+    padding-top: 12px;
+}
+#index-set>div.second-index .second-title,#index-set>div.three-index .second-title{
+    width: 73px;
+    height: 24px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #0dba9e;
+    border-bottom: 1px #0dba9e solid;
+}
+#index-set .second-index .add-index,#index-set .three-index .add-index{
+    margin-right: 45px;
+}
+/*table组件*/
+#index-set .table-module{
+    margin-top: 12px;
+    padding-right: 16px;
+    background-color: #ffffff;
+    padding-bottom:20px;
+    overflow-y: auto;
+}
+#index-set table{
+    border-radius: 4px;
+    border: solid 1px #d3d3d3;
+}
+.table-module tbody>tr:hover{
+    background-color: #f0f0f0;
+}
+.table-module tbody>tr>td:hover{
+    cursor: default;
+}
+#index-set .three-index .table-three-index-th{
+    text-align: center;
+}
+#index-set .three-index .table-module{
+    padding-bottom:56px;
+}
+#index-set #file-uploading p{
+    color: red;
+}
+#index-set .false_msg{
+    max-height: 250px;
+    overflow-y: auto;
+}

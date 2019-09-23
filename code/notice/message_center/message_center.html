@@ -1,0 +1,31 @@
+<div ms-important="message_center" id="message_center">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="title">
+        <p>消息中心</p>
+    </div>
+    <div class="m_con" :visible="@list.length > 0">
+        <!--ms-for:($index,el) in @list-->
+        <div class="m_div clearfix">
+            <div class="m_time am-fl">
+                <div class="m_time_info">
+                    <div class="m_index">{{$index+1}}</div>
+                    <div class="m_day">{{time_sub(el.sand_date)}}</div>
+                </div>
+            </div>
+            <div class="m_info am-fl">
+                <div class="m_xt" :visible="el.data_type == 1">系统消息</div>
+                <div class="m_msg">{{el.content}}</div>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div class="last_div"></div>
+    </div>
+    <!--<div :visible="@list.length == 0" class="no-data m_con">-->
+        <!--<img src="./../../../common/images/weixinno_data1.png.png" alt="">-->
+    <!--</div>-->
+    <div class="no-data" :visible="@list.length == 0">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+</div>

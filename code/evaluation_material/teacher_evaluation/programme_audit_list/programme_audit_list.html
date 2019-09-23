@@ -1,0 +1,59 @@
+<!--民主评价项目审核-->
+<div class="am-g" id="programme_audit_list" ms-important="programme_audit_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="form-input">
+                <input type="text" placeholder="请输入方案名称" ms-duplex="@extend.plan_name">
+            </div>
+            <div class="select" ms-if="@user.department_level=='2'">
+                <div class="old-select">
+                    <select data-duplex-changed="@school_change" ms-duplex-number="@get_school_info">
+                        <option value="">
+                            请选择学校组类
+                        </option>
+                        <option ms-attr="{value:el.get_id}" ms-for="($index,el) in @schoolList">
+                            第{{ $index+1}}组
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="select">
+                <div class="old-select">
+                    <select  ms-duplex-number="@extend.plan_gradeid">
+                        <option value="">
+                            请选择适用年级
+                        </option>
+                        <option ms-attr="{value:el.id}" ms-for="el in @response_data.grade_arr">
+                            {{ el.remark }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.plan_check_state">
+                        <option value="1">
+                            待审核
+                        </option>
+                        <option value="2">
+                            审核通过
+                        </option>
+                        <option value="3">
+                            审核不通过
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-a-l-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,remember:@remember,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@user_type}">
+            </xmp>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,49 @@
+<div ms-important="params_authority_control" id="params_authority_control">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange()" ms-duplex-number="@grade_info">
+                        <!--<option ms-attr="{value:''}">-->
+                        <!--请选择年级-->
+                        <!--</option>-->
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="e-content">
+        <div :if="@pro_list != ''">
+            <div class="data-list">
+                <div>
+                    <span>参数权限控制:</span>
+                </div>
+                <div style="margin-left:100px;">
+                    <div class="am-radio">
+                        <label>
+                            <input type="radio" name="doc-radio-1" ms-attr="{value:@pro_list.unit_lv}"
+                                   ms-duplex-number="@req_data.unit_lv" :click="@radio_click()">
+                            {{@pro_list.unit_lv | identSure}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="btns am-text-center">
+                <button type="button" class="am-btn am-btn-primary" ms-on-click="@btn_save()">保存</button>
+            </div>
+        </div>
+        <!--暂无数据-->
+        <div class="no-data" :if="@pro_list == ''">
+            <div>
+                <img src="../../../../common/images/none.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

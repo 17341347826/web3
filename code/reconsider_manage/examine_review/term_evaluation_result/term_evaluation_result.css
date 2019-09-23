@@ -1,0 +1,365 @@
+.bg_color {
+  background-color: #ffffff;
+}
+#term_evaluation_result {
+  background-color: #f2f2f6;
+}
+#term_evaluation_result .container {
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 4px;
+}
+#term_evaluation_result .all-select {
+  padding-left: 16px;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+#term_evaluation_result .all-select .tab-titles {
+  padding-top: 10px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 10px;
+}
+#term_evaluation_result .all-select .tab-titles .tab {
+  padding-right: 18px;
+  padding-left: 18px;
+  height: 34px;
+  border-radius: 4px;
+  border: solid 1px #e4e4e4;
+  color: #a2a2a2;
+  text-align: center;
+  line-height: 34px;
+  margin-right: 10px;
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+#term_evaluation_result .all-select .tab-titles .chosen {
+  color: #2bbba4!important;
+  border: solid 1px #2bbba4!important;
+  background: url("../../../../common/images/chosen.png") no-repeat top right;
+}
+#term_evaluation_result .all-select .type-count {
+  padding-top: 10px;
+  font-size: 14px;
+  color: #a2a2a2;
+}
+#term_evaluation_result .all-select .type-count span {
+  color: #ff6656;
+}
+#term_evaluation_result .all-select .search-content {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+#term_evaluation_result .all-select .search-content .select {
+  float: left;
+  margin-right: 14px;
+}
+#term_evaluation_result .all-select .search-content .select input {
+  width: 199px;
+  height: 36px;
+  border-radius: 4px;
+  color: #c8c8c8;
+  font-size: 16px;
+  border: 1px solid #c8c8c8;
+  padding-left: 20px;
+  outline: none;
+}
+#term_evaluation_result .all-select .search-content .select input::placeholder {
+  color: #c8c8c8;
+}
+#term_evaluation_result .count {
+  width: 1089px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #a2a2a2;
+  height: 35px;
+  line-height: 35px;
+}
+#term_evaluation_result .count span {
+  font-size: 16px;
+  color: #ff6656;
+}
+#term_evaluation_result .width-center {
+  width: 1089px;
+  margin: 0 auto;
+}
+#term_evaluation_result .inner-content {
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+#term_evaluation_result .inner-content .pad-27 {
+  padding-left: 27px;
+  padding-right: 27px;
+}
+#term_evaluation_result .inner-content .b-title {
+  padding-left: 27px;
+  padding-right: 27px;
+  font-size: 16px;
+  color: #28b9ab;
+  height: 48px;
+  line-height: 48px;
+  border-bottom: 1px solid #e2e2e2;
+}
+#term_evaluation_result .inner-content .table-container {
+  padding-left: 27px;
+  padding-right: 27px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 0 0 4px 4px;
+}
+#term_evaluation_result .inner-content .table-container table {
+  word-wrap: break-word;
+  border-radius: 4px;
+}
+#term_evaluation_result .inner-content .table-container table tr > td:last-child {
+  width: 459px;
+  text-align: left;
+}
+#term_evaluation_result .inner-content .table-container .am-table > tbody > tr > td:last-child {
+  white-space: normal;
+}
+#term_evaluation_result .inner-content .table-container2 {
+  padding-top: 20px;
+}
+#term_evaluation_result .inner {
+  background-color: #ffffff;
+  max-width: 1000px;
+  padding: 11px;
+  margin: 0 auto;
+}
+#term_evaluation_result .m-title {
+  width: 100%;
+  height: 127px;
+  padding-top: 20px;
+  border-bottom: 1px dashed #e2e2e2;
+}
+#term_evaluation_result .m-title .person-left {
+  float: left;
+  width: 108px;
+  text-align: center;
+  padding-top: 5px;
+  padding-right: 18px;
+}
+#term_evaluation_result .m-title .person-left img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+#term_evaluation_result .m-title .person-left h3 {
+  font-size: 16px;
+  color: #ff944d;
+  display: block;
+}
+#term_evaluation_result .m-title .person-right {
+  padding-top: 20px;
+  width: 100%;
+  padding-left: 110px;
+  max-width: 1000px;
+  height: 88px;
+  border-left: 1px dashed #e2e2e2;
+}
+#term_evaluation_result .m-title .person-right .persion-title {
+  width: 100%;
+  text-align: right;
+}
+#term_evaluation_result .m-title .person-right .persion-title > span {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #a2a2a2;
+}
+#term_evaluation_result .m-title .person-right .person-msg {
+  display: flex;
+  margin-top: 8px;
+}
+#term_evaluation_result .m-title .person-right .person-msg h3 {
+  flex: 1;
+  text-align: right;
+}
+#term_evaluation_result h3,
+#term_evaluation_result p {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: 16px;
+  color: #a2a2a2;
+  font-weight: normal;
+  vertical-align: top;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#term_evaluation_result h3 {
+  padding-right: 5px;
+}
+#term_evaluation_result p {
+  max-width: 650px;
+}
+#term_evaluation_result .noTopBorder {
+  border-bottom: 1px solid #e2e2e2;
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+}
+#term_evaluation_result .pd20 {
+  padding-left: 20px;
+}
+#term_evaluation_result .sm {
+  display: flex;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+}
+#term_evaluation_result .sm .sm-each {
+  flex: 1;
+}
+#term_evaluation_result .bg {
+  padding-left: 20px;
+  line-height: 28px;
+}
+#term_evaluation_result .img-container {
+  padding-left: 20px;
+  padding-top: 14px;
+  padding-bottom: 20px;
+  border-radius: 0 0 4px 4px;
+}
+#term_evaluation_result .img-container div {
+  width: 670px;
+  border-radius: 4px;
+  padding: 5px;
+}
+#term_evaluation_result .img-container img {
+  width: 100%;
+}
+#term_evaluation_result .part-img {
+  height: 120px;
+  overflow: hidden;
+}
+#term_evaluation_result .bt {
+  position: relative;
+  height: 70px;
+  padding-top: 25px;
+}
+#term_evaluation_result .bt .open-close {
+  width: 80px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 13px;
+  border: 1px solid #2bbba4;
+  font-size: 14px;
+  color: #2bbba4;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+#term_evaluation_result .bt .open-close:hover {
+  background-color: #2bbba4;
+  color: #FFFFFF;
+}
+#term_evaluation_result .bt .open-close span {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-left: 2px;
+}
+#term_evaluation_result .bt .open span {
+  background: url("../../../../common/images/teacher/down.png") center no-repeat;
+}
+#term_evaluation_result .bt .open:hover span {
+  background: url("../../../../common/images/teacher/down1.png") center no-repeat;
+}
+#term_evaluation_result .bt .close span {
+  background: url("../../../../common/images/teacher/top.png") center no-repeat;
+}
+#term_evaluation_result .bt .close:hover span {
+  background: url("../../../../common/images/teacher/top1.png") center no-repeat;
+}
+#term_evaluation_result .btns {
+  position: absolute;
+  right: 0;
+  top: 25px;
+}
+#term_evaluation_result .btns button {
+  height: 34px;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 34px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+#term_evaluation_result .btns .no-pass {
+  background-color: #ff9e47;
+}
+#term_evaluation_result .btns .no-pass:hover {
+  background-color: #ff7a45;
+}
+#term_evaluation_result .btns .pass {
+  background-color: #2bbba4;
+}
+#term_evaluation_result .btns .pass:hover {
+  background-color: #2bbb7c;
+}
+#term_evaluation_result .btns .select-material {
+  width: 146px;
+}
+#term_evaluation_result .btns .selected-material {
+  width: 174px;
+}
+#term_evaluation_result #v_layer {
+  /*width: 600px;*/
+  padding: 10px;
+  display: none;
+}
+#term_evaluation_result #v_layer textarea {
+  width: 100%;
+  height: 190px;
+  overflow-y: auto;
+  border-radius: 4px;
+  color: #a2a2a2;
+}
+#term_evaluation_result #v_layer .files {
+  position: relative;
+  font-size: 16px;
+  color: #a2a2a2;
+  height: 50px;
+  line-height: 50px;
+}
+#term_evaluation_result #v_layer .files button {
+  background-color: #2bbba4;
+  border: none;
+  outline: none;
+  height: 34px;
+  color: #FFFFFF;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+#term_evaluation_result #v_layer .files button:hover {
+  background-color: #2bbb7c;
+}
+#term_evaluation_result #v_layer .files input[type='file'] {
+  height: 34px;
+  position: absolute;
+  top: 10px;
+  left: 115px;
+  opacity: 0;
+}
+#term_evaluation_result .no-msg {
+  text-align: center;
+  color: #a2a2a2;
+}
+.clearfix:after {
+  content: ".";
+  /*加一段内容*/
+  display: block;
+  /*让生成的元素以块级元素显示，占满剩余空间*/
+  height: 0;
+  /*避免生成的内容破坏原有布局高度*/
+  clear: both;
+  /*清除浮动*/
+  visibility: hidden;
+  /*让生成的内容不可见*/
+}
+.clearfix {
+  zoom: 1;
+  /*为IE6，7的兼容性设置*/
+}

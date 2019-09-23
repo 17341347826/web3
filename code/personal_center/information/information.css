@@ -1,0 +1,87 @@
+#information_div{
+    background: white;
+}
+#information_table_div>table{
+    width: 95%;
+    margin: 0 auto;
+}
+#information_table_div>table td{
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+    line-height: 45px;
+}
+#information_table_div>table>tbody>tr>td>input{
+    width: 80%;
+    margin: 5px 0 5px 15px;
+}
+
+
+
+#information_table_div  #card-photo,
+#information_table_div  #card-photo-x{
+    position: relative;
+    width: 240px;
+    height: 320px;
+}
+#information_table_div  #card-photo img,
+#information_table_div  #card-photo-x img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+#information_table_div .report,
+#information_table_div .report-x{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    background: #000;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    cursor: pointer;
+}
+#information_table_div  #card-photo:hover .report ,
+#information_table_div  #card-photo-x:hover .report {
+    display: block;
+}
+
+#information_div .a-upload {
+    /*padding: 4px 10px;*/
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+    background: #00b7ee;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+    *display: inline;
+    *zoom: 1
+}
+
+#information_div .a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+#information_div .a-upload:hover {
+    color: white;
+    background: deepskyblue;
+    border-color: #ccc;
+    text-decoration: none
+}

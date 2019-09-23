@@ -1,0 +1,104 @@
+<div ms-important="ecm_democratic_evaluation" id="ecm_democratic_evaluation">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester, $id:'ecm_dem_opt_sem'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade,$id:'ecm_dem_opt_grade'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,$id:'ecm_dem_opt_class'}"></xmp>
+            </div>
+
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="con-one">
+            <div class="title">学生民主评议上传进度</div>
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>内容</td>
+                    <td>班级学生人数</td>
+                    <td>已上传人数</td>
+                    <td>未上传人数</td>
+                    <td>完成率</td>
+                </tr>
+                <tr :if="process.length >= 1">
+                    <td>学生自评</td>
+                    <td>{{process[0].zrs}}</td>
+                    <td>{{process[0].yscrs}}</td>
+                    <td>{{process[0].wscrs}}</td>
+                    <td>{{process[0].wcl}}%</td>
+                </tr>
+                <tr :if="process.length >= 2">
+                    <td>同学互评</td>
+                    <td>{{process[1].zrs}}</td>
+                    <td>{{process[1].yscrs}}</td>
+                    <td>{{process[1].wscrs}}</td>
+                    <td>{{process[1].wcl}}%</td>
+                </tr>
+                <tr :if="process.length >= 3">
+                    <td>教师评</td>
+                    <td>{{process[2].zrs}}</td>
+                    <td>{{process[2].yscrs}}</td>
+                    <td>{{process[2].wscrs}}</td>
+                    <td>{{process[2].wcl}}%</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="con-two">
+            <div class="title">学生录入详情</div>
+            <table class="am-table am-table-bordered am-fl table-two">
+                <tbody>
+                <tr>
+                   <td width="45px;">序号</td>
+                    <td width="100px;">姓名</td>
+                    <td width="100px;">学籍号</td>
+                    <td>学生自评</td>
+                    <td>同学互评</td>
+                    <td>教师评</td>
+                </tr>
+                <tr :for="$index, item in student_list|limitBy(line_offset, 0)">
+                    <td>{{$index+1}}</td>
+                    <td>{{item.student_name}}</td>
+                    <td class="over-hid">{{item.student_num|mtruncate(3,3)}}</td>
+                    <td :css="{color:@font_color(item.zp)}">{{item.zp}}</td>
+                    <td :css="{color:@font_color(item.hp)}">{{item.hp}}</td>
+                    <td :css="{color:@font_color(item.jsp)}">{{item.jsp}}</td>
+                    <!--<td :css="{color:@font_color(item.zp)}">{{value_of(item.zp)}}</td>-->
+                    <!--<td :css="{color:@font_color(item.hp)}">{{value_of(item.hp)}}</td>-->
+                    <!--<td :css="{color:@font_color(item.jsp)}">{{value_of(item.jsp)}}</td>-->
+                </tr>
+                </tbody>
+            </table>
+            <table class="am-table am-table-bordered am-fr table-three">
+                <tbody>
+                <tr>
+                   <td width="45px;">序号</td>
+                    <td width="100px;">姓名</td>
+                    <td width="100px;">学籍号</td>
+                    <td>学生自评</td>
+                    <td>同学互评</td>
+                    <td>教师评</td>
+                </tr>
+                <tr :for="$index, item in student_list|limitBy(line_offset, line_offset)">
+                    <td>{{ line_offset+$index+1}}</td>
+                    <td>{{item.student_name}}</td>
+                    <td class="over-hid">{{item.student_num|mtruncate(3,3)}}</td>
+                    <td :css="{color:@font_color(item.zp)}">{{item.zp}}</td>
+                    <td :css="{color:@font_color(item.hp)}">{{item.hp}}</td>
+                    <td :css="{color:@font_color(item.jsp)}">{{item.jsp}}</td>
+                    <!--<td :css="{color:@font_color(item.zp)}">{{value_of(item.zp)}}</td>-->
+                    <!--<td :css="{color:@font_color(item.hp)}">{{value_of(item.hp)}}</td>-->
+                    <!--<td :css="{color:@font_color(item.jsp)}">{{value_of(item.jsp)}}</td>-->
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

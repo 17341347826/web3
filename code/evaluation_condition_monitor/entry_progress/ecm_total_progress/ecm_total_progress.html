@@ -1,0 +1,78 @@
+<div ms-important="ecm_total_progress" id="ecm_total_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@class_change,head_value:@default_class}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-one">
+            <div class="title">学期评价总进度</div>
+            <table class="am-table am-table-bordered">
+               <tbody>
+                <tr>
+                    <td >内容</td>
+                    <td>评价主体</td>
+                    <td>班级学生人数</td>
+                    <td>已上传人数</td>
+                    <td>未上传人数</td>
+                    <td>完成率</td>
+                </tr>
+               <tr ms-for="($index,el) in @progress_list.pj_progress_gather">
+                   <td>{{el.nr}}</td>
+                   <td>{{el.zt}}</td>
+                   <td>{{el.xsrs}}</td>
+                   <td>{{el.yscrs}}</td>
+                   <td>{{el.wscrs}}</td>
+                   <td>{{el.wcl}}%</td>
+               </tr>
+                <tr ms-visible="@progress_list.pj_progress_gather.length==0">
+                    <td colspan="6">
+                        暂无数据
+                    </td>
+                </tr>
+               </tbody>
+            </table>
+        </div>
+        <div class="table-two">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                    <tr>
+                        <td>材料</td>
+                        <td>班级学生人数</td>
+                        <td>上传总数</td>
+                        <td>归档总数</td>
+                        <td>人均上传数</td>
+                        <td>已上传人数</td>
+                        <td>未上传人数</td>
+                        <td>上传学生占比</td>
+                    </tr>
+                    <tr ms-for="($index,el) in @progress_list.zhsj_progress_gather">
+                        <td>{{el.nr}}</td>
+                        <td>{{el.xsrs}}</td>
+                        <td>{{el.sczs}}</td>
+                        <td>{{el.gd}}</td>
+                        <td>{{el.rjsc|rj_filter}}</td>
+                        <td>{{el.yscrs}}</td>
+                        <td>{{el.wscrs}}</td>
+                        <td>{{el.scxxzb}}%</td>
+                    </tr>
+                    <tr ms-visible="@progress_list.zhsj_progress_gather.length==0">
+                        <td colspan="7">
+                            暂无数据
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

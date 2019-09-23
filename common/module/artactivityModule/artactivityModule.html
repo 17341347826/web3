@@ -1,0 +1,68 @@
+<div class="am-g" >
+    <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+        <div class="am-slider am-slider-default"style="height: 400px;">
+            <ul class="am-slides">
+                <li :if="el.mini_type=='image/jpeg' || el.mini_type=='image/png' || el.mini_type=='image/jpg'"   ms-for="el in @data.art_enclosures">
+                    <div class="am-gallery-item">
+                        <a class="detail_carousel_img">
+                            <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()" />
+                            <div ms-attr="{title:el.img_text}">
+                                {{ el.desc}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="am-margin-top-sm" style="position: absolute;z-index: 100;">
+            <a :if="has_video" class="am-btn am-btn-primary" ms-on-click="video_click">视频</a>
+            <a :if="has_excel" class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="excel_click">下载文件</a>
+        </div>
+    </div>
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+        <div id="detail_title" class="am-u-sm-12">
+            <span class="am-u-sm-12">{{@data.art_name}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">创建作者</span>
+            <span class="am-u-sm-9">
+                        {{ @data.art_studentname }}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动名称</span>
+            <span class="am-u-sm-9">{{@data.art_name}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动类型</span>
+            <span class="am-u-sm-9">{{@data.art_type}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动时间</span>
+            <span class="am-u-sm-9">{{@data.art_start_time}} 一 {{@data.art_end_time}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动地点</span>
+            <span class="am-u-sm-9">{{@data.art_place}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动成果</span>
+            <span class="am-u-sm-9">{{@data.art_achievements}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动描述</span>
+            <span class="am-u-sm-9">{{@data.art_describe}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动过程</span>
+            <span class="am-u-sm-9">{{@data.art_process}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动感想</span>
+            <span class="am-u-sm-9">{{@data.art_feel}}</span>
+        </div>
+    </div>
+    <div :if="data.art_state==5 && user_type==2" class="am-u-sm-12 am-margin-top-sm">
+        <a class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="@update_img">修正图片</a>
+    </div>
+</div>

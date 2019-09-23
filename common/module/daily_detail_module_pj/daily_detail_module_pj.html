@@ -1,0 +1,69 @@
+<div id="content_search">
+    <!--内容-表现查看-->
+    <!--ms-for:($idx,el) in @data_list-->
+    <div class="weui-form-preview personCon" style="overflow: hidden;position: relative">
+        <div class="weui-form-preview__hd" style="overflow: hidden">
+            <label class="weui-form-preview__label">
+                <!--<div class="weui-cell">-->
+                <span style="float:left;">头像&nbsp;&nbsp;</span>
+                <div style="float:left;">{{el.name}}&nbsp;&nbsp;<span>第{{$idx+1}}条</span>
+                    <div style="margin-top:-15px;">
+                        {{el.everyday_date}}
+                        <span class="daily_status" ms-if="el.status==5">已归档</span>
+                        <span class="daily_status" ms-if="el.status==4">公式中</span>
+                    </div>
+                </div>
+            </label>
+            <!--加分-->
+            <label class="weui-form-preview__value" ms-if="el.mark_type==1" style="color:white;">
+                <span class="addScore"> {{el.score}}</span>
+            </label>
+            <!--减分-->
+            <label class="weui-form-preview__value reduceScore" ms-if="el.mark_type==2" style="color:white;"> {{el.score}}</label>
+        </div>
+        <!--内容-->
+        <div class="weui-form-preview__bd">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">事项&nbsp;&nbsp;:&nbsp;&nbsp;{{el.item}}</label>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">描述&nbsp;&nbsp;:&nbsp;&nbsp;{{el.description}}</label>
+            </div>
+        </div>
+        <!--展开才显示-->
+        <!--{{el.guid}}-->
+        <div class="weui-form-preview__bd  " style="margin-top:10px;" ms-visible="$idx==@show">
+                <!--图片-->
+                <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000" style=" width: 100%;">
+                    <!--<div class="swiper-wrapper" ms-for="el in @data_list.attachment">-->
+                        <!--<div class="swiper-slide"><img style="width: 100%;" ms-attr="{src:@url_for(el.guid)}" alt=""></div>-->
+                    <!--</div>-->
+
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="s.amazeui.org/media/i/demos/bing-1.jpg" /></div>
+                        <div class="swiper-slide"><img src="s.amazeui.org/media/i/demos/bing-2.jpg" /></div>
+                    </div>
+                </div>
+            </div>
+
+        <!--操作-->
+        <div class="weui-form-preview__ft operations" style="margin-top:10px;width:100%;">
+            <button ms-click="@open_btn($idx)" class="weui-form-preview__btn weui-form-preview__btn_primary"
+                    style="width:20px;" ms-visible="$idx!=@show">
+                展开
+            </button>
+            <button ms-click="@close_btn($idx)" class="weui-form-preview__btn weui-form-preview__btn_primary"
+             ms-visible="$idx==@show">
+                收起 </button>
+            <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:" ms-if="el.status==4" style="text-align:right;margin-right:10px;">有异议</button>
+            <!-- <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:" ms-if="el.status==4" style="text-align:right;margin-right:10px;">已提交异议</button>-->
+        </div>
+    </div>
+    <!--ms-for-end:-->
+    <!--<div id="list"></div>-->
+    <div class="weui-loadmore" ms-if="@is_show==-1">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+</div>

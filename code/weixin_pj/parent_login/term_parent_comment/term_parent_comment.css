@@ -1,0 +1,122 @@
+@charset "utf-8";
+#stu_term_evaluation {
+    padding-bottom: 10px;
+}
+#term_parent_comment .weui-cells {
+    margin-top: 0;
+}
+#term_parent_comment .teacher_term_comment_con,
+#term_parent_comment .con {
+    margin-top: 10px;
+}
+#term_parent_comment .every_stu {
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 9px 0px #cecece;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+}
+#term_parent_comment .every_stu > div {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+#term_parent_comment .every_stu > .stu_info {
+    height: 47px;
+    line-height: 47px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    letter-spacing: 0px;
+    background-color: #e0ebff;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #2f60b8;
+}
+#term_parent_comment .every_stu > .stu_plan {
+    display: flex;
+    line-height: 15px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    letter-spacing: 0px;
+    color: #8d8d8d;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+}
+#term_parent_comment .every_stu > .stu_plan > div.stu_plan1 {
+    flex: 1;
+}
+#term_parent_comment .every_stu > .stu_plan > div.stu_plan2 {
+    flex: 4;
+}
+#term_parent_comment .public_btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px #eeeeee solid;
+}
+#term_parent_comment .weui-dialog__hd {
+    background-color: #358afe;
+}
+#term_parent_comment .weui-dialog__title {
+    font-size: 13px;
+    font-weight: normal;
+    color: #ffffff;
+}
+#term_parent_comment .three-menu {
+    display: flex;
+}
+#term_parent_comment .three-menu > div:first-child,
+#term_parent_comment .three-menu > div:last-child {
+    flex: 1;
+    text-align: center;
+}
+#term_parent_comment .three-menu .line {
+    width: 1px;
+    height: 25px;
+    background-color: #efefef;
+}
+#term_parent_comment .three-menu .menu-check {
+    border-bottom: 1px solid red;
+    color: red;
+}
+#term_parent_comment .weui-label,
+#term_parent_comment .weui-select {
+    font-size: 15px;
+    color: #a2a2a2;
+}
+#term_parent_comment .no-msg {
+    text-align: center;
+    font-size: 12px;
+    color: #a2a2a2;
+}
+#term_parent_comment .name {
+    margin-left: 8px;
+}
+#term_parent_comment .graduation-name,
+#term_parent_comment .graduation-textarea {
+    font-size: 14px;
+    color: #a2a2a2;
+}
+#term_parent_comment .graduation-textarea textarea::placeholder {
+    font-size: 12px;
+    color: #a2a2a2;
+}
+#term_parent_comment .graduation-textarea textarea {
+    color: #999999;
+}
+#term_parent_comment .graduation_form {
+    margin-top: -1px;
+}
+#term_parent_comment .weui-cell__ft {
+    font-size: 14px;
+}
+#term_parent_comment .decs {
+    font-size: 12px;
+}
+/*#modify_stu_term_ev .weui-cell__bd {*/
+    /*font-size: 15px;*/
+    /*color: #8d8d8d;*/
+/*}*/
+/*#modify_stu_term_ev textarea::placeholder {*/
+    /*color: #8d8d8d;*/
+/*}*/

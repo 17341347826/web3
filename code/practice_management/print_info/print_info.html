@@ -1,0 +1,37 @@
+<div ms-important="print_info" id="print_info">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="table-module">
+        <p class="am-text-center">{{@bt}}-活动报名学生信息</p>
+        <table class="am-table am-table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>学籍号</th>
+                <th>区县</th>
+                <th>学校</th>
+                <th>年级</th>
+                <th>班级</th>
+            </tr>
+            </thead>
+            <tbody :if="@dataList.length > 0">
+            <!--ms-for: $idx,el in @dataList-->
+            <tr>
+                <td>{{$idx+1}}</td>
+                <td>{{el.xsmc}}</td>
+                <td>{{el.xjh}}</td>
+                <td>{{el.district}}</td>
+                <td>{{el.school_name}}</td>
+                <td>{{@grade_name}}</td>
+                <td>{{el.class_name}}</td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+            <tbody :if="@dataList.length == 0">
+            <tr>
+                <td colspan="6">暂无数据</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

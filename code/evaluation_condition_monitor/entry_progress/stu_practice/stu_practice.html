@@ -1,0 +1,187 @@
+<div ms-important="stu_practice" id="stu_practice">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="container">
+        <div class="select-content clearfix">
+            <!--学年学期-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@semester_sel()" ms-duplex="@req_data.fk_xq_id">
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择学年学期-->
+                        <!--</option>-->
+                        <!--ms-for: el in @semester_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.semester_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@grade_sel()" ms-duplex="@grade_info">
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择年级-->
+                        <!--</option>-->
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@class_sel" ms-duplex-number="@req_data.fk_class_id">
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择班级-->
+                        <!--</option>-->
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--班级学生综合实践上传总进度-->
+    <div class="container clearfix">
+        <h3 class="table-title am-text-center">
+            班级学生综合实践上传总进度
+        </h3>
+        <div class="zan-bi">
+            <div>人均上传材料(份)：<span>{{@sj_list.zh_rjscs}}</span></div>
+            <div>上传学生占比：<span>{{@sj_list.zh_scxszb.toFixed(2)}}%</span></div>
+        </div>
+        <div class="progress progress1">
+            <!--<h3 class="table-title">-->
+                <!--班级学生综合实践上传总进度-->
+            <!--</h3>-->
+            <div class="table-container">
+                <table class="am-table am-table-bordered am-text-center">
+                    <thead>
+                    <tr>
+                        <th>在籍学生人数</th>
+                        <th>录入材料</th>
+                        <th>遴选上传材料<br/>(已归档)</th>
+                        <th>人均上传材料</th>
+                        <th>已上传人数</th>
+                        <th>未上传人数</th>
+                        <th>上传学生占比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr :if="@sj_list.length > 0">
+                        <td>{{sj_list[0].bjrs}}</td>
+                        <td>{{sj_list[0].zh_lrzs}}</td>
+                        <td>{{sj_list[0].zh_lxgd}}</td>
+                        <td>{{sj_list[0].zh_rjscs|rj_filter}}</td>
+                        <td>{{sj_list[0].zh_lrrs}}</td>
+                        <td>{{sj_list[0].zh_wlrrs}}</td>
+                        <td>{{sj_list[0].zh_scxszb|double_filter}}</td>
+                    </tr>
+                    <tr :if="@sj_list.length == 0">
+                       <td colspan="7">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--班级学生综合实践上传分类进度-->
+    <div class="container clearfix">
+        <div class="progress">
+            <h3 class="table-title">
+                班级学生综合实践上传分类进度
+            </h3>
+            <div class="table-container">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>在籍学生人数</th>
+                        <th>录入材料数</th>
+                        <th>遴选上传材料<br/>(已归档)</th>
+                        <th>人均上传数</th>
+                        <th>已上传人数</th>
+                        <th>未上传人数</th>
+                        <th>上传学生占比</th>
+                    </tr>
+                    </thead>
+                    <tbody :if="@sj_fl_list.length>0">
+                    <!--ms-for:($index.el) in @sj_fl_list-->
+                    <tr>
+                        <td>{{el.mkmc}}</td>
+                        <td>{{el.zrs}}</td>
+                        <td>{{el.lrzs}}</td>
+                        <td>{{el.lxgd}}</td>
+                        <td>{{el.rjsc |rj_filter}}</td>
+                        <td>{{el.lrrs}}</td>
+                        <td>{{el.wscrs}}</td>
+                        <td>{{el.xszb|double_filter}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                    <tbody :if="@sj_fl_list.length==0">
+                        <tr>
+                            <td colspan="8">暂无数据</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--班级学生遴选上传材料详情-->
+    <div class="container clearfix">
+        <div class="progress">
+            <h3 class="table-title">
+                班级学生遴选上传材料详情
+            </h3>
+            <div class="table-container">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>学籍号</th>
+                        <th>思想品德</th>
+                        <th>学业水平</th>
+                        <th>身心健康</th>
+                        <th>艺术素养</th>
+                        <th>社会实践</th>
+                        <!--&lt;!&ndash;ms-for:($index,el) in @thead_xs&ndash;&gt;-->
+                        <!--<th>{{el.name}}</th>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                        <th>上传材料总数</th>
+                    </tr>
+                    </thead>
+                    <tbody :if="@lx_list.length>0">
+                        <!--ms-for:($idx,el) in @lx_list-->
+                        <tr>
+                            <td>{{$idx+1}}</td>
+                            <td>{{el.xm}}</td>
+                            <td>{{el.xjh}}</td>
+                            <td>{{el.pdgd}}</td>
+                            <td>{{el.xygd}}</td>
+                            <td>{{el.jkgd}}</td>
+                            <td>{{el.ysgd}}</td>
+                            <td>{{el.shgd}}</td>
+                            <td>{{el.zs}}</td>
+                        </tr>
+                        <!--ms-for-end:-->
+                    </tbody>
+                    <tbody :if="@lx_list.length == 0">
+                        <tr>
+                            <td colspan="9">暂无数据</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

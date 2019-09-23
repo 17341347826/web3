@@ -1,0 +1,135 @@
+<div ms-important="stu_per_score" id="stu_per_score">
+    <div class="add-examine">
+       <div ms-click="jump_page('input_information')">
+           <span class="btn-icon add-circle-btn"></span><span>表现录入</span>
+       </div>
+        <div class="line"></div>
+        <div>
+            <span ></span><span></span>
+        </div>
+    </div>
+    <div class="weui-cells give-out-cells">
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select1">
+                    年级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@gradeChange()" id="select1"
+                        ms-duplex="@data.fk_grade_id">
+                    <!--ms-for: el in @grade_list-->
+                    <option ms-attr="{value:el.grade_id}">
+                        {{el.grade_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after table-tf">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select2">
+                    班级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@classChange()" id="select2"
+                        ms-duplex="@data.fk_class_id">
+                    <!--ms-for: el in @class_list-->
+                    <option ms-attr="{value:el.class_id}">
+                        {{el.class_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    开始时间:
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="start_date" ms-duplex="@data.start_date" ms-on-change="@start_date_change"
+                       placeholder="请选择" type="text"/>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    结束时间:
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="end_date" ms-duplex="@data.end_date" placeholder="请选择" type="text"/>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells give-out-cells table-wx">
+        <div class="weui-cell weui-flex table-tc" ms-if="@score_list.length>0">
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    姓名
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item code_width">
+                <p>
+                    学籍号
+                </p>
+            </div>
+
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    总积分
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    详情
+                </p>
+            </div>
+        </div>
+        <!--ms-for: $idx,el in @score_list-->
+        <div class="weui-cell weui-flex table_font table-tc" ms-on-click="@get_detail(el.code)">
+
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    {{el.name}}
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item code_width">
+                {{el.code | mtruncate(3,3)}}
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    {{el.score}}
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    <a href="javascript:;" >
+                        <i class="iconfont icon-chakan">
+                        </i>
+                    </a>
+                </p>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <!--<div class="weui-cell weui-flex" ms-if="@score_list.length==0">-->
+            <!--<div class="weui-cell__bd weui-flex__item no-msg">-->
+                <!--暂无信息-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--暂无数据-->
+        <div ms-if="@score_list.length==0" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+    <div class="weui-loadmore" ms-if="@is_show_loader_more">
+        <i class="weui-loading">
+        </i>
+        <span class="weui-loadmore__tips">
+   正在加载
+  </span>
+    </div>
+</div>

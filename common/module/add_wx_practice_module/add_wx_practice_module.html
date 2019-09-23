@@ -1,0 +1,174 @@
+<div id="add_wx_practice">
+    <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+            <label class="weui-label">
+                评价维度 :
+            </label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select" ms-duplex-number="@module_type" data-duplex-changed="@moduleChange">
+                <option value="0">请选择模块</option>
+                <option value="2">思想品德</option>
+                <option value="6">学业水平</option>
+                <option value="7">身心健康</option>
+                <option value="5">艺术素养</option>
+                <option value="4">社会实践</option>
+            </select>
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+            <label class="weui-label">
+                活动类型 :
+            </label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select" ms-duplex="@data.activity_type" ms-focus="type_focus" data-duplex-changed="@typeChange">
+                <option ms-attr="{value:el.value}" ms-for="el in @activity_type">
+                    {{ el.type_name }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">活动名称 :</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="data.name" placeholder="请输入活动名称">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">开始时间 :</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" value="" id="start_time" placeholder="请选择开始时间"
+                   ms-duplex="@data.start">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">结束时间 :</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" value="" id="end_time" placeholder="请选择结束时间"
+                   ms-duplex="@data.end" readonly="">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">活动地点 :</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="data.place" placeholder="请输入活动地点">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">参与成员 :</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="data.member" placeholder="请输入成员">
+        </div>
+    </div>
+    <div class="weui-cell" :if="@module_type == 6">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">指导老师 :</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="data.teacher" placeholder="请输入指导老师">
+        </div>
+    </div>
+    <div class="weui-cell" :if="@module_type == 6">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">担任角色 :</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="data.role" placeholder="请输入担任角色">
+        </div>
+    </div>
+    <div class="weui-cell" :if="@module_type == 6">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">承担任务 :</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="data.task" placeholder="请输入承担任务">
+        </div>
+    </div>
+    <div class="weui-cell" :if="@module_type == 6">
+        <div class="weui-cell__hd jilu-label"><label class="weui-label">研究主题 :</label></div>
+        <div class="weui-cell__bd">
+            <input type="text" ms-duplex="data.theme" placeholder="请输入研究主题">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" ms-duplex="@data.describe" placeholder="请输入详细描述" rows="3"></textarea>
+            <div class="weui-textarea-counter">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" ms-duplex="@data.thoughts" placeholder="请输入收获感想" rows="3"></textarea>
+            <div class="weui-textarea-counter">
+            </div>
+        </div>
+    </div>
+    <!-------------上传文件-------------------->
+    <form enctype="multipart/form-data" id="uploadForm" method="post">
+        <div class="weui-gallery" id="gallery">
+            <span class="weui-gallery__img" id="galleryImg"></span>
+            <div class="weui-gallery__opr"></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <div class="weui-uploader">
+                    <div class="weui-uploader__hd">
+                        <p class="weui-uploader__title yiju">
+                            依 据 (最多可上传9个附件)
+                        </p>
+                    </div>
+                    <div class="weui-uploader__bd">
+                        <ul class="weui-uploader__files" id="uploaderFiles">
+                            <!--<li class="weui-uploader__file" style="background-image:url('../imgs/0.jpg')"></li>-->
+                        </ul>
+                        <div class="weui-uploader__input-box">
+                            <input class="weui-uploader__input" id="uploaderInput" multiple="" name="" type="file"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="weui-panel">
+        <div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_text dec">
+                <p class="weui-media-box__desc">
+                    视频要求：格式mp4、mov、avi、flv、swf，大小≤100MB（兆）;
+                </p>
+                <p class="weui-media-box__desc">
+                    图片要求：格式jpg、jpeg、png，宽或高≥300像素，0.5≤宽高比≤1;
+                </p>
+                <p class="weui-media-box__desc">
+                    其他要求：格式pdf、xls、xlsx、doc、docx、ppt、pptx、txt;
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_checkbox" :if="@personality_list.indexOf(@data.activity_type) > -1">
+        <label class="weui-cell weui-check__label" for="s11">
+            <div class="weui-cell__hd">
+                <input type="checkbox" class="weui-check"
+                       ms-duplex="@sftc_arr" data-duplex-changed="@checkboxChange" value="11"
+                       name="checkbox1" id="s11" checked="checked">
+                <i class="weui-icon-checked"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>标注为个性特长材料(说明：标注为特长材料，该材料将自动遴选为评价材料)</p>
+            </div>
+        </label>
+    </div>
+    <div class="weui-loadmore" :if="@btn_has">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+    <!--<a class="weui-btn weui-btn_primary" href="javascript:;" ms-class="[(@sub_disabled? 'disabled_class':'')]"-->
+       <!--ms-click="@save_data">-->
+        <!--提交-->
+    <!--</a>-->
+    <a :if="@sub_disabled" class="weui-btn weui-btn_primary disabled_class" href="javascript:;" title="依据正在上传中，请等待">
+        提交
+    </a>
+    <a :if="!@sub_disabled && @btn_has" class="weui-btn weui-btn_primary disabled_class" href="javascript:;" title="活动正在上传中，请等待">
+        提交
+    </a>
+    <a :if="!@sub_disabled && !@btn_has" class="weui-btn weui-btn_primary" href="javascript:;"  ms-click="@save_data">
+        提交
+    </a>
+</div>

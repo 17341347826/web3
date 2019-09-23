@@ -1,0 +1,148 @@
+#class-module{
+    /*border: 1px #d3d3d3 solid;*/
+    border-radius:4px;
+}
+.am-pagination {
+  margin-top: 0;
+}
+#current-page-box {
+    position: relative;
+    top:-2px;
+}
+.current-page {
+    width: 60px;
+    height: 36px;
+    margin: 0 5px;
+    padding-left: 5px;
+    border: 1px solid #ccc;
+}
+#page-info,.page-msg {
+    font-size: 14px;
+}
+.page-msg {
+    position: relative;
+    top:-10px;
+    color: red;
+}
+.table-number{
+    max-width: 80px;
+}
+.table-second-index{
+    max-width: 150px;
+}
+.table-three-index-th,.table-three-index{
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    max-width: 350px;
+}
+.table-three-index{
+    text-align: left!important;
+}
+.am-table {
+     margin-bottom: 0;
+}
+#class-module{
+    /*padding-left: 16px;*/
+    /*padding-right: 16px;*/
+    /*padding-bottom: 16px;*/
+}
+.am-table-bordered {
+    border-radius: 4px 4px 4px 4px;
+    /*border: solid 1px rgba(211, 211, 211, 1);*/
+}
+/*分页开始  参考页面：p_a_list*/
+#class-module .divide-page{
+    margin-top:10px;
+    float:right;
+    overflow: hidden;
+    height:36px;
+    line-height: 36px;
+}
+#class-module .divide-page div{
+    float:left;
+}
+/*页数信息*/
+#class-module .page-info{
+    margin-right:17px;
+    font-size: 14px;
+    color: #ffab78;
+}
+#class-module .page-info>span{
+    margin-right:10px;
+}
+#class-module .page-info>span:last-child{
+    margin-right:0;
+}
+/*页码*/
+#class-module .pages{
+    font-size: 14px;
+    color: #ffab78;
+    margin-right:22px;
+}
+#class-module .pages>div{
+    margin-right:8px;
+    cursor: pointer;
+}
+#class-module .pages>div:hover{
+    background-color: rgba(255, 171, 120, 1);
+    color:#fff;
+}
+#class-module .page-active{
+    background-color: rgba(255, 171, 120, 1);
+    color:#fff;
+}
+#class-module .pages .first-page,
+#class-module .pages .last-page{
+    width: 50px;
+    height: 36px;
+    text-align: center;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(255, 171, 120, 1);
+}
+#class-module .pages .pre-page,
+#class-module .pages .next-page{
+    width: 70px;
+    height: 36px;
+    text-align: center;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(255, 171, 120, 1);
+}
+#class-module .pages .com-page{
+    height: 36px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(255, 171, 120, 1);
+    padding-left:14px;
+    padding-right:14px;
+}
+/*跳转*/
+#class-module .turn-page>div:first-child{
+    font-size: 14px;
+    color: #999999;
+}
+#class-module .turn-page .s-page{
+    width: 40px;
+    height: 36px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(200, 200, 200, 1);
+    text-align: center;
+    overflow: hidden;
+}
+#class-module .turn-page .s-page input{
+    border:none;
+    outline:medium;
+    color:#999;
+}
+#class-module .turn-page .go-page{
+    width: 40px;
+    height: 36px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(200, 200, 200, 1);
+    font-size: 16px;
+    color: #ffab78;
+    text-align: center;
+    margin-left:20px;
+    cursor: pointer;
+}
+/*分页结束*/
+

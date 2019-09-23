@@ -1,0 +1,73 @@
+#new_ph_check_detail{
+    padding:16px 10px;
+}
+#new_ph_check_detail .title{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    margin-bottom:10px;
+}
+#new_ph_check_detail .opinion{
+    margin-top:20px;
+    font-size: 16px;
+    margin-bottom:10px;
+}
+#new_ph_check_detail .reason{
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    max-width: 200px;
+    padding-left:7px;
+}
+#new_ph_check_detail .for-radio{
+    height: 80px;
+    margin-left: 50px;
+    padding-top: 30px;
+}
+#new_ph_check_detail  .radio-style{
+    display:inline-block;
+}
+#new_ph_check_detail .am-radio{
+    vertical-align: baseline;
+}
+#new_ph_check_detail  .am-radio + .am-radio{
+    margin-top:0;
+    margin-left: 20px;
+}
+#new_ph_check_detail .for-sel{
+    margin-right: 30px;
+}
+#new_ph_check_detail .my-table th{
+    font-size: 14px;
+}
+#new_ph_check_detail table td{
+    white-space: nowrap;
+    text-align: center;
+}
+#new_ph_check_detail table td input{
+    width: 100px;
+    height: 30px;
+    line-height:30px;
+    border: none;
+    border: 1px solid #DCDCDC;
+    border-radius: 4px;
+    padding-left:10px;
+}
+#new_ph_check_detail #result-area{
+    width: 80%;
+    border: 1px solid #ddd;
+    margin-left: 0px;
+}
+#new_ph_check_detail .disabled{
+    background-color: #e5e5e5;
+}
+#new_ph_check_detail .btns{
+    text-align: center;
+}
+#new_ph_check_detail .btns>.am-btn{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

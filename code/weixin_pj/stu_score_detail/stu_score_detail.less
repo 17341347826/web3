@@ -1,0 +1,92 @@
+@charset "utf-8";
+@bcColor:#f6f6f6;
+@paddingTop:9px;
+@img_url: "/common/images/weixin_pj/score_detail_icon.png";
+#stu_score_detail{
+  background-color: @bcColor;
+  @eachBack:#FFFFFF;
+  padding-top: @paddingTop;
+  .each-event{
+    border-radius: 14px;
+    background-color: @eachBack;
+    margin-bottom: @paddingTop;
+    @titleColor:#88abda;
+    @titleSize:14px;
+    @contentSize:12px;
+    box-shadow: 0px 0px 18px 0px #cecece;
+    .title-container{
+      padding: 8px;
+      border-radius: 10px 10px 0 0;
+      font-size: @titleSize;
+      background-color: @titleColor;
+      color: @eachBack;
+      display: flex;
+      &>div{
+        flex: 1;
+        text-align: center;
+      }
+    }
+    .content{
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: @contentSize;
+      @pointSize:4px;
+      @pointColor:#ffb375;
+      span{
+        vertical-align: middle;
+      }
+      .point{
+        display: inline-block;
+        width: @pointSize;
+        height: @pointSize;
+        background-color: @pointColor;
+        border-radius: 50%;
+      }
+      @nameColor:#444444;
+      .each-name{
+        margin-left: 4px;
+        color:@nameColor;
+      }
+      .msg{
+        font-size: 11px;
+        color: #8d8d8d;
+      }
+      .imgs{
+        width: 100%;
+        img{
+          width: 100%;
+        }
+      }
+    }
+    .bottom{
+      height: 30px;
+      @borderColor:#eeeeee;
+      border-top:1px solid @borderColor;
+      border-radius: 0 0 10px 10px;
+      text-align: center;
+      span{
+        width: 17px;
+        height: 17px;
+        margin-top: 6px;
+        display: inline-block;
+        background-image: url("@{img_url}");
+        cursor: pointer;
+        background-repeat: no-repeat;
+      }
+      @btnSize:17px;
+      .base(@row_order,@top_order) {
+        @left_dis: @row_order*2;
+        @top_dis: @top_order*2;
+        background-position: -(@btnSize+@btnSize*@left_dis) -(@btnSize+@btnSize*@top_dis);
+      }
+      .down{
+        .base(0,0)
+      }
+      .up{
+        .base(1,0)
+      }
+    }
+  }
+}

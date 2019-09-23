@@ -1,0 +1,66 @@
+<div ms-important="all_publicity" id="all_publicity">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" :if="@level !=7">
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade}"></xmp>
+            </div>
+            <!--班级-->
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class}"></xmp>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入学籍号或姓名" ms-on-keyup="@refresh_data" :duplex="@name_code">
+            </div>
+        </div>
+    </div>
+    <div class="table-module" style="min-width: 1170px">
+        <table class="am-table am-table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>学籍号</th>
+                <th>日常表现</th>
+                <th>综合实践</th>
+                <th>成就奖励</th>
+                <th>学业成绩</th>
+                <th>艺术测评</th>
+                <th>国家体质健康</th>
+                <th>成长激励卡</th>
+                <th>学期评价结果</th>
+                <th>毕业评价结果</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for:($index,el) in @dataList-->
+            <tr>
+                <td>{{$index + 1}}</td>
+                <td>{{el.student_name}}</td>
+                <td>{{el.student_num}}</td>
+                <td>{{el.rc_num}}</td>
+                <td>{{el.zh_num}}</td>
+                <td>{{el.cj_num}}</td>
+                <td>{{el.xy_num}}</td>
+                <td>{{el.ys_num}}</td>
+                <td>{{el.tz_num}}</td>
+                <td>{{el.kp_num}}</td>
+                <td>{{el.xq_num}}</td>
+                <td>{{el.by_num}}</td>
+            </tr>
+            <!--ms-for-end:-->
+            <tr ms-visible="@dataList.length==0 && @data_had">
+                <td colspan="12">
+                    暂无数据
+                </td>
+            </tr>
+            <tr ms-visible="@dataList.length==0 && !@data_had">
+                <td colspan="11">
+                    正在加载中，请稍等
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

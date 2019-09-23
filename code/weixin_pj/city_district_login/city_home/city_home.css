@@ -1,0 +1,81 @@
+#city_home{
+    background-color: #ffffff;
+    padding-bottom: 59px;
+}
+#city_home .swiper-wrapper img{
+    width: 100%;
+}
+#city_home .swiper-container-horizontal>.swiper-pagination-bullets{
+    /*bottom: -10px;*/
+}
+#city_home .city_home_content{
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 12px;
+    color: #a1a1a1;
+    text-align: center;
+}
+/*欢迎语*/
+#city_home .city_home_content .welcoming{
+    /*margin-left: 10px;*/
+    font-size: 14px;
+}
+#city_home .city_home_content>.context_high{
+    margin-top: 17px;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 32px 0px #dfdfdf;
+    border-radius: 10px;
+}
+#city_home .first_high{
+    margin-top: 13px!important;
+}
+#city_home .city_home_content p+div{
+    /*background-color: #ffffff;*/
+    /*box-shadow: 0px 3px 32px 0px #dfdfdf;*/
+    /*border-radius: 10px;*/
+    margin-top: 8px;
+    min-height: 190px;
+}
+/*通知管理*/
+#city_home .notice-msg{
+    padding-top:10px;
+}
+/*新增记录*/
+#city_home .add-jl .text_remark span,
+#city_home .user-type .text_remark span{
+    font-weight: bolder;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#city_home .add-jl .text_remark,
+#city_home .user-type .text_remark{
+    overflow: hidden;
+}
+#city_home .add-rc,
+#city_home .add-hd,
+#city_home .user-type .online-user,
+#city_home .user-type .today-login,
+#city_home .user-type .today-visit{
+   display:inline-block;
+}
+#city_home .add-rc span{
+    color: #fdd158;
+}
+#city_home .add-hd,
+#city_home .user-type .today-login,
+#city_home .user-type .today-visit{
+    margin-left:20px;
+}
+#city_home .add-hd span{
+    color: #0090ff;
+}
+/*使用状态*/
+#city_home .user-type .online-user span{
+    color: #58adfd;
+}
+#city_home .user-type .today-login span{
+    color: #6ee59e;
+}
+#city_home .user-type .today-visit span{
+    color: #ff7e00;
+}

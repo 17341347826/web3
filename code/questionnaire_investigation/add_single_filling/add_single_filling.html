@@ -1,0 +1,58 @@
+<div class="am-g" id="add_topic" ms-important="add_single_filling">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="simple-question" id="add_single_filling">
+        <div class="simple-content-edit">
+            <div class="simple-top">
+                <div class="simple-top-title">
+                    <h3>
+                        {{@simple_title}}
+                        <span ms-if="@must_answer">
+       *
+      </span>
+                    </h3>
+                </div>
+                <div class="simple-top-option">
+                    <textarea disabled="disabled" id="answer_area" name="">此题答题区域</textarea>
+                </div>
+            </div>
+            <div class="simple-line">
+            </div>
+            <div class="sign-up-ques">
+                <div class="sign-top am-cf">
+                    <div class="sign-top-left">
+                        <div class="sign-top-left-title">
+                            <h3>
+                                标题
+                            </h3>
+                        </div>
+                        <textarea ms-duplex="@simple_title" ms-on-focus="add_title"></textarea>
+                    </div>
+                    <div class="sign-top-right">
+                        <ul>
+                            <li>
+                                <label class="am-checkbox-inline">
+                                    <input ms-duplex-checked="@must_answer" type="checkbox" value="option1"/>
+                                    必答题
+                                </label>
+                            </li>
+                            <li>
+                                <div class="fill-hint-container">
+                                    <label class="am-checkbox-inline">
+                                        <input ms-duplex-checked="@hinted" type="checkbox" value="option1"/>
+                                        填写提示
+                                    </label>
+                                    <input class="am-radius" ms-duplex="@prompt" ms-if="@hinted" type="text"/>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sure-btn-content">
+                    <button class="am-btn am-btn-warning am-radius" ms-on-click="@complete_simple" type="button">
+                        完成编辑
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

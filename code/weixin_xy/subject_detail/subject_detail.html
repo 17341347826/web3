@@ -1,0 +1,31 @@
+<div ms-important="subject_detail" id="subject_detail">
+    <div class="detail-content">
+        <span class="point-icon"></span>
+        <div class="subject-title">
+            {{@detail_obj.question_name}}
+        </div>
+        <div class="subject-title">
+            知识点：<span>{{@detail_obj.question_knowledge_level_2}}</span>
+        </div>
+        <div class="problem-img">
+            <img ms-attr="{src:@subject_img}" alt="图片" ms-click="check_img(0)">
+        </div>
+        <div class="answer">
+            我的答案
+        </div>
+        <div class="problem-img">
+            <span ms-if="@title_type==1">{{@kg_value}}</span>
+            <img ms-if="@title_type==2" ms-attr="{src:@ans_img}" alt="图片" ms-click="check_img(1)">
+        </div>
+        <div class="analysis">
+            题目解析
+        </div>
+        <div class="problem-img">
+            <img ms-attr="{src:@analysis_img}" alt="图片" ms-click="check_img(2)">
+        </div>
+        <div class="detail-bottom">
+            <span class="btn-click">加入重点</span>
+            <span class="btn-click" ms-click="@add_into_error">加入错题集</span>
+        </div>
+    </div>
+</div>

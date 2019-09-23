@@ -1,0 +1,24 @@
+<div ms-important="comparative_analysis" id="comparative_analysis">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl chosen"  :click="to_page('#comparative_analysis')">综合等级</div>
+            <div class="am-fl"  :click="to_page('#comparative_analysis_wd?sta_type=2')">评价维度</div>
+            <div class="am-fl"  :click="to_page('#comparative_analysis_wd?sta_type=3')">评价要素</div>
+        </div>
+    </div>
+
+
+
+
+
+    <div ms-if="@highest_level==2">
+        <xmp ms-widget="{is:'ms-comparative-analysis-area'}"></xmp>
+    </div>
+    <div ms-if="@highest_level==2 || @highest_level==3">
+        <xmp ms-widget="{is:'ms-comparative-analysis-school'}"></xmp>
+    </div>
+    <div>
+        <xmp ms-widget="{is:'ms-comparative-analysis-class'}"></xmp>
+    </div>
+</div>

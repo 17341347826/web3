@@ -1,0 +1,19 @@
+<div ms-important="login_timeout_set" id="login_timeout_set">
+    <div class="content">
+        <div class="title">登录安全超时设置</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <div>
+                <input type="text" ms-duplex-number="@online_time" placeholder="请输入登录超时分钟" ms-on-blur="@time_focus()">
+                <span class="minute">分钟</span>
+            </div>
+            <div class="msg">
+                <span>{{@msg}}</span>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-primary" ms-click="@save_time()">提交</button>
+        </div>
+    </div>
+</div>

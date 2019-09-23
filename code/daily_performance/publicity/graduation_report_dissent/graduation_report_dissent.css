@@ -1,0 +1,26 @@
+#graduation_report_dissent .am-table>thead>tr>th,
+#graduation_report_dissent .am-table>tbody>tr>td{
+    white-space: inherit;
+}
+#graduation_report_dissent{
+    background-color: #f1f2f6;
+}
+#graduation_report_dissent>div{
+    background-color: white;
+    padding-left:16px;
+    padding-right:16px;
+}
+#graduation_report_dissent>div.public_div>div{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}#graduation_report_dissent>div.public_div>div>img{
+     position: absolute;
+     top:25%;
+     left:25%;
+ }
+#graduation_report_dissent .table-module{
+    padding-top: 16px;
+    padding-bottom: 20px;
+}

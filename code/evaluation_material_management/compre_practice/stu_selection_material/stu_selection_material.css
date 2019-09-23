@@ -1,0 +1,307 @@
+#stu_selection_material{
+    background-color: #f1f2f6;
+}
+#stu_selection_material .common-select{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+}
+#stu_selection_material .common-select{
+    background-color: white;
+}
+/*内容部分*/
+#stu_selection_material .fg-line{
+    height:4px;
+    width:100%;
+    background-color: #F1F2F6;
+}
+#stu_selection_material .list-con{
+    width: calc(100% - 256px);
+    background-color: #f2f2f6;
+}
+#stu_selection_material .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#stu_selection_material .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#stu_selection_material .daily-person{
+    background-color: #FFFFFF;
+}
+#stu_selection_material .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+    margin-bottom:4px;
+}
+#stu_selection_material .list-con .daily-person>div{
+    text-align: center;
+}
+#stu_selection_material .line-one{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#stu_selection_material .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#stu_selection_material .list-con .daily-person .stu-info>div{
+    display:inline-block;
+}
+#stu_selection_material .list-con .daily-person .stu-info>div>div{
+
+    float:left;
+}
+#stu_selection_material .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#stu_selection_material .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+
+/*学生头像那块*/
+#stu_selection_material .stu-head{
+    height:88px;
+    text-align: center;
+}
+#stu_selection_material .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+#stu_selection_material .stu-head img{
+    /*width:60px;*/
+    /*height:60px;*/
+    width:100%;
+}
+#stu_selection_material .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#stu_selection_material .stu-school{
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+/*班团活动*/
+#stu_selection_material .stu-school .btn-operation{
+    text-align: right;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    line-height:18px;
+    overflow:hidden;
+}
+#stu_selection_material .stu-school .btn-operation .d-name{
+    font-size: 18px;
+    font-weight: bold;
+    color: #a2a2a2;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #a2a2a2;
+    border-left: 1px solid #a2a2a2;
+}
+#stu_selection_material .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#stu_selection_material .stu-school>div:last-child span{
+    margin-right:72px;
+}
+#stu_selection_material .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#stu_selection_material  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#stu_selection_material  .list-con .daily-person .daily-info .two-info>span:first-child{
+    margin-right: 72px;
+}
+#stu_selection_material .daily-info>div{
+    margin-top:10px;
+}
+#stu_selection_material  .daily-info .one-two-index span:first-child{
+    margin-right:148px;
+}
+#stu_selection_material .daily-info>div p:first-child{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+#stu_selection_material .daily-info h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+    margin:0;
+}
+#stu_selection_material .daily-info p{
+   margin:0;
+    padding-left:85px;
+}
+/*图片*/
+#stu_selection_material  .daily-info .img-ary{
+    border-radius: 4px;
+}
+#stu_selection_material  .daily-info .img-ary img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+#stu_selection_material  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+/*学年学期*/
+#stu_selection_material .d-p-c-nav{
+    width: 250px;
+    height: 450px;
+    margin-left: 6px;
+    background-color: #fff;
+}
+/*----------------------------------------------------滚动条样式--------------------------------------*/
+#stu_selection_material .d-p-munu,
+#stu_selection_material .small-circular,
+#stu_selection_material .out-circle
+{
+    background-color: #ffffff;
+}
+#stu_selection_material .d-p-munu {
+    /*position: absolute;*/
+    width: 244px;
+    /*top: 0;*/
+    /*right: 0;*/
+    padding-right: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.out-circle, .detail-content, .growth-record ,.model-title{
+    background-color: #FFFFFF;
+}
+#stu_selection_material .d-p-munu .outer {
+    border-right: 1px solid #20bda4;
+}
+#stu_selection_material .d-p-munu .outer .inner {
+    width: 100%;
+    margin-left: 9px;
+    text-align: right;
+    font-size: 16px;
+    color: #a2a2a2;
+    padding-top: 30px;
+    padding-bottom: 1px;
+    position: relative;
+}
+#stu_selection_material .d-p-munu .outer .inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#stu_selection_material .d-p-munu .outer .inner li {
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+#stu_selection_material .d-p-munu .outer .inner .right-top-point,
+#stu_selection_material .d-p-munu .outer .inner .right-bottom-point {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #20bda4;
+}
+#stu_selection_material .d-p-munu .outer .inner .right-top-point {
+    top: -1px;
+    right: 4px;
+}
+#stu_selection_material .d-p-munu .outer .inner .right-bottom-point {
+    bottom: -2px;
+    right: 4px;
+}
+#stu_selection_material .d-p-munu .outer .small-circular {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #a2a2a2;
+    margin-right: 3px;
+    background-color: white;
+}
+#stu_selection_material .d-p-munu .outer .active {
+    font-size: 18px;
+    color: #20bda4;
+}
+#stu_selection_material .d-p-munu .outer .dotted {
+    display: inline-block;
+    width: 15px;
+    height: 13px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background: url(../../../../common/images/file_detail/dotted.png) center no-repeat;
+}
+#stu_selection_material .d-p-munu .outer .out-circle {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid #20bda4;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+#stu_selection_material .d-p-munu .outer .inner-circle {
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #20bda4;
+    top: 6px;
+    left: 6px;
+}
+/** + p, * + hr, * + ul, * + ol, * + dl, * + blockquote, * + pre, * + address, * + fieldset, * + figure {*/
+/*margin-top:0;*/
+/*margin-bottom: 0;*/
+/*}*/
+#stu_selection_material .form-input>button{
+    width: 90px;
+    height: 34px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: rgb(2,205,126);
+}
+#stu_selection_material .form-input>button:hover{
+    background-color: #2bbb7c;
+}
+#stu_selection_material .now-menu{
+    color: #20bda4;
+}
+/*#stu_selection_material .select .select-head{*/
+    /*width: 180px;*/
+/*}*/
+

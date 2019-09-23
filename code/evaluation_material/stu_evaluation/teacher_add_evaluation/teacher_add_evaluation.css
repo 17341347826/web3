@@ -1,0 +1,44 @@
+#teacher_add_evaluation{
+    background-color: white;
+    border-left: 1px #ddd solid;
+    border-right: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+    border-radius: 5px;
+}
+#teacher_add_evaluation form{
+    padding-top: 40px;
+    overflow: hidden;
+}
+#teacher_add_evaluation .am-form-label {
+    margin-top: 6px;
+    font-size: 16px;
+    color: rgb(162,162,162);
+}
+#teacher_add_evaluation select,#teacher_add_evaluation input{
+    color: rgb(162,162,162);
+    border-radius: 4px;
+}
+
+.add-btns>button{
+    width: 112px;
+    height: 34px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+.add-btns>.cancel-btn{
+    background-color: rgb(255,170,69);
+}
+.add-btns>.cancel-btn:hover{
+    background-color: #ff7a45;
+}
+.add-btns>.submit-btn{
+    background-color: rgb(50,217,156);
+}
+.add-btns>.submit-btn:hover{
+    background-color: #2bbb7c;
+}

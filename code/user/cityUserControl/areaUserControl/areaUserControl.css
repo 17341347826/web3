@@ -1,0 +1,24 @@
+#areaUserControl{
+    background-color: #f1f2f6;
+}
+#areaUserControl>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#areaUserControl .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#areaUserControl #compileData{
+    color:#c8c8c8;
+}
+#areaUserControl #compileData input,
+#areaUserControl #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color: #777;
+}
+#areaUserControl #compileData .address .am-u-sm-4{
+    padding-left: 0;
+}

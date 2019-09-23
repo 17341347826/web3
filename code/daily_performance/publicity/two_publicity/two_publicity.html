@@ -1,0 +1,97 @@
+<div class="am-g" id="two_publicity" ms-important="two_publicity">
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange" ms-duplex="@grade_info">
+                        <!--ms-for: el in @teach_class_list-->
+                        <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@classChange" ms-duplex="@class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select am-hide">
+                <div class="old-select">
+                    <select data-duplex-changed="@projectChange" ms-duplex="@project_info" style="width:auto">
+                        <!--ms-for: el in @project_obj-->
+                        <option ms-attr="{value:el.id+'|'+el.ca_name}">
+                            {{el.ca_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div :if="table_show" class="table-module am-padding-top-sm  am-padding-bottom-sm">
+        <table class="am-table  am-table-bordered">
+            <thead>
+            <tr>
+                <th>
+                    序号
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    学籍号
+                </th>
+                <!--ms-for: el in @tbodyThead-->
+                <th>
+                    {{el.signName1}}
+                </th>
+                <!--ms-for-end:-->
+                <th>
+                    操作
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($idx,el) in @get_info-->
+            <tr>
+                <td>
+                    {{$idx+1}}
+                </td>
+                <td>
+                    {{el.studentName}}
+                </td>
+                <td>
+                    {{el.studentNum}}
+                </td>
+                <!--ms-for: ($index,cl) in @el.percentileOne-->
+                <td>
+                    {{cl}}
+                </td>
+                <!--ms-for-end:-->
+                <td>
+                    {{el.gradeName}}
+                </td>
+                <td>
+                    <a class="tab-btn tab-objection-btn" ms-on-click="dissentClick(el)" title="提异议">
+                    </a>
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+    </div>
+    <div :if="p_show" class="am-text-center am-margin-top-sm am-padding-bottom-sm">
+        <p style="color:red;" class="am-padding-top-sm">
+            该班级暂时没有可以公示的等级
+        </p>
+    </div>
+</div>

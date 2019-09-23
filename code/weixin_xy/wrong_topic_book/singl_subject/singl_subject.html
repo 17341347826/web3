@@ -1,0 +1,48 @@
+<div ms-important="singl_subject" id="singl_subject">
+    <div class="top-title">
+        <div><img src="common/images/xy/subject/8.png" alt="图片"></div>
+        <div>语文</div>
+        <span class="screen-icon" ms-click="screen"></span>
+    </div>
+    <!--考试项目信息-->
+    <!--ms-for:($idx,el) in @exam_data-->
+    <div class="exam_info">
+        <div ms-click="@exam_btn($idx,el.exam_id,el.wrong_count)">
+            <span class="time">{{el.exam_info.ksmc}}{{el.exam_info.kssj}}</span>
+            <span class="err-num">错题量:{{el.wrong_count}}</span>
+        </div>
+        <div ms-if="@is_show==$idx">
+            <!--ms-for:($index,al) in @wrong_data-->
+            <div class="weui-flex master" :if="$index==0 && el.wrong_count!=0">
+                <div class="weui-flex__item">
+                    <span>未掌握</span>
+                    <span>32</span></div>
+                <div class="weui-flex__item">
+                    <span>掌握</span>
+                    <span>28</span>
+                </div>
+            </div>
+            <!--ms-for:($id,cl) in @proto_img-->
+            <div class="each-problem">
+                <div>
+                    <div class="problem">{{al.cth}}</div>
+                    <div class="wrong-grade">
+                        难度系数
+                        <img src="common/images/xy/subject/star1.png" alt="图片">
+                        <img src="common/images/xy/subject/star1.png" alt="图片">
+                        <img src="common/images/xy/subject/star2.png" alt="图片">
+                        <img src="common/images/xy/subject/star2.png" alt="图片">
+                        <img src="common/images/xy/subject/star2.png" alt="图片">
+
+                    </div>
+                </div>
+                <div class="problem-pic" ms-click="@err_detail()" :if="al.cth=cl.cth">
+                    <img src="common/images/xy/test.png" alt="图片">
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <!--ms-for-end:-->
+</div>

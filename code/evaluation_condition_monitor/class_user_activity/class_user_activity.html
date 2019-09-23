@@ -1,0 +1,69 @@
+<div ms-important="class_user_activity" class="d_e_progress" id="class_user_activity">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade, $id:'term_eva_opt_grade'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'term_eva_opt_class'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            班级用户活跃度
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao">
+                <div class="user-state">
+                    <xmp ms-widget="{is:'ms-use-state'}"></xmp>
+                </div>
+
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th>用户</th>
+                        <th>总人数</th>
+                        <th>今日登录</th>
+                        <th>七日登录</th>
+                        <th>七日访问量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>教师</td>
+                        <td>{{detail.tch_cnt}}</td>
+                        <td>{{detail.tch_login}}</td>
+                        <td>{{detail.tch_logins}}</td>
+                        <td>{{detail.tch_visits}}</td>
+                    </tr>
+                    <tr>
+                        <td>学生</td>
+                        <td>{{detail.stu_cnt}}</td>
+                        <td>{{detail.stu_login}}</td>
+                        <td>{{detail.stu_logins}}</td>
+                        <td>{{detail.stu_visits}}</td>
+                    </tr>
+                    <tr>
+                        <td>家长</td>
+                        <td>{{detail.par_cnt}}</td>
+                        <td>{{detail.par_login}}</td>
+                        <td>{{detail.par_logins}}</td>
+                        <td>{{detail.par_visits}}</td>
+                    </tr>
+                    <tr>
+                        <td>合计</td>
+                        <td>{{detail.all_cnt}}</td>
+                        <td>{{detail.all_login}}</td>
+                        <td>{{detail.all_logins}}</td>
+                        <td>{{detail.all_visits}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

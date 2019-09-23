@@ -1,0 +1,464 @@
+@charset "utf-8";
+@left: 72px;
+@top: 48px;
+@width_height: 24px;
+@img_url: "/common/images/icon/all-icon.png";
+.tab-btn {
+  display: inline-block;
+  width: @width_height;
+  height: @width_height;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("@{img_url}");
+  background-repeat: no-repeat;
+}
+
+.base(@row_order,@top_order) {
+  @left_dis: @row_order*2;
+  @top_dis: @top_order*2;
+  background-position: -(@left+@width_height*@left_dis) -(@top+@width_height*@top_dis);
+}
+
+/*查看详情*/
+.tab-details-btn {
+  @left_num: 8;
+  @top_num: 0;
+  .base(@left_num, @top_num);
+  &:hover {
+    .base(@left_num, @top_num+1);
+  }
+}
+
+.tab-details-btn-disabled {
+  @left_num: 8;
+  @top_num: 2;
+  .base(@left_num, @top_num);
+}
+
+/*编辑*/
+.tab-edit-btn {
+  .base(3, 0);
+  &:hover {
+    .base(3, 1);
+  }
+}
+
+.tab-edit-btn-disabled {
+  .base(3, 2);
+}
+
+/*查看*/
+.tab-detail-btn {
+  .base(9, 0);
+  &:hover {
+    .base(9, 1);
+  }
+}
+
+.tab-other-edit-btn-disabled {
+  .base(9, 2);
+}
+/*编辑按钮*/
+.tab-other-edit-btn {
+  .base(4, 0);
+  &:hover {
+    .base(4, 1);
+  }
+}
+
+.tab-other-edit-btn-disabled {
+  .base(4, 2);
+}
+
+/*设置按钮*/
+.tab-setting-btn {
+  .base(3, 3);
+  &:hover {
+    .base(3, 4);
+  }
+}
+
+.tab-setting-btn-disabled {
+  .base(3, 5);
+}
+
+/*删除*/
+.tab-trash-btn {
+  .base(5, 3);
+  &:hover {
+    .base(5, 4);
+  }
+}
+
+.tab-trash-btn-disabled {
+  .base(5,5);
+}
+/**配置按钮*/
+.tab-configure-btn{
+  .base(9,3);
+  &:hover {
+    .base(9,4);
+  }
+}
+.tab-configure-btn-disabled {
+  .base(9,5);
+}
+/*角色设置*/
+.tab-role-btn {
+  .base(19,0);
+  &:hover {
+    .base(19,1);
+  }
+}
+
+.tab-role-btn-disabled {
+  .base(19,2);
+}
+
+/*选择*/
+.tab-change-btn {
+  .base(1,0);
+  &:hover {
+    .base(1,1);
+  }
+}
+
+.tab-change-btn-disabled {
+  .base(1,2);
+}
+
+/*采纳*/
+.tab-accept-btn {
+
+  .base(7,0);
+  &:hover {
+    .base(7,1);
+  }
+}
+
+.tab-accept-btn-disabled {
+  .base(7,2);
+}
+
+/*点赞*/
+.thumbs-up {
+  .base(13,0);
+  &:hover {
+    .base(13,1);
+  }
+}
+
+/*撤销*/
+.tab-repeal-btn {
+  .base(10,0);
+  &:hover {
+    .base(10,1);
+  }
+}
+
+.tab-repeal-btn-disabled {
+  .base(10,2);
+}
+
+/*共享*/
+.tab-share-btn {
+
+  .base(17,0);
+  &:hover {
+    .base(17,1);
+  }
+}
+
+.tab-share-btn-disabled {
+  .base(17,2);
+}
+
+/*确认*/
+.tab-affirm-btn {
+
+  .base(4,3);
+  &:hover {
+    .base(4,4);
+  }
+}
+
+.tab-affirm-btn-disabled {
+  .base(4,5);
+}
+
+/*审核*/
+.tab-audit-btn {
+  .base(7,3);
+
+  &:hover {
+    .base(7,4);
+  }
+}
+
+.tab-audit-btn-disabled {
+  .base(7,5);
+}
+
+/*学生层次*/
+.tab-level-btn {
+  .base(15,3);
+  &:hover {
+    .base(15,4);
+  }
+}
+
+.tab-level-btn-disabled {
+  .base(15,5);
+}
+
+/*异议*/
+.tab-objection-btn {
+ .base(16,3);
+  &:hover {
+    .base(16,4);
+  }
+}
+
+.tab-objection-btn-disabled {
+  .base(16,5);
+}
+
+/*重置密码*/
+.tab-rest-btn {
+  .base(17,3);
+  &:hover {
+    .base(17,4);
+  }
+}
+
+.tab-rest-btn-disabled {
+  .base(17,5);
+}
+
+/*不通过*/
+.tab-pass-no-btn {
+  .base(5,0);
+  &:hover {
+    .base(5,1);
+  }
+}
+
+.tab-pass-no-btn-disabled {
+  .base(5,2);
+}
+
+/*发布*/
+.tab-issue-btn {
+  .base(14,0);
+  &:hover {
+    .base(14,1);
+  }
+}
+
+.tab-issue-btn-disabled {
+  .base(14,2);
+}
+
+/*内容维护*/
+.tab-maintenance-btn {
+  .base(2,3);
+  &:hover {
+    .base(2,4);
+  }
+}
+
+.tab-maintenance-btn-disabled {
+  .base(2,5);
+}
+
+/*申诉*/
+.tab-appeal-btn {
+  .base(6,3);
+  &:hover {
+    .base(6,4);
+  }
+}
+
+.tab-appeal-btn-disabled {
+  .base(6,5);
+}
+
+/*生成*/
+.tab_produce_btn {
+  .base(8,3);
+  &:hover {
+    .base(8,4);
+  }
+}
+
+.tab_produce_btn_disabled {
+  .base(8,5);
+}
+
+/*通过*/
+.tab-pass-btn {
+  .base(13,3);
+  &:hover {
+    .base(13,4);
+  }
+}
+
+.tab-pass-btn-disabled {
+  .base(13,5);
+}
+
+/*统计*/
+.tab-statistics-btn {
+  .base(14,3);
+  &:hover {
+    .base(14,4);
+  }
+}
+
+.tab-statistics-btn-disabled {
+  .base(14,5);
+}
+
+/*保存*/
+.tab-save-btn {
+  .base(2,0);
+  &:hover {
+    .base(2,1);
+  }
+}
+
+.tab-save-btn-disabled {
+  .base(2,2);
+}
+
+/*导入*/
+.tab-import-btn {
+  .base(12,0);
+  &:hover {
+    .base(12,1);
+  }
+}
+
+.import-disabled {
+  .base(12,2);
+}
+
+/*导出*/
+.tab-export-btn {
+  .base(11,0);
+  &:hover {
+    .base(11,1);
+  }
+}
+
+.tab-export-btn-disabled {
+  .base(11,2);
+}
+
+/*免测*/
+.tab-free-btn {
+  .base(1,3);
+  &:hover {
+    .base(1,4);
+  }
+}
+
+.free-disable {
+  .base(1,5);
+}
+
+/*添加按钮*/
+.tab-add-btn {
+  .base(1,6);
+  &:hover {
+    .base(1,7);
+  }
+}
+
+.add-disable {
+  .base(1,8);
+}
+
+/*排名*/
+.rank-no1 {
+  .base(0,6);
+}
+
+.rank-no2 {
+  .base(0,7);
+}
+
+.rank-no3 {
+  .base(0,8);
+}
+
+/*查看审核 ---放大镜搜索*/
+.tab-cause-btn {
+  .base(3,6);
+  &:hover {
+    .base(3,7);
+  }
+}
+
+.tab-cause-btn-disabled {
+  .base(3,8);
+}
+
+/*下载*/
+.tab-download {
+  .base(2,6);
+  &:hover {
+    .base(2,7);
+  }
+}
+
+.download-disable {
+  .base(2,8);
+}
+
+/*已点赞*/
+.thumbs-down {
+  .base(4,6);
+}
+/**
+公示
+ */
+.tab-publicity{
+  .base(5,6);
+  &:hover {
+    .base(5,7);
+  }
+}
+/**取消公示
+*/
+.tab-cancel-public{
+  .base(6,6);
+  &:hover {
+    .base(6,7);
+  }
+}
+.tab_cancel-public_disabled{
+  .base(6,8);
+}
+/**
+计算
+ */
+.calculation-btn{
+  .base(7,6);
+  &:hover {
+    .base(7,7);
+  }
+}
+.calculation-btn-disabled {
+  .base(7,8);
+}
+//广播
+.broadcast-btn{
+  .base(8,6);
+  &:hover {
+    .base(8,7);
+  }
+}
+.broadcast-btn-disabled {
+  .base(7,8);
+}

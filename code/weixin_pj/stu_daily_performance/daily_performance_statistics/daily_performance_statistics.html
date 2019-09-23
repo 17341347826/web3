@@ -1,0 +1,88 @@
+<div ms-important="daily_performance_statistics" id="daily_performance_statistics" >
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--表现记录详情-->
+        <div class="float-left" :click="@menu_change()">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="performance-records-btn"></span>
+            <span>表现记录详情</span>
+        </div>
+        <!--周积分-->
+        <div class="float-right">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="weekly-integral-btn"></span>
+            <span class="menu-check">周积分</span>
+            <span class="three-border"></span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <div class="screen_demo">
+            <!--学年学期-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@semesterChange()" ms-duplex="@semester">
+                        <!--ms-for:($index,el) in @semesterAry-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.semester_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="con">
+            <div :if="@newAry.length>0">
+                <div class="weui-cell weui-flex table-tc table-title">
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            周次
+                        </p>
+                    </div>
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            表扬次数
+                        </p>
+                    </div>
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            提醒次数
+                        </p>
+                    </div>
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            亮点不足
+                        </p>
+                    </div>
+                </div>
+                <!--ms-for: ($idx,el) in @newAry -->
+                <div class="weui-cell weui-flex table_font table-tc">
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            第{{el.weekNum}}周
+                        </p>
+                    </div>
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            {{el.praiseCount}}
+                        </p>
+                    </div>
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            {{el.remindCount}}
+                        </p>
+                    </div>
+                    <div class="weui-cell__bd weui-flex__item">
+                        <p>
+                            <a href="javascript:;" ms-on-click="@get_detail(el)">
+                                <i class="iconfont icon-chakan">
+                                </i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+    </div>
+</div>

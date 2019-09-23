@@ -1,0 +1,30 @@
+#teacher_autograph .img_td{
+    height: 80px;
+}
+#teacher_autograph .img_td>img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+#teacher_autograph .am-table{
+    margin-bottom: 0px;
+}
+#teacher_autograph{
+    background-color: #f1f2f6;
+}
+#teacher_autograph>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#teacher_autograph>div.teacher_autograph_con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#teacher_autograph .table_module{
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}
+

@@ -1,0 +1,24 @@
+<div ms-important="add_wx_material" id="add_wx_material">
+    <div class="weui-cells input-cells">
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select1">
+                    我要记录：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select"  id="select1" ms-duplex="@add_type">
+                    <option value="0">请选择</option>
+                    <option value="1">综合实践活动</option>
+                    <option value="2">成就奖励</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div :if="@add_type == 1">
+        <xmp ms-widget="{is:'ms-add-wx-practice-module',pmx:@pmx}"></xmp>
+    </div>
+    <div :if="@add_type == 2">
+        <xmp ms-widget="{is:'ms-add-wx-achievement-module',pmx:@pmx}"></xmp>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@charset "utf-8";
+.base-select {
+  position: relative;
+}
+.select-head {
+  position: relative;
+  min-width: 200px;
+  max-height: 36px;
+  line-height: 36px;
+  padding-left: 20px;
+  border: 1px solid #c8c8c8;
+  text-align: left;
+  font-size: 16px;
+  color: #777777;
+  border-radius: 4px;
+  cursor: pointer;
+  padding-right: 20px;
+}
+.select-head .select-icon {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  display: inline-block;
+  width: 7px;
+  height: 6px;
+  background: url("../../images/icon/triangle.png") center no-repeat;
+}
+.select-option {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  min-width: 200px;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+  max-height: 120px;
+  overflow: auto;
+  z-index: 100;
+  outline: none;
+}
+.select-option ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.select-option li {
+  list-style: none;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 14px;
+  background-color: #FFFFFF;
+  color: #c8c8c8;
+  cursor: pointer;
+}
+.select-option li:hover {
+  background-color: #f0f0f0;
+  color: #2bbba4;
+}

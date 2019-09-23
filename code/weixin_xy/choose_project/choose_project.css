@@ -1,0 +1,18 @@
+#choose-project .pro-title {
+    color: #fff;
+    background: #3b94f0;
+    height:50px;
+    line-height:50px;
+    text-align: center;
+}
+#choose-project .project-list {
+    color: #3b94f0;
+    padding: 12px;
+    cursor: pointer;
+}
+#choose-project .project-list span {
+    float: right;
+}
+#choose-project .project-list:nth-child(odd) {
+    background: #f9f9f9;
+}

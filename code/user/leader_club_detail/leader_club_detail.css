@@ -1,0 +1,17 @@
+#leader_club_detail{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+}
+#leader_club_detail >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#leader_club_detail .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#leader_club_detail .table_module>table{
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}

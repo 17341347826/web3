@@ -1,0 +1,16 @@
+#student_add_evaluation_list{
+    background-color: #f1f2f6;
+}
+#student_add_evaluation_list>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#student_add_evaluation_list .s-add-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#student_add_evaluation_list .am-table{
+    border-radius: 4px;
+    border: 1px #ccc solid;
+}

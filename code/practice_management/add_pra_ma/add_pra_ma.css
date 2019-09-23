@@ -1,0 +1,127 @@
+#add_pra_ma{
+    background-color: #f1f2f6;
+}
+#add_pra_ma>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+#add_pra_ma div.add_pra_ma-content{
+    width: 813px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#add_pra_ma .p-line{
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+}
+#add_pra_ma .p-line-max{
+    height: 60px;
+    width: 100%;
+    margin-top: 10px;
+}
+#add_pra_ma .p-line-max>div{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#add_pra_ma .p-line-max textarea{
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    /*overflow:hidden;*/
+    vertical-align: top;
+}
+.hide_scroll ::-webkit-scrollbar {
+    display:none
+}
+#add_pra_ma .p-line>div{
+    display: inline-block;
+    line-height: 40px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#add_pra_ma .p-line>div.p-name,
+#add_pra_ma .p-line-max>div.p-name-max
+
+{
+    vertical-align: top;
+    width: 10%;
+}
+#add_pra_ma .p-line>div.p-input,
+#add_pra_ma .p-line-max>div.p-input-max
+{
+    width: 85%;
+}
+#add_pra_ma .p-line input{
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    height: 38px;
+    width: 100%;
+}
+#add_pra_ma .p-line>.p-input,
+#add_pra_ma .p-line-max>.p-input-max{
+    margin-left: 20px;
+}
+#add_pra_ma .material{
+    height: auto;
+}
+
+
+
+#add_pra_ma .p-line-float{
+    height: 40px;
+    margin-top:10px;
+}
+#add_pra_ma .p-line-float>div{
+    /*border: 1px red solid;*/
+    width: 50%;
+    height: 40px;
+}
+#add_pra_ma .p-name-float,
+#add_pra_ma .p-input-float{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    color: #a2a2a2;
+    font-size: 16px;
+    font-weight: normal;
+}
+#add_pra_ma .p-input-float{
+    width: 65%;
+}
+#add_pra_ma .p-input-float>input,
+#add_pra_ma .p-input-float>select{
+    border-radius: 4px;
+    border: 1px #e2e2e2 solid;
+    height: 38px;
+    width: 100%;
+
+}
+#add_pra_ma .p-input-float{
+    margin-left: 36px;
+}
+#add_pra_ma .am-fr>.p-name-float{
+    margin-left: 20px;
+}
+#add_pra_ma .a-p-btns{
+    padding-left: 0;
+    text-align: center;
+    border-top:1px #cccccc dashed;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+#add_pra_ma .am-form-field{
+    background-color: white;
+}
+#add_pra_ma .c-arys input{
+    height: 0;
+}

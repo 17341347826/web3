@@ -1,0 +1,32 @@
+#dimension_add_content>div{
+    margin-left: 1px;
+    background-color: white;
+}
+#dimension_add_content button{
+    margin: 0 15px;
+}
+#dimension_add_content .mp-checkbox{
+    padding-right: 12px;
+}
+#dimension_add_content .title-lab{
+    color: #ccc;
+}
+#dimension_add_content .btns{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+/*上传附件*/
+#dimension_add_content .upload-load{
+    display:inline-block;
+    height: 36px;
+    line-height:36px;
+    padding-left:10px;
+    padding-right:10px;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #2bbba4;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}

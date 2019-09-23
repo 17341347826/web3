@@ -1,0 +1,109 @@
+<div ms-important="add_achievement" id="add-punishments">
+    <div>
+        <div class="add-punishments-content">
+            <div class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float">成就名称</div>
+                    <div class="p-input-float">
+                        <input type="text" ms-duplex="@data.form.ach_name">
+                    </div>
+                    <span style="color:red;">*</span>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float">获得时间</div>
+                    <div class="p-input-float">
+                        <input class="am-form-field" id="my-datepicker" ms-attr="{value:@data.form.ach_date}"
+                               ms-on-focus="@getCompleteDate" ms-rules="{required:true}" data-am-datepicker readonly="" required=""
+                               type="text"/>
+                    </div>
+                    <span style="color:red;">*</span>
+                </div>
+            </div>
+            <div class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float">成就性质</div>
+                    <div class="p-input-float">
+                        <select ms-duplex="@data.form.xz" data-duplex-changed="@ach_xz_change">
+                            <option value="0">请选择</option>
+                            <option ms-attr="{value:el.ach_type}" ms-for="el in @data.achievementType">
+                                {{ el.ach_type }}
+                            </option>
+                        </select>
+                    </div>
+                    <span style="color:red;">*</span>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float">成就类型</div>
+                    <div class="p-input-float">
+                        <select ms-duplex="@data.form.ach_type" :click="@ach_type_click()">
+                            <option value="0">请选择</option>
+                            <option ms-attr="{value:el.type_name}" ms-for="el in @data.typeList">
+                                {{ el.type_name }}
+                            </option>
+                        </select>
+                    </div>
+                    <span style="color:red;">*</span>
+                </div>
+            </div>
+            <div class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float">成就级别</div>
+                    <div class="p-input-float">
+                        <select ms-duplex="@data.form.ach_level" data-duplex-changed="@ach_level_change" :click="@ach_level_click()">
+                            <option value="0">请选择</option>
+                            <option ms-attr="{value:el.ach_level}" ms-for="el in @data.achievementLevel">
+                                {{ el.ach_level }}
+                            </option>
+                        </select>
+                    </div>
+                    <span style="color:red;">*</span>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float" :visible='@data.form.xz!="荣誉称号"'>成就等级</div>
+                    <div class="p-input-float" :visible='@data.form.xz!="荣誉称号"'>
+                        <select ms-duplex="@data.form.ach_rank" data-duplex-changed="rankChange" :click="@rankClick()">
+                            <option value="0">请选择</option>
+                            <option ms-attr="{value:el.ach_rank}" ms-for="el in @data.achievementRank">
+                                {{ el.ach_rank }}
+                            </option>
+                        </select>
+                    </div>
+                    <span style="color:red;" :visible='@data.form.xz!="荣誉称号"'>*</span>
+                </div>
+            </div>
+            <div class="p-line-max">
+                <div class="p-name-max">成就感想</div>
+                <div class="p-input-max">
+                    <textarea ms-duplex="@data.form.ach_feel"></textarea>
+                </div>
+                <span style="color:red;">*</span>
+            </div>
+            <div class="p-line material">
+                <div class="p-name">证实材料</div>
+                <div class="p-input">
+                    <xmp ms-widget="{is:'ms-ele-uploader', id_prefix:'achievement', id:'achievement', files:@files, url:@data.uploader_url}">
+                    </xmp>
+                </div>
+            </div>
+            <!--<div class="p-line" :visible="@personality_list.indexOf(@data.form.ach_type) > -1">-->
+            <div class="p-line" :visible="@speciality_show">
+                <div class="p-name"></div>
+                <div class="p-input">
+                    <div class="c-arys">
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox" id="option1" ms-duplex="@sftc_arr" data-duplex-changed="@checkboxChange" value="11">
+                            <label for="option1"></label>
+                        </label>
+                        标注为个性特长材料  <strong>说明：标注为特长材料，该材料将自动遴选为评价材料</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-p-btns">
+        <div class="btns">
+            <button type="button" :visible="@is_click == 0" class="am-btn-gray">提交</button>
+            <button type="button" :visible="@is_click == 1"  class="am-btn-primary" ms-click="@save_data()">提交</button>
+        </div>
+    </div>
+</div>

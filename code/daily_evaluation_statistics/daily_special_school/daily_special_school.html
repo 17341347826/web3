@@ -1,0 +1,158 @@
+<div ms-important="daily_special_school" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl " ms-click="@to_page('daily_target_school')">目标计划与完成情况</div>
+            <div class="am-fl" ms-click="@to_page('daily_practice_school')">综合实践活动</div>
+            <div class="am-fl chosen" ms-click="@to_page('daily_special_school')">日常表现与个性特长</div>
+            <div class="am-fl" ms-click="@to_page('daily_award_school')">获奖情况</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@sel_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+    </div>
+    <div class="sec_index">
+        <div class="radios">
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(1)" id="option1" ms-duplex-number="@html_display" class="rdo" value="1">
+                <label ms-attr="{for:'option1'}">综合等级</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(2)" id="opition2" ms-duplex-number="@html_display" class="rdo" value="2">
+                <label ms-attr="{for:'opition2'}">评价维度</label>
+            </label>
+            <label class="am-radio-inline" >
+                <input type="radio" ms-click="@presentation_change(3)" id="option3" ms-duplex-number="@html_display" class="rdo" value="3">
+                <label ms-attr="{for:'option3'}">评价要素</label>
+            </label>
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            日常表现与个性特长分析（校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@order_by_grade.length>0">
+                <div class="biao-title">
+                    统计图
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">单位</td>
+                        <td rowspan="2">年级</td>
+                        <td colspan="3">日常表现人均记录材料</td>
+                        <td colspan="3">日常表现记录材料人数占比（%）</td>
+                        <td colspan="2">日常表现</td>
+                        <td colspan="3">个性特长材料</td>
+                    </tr>
+                    <tr>
+                        <td>加分材料</td>
+                        <td>减分材料</td>
+                        <td>合计</td>
+                        <td>≥0分</td>
+                        <td>＜0分</td>
+                        <td>无记录</td>
+                        <td>材料总数</td>
+                        <td>平均得分</td>
+                        <td>材料总数</td>
+                        <td>人均记录数</td>
+                        <td>平均得分</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@order_by_grade)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != filter_school(order_by_grade)[$index-1].schoolname"
+                            ms-attr="{rowspan:@count(@filter_school(@order_by_grade),'schoolname' ,el.schoolname)}">{{el.schoolname}}</td>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_rj_ljcl)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_rj_tjcl)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_rj_hj)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_dydy_rszb)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_xy_rszb)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_wjl_rszb)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_cl_zs)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.rc_pjf)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.gx_cl_zs)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.gx_rj_cl)}}</td>
+                        <td>{{filters_undefined(el.school_cnt.gx_pjf)}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@order_by_grade.length==0">
+                        <td colspan="13">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            日常表现与个性特长分析（班）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@order_by_class.length>0">
+                <div class="biao-title">
+                    统计图
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">班级</td>
+                        <td colspan="3">日常表现人均记录材料</td>
+                        <td colspan="3">日常表现记录材料人数占比（%）</td>
+                        <td colspan="2">日常表现</td>
+                        <td colspan="3">个性特长材料</td>
+                    </tr>
+                    <tr>
+                        <td>加分材料</td>
+                        <td>减分材料</td>
+                        <td>合计</td>
+                        <td>≥0分</td>
+                        <td>＜0分</td>
+                        <td>无记录</td>
+                        <td>材料总数</td>
+                        <td>平均得分</td>
+                        <td>材料总数</td>
+                        <td>人均记录数</td>
+                        <td>平均得分</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_class(order_by_class)-->
+                    <tr>
+                        <td>{{el.njmc}}</td>
+                        <td>{{el.bjmc}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_rj_ljcl)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_rj_tjcl)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_rj_hj)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_dydy_rszb)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_xy_rszb)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_wjl_rszb)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_cl_zs)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.rc_pjf)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.gx_cl_zs)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.gx_rj_cl)}}</td>
+                        <td>{{filters_undefined(el.school_class_cnt.gx_pjf)}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@order_by_class.length==0">
+                        <td colspan="13">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

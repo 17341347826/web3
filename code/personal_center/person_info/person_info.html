@@ -1,0 +1,660 @@
+<div class="am-g am-text-center" id="person_info" ms-important="person_info">
+    <div class="account_title am-text-center">
+        <span>个人中心</span>
+    </div>
+    <div class="account_content am-text-center">
+        <!--头像部分-->
+        <div class="head-info">
+            <!--头像-->
+            <div class="user-head">
+                <img :visible="@head_photos == ''" src="../../../common/images/icon/person_head_mr.png" alt="">
+                <img :visible="@head_photos != ''" ms-attr="{src:@head_photos}" alt="">
+                <!--<span :if="@reson" class="am-margin-left-lg">未通过原因:{{@reson}}</span>-->
+                <!--修改头像-->
+                <div class="up-head" :click="@update_head()">
+                    <span :visible="@head_photos != ''">修改头像</span>
+                    <span :visible="@head_photos == ''">上传头像</span>
+                </div>
+
+                <!--裁剪图片组件-->
+                <xmp ms-widget="{is:'ms-ele-picture-cutting',title:'上传头像',cuttingImg_late:@cuttingImg_late}"></xmp>
+
+                <!--裁剪头像-->
+                <div class="am-modal am-modal-confirm" tabindex="-1" id="head-confirm">
+                    <div class="am-modal-dialog">
+                        <div class="am-modal-hd">请上传头像</div>
+                        <div class="am-modal-bd">
+                            <div style="border-top:2px dashed lightgray;">
+                                <form class="am-padding-top-lg" enctype="multipart/form-data" method="post" id='formBox-head' name="form">
+                                    <a href="javascript:;" class="a-upload">
+                                        <input type="file" name="file" id="chooseImage-head" ms-on-change="@file_change_head">选择文件
+                                    </a>
+                                </form>
+                                <div id="content-head" :if="@img_src">
+                                    <div class="container">
+                                        <section class="copy">
+                                            <div class="figure-wrapper">
+                                                <figure class="image-container target">
+                                                    <img ms-attr="{src:@img_src}" alt="DomoKun" id="target-head">
+                                                </figure>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                                <!--<p style="color:red;">{{@head_msg}}</p>-->
+                                <p style="color:#dd4646;" :if="@head_msg">请先点击保存（<span class="am-icon-save" style="color: #5F6368;"></span>）再点击确定</p>
+                            </div>
+                        </div>
+                        <!--<div class="am-modal-footer">-->
+                            <!--<span class="am-modal-btn" data-am-modal-cancel>取消</span>-->
+                            <!--<span class="am-modal-btn"  ms-on-click="@up_head">确定</span>-->
+                        <!--</div>-->
+                        <div class="am-modal-footer">
+                            <span class="am-modal-btn">取消</span>
+                            <span class="head_insure" ms-on-click="@up_head">确定</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span>{{@user_name}}</span>
+                <div :click="@name_up()" :if="@userType != 2">
+                    <span class="save-btn click-btn">修改</span>
+                </div>
+            </div>
+        </div>
+        <!--波浪线-->
+        <div class="wave-line" :if="@userType == 2">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <!--<div class="wave"></div>-->
+        </div>
+
+        <!--基本信息-->
+        <div class="stu-info stu-person-info" :if="@userType == 2">
+            <div class="stu-info-head">
+                <div class="am-fl stu-head">个人信息</div>
+                <div class="am-fr">
+                    <span :if="@status == 1" class="edit-btn click-btn" :click="@update_data()">编辑</span>
+                    <span :if="@status == 3" class="save-btn click-btn" :click="@save_data()">保存</span>
+                </div>
+            </div>
+            <!--表-->
+            <!--基础信息--编辑-->
+            <div class="bse-msg" :if="@status == 1" id="basic_situation">
+                <div class="tab-content">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td colspan="6" rowspan="2">基本信息</td>
+                            <!--<td rowspan="7" class="img-container">-->
+                                <!--<img ms-attr="{src:@url_img(@user_photo({guid:@stu_guid}))}" class="person-img">-->
+                                <!--&lt;!&ndash;<img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}">&ndash;&gt;-->
+
+                            <!--</td>-->
+                            <td rowspan="7" class="img-container" id="card-photo">
+                                <div ms-if="@photos =='' && @userType == 2">
+                                    <div>暂无照片</div>
+                                    <div>请选择上传</div>
+                                    <div>建议尺寸（宽:高=3:4）</div>
+                                    <div>图片格式：jpg/jpeg/png</div>
+                                    <div>建议:选用天蓝色背景，身着校服</div>
+                                </div>
+                                <img ms-if="@photos != ''" ms-attr="{src:@photos}" alt=""  class="person-img">
+                                <div ms-if="@userType==2" id="report" class="report">
+                                    上传图片
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td>姓名</td>
+                            <td>{{@data.student_name}}</td>
+                            <td>曾用名</td>
+                            <td>{{@data.old_name}}</td>
+                            <td>性别</td>
+                            <td :if="@data.sex == 1">男</td>
+                            <td :if="@data.sex == 2">女</td>
+                        </tr>
+                        <tr>
+                            <td>出生日期</td>
+                            <td>{{@data.date_of_birth}}</td>
+                            <td>民族</td>
+                            <td>
+                                <span :visible="@data.nation == 0"></span>
+                                <span :visible="@data.nation != 0">{{@data.nation}}</span>
+                            </td>
+                            <td>政治面貌</td>
+                            <td>{{@data.politic}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>身份证号</td>
+                            <td colspan="2">{{@data.student_code}}</td>
+                            <td>学籍号</td>
+                            <td colspan="2">{{@data.student_num}}</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2">身体健康状况</td>
+                            <td>{{@data.body_quality}}</td>
+                            <td>住宿情况</td>
+                            <td colspan="2">{{@data.live_in}}</td>
+
+                        </tr>
+                        <tr>
+                            <td>通讯地址</td>
+                            <td colspan="2">{{@data.family_site}}</td>
+                            <td>联系电话</td>
+                            <td colspan="2">{{@data.student_phone}}</td>
+
+                        </tr>
+                        <tr>
+                            <td rowspan="4">家庭情况</td>
+                            <td>父亲姓名</td>
+                            <td>{{@data.father_name}}</td>
+                            <td>政治面貌</td>
+                            <td>
+                                <span :visible="@data.father_political == 0"></span>
+                                <span :visible="@data.father_political != 0">{{@data.father_political}}</span>
+                            </td>
+                            <td>文化程度</td>
+                            <td>
+                                <span :visible="@data.father_culture == 0"></span>
+                                <span :visible="@data.father_culture != 0">{{@data.father_culture}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>母亲姓名</td>
+                            <td>{{@data.mother_name}}</td>
+                            <td>政治面貌</td>
+                            <td>
+                                <span :visible="@data.mother_political == 0"></span>
+                                <span :visible="@data.mother_political != 0">{{@data.mother_political}}</span>
+                            </td>
+                            <td>文化程度</td>
+                            <td>
+                                <span :visible="@data.mother_culture == 0"></span>
+                                <span :visible="@data.mother_culture != 0">{{@data.mother_culture}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>父亲工作单位</td>
+                            <td colspan="2">{{@data.father_work_site}}</td>
+                            <td colspan="2">联系电话</td>
+                            <td>{{@data.father_call}}</td>
+
+                        </tr>
+                        <tr>
+                            <td>母亲工作单位</td>
+                            <td colspan="2">{{@data.mother_work_site}}</td>
+                            <td colspan="2">联系电话</td>
+                            <td>{{@data.mother_call}}</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">托管监护情况</td>
+                            <td>托管人姓名</td>
+                            <td colspan="2">{{@data.trustee_name}}</td>
+                            <td>年龄</td>
+                            <td colspan="2">{{@data.trustee_age}}</td>
+                        </tr>
+                        <tr>
+                            <td>健康状况</td>
+                            <td colspan="2">{{@data.trustee_health}}</td>
+                            <td>文化程度</td>
+                            <td colspan="2">{{@data.trustee_culture}}</td>
+
+                        </tr>
+                        <tr>
+                            <td>详细地址</td>
+                            <td colspan="2">{{@data.trustee_site}}</td>
+                            <td>联系电话</td>
+                            <td colspan="2">{{@data.trustee_call}}</td>
+                        </tr>
+                        <tr>
+                            <td>签字</td>
+                            <td style="height: 80px;" colspan="5">
+                                <img ms-attr="{src:@get_photos}" alt="" style="width:auto;height:auto;max-width:100%;max-height:100%;" class="am-margin-left-lg">
+                                <span :if="@reson" class="am-margin-left-lg">未通过原因:{{@reson}}</span>
+                            </td>
+                            <td>
+                                <span :if="@data_status == 0 || @data_status == 2" class="qm-btn click-btn" ms-on-click="@btn_click">更改签名</span>
+                                <span :if="@data_status == 1" class="qm-btn click-btn" disabled="disabled">更改签名</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--基本信息--保存-->
+            <div class="bse-msg" :if="@status == 3">
+                <div class="tab-content">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td colspan="6" rowspan="2">基本信息</td>
+                            <!--<td rowspan="7" class="img-container">-->
+                                <!--<img ms-attr="{src:@url_img(@user_photo({guid:@stu_guid}))}" class="person-img">-->
+                                <!--&lt;!&ndash;<img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}">&ndash;&gt;-->
+
+                            <!--</td>-->
+                            <td rowspan="7" class="img-container">
+                                <div ms-if="@photos =='' && @userType == 2">
+                                    <div>暂无照片</div>
+                                    <div>请选择上传</div>
+                                    <div>建议尺寸（宽:高=3:4）</div>
+                                    <div>图片格式：jpg/jpeg/png</div>
+                                    <div>建议:选用天蓝色背景，身着校服</div>
+                                </div>
+                                <img ms-if="@photos != ''" ms-attr="{src:@photos}" class="person-img">
+                            </td>
+                            <!--<td rowspan="7" class="img-container" id="card-photo">-->
+                                <!--<div ms-if="@photos =='' && @userType == 2">-->
+                                    <!--<div>暂无照片</div>-->
+                                    <!--<div>请选择上传</div>-->
+                                    <!--<div>建议尺寸（宽:高=3:4）</div>-->
+                                    <!--<div>图片格式：jpg/jpeg/png</div>-->
+                                    <!--<div>建议:选用天蓝色背景，身着校服</div>-->
+                                <!--</div>-->
+                                <!--<img ms-if="@photos != ''" ms-attr="{src:@photos}" alt=""  class="person-img">-->
+                                <!--<div ms-if="@userType==2" id="report-edit" class="report-edit">-->
+                                    <!--上传图片-->
+                                <!--</div>-->
+                            <!--</td>-->
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td>姓名</td>
+                            <td>{{@data.student_name}}</td>
+                            <td>曾用名</td>
+                            <td>
+                                <input type="text" ms-duplex="@data.old_name" ms-attr="{value:@data.old_name}">
+                            </td>
+                            <td>性别</td>
+                            <td :if="@data.sex == 1">男</td>
+                            <td :if="@data.sex == 2">女</td>
+                        </tr>
+                        <tr>
+                            <td>出生日期</td>
+                            <td>{{@data.date_of_birth}}</td>
+                            <td>民族</td>
+                            <td>
+                                <select  ms-duplex="@data.nation">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:el.name}" ms-for="el in @nationList">
+                                        {{ el.name }}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>政治面貌</td>
+                            <td>
+                                <select ms-duplex="@data.politic">
+                                    <option value="0">请选择</option>
+                                    <option value="共青团员">共青团员</option>
+                                    <option value="群众">群众</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>身份证号</td>
+                            <!--<td colspan="2">{{@data.student_code}}</td>-->
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.student_code" ms-attr="{value:@data.student_code}">
+                            </td>
+                            <td>学籍号</td>
+                            <td colspan="2">{{@data.student_num}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">身体健康状况</td>
+                            <td>
+                                <input type="text" ms-duplex="@data.body_quality" ms-attr="{value:@data.body_quality}">
+                            </td>
+                            <td>住宿情况</td>
+                            <td colspan="2">
+                                <select ms-duplex="@data.live_in">
+                                    <option ms-attr="{value:''}">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:'住宿'}">
+                                        住宿
+                                    </option>
+                                    <option ms-attr="{value:'走读'}">
+                                        走读
+                                    </option>
+
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>通讯地址</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.family_site" ms-attr="{value:@data.family_site}">
+                            </td>
+                            <td>联系电话</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.student_phone" ms-attr="{value:@data.student_phone}">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td rowspan="4">家庭情况</td>
+                            <td>父亲姓名</td>
+                            <td>
+                                <input type="text" ms-duplex="@data.father_name" ms-attr="{value:@data.father_name}">
+                            </td>
+                            <td>政治面貌</td>
+                            <td>
+                                <select  ms-duplex="@data.father_political">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:el.name}" ms-for="el in @politicalList">
+                                        {{ el.name }}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>文化程度</td>
+                            <td>
+                                <select ms-duplex="@data.father_culture">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:el.name}" ms-for="el in @cultureList">
+                                        {{ el.name }}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>母亲姓名</td>
+                            <td>
+                                <input type="text" ms-duplex="@data.mother_name" ms-attr="{value:@data.mother_name}">
+                            </td>
+                            <td>政治面貌</td>
+                            <td>
+                                <select name="" id="" ms-duplex="@data.mother_political">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:el.name}" ms-for="el in @politicalList">
+                                        {{ el.name }}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>文化程度</td>
+                            <td>
+                                <select ms-duplex="@data.mother_culture">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:el.name}" ms-for="el in @cultureList">
+                                        {{ el.name }}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>父亲工作单位</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.father_work_site" ms-attr="{value:@data.father_work_site}">
+                            </td>
+                            <td colspan="2">联系电话</td>
+                            <td>
+                                <input type="text" ms-duplex="@data.father_call" ms-attr="{value:@data.father_call}">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>母亲工作单位</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.mother_work_site" ms-attr="{value:@data.mother_work_site}">
+                            </td>
+                            <td colspan="2">联系电话</td>
+                            <td>
+                                <input type="text" ms-duplex="@data.mother_call" ms-attr="{value:@data.mother_call}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">托管监护情况</td>
+                            <td>托管人姓名</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.trustee_name" ms-attr="{value:@data.trustee_name}">
+                            </td>
+                            <td>年龄</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.trustee_age" ms-attr="{value:@data.trustee_age}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>健康状况</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.trustee_health" ms-attr="{value:@data.trustee_health}">
+                            </td>
+                            <td>文化程度</td>
+                            <td >
+                                <select ms-duplex="@data.trustee_culture">
+                                    <option value="0">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:el.name}" ms-for="el in @cultureList">
+                                        {{ el.name }}
+                                    </option>
+                                </select>
+                                <!--<input type="text" ms-duplex="@data.trustee_culture" ms-attr="{value:@data.trustee_culture}">-->
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>详细地址</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.trustee_site" ms-attr="{value:@data.trustee_site}">
+                            </td>
+                            <td>联系电话</td>
+                            <td colspan="2">
+                                <input type="text" ms-duplex="@data.trustee_call" ms-attr="{value:@data.trustee_call}">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--签名-->
+            <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+                <div class="am-modal-dialog">
+                    <div class="am-modal-hd">请进行签名</div>
+                    <div class="am-modal-bd">
+                        <div class="am-form-group">
+                            <label class="am-radio-inline">
+                                <input type="radio"  value="2" name="docInlineRadio" ms-on-click="@radio_click" ms-duplex-number="@data_x.data_source"> 电子签名
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" value="1" name="docInlineRadio" ms-on-click="@radio_click"  ms-duplex-number="@data_x.data_source"> 图片签名
+                            </label>
+                        </div>
+                        <div :if="@data_x.data_source == 2">
+                            <a href="javascript:;" class="a-upload" ms-on-click="@start_sign">开始签名</a>
+                        </div>
+                        <div :if="@data_x.data_source ==1" style="border-top:2px dashed lightgray;" class="am-margin-top-lg">
+                            <form class="am-padding-top-lg" enctype="multipart/form-data" method="post" id='formBox' name="form">
+                                <a href="javascript:;" class="a-upload">
+                                    <input type="file" name="file" id="chooseImage" ms-on-change="@file_change">选择文件
+                                </a>
+                            </form>
+                            <div id="content" :if="@img_src">
+                                <div class="container">
+                                    <section class="copy">
+                                        <div class="figure-wrapper">
+                                            <figure class="image-container target">
+                                                <img ms-attr="{src:@img_src}" alt="DomoKun" id="target">
+                                            </figure>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <p style="color:#dd4646;" :if="@msg != '图片'">{{@msg}}</p>
+                            <p style="color:#dd4646;" :if="@msg == '图片'">请先点击保存（<span class="am-icon-save" style="color: #5F6368;"></span>）再点击确定</p>
+                        </div>
+                    </div>
+                    <div class="am-modal-footer">
+                        <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                        <span class="head_insure" ms-on-click="@up_ajax">确定</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--波浪线-->
+        <div class="wave-line" :if="@userType == 2">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <!--<div class="wave"></div>-->
+        </div>
+        <!--个人名片-->
+        <div class="per-card" :if="@userType == 2">
+            <div class="stu-info-head">
+                <div class="am-fl stu-head">个人名片</div>
+                <div class="am-fr">
+                    <span :if="@card_type == 1" class="edit-btn click-btn" :click="@card_update_data()">编辑</span>
+                    <span :if="@card_type == 2" class="save-btn click-btn" :click="@card_save_data()">保存</span>
+                </div>
+            </div>
+            <!--个性名片--编辑-->
+            <!--<div class="personal-card clearfix" :if="@card_type == 1">-->
+            <!--<div class="card-left">-->
+            <!--<img src="common/images/file_detail/personal.png">-->
+            <!--</div>-->
+            <!--<div class="card-right">-->
+            <!--<div class="each-card" ms-for="($index,el) in @person_card">-->
+            <!--<span class="card-out"><span class="card-in"></span></span>-->
+            <!--<div>-->
+            <!--<h3>{{el.card_name}}</h3>-->
+            <!--<div>{{el.content}}</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="card clearfix" :if="@card_type == 1">
+                <div class="card-left">
+                    <img src="common/images/file_detail/personal.png">
+                </div>
+                <div class="card-right">
+                    <div class="each-card" ms-for="($index,el) in @person_card">
+                        <div>
+                            <span class="card-out"><span class="card-in"></span></span>
+                            <span class="card-name">{{el.card_name}}</span>
+                        </div>
+                        <div  class='card-con'>
+                            <span>{{el.content}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--个性名片--保存-->
+            <!--<div class="personal-card clearfix" :if="@card_type == 2">-->
+                <!--<div class="card-left">-->
+                    <!--<img src="common/images/file_detail/personal.png">-->
+                <!--</div>-->
+                <!--<div class="card-right">-->
+                    <!--<div class="each-card" ms-for="($index,el) in @person_card">-->
+                        <!--<span class="card-out"><span class="card-in"></span></span>-->
+                        <!--<div>-->
+                            <!--<h3>{{el.card_name}}</h3>-->
+                            <!--<p>-->
+                                <!--<input ms-duplex="@person_card[$index].content|isNll" style="width:600px">-->
+                            <!--</p>-->
+                            <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input ms-duplex="@person_card[$index].content|isNll">&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;<textarea ms-duplex="@person_card[$index].content|isNll"></textarea>&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="card clearfix" :if="@card_type == 2">
+                <div class="card-left">
+                    <img src="common/images/file_detail/personal.png">
+                </div>
+                <div class="card-right">
+                    <div class="each-card" ms-for="($index,el) in @person_card">
+                        <div>
+                            <span class="card-out"><span class="card-in"></span></span>
+                            <span class="card-name">{{el.card_name}}</span>
+                        </div>
+                        <div class='card-con'>
+                            <!--<input ms-duplex="@person_card[$index].content|isNll" style="width:600px">-->
+                            <textarea name="con-many" id="con-many" ms-duplex="@person_card[$index].content|isNll"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--波浪线-->
+        <div class="wave-line" :if="@userType != 2">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <!--<div class="wave"></div>-->
+        </div>
+        <!--家长身份查看-->
+        <div class="parent-info parent-person-info" :if="@userType != 2">
+            <div class="parent-info-head">
+                <div class="am-fl parent-head">关联子女</div>
+            </div>
+            <div class="bse-msg">
+                <div>
+                    <div class="am-fl contact-kid-title" :if="@kid_ary.length>0">已关联子女</div>
+                    <div class="am-fl am-text-left kid-list">
+                        <!--ms-for:($idx,el) in @kid_ary-->
+                        <div>
+                            <span>{{el.student_name}}（{{el.student_num}}）</span>
+                            <span>{{el.school_name}}</span>
+                            <span>{{el.grade_name}}<span style="visibility: hidden">嗨</span>{{el.class_name}}班</span>
+                        </div>
+                        <!--ms-for-end:-->
+                        <div class="add-kid" :click="@add_kids()">添加子女（绑定）</div>
+                    </div>
+                </div>
+                <!--弹出框-->
+                <div class="am-modal" tabindex="-1" id="kid-model">
+                    <div class="am-modal-dialog">
+                        <div class="am-modal-hd">新增绑定子女信息
+                            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                        </div>
+                        <div class="am-modal-bd">
+                            <form class="am-form am-form-horizontal">
+                                <div class="am-form-group">
+                                    <label for="kid-name" class="am-u-sm-3 am-form-label">子女姓名</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" ms-duplex="@extend_kid.student_name" ms-on-blur="@kid_blur(1)" id="kid-name" class="am-modal-prompt-input kid-name">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="kid-code" class="am-u-sm-3 am-form-label">学籍号<span style="visibility: hidden">号</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" ms-duplex="@extend_kid.student_num" ms-on-blur="@kid_blur(2)" id="kid-code" class="am-modal-prompt-input kid-code">
+                                    </div>
+                                </div>
+                            </form>
+                            <!--添加子女信息显示-->
+                            <div class="kid-insure am-text-left" :if="@kid_insure">
+                                <!--性别：1：男；2：女-->
+                                <div>性别：
+                                    <span :if="@kid_return.sex == '1'">男</span>
+                                    <span :if="@kid_return.sex == '2'">女</span>
+                                </div>
+                                <div>学校：<span>{{@kid_return.school_name}}</span></div>
+                                <div><span>年级：{{@kid_return.grade_name}}</span></div>
+                                <div><span>班级：{{@kid_return.class_name}}班</span></div>
+                            </div>
+                            <span :if="@kid_msg != ''" style="color: red;font-size:14px;">{{@kid_msg}}</span>
+                        </div>
+                        <div class="am-modal-footer">
+                            <span class="am-modal-btn" :click="@save_kid()" data-am-modal-confirm="">保存</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

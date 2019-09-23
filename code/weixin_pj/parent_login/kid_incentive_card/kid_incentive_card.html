@@ -1,0 +1,90 @@
+<div ms-important="kid_incentive_card" id="kid_incentive_card" >
+    <div class="weui-cells">
+        <!--评价卡名称-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">评价卡名称</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" ms-duplex="@other.card_name" ms-on-blur="@nameExtend()"
+                       placeholder="请输入评价卡名称" type="text"/>
+            </div>
+        </div>
+        <!--发卡主体-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    发卡主体：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" ms-duplex="@extend.user_type" data-duplex-changed="@user_change()">
+                    <option ms-attr="{value:''}">
+                        请输入发卡主体
+                    </option>
+                    <option ms-attr="{value:1}">
+                        教师
+                    </option>
+                </select>
+            </div>
+        </div>
+        <!--开始时间-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">开始时间</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="start_date"  ms-duplex="@extend.start_date" ms-on-change="@start_date_change()"
+                       type="text" readonly="" placeholder="请输入开始时间">
+            </div>
+        </div>
+        <!--结束时间-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">结束时间</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="end_date"  ms-duplex="@extend.end_date" ms-on-change="@end_date_change()"
+                       type="text" readonly="" placeholder="请输入结束时间">
+            </div>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="con">
+        <!--ms-for:($idx,el) in @card_list-->
+        <div class="daily-person clearfix">
+            <!--头部-->
+            <div class="person-head">
+                <span>{{el.encourage_date|date("yyyy-MM-dd")}}</span>
+                <span ms-class="[el.score>0 ? 'add-score':'reduce-score']">{{el.b_card_name}}</span>
+            </div>
+            <!--内容和图片-->
+            <div class="person-con">
+                <div class="record-des">
+                    <h3>学校名称 ：</h3>
+                    <p>{{el.school_name}}</p>
+                </div>
+                <div class="record-des">
+                    <h3>年级名称 ：</h3>
+                    <p>{{elgrade_name}}</p>
+                </div>
+                <div class="record-des">
+                    <h3>发卡人 ：</h3>
+                    <p>{{el.b_user_type | gl_type}}</p>
+                </div>
+                <!--图片-->
+                <div class="img-ary record-des">
+                    <h3>卡片信息 ：</h3>
+                    <img ms-attr="{src:@url_for(@data_change(el.b_attachment)[0].guid)}">
+                </div>
+                <!--图片-->
+                <div class="img-ary record-des">
+                    <h3>上传依据 ：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(al.guid)}">
+                    <!--<img  ms-attr="{src:@url_img(al.guid)}" alt="图片">-->
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <!--暂无数据-->
+        <div ms-if="@card_list.length==0" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+</div>

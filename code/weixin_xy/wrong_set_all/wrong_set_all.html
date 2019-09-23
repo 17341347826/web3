@@ -1,0 +1,107 @@
+<div class="content" id="wrong-set-all" ms-controller="wrong_set_all">
+    <div id="exam_name">
+        <span>
+            — {{@exam_name}}&nbsp;&nbsp;{{@sub_name}} —
+        </span>
+    </div>
+    <div class="wrong-div" ms-for="(ind, el) in @wrong_data">
+        <!--题目-->
+        <div class="exam-per">
+            <p class="title-border">
+                <span class="wrong-title">
+                    题目:{{ind+1}}
+                </span>
+                <span ms-visible="showTitle">{{el.title}}</span>
+                <span class="score">
+                    得分:{{el.getScore}}/{{el.allScore}}
+                </span>
+            </p>
+            <div class="answer-img" ms-click="@btn_img(ind)">
+                <!--<img src="../common/images/subsystem.jpg">-->
+                <img ms-attr="{src:el.src1}"/>
+            </div>
+            <div ms-if="@img_type==ind" class="weui-gallery" style="display: block">
+                <!--<span class="weui-gallery__img" style="background-image: url('../../../common/images/subsystem.jpg');"></span>-->
+                <span class="weui-gallery__img" ms-css="{backgroundImage: 'url('+el.src1 + ')'}"></span>
+            </div>
+        </div>
+        <div ms-if="@click_index == ind">
+            <!--我的答案-->
+            <div class="exam-per answer">
+                <p class="title-border">
+                    <span class="wrong-title">我的答案：</span>
+                </p>
+                <div class="answer-img" ms-click="@btn_img_answer(ind)">
+                    <!--<img src="../common/images/yangyang2.jpg">-->
+                    <img ms-attr="{src:el.src2}"/>
+                </div>
+                <div ms-if="@my_answer_type==ind" class="weui-gallery" style="display: block">
+                    <!--<span class="weui-gallery__img" style="background-image: url('../../../common/images/yangyang2.jpg');"></span>-->
+                    <span class="weui-gallery__img" ms-css="{backgroundImage: 'url('+el.src2 + ')'}"></span>
+                </div>
+            </div>
+            <!--正确答案-->
+           <div class="exam-per answer">
+               <p class="title-border">
+                   <span class="wrong-title">正确答案：</span>
+               </p>
+               <div class="answer-img" ms-click="@btn_sure_answer(ind)">
+                   <!--<img src="../common/images/yangyang1.jpg">-->
+                   <img ms-attr="{src:el.src3}"/>
+               </div>
+               <div ms-if="@sure_answer_type==ind" class="weui-gallery" style="display: block">
+                   <!--<span class="weui-gallery__img" style="background-image: url('../../../common/images/yangyang1.jpg');"></span>-->
+                   <span class="weui-gallery__img" ms-css="{backgroundImage: 'url('+el.src3 + ')'}"></span>
+               </div>
+           </div>
+            <table>
+                <tr>
+                    <td class="condition-select">
+                        答错原因
+                    </td>
+                    <td>
+                        <span ms-attr="{value:1}" ms-class="[@click_index==ind && el.wrongReason==1 ? 'active':'no-active']"
+                              ms-click="@save_wrong_res(ind,1)">马虎</span>
+                    </td>
+                    <td>
+                        <span ms-attr="{value:2}" ms-class="[@click_index==ind && el.wrongReason==2 ? 'active':'no-active']"
+                              ms-click="@save_wrong_res(ind,2)">审题</span>
+                    </td>
+                    <td>
+                        <span ms-attr="{value:3}" ms-class="[@click_index==ind&&el.wrongReason==3 ? 'active':'no-active']"
+                              ms-click="@save_wrong_res(ind,3)">其他</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="condition-select">
+                        学习状态
+                    </td>
+                    <td>
+                        <span ms-attr="{value:2}" ms-class="[@click_index==ind && el.learningState==2 ? 'active1':'active0']"
+                              ms-click="@save_learning_state(ind,2)">已掌握</span>
+                    </td>
+                    <td>
+                        <span ms-attr="{value:1}" ms-class="[@click_index==ind && el.learningState==1 ? 'active1':'active0']"
+                              ms-click="@save_learning_state(ind,1)">未掌握</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--<div ms-class="[@click_index == ind ? 'bottom-div-down':'bottom-div-up']">-->
+            <div class="bottom-div bottom-div-up">
+                <span>题型:{{el.questions}}</span>
+                <span class="double-down" ms-on-click="@is_diaplay(ind)" ms-if="@click_index!=ind">
+                    <span class="am-icon-angle-double-down"></span>
+                </span>
+                <span class="double-up" ms-on-click="@is_diaplay(ind)" ms-if="@click_index==ind">
+                    <span class="am-icon-angle-double-up"></span>
+                </span>
+                <span>知识点:{{el.knowledgePoint}}</span>
+            </div>
+        <!--</div>-->
+    </div>
+    <!--没有数据-->
+    <div class="notice-msg" ms-if="@notice_msg!=''">
+        <span>{{@notice_msg}}</span>
+    </div>
+</div>

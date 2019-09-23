@@ -1,0 +1,125 @@
+<div ms-important="teacher_practice_see" id="teacher_practice_see" class="">
+    <div class="screen_demo normalPaddding">
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select"  data-duplex-changed="@gradeChange" ms-duplex-number="@fk_grade_id">
+                    <option ms-attr="{value:el.grade_id}" ms-for="el in @grade_list">
+                        {{ el.grade_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@classChange" ms-duplex-number="@extend.fk_class_id">
+                    <option ms-attr="{value:el.class_id}" ms-for="el in @class_list">
+                        {{ el.class_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@semesterChange" ms-duplex-number="@extend.fk_xq_id">
+                    <option ms-attr="{value:el.id}" ms-for="el in @semester_list">
+                        {{ el.semester_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <!--模块1品德 2艺术活动3社会实践4学业水平5身心健康-->
+                <select class="weui-select"  data-duplex-changed="@moduleChange()" ms-duplex="extend.mk">
+                    <option ms-attr="{value:1}">思想品德</option>
+                    <option ms-attr="{value:4}">学业水平</option>
+                    <option ms-attr="{value:5}">身心健康</option>
+                    <option ms-attr="{value:2}">艺术素养</option>
+                    <option ms-attr="{value:3}">社会实践</option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select last_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@stuChange" ms-duplex="@extend.xjh">
+                    <option ms-attr="{value:el.code}" ms-for="el in @stu_list">
+                        {{ el.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="list-con"  :visible="@list.length > 0">
+        <div class="content_info">
+            <!--ms-for:($idx,el) in @list-->
+            <div class="daily-person" ms-class="['s'+el.fk_xq_id]" ms-visible="el.mk != 6 && el.mk != 7">
+                <!--学生基本信息-->
+                <div class="stu-info left_mar right_mar">
+                    <div class="stu-info-img">
+                        <div class="stu-img">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}" alt="图片">
+                        </div>
+                    </div>
+                    <div class="stu-info-info">
+                        <div>
+                            <div class="stu-name">【{{$idx+1}}】{{el.xsxm}}</div>
+                            <div class="stu-xjh">{{el.xjh}}</div>
+                        </div>
+                        <div class="top_pad">
+                            <div class="stu-mkmc">{{el.mkmc}}</div>
+                            <div class="stu-cjsj">{{el.cjsj}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mk_info left_mar right_mar">
+                    <span>{{el.lx}}</span>
+                    <div class="row top_pad">
+                        <div>名称</div>
+                        <div>{{el.bt}}</div>
+                    </div>
+                    <div class="row">
+                        <div>参与成员</div>
+                        <div>{{el.cy}}</div>
+                    </div>
+                    <div class="row">
+                        <div>时长</div>
+                        <div>{{el.sc}}</div>
+                    </div>
+                    <div class="row">
+                        <div>地点</div>
+                        <div>{{el.dd}}</div>
+                    </div>
+                    <div class="row">
+                        <div>开始时间</div>
+                        <div>{{el.kssj}}</div>
+                    </div>
+                    <div class="row">
+                        <div>结束时间</div>
+                        <div>{{el.jssj}}</div>
+                    </div>
+                    <div class="row">
+                        <div>活动描述</div>
+                        <div>{{el.xxms}}</div>
+                    </div>
+                    <div class="row">
+                        <div>感想</div>
+                        <div>{{el.gx}}</div>
+                    </div>
+                    <div class="img-ary" style="">
+                        <!--ms-for:($idx2,e2l) in el.photo_guid-->
+                        <img ms-attr="{src:@url_img(e2l.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <div class="weui-loadmore" :visible="show_loader">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+    <div :visible="@list.length == 0" class="no-data">
+        <img src="../../../common/images/weixin_pj/no_data.png" alt="">
+    </div>
+</div>

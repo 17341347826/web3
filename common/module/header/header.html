@@ -1,0 +1,259 @@
+<div class="head-container am-cf" id="header">
+    <div class="head-top">
+        <!--logo-->
+        <div class="head-top-left">
+            <div class="head-logo" ms-click="@turn_index()">
+                <!--<a><img src="common/images/log_gck2.png"></a>-->
+                <div class="logo-text">
+                    <!-- <div>学生综合素质评价云平台</div> -->
+                    <div>
+                        <!--<span class="shugang-left"></span>-->
+                        <!--<span class="shugang-right"></span>                  -->
+                        <!--<img src="common/images/font_img_g.png" alt="">-->
+                        <img src="common/images/logo_text.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--消息、退出-->
+        <div class="head-top-right am-cf">
+            <!--<div class="person-msg">-->
+               <!--<div class="person-info" ms-on-click="@message_center">-->
+                   <!--<div class="person-img">-->
+                       <!--<img src="common/images/icon/banner_clock.png">-->
+                   <!--</div>-->
+                   <!--&lt;!&ndash;小红点&ndash;&gt;-->
+                   <!--<div class="msg-dot" :if="@red_dot">-->
+                       <!--<img src="../../../common/images/icon/banner_message.png">-->
+                   <!--</div>-->
+                   <!--&lt;!&ndash;消息&ndash;&gt;-->
+                   <!--<div class="head-name">-->
+                    <!--<span>-->
+                      <!--消息-->
+                    <!--</span>-->
+                   <!--</div>-->
+               <!--</div>-->
+            <!--</div>-->
+            <div class="person-msg">
+                <!--帮助-->
+                <div class="person-info" ms-on-click="@click_help">
+                    <div class="person-img">
+                        <img src="common/images/icon/help.png">
+                    </div>
+                    <!--消息-->
+                    <div class="head-name">
+                        <span>
+                          帮助
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="person-msg role-out" ms-class="[@role_box_display ? 'role_bac':'']" :if="@userType != '2' && @my_roles.length>1" ms-on-click="@role_over()">
+                <!--角色切换-->
+                <div class="person-info">
+                    <div class="person-img">
+                        <img src="common/images/icon/role_switch.png">
+                    </div>
+                    <div class="head-name">
+                        <span>
+                          角色切换
+                        </span>
+                        <img src="../../../common/images/icon/headr_triangle_samall.png" style="margin-left: 5px;">
+                    </div>
+                </div>
+                <!--角色切换下拉框-->
+                <div class="role-box popup" :if="@role_box_display">
+                    <span><em></em></span>
+                    <!--ms-for:($idx,el) in @my_roles-->
+                    <div class="role-name" :click="@role_change(el)">{{el.role_name}}</div>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <div class="head-top-line"></div>
+            <div class="head-top-out" ms-click="@quit">
+                <img src="../../../common/images/icon/banner_excit.png"/>
+                <span>退出</span>
+            </div>
+        </div>
+    </div>
+    <!--登录者信息开始-->
+    <div class="login-info">
+        <div class="login-cont">
+            <div class="login-ident">
+                <!--<span :if="@userType=='0'" id="sys-maganer">系统管理员</span>-->
+                <span :if="@userType=='1' && (@highest_level == 1 || @highest_level == 2 || @highest_level == 3 || @highest_level == 4)">管理者</span>
+                <span :if="@userType=='1' && (@highest_level == 5 || @highest_level == 6 || @highest_level == 41)">教师</span>
+                <span :if="@userType=='2'">学生</span>
+                <span :if="@userType=='3'">家长</span>
+            </div>
+            <div id="sys-maganer" :if="@userType=='0'">
+                <span>系统管理员</span>
+            </div>
+            <div class="login-header">
+                <!--<img src="../../../common/images/icon/all-menu-open.png" alt="">-->
+                <img :visible="@login_head == ''" src="../../../common/images/icon/person_head_mr.png" alt="">
+                <img :visible="@login_head != ''" ms-attr="{src:@login_head}" alt="">
+            </div>
+            <div class="login-name" ms-attr="{title:@user.name}">{{@user.name}}</div>
+            <!--学校---除家长身份外-->
+            <div class="login-work" :if="@userType != 3">
+                <img src="../../../common/images/icon/banner_work.png" style="vertical-align: inherit;">
+                <span ms-attr="{title:@user.school_name}">{{@user.school_name}}</span>
+            </div>
+            <!--子女切换---家长身份-->
+            <div class="login-work par-kid" :if="@userType == 3">
+               <span class="am-fl">子女：{{@current_kid}}</span>
+                <a class="am-fr" :click="@kid_change()" style="cursor: pointer">切换</a>
+            </div>
+            <div class="login-do">
+                <div class="login-upPwd" ms-on-click="@update_pwd">
+                    <span class="upPwd-img"></span>
+                    <span>账户安全</span>
+                </div>
+                <div class="login-pensonInfo" :click="@person_info">
+                    <span class="pensonInfo"></span>
+                    <span>个人信息</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--登录者信息结束-->
+    <!--一级菜单、二级菜单开始-->
+    <div class="head-menu" id="head-menu">
+        <div class="head-menu-ch" id="head-menu-ch">
+            <ul class="two-menu">
+                <!--ms-for: ($index1,el1) in @menu-->
+                <li class="two-menu-content" ms-class="[(@one_menu_index==$index1+1 ? 'one-menu-active':'')]">
+                    <!--只有一级菜单-->
+                    <!--<div :if="el1.elements.length==0">-->
+                    <!--<div :if="@menu[$index1].elements.length==0">-->
+                    <div :if="@menu[$index1].content.type[0] == 'skip'">
+                        <a class="two-menu-info" ms-attr="{href:el1.url}" ms-click-1="@click_one_menu($index1)"
+                           ms-click-2="@close_one_menu(el1.first_power,el1.power_code,$index1)"
+                           ms-click-3="@three_info(null)">
+                            <div class="two-logo"></div>
+                            <span class="two-menu-name">{{el1.first_power}}</span>
+                            <span class="menu-one-right"></span>
+                        </a>
+                    </div>
+                    <!--存在二级菜单-->
+                    <div :if="@menu[$index1].content.type[0] == 'expand'">
+                        <div class="two-menu-info"  ms-click="@click_one_menu($index1)">
+                            <div class="two-logo"></div>
+                            <span class="two-menu-name">{{el1.first_power}}</span>
+                            <span class="menu_right"></span>
+                        </div>
+                        <!--二级菜单-->
+                        <ul class="three-menu">
+                            <div class="three-menu-insert">
+                                <!--ms-for: ($index2,el2) in @menu[$index1].elements-->
+                                <!--<li class="three-menu-content" ms-class="[(one_menu_index==$index1+1 && two_menu_index==$index2+1 ? 'two-menu-active':'')]"-->
+                                    <!--ms-click-1="@close_menu(el1.first_power,el2.second_power, el2.power_code,$index1,$index2)"-->
+                                    <!--ms-click-2="@three_info(el2)">-->
+                                    <!--<a :if="@el2.content.type[0] == 'skip'" ms-attr="{href:el2.url}" class="three-logo"></a>-->
+                                    <!--<a :if="@el2.content.type[0] == 'skip'" ms-attr="{href:el2.url}">{{el2.second_power}}</a>-->
+                                    <!--<a :if="@el2.content.type[0] == 'expand'" ms-attr="{href:el2.elements[0].url}" class="three-logo"></a>-->
+                                    <!--<a :if="@el2.content.type[0] == 'expand'" ms-attr="{href:el2.elements[0].url}">{{el2.second_power}}</a>-->
+                                <!--</li>-->
+                                <li class="three-menu-content" ms-class="[(one_menu_index==$index1+1 && two_menu_index==$index2+1 ? 'two-menu-active':'')]"
+                                    ms-click-1="@close_menu(el1.first_power,el2.second_power, el2.power_code,$index1,$index2)"
+                                    ms-click-2="@three_info(el2)">
+                                    <a class="three-logo"></a>
+                                    <a>{{el2.second_power}}</a>
+                                </li>
+                                <!--ms-for-end:-->
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+                <!--ms-for-end:-->
+                <li class="dy-li">
+
+                </li>
+            </ul>
+        </div>
+        <!--向上向下滚动-->
+        <div class="menu-scoll" :if="@menu_icon == 1" :click="@menu_scoll('bottom','')">
+            <div>
+                <img src="../../../common/images/icon/scoll_down.png" alt="">
+            </div>
+        </div>
+        <div class="menu-scoll" id="scoll-middle"  :if="@menu_icon == 2">
+            <div :click="@menu_scoll('top','middle')">
+                <img src="../../../common/images/icon/scoll_top.png" alt="">
+            </div>
+            <div class="scoll-jg">
+                <span></span>
+                <span></span>
+            </div>
+            <div :click="@menu_scoll('bottom','middle')">
+                <img src="../../../common/images/icon/scoll_down.png" alt="">
+            </div>
+        </div>
+        <div class="menu-scoll" :if="@menu_icon == 3" :click="@menu_scoll('top','')">
+            <div>
+                <img src="../../../common/images/icon/scoll_top.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!--一级菜单、二级菜单结束-->
+
+    <!--二级菜单开始-->
+    <!--<div class="head-menu">-->
+        <!--<div class="head-menu-ch">-->
+            <!--<ul class="two-menu">-->
+                <!--&lt;!&ndash;ms-for: ($index2,el2) in @current_menu_msg&ndash;&gt;-->
+                <!--<li class="two-menu-content">-->
+                    <!--<div class="two-menu-info">-->
+                        <!--<div class="two-logo"></div>-->
+                        <!--&lt;!&ndash;<img class="two-logo" src="../../../common/images/icon/two_logo.png"/>&ndash;&gt;-->
+                        <!--<span class="two-menu-name">{{el2.title}}</span>-->
+                        <!--<span class="menu_right"></span>-->
+                        <!--&lt;!&ndash;<img class="menu_right" src="../../../common/images/icon/menu_right.png"/>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<ul class="three-menu">-->
+                       <!--<div class="three-menu-insert">-->
+                           <!--&lt;!&ndash;ms-for: ($index3,el3) in @el2.elements&ndash;&gt;-->
+                           <!--<li class="three-menu-content" ms-click="@close_menu(el2.title,el3.title, el3.func_code)">-->
+                               <!--<a ms-attr="{href:el3.href}" class="three-logo"></a>-->
+                               <!--<a ms-attr="{href:el3.href}">{{el3.title}}</a>-->
+                           <!--</li>-->
+                           <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                       <!--</div>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="see-all-menu"  data-am-modal="{target: '#all-menu-model', closeViaDimmer: 0}" :click="@see_all_menu">-->
+            <!--<a href="javascript:void(0);">-->
+                <!--<img src="../../../common/images/icon/all-menu-open.png"/>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--二级菜单结束-->
+
+    <!--家长-子女切换弹出框-->
+    <div class="am-modal" tabindex="-1" id="changeKid-model">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">切换子女
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <form class="am-form am-form-horizontal">
+                    <div class="am-form-group">
+                        <select id="select-kid" ms-duplex="@kid_info" data-duplex-changed="@kid_select()">
+                            <!--ms-for:($idx,el) in @kid_ary-->
+                            <option ms-attr="{value:$idx+'|'+el.id+'|'+el.student_name}">{{el.student_name}}</option>
+                            <!--ms-for-end:-->
+                        </select>
+                        <span class="am-form-caret"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" :click="@save_kid()" data-am-modal-confirm="">保存</span>
+            </div>
+        </div>
+    </div>
+</div>

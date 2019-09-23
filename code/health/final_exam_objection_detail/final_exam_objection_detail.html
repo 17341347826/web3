@@ -1,0 +1,202 @@
+<div class="am-g" id="final_exam_objection_detail" ms-important="final_exam_objection_detail">
+    <div :visible="!hidden"  style="padding: 15px;">
+        <h3 class="am-text-center am-padding-top-sm am-padding-bottom-sm">学业成绩详情</h3>
+
+        <div class="content-nr-nn" :for="el in old_score">
+            <div class="content-nr-one" :visible="count(headers, 'type', 'nor') != 0">
+                <h3>按分数记录成绩</h3>
+                <table class="am-table am-table-bordered">
+                    <tr>
+                        <td class="padding-td">科目</td>
+                        <td :for="sil in headers" :if="sil.type == 'nor'">{{sil.name}}</td>
+
+                    </tr>
+                    <tr>
+                        <td class="padding-td">成绩</td>
+                        <td :for="$index,sil in headers" :if="sil.type == 'nor'">
+                            {{el[sil.alias].value}}
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="content-nr-three" :visible="count(headers, 'type', 'pass') != 0">
+                <h3>按合格/不合格记录</h3>
+                <table class="am-table am-table-bordered">
+                    <tr>
+                        <td class="padding-td">科目</td>
+                        <td :for="sil in headers" :if="sil.type == 'pass'">{{sil.name}}</td>
+
+                    </tr>
+                    <tr>
+                        <td class="padding-td">成绩</td>
+                        <td :for="sil in headers" :if="sil.type == 'pass'">
+                            {{el[sil.alias].level}}
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="content-nr-two" :visible="count(headers, 'type', 'ABCD') != 0">
+                <h3>按A/B/C/D等级记录学科</h3>
+                <table class="am-table am-table-bordered" style="width: 300px;">
+                    <tr>
+                        <td class="padding-td">科目</td>
+                        <td :for="sil in headers" :if="sil.type == 'ABCD'">{{sil.name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="padding-td">成绩</td>
+                        <td :for="sil in headers" :if="sil.type == 'ABCD'">
+                            {{el[sil.alias].level}}
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!--异议列表-->
+        <h3 class="am-text-center am-padding-top-sm am-padding-bottom-sm">公示期异议数据</h3>
+        <table class="am-table am-table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>提出人</th>
+                <th>提出时间</th>
+                <th>原由</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for:$index,el in @dissent-->
+            <tr>
+                <td>{{$index+1}}</td>
+                <td>{{el.name}}</td>
+                <td>{{el.join}}</td>
+                <td>{{el.content}}</td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+        <div>
+            <h3 class="am-text-center am-padding-top-sm am-padding-bottom-sm">审核意见</h3>
+
+            <div class="am-form-group am-margin-left-sm">
+                <label class="am-radio-inline">
+                    <input type="radio" ms-duplex="@is_pass" name="docInlineRadio" value="11"> 无异议(归档)
+                </label>
+                <label class="am-radio-inline">
+                    <input type="radio" ms-duplex="@is_pass" name="docInlineRadio" value="22"> 有异议(更正结果)
+                </label>
+            </div>
+        </div>
+        <div :visible="@is_pass==22" id="update_table">
+            <h3 class="am-text-center am-padding-top-sm am-padding-bottom-sm">成绩修正</h3>
+            <div class="content-nr-nn" :for="si, score in new_score">
+                <div class="content-nr-one" :visible="count(headers, 'type', 'nor') != 0">
+                    <h3>按分数记录成绩</h3>
+                    <table class="am-table am-table-bordered">
+                        <tr>
+                            <td class="padding-td">科目</td>
+                            <td :for="item in headers" :if="item.type == 'nor'">{{item.name}}</td>
+
+                        </tr>
+                        <tr>
+                            <td class="padding-td">原始成绩</td>
+                            <td :for="$index,item in @headers" :if="item.type == 'nor'">
+                                {{ old_score[si][item.alias].value }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="padding-td">成绩</td>
+                            <td :for="$index,item in @headers" :if="item.type == 'nor'">
+                                <input type="number" :duplex="score[item.alias].value"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="content-nr-three" :visible="count(headers, 'type', 'pass') != 0">
+                    <h3>按合格/不合格记录</h3>
+                    <table class="am-table am-table-bordered">
+                        <tr>
+                            <td class="padding-td">科目</td>
+                            <td :for="item in headers" :if="item.type == 'pass'">{{item.name}}</td>
+
+                        </tr>
+                        <tr>
+                            <td class="padding-td">原始成绩</td>
+                            <td :for="$index,item in @headers" :if="item.type == 'pass'">
+                                {{ old_score[si][item.alias].level }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="padding-td">成绩</td>
+                            <td :for="item in @headers" :if="item.type == 'pass'">
+                                <select ms-duplex-string="@score[item.alias].value">
+                                    <option value="">请选择</option>
+                                    <option value="1">合格</option>
+                                    <option value="0">不合格</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="content-nr-two" :visible="count(headers, 'type', 'ABCD') != 0">
+                    <h3>按A/B/C/D等级记录学科</h3>
+                    <table class="am-table am-table-bordered" style="width: 300px;">
+                        <tr>
+                            <td class="padding-td">科目</td>
+                            <td :for="item in headers" :if="item.type == 'ABCD'">{{item.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="padding-td">原始成绩</td>
+                            <td :for="$index,item in @headers" :if="item.type == 'ABCD'">
+                                {{ old_score[si][item.alias].level }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="padding-td">成绩</td>
+                            <td :for="item in headers" :if="item.type == 'ABCD'">
+                                <select ms-duplex-string="score[item.alias].value">
+                                    <option value="">请选择</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div :visible="@is_pass != ''" class="am-form-group am-u-sm-12" style="padding-top: 15px;">
+
+            <h3 class="am-text-center am-padding-top-sm am-padding-bottom-sm">材料说明</h3>
+            <div class="am-u-sm-11">
+                <textarea placeholder="请说明核实结果" ms-duplex="@data.content" ms-rules="{required:true}"
+                          rows="5"></textarea>
+            </div>
+        </div>
+        <div :visible="@is_pass != ''" class="am-form-group am-u-sm-12">
+
+            <h3 class="am-text-center am-padding-top-sm am-padding-bottom-sm">上传审核材料</h3>
+            <div class="am-u-sm-11">
+                <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'final_uploader',id:'final_uploader', files:@files, url:@uploader_url}">
+                </xmp>
+            </div>
+        </div>
+        <div :visible="@is_pass != ''" class="am-form-group am-u-sm-12 am-text-center" id="submitBtnDiv">
+            <a class="am-btn am-btn-default" href="javascript:history.go(-1);">
+                取消
+            </a>
+            <button class="am-btn am-btn-primary am-margin-left-lg" ms-click="@check" type="button">
+                提交
+            </button>
+        </div>
+    </div>
+</div>

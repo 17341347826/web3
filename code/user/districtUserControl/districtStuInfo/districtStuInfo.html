@@ -1,0 +1,35 @@
+<div class="am-g" id="user_div" ms-important="table">
+ <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+ <div class="am-text-left" id="demand">
+  <form class="am-form am-form-inline">
+   <div class="am-form-group">
+    <label class="am-form-label">
+     学校名称
+    </label>
+    <div class="form-width-lg">
+     <input ms-blur="@schoolNameSearch()" ms-duplex="@other.school_name" placeholder="请输入学校名称" type="text"/>
+    </div>
+   </div>
+   <div class="am-form-group">
+    <label class="am-form-label">
+     学籍号
+    </label>
+    <div class="form-width-lg">
+     <input ms-blur="@studentNumSearch()" ms-duplex="@other.student_num" placeholder="请输入学校代码" type="text"/>
+    </div>
+   </div>
+   <div class="am-form-group">
+    <label class="am-form-label">
+     姓名
+    </label>
+    <div class="form-width-lg">
+     <input ms-blur="@studentNameSearch()" ms-duplex="@other.student_name" placeholder="请输入学生姓名" type="text"/>
+    </div>
+   </div>
+  </form>
+ </div>
+ <div>
+  <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+  </xmp>
+ </div>
+</div>

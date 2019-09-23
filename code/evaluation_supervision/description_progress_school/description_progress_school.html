@@ -1,0 +1,140 @@
+<div ms-important="description_progress_school" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            描述性评价录入进度（学校）
+        </div>
+        <div class="tb-content" ms-visible="@school_table_list.length>0">
+            <div class="tu-biao">
+                <div class="biao-title">
+                    年级录入进度
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自我描述</td>
+                        <td colspan="3">同学寄语</td>
+                        <td colspan="3">老师寄语</td>
+                        <td rowspan="2">总完成率</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @school_table_list">
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{filter_undefined(el.school_cnt.zw_yp)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.zw_wp)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.zw_wcl)}}%</td>
+                        <td>{{filter_undefined(el.school_cnt.tx_yp)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.tx_wp)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.tx_wcl)}}%</td>
+                        <td>{{filter_undefined(el.school_cnt.js_yp)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.js_wp)}}</td>
+                        <td>{{filter_undefined(el.school_cnt.js_wcl)}}%</td>
+                        <td>{{filter_undefined(el.school_cnt.wcl)}}%</td>
+                    </tr>
+                    <tr ms-visible="@school_table_list.length==0">
+                        <td colspan="12">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="school_table_list.length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            描述性评价进度（班级）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_class(@class_table_list).length>0">
+                <div class="biao-title">
+                    班级录入进度
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@class_list,sel_check:@class_change,head_value:'请选择班级',empty_alert:'请先选择年级'}"></xmp>
+                    </div>
+                </div>
+
+                <table class="am-table am-table-bordered" ms-visible="@filter_class(@class_table_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">班级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自我描述</td>
+                        <td colspan="3">同学寄语</td>
+                        <td colspan="3">老师寄语</td>
+                        <td rowspan="2">总完成率</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <tr ms-for="$idx,el in @filter_class(@class_table_list)">
+                        <td>{{el.njmc}}-{{el.bjmc}}班</td>
+                        <td>{{el.xssl}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.zw_yp)}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.zw_wp)}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.zw_wcl)}}%</td>
+                        <td>{{filter_undefined(el.school_class_cnt.tx_yp)}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.tx_wp)}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.tx_wcl)}}%</td>
+                        <td>{{filter_undefined(el.school_class_cnt.js_yp)}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.js_wp)}}</td>
+                        <td>{{filter_undefined(el.school_class_cnt.js_wcl)}}%</td>
+                        <td>{{filter_undefined(el.school_class_cnt.wcl)}}%</td>
+                    </tr>
+                    <tr ms-visible="@school_table_list.length==0">
+                        <td colspan="12">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="@filter_class(@class_table_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

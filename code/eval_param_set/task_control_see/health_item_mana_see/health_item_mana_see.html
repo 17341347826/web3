@@ -1,0 +1,34 @@
+<div ms-important="health_item_mana_see" id="health_item_mana_see">
+    <!--<xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>-->
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="chosen am-fl">测评项目</div>
+            <div class="am-fl"  ms-on-click="@test_scheme()">测评方案</div>
+            <div class="am-fl"  ms-on-click="@test_task()">测评任务</div>
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--<div class="select">-->
+            <!--<div class="old-select">-->
+            <!--<select ms-duplex-number="@extend.due_grade">-->
+            <!--<option ms-attr="{value:''}">-->
+            <!--请选择年级-->
+            <!--</option>-->
+            <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+            <!--<option ms-attr="{value:el.id}">-->
+            <!--{{ el.remark }}【{{el.id}}】-->
+            <!--</option>-->
+            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,params:@params,extend:@extend,theadTh:@theadTh,cbopt:@cbopt, is_init:true}">
+            </xmp>
+        </div>
+    </div>
+</div>

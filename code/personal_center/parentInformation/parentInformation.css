@@ -1,0 +1,167 @@
+#parentInformation{
+    background-color: white;
+    color:#a2a2a2;
+}
+#parentInformation>div{
+    width: 80%;
+    margin: 0 auto;
+}
+#parentInformation .parent_frame{
+    /*text-align:center;*/
+}
+#parentInformation .parent_frame .parent_title{
+    text-align:center;
+    font-size:20px;
+    /*font-weight: bold;*/
+    color:#a2a2a2;
+}
+/*家长信息内容*/
+/*所有家长信息框*/
+#parentInformation .parent_frame .parentContents{
+    margin-top:40px;
+    margin-bottom:40px;
+    overflow: hidden;
+    padding-left:20px;
+}
+#parentInformation .parent_frame .parentContents .parent_content{
+    border:1px solid #d3d3d3;
+    border-radius: 10px;
+    /*margin-top:40px;*/
+    width:350px;
+    height:382px;
+    float:left;
+    margin-left:40px;
+    margin-top: 20px;
+}
+.contTitle{
+    text-align:center;
+    font-size:18px;
+    margin-top:20px;
+    font-weight: 600;
+}
+.contInfor{
+    margin-top:25px;
+    width:80%;
+    margin-left:10%;
+    /*border:1px solid red;*/
+    /*position: relative;*/
+    /*overflow: hidden;*/
+}
+.userName,.parentName,.phone{
+    border-bottom:1px solid #E3E3E3;
+    margin-bottom:20px;
+}
+.contInfor_left{
+    margin-right:30px;
+}
+/*是、不是*/
+.insureInformation{
+    /*margin-bottom:15px;*/
+    margin-top:20px;
+    padding-left: 30px;
+}
+.insureInformation>span{
+    display:inline-block;
+    width:70px;
+    height:35px;
+    line-height: 35px;
+    border-radius: 5px;
+    color:#fff;
+    text-align: center;
+}
+/*不是*/
+.insureInformation #parentNo{
+    background-color:#3399FF;
+    cursor: pointer;
+}
+/*是*/
+.insureInformation #parentYes{
+    background-color:#FF9933;
+    margin-left:40px;
+    cursor: pointer;
+}
+#parentInformation .parent_frame .parentContents .parent_content .carefurMsg{
+    text-align:left;
+    font-size: .9em;
+    margin: 10px 21px;
+}
+
+
+/*判断该用户不是你家长*/
+/*#model-btn-yes{*/
+/*border-left:none;*/
+/*}*/
+/*.no_btn_no,.no_btn_yes{*/
+/*display:inline-block;*/
+/*!*width:60px;*!*/
+/*!*height:30px;*!*/
+/*!*line-height: 30px;*!*/
+/*color:#fff;*/
+/*!*border-radius: 5px;*!*/
+/*}*/
+/*.no_btn_no{*/
+/*background-color:#3399FF;*/
+/*}*/
+/*.no_btn_yes{*/
+/*background-color:#FF9933;*/
+/*margin-left:30px;*/
+/*}*/
+
+/*已确认*/
+/*.insured{*/
+/*background-color: #ccc;*/
+/*color:#fff;*/
+/*width:150px;*/
+/*height:40px;*/
+/*line-height: 40px;*/
+/*text-align: center;*/
+/*border-radius: 5px;*/
+/*margin-left:90px;*/
+/*!*position: absolute;*!*/
+/*!*left:50%;*!*/
+/*}*/
+#resetPwd,#applyCla{
+    color:#599FFF;
+    border-bottom: 1px solid #599FFF;
+    cursor: pointer;
+}
+.carefurMsg{
+    color:red;
+}
+/*变化部分*/
+.chang_disc{
+    /*border:1px solid blue;*/
+    text-align: center;
+    margin-top:40px;
+}
+.insured{
+    background-color: #ccc;
+    color:#fff;
+    width:150px;
+    height:40px;
+    line-height: 40px;
+    display:inline-block;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom:10px;
+}
+/*申请重新关联*/
+#resetAsc{
+    border-bottom:1px solid #599FFF;
+    margin-top:20px;
+    cursor: pointer;
+}
+#applyCla{
+    margin-top:10px;
+}
+#resEnsure{
+    display:inline-block;
+    border-radius: 5px;
+    color:#fff;
+    width:60px;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+    background-color:#FF9933;
+    cursor: pointer;
+}

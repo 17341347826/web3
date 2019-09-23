@@ -1,0 +1,31 @@
+<div class="am-g" id="set_desktop" ms-important="set_desktop">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--已经添加的-->
+    <div class="am-cf">
+        <div class="am-fr save_btn" ms-on-click="@save_click">保存</div>
+    </div>
+    <div class="am-padding-top-sm am-cf" :if="@saved_list_show.length > 0 ">
+        <div class="title am-cf">
+            <div class="am-fl">删除</div>
+        </div>
+        <!--ms-for: el in @saved_list_show-->
+        <div class="module_div am-margin-left-lg am-margin-top-lg am-margin-bottom-lg am-fl" ms-on-click="@del_click(el)">
+            <span>{{el.second_power}}</span>
+            <img src="common/images/icon/desktop_delete.png" alt="">
+        </div>
+        <!--ms-for-end:-->
+    </div>
+    <!--还没添加的-->
+    <div class="am-margin-top-lg am-cf" :if="@all_product_show.length > 0">
+        <div class="title">添加</div>
+        <!--ms-for: el in @all_product_show-->
+
+        <div class="module_div am-margin-left-lg am-margin-top-lg am-margin-bottom-lg am-fl" ms-on-click="@add_click(el)">
+            <span>{{el.second_power}}</span>
+            <img src="common/images/icon/desktop_check.png" alt="">
+        </div>
+
+        <!--ms-for-end:-->
+
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<div ms-important="index_statistical_integral" id="index_statistical_integral">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div class="first-index clearfix">
+            <div class="am-fl">
+                <!--ms-for:($index,el) in @index_list-->
+                <div :class="['am-fl',(@checked_first_index == $index ? 'chosen':'')]" ms-click="@click_first_index($index,el)">{{el.index_name}}</div>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <div class="radios">
+            <label class="am-radio-inline">
+                <input type="radio" value="1" name="radios-check" id="option1" class="rdo"
+                       ms-duplex-number="@time_type" data-duplex-changed="@typeChange">
+                <label ms-attr="{for:'option1'}">按时间段</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" value="2" name="radios-check" id="option2" class="rdo"
+                       ms-duplex-number="@time_type" data-duplex-changed="@typeChange">
+                <label ms-attr="{for:'option2'}">按周次</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" value="3" name="radios-check" id="option3" class="rdo"
+                       ms-duplex-number="@time_type" data-duplex-changed="@typeChange">
+                <label ms-attr="{for:'option3'}">按月份</label>
+            </label>
+        </div>
+    </div>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade}"></xmp>
+            </div>
+            <div class="select" :if="@time_type != 1">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@sem_list,sel_check:@change_sem,head_value:@head_value.semester}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class}"></xmp>
+            </div>
+            <div class="select" :if="@time_type == 1">
+                <div class="form-input">
+                    <input type="text" data-am-datepicker="" id="my-datepicker" readonly
+                           ms-attr="{value:@time_data.start_date}" ms-on-focus="@getCompleteDate"
+                           ms-rules="{required:true}">
+                </div>
+            </div>
+            <div class="select" :if="@time_type == 1">
+                <div class="form-input">
+                    <input  data-am-datepicker="" id="my-datepickers" readonly
+                           ms-attr="{value:@time_data.end_date}" ms-on-focus="@getCompleteDates"
+                           ms-rules="{required:true}" type="text"/>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="i-s-i-div" :visible="@timeInfo.length > 0">
+        <div class="table-module">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>评价维度</th>
+                    <th :visible="@time_data.type != 1">评价要素</th>
+                    <th :visible="@time_data.type == 3">关键表现</th>
+                    <th>加分</th>
+                    <th>减分</th>
+                    <th>总分</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index, el) in @timeInfo">
+                    <td>{{$index+1}}</td>
+                    <td>{{el.yjzbmc}}</td>
+                    <td :visible="@time_data.type != 1">{{el.ejzbmc}}</td>
+                    <td :visible="@time_data.type == 3" class="max-width-td">{{el.sjzbmc}}</td>
+                    <td>{{el.jiafen}}</td>
+                    <td>
+                        <span :visible="el.jianfen == ''">0</span>
+                        <span :visible="el.jianfen != ''">{{el.jianfen}}</span>
+                    </td>
+                    <td>{{el.zf}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="i-s-i-div" :if="@week_or_month_info.list.length > 0">
+        <div class="table-module">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>评价维度</th>
+                    <th :visible="@w_m_data.type != 1">评价要素</th>
+                    <th :visible="@w_m_data.type == 3">关键表现</th>
+                    <!--ms-for: col in @week_or_month_info.message-->
+                    <th>{{col}}</th>
+                    <!--ms-for-end:-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="($index, el) in @week_or_month_info.list">
+                    <td>{{$index+1}}</td>
+                    <td>{{el.yjzbmc}}</td>
+                    <td :visible="@time_data.type != 1">{{el.ejzbmc}}</td>
+                    <td :visible="@time_data.type == 3" class="max-width-td">{{el.sjzbmc}}</td>
+                    <!--ms-for: ($in,xl) in @el.df-->
+                    <td :visible="$in != el.df.length-1">{{xl}}</td>
+                    <!--ms-for-end:-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="public_div" :visible="(@time_type == 1 && @timeInfo.length == 0) || (@time_type != 1 && @week_or_month_info.list.length == 0)">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+</div>

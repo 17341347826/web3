@@ -1,0 +1,194 @@
+@charset "utf-8";
+#error_detail {
+    background-color: #f4f4f4;
+    padding-bottom: 20px
+}
+
+#error_detail > div {
+    background-color: #fff
+}
+
+#error_detail > div:first-child {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #777;
+    background-color: #f4f4f4
+}
+
+#error_detail > div:first-child span {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+#error_detail > div:first-child .time {
+    float: left
+}
+
+#error_detail > div:first-child .err-num {
+    float: right
+}
+
+#error_detail .each-problem {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f4f4f4
+}
+
+#error_detail .each-problem > div:first-child {
+    height: 24px;
+    line-height: 24px
+}
+
+#error_detail .problem {
+    float: left;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #ff8813
+}
+
+#error_detail .wrong-grade {
+    float: right;
+    font-size: 14px;
+    color: #adadad;
+    padding-right: 15px
+}
+
+#error_detail .wrong-grade img {
+    height: 12px
+}
+
+#error_detail .problem-pic {
+    padding: 5px
+}
+
+#error_detail .problem-pic img {
+    width: 100%;
+    max-width: 100%
+}
+
+#error_detail .knowledge {
+    border-bottom: 1px solid #f4f4f4
+}
+
+#error_detail .knowledge > div:first-child {
+    padding-top: 10px;
+    padding-left: 10px
+}
+
+#error_detail .knowledge > div:first-child span {
+    font-size: 14px;
+    color: #f7a300;
+    vertical-align: bottom
+}
+
+#error_detail .knowledge > div:first-child span:last-child {
+    margin-left: 10px
+}
+
+#error_detail .knowledge > div:last-child {
+    margin-top: 10px
+}
+
+#error_detail .knowledge > div:last-child span {
+    padding: 6px 17px;
+    color: #ff8c8c;
+    border: 1px solid #ffecec;
+    margin-left: 9px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-radius: 20px;
+    font-size: 12px
+}
+
+#error_detail .knowledge .know-icon {
+    display: inline-block;
+    width: 16px;
+    height: 23px;
+    background: url("../../../../common/images/xy/subject/knowledge.png") center no-repeat
+}
+
+#error_detail .history-ans {
+    padding-bottom: 12px;
+    border: 1px solid #f4f4f4
+}
+
+#error_detail .history-ans .his-title {
+    height: 28px
+}
+
+#error_detail .history-ans > div:first-child {
+    padding-top: 10px;
+    padding-left: 10px
+}
+
+#error_detail .history-ans > div:first-child span {
+    font-size: 14px;
+    color: #b286e9;
+    vertical-align: bottom
+}
+
+#error_detail .history-ans > div:first-child span:last-child {
+    margin-left: 10px
+}
+
+#error_detail .history-ans .his-icon {
+    display: inline-block;
+    width: 16px;
+    height: 23px;
+    background: url("../../../../common/images/xy/subject/history.png") center no-repeat
+}
+
+#error_detail .right-ans {
+    padding-bottom: 12px;
+    border: 1px solid #f4f4f4
+}
+
+#error_detail .right-ans > div:first-child {
+    padding-top: 10px;
+    padding-left: 10px
+}
+
+#error_detail .right-ans > div:first-child span {
+    font-size: 14px;
+    color: #3dd194;
+    vertical-align: bottom
+}
+
+#error_detail .right-ans > div:first-child span:last-child {
+    margin-left: 10px
+}
+
+#error_detail .right-ans .right-title {
+    height: 28px
+}
+
+#error_detail .right-ans .right-icon {
+    display: inline-block;
+    width: 19px;
+    height: 23px;
+    background: url("../../../../common/images/xy/subject/right.png") center no-repeat
+}
+
+#error_detail .smart {
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: 14px
+}
+#error_detail .clear_right{
+    clear: both;
+}
+#error_detail .master-remark{
+    float:right;
+    padding-right: 15px;
+
+}
+#error_detail .master-remark>img{
+    width: 26px;
+    float:left;
+}
+#error_detail .master-remark>span{
+    line-height:26px;
+    margin-left:8px;
+}

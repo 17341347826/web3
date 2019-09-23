@@ -1,0 +1,37 @@
+<div ms-important="d_e_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@class_change,head_value:'请选择班级'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="biao-ge">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>学籍号</td>
+                    <td>年级</td>
+                    <td>班级</td>
+                    <td>操作</td>
+                </tr>
+                <tr ms-for="($index,el) in @student_list">
+                    <td>{{$index+1}}</td>
+                    <td>{{el.student_name}}</td>
+                    <td>{{el.student_num}}</td>
+                    <td>{{el.grade_name}}</td>
+                    <td>{{el.class_name}}班</td>
+                    <td>{{el.dj | str_static}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

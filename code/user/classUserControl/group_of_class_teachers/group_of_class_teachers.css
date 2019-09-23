@@ -1,0 +1,28 @@
+#group_of_class_teachers_div p{
+    color:red;
+    text-align: center;
+}
+#group_of_class_teachers_div .am-table{
+    margin-bottom: 0px;
+}
+#group_of_class_teachers_div{
+    background-color: #f1f2f6;
+}
+#group_of_class_teachers_div>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#group_of_class_teachers_div>div.g-of-t-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#group_of_class_teachers_div .table_module{
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}
+#group_of_class_teachers_div #add-confirm label,
+#group_of_class_teachers_div #update-confirm label{
+    color:#a2a2a2;
+}

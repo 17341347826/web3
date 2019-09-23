@@ -1,0 +1,13 @@
+#teacher_content_list{
+    background-color: #f5f5f5;
+}
+#teacher_content_list .content{
+    background-color: white;
+    border-bottom: 1px #d2d2d2 dashed;
+    padding: 8px;
+    color: #777777;
+    font-size: 12px;
+}
+#teacher_content_list .no_border{
+    border: none;
+}

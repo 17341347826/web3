@@ -1,0 +1,52 @@
+#new_parent_msg .new_parent_msg_con{
+    margin-top: 10px;
+}
+#new_parent_msg .every_stu{
+    height: auto;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px #cecece;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+#new_parent_msg .every_stu>div{
+    padding-left: 26px;
+    padding-right: 26px;
+}
+#new_parent_msg .every_stu>.stu_info{
+    height: 47px;
+    background-color: #e0ebff;
+    line-height: 47px;
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #2f60b8;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#new_parent_msg .every_stu>.stu_plan{
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    letter-spacing: 0px;
+    color: #8d8d8d;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    display: flex;
+}
+#new_parent_msg .every_stu>.stu_plan>div.stu_plan1{
+    flex: 1;
+}
+#new_parent_msg .every_stu>.stu_plan>div.stu_plan2{
+    flex: 4;
+}
+#new_parent_msg .public_btn{
+    border-top:1px #eeeeee solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

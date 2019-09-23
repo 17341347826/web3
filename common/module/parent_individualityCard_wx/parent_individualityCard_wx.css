@@ -1,0 +1,17 @@
+/**/
+#card-tab_div{
+    font-size:1em;
+}
+#card-tab_div .weui-cells {
+     /*margin-top: 1.17647059em; */
+    margin-top:0;
+}
+#card-tab_div .weui-cells:before {
+    border-top:none;
+}
+#card-tab_div .weui-cells:after {
+    border-bottom:none;
+}
+#card-tab_div .weui-cells .weui-cell:before {
+    border-top:none;
+}

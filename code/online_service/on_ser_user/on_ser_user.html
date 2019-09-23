@@ -1,0 +1,53 @@
+<div class="on-line-bc" ms-important="start">
+    <div class="online-title">
+  <span>
+   兴唐客服
+  </span>
+        <span class="is-online">
+  </span>
+        <div class="presentation">
+   <span>
+    服务时间(工作日):9:00-17:00   客服电话(7*24小时):400-028-4088
+   </span>
+        </div>
+    </div>
+    <div class="online-main" style="">
+        <div class="no-msg">
+            没有聊天记录
+        </div>
+        <div class="chat-time">
+            {{@self_currentdate}}
+        </div>
+        <ul id="chat-msg">
+
+        </ul>
+    </div>
+    <div class="send-msg-container">
+        <form enctype="multipart/form-data" id="uploadForm" method="post">
+            <div class="send-icons">
+                <button class="am-btn am-btn-default am-btn-sm smile-icon" type="button">
+                    <i class="icon iconfont icon-xiaolian">
+                    </i>
+                </button>
+                <div class="am-form-group am-form-file uploader-icon">
+                    <button class="am-btn am-btn-default am-btn-sm" type="button">
+                        <i class="am-icon-file-photo-o">
+                        </i>
+                    </button>
+                    <input accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" id="uploaderInput" type="file"/>
+                </div>
+            </div>
+        </form>
+        <div class="am-form-group input-container">
+            <div class="edit" contenteditable="true" id="msg" ms-html="@msg_content" ms-keydown="send($event)">
+            </div>
+
+            <button class="am-btn am-btn-danger send-btn" ms-click="sendMsg()" type="button">
+                发送
+            </button>
+        </div>
+    </div>
+    <div id="msg-fade" ms-on-click="@close_fade" ms-visible="@show_fade">
+        <img ms-attr="{src:@img_url}" ms-click="@fade_img_click($event)"/>
+    </div>
+</div>

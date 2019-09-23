@@ -1,0 +1,127 @@
+#stu_no_selected_material{
+    margin-top: 10px;
+    font-family: PingFang-SC-Regular;
+}
+#stu_no_selected_material .normalPaddding {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+#stu_no_selected_material .screen_demo{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#stu_no_selected_material .screen_demo .weui-cell_select {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+/*内容*/
+#stu_no_selected_material .con{
+    /*margin-top:10px;*/
+    padding-top:10px;
+    background-color: #f6f6f6;
+}
+#stu_no_selected_material .con>div{
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:7px;
+    background-color: #fff;
+}
+#stu_no_selected_material .con .daily-person{
+
+}
+/*头部*/
+#stu_no_selected_material .person-head{
+    /*height:35px;*/
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 35px;
+    border-bottom: dotted 1px #eaeaea;
+    font-size: 14px;
+    color: #8d8d8d;
+}
+#stu_no_selected_material .person-head span{
+    display: inline-block;
+}
+#stu_no_selected_material .person-head span:first-child{
+    text-align: left;
+}
+#stu_no_selected_material .person-head span:last-child{
+    float: right;
+    /*text-align: right;*/
+}
+#stu_no_selected_material  .person-con{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+#stu_no_selected_material .record-des{
+    margin-bottom:8px;
+}
+#stu_no_selected_material .record-des h3{
+    float: left;
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #444444;
+}
+#stu_no_selected_material .record-des p{
+    font-size: 13px;
+    font-weight: normal;
+    color: #998a87;
+    /*换行*/
+    word-wrap: break-word;
+}
+#stu_no_selected_material .img-ary{
+    overflow: hidden;
+    border-radius: 5px;
+}
+#stu_no_selected_material .img-ary img{
+    width:100%;
+    border-radius: 5px;
+}
+/*按钮*/
+#stu_no_selected_material .btns{
+    text-align: center;
+}
+#stu_no_selected_material .btns span{
+    width: 146px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #2bbba4;
+    border-radius:4px;
+    color:#fff;
+}
+#stu_no_selected_material .btns span:hover {
+    background-color: #2bbb7c;
+}
+/*三级菜单*/
+#stu_no_selected_material .three-menu{
+    text-align: center;
+}
+#stu_no_selected_material .three-menu>div {
+    width: 33%;
+}
+#stu_no_selected_material .three-menu .menu-check{
+    border-bottom:1px solid #A745F1;
+    color:#A745F1;
+}
+#stu_no_selected_material .file-name{
+    font-size: 16px;
+    line-height: 36px;
+}
+#stu_no_selected_material .my-icon{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+#stu_no_selected_material .my-icon.file{
+    background-image: url("../../../../common/images/weixin_pj/file.png");
+}
+#stu_no_selected_material .my-icon.video{
+    background-image: url("../../../../common/images/weixin_pj/video.png");
+}

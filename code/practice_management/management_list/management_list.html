@@ -1,0 +1,59 @@
+<div ms-important="management_list" id="management_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+            </div>
+            <div class="search-btn" ms-on-click="@create">
+                <input type="button" value="创建">
+            </div>
+        </div>
+    </div>
+    <div class="table-module">
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,remember:@remember,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+        </xmp>
+        <!--选择老师-->
+        <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+            <div class="am-modal-dialog" style="margin-top: 75px;">
+                <div class="am-modal-hd">
+                    指定教师
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <div class="am-text-left">
+                        <div class="am-form-group teachers-content">
+                            <div class="teacher_div am-margin-left-sm am-text-center">
+                                <input class="teacher_" type="text" placeholder="请输入教师姓名" :duplex="@fill_te" ms-on-keyup="@click_do">
+                            </div>
+                            <!--ms-for: ($index,el) in @all_teacher-->
+                            <div  class="am-margin-left-sm am-margin-right-sm each-teacher">
+                                <label class="am-checkbox-inline">
+                                    <input type="checkbox" ms-attr="{value:el.guid+'|'+el.teacher_name}"
+                                           ms-duplex="@choose_teacher">
+                                    <span class="teacher-name">{{el.teacher_name}}</span>-{{el.teacher_num}}
+                                </label>
+                            </div>
+                            <!--ms-for-end:-->
+                        </div>
+                        <p>{{@msg_te}}</p>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel="">
+                        取消
+                    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@save()">
+                        确定
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

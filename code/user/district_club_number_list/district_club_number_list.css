@@ -1,0 +1,47 @@
+#district_club_number_list{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+}
+#district_club_number_list >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#district_club_number_list .ul_tab{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+#district_club_number_list  .ul_tab>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#district_club_number_list >div.ul_tab>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../common/images/chosen.png') no-repeat top right;
+}
+#district_club_number_list .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#district_club_number_list .table_module>table{
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}

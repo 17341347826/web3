@@ -1,0 +1,71 @@
+#graduation_result_view{
+    background-color: #f5f5f5;
+}
+#graduation_result_view >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#graduation_result_view .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+}
+#graduation_result_view .list-con .table-module{
+    border-radius: 4px;
+}
+.import-content{
+    display: inline-block;
+    position: relative;
+}
+.import-input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    width: 66px;
+    height: 37px;
+}
+.error-layer{
+    display: none;
+}
+.success-count{
+    font-size: 16px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+.error-msg{
+    padding-left: 26px;
+}
+.error-msg>ul{
+    list-style: none;
+}
+.error-msg span{
+    color: red;
+}
+#graduation_result_view .am-btn {
+    padding: 0.5em .5em;
+}
+/*按钮*/
+#graduation_result_view .common-select .click_btn{
+    display:inline-block;
+    height:36px;
+    line-height: 36px;
+    background-color: rgba(43, 187, 164, 1);
+    border-radius: 4px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor: pointer;
+    margin-right: 10px;
+    position:relative;
+}
+#graduation_result_view .common-select .click_btn>span{
+    display:inline-block;
+    color:#fff;
+    font-size: 16px;
+}
+#graduation_result_view .am-modal{
+    background-color: transparent;
+}

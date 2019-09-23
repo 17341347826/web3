@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="pwZcyU5Ols" />
+    <title>眉山市初中学生综合素质评价</title>
+    <!--<link href="//cdn.bootcss.com/amazeui/2.7.2/css/amazeui.css" rel="stylesheet">-->
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+    <style>
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        body {
+            min-width: 1000px;
+            height: 100%;
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+        }
+        #san-code{
+            height: 100%;
+            overflow: auto;
+            background: url(./common/images/images/wx_scan_background.png) center center no-repeat;
+            background-size: cover;
+            position: relative;
+            font-family:SourceHanSansCN-Regular;
+        }
+        #san-code .scan-login{
+            width:389px;
+            height:443px;
+            background:rgba(255,255,255,1);
+            border-radius:10px;
+            padding-top:27px;
+            padding-bottom:15px;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -195px;
+            margin-top: -217px;
+        }
+        /*#san-code .scan-login>div{*/
+            /*display:inline-block;*/
+        /*}*/
+        #san-code .scan-login .scan-title{
+            font-size:24px;
+            color:rgba(51,51,51,1);
+            margin-bottom: 5px;
+         }
+        #san-code .scan-login .scan-img{
+            width:257px;
+            height:257px;
+            border:1px solid rgba(244,244,244,1);
+            padding: 7px 4px 2px 6px;
+        }
+        #san-code .scan-login .scan-img img{
+            width:100%;
+        }
+        #san-code .scan-login .scan-success img,
+        #san-code .scan-login .scan-lose img{
+            width:30px;
+            height:30px;
+            margin-right: 10px;
+        }
+        #san-code .scan-login .scan-success span,
+        #san-code .scan-login .scan-lose div:last-child{
+            font-size:16px;
+            color:#333;
+        }
+        #san-code .scan-login .scan-success{
+            margin-top: 11px;
+        }
+        #san-code .scan-login .scan-lose{
+            position: relative;
+        }
+        #san-code .scan-login .scan-lose>div{
+            display:inline-block;
+        }
+        #san-code .scan-login .scan-lose>div:first-child{
+            position: absolute;
+            top: 10px;
+        }
+        #san-code .scan-login .scan-lose>div:last-child{
+           text-align: left;
+            margin-left: 40px;
+        }
+        #san-code .scan-login .scan-change{
+            width: 100%;
+            border-top:1px solid #F4F4F4;
+            position: absolute;
+            bottom: 20px;
+            padding-top: 12px;
+        }
+        #san-code .scan-login .scan-change span{
+            font-size:20px;
+            /*font-family:SourceHanSansCN-Regular;*/
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            cursor:pointer;
+        }
+        #san-code .scan-login .scan-change span:hover{
+            color:#0DBA9E;
+            text-decoration:none;
+            border-bottom:1px solid;
+            padding-bottom:3px;
+        }
+        #san-code .scan-login .scan-having{
+            font-size:16px;
+            color:#333;
+            margin-top: 11px;
+        }
+    </style>
+</head>
+<body>
+<div id="san-code" class="am-text-center" ms-controller="san_code">
+    <div class="scan-login am-text-center">
+        <div class="scan-title">微信扫码</div>
+        <div class="scan-img am-center">
+            <!--<img src="./common/images/images/wx_scan_background.png" alt="">-->
+            <img ms-attr="{src:@code_img}" alt="">
+        </div>
+        <!--<div class="scan-success" :if="scan_type == 1">-->
+            <!--<img src="./common/images/images/scan_success_icon.png" alt="">-->
+            <!--<span>扫描成功，请在微信端确认登录</span>-->
+        <!--</div>-->
+        <div class="scan-lose" :if="scan_type == 2">
+            <div>
+                <img src="./common/images/images/scan_lose_icon.png" alt="">
+            </div>
+            <div>
+                <div>您已取消此次登录</div>
+                <div>您可再次刷新页面扫描登录或关闭窗口</div>
+            </div>
+        </div>
+        <div class="scan-having" :if="scan_type == 0">
+            <span>{{@scan_img}}</span>
+        </div>
+        <div class="scan-change" :click="@accoun_login">
+            <span>账号密码登录</span>
+        </div>
+    </div>
+</div>
+<script src="common/lib/jquery.min.js"></script>
+<script src="common/lib/amazeui.js"></script>
+<script src="common/lib/avalon.js"></script>
+<script src="const.js"></script>
+<script src="common/module/request.js"></script>
+<script src="common/lib/bin/jsencrypt.js"></script>
+<script src="common/lib/rsa_public_key.js"></script>
+<!--<script src="//cdn.bootcss.com/layer/3.0/layer.min.js"></script>-->
+<script src="common/lib/layer.min.js"></script>
+<script src="common/lib/base64.js"></script>
+<script src="common/lib/require/require.min.js"></script>
+<script>
+    avalon.ready(function() {
+        var HTTP_X = location.origin;
+        var HTTP_API = HTTP_X;
+        var base_64 = '';
+        //获取登录二维码
+        var get_qr_code = HTTP_API + '/api/base/baseUser/get_qr_code';
+        //获取登录进度
+        var get_login_progress= HTTP_API +  '/api/base/baseUser/get_login_progress';
+        var vm = avalon.define({
+            $id: "san_code",
+            //扫描状态：0-未扫描或者扫描中，1-扫描成功，2-扫描失败
+            scan_type:0,
+            //扫描中提示信息
+            scan_img:'',
+            //二维码图片
+            code_img:'',
+            //登录用户标识
+            loginUser_ident:'',
+            //定时器
+            timer:'',
+            //初始化
+            init: function(){
+                ajax_post_code(get_qr_code,{},this);
+            },
+            // 请求进度
+            req_jd:function(){
+                // 获取登录进度
+                ajax_post_code(get_login_progress,{Token:this.loginUser_ident},this);
+            },
+            //账号密码登录
+            accoun_login:function(){
+                window.location.href = HTTP_X + '/Growth/new_index.html';
+            },
+            on_request_complete: function(cmd, status, data, is_suc, msg) {
+                if(is_suc){
+                    switch (cmd) {
+                        //获取二维码
+                        case get_qr_code:
+                            this.complete_get_qr_code(data);
+                            break;
+                        //获取登录进度
+                        case get_login_progress:
+                            this.complete_get_login_progress(data);
+                            break;
+                    }
+                }else{
+                    layer.msg(msg);
+                }
+            },
+            //获取二维码
+            complete_get_qr_code:function(data){
+                this.code_img = 'data:image/png;base64,'+data.data.qr_code;
+                this.loginUser_ident = data.data.token;
+                //为了请求头带token
+                window.sessionStorage.setItem("token", this.loginUser_ident);
+                // 获取登录进度
+                this.req_jd();
+            },
+            //获取登录进度
+            complete_get_login_progress:function(data){
+                var self = this;
+                var status = data.data.status;
+                if(status == '200'){//微信登录成功
+                    clearTimeout(self.timer);
+                    window.location = HTTP_X + '/Growth/index.html#'
+                }
+                // else if(status == ''){//微信扫描登录已取消
+                //     clearTimeout(self.timer);
+                //     self.scan_type = 2;
+                // }
+                else{
+                    if(data.data.message == '微信扫描登录已取消'){//微信扫描登录已取消
+                        clearTimeout(self.timer);
+                        self.scan_type = 2;
+                    }else{
+                        self.timer = setTimeout(function(){
+                            ajax_post_code(get_login_progress,{Token:self.loginUser_ident},self);
+                        },3000);
+                        self.scan_img = data.data.message;
+                    }
+                }
+            },
+        });
+        // require([C.CLF('base64.js')], function (bs64) {
+        //     console.log(bs64)
+        //     base_64 = bs64;
+        //     vm.init();
+        // });
+        vm.init();
+        avalon.scan(document.body);
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<div ms-important="d_e_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            申诉复议情况查看(全市)
+        </div>
+        <div class="tb-content" ms-visible="@filter_city(@city_process_list).length>0">
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市处理完成率
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>单位</td>
+                        <td>年级</td>
+                        <td>提出异议总量</td>
+                        <td>被提异议总量</td>
+                        <td>异议处理总量</td>
+                        <td>异议处理完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr>
+                        <td ms-attr="{rowspan:@count(@filter_city(@city_process_list), 'city', el.city)}"
+                            ms-visible="$index==0 || row_length==1">
+                            {{el.city}}
+                        </td>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{filter_undefined(el.data.tcyyzl)}}</td>
+                        <td>{{filter_undefined(el.data.btcyyzl)}}</td>
+                        <td>{{filter_undefined(el.data.yclzl)}}</td>
+                        <td>{{el.data.wcl|percent}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@city_process_list.length==0">
+                        <td colspan="6">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="filter_city(@city_process_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            申诉复议情况查看（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_area(@area_process_list).length>0">
+                <div class="biao-title">
+                    区县处理完成率
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix" ms-visible="@user_level<3">
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area,head_value:'请选择区县'}"></xmp>
+                    </div>
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_area(@area_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td>单位</td>
+                        <td>年级</td>
+                        <td>提出异议总量</td>
+                        <td>被提异议总量</td>
+                        <td>异议处理总量</td>
+                        <td>异议处理完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.district != @filter_area(area_process_list)[$index-1].district"
+                            ms-attr="{rowspan:@count(@filter_area(@area_process_list),'district' ,el.district)}">
+                            {{el.district}}
+                        </td>
+                        <td>{{el.status}}</td>
+                        <td><span ms-if="el.detail.data!=0">{{filter_undefined(el.detail.data.tcyyzl)}}</span><span ms-if="el.detail.data==0">0</span></td>
+                        <td><span ms-if="el.detail.data!=0">{{filter_undefined(el.detail.data.btcyyzl)}}</span><span ms-if="el.detail.data==0">0</span></td>
+                        <td><span ms-if="el.detail.data!=0">{{filter_undefined(el.detail.data.yclzl)}}</span><span ms-if="el.detail.data==0">0</span></td>
+                        <td><span ms-if="el.detail.data!=0">{{el.detail.data.wcl|percent}}%</span><span ms-if="el.detail.data==0">0.00%</span></td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@area_process_list.length==0">
+                        <td colspan="6">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="filter_area(@area_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            申诉复议情况查看（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_school(@school_process_list).length>0">
+                <div class="biao-title">
+                    学校处理完成率
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,default_value:@default_area,sel_check:@sel_change_area_2,head_value:'请选择区县'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <input type="text" placeholder="请输入学校" ms-duplex="@school_p.school_name" data-duplex-changed="@search">
+                    </div>
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_school(@school_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td>单位</td>
+                        <td>年级</td>
+                        <td>提出异议总量</td>
+                        <td>被提异议总量</td>
+                        <td>异议处理总量</td>
+                        <td>异议处理完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@school_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != @filter_school(school_process_list)[$index-1].schoolname"
+                            ms-attr="{rowspan:@count(@filter_school(@school_process_list), 'schoolname', el.schoolname)}">
+                            {{el.schoolname}}
+                        </td>
+                        <td>{{el.status}}</td>
+                        <td><span ms-if="el.detail.data!=0">{{filter_undefined(el.detail.data.tcyyzl)}}</span><span ms-if="el.detail.data==0">0</span></td>
+                        <td><span ms-if="el.detail.data!=0">{{filter_undefined(el.detail.data.btcyyzl)}}</span><span ms-if="el.detail.data==0">0</span></td>
+                        <td><span ms-if="el.detail.data!=0">{{filter_undefined(el.detail.data.yclzl)}}</span><span ms-if="el.detail.data==0">0</span></td>
+                        <td><span ms-if="el.detail.data!=0">{{el.detail.data.wcl|percent}}%</span><span ms-if="el.detail.data==0">0.00%</span></td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@school_process_list.length==0">
+                        <td colspan="6">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="@filter_school(@school_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

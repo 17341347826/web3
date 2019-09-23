@@ -1,0 +1,47 @@
+<div ms-important="city_set" id="city_set">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="title">
+        统计设置
+    </div>
+    <div >
+        <div class="auto_con">
+            <div class="common-select">
+                <div class="search-cont clearfix">
+                    <div class="select">
+                        <div class="old-select">
+                            <select ms-duplex-number="@data.fk_grade_id" data-duplex-changed="@gradeChange">
+                                <option value="">
+                                    适用年级
+                                </option>
+                                <!--ms-for: el in @grade_list-->
+                                <option ms-attr="{value:el.id}">
+                                    {{el.grade_name}}
+                                </option>
+                                <!--ms-for-end:-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select">
+                        <div class="old-select"><!--1省 2 市 3 区 4 学校-->
+                            <select ms-duplex-number="@data.unit_lv">
+                                <option value="">
+                                    规则使用
+                                </option>
+                                <option value="1">省级</option>
+                                <option value="2">市级</option>
+                                <option value="3">区县级</option>
+                                <option value="4">校级</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="a-p-btns">
+                <div class="btns">
+                    <button type="button" class="am-btn-default" ms-on-click="@cancel_click">取消</button>
+                    <button type="button" class="am-btn-primary" ms-click="@ajax_add">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

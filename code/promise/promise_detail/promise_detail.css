@@ -1,0 +1,43 @@
+
+#promise_detail{
+    padding-bottom: 20px;
+}
+#promise_detail #print_div{
+    width: 100%
+}
+#promise_detail #print_div .print_con{
+    width: 944px;
+    height:653px;
+    margin: 0 auto;
+    position: relative;
+}
+#promise_detail #print_div  .print_con>img{
+    width: 100%;
+}
+#promise_detail #print_div  .content_de{
+    position: absolute;
+    width: 40%;
+    right: 9%;
+    top:15%;
+}
+#promise_detail #print_div  .print_text{
+    position: absolute;
+    right: 9%;
+    bottom:10%;
+}
+#promise_detail  #print_div .print_qm{
+    height: 80px;
+}
+#promise_detail #print_div  p>img{
+    width: 115px;
+    height: 80px;
+}
+#promise_detail #print_div  .cn_work{
+    position: absolute;
+    bottom: 16%;
+    left:24%;
+    font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+    font-size: 16px;
+    color: #313131;
+    margin: 0;
+}

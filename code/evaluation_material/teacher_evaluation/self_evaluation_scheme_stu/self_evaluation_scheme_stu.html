@@ -1,0 +1,35 @@
+
+<!--市管理 or 区管理查看方案列表-->
+<div class="am-g ipm">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-tabs">
+        <div class="am-text-left"  ms-important="table">
+            <form class="am-form am-form-inline ipm-form" ms-validate="@validate">
+                <!-----------------------------------------适用年级-------------------------------->
+                <div class="am-form-group">
+                    <div class="form-width-sm">
+                        <select ms-duplex-number="@extend.plan_gradeid">
+                            <option value="">
+                                请选择年级
+                            </option>
+                            <option ms-attr="{value:el.id}" ms-for="el in @request_data.grade_arr">
+                                {{ el.remark }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <button class="am-btn sure-btn" ms-click="@school_add_programme" type="button">
+                        创建方案
+                    </button>
+                </div>
+            </form>
+            <div id="item_programme_management">
+                <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+                </xmp>
+            </div>
+
+        </div>
+    </div>
+</div>
+

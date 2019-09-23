@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="pwZcyU5Ols" />
+    <title>眉山市初中学生综合素质评价</title>
+    <!--<link href="//cdn.bootcss.com/amazeui/2.7.2/css/amazeui.css" rel="stylesheet">-->
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+    <link rel="stylesheet" href="common/lib/amazeui.datetimepicker.css">
+    <script src="common/lib/head_statistics.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+    <style>
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        body {
+            padding:20px 30px;
+            min-width: 1000px;
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            z-index: 1000;
+            padding: 32px 40px 0;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+        #pwd_found .msg,
+        #pwd_found .retMsg {
+            color: red;
+        }
+        /*注册*/
+        #pwd_found .sign-modelText>div {
+            margin-left: 30px;
+        }
+        #pwd_found .sign-modelText h1{
+            border-bottom:1px solid #D2D2D2;
+        }
+        /*字体颜色*/
+        #pwd_found .sign-modelText div span {
+            display: inline-block;
+            color: #000;
+            height: 30px;
+            line-height: 30px;
+            /*border:1px solid red;*/
+        }
+
+        #pwd_found .sign-modelText div .required {
+            color: red;
+            margin-left: 10px;
+            margin-right: 8px;
+        }
+
+        #pwd_found .sign-modelText div .left-css {
+            margin-right: 20px;
+        }
+
+        #pwd_found .sign-modelText div #kid_guid {
+            margin-left: -8px;
+        }
+        #pwd_found .txt span {
+            /*float: left;*/
+            /*font-size: .9em;*/
+            /*padding: 0 8px;*/
+        }
+
+        #pwd_found .txt input {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            outline: none;
+            float: none;
+            margin: 0 auto 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        /*input里面的placeholder设置*/
+
+        #pwd_found .txt input::-webkit-input-placeholder {
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #pwd_found .am-modal-bd {
+            padding: 15px 0;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        #pwd_found #sign-btn {
+            display: inline-block;
+            float: none;
+            /*padding: 7px 0;*/
+            /*letter-spacing: 15px;*/
+            background: #3ea3fe;
+            cursor: pointer;
+            color: #fff;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 6px;
+        }
+        #pwd_found input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset;
+        }
+
+        #pwd_found #userName,
+        #pwd_found #parName {
+            margin-left: 3px;
+        }
+
+        #pwd_found #phone {
+            margin-left: 2px;
+        }
+        /*验证码*/
+        #pwd_found #identfy-btn .identfy{
+            display: inline-block;
+            float: none;
+            /*background: #3ea3fe;*/
+            background-color:#A8A7A8;
+            /*cursor: pointer;*/
+            color: #fff;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 6px;
+        }
+        /*发送验证码、重新发送*/
+        #pwd_found #identfy-btn #identfy-one,
+        #pwd_found #identfy-btn #identfy-three{
+            background-color:#3ea3fe;
+            cursor: pointer;
+        }
+        #pwd_found .content{
+            overflow: hidden;
+            /*border:1px solid red;*/
+            margin-bottom:20px;
+        }
+        #pwd_found .content .content-kid{
+            text-align: left;
+            display: inline-block;
+        }
+        .ms-controller,.ms-important,[ms-controller],[ms-important]{
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body ms-controller="pwd_found">
+<div class="am-g" id="pwd_found">
+    <div class="sign-modelText am-text-center" >
+        <h1>重置密码</h1>
+        <div class="content am-text-center">
+            <div class="content-kid">
+                <!--手机号-->
+                <div class="txt">
+                    <span class="input-pwd left-css">手&nbsp;&nbsp;机&nbsp;号</span>
+                    <!--隐藏元素:避免点击弹框出现提示信息-->
+                    <input type="text" class="am-hide"/>
+                    <input type="text" id="phone" placeholder="请输入11位手机号" ms-duplex="@signData.phone" ms-on-keyup="@phone_ident" ms-on-blur="@phone_check()">
+                    <span class="required">*</span>
+                    <span class="additional-infor">请输入常用手机号，用于登录和找回密码</span>
+                </div>
+                <!--验证码-->
+                <div class="txt" id="identfy-btn">
+                    <span class="input-pwd left-css">验&nbsp;&nbsp;证&nbsp;码</span>
+                    <input type="text" id="identifying" placeholder="请输入短信验证码" ms-duplex="@signData.identfy" ms-on-blur="@identfy_check()">
+                    <span class="required">*</span>
+                    <span class="identfy" id="identfy-none" data-am-modal-confirm :if="@ident_type==0">获取验证码</span>
+                    <span class="identfy" id="identfy-one" data-am-modal-confirm :if="@ident_type==1" ms-on-click="@identOne">获取验证码</span>
+                    <span class="identfy" id="identfy-two" data-am-modal-confirm :if="@ident_type==2">{{@countdown}}秒</span>
+                    <span class="identfy" id="identfy-three" data-am-modal-confirm :if="@ident_type==3" ms-on-click="@identThree">重新发送</span>
+                </div>
+                <!--密码-->
+                <div class="txt">
+                    <span class="input-pwd left-css">新&nbsp;&nbsp;密&nbsp;码</span>
+                    <input type="password" id="inputPwd" placeholder="请输入密码" ms-duplex="@signData.inputPwd" ms-on-blur="@inputPwd_check()">
+                    <span class="required">*</span>
+                    <span class="additional-infor">6到16字母、数字或组合</span>
+                </div>
+                <!--确认密码-->
+                <div class="txt">
+                    <span class="insure-pwd left-css">确认密码</span>
+                    <input type="password" id="insurePwd" placeholder="请确认密码" ms-duplex="@signData.insurePwd" ms-on-blur="@insurePwd_check()">
+                    <span class="required">*</span>
+                    <span class="additional-infor">两次密码必须一致</span>
+                </div>
+                <div class=" am-text-center msg" ms-visible="@msg != ''">{{msg}}</div>
+                <div class=" am-text-center retMsg" ms-visible="@retMsg != '' && @msg == ''">{{retMsg}}</div>
+            </div>
+        </div>
+        <div class="am-padding-vertical-sm am-text-center" style="overflow: hidden">
+            <span id="sign-btn" ms-on-click="@reset">重置密码</span>
+        </div>
+    </div>
+</div>
+<script src="common/lib/jquery.min.js"></script>
+<script src="common/lib/amazeui.js"></script>
+<script src="common/lib/avalon.js"></script>
+<script src="const.js"></script>
+<script src="common/module/request.js"></script>
+<script src="common/lib/bin/jsencrypt.js"></script>
+<script src="common/lib/rsa_public_key.js"></script>
+<!--<script src="//cdn.bootcss.com/layer/3.0/layer.min.js"></script>-->
+<script src="common/lib/layer.min.js"></script>
+<script>
+    avalon.ready(function() {
+        //        注册
+        var updpwd_yzm = " http://" + window.location.host + "/api/base/ng/baseUser/updpwd_yzm";
+//        发送短信验证码
+        var api_validmsg="http://" + window.location.host + "/api/base/ng/validmsg/send";
+        var login = avalon.define({
+            $id: "pwd_found",
+            a3: false,
+            a4: false,
+            a5: false,
+            a6: false,
+            //倒计时
+            countdown:120,
+            // 验证码状态:0-灰色;1-获取验证码；2-倒计时；3-重新发送
+            ident_type:0,
+            //判断获取验证码是否发送
+            btn_type:false,
+            //            错误提示信息
+            msg: "",
+            retMsg: '',
+            signData: {
+                inputPwd: '',
+                insurePwd: '',
+                phone: '',
+                //验证码
+                identfy:''
+            },
+            // 密码
+            inputPwd_check: function() {
+                var self = this;
+                var password = $("#inputPwd").val();
+                var reg = /^[a-zA-Z0-9]{6,16}$/
+                if (reg.test(password)) {
+                    self.a3 = true;
+                    self.msg = "";
+                } else {
+                    self.a3 = false;
+                    self.msg = "密码只能由数字、字母或者数字+字母组成、位数为6-16位";
+                }
+            },
+            //确认密码
+            insurePwd_check: function() {
+                var self = this;
+                var pwd1 = $("#inputPwd").val();
+                var pwd2 = $("#insurePwd").val();
+                if (pwd2 != pwd1) {
+                    self.a4 = false;
+                    self.msg = "密码须一致";
+                } else {
+                    self.a4 = true;
+                    self.msg = "";
+                }
+            },
+            //            手机号
+            phone_check: function() {
+                var self = this;
+                var reg = /^((1(3|4|5|6|7|8|9)\d{9}))$/;
+                var _txt = $("#phone").val();
+                console.log(self.btn_type);
+                if (reg.test(_txt)) {
+                    self.a5 = true;
+                    //发送短信验证码
+                    if(self.btn_type==true){
+                        ajax_post(api_validmsg,{phone:self.signData.phone,is_exist:'1'},self);
+                        self.ident_type=2;
+                        self.idenfiy_two();
+                    }
+                    self.msg = "";
+                } else {
+                    self.a5 = false;
+                    self.btn_type=false;
+                    self.msg = "请输入正确的手机号";
+                }
+            },
+            //手机改变验证码
+            phone_ident:function(){
+                var self=this;
+                var _txt = $("#phone").val();
+                // 验证码
+                if($.trim(_txt) != '') {
+                    self.ident_type=1;
+                }
+            },
+//            发送验证码
+            identOne:function(){
+                this.btn_type=true;
+                this.countdown=120;
+                this.phone_check();
+            },
+            //验证码倒计时
+            idenfiy_two:function(){
+                var self = this;
+                self.btn_type=false;
+                //定时器
+                var timer=setInterval(function(){
+                    self.countdown--;
+                    if(self.countdown==0){
+                        clearInterval(timer);
+                        self.ident_type=3;
+                    }
+                    //console.log(self.countdown);
+                },1000);
+            },
+            //重新发送
+            identThree:function(){
+                this.countdown=120;
+                this.btn_type=true;
+                this.phone_check();
+            },
+            //验证码验证
+            identfy_check:function(){
+                var self=this;
+                var _txt=$('#identifying').val();
+                if ($.trim(_txt) != '') {
+                    self.a6 = true;
+                    self.msg = "";
+                } else {
+                    self.a6 = false;
+                    self.msg = "请输入正确验证码";
+                }
+            },
+            // 提交
+            reset: function() {
+                var self = this;
+                self.msg= '';
+                self.retMsg = '';
+                if (self.a3 == true && self.a4 == true && self.a5 == true && self.a6 == true) {
+                    var publicKey = public_key;
+                    var encrypt = new JSEncrypt(); // 实例化加密对象
+                    encrypt.setPublicKey(publicKey); // 设置公钥
+                    var get_password = encrypt.encrypt(self.signData.inputPwd);
+                    ajax_post(updpwd_yzm, {
+                        new_pwd:get_password,
+                        phone: self.signData.phone,
+                        validcode:self.signData.identfy
+                    }, self, self.is_check);
+                } else {
+                    if (self.a5 == false) {
+                        self.msg = '请输入正确的手机号';
+                    }else if (self.a3 == false) {
+                        self.msg = '密码只能由数字、字母或者数字+字母组成、位数为6-16位';
+                        self.a4 = false;
+                    } else if (self.a4 == false) {
+                        self.msg = '密码须一致';
+                    }else if(self.a6 == false){
+                        self.msg = '请输入正确验证码';
+                    }
+                }
+            },
+            msgNull: function() {
+                this.msg = "";
+            },
+            on_request_complete: function(cmd, status, data, is_suc, msg) {
+                switch (cmd) {
+                    //修改密码
+                    case updpwd_yzm:
+                        this.complete_get_update(data);
+                        break;
+                    // 短信验证码
+                    case api_validmsg:
+                        if(status==200){
+
+                        }else {
+                            this.retMsg = msg;
+                        }
+                        break;
+                }
+            },
+            complete_get_update:function(data){
+                if (data.status == 200) {
+                    layer.msg('密码修改成功！');
+                    window.setTimeout(function(){
+                        window.location = "http://" + window.location.host + "/Growth/new_index.html";
+                    },2000);
+                } else {
+                    this.retMsg = data.message;
+                }
+            },
+        });
+        avalon.scan(document.body);
+    })
+</script>
+</body>
+</html>

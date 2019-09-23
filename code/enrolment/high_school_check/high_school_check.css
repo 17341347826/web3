@@ -1,0 +1,18 @@
+@charset "utf-8";
+#high_school_check .high-table {
+  display: flex;
+  padding: 10px;
+}
+#high_school_check .high-table > div {
+  flex: 1;
+  margin: 5px;
+}
+#high_school_check .high-table > div .am-table > tbody > tr > td {
+  width: 43%;
+}
+#high_school_check .high-table > div .am-table > tbody > tr > td:first-child {
+  width: 14%;
+}
+#high_school_check .score {
+  cursor: pointer;
+}

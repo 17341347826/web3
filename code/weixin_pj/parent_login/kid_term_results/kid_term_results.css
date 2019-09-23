@@ -1,0 +1,106 @@
+#kid_term_results {
+    padding-bottom: 10px;
+}
+#kid_term_results .weui-cells {
+    margin-top: 0;
+}
+#kid_term_results .teacher_term_comment_con,
+#kid_term_results .con {
+    margin-top: 10px;
+}
+#kid_term_results .every_stu {
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 9px 0px #cecece;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+}
+#kid_term_results .every_stu > div {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+#kid_term_results .every_stu > .stu_info {
+    height: 47px;
+    line-height: 47px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    letter-spacing: 0px;
+    background-color: #e0ebff;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #2f60b8;
+}
+#kid_term_results .every_stu > .stu_plan {
+    display: flex;
+    line-height: 15px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    letter-spacing: 0px;
+    color: #8d8d8d;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    position: relative;
+}
+#kid_term_results .every_stu > .stu_plan > div.stu_plan1 {
+    /*flex: 1;*/
+}
+#kid_term_results .every_stu > .stu_plan > div.stu_plan2 {
+    flex: 4;
+    position: absolute;
+    right: 16px;
+}
+#kid_term_results .public_btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px #eeeeee solid;
+}
+#kid_term_results .weui-dialog__hd {
+    background-color: #358afe;
+}
+#kid_term_results .weui-dialog__title {
+    font-size: 13px;
+    font-weight: normal;
+    color: #ffffff;
+}
+#kid_term_results .weui-label,
+#kid_term_results .weui-select {
+    font-size: 15px;
+    color: #a2a2a2;
+}
+#kid_term_results .no-msg {
+    text-align: center;
+    font-size: 12px;
+    color: #a2a2a2;
+}
+#kid_term_results .name {
+    margin-left: 8px;
+}
+#kid_term_results .graduation-name,
+#kid_term_results .graduation-textarea {
+    font-size: 14px;
+    color: #a2a2a2;
+}
+#kid_term_results .graduation-textarea textarea::placeholder {
+    font-size: 12px;
+    color: #a2a2a2;
+}
+#kid_term_results .graduation-textarea textarea {
+    color: #999999;
+}
+#kid_term_results .graduation_form {
+    margin-top: -1px;
+}
+#kid_term_results .weui-cell__ft {
+    font-size: 14px;
+}
+#kid_term_results .decs {
+    font-size: 12px;
+}
+/*查看*/
+#kid_term_results .public_btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px #eeeeee solid;
+}

@@ -1,0 +1,74 @@
+<div ms-important="create_health_task" id="create_health_task">
+
+    <div class="content">
+        <div class="a-name">创建体质健康测评任务</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <!--年级-->
+            <div>
+                <label><span style="visibility: hidden">分值</span>年级</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@get_grade_id" ms-duplex="@grade_name">
+                            <option ms-attr="{value:''}">
+                                请选择年级
+                            </option>
+                            <!--ms-for:($idx,el) in @grade_arr-->
+                            <option ms-attr="{value:el.remark}">
+                                {{ el.remark }}【{{el.id}}】
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--任务名称-->
+            <div>
+                <label>任务名称</label>
+                <div class="form-input">
+                    <input type="text" ms-duplex="@add_data.name" ms-rules="{required:true}" placeholder="请输入任务名称">
+                </div>
+            </div>
+            <!--使用方案-->
+            <div class="evaluation-sub">
+                <label>使用方案</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@add_data.solution">
+                            <option ms-attr="{value:''}">
+                                请选择使用方案
+                            </option>
+                            <!--ms-for:($idx,el) in @solution_arr-->
+                            <option ms-attr="{value:el._id}">
+                                {{el.solu_name}}【{{el._id}}】
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--时间-->
+            <div class="time-change">
+                <div class="start-change">
+                    <label>开始时间</label>
+                    <div class="form-input">
+                        <input class="am-form-field epc_input" readonly id="start_time" ms-attr="{value:@add_data.start}"
+                               ms-on-focus="@get_start_date" type="text" placeholder="请选择开始时间"/>
+                    </div>
+                </div>
+                <div class="end-change">
+                    <label>结束时间</label>
+                    <div class="form-input">
+                        <input class="am-form-field epc_input" id="end_time" ms-attr="{value:@add_data.end}"
+                               ms-on-focus="@get_end_date" type="text" readonly placeholder="请选择结束时间"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-click="@cancel_btn">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_click">保存</button>
+        </div>
+    </div>
+</div>

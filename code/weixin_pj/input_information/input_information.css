@@ -1,0 +1,48 @@
+@charset "utf-8";
+#input_information .weui-cells {
+  margin-top: 0;
+}
+#input_information .label-title {
+  font-size: 1em;
+  color: #000;
+}
+#input_information .disabled_class {
+  background-color: #9da29d;
+}
+#input_information .weui-cell_access .weui-cell__ft {
+  padding-right: 9%;
+}
+#input_information .weui-label,
+#input_information .weui-select,
+#input_information .weui-input,
+#input_information .weui-input::placeholder,
+#input_information .weui-textarea,
+#input_information .radio-choose > label,
+#input_information textarea::placeholder {
+  font-size: 15px;
+  color: #a2a2a2;
+}
+#input_information .yiju {
+  font-size: 12px;
+  color: #a2a2a2;
+}
+#input_information .dec > p {
+  font-size: 10px;
+  color: #CDCDCD;
+}
+#input_information .cell2,
+#input_information .score {
+  margin-top: -1px;
+}
+#input_information .radio-choose {
+  display: flex;
+}
+#input_information .radio-choose .line {
+  width: 1px;
+  height: 30px;
+  margin-top: 5px;
+  background-color: #eeeeee;
+}
+#input_information .radio-choose label {
+  flex: 1;
+}

@@ -1,0 +1,64 @@
+<div class="am-g" id="project_content_fill_radio" ms-important="project_content_fill_radio">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div id="evaluate_div">
+        <div :if="value_table" class="table-container">
+            <h2 class="am-margin-top-lg am-margin-bottom-lg">当前评价内容:{{@add_answer.pj_subject}}</h2>
+            <!--ms-for: $idx,el in @content_x[0].value_list-->
+            <h2 class="am-margin-top-lg am-margin-bottom-lg">{{el.index_option}}:{{el.index_option_content}}({{el.item_values}}分)</h2>
+            <!--ms-for-end:-->
+            <button class="am-btn am-btn-primary am-margin-left-lg" ms-click="@resources_click" type="button">
+                学生表现参考
+            </button>
+            <table class="am-table am-table-bordered am-table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        学号
+                    </th>
+                    <th>
+                        姓名
+                    </th>
+                    <!--<th>-->
+                    <!--评价状态-->
+                    <!--</th>-->
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @student_arr-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.pj_cover_name_num}}
+                    </td>
+                    <td>
+                        {{el.pj_cover_name}}
+                    </td>
+                    <td>
+                        <div class="am-form-group">
+                            <!--ms-for: $key,col in @el.value_list-->
+                            <label class="am-radio-inline">
+                                <input type="radio"  ms-attr="{name:$idx,value:col.index_option}" ms-duplex="el.pj_answer"> {{col.index_option}}:{{col.index_option_content}}({{col.item_values}}分)
+                            </label>
+                            <!--ms-for-end:-->
+                        </div>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+            <div class="am-text-center am-margin-top-lg am-margin-bottom-lg">
+                <button class="am-btn am-btn-primary am-margin-left-lg" ms-click="@value_click" type="button">
+                    保存
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div ms-controller="notice_more_detail" id="notice_more_detail">
+    <div class="con">
+        <div class="con-name am-text-center">{{@notice_detail.title}}</div>
+        <div class="con-list">
+            <!--内容-->
+            <div  class="list-person" id="list-person" ms-html="@notice_detail.content">
+            </div>
+            <!--图片-->
+            <div class="image-ary">
+                <!--ms-for:($idx,el) in @notice_detail.img_arr-->
+                <a ms-attr="{href:@url_for(el.guid)}"><img ms-attr="{src:@url_for(el.guid)}"></a>
+                <!--ms-for-end:-->
+            </div>
+            <div class="text-content">
+                <h3 ms-visible="@notice_detail.video_arr.length>0 || @notice_detail.file_arr.length>0">文件材料：</h3>
+                <ul>
+                    <li ms-for="col in @notice_detail.video_arr">
+                        <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                    </li>
+                    <li ms-for="col in @notice_detail.file_arr">
+                        <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!--附件-->
+            <div class="download_files">
+                <a :if="has_video" class="am-btn" ms-on-click="video_click">视频</a>
+                <a :if="has_excel" class="am-btn" ms-on-click="excel_click">下载文件</a>
+            </div>
+        </div>
+    </div>
+</div>

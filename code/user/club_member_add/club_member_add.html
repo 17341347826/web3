@@ -1,0 +1,84 @@
+<div ms-important="club_member_add" id="club_member_add">
+    <div class="content">
+        <div class="a-name">修改</div>
+        <!--填写信息-->
+        <div class="form-inset">
+            <div>
+                <label><span style="visibility: hidden">分性</span>年级</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@grade_info" data-duplex-changed="@grade_change()">
+                            <!--ms-for:($idx,el) in @grade_list-->
+                            <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                                {{el.grade_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label><span style="visibility: hidden">分性</span>班级</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@class_info" data-duplex-changed="@class_change()">
+                            <!--ms-for:($idx,el) in @class_list-->
+                            <option ms-attr="{value:el.class_id+'|'+el.class_name}">
+                                {{el.class_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label><span style="visibility: hidden">分性</span>姓名</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select class="js-example-basic-single" id="stu-name" ms-duplex="@stu_info">
+                            <!--ms-for:($idx,el) in @stu_list-->
+                            <option ms-attr="{value:el.code+'|'+el.name+'|'+el.guid}">
+                                {{ el.name }}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label><span style="visibility: hidden">分性</span>性别</label>
+                <div class="base-select">
+                    <div class="old-select">
+                        <select ms-duplex="@compileData.xb" disabled style="background-color: #e1e1e1;">
+                            <option ms-attr="{value:1}">男</option>
+                            <option ms-attr="{value:2}">女</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="a-element">
+                <label>联系方式</label>
+                <div class="form-input">
+                    <input class="am-modal-prompt-input" id="phone" ms-duplex="@compileData.lxfs"
+                           ms-on-blur="@phone_check()" placeholder="请输入联系方式" type="text"/>
+                </div>
+            </div>
+            <div class="a-element">
+                <label><span style="visibility: hidden">分性</span>qq</label>
+                <div class="form-input">
+                    <input class="am-modal-prompt-input" id="check-qq" ms-duplex="@compileData.qq"
+                           ms-on-blur="@qq_check()" placeholder="请输入QQ" type="text"/>
+                </div>
+            </div>
+            <!--错误提示-->
+            <div class="invest-point bad-msg">
+                <span>{{@bad_msg}}</span>
+            </div>
+        </div>
+        <div class="btn-line"></div>
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@add_club()">提交</button>
+        </div>
+    </div>
+</div>

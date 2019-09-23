@@ -1,0 +1,178 @@
+#school_menu {
+    background-color: #f5f5f5;
+    /*padding-bottom: 42px;*/
+}
+#school_menu .menu-container {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background-color: #ffffff;
+    margin-bottom: 2px;
+}
+#school_menu .title-container {
+    color: #3d3d3d;
+    padding-left: 24px;
+}
+#school_menu .point {
+    width: 4px;
+    height: 4px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #3d3d3d;
+    vertical-align: middle;
+}
+#school_menu .title {
+    font-size: 12px;
+    margin-left: 6px;
+}
+#school_menu .menu-list {
+    display: flex;
+    padding-top: 8px;
+    font-size: 12px;
+    color: #8d8d8d;
+}
+#school_menu .each-menu {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+}
+#school_menu .each-menu span {
+    display: block;
+}
+#school_menu .each-menu .menu {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: url("/common/images/weixin_pj/menu-icons.png");
+    background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+    #school_menu .each-menu .menu {
+        background-image: url("/common/images/weixin_pj/menu-icons@2x.png");
+        background-size: 741px auto;
+    }
+}
+#school_menu .each-menu .menu-name {
+    padding-top: 4px;
+}
+#school_menu .target {
+    background-position: -40px -40px;
+}
+#school_menu .score {
+    background-position: -120px -40px;
+}
+#school_menu .comment {
+    background-position: -200px -40px;
+}
+#school_menu .daily {
+    background-position: -280px -40px;
+}
+#school_menu .practice {
+    background-position: -360px -40px;
+}
+#school_menu .punishment {
+    background-position: -440px -40px;
+}
+#school_menu .audit-material {
+    background-position: -520px -40px;
+}
+#school_menu .audit-objection {
+    background-position: -600px -40px;
+}
+#school_menu .all-progress {
+    background-position: -680px -40px;
+}
+#school_menu .realization {
+    background-position: -40px -120px;
+}
+#school_menu .mark {
+    background-position: -200px -120px;
+}
+#school_menu .remark {
+    background-position: -120px -120px;
+}
+#school_menu .review-progress {
+    background-position: -280px -120px;
+}
+#school_menu .term-evaluation-results {
+    background-position: -440px -120px;
+}
+#school_menu .graduation-evaluation-results {
+    background-position: -360px -120px;
+}
+#school_menu .term-evaluation-results2 {
+    background-position: -520px -120px;
+}
+#school_menu .archives {
+    background-position: -600px -120px;
+}
+#school_menu .i1 {
+    background-position: -40px -200px;
+}
+#school_menu .i2 {
+    background-position: -120px -200px;
+}
+#school_menu .i3 {
+    background-position: -200px -200px;
+}
+#school_menu .i4 {
+    background-position: -280px -200px;
+}
+#school_menu .i5 {
+    background-position: -360px -200px;
+}
+#school_menu .i6 {
+    background-position: -440px -200px;
+}
+#school_menu .i7 {
+    background-position: -520px -200px;
+}
+#school_menu .i8 {
+    background-position: -600px -200px;
+}
+#school_menu .i9 {
+    background-position: -680px -200px;
+}
+#school_menu .i10 {
+    background-position: -40px -280px;
+}
+#school_menu .i11 {
+    background-position: -120px -280px;
+}
+#school_menu .i12 {
+    background-position: -200px -280px;
+}
+#school_menu .i13 {
+    background-position: -280px -280px;
+}
+#school_menu .i14 {
+    background-position: -360px -280px;
+}
+#school_menu .i15 {
+    background-position: -440px -280px;
+}
+#school_menu .i16 {
+    background-position: -520px -280px;
+}
+#school_menu .i17 {
+    background-position: -600px -280px;
+}
+#school_menu .i18 {
+    background-position: -680px -280px;
+}
+#school_menu .i19 {
+    background-position: -40px -360px;
+}
+#school_menu .i20 {
+    background-position: -120px -360px;
+}
+#school_menu .i21 {
+    background-position: -200px -360px;
+}
+#school_menu .i22 {
+    background-position: -280px -360px;
+}
+#school_menu .i23 {
+    background-position: -360px -360px;
+}

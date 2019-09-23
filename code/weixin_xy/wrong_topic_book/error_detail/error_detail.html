@@ -1,0 +1,62 @@
+<div ms-important="error_detail" id="error_detail">
+    <div>
+        <span class="time">月考2018-04-05</span>
+        <span class="err-num">错题量:8</span>
+    </div>
+    <div class="each-problem">
+        <div>
+            <div class="problem">一.8</div>
+            <div class="wrong-grade">
+                难度系数
+                <img src="common/images/xy/subject/star1.png" alt="图片">
+                <img src="common/images/xy/subject/star1.png" alt="图片">
+                <img src="common/images/xy/subject/star1.png" alt="图片">
+                <img src="common/images/xy/subject/star1.png" alt="图片">
+                <img src="common/images/xy/subject/star2.png" alt="图片">
+            </div>
+        </div>
+        <div class="problem-pic" ms-click="@err_detail()">
+            <img ms-attr="{src:@original_problem}" alt="图片">
+            <!--<img src="common/images/xy/test.png" alt="图片">-->
+            <div class="master-remark">
+                <img src="common/images/xy/master.png" alt="图片">
+                <span style="">已掌握</span>
+            </div>
+            <div class="clear_right"></div>
+        </div>
+
+    </div>
+    <div class="knowledge">
+        <div>
+            <span class="know-icon"></span>
+            <span>知识点</span>
+        </div>
+        <div>
+            <span>文言文</span>
+            <span>文言文</span>
+            <span>文言文</span>
+        </div>
+    </div>
+    <div class="history-ans" :if="@data.ctlx == 1">
+        <div class="his-title">
+            <span class="his-icon"></span>
+            <span>历史作答</span>
+        </div>
+        <div class="problem-pic">
+            <img ms-attr="{src:@my_answer}">
+        </div>
+    </div>
+    <div class="right-ans">
+        <div class="right-title">
+            <span class="right-icon"></span>
+            <span>正解</span>
+        </div>
+        <div class="problem-pic">
+            <img ms-attr="{src:@correct_answer}" alt="图片">
+        </div>
+    </div>
+    <div class="smart">
+        <img src="common/images/xy/subject/smart-push.png" alt="图片">
+    </div>
+
+</div>

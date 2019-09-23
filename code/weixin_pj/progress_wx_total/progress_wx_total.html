@@ -1,0 +1,117 @@
+<div ms-important="ecm_total_progress" id="ecm_total_progress">
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@class_change,head_value:'请选择班级'}"></xmp>
+        </div>
+         <div class="weui-cells__title" style="padding-bottom: 15px;">班级人数:{{student_count}}人</div>
+    </div>
+
+
+
+    <div class="nav_progress_tag">
+        <ul>
+            <li style="cursor: pointer" class="active" onclick="window.scrollTo(0, $('#p1').offset().top)"> 进度</li>
+            <li style="cursor: pointer" onclick="window.scrollTo(0, $('#p2').offset().top)">进度二</li>
+            <li style="cursor: pointer" onclick="window.scrollTo(0, $('#p3').offset().top)">进度三</li>
+        </ul>
+    </div>
+
+    <div class="list-con">
+
+        <div class="progress_table">
+            <div><h5 id="p1">进度一</h5></div>
+            <table cellspacing="0">
+                <thead>
+                <tr>
+                    <th >内容</th>
+                    <th>评价主体</th>
+                    <th>未评人数</th>
+                    <th>完成率</th>
+                </tr>
+                </thead>
+               <tbody>
+
+               <tr ms-for="($index,el) in @progress_list.pj_progress_gather">
+                   <td>{{el.nr}}</td>
+                   <td>{{el.zt}}</td>
+                   <td>{{el.wscrs}}</td>
+                   <td>{{el.wcl}}%</td>
+               </tr>
+                <tr ms-visible="@progress_list.pj_progress_gather.length==0">
+                    <td colspan="6">
+                        暂无数据
+                    </td>
+                </tr>
+               </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="progress_table">
+            <div><h5 id="p2">进度二</h5></div>
+            <table cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>材料</th>
+                        <th>人均上传数</th>
+                        <th>未上传人数</th>
+                        <th>上传学生占比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ms-for="($index,el) in @progress_list.zhsj_progress_gather">
+                        <td>{{el.nr}}</td>
+
+
+                        <td>{{el.rjsc}}</td>
+
+                        <td>{{el.wscrs}}</td>
+                        <td>{{el.scxxzb}}%</td>
+                    </tr>
+                    <tr ms-visible="@progress_list.zhsj_progress_gather.length==0">
+                        <td colspan="7">
+                            暂无数据
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="list-con">
+        <div class="progress_table">
+            <div id="p3"><h5>进度三</h5></div>
+            <table cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>内容</th>
+                        <th>导入次数</th>
+                        <th>完成率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>学业成绩</td>
+                        <td>{{ysc.cj}}</td>
+                        <td>{{(ysc.cj/student_count).toFixed(2)*100}}%</td>
+                    </tr>
+                    <tr>
+                        <!--<td>国家体质健康{{student_count}}</td>-->
+                        <td>国家体质健康</td>
+                        <td>{{ysc.tzcp}}</td>
+                        <td>{{(ysc.tzcp/student_count).toFixed(2)*100}}%</td>
+                    </tr>
+                    <tr>
+                        <td>艺术测评成绩</td>
+                        <td>{{ysc.yscp}}</td>
+                        <td>{{(ysc.yscp/student_count).toFixed(2)*100}}%</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

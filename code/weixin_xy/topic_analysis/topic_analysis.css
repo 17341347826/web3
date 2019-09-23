@@ -1,0 +1,80 @@
+#topic_analysis {
+    background-color: #efeff4;
+    padding-bottom: 5px;
+    padding-top: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#topic_analysis .topic {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 12px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+}
+
+#topic_analysis .point-icon {
+    position: absolute;
+    top: 0;
+    left: 14px;
+    width: 24px;
+    height: 18px;
+    display: inline-block;
+    background: url("../../../common/images/xy/project-icon.png") center no-repeat;
+}
+
+.topic-title {
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    color: #8bc0ff;
+    text-indent: 18px;
+}
+
+.subject-title > span {
+    font-size: 14px;
+}
+
+.topic-img > img {
+    width: 100%;
+    max-height: 143px;
+}
+.topic-bottom{
+   padding-top: 5px;
+}
+.topic-bottom span {
+    display: inline-block;
+    height: 23px;
+    line-height: 23px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 10px;
+    border-radius: 22px;
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 14px 16px;
+}
+
+.topic-bottom > div:first-child > span {
+    background-color: #8bc0ff;
+    padding-left: 10px;
+}
+
+.topic-bottom > div:nth-child(2) > span {
+    background-color: #ff8b8b;
+    background-image: url("../../../common/images/xy/heart.png");
+}
+
+.topic-bottom >div:last-child>span{
+    background-color: #ffb966;
+    background-image: url("../../../common/images/xy/mistakes.png");
+}
+.my-btn{
+    cursor: pointer;
+}

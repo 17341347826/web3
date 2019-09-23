@@ -1,0 +1,62 @@
+<div class="am-g" id="student_fill_in_mutual_list" ms-important="student_fill_in_mutual_list">
+    <div class='list-con'>
+
+        <div class="table-module">
+            <table class="am-table am-table-bordered am-table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        学号
+                    </th>
+                    <th>
+                        姓名
+                    </th>
+                    <th style="cursor: pointer" ms-click="sort_table()">
+                        评价状态
+                        <span ms-visible="!@sort_table_by_status">↑</span>
+                        <span ms-visible="@sort_table_by_status">↓</span>
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody :if="@student_arr_x.length>0">
+                <!--ms-for: $idx,el in @student_arr_x-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.code}}
+                    </td>
+                    <td>
+                        {{el.name}}
+                    </td>
+                    <td>
+                        {{el.status}}
+                    </td>
+                    <td>
+                        <!--之前需求是学生组评完后就不能修改-->
+                        <!--<a :if="el.status=='已评价'" class="tab-btn tab-edit-btn-disabled" disabled="" title="录入">-->
+                        <!--</a>-->
+                        <!--<a  :if="el.status=='未评价'" class="tab-btn tab-edit-btn" ms-click="evaluate_click(el)" title="录入">-->
+                        <!--</a>-->
+                        <a class="tab-btn tab-edit-btn" ms-click="evaluate_click(el)" title="录入">
+                        </a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="@student_arr_x.length==0">
+                    <tr>
+                        <td colspan="5">暂无数据</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

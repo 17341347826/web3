@@ -1,0 +1,28 @@
+#mocha_itom{
+    background-color: #f1f2f6;
+}
+#mocha_itom>div{
+    background-color: white;
+    margin-top: 4px;
+    padding: 129px 16px;
+}
+#mocha_itom .con{
+
+}
+#mocha_itom .click_btn{
+    display:inline-block;
+    cursor: pointer;
+    margin-right: 66px;
+}
+#mocha_itom .click_btn:last-child{
+    margin-right:0;
+}
+#mocha_itom .click_btn img{
+    height:80px;
+}
+#mocha_itom .click_btn .name{
+    margin-top:10px;
+}
+
+
+

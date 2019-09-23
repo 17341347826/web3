@@ -1,0 +1,44 @@
+#set_desktop .am-padding-top-sm{
+    padding-top: 0;
+}
+#set_desktop .title{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    border-bottom: 1px #e4e4e4 solid;
+}
+#set_desktop .save_btn{
+    margin-right: 10%;
+    margin-top: 10px;
+    width: 90px;
+    height: 30px;
+    background-color: #00a2d4;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+#set_desktop .save_btn:hover{
+    cursor: pointer;
+    background-color: #00b7ee;
+}
+#set_desktop>div{
+    font-size: 16px;
+    color:#15bf9d;
+}
+#set_desktop .module_div{
+    min-width: 165px;
+    height: 55px;
+    background-color: #efefef;
+    border-radius: 40px;
+    line-height: 55px;
+    text-align: center;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#set_desktop .module_div>img{
+    position: absolute;
+    right: -10px;
+    top: -5px;
+}

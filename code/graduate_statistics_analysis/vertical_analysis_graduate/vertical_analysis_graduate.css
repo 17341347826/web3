@@ -1,0 +1,89 @@
+@charset "utf-8";
+#vertical_analysis_graduate {
+  background-color: #f2f2f6;
+}
+#vertical_analysis_graduate>div{
+  background-color: white;
+}
+#vertical_analysis_graduate .top {
+  background-color: #FFFFFF;
+  margin-bottom: 4px;
+  padding: 16px;
+  padding-bottom: 0;
+}
+#vertical_analysis_graduate .first-index{
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left:16px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  border-radius: 0px 0px 4px 4px;
+}
+#vertical_analysis_graduate .top .first-index {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #FFFFFF;
+}
+#vertical_analysis_graduate .first-index > div > div {
+  padding-right: 18px;
+  padding-left: 18px;
+  height: 34px;
+  border-radius: 4px;
+  border: solid 1px #e4e4e4;
+  color: #a2a2a2;
+  text-align: center;
+  line-height: 34px;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+}
+#vertical_analysis_graduate .first-index > div > div > img {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#vertical_analysis_graduate .first-index .chosen {
+  color: #2bbba4 !important;
+  border: solid 1px #2bbba4 !important;
+  background: url('../../../common/images/chosen.png') no-repeat top right;
+}
+#vertical_analysis_graduate .top .first-index,
+#vertical_analysis_graduate .search-content {
+  display: inline-block;
+}
+#vertical_analysis_graduate .horizontal {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#vertical_analysis_graduate .horizontal li {
+  float: left;
+  width: 50%;
+  height: 100%;
+  line-height: 36px;
+  text-align: center;
+}
+#vertical_analysis_graduate .horizontal li:first-child {
+  border-right: 1px solid #dcddde;
+}
+#vertical_analysis_graduate .table-content {
+  background-color: #FFFFFF;
+  padding: 16px;
+}
+#vertical_analysis_graduate .table-content .title {
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+}
+#vertical_analysis_graduate .tu-biao {
+  width: 100%;
+  height: 450px;
+}
+#vertical_analysis_graduate #bar_img {
+  width: 100%;
+  height: 450px;
+  margin-top: 100px;
+}

@@ -1,0 +1,107 @@
+<div ms-important="school_review_progress" id="school_review_progress">
+    <div class="weui-cells give-out-cells">
+        <div class="weui-cell weui-cell_select weui-cell_select-after table-tf">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select2">
+                    学年学期：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@semester_change()"
+                        ms-duplex="@cur_semester">
+                    <!--ms-for: el in @semester_list-->
+                    <option ms-attr="{value:el.value}">
+                        {{el.name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--<div class="weui-cell weui-cell_select weui-cell_select-after">-->
+            <!--<div class="weui-cell__hd">-->
+                <!--<label class="weui-label" for="select1">-->
+                    <!--年级：-->
+                <!--</label>-->
+            <!--</div>-->
+            <!--<div class="weui-cell__bd">-->
+                <!--<select class="weui-select" data-duplex-changed="@sel_change_grade()" id="select1"-->
+                        <!--ms-duplex="@choose_grade">-->
+                    <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+                    <!--<option ms-attr="{value:el.value}">-->
+                        <!--{{el.name}}-->
+                    <!--</option>-->
+                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <!--内容-->
+    <div class="progess-con">
+        <!--年级总进度-->
+        <div class="progress-person" :if="@grade_eval.length>0">
+            <div class="table-name">年级总进度</div>
+            <div class="table-module">
+                <table class="table-class">
+                    <tbody>
+                    <tr>
+                        <td>年级</td>
+                        <td>审核完成率</td>
+                        <td>复议完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @grade_eval-->
+                    <tr>
+                        <td>{{el.njmc}}</td>
+                        <td>{{el.wcl}}</td>
+                        <td>{{el.fywcl}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--班级进度-->
+        <div class="progress-person" :if="@class_eval.length>0">
+            <div class="table-name">班级进度</div>
+            <!--筛选条件-->
+            <div class="common-select">
+                <div class="search-cont clearfix">
+                    <!--年级-->
+                    <div class="select">
+                        <label>年级：</label>
+                        <div class="old-select">
+                            <select data-duplex-changed="@grade_change" ms-duplex="@cur_grade_id">
+                                <!--ms-for: el in @grade_list-->
+                                <option ms-attr="{value:el.value}">
+                                    {{el.name}}
+                                </option>
+                                <!--ms-for-end:-->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-module">
+                <table class="table-class">
+                    <tbody>
+                    <tr>
+                        <td>班级</td>
+                        <td>审核完成率</td>
+                        <td>复议完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @class_eval-->
+                    <tr>
+                        <td>{{el.bjmc}}</td>
+                        <td>{{el.wcl | rj_filter}}%</td>
+                        <td>{{el.fy_wcl | rj_filter}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--暂无数据-->
+        <div ms-if="@grade_eval.length == 0 && @class_eval.length == 0" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+</div>

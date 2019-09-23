@@ -1,0 +1,168 @@
+<div ms-important="act_upload_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+         <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            学生活动写实上传进度（全市）
+        </div>
+        <div class="no-msg-img" ms-visible="filter_city(@city_process_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+        <div class="tb-content" ms-visible="filter_city(@city_process_list).length>0">
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市上传学生占比
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td >市</td>
+                        <td >年级</td>
+                        <td >学生人数</td>
+                        <td>上传总数</td>
+                        <td >人均上传数</td>
+                        <td >已上传人数</td>
+                        <td>未上传人数</td>
+                        <td >上传学生占比</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr>
+                        <td ms-attr="{rowspan:@count(@filter_city(@city_process_list), 'city', el.city)}" ms-visible="$index==0 || row_length==1">
+                            {{el.city}}
+                        </td>                        
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{el.city_cnt.total_input_num}}</td>
+                        <td>{{el.city_cnt.rj | rj_filter}}</td>
+                        <td>{{el.city_cnt.recorded_num}}</td>
+                        <td>{{el.city_cnt.wsc | absNum}}</td>
+                        <td>{{el.city_cnt.sczb *100 | percent}}%</td>
+                    </tr>
+                     <!--ms-for-end:-->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            学生活动写实上传进度（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_area(@area_process_list).length>0">
+                <div class="biao-title">
+                    区县上传学生占比
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix" ms-visible="@user_level<3">
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area,head_value:'请选择区县'}"></xmp>
+                    </div>
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_area(@area_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_area(@area_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td >区县</td>
+                        <td >年级</td>
+                        <td >学生人数</td>
+                        <td>上传总数</td>
+                        <td >人均上传数</td>
+                        <td >已上传人数</td>
+                        <td>未上传人数</td>
+                        <td >上传学生占比</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                         <td ms-if="$index==0||el.district != filter_area(area_process_list)[$index-1].district"
+                             ms-attr="{rowspan:@count(@filter_area(@area_process_list),'district' ,el.district)}" >
+                            {{el.district}}
+                        </td>                        
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{el.district_cnt.total_input_num}}</td>
+                        <td>{{el.district_cnt.rj | rj_filter}}</td>
+                        <td>{{el.district_cnt.recorded_num}}</td>
+                        <td>{{el.district_cnt.wsc | absNum}}</td>
+                        <td>{{el.district_cnt.sczb *100 | percent}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            学生活动写实上传进度（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_school(@school_process_list).length>0">
+                <div class="biao-title">
+                    学校上传学生占比
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area_2,default_value:@default_area,head_value:'请选择区县'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <input type="text" ms-duplex="@school_p.school_name" placeholder="请输入学校" data-duplex-changed="@search">
+                    </div>
+                </div>
+                <div class="no-msg-img" ms-visible="@filter_school(@school_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_school(@school_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td >学校</td>
+                        <td >年级</td>
+                        <td >学生人数</td>
+                        <td>上传总数</td>
+                        <td >人均上传数</td>
+                        <td >已上传人数</td>
+                        <td>未上传人数</td>
+                        <td >上传学生占比</td>
+                    </tr>
+                     <!--ms-for:($index,el) in @filter_school(@school_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.schoolname != @filter_school(school_process_list)[$index-1].schoolname" ms-attr="{rowspan:@count(@filter_school(@school_process_list), 'schoolname', el.schoolname)}" >
+                            {{el.schoolname}}
+                        </td> 
+                        <td>{{el.status}}</td>
+                        <td>{{el.detail.used_count}}</td>
+                        <td><span ms-if="@el.detail.school_cnt!=0">{{el.detail.school_cnt.total_input_num}}</span><span ms-if="@el.detail.school_cnt==0">0</span></td>
+                        <td><span ms-if="@el.detail.school_cnt!=0">{{el.detail.school_cnt.rj | rj_filter}}</span><span ms-if="@el.detail.school_cnt==0">0</span></td>
+                        <td><span ms-if="@el.detail.school_cnt!=0">{{el.detail.school_cnt.recorded_num}}</span><span ms-if="@el.detail.school_cnt==0">0</span></td>
+                        <td><span ms-if="@el.detail.school_cnt!=0">{{el.detail.school_cnt.wsc | absNum}}</span><span ms-if="@el.detail.school_cnt==0">0</span></td>
+                        <td><span ms-if="@el.detail.school_cnt!=0">{{el.detail.school_cnt.sczb*100 | percent}}</span><span ms-if="@el.detail.school_cnt==0">0.00</span>%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

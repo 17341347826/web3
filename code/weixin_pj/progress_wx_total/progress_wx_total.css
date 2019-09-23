@@ -1,0 +1,38 @@
+#ecm_total_progress{
+    background-color: #f1f2f6;
+}
+#ecm_total_progress .common-select,
+#ecm_total_progress .list-con>div{
+    margin-top: 10px;
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#ecm_total_progress .common-select,
+#ecm_total_progress .list-con>div{
+    background-color: white;
+}
+/*内容*/
+#ecm_total_progress .list-con>div{
+    text-align:center;
+}
+#ecm_total_progress .list-con .table-one,
+#ecm_total_progress .list-con .table-two{
+    padding-top:12px;
+    padding-bottom:20px;
+}
+#ecm_total_progress .list-con .title{
+    font-size: 18px;
+    color: #0dba9e;
+    padding-top: 18px;
+    padding-bottom: 8px;
+    height: 73px;
+}
+/*table2*/
+#ecm_total_progress .list-con .table-two{
+    margin-top:4px;
+}
+#ecm_total_progress .am-table {
+     margin-bottom:0;
+    border-radius:4px;
+}

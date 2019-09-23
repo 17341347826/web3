@@ -1,0 +1,22 @@
+#new_teacher_comment{
+    background-color: #f1f2f6;
+}
+#new_teacher_comment>div{
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+#new_teacher_comment #new_teacher_comment_table{
+    padding-top: 30px;
+    padding-right: 16px;
+    padding-bottom: 15px;
+
+}
+#new_teacher_comment #new_teacher_comment_table table{
+    border-radius: 4px;  }
+#new_teacher_comment #new_teacher_comment_table table p{
+    margin-bottom: 0;
+}
+#new_teacher_comment #new_teacher_comment_table table>tbody>tr>td{
+    white-space:inherit;
+}

@@ -1,0 +1,32 @@
+<div class="am-g" id="sign_switch" ms-important="sign_switch">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-padding-top-sm">
+        <form class="am-form am-form-horizontal am-text-center" ms-validate="@validate">
+            <div class="am-form-group">
+                <div class="am-form-label">
+                    <label>
+                        家长注册是否需要学生确认关系：&nbsp;&nbsp;
+                    </label>
+                    <input type="radio" name="doc-radio-1" value="option1" ms-click="@radio_check(1)" checked>是
+                    <input type="radio" name="doc-radio-1" value="option2" ms-click="@radio_check(0)">否
+                </div>
+            </div>
+            <div class="am-form-group">
+                <div class="am-form-label">
+                    <label>注：</label>①家长注册需填写子女学籍号与姓名，匹配关系
+                </div>
+                <div class="am-form-label">
+                    <label style="visibility:hidden;">注：</label>②需要确认时，家长填写注册信息后，在学生端登录系统确认家长信息属实，确认后注册成功。
+                </div>
+                <div class="am-form-label">
+                    <label style="visibility:hidden;">注：</label>③无需确认时，家长填写注册信息后，直接注册成功
+                </div>
+        </div>
+            <div class="am-text-center" id="submitBtnDiv">
+                <a class="am-btn am-btn-primary am-margin-left-lg" ms-click="@save_click">
+                    保存
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

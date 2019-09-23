@@ -1,0 +1,149 @@
+
+<div class="am-g" id="daily_layered_div" ms-important="table">
+    <div class="title">学业成绩详情</div>
+    <table class="am-table my-table am-table-bordered">
+        <thead>
+        <tr>
+            <!--ms-for: ($index,el) in @health_test_detail-->
+            <th>{{el.name}}</th>
+            <!--ms-for-end:-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <!--ms-for: ($index,el) in @health_test_detail-->
+            <td>
+                {{el.score}}
+            </td>
+            <!--ms-for-end:-->
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="title">公示期异议反馈</div>
+    <table class="am-table my-table am-table-bordered">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>提出人</th>
+            <th>提出时间</th>
+            <th class="reason">原由</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--ms-for: ($index,el) in @dissent-->
+        <tr>
+            <td>
+                {{$index+1}}
+            </td>
+            <td>
+                {{el.name}}
+            </td>
+            <td>
+                {{el.join}}
+            </td>
+            <td class="reason" ms-attr="{title:el.content}">
+                {{el.content}}
+            </td>
+        </tr>
+        <!--ms-for-end:-->
+        <tr ms-if="@dissent.length==0">
+            <td colspan="4">
+               暂无数据
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="opinion am-padding-horizontal">
+        核查意见
+    </div>
+    <div class="am-cf am-padding-horizontal">
+        <div class="am-fl">
+            <div class="am-radio">
+                <label>
+                    <input type="radio" name="doc-radio-1" value="1" ms-duplex="@radio_check" ms-click="@select_invalid">
+                    异议无效
+                </label>
+            </div>
+
+            <div class="am-radio">
+                <label>
+                    <input type="radio" name="doc-radio-1" value="2" ms-duplex="@radio_check">
+                    更正结果
+                </label>
+            </div>
+
+        </div>
+        <div class="am-cf for-radio am-fl" id="option">
+            <div class="am-fl for-sel">
+                <label for="doc-select-1">测试项</label>
+                <select id="doc-select-1" ms-duplex="@select_title" ms-class="[@radio_check==1 ? 'disabled':'']" ms-attr="{disabled:@radio_check==1}">
+                    <!--ms-for: ($index,el) in @health_test_detail-->
+                    <option ms-attr="{value:$index}">{{el.name}}</option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+            <div class="am-fl for-sel">
+                <label >更正结果</label>
+                <input type="text" class="test-input" placeholder="请输入分数" ms-duplex-number="@select_value" ms-attr="{disabled:@radio_check==1}">
+            </div>
+            <button type="button" class="am-btn am-btn-primary am-radius" ms-attr="{disabled:@radio_check==1}" ms-click="@change_value">保存</button>
+        </div>
+
+    </div>
+    <table class="am-table my-table am-table-bordered">
+        <thead>
+        <tr>
+            <th>成绩</th>
+            <!--ms-for: ($index,el) in @health_test_detail-->
+            <th>{{el.name}}</th>
+            <!--ms-for-end:-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>原成绩</td>
+            <!--ms-for: ($index,el) in @health_test_detail-->
+            <td>
+                {{el.value}}
+            </td>
+            <!--ms-for-end:-->
+        </tr>
+        <tr>
+            <td>更正后</td>
+            <!--ms-for: ($index,el) in @new_detail-->
+            <td>
+                {{el.value}}
+            </td>
+            <!--ms-for-end:-->
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="opinion am-padding-horizontal">
+        请说明核实结果
+    </div>
+    <div class="am-form-group">
+        <textarea class="am-margin-horizontal" rows="5" ms-duplex="@content"  id="result-area"></textarea>
+    </div>
+    <div class="opinion am-padding-horizontal">
+        上传核查材料？
+    </div>
+    <div class="am-padding-horizontal">
+        <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'card_uploader',id:'card_uploader', files:@files, url:@uploader_url}">
+        </xmp>
+    </div>
+    <div class="btns am-cf">
+        <a class="am-btn am-btn-default" href="javascript:history.go(-1);">
+            取消
+        </a>
+        <a class="am-btn am-btn-primary" href="javascript: void(0);" ms-click="@submit_data">
+            确定
+        </a>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,270 @@
+#daily_perform_pub{
+    background-color: #f1f2f6;
+}
+#daily_perform_pub .common-select{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#daily_perform_pub .common-select,
+#daily_perform_pub .list-con>div{
+    background-color: white;
+}
+/*内容部分*/
+#daily_perform_pub .list-con{
+    /*overflow: hidden;*/
+    /*padding:*/
+}
+#daily_perform_pub .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#daily_perform_pub .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#daily_perform_pub .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+}
+#daily_perform_pub .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#daily_perform_pub .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#daily_perform_pub .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#daily_perform_pub .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#daily_perform_pub .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#daily_perform_pub .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*#daily_perform_pub .line-two{*/
+    /*display:inline-block;*/
+    /*width: 1px;*/
+    /*height: 18px;*/
+    /*background-color: #a2a2a2;*/
+/*}*/
+/*学生头像那块*/
+#daily_perform_pub .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#daily_perform_pub .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#daily_perform_pub .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#daily_perform_pub .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#daily_perform_pub .stu-school{
+    /*border:1px solid red;*/
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+#daily_perform_pub .stu-school>div:first-child{
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    /*border:1px solid yellow;*/
+    overflow: hidden;/*为了控制左边框和右边框高度和字体高度一致，都等于18px*/
+}
+#daily_perform_pub .stu-school div .d-name{
+    padding-left:10px;
+    padding-right:10px;
+    border-right:1px solid #a2a2a2;;
+    border-left:1px solid #a2a2a2;;
+}
+#daily_perform_pub .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#daily_perform_pub .stu-school>div:last-child span{
+   margin-right:40px;
+}
+#daily_perform_pub .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#daily_perform_pub  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#daily_perform_pub .daily-info>div{
+   margin-top:10px;
+}
+/*图片*/
+#daily_perform_pub  .daily-info .d-p-img{
+    border-radius: 4px;
+}
+#daily_perform_pub  .daily-info .d-p-img img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+.img-ary-height{
+    height:150px !important;
+    overflow: hidden;
+}
+.img-ary-height-open{
+    height:auto !important;
+}
+#daily_perform_pub  .daily-info .one-two-index span:first-child{
+    margin-right:72px;
+}
+#daily_perform_pub  h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+/*图片*/
+#daily_perform_pub  .daily-info .img-ary{
+    border-radius: 4px;
+    /*height:150px;*/
+    /*overflow: hidden;*/
+}
+#daily_perform_pub  .daily-info .img-ary img{
+    margin-bottom:5px;
+    width:766px;
+}
+#daily_perform_pub  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+.img-ary-height{
+    height:150px !important;
+    overflow: hidden;
+}
+.img-ary-height-open{
+    height:auto !important;
+}
+/*展开提异议*/
+#daily_perform_pub  .daily-info .img-objection{
+    text-align: center;
+    position: relative;
+    margin-top:10px;
+}
+#daily_perform_pub  .daily-info .img-objection>div{
+    display:inline-block;
+    cursor: pointer;
+}
+#daily_perform_pub .img-objection .img-switch{
+    width: 80px;
+    height: 28px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    line-height:28px;
+    text-align: center;
+    border: solid 1px #2bbba4;
+    color: #2bbba4;
+}
+#daily_perform_pub .img-objection .img-switch:hover{
+    background-color: #2bbba4;
+    color: #fff;
+}
+/*展开*/
+#daily_perform_pub .img-objection .img-open span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/down.png");
+    margin-left:5px;
+}
+#daily_perform_pub .img-objection .img-open:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/down1.png");
+}
+/*收起*/
+#daily_perform_pub .img-objection .img-close span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/top.png");
+    margin-left:5px;
+}
+#daily_perform_pub .img-objection .img-close:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/top1.png");
+}
+#daily_perform_pub .img-objection .ask-dissent{
+    width: 98px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #ff9e47;
+    border-radius: 4px;
+    color:#fff;
+    position: absolute;
+    right:0;
+}
+#daily_perform_pub .img-objection .ask-dissent:hover{
+    background-color: #ff7a45;
+}
+/*异议内容*/
+#daily_perform_pub .yy-con{
+    color: #ff6656;
+}
+/*h标签与p不得不说的密码*/
+/** + p, * + hr, * + ul, * + ol, * + dl, * + blockquote, * + pre, * + address, * + fieldset, * + figure {*/
+    /*margin-top:0;*/
+    /*margin-bottom: 0;*/
+/*}*/
+/*#daily_perform_pub .h-style{*/
+    /*float: left;*/
+    /*margin-top: -1.6rem;*/
+/*}*/
+
+
+#daily_perform_pub .part-img {
+    height: 120px;
+    overflow: hidden;
+}
+#daily_perform_pub .list-con a{
+    text-decoration: underline;
+}
+

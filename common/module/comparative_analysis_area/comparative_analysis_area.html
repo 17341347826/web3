@@ -1,0 +1,82 @@
+<div class="analysis-class">
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@other.grade" data-duplex-changed="@gradeChange()">
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@other.semester" data-duplex-changed="@semesterChange()">
+                        <!--ms-for: idx,el in @semester-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.semester_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="table-module" id="area_analysis">
+        <!--<div id="container_area" class="am-fl" ms-css="{height:@chart_height}"></div>-->
+        <div id="container_area"></div>
+        <div>
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="11">{{@tit}}综合素质评价区县对比情况</th>
+                </tr>
+                <tr>
+                    <th rowspan="2" class="border-right">序号</th>
+                    <th rowspan="2" class="border-right">市州</th>
+                    <th rowspan="2" class="border-right">区县</th>
+                    <th colspan="2">A</th>
+                    <th colspan="2">B</th>
+                    <th colspan="2">C</th>
+                    <th colspan="2">D</th>
+                </tr>
+                <tr>
+                    <th>人数</th>
+                    <th class="propor">比例（%）</th>
+                    <th>人数</th>
+                    <th class="propor">比例（%）</th>
+                    <th>人数</th>
+                    <th class="propor">比例（%）</th>
+                    <th>人数</th>
+                    <th class="propor">比例（%）</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-if="@evaluation_contrast.length == 0">
+                    <td ms-attr="{colspan:11}">暂时没有数据</td>
+                </tr>
+                <!--ms-for: ind,el in @evaluation_contrast-->
+                <tr>
+                    <td class="border-right">{{ind+1}}</td>
+                    <td class="border-right">{{el.city}}</td>
+                    <td class="border-right">{{el.district}}</td>
+                    <td>{{el.A}}</td>
+                    <td>{{el.A_1}}</td>
+                    <td>{{el.B}}</td>
+                    <td>{{el.B_1}}</td>
+                    <td>{{el.C}}</td>
+                    <td>{{el.C_1}}</td>
+                    <td>{{el.D}}</td>
+                    <td>{{el.D_1}}</td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

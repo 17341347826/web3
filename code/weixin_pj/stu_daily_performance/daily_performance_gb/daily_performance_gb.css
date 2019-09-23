@@ -1,0 +1,102 @@
+#daily_performance_gb{
+    margin-top: 10px;
+    font-family: PingFang-SC-Regular;
+}
+/*内容*/
+#daily_performance_gb .con{
+    margin-top:10px;
+    /*padding-top:10px;*/
+}
+#daily_performance_gb .con>div{
+
+}
+/*周次 */
+#daily_performance_gb .con .week-name{
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    color: #444444;
+}
+#daily_performance_gb .con .week-name span{
+    display:inline-block;
+    border-bottom: dotted 1px #eaeaea;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*亮点与不足*/
+#daily_performance_gb .con .daily-dot{
+    margin-bottom:25px;
+}
+#daily_performance_gb .con .daily-dot .dot-add,
+#daily_performance_gb .con .daily-dot .dot-reduce{
+    text-align: center;
+    display:inline-block;
+    width: 55px;
+    height: 15px;
+    line-height: 15px;
+    border-radius: 5px;
+    margin-bottom:15px;
+}
+#daily_performance_gb .con .daily-dot .dot-add{
+    font-size: 12px;
+    font-weight: normal;
+    color: #3772c5;
+    background-color: #d1e1f6;
+}
+#daily_performance_gb .con .daily-dot .dot-reduce{
+    font-size: 12px;
+    font-weight: normal;
+    color: #ff5065;
+    background-color: #ffdcd3;
+}
+#daily_performance_gb  .person-con{
+    border:1px dotted #eaeaea;
+    padding:10px 15px;
+    margin-bottom:5px;
+}
+#daily_performance_gb  .person-con:last-child{
+    margin-bottom:0;
+}
+#daily_performance_gb .record-des{
+    margin-bottom:8px;
+}
+#daily_performance_gb .record-des h3{
+    float: left;
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #444444;
+}
+#daily_performance_gb .record-des p{
+    font-size: 13px;
+    font-weight: normal;
+    color: #998a87;
+}
+/*得分*/
+#daily_performance_gb .person-head span:last-child{
+    text-align: center;
+    font-size: 13px;
+    font-weight: normal;
+    width: 50px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 5px;
+    float: right;
+    margin-top: 9px;
+}
+/*加分*/
+.add-score{
+    color: #ff5e5e;
+    background-color: #ffe6e6;
+}
+/*减分*/
+.reduce-score{
+    color: #18ada4;
+    background-color: #d1f6ee;
+}
+/*三级菜单选中*/
+.three-menu .menu-check{
+    border-bottom:1px solid #F47443;
+    color:#F47443;
+}

@@ -1,0 +1,47 @@
+<div ms-important="xy_home" id="xy_home">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="common/images/banner.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="weui-flex xy-menu-cont">
+        <div class="weui-flex__item">
+            <div class="xy-menu grade" ms-click="@grade_analysis()">
+                <img src="common/images/xy/menu1.png" alt="图片">
+                <span>成绩分析</span>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="xy-menu err-book" ms-click="@go_error_book">
+                <img src="common/images/xy/menu2.png" alt="图片">
+                <span>错题本</span>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="xy-menu real-subject" ms-click="@real_exercise">
+                <img src="common/images/xy/menu3.png" alt="图片">
+                <span>真题练习</span>
+            </div>
+        </div>
+    </div>
+    <div class="project-content">
+        <h3>最新发布</h3>
+        <div class="project-name" ms-if="project_list.length==0">
+            <span class="project-icon">
+            </span>
+            暂无考试项目
+        </div>
+        <!--ms-for: $idx,el in @project_list-->
+        <div class="project-name" ms-click="grade_analysis(el)">
+            <span class="project-icon">
+            </span>
+            {{el.examName}}
+        </div>
+        <!--ms-for-end:-->
+
+    </div>
+
+
+</div>

@@ -1,0 +1,30 @@
+<xmp ms-widget="{is:'page_title_div',title:' 学生综合素质评价/民主评评议/初始设置',reBack:'0'}">
+</xmp>
+<div ms-important="start">
+ <div class="am-tab-panel">
+  <form class="am-form am-form-horizontal am-padding-top-lg back_color" id="notice_detail">
+   <div class="am-form-group">
+    <label class="am-u-sm-2 am-text-right label_title">
+     标题：
+    </label>
+    <div class="am-u-sm-6 am-u-end">
+     {{@detail_message.title}}
+    </div>
+   </div>
+   <div class="am-form-group">
+    <label class="am-u-sm-2 am-text-right label_title">
+     内容：
+    </label>
+    <div class="am-u-sm-6 am-u-end" ms-html="@detail_message.content">
+    </div>
+   </div>
+   <div class="am-form-group">
+    <div class="am-form-group am-u-sm-12 am-text-center" id="submitBtnDiv">
+     <a class="am-btn am-btn-default" href="javascript:history.go(-1);">
+      返回
+     </a>
+    </div>
+   </div>
+  </form>
+ </div>
+</div>

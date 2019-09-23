@@ -1,0 +1,97 @@
+<div id="city_menu" ms-important="city_menu">
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">评价指标</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('add_first_index?index_type=1')">
+                <span class="menu target"></span>
+                <span class="menu-name">新增维度</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('a_a_element?index_type=1')">
+                <span class="menu score"></span>
+                <span class="menu-name">新增要素</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('a-k-perform?index_type=1')">
+                <span class="menu score"></span>
+                <span class="menu-name">新增表现</span>
+            </div>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('evaluation_scheme?mod=1')">
+                <span class="menu target"></span>
+                <span class="menu-name">市级评价方案</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('evaluation_scheme?mod=2')">
+                <span class="menu score"></span>
+                <span class="menu-name">区县评价方案</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('evaluation_scheme?mod=3')">
+                <span class="menu score"></span>
+                <span class="menu-name">校级评价方案</span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">评价进度</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('city_result_progess')">
+                <span class="menu target"></span>
+                <span class="menu-name">结果生成进度</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('city_user_activity')">
+                <span class="menu score"></span>
+                <span class="menu-name">用户活跃度</span>
+            </div>
+            <div class="each-menu">
+                <span class="menu"></span>
+                <span class="menu-name"></span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">评价结果管理</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('city_term_eval_results')">
+                <span class="menu i21"></span>
+                <span class="menu-name">学期评价结果</span>
+            </div>
+            <div class="each-menu"  ms-click="@jump_page('city_gra-eval-results')">
+                <span class="menu i22"></span>
+                <span class="menu-name">毕业评价结果</span>
+            </div>
+            <div class="each-menu">
+                <span class="menu"></span>
+                <span class="menu-name"></span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">学生档案查看</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('growth_archives_list')">
+                <span class="menu i21"></span>
+                <span class="menu-name">学生成长档案</span>
+            </div>
+            <div class="each-menu"  ms-click="@jump_page('term_archives_list')">
+                <span class="menu i22"></span>
+                <span class="menu-name">学期评价档案</span>
+            </div>
+            <div class="each-menu"  ms-click="@jump_page('graduate_archives_list')">
+                <span class="menu i22"></span>
+                <span class="menu-name">毕业评价档案</span>
+            </div>
+        </div>
+    </div>
+    <!--
+    cur_tab:home首页，evaluate评价，about-me我的
+    跳转链接请加到bottom_tab.js的tab_href数组中
+    -->
+    <xmp ms-widget="{is:'ms-bottom-tab',cur_tab:'evaluate',ident_type:4}"></xmp>
+</div>

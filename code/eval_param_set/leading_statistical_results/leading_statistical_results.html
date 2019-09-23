@@ -1,0 +1,337 @@
+<div class="am-g" id="leading_statistical_results" ms-important="leading_statistical_results">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-padding-left-lg am-padding-right-lg" id="content_div">
+        <div class="common-select" >
+            <div class="search-cont clearfix">
+                <div class="select" :if="@highest_level == 2">
+                    <div class="old-select">
+                        <select data-duplex-changed="@areaChange" ms-duplex="@area_info">
+                            <option value="">请选择区县</option>
+                            <!--ms-for: el in @areaList-->
+                            <option ms-attr="{value:el.id+'|'+el.district}">
+                                {{el.district}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+                <div class="select" :if="@highest_level == 2 || @highest_level == 3">
+                    <div class="old-select">
+                        <select data-duplex-changed="@schoolChange" ms-duplex="@school_info">
+                            <option value="">请选择学校</option>
+                            <!--ms-for: el in @schoolList-->
+                            <option ms-attr="{value:el.id+'|'+el.schoolname}">
+                                {{el.schoolname}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+                <div class="select">
+                    <div class="old-select">
+                        <select  ms-duplex="@grade_info" disabled>
+                            <option value="">请选择年级</option>
+                            <!--ms-for: el in @teach_class_list-->
+                            <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                                {{el.grade_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+                <div class="select">
+                    <div class="old-select">
+                        <select data-duplex-changed="@classChange" ms-duplex-number="@form.classId">
+                            <option value="">请选择班级</option>
+                            <!--ms-for: el in @class_list-->
+                            <option ms-attr="{value:el.class_id}">
+                                {{el.class_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+                <!--<div class="am-padding-top-sm am-padding-bottom-sm">-->
+                    <!--<a class='am-btn am-btn-primary am-btn-sm am-margin-left-xl'-->
+                       <!--ms-on-click="release_click">发布</a>-->
+                    <!--<a class='am-btn am-btn-danger am-btn-sm am-margin-left-xl'-->
+                       <!--ms-on-click="revoke_click">撤销发布</a>-->
+                <!--</div>-->
+                <!--导入结果-->
+                <div class="click_btn" :if="@is_public!=5" ms-click="@import_result()">
+                    <span>导入结果</span>
+                </div>
+                <div class="click_btn" :if="@is_public==5" title="该学期评价结果已归档，不能导入" style="background-color: #CBCBCB;">
+                    <span>导入结果</span>
+                </div>
+                <!--导入报告-->
+                <div class="click_btn " id="import_data" ms-click="@import_report()" ms-on-mouseenter="@import_tips()">
+                    <span>导入报告</span>
+                    <input type="file" accept="aplication/zip" class="import-input"
+                           id="import_report" multiple>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="am-padding-top-sm" :if="show_level && is_public==2"><!-- && is_public==2-->
+                <label class="am-form-label">需要公示的等级:</label>
+                <!--ms-for: el in @rank_count_arr-->
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" ms-duplex="level" ms-attr="{value:el}"> {{el}}
+                </label>
+                <!--ms-for-end:-->
+            </div>
+            <div class="am-padding-top-sm am-padding-bottom-sm">
+                <!--<label :if="is_public==2" class="am-form-label">发布状态:未发布(已统计)</label>-->
+                <!--<label :if="is_public==4" class="am-form-label">发布状态:已发布</label>-->
+                <div class="search-btn-leading"  :if="is_public==2">
+                    <input type="button" value="发布" ms-on-click="release_click">
+                </div>
+                <div class="search-btn-leading"  :if="is_public==4">
+                    <input type="button" value="撤销发布" ms-on-click="revoke_click">
+                </div>
+            </div>
+        </div>
+        <div :if="table_show" class="table-module am-margin-top-sm am-padding-bottom-sm">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        姓名
+                    </th>
+                    <th>
+                        学籍号
+                    </th>
+                    <!--ms-for: el in @tbodyThead-->
+                    <th>
+                        {{el.signName1}}
+                    </th>
+                    <!--ms-for-end:-->
+                    <th>
+                        状态
+                    </th>
+                    <!--<th>-->
+                        <!--操作-->
+                    <!--</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: ($idx,el) in @get_info-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.studentName}}
+                    </td>
+                    <td>
+                        {{el.studentNum}}
+                    </td>
+                    <!--ms-for: ($i,cl) in @el.percentileOne-->
+                    <td>
+                        {{cl|number(1,'.')}}
+                    </td>
+                    <!--ms-for-end:-->
+                    <td>
+                        {{el.gradeName}}
+                    </td>
+                    <td :if="el.state==2 || el.state==3 || el.state==4">
+                        已发布
+                    </td>
+                    <td :if="el.state==1">
+                        未发布
+                    </td>
+                    <td :if="el.state==5">
+                        已归档
+                    </td>
+                    <!--<td>-->
+                        <!--<a class="tab-btn tab-details-btn" ms-on-click="check(el)" title="查看">-->
+                        <!--</a>-->
+                    <!--</td>-->
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--导入结果-->
+    <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                导入结果
+                <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                    ×
+                </a>
+            </div>
+            <div class="am-modal-bd">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <input type="text" ms-duplex="@fileName" id="file-name" disabled class="am-u-sm-10"
+                           style="height: 32px">
+                    <div class="am-form-group am-form-file">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                        <input type="file" id="file" name="file" multiple onchange="document.getElementById('file-name').value=this.value">
+                        <input type="hidden" name="gradeId" ms-attr="{value:@uploadForm.gradeId}">
+                        <input type="hidden" name="semesterId" ms-attr="{value:@uploadForm.semesterId}">
+                        <input type="hidden" name="subjectId" ms-attr="{value:@uploadForm.subjectId}">
+                    </div>
+                </form>
+                <div class="am-text-left">
+                    <a ms-on-click="@down_score" style="cursor: pointer">
+                        下载模板
+                    </a>
+                </div>
+                <div ms-visible="@modal.msg != ''" class="am-text-left" style="margin-top:10px;margin-botttom:5px;">错误信息，请检查：</div>
+                <div ms-visible="@modal.msg != ''" ms-html="@modal.msg"  style="color: red;height: 300px;overflow: auto;"></div>
+                <div class="am-text-left" ms-visible="@import_excel_return.length != 0">
+                    <!--ms-for:el in @import_excel_return-->
+                    <span style="color:red;margin-top:15px;">{{el}}</span>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel="">取消</span>
+                <!--<span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">上传</span>-->
+                <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@upload_before()">上传</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+    展示假数据
+-->
+<!--<div class="am-g" id="leading_statistical_results" ms-important="leading_statistical_results">-->
+    <!--<xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>-->
+    <!--<div class="am-padding-left-lg am-padding-right-lg" id="content_div">-->
+        <!--<div class="common-select" >-->
+            <!--<div class="search-cont clearfix">-->
+                <!--<div class="select" :if="@highest_level == 2">-->
+                    <!--<div class="old-select">-->
+                        <!--<select data-duplex-changed="@areaChange" ms-duplex="@area_info">-->
+                            <!--<option value="">武侯区</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="select" :if="@highest_level == 2 || @highest_level == 3">-->
+                    <!--<div class="old-select">-->
+                        <!--<select data-duplex-changed="@schoolChange" ms-duplex="@school_info">-->
+                            <!--<option value="">武侯祠中学</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="select">-->
+                    <!--<div class="old-select">-->
+                        <!--<select data-duplex-changed="@gradeChange" ms-duplex="@grade_info">-->
+                            <!--<option value="">初2016级</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="select">-->
+                    <!--<div class="old-select">-->
+                        <!--<select data-duplex-changed="@classChange" ms-duplex-number="@form.classId">-->
+                            <!--<option value="">01班</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="select">-->
+                    <!--<div class="old-select">-->
+                        <!--<select data-duplex-changed="@projectChange" ms-duplex="@project_info"  style="width:auto!important;">-->
+                            <!--<option value="">2016-2017学年综合素质评价项目(一)</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="select">-->
+                    <!--<div class="old-select">-->
+                        <!--<select data-duplex-changed="@rankChange" ms-duplex="@form.gradeName">-->
+                            <!--<option value="">A</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="search-btn">-->
+                    <!--<input type="button" value="发布">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="am-padding-top-sm">-->
+            <!--<label class="am-form-label">需要公示的等级:</label>-->
+            <!--&lt;!&ndash;ms-for: el in @rank_count_arr&ndash;&gt;-->
+            <!--<label class="am-checkbox-inline">-->
+                <!--<input type="checkbox" ms-duplex="level" ms-attr="{value:el}"> {{el}}-->
+            <!--</label>-->
+            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="am-padding-top-sm am-padding-bottom-sm">-->
+            <!--<label  class="am-form-label">发布状态:未发布(已统计)</label>-->
+            <!--&lt;!&ndash;<label :if="is_public==4" class="am-form-label">发布状态:已发布</label>&ndash;&gt;-->
+
+
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div style="padding-top: 20px;padding-bottom: 20px;">-->
+        <!--<div class="table_module">-->
+            <!--<table class="am-table am-table-hover">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>-->
+                        <!--序号-->
+                    <!--</th>-->
+                    <!--<th>-->
+                        <!--姓名-->
+                    <!--</th>-->
+                    <!--<th>-->
+                        <!--学籍号-->
+                    <!--</th>-->
+                    <!--&lt;!&ndash;ms-for: el in @tbodyThead&ndash;&gt;-->
+                    <!--<th>-->
+                        <!--{{el.signName1}}-->
+                    <!--</th>-->
+                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--<th>-->
+                        <!--综合等级-->
+                    <!--</th>-->
+                    <!--<th>-->
+                        <!--状态-->
+                    <!--</th>-->
+                    <!--<th>-->
+                        <!--操作-->
+                    <!--</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--1-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--周世豪-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--G315128200306082964-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--5.0-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--18.0-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--26.0-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--A-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--未发布-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<a class="tab-btn tab-details-btn" ms-on-click="check(el)" title="查看">-->
+                        <!--</a>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

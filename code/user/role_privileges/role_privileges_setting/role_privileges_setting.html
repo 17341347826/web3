@@ -1,0 +1,61 @@
+<div class="am-g" ms-important="role_privileges_setting" id="role_privileges_setting">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div id="user_div">
+        <div class="r_p_s_cont">
+            <h2 class="am-text-center am-padding-top-lg">
+                <span>角色：{{@role_info.role_name}}</span>
+            </h2>
+            <div ms-if="@role_power.length!=0" class="am-text-right am-margin-right am-margin-bottom-sm">
+                <label class="am-checkbox-inline">
+                    <input type="checkbox" ms-duplex-checked="@all_checked"
+                           data-duplex-changed="@allChange($event)"> 全选
+                </label>
+            </div>
+            <div class="am-margin-bottom" id="setting-con">
+                <!--ms-for: el in @role_power-->
+                <div class="first-power">
+                <span ms-click="@clickOneMenu">
+                    <label class="am-checkbox-inline">
+                        <input ms-on-change="@selectOne(el,$event)" ms-attr="{checked:isCheckedSec(el),value:el.id}" type="checkbox"/>
+                 {{el.title}}
+                    </label>
+                </span>
+                    <div :class="[el.elements.length>0?'':'first-power-nomenu']">
+                        <!--ms-for: col in el.elements-->
+                        <div class="second-power">
+                          <span ms-click="@clickSecMenu">
+                              <label class="am-checkbox-inline">
+                                  <input ms-on-change="@selectSec(col,$event)" ms-attr="{checked:isCheckedSec(col),value:col.id}" type="checkbox"/>
+                              {{col.title}}
+                              </label>
+                          </span>
+                            <div class="am-padding-horizontal" :class="[col.elements.length==0?'nomenu':'']">
+                                <!--ms-for: cols in col.elements-->
+                                <label class="am-checkbox-inline">
+                                    <input ms-attr="{value:cols.id}" ms-on-change="@powerChange(col,$event)" ms-duplex-number="@power" type="checkbox"/>
+                                    {{cols.title}}
+                                </label>
+                                <!--ms-for-end:-->
+                            </div>
+                        </div>
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+            </div>
+            <div>
+                <div class="btns">
+                    <button type="button" class="am-btn-default"  ms-on-click="@cancel">取消</button>
+                    <button type="button" class="am-btn-primary" ms-click="@confirm">提交</button>
+                </div>
+            </div>
+
+        </div>
+        <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}"></xmp>
+        <div class="am-text-center am-padding-bottom-sm" ms-if="@role_power.length==0" style="color: red">
+            <div>
+                暂无权限分配
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+#stuUsersControl .am-modal-bd>div{
+    /*height: 450px;*/
+    overflow-y: auto;
+}
+#stuUsersControl .red_span{
+    color:red;
+}
+#stuUsersControl{
+    background-color: #f1f2f6;
+}
+#stuUsersControl>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#stuUsersControl .table_module{
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+    padding:17px 16px 40px;
+}
+#stuUsersControl #compileData{
+    color:#c8c8c8;
+}
+#stuUsersControl #role-setting input,
+#stuUsersControl #rank-setting input,
+#stuUsersControl #compileData input,
+#stuUsersControl #role-setting select,
+#stuUsersControl #rank-setting select,
+#stuUsersControl #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color: #777;
+}
+#stuUsersControl .tab-toggle-off-btn{
+    margin-left: 0;
+}
+/*按钮*/
+#stuUsersControl .search-btn {
+    margin-right: 5px;
+}
+/*#stuUsersControl .search-btn input[type='button'] {*/
+    /*min-width: 70px;*/
+/*}*/
+
+

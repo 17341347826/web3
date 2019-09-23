@@ -1,0 +1,15 @@
+<div class="am-g" ms-important="table" id="auditList">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--指标选项卡-->
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <div class="am-fl" :class="[(@remark==0 ? 'chosen':'')]" ms-on-click="@firstIndexList">评价维度</div>
+            <div class="am-fl" :class="[(@remark==1 ? 'chosen':'')]"  ms-on-click="@secondIndexList">评价要素</div>
+            <div class="am-fl" :class="[(@remark==2 ? 'chosen':'')]"  ms-on-click="@thirdIndexList">关键表现</div>
+        </div>
+    </div>
+    <div id="index_audit_div">
+        <xmp ms-widget="{is:'ms-ele-table',only_hash:true,is_init:@is_init,url:@url,data:@data,extend:@extend,remember:@remember,theadTh:@theadTh,cbopt:@cbopt}">
+        </xmp>
+    </div>
+</div>

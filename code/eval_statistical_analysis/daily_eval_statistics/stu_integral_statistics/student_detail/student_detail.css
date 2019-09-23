@@ -1,0 +1,168 @@
+#student_detail{
+    background-color: #f1f2f6;
+}
+#student_detail .list-con>div{
+    background-color: white;
+}
+/*内容部分*/
+#student_detail .list-con{
+    /*overflow: hidden;*/
+    /*padding:*/
+}
+#student_detail .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#student_detail .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#student_detail .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+}
+#student_detail .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#student_detail .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#student_detail .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#student_detail .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#student_detail .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#student_detail .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*学生头像那块*/
+#student_detail .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#student_detail .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#student_detail .stu-head img{
+    /*width:60px;*/
+    /*height:60px;*/
+    width:100%;
+}
+#student_detail .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#student_detail .stu-school{
+    /*border:1px solid red;*/
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+#student_detail .stu-school>div:first-child{
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    /*border:1px solid yellow;*/
+    overflow: hidden;/*为了控制左边框和右边框高度和字体高度一致，都等于18px*/
+}
+#student_detail .stu-school div .d-name{
+    padding-left:10px;
+    padding-right:10px;
+    border-right:1px solid #a2a2a2;;
+    border-left:1px solid #a2a2a2;;
+}
+#student_detail .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#student_detail .stu-school>div:last-child span{
+    margin-right:40px;
+}
+#student_detail .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#student_detail  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#student_detail .daily-info>div{
+    margin-top:10px;
+}
+/*图片*/
+#student_detail  .daily-info .d-p-img{
+    border-radius: 4px;
+}
+#student_detail  .daily-info .d-p-img img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+.img-ary-height{
+    height:150px !important;
+    overflow: hidden;
+}
+.img-ary-height-open{
+    height:auto !important;
+}
+#student_detail  .daily-info .one-two-index span:first-child{
+    margin-right:72px;
+}
+#student_detail  h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+}
+/*图片*/
+#student_detail  .daily-info .img-ary{
+    border-radius: 4px;
+    /*height:150px;*/
+    /*overflow: hidden;*/
+}
+#student_detail  .daily-info .img-ary img{
+    margin-bottom:5px;
+    width:766px;
+}
+#student_detail  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+
+

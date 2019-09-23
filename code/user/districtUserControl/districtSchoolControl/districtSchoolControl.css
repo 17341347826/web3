@@ -1,0 +1,21 @@
+#districtSchoolControl{
+    background-color: #f1f2f6;
+}
+#districtSchoolControl>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#districtSchoolControl .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#districtSchoolControl #compileData{
+    color:#c8c8c8;
+}
+#districtSchoolControl #compileData input,
+#districtSchoolControl #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color:#c8c8c8;
+}

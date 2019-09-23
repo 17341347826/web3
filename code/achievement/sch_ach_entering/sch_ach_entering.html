@@ -1,0 +1,103 @@
+<div ms-important="sch_ach_entering" id="sch_ach_entering">
+    <div class="content-title-h">
+        <h3 :visible="subject_id==1000">学生学业成绩录入/修改</h3>
+        <h3 :visible="subject_id==10000">学生艺术成绩录入/修改</h3>
+        <div class="search-cont clearfix">
+            <div class="search-cont clearfix one_left" >
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade, $id:'score_edit_opt_grade'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'score_edit_opt_class'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester,  $id:'score_edit_opt_sem'}"></xmp>
+                </div>
+                <div class="form-input custom_select2">
+                    <select id="code_select" style="width: 220px;" >
+                        <option value="-1">请选择学生</option>
+                        <option :attr="{value:$idx}" :for="($idx,item) in score_list">{{item.code}}</option>
+                    </select>
+                </div>
+                <div class="form-input custom_select2">
+                    <select id="name_select" style="width: 220px;" >
+                        <option value="-1">请选择学生</option>
+                        <option :attr="{value:$idx}" :for="($idx,item) in score_list">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div ms-visible="@score_set.length==0" style="background-color: #FFFFFF;text-align: center;padding-bottom: 15px">
+            请筛选数据
+        </div>
+        <div class="content-nr" :for="score in score_set">      
+            <div class="content-nr-nn">
+                <div class="content-nr-one" :visible="count(headers, 'score_type', 'nor') != 0">
+                    <h3>按分数记录成绩</h3>
+                    <table class="content-one-table">
+                        <tr>
+                            <td class="padding-td">科目</td>
+                            <td :for="item in headers" :if="item.score_type == 'nor'">{{item.title}}</td>
+
+                        </tr>
+                        <tr>
+                            <td class="padding-td">成绩</td>
+                            <td :for="$index,item in @headers" :if="item.score_type == 'nor'">
+                                <input type="text" maxlength="3" :duplex="score[item.alias].value"
+                                       ms-on-input="@inputLimits($event)"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="content-nr-two" :visible="count(headers, 'score_type', 'ABCD') != 0">
+                    <h3>按A/B/C/D等级记录学科</h3>
+                    <table class="content-two-table">
+                        <tr>
+                            <td class="padding-td">科目</td>
+                            <td :for="item in headers" :if="item.score_type == 'ABCD'">{{item.title}}</td>
+                        </tr>
+                        <tr>
+                            <td class="padding-td">成绩</td>
+                            <td :for="item in headers" :if="item.score_type == 'ABCD'">
+                                <select ms-duplex-string="score[item.alias].value">
+                                    <option value="">请选择</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="content-nr-three" :visible="count(headers, 'score_type', 'pass') != 0">
+                    <h3>按合格/不合格记录</h3>
+                    <table class="content-three-table">
+                        <tr>
+                            <td class="padding-td">科目</td>
+                            <td :for="item in headers" :if="item.score_type == 'pass'">{{item.title}}</td>
+
+                        </tr>
+                        <tr>
+                            <td class="padding-td">成绩</td>
+                            <td :for="item in @headers" :if="item.score_type == 'pass'">
+                                <select ms-duplex-string="@score[item.alias].value">
+                                    <option value="">请选择</option>
+                                    <option value="1">合格</option>
+                                    <option value="0">不合格</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <div class="hr"></div>
+            <div class="content-bottom">
+                <button class="button-one" :click="@back">取消</button>
+                <button class="button-two" :click="@save_score()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>

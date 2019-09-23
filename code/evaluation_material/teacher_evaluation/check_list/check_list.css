@@ -1,0 +1,12 @@
+#check_list{
+    background-color: #f1f2f6;
+}
+#check_list>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#check_list .c-l-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

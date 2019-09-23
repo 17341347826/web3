@@ -1,0 +1,64 @@
+<div ms-important="self_scheme" id="self_scheme">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.plan_gradeid">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{ el.remark }}【{{el.id}}】
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--创建方案-->
+            <div class="click_btn" :click="@create_scheme">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建方案</span>
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+            <!--<table class="am-table am-table-bordered">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>序号</th>-->
+                    <!--<th>方案名称</th>-->
+                    <!--<th>适用年级</th>-->
+                    <!--<th>创建人</th>-->
+                    <!--<th>创建时间</th>-->
+                    <!--<th>使用状态</th>-->
+                    <!--<th>操作</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--&lt;!&ndash;ms-for:($index,el) in @task_ary&ndash;&gt;-->
+                <!--<tr>-->
+                    <!--<td>{{$index+1}}</td>-->
+                    <!--<td>{{el.name}}</td>-->
+                    <!--<td>{{el.grade_use}}</td>-->
+                    <!--<td>{{el.add_person}}</td>-->
+                    <!--<td>{{el.start_time}}</td>-->
+                    <!--<td>-->
+                        <!--<a class='tab-btn tab-toggle-on-btn'></a>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<a class='tab-btn tab-details-btn' title="查看"></a>-->
+                        <!--<a class='tab-btn tab-setting-btn' title="编辑"></a>-->
+                        <!--<a class='tab-btn tab-trash-btn' title="删除"></a>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                <!--</tbody>-->
+            <!--</table>-->
+        </div>
+    </div>
+</div>

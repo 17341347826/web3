@@ -1,0 +1,68 @@
+<div ms-important="stu_score" id="stu_score" class="normalPaddding">
+
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>年级</p>
+            </div>
+            <div class="weui-cell__ft">{{@user.grade_name}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>班级</p>
+            </div>
+            <div class="weui-cell__ft">{{@user.class_name}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>学年学期</p>
+            </div>
+            <div class="weui-cell__ft">{{@now_semester.semester_name}}</div>
+        </div>
+    </div>
+
+
+    <div>
+        <!--ms-for: $idx,el in @project_arr-->
+        <div class="con">
+            <p class="flex_p">
+                <span>项目名称:</span>
+                <span>{{el.pro_name}}</span>
+            </p>
+            <p class="flex_p">
+                <span>填写状态:</span>
+                <span>{{el.is_time | eva_state}}</span>
+            </p>
+            <div>
+                <p class="flex_p">
+                    <span>开始时间</span>
+                    <span>{{el.pro_start_time}}</span>
+                </p>
+                <p class="flex_p">
+                    <span>结束时间</span>
+                    <span>{{el.pro_end_time}}</span>
+                </p>
+                <p class="flex_p">
+                    <span>评价状态</span>
+                    <span :if="el.is_time=='1'">进行中</span>
+                    <span :if="el.is_time=='2'">已完成</span>
+                </p>
+            </div>
+            <div class="public_btn">
+                <!--<a  ms-on-click="@evaluate_go(el)">录入</a>-->
+                <a :if="el.is_time=='1' && @is_switch" ms-on-click="@evaluate_go(el)">录入</a>
+                <a :if="el.is_time=='2' && @is_switch" class="color_gray">不可录入</a>
+                <a :if="!@is_switch" class="color_gray">任务已关闭</a>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+    </div>
+    <div ms-visible="@project_arr.length==0">
+        <div class="con">
+            <p class="flex_p">
+                <span>暂无数据</span>
+            </p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,70 @@
+#special_personality_see{
+    /*padding: 16px;*/
+    background-color: #f1f2f6;
+}
+#special_personality_see>div{
+    padding-left:16px;
+    padding-right:16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#special_personality_see .list-con {
+    padding-top: 17px;
+    padding-bottom: 40px;
+    overflow: hidden;
+}
+#special_personality_see .msg{
+    color:red;
+    font-size:1.1em;
+}
+#special_personality_see .add{
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: rgb(43,187,164);
+    color: #FFFFFF;
+}
+#special_personality_see .add:hover{
+    background-color: #2bbb7c;
+}
+/*页面切换*/
+#special_personality_see .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    position: relative;
+    padding-left: 16px;
+}
+#special_personality_see  .first-index>div{
+    width: 70%;
+}
+#special_personality_see  .first-index>div>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+#special_personality_see >div.first-index>div>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+#special_personality_see >div.first-index>div{
+    width: auto;
+    padding-right: 40px;
+
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../../common/images/chosen.png') no-repeat top right;
+}

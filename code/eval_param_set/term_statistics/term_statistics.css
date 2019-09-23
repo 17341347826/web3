@@ -1,0 +1,69 @@
+#term_statistics{
+    background-color: #f1f2f6;
+}
+#term_statistics .common-select,
+#term_statistics>div{
+    padding-left:16px;
+    padding-right:16px;
+    background-color: white;
+}
+#daily_perform_pub .common-select{
+    border-radius: 4px 4px 0px 0px;
+}
+#term_statistics .e-content{
+    padding-top:17px;
+    padding-bottom:40px;
+}
+/*按钮组*/
+#term_statistics .btns{
+    margin-top:25px;
+}
+/*遮罩父div*/
+#term_statistics .mask-parent{
+    text-align: center;
+    width:500px;
+    height:300px;
+    /*width:100%;*/
+    /*height:100%;*/
+    position:fixed;
+    z-index:9999;
+    top :50%;
+    left:50%;
+    margin-top:-250px;
+    margin-left:-150px;
+    /*这个会导致子div也透明*/
+    /*background-color:#000;*/
+    /*opacity:0.3;*/
+    background: rgba(0, 0, 0, 0.5);
+    /*text-align:center*/
+}
+#term_statistics .sj-tj{
+    position:absolute;
+    z-index:99999;
+    top:100px;
+    left: 162px;
+    color:#5BBDF4;
+    font-size:18px;
+    text-align: center;
+    display: inline-block;
+}
+/*遮罩子div*/
+#term_statistics .mask-kid{
+    /*float:right; */
+    position:absolute;
+    z-index:99999;
+    top:50%;
+    /*left:10%;*/
+    /*width:80%;*/
+    height:20px;
+    /*z-index:10;*/
+    /*line-height:500px;*/
+    /*background-color:blue;*/
+    /*opacity:1;*/
+}
+/*进度条高度*/
+#term_statistics .am-progress-sm{
+    /*height: 2.2rem;*/
+    /*width:100%;*/
+    /*background: rgba(0, 0, 0, 0.5);*/
+}

@@ -1,0 +1,91 @@
+#teacher_content_fill{
+    background-color: white;
+}
+#teacher_content_fill .pro_info{
+    position: fixed;
+    width: 100%;
+}
+#teacher_content_fill .pro_info>p{
+    color: #8d8d8d;
+    font-size: 12px;
+    background-color: white;
+    padding: 5px 16px 5px 16px;
+}
+#teacher_content_fill .content_con{
+    border: 1px #f5f5f5 solid;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#teacher_content_fill .t_con_box{
+    padding-top: 50px;
+}
+#teacher_content_fill .con_flex{
+    display: flex;
+}
+#teacher_content_fill .con_flex>span{
+    flex: 1;
+}
+#teacher_content_fill .con_flex{
+    font-family: PingFang-SC-Regular;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #2f60b8;
+}
+#teacher_content_fill .text_right{
+    text-align: right;
+}
+#teacher_content_fill .content_con>.three_index{
+    font-size: 12px;
+    color: #777777;
+    line-height: 16px;
+    margin-top: 7px;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+}
+#teacher_content_fill .reference_info .left_span,
+#teacher_content_fill .reference_info .right_span{
+    width:100px;
+    height:50px;
+}
+#teacher_content_fill .reference_info .right_span{
+    width: 180px;
+    text-align: center;
+}
+#teacher_content_fill .center_span{
+    text-align: center;
+    flex-grow: 1;
+}
+
+#teacher_content_fill .input_div>input{
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    color: #78a8ff;
+    height: 24px;
+    box-shadow: 0px 0px 4px 0px #abcfff;
+    border-radius: 5px;
+    border: solid 1px #78a8ff;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 5px;
+}
+#teacher_content_fill .input_div{
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    padding-bottom: 14px;
+    padding-top: 14px;
+}
+#teacher_content_fill .public_btn_big{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#teacher_content_fill .weui-loadmore{
+    margin: 20em auto;
+}

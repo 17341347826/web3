@@ -1,0 +1,65 @@
+<div id="teacher_home" ms-important="teacher_home">
+    <!--
+    cur_tab:home首页，evaluate评价，about-me我的
+    跳转链接请加到bottom_tab.js的tab_href数组中
+    -->
+    <xmp ms-widget="{is:'ms-bottom-tab',cur_tab:'home',ident_type:1}"></xmp>
+    <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../../../common/images/weixin_pj/teacher_home_banner1.png" alt=""></div>
+            <div class="swiper-slide"><img src="../../../common/images/weixin_pj/teacher_home_banner1.png" alt=""></div>
+            <div class="swiper-slide"><img src="../../../common/images/weixin_pj/teacher_home_banner1.png" alt=""></div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-bullets">
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+            <span class="swiper-pagination-bullet"></span>
+        </div>
+    </div>
+    <div class="teacher_home_content">
+        <div class="welcoming">
+            欢迎您，{{@login_info.name}}教师（{{@login_info.school_name}}）
+        </div>
+        <!--通知公告-->
+        <div class="context_high first_high">
+            <xmp ms-widget="{is:'ms-notice-module-wx'}"></xmp>
+        </div>
+        <div class="context_high" :if="@pending_list.length > 0">
+            <p>一 待处理事项 一</p>
+            <div class="te_remind">
+                <div class="two_mo">
+                    <div :class="[(@is_tab == 1 ? 'active_x':'')]" ms-on-click="change_tab(1)">待录入</div>
+                    <div :class="['border-lf',(@is_tab == 2 ? 'active_x':'')]" ms-on-click="change_tab(2)">待审核</div>
+                </div>
+                <div class="clear_both" :if="is_tab == 1">
+                    <!--ms-for: el in @pending_list-->
+                    <div class="float-left con_rem" :if="el.title != '待审核'">
+                        <span class="mod_name">{{el.mod}}</span>
+                        <span class="mod_count">
+                            <span>{{el.count}}</span>
+                        </span>
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+                <div class="clear_both" :if="is_tab == 2">
+                    <!--ms-for: el in @pending_list-->
+                    <div class="float-left con_rem" :if="el.title == '待审核'">
+                        <span class="mod_name">{{el.mod}}</span>
+                        <span class="mod_count">
+                            <span>{{el.count}}</span>
+                        </span>
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+        </div>
+        <div class="context_high">
+            <p>一 新增记录 一</p>
+            <div id="container_add"></div>
+        </div>
+        <div class="context_high">
+            <p>一 使用状态 一</p>
+            <div id="container_use"></div>
+        </div>
+    </div>
+</div>

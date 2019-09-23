@@ -1,0 +1,32 @@
+#update-level{
+    background-color: #f1f2f6;
+}
+#update-level>div{
+    background-color: white;
+    padding-left: 16px;
+}
+#update-level>div.update-level-content{
+    margin-top: 4px;
+}
+#update-level .update-level-content input{
+    width: 50px;
+    height: 24px;
+    border-radius: 4px;
+    border: solid 1px #a2a2a2;
+}
+#update-level .update-level-btn{
+    margin-top: 48px;
+    text-align: center;
+}
+#update-level .update-level-btn>.btns{
+    padding-bottom: 28px;
+
+}
+#update-level #level_config_table{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+#update-level .update-level-content>div{
+    padding-top: 46px;
+}
+.hide_scroll  ::-webkit-scrollbar {display:none}

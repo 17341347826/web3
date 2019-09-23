@@ -1,0 +1,982 @@
+<div ms-important="semester_archives" id="semester_archives">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+
+
+    <div class="file-container" id="file-container" ms-visible="is_show">
+        <div class="main clearfix" id="print-container">
+            <div class='first-index clearfix'>
+                <div class="tab-titles clearfix" ms-visible="@sems_list.length>0">
+                    <div class="tab" ms-for="($index,el) in @sems_list" ms-class="[@current_tab==el.id ? 'chosen':'']"
+                         ms-click="change_tab($index)">
+                        {{el.semester_name}}
+                    </div>
+                </div>
+            </div>
+            <div class="cover" id="cover">
+                <img src="common/images/file_detail/semester-cover.png" alt="图片">
+                <div class="cover-bottom">
+                    <span class="point"></span>{{stu.school_name}}<span class="point"></span>
+                </div>
+                <div class="cover-input">
+                    <div>
+                        <span>姓<span class="jianju"></span>名 : </span>
+                        <input type="text" ms-duplex="@stu.student_name">
+                    </div>
+                    <div>
+                        <span>年级班级 : </span>
+                        <input type="text" ms-duplex="@stu.grade_name">
+                    </div>
+                </div>
+            </div>
+            <div id="person">
+                <h3>个人基础信息</h3>
+            </div>
+            <!--基础信息-->
+            <div class="bse-msg no-margin" id="basic_situation">
+                <div class="tab-content">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td colspan="6" rowspan="2">基本信息</td>
+                            <td rowspan="6" class="img-container">
+                                <img ms-attr="{src:@student_head(@fm.ui.guid)}" class="person-img"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td>姓名</td>
+                            <td>{{@fm.ui.student_name}}</td>
+                            <td>曾用名</td>
+                            <td>{{@fm.ui.old_name|isNull}}</td>
+                            <td>性别</td>
+                            <td>{{@fm.ui.sex|sex}}</td>
+                        </tr>
+                        <tr>
+                            <td>出生日期</td>
+                            <td>{{@fm.ui.date_of_birth}}</td>
+                            <td>民族</td>
+                            <td>{{@fm.ui.nation}}</td>
+                            <td>政治面貌</td>
+                            <td>{{@fm.ui.politic}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>身份证号</td>
+                            <td colspan="2">{{@fm.ui.student_code}}</td>
+                            <td>学籍号</td>
+                            <td colspan="2">{{@fm.ui.student_num}}</td>
+                        </tr>
+                        <tr>
+                            <td>通讯地址</td>
+                            <td colspan="2">{{@fm.ui.family_site|isNull}}</td>
+                            <td>联系电话</td>
+                            <td colspan="2">{{@fm.ui.student_phone}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="bse-msg" id="result">
+                <div class="tab-content">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td class="am-text-center" ms-attr="{colspan:fm.wd.length+4,value:fm.wd.length}">综合素质表现</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                维度
+                            </td>
+                            <!--ms-for: el in @fm.wd-->
+                            <td>
+                                {{el.signName1}}
+                            </td>
+                            <!--ms-for-end:-->
+                            <td>加分项</td>
+                            <td>综合得分</td>
+                            <td>评价等级</td>
+                        </tr>
+                        <tr :visible="@fm.zhbx == null">
+                            <td>分值</td>
+                            <!--ms-for: el in @fm.wd-->
+                            <td>
+                                
+                            </td>
+                            <!--ms-for-end:-->
+                            <td>
+                                {{@fm.zhbx.score_plus}}
+                            </td>
+                            <td>
+                                {{@fm.zhbx.scoreValue}}
+                            </td>
+                            <td>
+                                {{@fm.zhbx.gradeName}}
+                            </td>
+                        </tr>
+                        <tr :visible="@fm.zhbx != null">
+                            <td>分值</td>
+                            <!--ms-for: el in @fm.zhbx.percentileOne-->
+                            <td>
+                                {{el}}
+                            </td>
+                            <!--ms-for-end:-->
+                            <td>
+                                {{@fm.zhbx.score_plus}}
+                            </td>
+                            <td>
+                                {{@fm.zhbx.scoreValue}}
+                            </td>
+                            <td>
+                                {{@fm.zhbx.gradeName}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>自我描述</td>
+                            <td ms-attr="{colspan:fm.wd.length+3,value:fm.wd.length}">{{@fm.jy.content_my}}</td>
+                        </tr>
+                        <tr>
+                            <td>同学寄语</td>
+                            <td ms-attr="{colspan:fm.wd.length+3,value:fm.wd.length}">
+                                <div class="am-g" ms-for="$index, el in @fm.txjy">
+                                    {{el.content}}-【{{el.critic_name}}】
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>家长寄语</td>
+                            <td ms-attr="{colspan:fm.wd.length+3,value:fm.wd.length}">
+                                {{@fm.jy.content_guardian}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>班主任寄语</td>
+                            <td ms-attr="{colspan:fm.wd.length+3,value:fm.wd.length}" align="left">
+                                {{@fm.jy.content_teacher}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <!--目标与计划-标题-->
+            <div id="target" class="model-title clearfix ">
+                <h3>主要成长记录</h3>
+            </div>
+            <div class="small_title" id="character">
+                <h3>(一)品德发展</h3>
+            </div>
+            <!--表格-->
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td>
+                                活动内容
+                            </td>
+                            <td>
+                                参加总时长
+                            </td>
+                            <td>
+                                参加总次数
+                            </td>
+                        </tr>
+                        <tr ms-for="$index, el in @fm.pd">
+                            <td>
+                                {{el.activity_type}}
+                            </td>
+                            <td>
+                                {{el.hour_consume}}
+                            </td>
+                            <td>
+                                {{el.activity_type_count}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--标题信息-->
+            <div class="detail-content clearfix" ms-for="$index,el in @fm.pd_list">
+                <div class="title">
+                    <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                    <p>{{el.title}}</p>
+                </div>
+                <div class="other-msg">
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动类型 :</h3>
+                            <p>{{el.activity_type}}</p>
+                        </div>
+
+                    </div>
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动时间 :</h3>
+                            <p>{{el.start_time}}</p>
+                        </div>
+
+
+                    </div>
+                    <div class="last-two">
+                        <h3>活动描述 :</h3>
+                        <p>{{el.activity_describe}}</p>
+                    </div>
+                    <!--<div class="last-two">-->
+                    <!--<h3>活动过程 :</h3>-->
+                    <!--<p>{{el.process}}</p>-->
+                    <!--</div>-->
+                    <div class="last-two">
+                        <h3>活动感想 :</h3>
+                        <p>{{el.feel}} </p>
+                    </div>
+
+                </div>
+                <div  :visible="@data_img == 0"  class="detail-img">
+                    <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                    <!--ms-for-end:-->
+                </div>
+                <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content" :visible="@data_img == 0">
+                    <h3>文件材料：</h3>
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.pd_list.length-1"></div>
+            </div>
+            <div class="small_title" id="schoolwork">
+                <h3>(二)学业水平</h3>
+            </div>
+            <!--表格-->
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td colspan="9">国家课程学习情况</td>
+                        </tr>
+
+                        <tr>
+                            <td ms-for="el in @fm.kc.columns|limitBy(9, 0)">
+                                {{el.title}}
+                            </td>
+                        </tr>
+                        <tr :if="@fm.kc.list==0">
+                            <td ms-for="col in @fm.kc.columns|limitBy(9, 0)"></td>
+                        </tr>
+                        <tr ms-for="el in @fm.kc.list">
+                            <td ms-for="col in @fm.kc.columns|limitBy(9, 0)">
+                                {{el[col.alias].value}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td ms-for="el in @fm.kc.columns|limitBy(9, 9)">
+                                {{el.title}}
+                            </td>
+                        </tr>
+
+                        <tr ms-for="el in @fm.kc.list">
+                            <td ms-for="col in @fm.kc.columns|limitBy(9, 0)">
+                                {{el[col.alias].value}}
+                            </td>
+                        </tr>
+                        <tr :if="@fm.kc.list==0">
+                            <td ms-for="col in @fm.kc.columns|limitBy(9, 0)"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td colspan="3">研究性学习</td>
+                        </tr>
+                        <tr>
+                            <td>课程内容</td>
+                            <td>耗用时长</td>
+                            <td>课程总个数</td>
+                        </tr>
+                        <tr ms-for="el in @fm.yj">
+                            <td>
+                                {{el.course_type}}
+                            </td>
+                            <td>
+                                {{el.hour_consume}}
+                            </td>
+                            <td>
+                                {{el.course_type2}}
+                            </td>
+                        </tr>
+                        <tr ms-visible="@fm.yj.length==0">
+                            <td colspan="3">暂无数据</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="detail-content clearfix" ms-for="$index,el in @fm.yj_list">
+                <div class="title">
+                    <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                    <p>我的暑期生活</p>
+                </div>
+                <div class="other-msg">
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">开始时间 :</h3>
+                            <p>{{el.start_date}}</p>
+                        </div>
+                        <div>
+                            <h3 class="left-title">结束时间 :</h3>
+                            <p>{{el.end_date}}</p>
+                        </div>
+                    </div>
+                    <div class="last-two">
+                        <h3>发展过程 :</h3>
+                        <p>{{el.process}}</p>
+                    </div>
+                    <div class="last-two">
+                        <h3>成功结论 :</h3>
+                        <p>{{el.result}}</p>
+                    </div>
+                </div>
+                <div :visible="@data_img == 0" class="detail-img" >
+                    <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                    <!--ms-for-end:-->
+                </div>
+                <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content" :visible="@data_img == 0">
+                    <h3>文件材料：</h3>
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.yj_list.length-1"></div>
+            </div>
+            <div class="small_title" id="health">
+                <h3>(三)身心健康</h3>
+            </div>
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td ms-attr="colspan=fm.ty.columns.length">日常体育锻炼情况</td>
+                        </tr>
+                        <tr>
+                            <td ms-for="el in @fm.ty.columns">
+                                {{el.name}}
+                            </td>
+                        </tr>
+                        <tr :if="@fm.ty.count == 0">
+                            <td ms-for="el in @fm.ty.columns"></td>
+                        </tr>
+                        <tr :for="el in @fm.ty.list">
+                            <td ms-for="row in @fm.ty.columns">{{ el[row.alias].value }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td ms-attr="{colspan:2}">健康体育活动</td>
+                        </tr>
+                        <tr>
+                            <td>活动内容</td>
+                            <td>参加次数</td>
+                        </tr>
+                        <tr :for="el in @fm.sxjk">
+                            <td>{{el.ashea_activityType}}</td>
+                            <td>{{el.hea_activityTypeCount}}</td>
+                        </tr>
+                        <tr ms-visible="@fm.sxjk.length==0 || @fm.sxjk==null">
+                            <td colspan="2">暂无数据</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="detail-content clearfix" ms-for="el in @fm.sxjk_list">
+                <div class="title">
+                    <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                    <p>{{el.hea_activityName}}</p>
+                </div>
+                <div class="other-msg">
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动类型 :</h3>
+                            <p>{{el.hea_activityType}}</p>
+                        </div>
+
+                    </div>
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动时间 :</h3>
+                            <p>{{el.hea_startDate |date("yyyy-MM-dd HH:mm:ss")}}</p>
+                        </div>
+                    </div>
+
+                    <div class="last-two">
+                        <h3>活动描述 :</h3>
+                        <p>{{el.hea_activityDescribe}}</p>
+                    </div>
+                    <div class="last-two">
+                        <p>{{el.hea_activityProcess}}</p>
+                    </div>
+                    <div class="last-two">
+                        <h3>活动感想 :</h3>
+                        <p>{{el.hea_activityFeel}} </p>
+                    </div>
+
+                </div>
+                <div :visible="@data_img == 0" class="detail-img">
+                    <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                    <!--ms-for-end:-->
+                </div>
+                <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content" :visible="@data_img == 0">
+                    <h3>文件材料：</h3>
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.sxjk_list.length-1"></div>
+
+            </div>
+
+            <div class="small_title" id="artistic">
+                <h3>(四)艺术素养</h3>
+            </div>
+
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td ms-attr="{colspan:2}">参加活动情况</td>
+                        </tr>
+                        <tr>
+                            <td>活动内容</td>
+                            <td>参加次数</td>
+                        </tr>
+                        <tr :for="el in @fm.ys">
+                            <td>{{el.YSLX}}</td>
+                            <td>{{el.art_count}}</td>
+                        </tr>
+                        <tr ms-visible="@fm.ys.length==0||@fm.ys==null">
+                            <td colspan="2">暂无数据</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="detail-content clearfix" ms-for="$index,el in @fm.ys_list">
+                <div class="title">
+                    <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                    <p>{{el.art_name}}</p>
+                </div>
+                <div class="other-msg">
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动类型 :</h3>
+                            <p>{{el.art_type}}</p>
+                        </div>
+                    </div>
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动时间 :</h3>
+                            <p>{{el.art_start_time}}</p>
+                        </div>
+                    </div>
+                    <div class="last-two">
+                        <h3>活动描述 :</h3>
+                        <p>{{el.art_describe}}</p>
+                    </div>
+                    <div class="last-two">
+                        <h3>活动感想 :</h3>
+                        <p>{{el.art_feel}} </p>
+                    </div>
+
+                </div>
+                <div :visible="@data_img == 0" class="detail-img">
+                    <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                    <!--ms-for-end:-->
+                </div>
+                <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content" :visible="@data_img == 0">
+                    <h3>文件材料：</h3>
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.ys_list.length-1"></div>
+
+            </div>
+
+            <div class="small_title" id="practice">
+                <h3>(六)社会实践</h3>
+            </div>
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td colspan="2">实践活动情况</td>
+                        </tr>
+                        <tr>
+                            <td>活动内容</td>
+                            <td>参加次数</td>
+                        </tr>
+                        <tr :for="el in @fm.shsj">
+                            <td>{{el.activity_type}}</td>
+                            <td>{{el.activity_type_count}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="detail-content clearfix" ms-for="el in @fm.shsj_list">
+                <div class="title">
+                    <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                    <p>{{el.title}}</p>
+                </div>
+                <div class="other-msg">
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动类型 :</h3>
+                            <p>{{el.activity_type}}</p>
+                        </div>
+
+                    </div>
+                    <div class="first-six">
+                        <div>
+                            <h3 class="left-title">活动时间 :</h3>
+                            <p>{{el.start_date}}</p>
+                        </div>
+                    </div>
+                    <div class="last-two">
+                        <h3>活动描述 :</h3>
+                        <p>{{el.activity_describe}}</p>
+                    </div>
+                    <div class="last-two">
+                        <h3>活动感想 :</h3>
+                        <p>{{el.feel}}</p>
+                    </div>
+
+                </div>
+                <div :visible="@data_img == 0" class="detail-img" >
+                    <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                    <!--ms-for-end:-->
+                </div>
+                <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content" :visible="@data_img == 0">
+                    <h3>文件材料：</h3>
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.shsj_list.length-1"></div>
+
+            </div>
+            <div class="small_title" id="reward">
+                <h3>(七)成就奖励</h3>
+            </div>
+            <div class="person-table">
+                <div class="ptc">
+                    <table class="am-table am-table-bordered">
+                        <tbody>
+                        <tr>
+                            <td colspan="5">活动奖励情况</td>
+                        </tr>
+                        <tr>
+                            <td>成就/奖励类型</td>
+                            <td>成就/奖励名称</td>
+                            <td>成就/奖励级别</td>
+                            <td>成就/奖励等次</td>
+                            <td>获得时间</td>
+                        </tr>
+                        <tr :for="el in @fm.cjjy">
+                            <td>{{el.ach_type}}</td>
+                            <td>{{el.ach_name}}</td>
+                            <td>{{el.ach_level}}</td>
+                            <td>{{el.ach_rank}}</td>
+                            <td>{{el.ach_date|date}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="detail-content clearfix"  ms-for="el in @fm.cjjy">
+                <div :visible="@data_img == 0" class="title">
+                    <h3  class="left-title">标<span class="jianju"></span>题 :</h3>
+                    <p>{{el.ach_name}}</p>
+                </div>
+                <div class="other-msg">
+                    <div class="last-two">
+                        <h3>收获感想 :</h3>
+                        <p>{{el.ach_feel}}</p>
+                    </div>
+
+                </div>
+                <div :visible="@data_img == 0" class="detail-img" >
+                    <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                    <!--ms-for-end:-->
+                </div>
+                <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content" :visible="@data_img == 0">
+                    <h3>文件材料：</h3>
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--图片显示再最后-->
+            <div :visible="@data_img == 2">
+                <div class="detail-content clearfix" ms-for="$index,el in @fm.pd_list">
+                    <div class="title">
+                        <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                        <p>{{el.title}}</p>
+                    </div>
+                    <div  class="detail-img" >
+                        <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in @el.img_arr-->
+                        <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content">
+                        <h3>文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @el.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @el.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.pd_list.length-1"></div>
+                </div>
+                <div class="detail-content clearfix" ms-for="$index,el in @fm.yj_list">
+                    <div class="title">
+                        <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                        <p>我的暑期生活</p>
+                    </div>
+                    <div  class="detail-img" >
+                        <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in @el.img_arr-->
+                        <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content">
+                        <h3>文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @el.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @el.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.yj_list.length-1"></div>
+                </div>
+                <div class="detail-content clearfix" ms-for="el in @fm.sxjk_list">
+                    <div class="title">
+                        <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                        <p>{{el.hea_activityName}}</p>
+                    </div>
+                    <div  class="detail-img" >
+                        <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in @el.img_arr-->
+                        <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content">
+                        <h3>文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @el.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @el.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.sxjk_list.length-1"></div>
+
+                </div>
+                <div class="detail-content clearfix" ms-for="$index,el in @fm.ys_list">
+                    <div class="title">
+                        <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                        <p>{{el.art_name}}</p>
+                    </div>
+                    <div  class="detail-img" >
+                        <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in @el.img_arr-->
+                        <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content">
+                        <h3>文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @el.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @el.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.ys_list.length-1"></div>
+
+                </div>
+                <div class="detail-content clearfix" ms-for="$index,el in @fm.zpzy_list">
+                    <div class="title">
+                        <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                        <p>{{el.title}}</p>
+                    </div>
+                    <div  class="detail-img" >
+                        <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in @el.img_arr-->
+                        <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content">
+                        <h3>文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @el.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @el.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.zpzy_list.length-1"></div>
+
+                </div>
+                <div class="detail-content clearfix" ms-for="el in @fm.shsj_list">
+                    <div class="title">
+                        <h3 class="left-title">标<span class="jianju"></span>题 :</h3>
+                        <p>{{el.title}}</p>
+                    </div>
+                    <div  class="detail-img" >
+                        <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in @el.img_arr-->
+                        <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content">
+                        <h3>文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @el.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @el.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dotted_line" style="margin-top: 28px" ms-if="$index!=@fm.shsj_list.length-1"></div>
+
+                </div>
+                <div class="detail-content clearfix"  ms-for="el in @fm.cjjy">
+                    <div class="title">
+                        <h3  class="left-title">标<span class="jianju"></span>题 :</h3>
+                        <p>{{el.ach_name}}</p>
+                    </div>
+                    <div  class="detail-img" >
+                        <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                        <!--ms-for:($index,al) in @el.img_arr-->
+                        <img ms-attr="{src:@url_for(@al.guid)}" ms-css="@rotation_str()">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0" class="text-content">
+                        <h3>文件材料：</h3>
+                        <ul>
+                            <li ms-for="col in @el.video_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                            <li ms-for="col in @el.file_arr">
+                                <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="file-munu">
+            <div class="btn-container">
+                <button ms-click="@export">导出</button>
+                <button ms-click="@print">打印</button>
+                <button ms-click="@setting">显示设置</button>
+            </div>
+            <div class="outer">
+                <div class="inner">
+                    <ul>
+                        <li ms-visible="@current_tg!='#cover'">
+                            <a ms-attr="{name:'#cover'}">封面</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#cover'">
+                            <a ms-attr="{name:'#cover'}">封面</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+                        <li ms-visible="@current_tg!='#person'">
+                            <a  ms-attr="{name:'#person'}">个人基本信息</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#person'">
+                            <a  ms-attr="{name:'#person'}">个人基本信息</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+                        <li ms-visible="@current_tg!='#result'">
+                            <a ms-attr="{name:'#result'}">学期评价结果</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#result'">
+                            <a ms-attr="{name:'#result'}">学期评价结果</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+                        <li ms-visible="@current_tg!='#character'">
+                            <a  ms-attr="{name:'#character'}">思想品德</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#character'">
+                            <a  ms-attr="{name:'#character'}">思想品德</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+                        <li ms-visible="@current_tg!='#schoolwork'">
+                            <a ms-attr="{name:'#schoolwork'}">学业水平</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#schoolwork'">
+                            <a ms-attr="{name:'#schoolwork'}">学业水平</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+                        <li ms-visible="@current_tg!='#health'">
+                            <a ms-attr="{name:'#health'}">身心健康</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#health'">
+                            <a ms-attr="{name:'#health'}">身心健康</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+                        <li ms-visible="@current_tg!='#artistic'">
+                            <a ms-attr="{name:'#artistic'}">艺术素养</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#artistic'">
+                            <a ms-attr="{name:'#artistic'}">艺术素养</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+
+                        <li ms-visible="@current_tg!='#practice'">
+                            <a ms-attr="{name:'#practice'}">实践活动</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#practice'">
+                            <a ms-attr="{name:'#practice'}">实践活动</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+                        <li ms-visible="@current_tg!='#reward'">
+                            <a ms-attr="{name:'#reward'}">成就奖励</a>
+                            <span class="small-circular"></span>
+                        </li>
+                        <li class="active" ms-visible="@current_tg=='#reward'">
+                            <a ms-attr="{name:'#reward'}">成就奖励</a>
+                            <span class="dotted"></span>
+                            <span class="out-circle"><span class="inner-circle"></span></span>
+                        </li>
+
+
+                    </ul>
+                    <span class="right-top-point"></span>
+                    <span class="right-bottom-point"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="set" id="set">
+        <div class="c-arys">
+            <label class="am-checkbox-inline">
+                <input type="checkbox" id="is_show" ms-attr="{value:true}" ms-duplex-checked="@is_show_img" data-duplex-changed="@show_img_change">
+                <label for="is_show">显示图片</label>
+            </label>
+        </div>
+        <div class="radios">
+            <label class="am-radio-inline file-radio">
+                <input type="radio" name="doc-radio-1" id="option1" ms-attr="{disabled:!@is_show_img}" class="rdo"
+                       ms-class="[!@is_show_img ? 'disabled-radio':'']" ms-duplex="@is_which" value="1">
+                <label for="option1">图片显示在材料详情</label>
+            </label>
+            <label class="am-radio-inline file-radio">
+                <input type="radio" name="doc-radio-1" id="option2" ms-attr="{disabled:!@is_show_img}"  class="rdo"
+                       ms-class="[!@is_show_img ? 'disabled-radio':'']" ms-duplex="@is_which" value="2">
+                <label for="option2" >图片显示在最后</label>
+            </label>
+        </div>
+    </div>
+</div>

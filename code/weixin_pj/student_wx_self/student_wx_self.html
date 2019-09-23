@@ -1,0 +1,52 @@
+<div ms-important="student_wx_self" id="student_wx_self">
+    <div class="weui-loadmore" :visible="@table_list.length == 0">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载,请稍等</span>
+    </div>
+    <div :visible="@table_list.length > 0">
+        <div class="stu_n_c">
+            <span>{{name}}</span>
+            <span>{{code}}</span>
+        </div>
+        <!---->
+        <!--ms-for: $idx,el in @table_list-->
+        <div class="index_info"  :if="@num==1">
+            <p class="three_index">
+                {{$idx+1}}、{{el.sub_subject}} ({{el.index_value}}分)
+            </p>
+            <div>
+                <div class="input_div">
+                    <!--<input class="score_td" min="0" ms-duplex="el.value_list" ms-on-blur="@inputBlur(el)"-->
+                           <!--ms-rules="{required:true,number:true}" type="number"/>-->
+                    <input class="score_td" ms-duplex="el.value_list"
+                           ms-on-blur="@inputBlur(el,$idx)" type="text"/>
+                </div>
+            </div>
+        </div>
+        <div  class="index_info"  :if="num == 2">
+            <p class="three_index">
+                {{$idx+1}}、{{el.sub_subject}}
+            </p>
+            <div class="weui-cells weui-cells_radio">
+                <!--ms-for: $index,cl in el.value_list-->
+                <label class="weui-cell weui-check__label" ms-attr="{for:'option'+$idx+$index}">
+                    <div class="weui-cell__bd">
+                        <p>{{cl.index_option}}.{{cl.index_option_content}}</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" class="weui-check"
+                               ms-attr="{value:$index.toString(), name:'radio'+$idx,id:'option'+$idx+$index}"
+                               ms-duplex="el.index_option_content">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div class="public_btn_big normalPaddding">
+            <a :visible="@btn_has"ms-on-click="@save">提交</a>
+            <a :visible="!@btn_has" class="color_gray">提交</a>
+        </div>
+    </div>
+</div>

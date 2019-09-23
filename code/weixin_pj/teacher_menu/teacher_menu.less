@@ -1,0 +1,203 @@
+@charset "utf-8";
+@menuPadding:9px;
+@fontSize:12px;
+@img_url: "/common/images/weixin_pj/menu-icons.png";
+@img_url2: "/common/images/weixin_pj/menu-icons@2x.png";
+@bcColor:#f5f5f5;
+#teacher_menu{
+  @titleColor:#3d3d3d;
+  @pointSize:4px;
+  @menuColor:#8d8d8d;
+  @menuSize:40px;
+  background-color: @bcColor;
+  @menuContainerColor:#fff;
+  padding-bottom: 42px;
+  .menu-container{
+    padding-top: @menuPadding;
+    padding-bottom: @menuPadding;
+    background-color: @menuContainerColor;
+    margin-bottom: 2px;
+  }
+  .title-container{
+    @paddingLeft:24px;
+    color: @titleColor;
+    padding-left: @paddingLeft;
+  }
+  .point{
+    width: @pointSize;
+    height: @pointSize;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: @titleColor;
+    vertical-align: middle;
+  }
+  .title{
+    @marginLeft:6px;
+    font-size: @fontSize;
+    margin-left: @marginLeft;
+  }
+
+  .menu-list{
+    display: flex;
+    padding-top: 8px;
+    font-size: @fontSize;
+    color: @menuColor;
+  }
+  .base(@row_order,@top_order) {
+    @left_dis: @row_order*2;
+    @top_dis: @top_order*2;
+      background-position: -(@menuSize+@menuSize*@left_dis) -(@menuSize+@menuSize*@top_dis);
+  }
+  .each-menu{
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    span{
+      display: block;
+    }
+    @nameTop:4px;
+    .menu{
+      width: @menuSize;
+      height: @menuSize;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      background-image: url("@{img_url}");
+      background-repeat: no-repeat;
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2) {
+      .menu {
+        background-image: url("@{img_url2}");
+        background-size: 741px auto;
+      }
+    }
+
+    .menu-name{
+      padding-top: @nameTop;
+    }
+  }
+  .target{
+    .base(0,0);
+  }
+  .score{
+    .base(1,0)
+  }
+  .comment{
+    .base(2,0)
+  }
+  .daily{
+    .base(3,0)
+  }
+  .practice{
+    .base(4,0)
+  }
+  .punishment{
+    .base(5,0)
+  }
+  .audit-material{
+    .base(6,0)
+  }
+  .audit-objection{
+    .base(7,0)
+  }
+  .all-progress{
+    .base(8,0)
+  }
+  .realization{
+    .base(0,1)
+  }
+  .mark{
+    .base(2,1)
+  }
+  .remark{
+    .base(1,1)
+  }
+  .review-progress{
+    .base(3,1)
+  }
+  .term-evaluation-results{
+    .base(5,1)
+  }
+  .graduation-evaluation-results{
+    .base(4,1)
+  }
+  .term-evaluation-results2{
+    .base(6,1)
+  }
+  .archives{
+    .base(7,1)
+  }
+  .i1{
+    .base(0,2)
+  }
+  .i2{
+    .base(1,2)
+  }
+  .i3{
+    .base(2,2)
+  }
+  .i4{
+     .base(3,2)
+   }
+  .i5{
+    .base(4,2)
+  }
+  .i6{
+    .base(5,2)
+  }
+  .i7{
+    .base(6,2)
+  }
+  .i8{
+    .base(7,2)
+  }
+  .i9{
+    .base(8,2)
+  }
+  .i10{
+    .base(0,3)
+  }
+  .i11{
+    .base(1,3)
+  }
+  .i12{
+    .base(2,3)
+  }
+  .i13{
+    .base(3,3)
+  }
+  .i14{
+    .base(4,3)
+  }
+  .i15{
+    .base(5,3)
+  }
+  .i16{
+    .base(6,3)
+  }
+  .i17{
+    .base(7,3)
+  }
+  .i18{
+    .base(8,3)
+  }
+  .i19{
+    .base(0,4)
+  }
+  .i20{
+    .base(1,4)
+  }
+  .i21{
+    .base(2,4)
+  }
+  .i22{
+    .base(3,4)
+  }
+  .i23{
+    .base(4,4)
+  }
+
+}

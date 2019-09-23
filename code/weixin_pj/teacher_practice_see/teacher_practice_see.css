@@ -1,0 +1,106 @@
+#teacher_practice_see .normalPaddding{
+    padding-bottom: 0px;
+}
+#teacher_practice_see>div.list-con{
+    background-color: #f6f6f6;
+    padding-top: 8px;
+}
+#teacher_practice_see .content_info{
+    margin-left: 16px;
+    margin-right: 16px;
+}
+#teacher_practice_see .daily-person{
+    background-color: #ffffff;
+    border-radius: 5px;
+    /*margin-bottom: 10px;*/
+    box-shadow: 0px 1px 7px 0px #e7e7e7;
+}
+#teacher_practice_see .left_mar{
+    margin-left: 8px;
+}
+#teacher_practice_see .right_mar{
+    margin-right: 8px;
+}
+#teacher_practice_see .stu-info{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom:1px #eaeaea dashed;
+}
+#teacher_practice_see .stu-info-img{
+    flex: 1;
+    width: 52px;
+}
+#teacher_practice_see .stu-img{
+    width: 44px;
+    height: 44px;
+}
+#teacher_practice_see .stu-img>img{
+    width: 100%;
+    height: 100%;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+}
+#teacher_practice_see .stu-info-info{
+    flex: 4;
+    padding-right: 8px;
+}
+#teacher_practice_see .stu-info-info>div,
+#teacher_practice_see .row{
+    display: flex;
+}
+#teacher_practice_see .top_pad{
+    padding-top: 5px;
+}
+#teacher_practice_see .stu-info-info>div>div{
+    flex: 1;
+    font-size: 12px;
+}
+#teacher_practice_see .row>div{
+    color: #777777;
+    font-size: 12px;
+}
+#teacher_practice_see .row>div:first-child{
+    flex: 1;
+}
+#teacher_practice_see .row>div:last-child{
+    flex: 4;
+}
+#teacher_practice_see .stu-name{
+    color:#444444;
+}
+#teacher_practice_see .stu-xjh{
+    color:#8d8d8d;
+    text-align: right;
+}
+#teacher_practice_see .stu-mkmc{
+    color:#ff7d50;
+}
+#teacher_practice_see .stu-cjsj{
+    color:#8d8d8d;
+    text-align: right;
+}
+#teacher_practice_see .mk_info{
+    padding-top: 8px;
+}
+#teacher_practice_see .mk_info>span{
+    background-color: #d1e1f6;
+    border-radius: 5px;
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    color: #3772c5;
+    padding: 5px 10px;
+}
+#teacher_practice_see .mk_info .top_pad{
+    padding-top: 8px;
+}
+#teacher_practice_see .img-ary{
+    padding-top: 7px;
+    padding-bottom:7px;
+    border-radius: 5px;
+}
+#teacher_practice_see .img-ary>img{
+    width: 100%;
+    border-radius: 5px;
+}

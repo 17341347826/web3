@@ -1,0 +1,22 @@
+<div class="am-g epd" id="teacher_add_evaluation" ms-important="teacher_add">
+    <!--ms-for: $idx,el in @detail_list-->
+    <div class="index-title">
+       {{el.plan_name}}-评价内容详情
+    </div>
+    <div class="index-msg am-cf">
+        <ol>
+            <!--ms-for: $idx2,el2 in @el.subject_data-->
+            <li class="clearfix">
+                {{el2.index_name}}
+                <ul class="index-ans am-cf">
+                    <li>
+                        {{el2.msg}}
+                    </li>
+                </ul>
+            </li>
+            <!--ms-for-end:-->
+        </ol>
+    </div>
+    <!--ms-for-end:-->
+    <div class="index-title" ms-if="@detail_list.length==0">暂无数据</div>
+</div>

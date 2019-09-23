@@ -1,0 +1,33 @@
+#by_self_comment{
+    background-color: #f5f5f5;
+}
+#by_self_comment >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+    color: #a2a2a2;
+}
+#by_self_comment .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+    min-height: 630px;
+}
+#by_self_comment .title{
+    margin-bottom:15px;
+    font-size: 16px;
+}
+#by_self_comment .notice{
+    /*首行缩进2个汉字*/
+    text-indent:2rem;
+    margin-bottom:10px;
+    font-size: 12px;
+}
+#by_self_comment textarea{
+    border-radius: 4px;
+    color: #a2a2a2;
+    font-size:14px;
+}
+#graduation_self_evaluation button{
+    border-radius:4px;
+}

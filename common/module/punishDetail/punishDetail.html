@@ -1,0 +1,47 @@
+<div class="am-g" >
+    <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+        <div class="am-slider am-slider-default"style="height: 400px;">
+            <ul class="am-slides">
+                <li :if="el.mini_type=='image/jpeg' || el.mini_type=='image/png' || el.mini_type=='image/jpg'" ms-for="el in @data.basis">
+                    <div class="am-gallery-item">
+                        <a class="detail_carousel_img">
+                            <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()" />
+                            <div ms-attr="{title:el.inner_name}">
+                                {{ el.desc}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="am-margin-top-sm" style="position: absolute;z-index: 100;">
+            <a :if="has_video" class="am-btn am-btn-primary" ms-on-click="video_click">视频</a>
+            <a :if="has_excel" class="am-btn am-btn-primary am-margin-left-lg" ms-on-click="excel_click">下载文件</a>
+        </div>
+    </div>
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+        <div class="am-u-sm-12" style="font-weight: bold"><span style="visibility: hidden">活</span>{{@data.punish_name}}</div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">被处分人 ：</span>
+            <span class="am-u-sm-9">{{@data.punished_person}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">处分时间 ：</span>
+            <span class="am-u-sm-9">{{@data.punish_time}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">处分类型 ：</span>
+            <!--处罚类型(1:警告2:严重警告3:记过4记大过)-->
+            <span class="am-u-sm-9" ms-if="@data.punish_type==1">警告</span>
+            <span class="am-u-sm-9" ms-if="@data.punish_type==2">严重警告</span>
+            <span class="am-u-sm-9" ms-if="@data.punish_type==3">记过</span>
+            <span class="am-u-sm-9" ms-if="@data.punish_type==4">记大过</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">处分原由 ：</span>
+            <span class="am-u-sm-9">
+                {{ @data.punish_cause}}
+            </span>
+        </div>
+    </div>
+</div>

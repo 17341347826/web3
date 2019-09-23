@@ -1,0 +1,103 @@
+<xmp ms-widget="{is:'page_title_div',title:'',reBack:'0'}">
+</xmp>
+<div class="am-g" id="user_statistics" ms-important="table">
+    <div id="user_div">
+        <div class="am-text-left" id="demand">
+            <form class="am-form am-form-inline">
+                <div class="am-form-group">
+                    <label class="am-form-label">
+                        统计方式:
+                    </label>
+                    <div class="form-width-md">
+                        <select data-duplex-changed="@typeChange()" ms-duplex="@extend.level">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option value="2">
+                                按市
+                            </option>
+                            <!--市 年级-->
+                            <option value="3">
+                                按区县
+                            </option>
+                            <!--市 区县 年级-->
+                            <option value="4">
+                                按学校
+                            </option>
+                            <!--市 区县 学校 年级-->
+                        </select>
+                    </div>
+                </div>
+                <div :if="type!=5" class="am-form-group">
+                    <label class="am-form-label">
+                        省:
+                    </label>
+                    <div class="form-width-sm">
+                        <select name="province">
+                        </select>
+                    </div>
+                </div>
+                <div :if="type!=5" class="am-form-group" style="margin-left: 25px;">
+                    <label class="am-form-label">
+                        市:
+                    </label>
+                    <div class="form-width-sm">
+                        <select data-duplex-changed="@cityChange()" ms-duplex="@city_value" name="city">
+                        </select>
+                    </div>
+                </div>
+                <div :if="type!=5" class="am-form-group" style="margin-left: 25px;">
+                    <div class="am-hide" id="area_select">
+                        <label class="am-form-label">
+                            区县:
+                        </label>
+                        <div class="form-width-sm">
+                            <div>
+                                <select data-duplex-changed="@districtChange()" ms-duplex="@district_name" name="area">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div :if="type==4" class="am-form-group">
+                    <label class="am-form-label">
+                        学校
+                    </label>
+                    <div class="form-width-md">
+                        <select data-duplex-changed="@schoolChange()" ms-duplex="@extend.school">
+                            <option ms-attr="{value:'0'}">
+                                请选择
+                            </option>
+                            <!--ms-for: el in @school_list-->
+                            <option ms-attr="{value:el.schoolname}">
+                                {{el.schoolname}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+                <div :if="type!=5" class="am-form-group">
+                    <label class="am-form-label">
+                        年级
+                    </label>
+                    <div class="form-width-sm">
+                        <select data-duplex-changed="@gradeChange()" ms-duplex="@extend.grade_id">
+                            <option ms-attr="{value:'0'}">
+                                请选择
+                            </option>
+                            <!--ms-for: el in @grade_list-->
+                            <option ms-attr="{value:el.id}">
+                                {{el.grade_name}}
+                            </option>
+                            <!--ms-for-end:-->
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div :if="table_num==1">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+    </div>
+</div>

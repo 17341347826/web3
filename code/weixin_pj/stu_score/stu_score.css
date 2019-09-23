@@ -1,0 +1,46 @@
+#stu_score{
+    background-color: white;
+    font-size: 13px;
+}
+#stu_score .weui-cells{
+    margin-top: -1px;
+}
+#stu_score .weui-cell__bd,
+#stu_score .weui-cell__ft{
+    font-size: 14px;
+}
+#stu_score .con{
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px #cecece;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#stu_score .flex_p{
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+}
+#stu_score .flex_p>span:first-child{
+    width: 60px;
+    text-align: left;
+}
+#stu_score .flex_p>span:last-child{
+    flex: 1;
+    text-align: right;
+}
+#stu_score .con>p{
+    background-color: #e0ebff;
+    color: #2f60b8;
+}
+#stu_score .con>div{
+    color: #8d8d8d;
+}
+#stu_score p{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#stu_score .public_btn{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

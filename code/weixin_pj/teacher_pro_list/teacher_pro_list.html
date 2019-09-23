@@ -1,0 +1,22 @@
+<div id="teacher_pro_list" ms-important="teacher_pro_list">
+    <div class="teacher_pro_list_con">
+        <ul>
+            <li class="span_1">
+                <div class="div_1">序号</div>
+                <div class="div_2">学籍号</div>
+                <div class="div_3">姓名</div>
+                <div class="div_4">状态</div>
+            </li>
+        </ul>
+        <!--ms-for: $idx,el in @student_arr_a-->
+        <ul>
+            <li class="span_2 pointer" ms-click="evaluate_click(el)">
+                <div class="div_1">{{$idx+1}}</div>
+                <div class="div_2">{{el.code}}</div>
+                <div class="div_3">{{el.name}}</div>
+                <div class="div_4" :class="[(el.status=='已评价' ? 'green_color' :'red_color')]">{{el.status}}</div>
+            </li>
+        </ul>
+        <!--ms-for-end:-->
+    </div>
+</div>

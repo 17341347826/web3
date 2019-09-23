@@ -1,0 +1,21 @@
+#health_item_edit{
+
+}
+#health_item_edit>div{
+    /*background-color: #fff;*/
+}
+#health_item_edit h3{
+    color: #a2a2a2;
+    font-size:16px;
+    font-weight:normal;
+    margin-bottom:10px;
+}
+#health_item_edit input{
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+}
+/*按钮组*/
+#health_item_edit .btns{
+    margin-top:20px;
+    text-align: center;
+}

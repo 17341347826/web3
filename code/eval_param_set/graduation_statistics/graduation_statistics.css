@@ -1,0 +1,16 @@
+#graduation_statistics{
+    background-color: #f1f2f6;
+}
+#graduation_statistics>div{
+    padding-left:16px;
+    padding-right:16px;
+    background-color: white;
+}
+#graduation_statistics .e-content{
+    padding-top:17px;
+    padding-bottom:40px;
+}
+/*按钮组*/
+#graduation_statistics .btns{
+    margin-top:25px;
+}

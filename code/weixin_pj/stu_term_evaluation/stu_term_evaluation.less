@@ -1,0 +1,130 @@
+@charset "utf-8";
+#stu_term_evaluation{
+  @marginTop: 10px;
+  padding-bottom: @marginTop;
+  .weui-cells{
+    margin-top: 0;
+  }
+  .teacher_term_comment_con,
+  .con {
+    margin-top: @marginTop;
+  }
+  .every_stu {
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 9px 0px #cecece;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+  @normalPadding: 13px;
+  .every_stu > div {
+    padding-left: @normalPadding;
+    padding-right: @normalPadding;
+  }
+  @stu_height: 47px;
+  .every_stu > .stu_info {
+    height: @stu_height;
+    line-height: @stu_height;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    letter-spacing: 0px;
+    background-color: #e0ebff;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #2f60b8;
+
+  }
+  .every_stu > .stu_plan {
+    display: flex;
+    line-height: 15px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    letter-spacing: 0px;
+    color: #8d8d8d;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+  }
+  .every_stu > .stu_plan > div.stu_plan1 {
+    flex: 1;
+  }
+  .every_stu > .stu_plan > div.stu_plan2 {
+    flex: 4;
+  }
+  .public_btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px #eeeeee solid;
+  }
+  .weui-dialog__hd {
+    background-color: #358afe;
+  }
+  .weui-dialog__title {
+    font-size: 13px;
+    font-weight: normal;
+    color: #ffffff;
+  }
+  .three-menu{
+    display: flex;
+    &>div:first-child,
+    &>div:last-child{
+      flex: 1;
+      text-align: center;
+    }
+    .line{
+      width: 1px;
+      height: 25px;
+      background-color: #efefef;
+    }
+  }
+  .three-menu .menu-check {
+    border-bottom: 1px solid red;
+    color: red;
+  }
+  @fontColor: #a2a2a2;
+  .weui-label,
+  .weui-select {
+    font-size: 15px;
+    color: @fontColor;
+  }
+  .no-msg{
+    text-align: center;
+    font-size: 12px;
+    color: @fontColor;
+  }
+  .name{
+    margin-left: 8px;
+
+  }
+  .graduation-name,
+  .graduation-textarea{
+    font-size: 14px;
+    color: @fontColor;
+  }
+  .graduation-textarea textarea::placeholder{
+    font-size: 12px;
+    color: @fontColor;
+  }
+  .graduation-textarea textarea{
+    color: #999999;
+  }
+  .graduation_form{
+    margin-top: -1px;
+  }
+  .weui-cell__ft{
+    font-size: 14px;
+  }
+  .decs{
+    font-size: 12px;
+  }
+}
+@fontColor:#8D8D8D;
+#modify_stu_term_ev{
+  .weui-cell__bd{
+    font-size: 15px;
+    color: @fontColor;
+  }
+  textarea::placeholder{
+    color: @fontColor;
+  }
+}

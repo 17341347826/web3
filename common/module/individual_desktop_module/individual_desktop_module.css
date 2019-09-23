@@ -1,0 +1,33 @@
+#home_x div.content_box>.desktop_remark>p{
+    display: inline-block
+}
+#home_x div.content_box>.desktop_remark>span{
+    margin-right: 5%;
+    line-height: 35px;
+    color: #1b9b6a;
+    cursor: default;
+}
+#home_x div.content_box>.desktop_remark>span:hover >img{
+    background-image: url("../../../common/images/icon/des_ed.png");
+
+}
+#home_x div.content_box>.desktop_remark>span:hover{
+    color: #41c595;
+}
+#home_x div.content_box #content_module>div{
+    color: #18c787;
+    font-size: 12px;
+    text-align: center;
+    line-height: 34px;
+    width: 45%;
+    height: 34px;
+    margin-left: 2.5%;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px #18c787 solid;
+}
+#home_x div.content_box #content_module>div:hover{
+    background-color: #18c787;
+    color: white;
+}

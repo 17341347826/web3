@@ -1,0 +1,21 @@
+@charset "utf-8";
+#stu_portrait_analysis {
+    background-color: #f2f2f6;
+    color: #a2a2a2;
+}
+#stu_portrait_analysis > div {
+    background-color: #FFFFFF;
+    padding: 16px;
+}
+#stu_portrait_analysis > .title {
+    font-size: 18px;
+    text-align: center;
+    color: #0dba9e;
+}
+#stu_portrait_analysis .dec {
+    font-size: 16px;
+}
+#stu_portrait_analysis .dec span {
+    font-size: 18px;
+    color: red;
+}

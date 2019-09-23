@@ -1,0 +1,47 @@
+#add_papers_div {
+    background-color: white;
+    border-left: 1px #ddd solid;
+    border-right: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+    border-radius: 5px;
+}
+
+#add_papers_div form {
+    padding-top: 40px;
+    overflow: hidden;
+}
+
+#add_papers_div .am-form-label {
+    margin-top: 6px;
+    color: #a2a2a2;
+    font-size: 16px;
+}
+
+#add_papers_div input {
+    border-radius: 4px;
+}
+
+#add_papers_div .my-btn a {
+    padding: 8px 22px;
+    font-size: 16px;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+#add_papers_div .my-btn a:first-child {
+    background-color: rgb(255, 158, 71);
+}
+
+#add_papers_div .my-btn a:first-child:hover {
+    background-color: #ff7a45;
+}
+
+#add_papers_div .my-btn a:last-child {
+    background-color: rgb(43, 187, 164);
+}
+
+#add_papers_div .my-btn a:last-child:hover {
+    background-color: #2bbb7c;
+}

@@ -1,0 +1,20 @@
+#params_authority_control{
+    background-color: #f1f2f6;
+}
+#daily_perform_pub .common-select,
+#params_authority_control>div{
+    padding-left:16px;
+    padding-right:16px;
+    background-color: white;
+}
+#daily_perform_pub .common-select{
+    border-radius: 4px 4px 0px 0px;
+}
+#params_authority_control .e-content{
+    padding-top:17px;
+    padding-bottom:40px;
+}
+/*按钮组*/
+#params_authority_control .btns{
+    margin-top:25px;
+}

@@ -1,0 +1,35 @@
+<div class="am-g am-container am-margin-vertical">
+ <h1>
+  家长用户
+ </h1>
+ <img alt="" class="lineImg" src="pj.xtyun.net/api/common/images/line.png"/>
+</div>
+<div class="am-g " ms-important="table">
+ <form class="am-form am-form-inline">
+  <div class="am-form-group">
+   <label class="am-form-label">
+    学籍号
+   </label>
+   <div>
+    <input ms-duplex="@demandData.student_num" ms-on-blur="@studentNumDemand()" placeholder="请输入学籍号" type="text"/>
+   </div>
+  </div>
+  <div class="am-form-group">
+   <label class="am-form-label">
+    学生姓名
+   </label>
+   <div>
+    <input ms-duplex="@demandData.student_name" ms-on-blur="@studentNameDemand()" placeholder="请输入学生姓名" type="text"/>
+   </div>
+  </div>
+  <div class="am-form-group">
+   <button class="am-btn am-btn-primary" ms-on-click="@demand()">
+    查询
+   </button>
+  </div>
+ </form>
+ <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+ </xmp>
+ <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+ </xmp>
+</div>

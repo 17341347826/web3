@@ -1,0 +1,23 @@
+#users-management .am-form-inline {
+    background: #fff;
+}
+
+#users-management .am-form-inline .am-form-group div {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#users-management .am-form-inline .am-form-group select {
+    width: 95px;
+}
+
+#users-management .am-form-inline .am-form-group input {
+    width: 190px;
+}
+#users-management .am-table th,
+#users-management .am-table td {
+    white-space: nowrap;
+}
+#users-management .am-table td:nth-child(10) {
+    white-space: normal;
+}

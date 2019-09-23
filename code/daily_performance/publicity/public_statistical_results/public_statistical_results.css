@@ -1,0 +1,22 @@
+#public_statistical_results .am-table>thead>tr>th,
+#public_statistical_results .am-table>tbody>tr>td{
+    white-space: inherit;
+}
+#public_statistical_results{
+    background-color: #f1f2f6;
+}
+#public_statistical_results>div{
+    background-color: white;
+    padding-left:16px;
+    padding-right:16px;
+}
+#public_statistical_results>div.public_div>div{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}#public_statistical_results>div.public_div>div>img{
+     position: absolute;
+     top:25%;
+     left:25%;
+ }

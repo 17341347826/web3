@@ -1,0 +1,58 @@
+@charset "utf-8";
+#bottom-tab.bottom-tab {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 44px;
+  border-top: 1px solid #e8e8e8;
+  background-color: #ffffff;
+  z-index: 999;
+  display: flex;
+}
+#bottom-tab.bottom-tab > div {
+  flex: 1;
+  margin-top: 3px;
+  cursor: pointer;
+}
+#bottom-tab.bottom-tab .tab-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 0 auto;
+  background-image: url("/common/images/weixin_pj/icon-bottom.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+  #bottom-tab.bottom-tab .tab-icon {
+    background-image: url("/common/images/weixin_pj/icon-bottom@2x.png");
+    background-size: 300px auto;
+  }
+}
+#bottom-tab.bottom-tab .tab-name {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10px;
+  color: #b9b9b9;
+}
+#bottom-tab.bottom-tab .home > span {
+  background-position: -30px -30px;
+}
+#bottom-tab.bottom-tab .home.active > span {
+  background-position: -30px -74px;
+}
+#bottom-tab.bottom-tab .evaluate > span {
+  background-position: -74px -30px;
+}
+#bottom-tab.bottom-tab .evaluate.active > span {
+  background-position: -74px -74px;
+}
+#bottom-tab.bottom-tab .about-me > span {
+  background-position: -118px -30px;
+}
+#bottom-tab.bottom-tab .about-me.active > span {
+  background-position: -118px -74px;
+}
+#bottom-tab.bottom-tab .active > p {
+  color: #4b93fe;
+}

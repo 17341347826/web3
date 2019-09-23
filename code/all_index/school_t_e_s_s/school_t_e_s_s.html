@@ -1,0 +1,53 @@
+<div class="am-g ipm"  id="school_t_e_s_s" ms-important="school_t_e_s_s">
+    <!--校学期评价方案设置-->
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.plan_subjectid">
+                        <option ms-attr="{value:''}">
+                            请选择评价主体
+                        </option>
+                        <option ms-attr="{value:4}">
+                            自评/组评/班评
+                        </option>
+                        <option ms-attr="{value:1}">
+                            自评
+                        </option>
+                        <option ms-attr="{value:2}">
+                            组评
+                        </option>
+                        <option ms-attr="{value:3}">
+                            班评
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.plan_gradeid">
+                        <option value="">
+                            请选择年级
+                        </option>
+                        <option ms-attr="{value:@change_remark(el.remark)}" ms-for="el in @request_data.grade_arr">
+                            {{ el.remark }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--创建方案-->
+            <div class="click_btn" :click="@school_add_programme" :visible="@params.user_type == 0">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建方案</span>
+            </div>
+        </div>
+    </div>
+    <div id="item-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>
+

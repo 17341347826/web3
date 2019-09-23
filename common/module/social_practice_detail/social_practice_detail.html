@@ -1,0 +1,68 @@
+
+<div class="am-g am-cf" >
+    <!--ms-for:($index,ell) in @data-->
+     <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+           <div class="am-slider am-slider-default" style="height: 400px;">
+             <ul class="am-slides">
+                <li ms-for="el in @ell.attachments">
+                    <div class="am-gallery-item">
+                        <a class="detail_carousel_img">
+                            <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()"/>
+                            <div ms-attr="{title:el.inner_name}">
+                                {{ el.desc}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul> 
+        </div>   
+    </div> 
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+        <div id="detail_title" class="am-u-sm-12">
+            <span class="am-u-sm-12"> {{ @ell.title}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">作者姓名</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @ell.student_name }}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动名称</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ @ell.title}}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动类型</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.activity_type}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动时间</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.start_date}}  至  {{@ell.end_date}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动地点</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.site}}</span>
+        </div>
+
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">取得成果</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.reap}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动描述</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.activity_describe}}</span>
+        </div>
+
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动过程</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.process}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">活动感想</span>
+            <span class="am-u-sm-9 am-text-left">{{@ell.feel}}</span>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+</div>

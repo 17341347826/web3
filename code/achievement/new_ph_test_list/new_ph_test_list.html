@@ -1,0 +1,150 @@
+<div class="am-g" id="new_ph_test_list" ms-important="new_ph_test_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@grade_change()" ms-duplex-number="@extend.fk_grade_id">
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级--全校、班级公示-->
+            <div class="select" :if="@pub_range == 1 || @pub_range == 3 || @pub_range == 0">
+                <div class="old-select">
+                    <select  ms-duplex="@extend.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-年级公示-->
+            <div class="select" :if="@pub_range == 2">
+                <div class="old-select">
+                    <select ms-duplex="@extend.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="am-btn am-btn-success"
+                    style="margin-top: 10px;border-radius: 4px" ms-click="to_search">查询</button>
+
+        </div>
+    </div>
+    <div id="content-pl">
+        <div class="content-ach-t content-ach-o" :if="@table_list.length > 0">
+            <table class="am-table am-table-bordered am-table-hover">
+                <tr>
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>学籍号</td>
+                    <td>性别</td>
+                    <td>身高</td>
+                    <td>体重</td>
+                    <td>体重评分</td>
+                    <td>体重等级</td>
+                    <td>肺活量</td>
+                    <td>肺活量评分</td>
+                    <td>肺活量等级</td>
+                    <td>50米跑</td>
+                    <td>50米跑评分</td>
+                    <td>50米跑等级</td>
+                    <td>立定跳远</td>
+                    <td>立定跳远评分</td>
+                    <td>立定跳远等级</td>
+                    <td>坐位体前屈</td>
+                    <td>坐位体前屈评分</td>
+                    <td>坐位体前屈等级</td>
+                    <td>800米跑</td>
+                    <td>800米跑评分</td>
+                    <td>800米跑等级</td>
+                    <td>800米跑附加分</td>
+                    <td>1000米跑</td>
+                    <td>1000米跑评分</td>
+                    <td>1000米跑等级</td>
+                    <td>1000米跑附加分</td>
+                    <td>一分钟仰卧起坐</td>
+                    <td>一分钟仰卧起坐评分</td>
+                    <td>一分钟仰卧起坐等级</td>
+                    <td>一分钟仰卧起坐附加分</td>
+                    <td>引体向上</td>
+                    <td>引体向上评分</td>
+                    <td>引体向上等级</td>
+                    <td>引体向上附加分</td>
+                    <td>标准分</td>
+                    <td>附加分</td>
+                    <td>总分</td>
+                    <td>总分等级</td>
+                    <td>操作</td>
+                </tr>
+                <!--ms-for: ($idx,item) in @table_list-->
+                <tr class="healths">
+                    <td>{{$idx+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.code|mtruncate(3,3)}}</td>
+                    <td>{{item.sex | sex}}</td>
+                    <td>{{item.height}}</td>
+                    <td>{{item.weight}}</td>
+                    <td>{{item.weight_score}}</td>
+                    <td>{{item.weight_lv}}</td>
+                    <td>{{item.vital_capacity}}</td>
+                    <td>{{item.vital_capacity_score}}</td>
+                    <td>{{item.vital_capacity_lv}}</td>
+                    <td>{{item.run_50}}</td>
+                    <td>{{item.run_50_score}}</td>
+                    <td>{{item.run_50_lv}}</td>
+                    <td>{{item.ldty}}</td>
+                    <td>{{item.ldty_score}}</td>
+                    <td>{{item.ldty_lv}}</td>
+                    <td>{{item.zqqq}}</td>
+                    <td>{{item.zqqq_score}}</td>
+                    <td>{{item.zqqq_lv}}</td>
+                    <td>{{item.run_800}}</td>
+                    <td>{{item.run_800_score}}</td>
+                    <td>{{item.run_800_lv}}</td>
+                    <td>{{item.run_800_extra}}</td>
+                    <td>{{item.run_1000}}</td>
+                    <td>{{item.run_1000_score}}</td>
+                    <td>{{item.run_1000_lv}}</td>
+                    <td>{{item.run_1000_extra}}</td>
+                    <td>{{item.ywqz}}</td>
+                    <td>{{item.ywqz_scor}}</td>
+                    <td>{{item.ywqz_lv}}</td>
+                    <td>{{item.ywqz_extra}}</td>
+                    <td>{{item.ytxs}}</td>
+                    <td>{{item.ytxs_score}}</td>
+                    <td>{{item.ytxs_lv}}</td>
+                    <td>{{item.ytxs_extra}}</td>
+                    <td>{{item.criteria_score}}</td>
+                    <td>{{item.extra_score}}</td>
+                    <td>{{item.total_score}}</td>
+                    <td>{{item.total_score_lv}}</td>
+                    <td>
+                        <a class='tab-btn tab-objection-btn' ms-click='@raise_objection(item)'  title='异议'></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+            </table>
+        </div>
+    </div>
+    <div class="no-data" :if="@table_list.length == 0 && @data_had">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+    <div ms-visible="@table_list.length==0 && !@data_had" class="data_pedding">
+        正在加载中，请稍等
+    </div>
+</div>

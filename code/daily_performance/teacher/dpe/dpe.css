@@ -1,0 +1,295 @@
+#dpe {
+  background-color: #ffffff;
+}
+#dpe .inner {
+  width: 813px;
+  margin: 0 auto;
+  padding-top: 18px;
+}
+#dpe .row-line {
+  display: flex;
+  margin-bottom: 10px;
+}
+#dpe .row-line .dpe-input,
+#dpe .row-line .load-file {
+  flex: 1;
+}
+#dpe .row-line .dpe-select {
+  flex: 1;
+  padding-top: 3px;
+  padding-right: 20px;
+}
+#dpe .row-line .dpe-select > select {
+  height: 40px;
+  width: 100%;
+  border: 1px solid #e2e2e2;
+}
+#dpe .row-line .dpe-select .select2-selection {
+  border: 1px solid #e2e2e2;
+  color: #a2a2a2;
+  min-height: 34px;
+}
+#dpe .row-line #project-select {
+  padding-right: 0;
+}
+#dpe .row-line #project-select .select2-selection__rendered {
+  color: #777;
+  line-height: 34px;
+}
+#dpe .row-line .dpe-name {
+  width: 100px;
+  font-size: 16px;
+  color: #a2a2a2;
+  height: 38px;
+  line-height: 38px;
+  text-align: right;
+  padding-right: 30px;
+}
+#dpe .row-line .dpe-name .jianju {
+  display: inline-block;
+  width: 30px;
+}
+#dpe .row-line .dpe-input {
+  height: 38px;
+  padding-top: 3px;
+}
+#dpe .row-line .dpe-input .am-radio-inline {
+  padding-top: 5px;
+}
+#dpe .row-line .dpe-input > input[type='text'] {
+  height: 34px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #e2e2e2;
+  padding: 4px;
+  padding-left: 8px;
+  color: #777;
+}
+#dpe .row-line .dpe-input input::-webkit-input-placeholder {
+  color: #a2a2a2;
+}
+#dpe .row-line .dpe-input input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #a2a2a2;
+}
+#dpe .row-line .dpe-input input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #a2a2a2;
+}
+#dpe .row-line .dpe-input input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #a2a2a2;
+}
+#dpe .row-line .dec {
+  position: relative;
+}
+#dpe .row-line .dec ul {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  list-style: none;
+  top: 38px;
+  left: 0;
+  width: 100%;
+  max-height: 136px;
+  font-size: 16px;
+  color: #777;
+  background-color: #ffffff;
+  z-index: 10;
+  overflow: auto;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  border-radius: 0 0 4px 4px;
+}
+#dpe .row-line .dec ul li {
+  cursor: pointer;
+}
+#dpe .row-line .dec ul li:hover {
+  background-color: #5897fb;
+  color: #FFFFFF;
+}
+#dpe .row-line .dpe-sel-btn {
+  width: 120px;
+}
+#dpe .row-line .dpe-sel-btn > button {
+  width: 120px;
+  height: 35px;
+  font-size: 16px;
+  background-color: #02cd7e;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border-radius: 4px;
+}
+#dpe .row-line .dpe-sec {
+  padding-right: 10px;
+}
+#dpe .row-line .radio-input {
+  line-height: 38px;
+  color: #a2a2a2;
+}
+#dpe .row-line .radio-input > label {
+  font-weight: normal;
+  font-size: 16px;
+  vertical-align: bottom;
+  padding-left: 9px;
+}
+#dpe .row-line .radio-input input[type='radio'] {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e2e2e2;
+  background-color: #a2a2a2;
+  vertical-align: baseline;
+}
+#dpe .row-line .prompt {
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  color: #a2a2a2;
+}
+#dpe .bottom-btns {
+  height: 67px;
+  text-align: center;
+  padding-top: 10px;
+}
+#dpe .bottom-btns a {
+  width: 112px;
+  height: 34px;
+  border-radius: 4px;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+#dpe .bottom-btns .cancel-btn {
+  background-color: #ffaa45;
+}
+#dpe .bottom-btns .cancel-btn:hover {
+  background-color: #ff7a45;
+}
+#dpe .bottom-btns .submit-btn {
+  background-color: #32d99c;
+}
+#dpe .bottom-btns .submit-btn:hover {
+  background-color: #2bbb7c;
+}
+#dpe #dndArea > p {
+  font-size: 12px;
+  color: #CDCDCD;
+}
+#dpe #dpe-layer {
+  display: none;
+}
+#dpe #dpe-layer input[type="checkbox"] + label::before {
+  content: "\a0";
+  /*不换行空格*/
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px #c8c8c8;
+  line-height: 16px;
+  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+  margin-right: 5px;
+}
+#dpe #dpe-layer input[type="checkbox"]:checked + label::before {
+  content: "\2713";
+  background-color: #0dba9e;
+  border: none;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+}
+#dpe #dpe-layer input[type="checkbox"]:checked + label {
+  color: #0dba9e;
+}
+#dpe #dpe-layer .my-label {
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+  color: #a2a2a2;
+}
+#dpe #dpe-layer .all-check,
+#dpe #dpe-layer .each-check-content {
+  padding-left: 20px;
+}
+#dpe #dpe-layer .all-check > label {
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+  color: #a2a2a2;
+}
+#dpe #dpe-layer .each-check-content div {
+  float: left;
+  width: 33%;
+}
+#dpe #dpe-layer .each-check-content div label {
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+  color: #a2a2a2;
+}
+.clearfix:after {
+  content: ".";
+  /*加一段内容*/
+  display: block;
+  /*让生成的元素以块级元素显示，占满剩余空间*/
+  height: 0;
+  /*避免生成的内容破坏原有布局高度*/
+  clear: both;
+  /*清除浮动*/
+  visibility: hidden;
+  /*让生成的内容不可见*/
+}
+.clearfix {
+  zoom: 1;
+  /*为IE6，7的兼容性设置*/
+}
+.radios > label > label {
+  color: #a2a2a2;
+}
+.c-arys > label > label,
+.c-arys > label > label {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  color: #c8c8c8;
+  margin-left: -20px;
+}
+.c-arys input[type="checkbox"] + label::before {
+  content: "\a0";
+  /*不换行空格*/
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px #c8c8c8;
+  line-height: 16px;
+  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+  margin-right: 5px;
+}
+/*给复选框的勾选状态添加不同的样式*/
+.c-arys input[type="checkbox"]:checked + label::before {
+  content: "\2713";
+  background-color: #0dba9e;
+  border: none;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+}
+.c-arys input[type="checkbox"]:checked + label {
+  color: #0dba9e;
+}
+/*隐藏自带的复选框*/
+.c-arys input[type="checkbox"] {
+  /*position: absolute;*/
+  /*clip: rect(0, 0, 0, 0);*/
+  visibility: hidden;
+}

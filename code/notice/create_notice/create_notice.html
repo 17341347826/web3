@@ -1,0 +1,109 @@
+<div id="dimension_add_content" ms-important="start">
+    <div class="am-tab-panel">
+        <form class="am-form am-form-horizontal am-padding-top-lg">
+            <div class="am-form-group">
+                <label class="am-u-sm-2 am-form-label title-lab">
+                    标题
+                </label>
+                <div class="am-u-sm-9 am-u-end">
+                    <input class="am-hide" type="text"/>
+                    <input class="am-modal-prompt-input" id="notice-title" ms-duplex="@data.title" placeholder="请输入名称"
+                           type="text"/>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-u-sm-2 am-form-label title-lab">
+                    内容
+                </label>
+                <div class="am-u-sm-9 am-u-end">
+                    <textarea id="input" ms-duplex="@data.content" style="width:400px; height:200px"></textarea>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-u-sm-2 am-form-label title-lab">
+                    主体
+                </label>
+                <div class="am-u-sm-9 am-u-end">
+                    <div class="am-checkbox-inline mp-checkbox" :visible="@level == 2">
+                        <label>
+                            <input ms-attr="{disabled:@is_disabled.disabled_city,value:1}" ms-duplex="@data.mainBody" type="checkbox"/>
+                            市
+                        </label>
+                    </div>
+                    <div class="am-checkbox-inline mp-checkbox" :visible="@level == 2 || @level == 3">
+                        <label>
+                            <input ms-attr="{disabled:@is_disabled.disabled_disc,value:2}" ms-duplex="@data.mainBody" type="checkbox" value="2"/>
+                            区县
+                        </label>
+                    </div>
+                    <div class="am-checkbox-inline mp-checkbox">
+                        <label>
+                            <input ms-attr="{disabled:@is_disabled.disabled_sch,value:3}" ms-duplex="@data.mainBody" type="checkbox"/>
+                            学校
+                        </label>
+                    </div>
+                    <div class="am-checkbox-inline mp-checkbox">
+                        <label>
+                            <input ms-attr="{disabled:@is_disabled.disabled_sch,value:4}" ms-duplex="@data.mainBody" type="checkbox"/>
+                            教师
+                        </label>
+                    </div>
+                    <div class="am-checkbox-inline mp-checkbox">
+                        <label>
+                            <input data-duplex-changed="@change_check" ms-attr="{disabled:@is_disabled.disabled_sch,value:5}" ms-duplex="@data.mainBody" type="checkbox"/>
+                            家长
+                        </label>
+                    </div>
+                    <div class="am-checkbox-inline mp-checkbox">
+                        <label>
+                            <input data-duplex-changed="@change_check" ms-attr="{disabled:@is_disabled.disabled_sch,value:6}" ms-duplex="@data.mainBody" type="checkbox"/>
+                            学生
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="am-form-group" ms-if="@is_show_grade">
+                <label class="am-u-sm-2 am-form-label">
+                    年级
+                </label>
+                <div class="am-u-sm-9 am-u-end">
+                    <!--ms-for:($index,el) in @garde_data-->
+                    <div class="am-checkbox-inline mp-checkbox">
+                        <label>
+                            <input ms-attr="{value:el.id}" ms-duplex="@data.gradeIds" type="checkbox"/>
+                            {{el.grade_name}}
+                        </label>
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+            <!--<div class="am-form-group">-->
+                <!--<label class="am-u-sm-2 am-form-label" ms-click="@upload_load()">-->
+                    <!--<span class="upload-load">-->
+                        <!--上传附件-->
+                    <!--</span>-->
+                <!--</label>-->
+                <!--<div class="am-u-sm-9 am-u-end">-->
+
+                <!--</div>-->
+                <!--&lt;!&ndash;<div type="button" class="am-btn-primary upload-load" ms-click="@upload_load()">上传附件</div>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="am-form-group">
+                <label class="am-u-sm-2 am-form-label title-lab">
+                    上传依据
+                </label>
+                <div class="am-u-sm-9 am-u-end">
+                    <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'card_uploader',id:'card_uploader', files:@files, url:@uploader_url}">
+                    </xmp>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <div class="btns">
+                    <button type="button" class="am-btn-default"  ms-click="@back">取消</button>
+                    <button type="button" class="am-btn-primary" ms-click="@submitBtn">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

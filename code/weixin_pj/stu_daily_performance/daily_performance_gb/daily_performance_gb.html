@@ -1,0 +1,57 @@
+<div ms-important="daily_performance_gb" id="daily_performance_gb" >
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--表现记录详情-->
+        <div class="float-left" :click="@menu_change()">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="performance-records-btn"></span>
+            <span>表现记录详情</span>
+        </div>
+        <!--周积分-->
+        <div class="float-right">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="weekly-integral-btn"></span>
+            <span class="menu-check">周积分</span>
+            <span class="three-border"></span>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="normalPaddding con">
+        <div class="week-name">
+            <span>第{{@week_name}}周</span>
+        </div>
+        <!--亮点-->
+        <div class="bright-spot daily-dot" :if="@goodList.length>0">
+            <div class="dot-add">亮点</div>
+            <!--ms-for:($idx,el) in @goodList-->
+            <div class="person-con">
+                <div class="record-des">
+                    <h3>关键表现 ：</h3>
+                    <p>{{el.item}}</p>
+                </div>
+                <div class="record-des">
+                    <h3>加分次数 ：</h3>
+                    <p>{{el.score}}</p>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+        <!--不足-->
+        <div class="less-than daily-dot" :if="@badList.length>0">
+            <div class="dot-reduce">不足</div>
+            <!--ms-for:($idx,el) in @badList-->
+            <div class="person-con">
+                <div class="record-des">
+                    <h3>关键表现 ：</h3>
+                    <p>{{el.item}}</p>
+                </div>
+                <div class="record-des">
+                    <h3>减分次数 ：</h3>
+                    <p>{{el.score}}</p>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+        <div class="no-data" :if="@goodList.length == 0 && @badList.length == 0">暂无数据</div>
+    </div>
+</div>

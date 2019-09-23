@@ -1,0 +1,109 @@
+@charset "utf-8";
+@img_url: "/common/images/weixin_pj/btn-icons.png";
+@normalSize: 25px;
+.btn-circle {
+  display: inline-block;
+  width: @normalSize;
+  height: @normalSize;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("@{img_url}");
+  background-repeat: no-repeat;
+}
+.base(@row_order,@top_order) {
+  .btn-circle;
+  @left_dis: @row_order*2;
+  @top_dis: @top_order*2;
+  background-position: -(@normalSize+@normalSize*@left_dis) -(@normalSize+@normalSize*@top_dis);
+}
+/**
+添加按钮
+ */
+.add-circle-btn {
+  .base(0, 0)
+}
+/**
+审核按钮
+ */
+.examine-circle-btn {
+  .base(1, 0);
+}
+/**
+学期评语按钮
+ */
+.term-circle-btn {
+  .base(2, 0)
+}
+/**
+毕业评语按钮
+ */
+.graduation-circle-btn {
+  .base(3, 0)
+}
+/**
+学期公示
+ */
+.term-public-btn{
+  .base(4, 0)
+}
+/**
+毕业公示
+ */
+.graduate-public-btn{
+  .base(5, 0)
+}
+/**
+表现记录详情
+ */
+.performance-records-btn{
+  .base(6, 0)
+}
+/**
+周积分
+ */
+.weekly-integral-btn{
+  .base(7, 0)
+}
+/**
+我的记录材料
+ */
+.recording-material-btn{
+  .base(8,0)
+}
+/**
+未遴选材料
+ */
+.not-selected-btn{
+  .base(9,0)
+}
+/**
+已遴选材料
+ */
+.selected-btn{
+  .base(10,0)
+}
+
+/**
+成就奖励
+ */
+.achievement-btn{
+  .base(11,0)
+}
+/**
+惩戒
+ */
+.punishment-btn{
+  .base(12,0)
+}
+/**
+热点问题
+ */
+.hot-issues-btn{
+  .base(0,1)
+}
+/**
+意见反馈
+ */
+.feedback-btn{
+  .base(13,0)
+}

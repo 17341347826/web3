@@ -1,0 +1,88 @@
+
+#comparative_analysis .first-index {
+  padding-top: 10px;
+  padding-bottom: 9px;
+  padding-left: 13px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #FFFFFF;
+}
+#comparative_analysis .first-index > div > div {
+  padding-right: 18px;
+  padding-left: 18px;
+  height: 34px;
+  border-radius: 4px;
+  border: solid 1px #e4e4e4;
+  color: #a2a2a2;
+  text-align: center;
+  line-height: 34px;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+}
+#comparative_analysis .first-index > div > div > img {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#comparative_analysis .first-index .chosen {
+  color: #2bbba4!important;
+  border: solid 1px #2bbba4!important;
+  background: url('../../../common/images/chosen.png') no-repeat top right;
+}
+
+
+
+#comparative_analysis{
+    background-color: #f1f2f6;
+}
+#comparative_analysis .common-select,
+#comparative_analysis .table-module{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 2px;
+}
+#comparative_analysis .am-table{
+    margin-bottom: 0;
+}
+#comparative_analysis .table-module{
+    padding-bottom: 40px;
+    padding-top:17px;
+    overflow: hidden;
+    display: flex;
+}
+
+#comparative_analysis .am-table > thead > tr > th {
+    border-bottom:none;
+}
+
+/*table宽度*/
+.table-width{
+    flex: 1;
+}
+/*学校*/
+#comparative_analysis .analysis-class table .school-name{
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*比例*/
+.propor{
+    max-width:75px;
+}
+/*highcharts图形样式改变*/
+#comparative_analysis  #container{
+    width: 300px;
+    margin-top:70px;
+}
+#comparative_analysis #container_school{
+    height:300px;
+    width: 300px;
+}
+#comparative_analysis #container_area{
+    height:200px;
+    width: 300px;
+}

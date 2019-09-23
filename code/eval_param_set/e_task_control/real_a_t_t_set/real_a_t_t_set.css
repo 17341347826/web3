@@ -1,0 +1,137 @@
+#real_a_t_t_set{
+    background-color: #F1F2F6;
+    text-align: center;
+    color:#a2a2a2;
+}
+#real_a_t_t_set>div{
+    background-color: #fff;
+}
+#real_a_t_t_set .old-select select{
+    width:440px;
+    height:34px;
+    border: solid 1px rgba(228, 228, 228, 1);
+}
+#real_a_t_t_set .form-input input{
+    color: #777;
+}
+#real_a_t_t_set .content{
+    display:inline-block;
+    /*width: 788px;*/
+    width:100%;
+    /*height: 483px;*/
+    border-radius: 4px 4px 4px 4px;
+    background-color: rgba(255, 255, 255, 1);
+    padding-bottom:20px;
+    padding-top:20px;
+}
+/*页面切换*/
+#real_a_t_t_set .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    position: relative;
+    padding-left: 16px;
+}
+#real_a_t_t_set  .first-index>div{
+    width: 70%;
+}
+#real_a_t_t_set  .first-index>div>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+#real_a_t_t_set >div.first-index>div>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+#real_a_t_t_set >div.first-index>div{
+    width: auto;
+    padding-right: 40px;
+
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../../common/images/chosen.png') no-repeat top right;
+}
+#real_a_t_t_set .grade-info{
+    font-size: 16px;
+    color: #c8c8c8;
+    text-align: left;
+    margin-left:18px;
+    margin-top:15px;
+}
+#real_a_t_t_set .form-inset{
+    overflow: hidden;
+}
+#real_a_t_t_set .form-inset>div {
+    margin-bottom:10px;
+}
+#real_a_t_t_set .form-inset>div:last-child{
+    margin-bottom:0;
+}
+#real_a_t_t_set .form-inset>div>label,
+#real_a_t_t_set .time-change label{
+    font-size: 16px;
+    color: #a2a2a2;
+    margin-right:8px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+#real_a_t_t_set .form-inset>div>div,
+#real_a_t_t_set .time-change div{
+    display:inline-block;
+}
+#real_a_t_t_set .form-inset>div>div>input{
+    width: 440px;
+    height:34px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    font-size:16px;
+    padding-left: 20px;
+    color: #c8c8c8;
+}
+#real_a_t_t_set input::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#real_a_t_t_set input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#real_a_t_t_set input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#real_a_t_t_set input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+/*开始时间、结束时间*/
+#real_a_t_t_set .time-change div input{
+    width: 180px;
+    height:34px;
+    border-radius: 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    padding-left:8px;
+}
+#real_a_t_t_set .time-change .start-change{
+    margin-right:10px;
+}
+/*按钮组*/
+#real_a_t_t_set .btns{
+    margin-top:20px;
+}

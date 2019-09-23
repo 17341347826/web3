@@ -1,0 +1,36 @@
+<div ms-important="update_pwd" id="update_pwd" >
+    <div class="normalPaddding">
+        <!--表单-->
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">原密码</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex="old_pwd" type="password" placeholder="请输入原密码">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">新密码</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex="new_pwd" ms-focus="@msgNull()" type="password" placeholder="请输入新密码(6-16位不包括特殊字符)">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">确认新密码</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" ms-duplex="sure_new_pwd" ms-focus="@msgNull()" placeholder="请确认新密码"
+                           type="password">
+                </div>
+            </div>
+        </div>
+        <!--提示语-->
+        <div class="reminder">
+            <div  :if="@span_num==1">请注意:密码长度为6-16位字符串(不包括特殊字符)</div>
+            <div  :if="@span_num==3">请注意:与旧密码相同</div>
+            <div :if="@span_num==2">请注意:两次输入的密码不一致</div>
+        </div>
+        <!--确认-->
+        <div class="public_btn_big">
+            <a ms-click="@save_click()">确认</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="pwZcyU5Ols"/>
+    <title>眉山市初中学生综合素质评价</title>
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+    <link rel="stylesheet" href="common/lib/amazeui.datetimepicker.css">
+    <link href="common/lib/layer.min.css" rel="stylesheet">
+
+
+    <script src="common/lib/head_statistics.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+
+    <style>
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        body {
+            min-width: 1000px;
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+        }
+
+        #all-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            z-index: 1000;
+            padding: 32px 40px 0;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .wx-box {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .wx-box .wx-ma {
+            display: none;
+            position: absolute;
+            left: -20px;
+        }
+
+        .wx-box:hover .wx-ma {
+            display: block;
+        }
+
+        .login-btn-span {
+            display: inline-block;
+            width: 90px;
+            line-height: 38px;
+            font-size: 14px;
+            color: #fff;
+            background: #3ea3fe;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #all-box .am-direction-nav,
+        #all-box .am-control-nav {
+            display: none;
+        }
+
+        #all-box .am-slider-default {
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        #all-box .am-slider-default > div,
+        #all-box .am-slides,
+        #all-box .am-slides li,
+        #all-box .am-slider .am-slides div {
+            height: 100%
+        }
+
+        #all-box .footer {
+            position: absolute;
+            bottom: 0;
+            z-index: 1000;
+            line-height: 60px;
+            background: #eee;
+            font-size: 14px;
+        }
+
+        .am-modal-dialog {
+            width: 300px;
+        }
+
+        /*登录*/
+        .am-modal-dialog {
+            background: rgba(79, 81, 82, .8);
+        }
+
+        /*微信扫码登录*/
+        .wx-sweep-login {
+            color: #0DBA9E;
+            font-size: 12px;
+            margin: 13px auto 23px;
+            cursor: pointer;
+        }
+
+        .wx-sweep-login span:hover {
+            text-decoration: none;
+            border-bottom: 1px solid;
+            padding-bottom: 5px;
+        }
+
+        /*注册*/
+
+        #am-modal-diasig {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* .am-modal-hd,
+        .am-close,
+        .login-btn,
+        .sign-btn,
+        .txt span {
+            color: #fff;
+        } */
+
+        .am-modal-hd {
+            padding: 12px 10px;
+        }
+
+        .am-close {
+            opacity: .8
+        }
+
+        #login-modal .btn-infor span {
+            float: none;
+            cursor: pointer;
+            color: #3ea3fe;
+            text-align: center;
+            border-bottom: 1px solid #3ea3fe;
+        }
+
+        /*忘记密码*/
+
+        #login-modal .btn-infor .forget-btn {
+            margin-right: 86px;
+        }
+
+        #login-modal .login-btn {
+            display: inline-block;
+            float: none;
+            padding: 7px 0;
+            letter-spacing: 15px;
+            background: #3ea3fe;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #login-modal .am-modal-bd {
+            padding: 15px 0;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        #login-modal .txt {
+            float: none;
+            height: 42px;
+            line-height: 42px;
+            margin: 0 auto 15px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        #login-modal .login-btn,
+        #login-modal .txt {
+            width: 260px;
+        }
+
+        #login-modal .txt span {
+            float: left;
+            width: 34px;
+            font-size: 24px;
+            padding: 0 8px;
+        }
+
+        #login-modal .txt input {
+            float: left;
+            width: 220px;
+            height: 42px;
+            line-height: 42px;
+            border: none;
+            outline: none;
+        }
+
+        #login-modal .msg,
+        #sign-modal .msg,
+        #sign-modal .retMsg {
+            color: red;
+        }
+
+        #login-modal input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset;
+        }
+
+        /*注册*/
+
+        #sign-modal .sign-modelText > div {
+            margin-left: 30px;
+        }
+
+        /*字体颜色*/
+
+        #sign-modal .sign-modelText div span {
+            display: inline-block;
+            color: #000;
+            height: 30px;
+            line-height: 30px;
+            /*border:1px solid red;*/
+        }
+
+        #sign-modal .sign-modelText div .required {
+            color: red;
+            margin-left: 10px;
+            margin-right: 8px;
+        }
+
+        #sign-modal .sign-modelText div .left-css {
+            margin-right: 20px;
+        }
+
+        #sign-modal .sign-modelText div #kid_guid {
+            margin-left: -8px;
+        }
+
+        /*#sign-modal input{*/
+
+        /*width:250px;*/
+
+        /*height:0px;*/
+
+        /*}*/
+
+        #sign-modal .txt span {
+            /*float: left;*/
+            font-size: .9em;
+            /*padding: 0 8px;*/
+        }
+
+
+        #sign-modal .txt input {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            outline: none;
+            float: none;
+            margin: 0 auto 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        /*input里面的placeholder设置*/
+
+        #sign-modal .txt input::-webkit-input-placeholder {
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #sign-modal .am-modal-bd {
+            padding: 15px 0;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        #sign-modal .sign-btn {
+            display: inline-block;
+            float: none;
+            /*padding: 7px 0;*/
+            /*letter-spacing: 15px;*/
+            background: #3ea3fe;
+            cursor: pointer;
+            color: #fff;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /*子女*/
+
+        #kidOut {
+            overflow: hidden;
+        }
+
+        #kids {
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        #kidOut a {
+            padding-top: 30px;
+            color: #3ea3fe;
+        }
+
+        #kidOut a:active {
+            color: red;
+        }
+
+        /*增加*/
+
+        #sign-modal #kidOut #add-kid {
+            float: left;
+            margin-top: -18px;
+            font-size: .9em;
+        }
+
+        /*删除*/
+
+        #sign-modal #kidOut #delete-kid {
+            float: left;
+            margin-top: -18px;
+            font-size: .9em;
+        }
+
+        #kidInformation {
+            float: left;
+            /*overflow: hidden;*/
+            /*border:1px solid red;*/
+        }
+
+        #kidInformation .kidName {
+            float: left;
+        }
+
+        #kidInformation #kidName {
+            margin-right: 30px;
+        }
+
+        #kidInformation .kidNumber {
+            float: left;
+        }
+
+        #kidInformation .add-kid {
+            margin-top: 10px;
+        }
+
+        #parent-name {
+            float: left;
+        }
+
+        #sign-modal input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset;
+        }
+
+        #sign-modal #userName,
+        #sign-modal #parName {
+            margin-left: 3px;
+        }
+
+        #sign-modal #phone {
+            margin-left: 2px;
+        }
+
+        /*验证码*/
+
+        #sign-modal #identfy-btn .identfy {
+            display: inline-block;
+            float: none;
+            /*background: #3ea3fe;*/
+            background-color: #A8A7A8;
+            /*cursor: pointer;*/
+            color: #fff;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /*发送验证码、重新发送*/
+
+        #sign-modal #identfy-btn #identfy-one,
+        #sign-modal #identfy-btn #identfy-three {
+            background-color: #3ea3fe;
+            cursor: pointer;
+        }
+
+        #login_window {
+            min-width: 1000px;
+            max-width: 100%;
+            height: 100%;
+        }
+
+        #login_window_left {
+            position: relative;
+            float: left;
+            width: 65%;
+            height: 100%;
+            background: url("common/images/g_background.png") no-repeat;
+            background-size: cover;
+        }
+
+        #login_window {
+            float: right;
+            width: 406px;
+            height: 390px;
+        }
+
+        #login_max_div .log_span {
+            display: inline-block;
+            margin-right: 18px;
+        }
+
+        #login_max_div .phone_img_span {
+            float: right;
+            margin-right: 22px;
+            margin-top: 15px;
+        }
+
+        #login_max_div .phone_span {
+            margin-top: 17px;
+            float: right;
+            color: #7dded5;
+        }
+
+        #login_max_div .login_window_left_p {
+            width: 100%;
+            padding: 0;
+            /*padding: 7px 59px 7px 62px;*/
+            padding-left: 59px;
+            padding-right: 62px;
+            height: 50px;
+            line-height: 50px;
+            background: rgba(209, 213, 217, 1);
+        }
+
+        #login_max_div .center {
+            width: 620px;
+            min-height: 457px;
+            height: 457px;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        #login_max_div .jiazhi {
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #login_window .student_p_font {
+            width: 100%;
+            margin-top: 10%;
+            margin-bottom: 15px;
+            font-size: 24px;
+            text-align: center;
+            padding-top: 0;
+            margin-top: 17px;
+            margin-bottom: 49px;
+        }
+
+
+        #login_window .login_div_input_acc {
+            width: 245px;
+            margin: auto;
+            overflow: hidden;
+            background: white;
+            padding: 7px 0 10px 0px;
+            margin-bottom: 22px;
+            background: rgba(255, 255, 255, 0.01);
+            border-bottom: 1px solid #e4e3e2;
+        }
+
+        #login_window .login_div_input_acc input {
+            background: rgba(255, 255, 255, 0.01);
+            outline: none;
+            border: none;
+            width: 200px;
+            font-size: 15px;
+            padding-left: 10px;
+        }
+
+        #login_window .login_div_input_pwd input {
+            background: rgba(255, 255, 255, 0.01);
+            outline: none;
+            border: none;
+            width: 200px;
+            font-size: 15px;
+            padding-left: 10px;
+        }
+
+        input:-webkit-autofill {
+            -webkit-text-fill-color: #a2a2a2 !important;
+            background-color: transparent;
+            background-image: none;
+            transition: background-color 50000s ease-in-out 0s;
+        }
+
+        #login_window .login_div_input_pwd {
+            width: 245px;
+            margin: auto;
+            padding: 7px 0 10px 0px;
+            background: white;
+            overflow: hidden;
+            border-bottom: 1px solid #e4e3e2;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        #login_window .blank {
+            display: inline-block;
+            width: 15px;
+        }
+
+        #login_window .forget_pwd {
+            font-size: 12px;
+            color: #a2a2a2;
+            float: left;
+            border-bottom: 1px solid #a2a2a2;
+            padding-bottom: 5px;
+        }
+
+        #login_window .forget_pwd:hover {
+            color: #1aa299;
+            border-bottom: 1px solid #1aa299;
+            cursor: pointer;
+        }
+
+        #login_window .patriarch_reg:hover {
+            cursor: pointer;
+            color: #1aa299;
+            border-bottom: 1px solid #1aa299;
+        }
+
+        #login_window .patriarch_reg {
+            font-size: 12px;
+            color: #a2a2a2;
+            float: right;
+            border-bottom: 1px solid #a2a2a2;
+            padding-bottom: 5px;
+        }
+
+        #login_window .forget_reg_p {
+            width: 100%;
+            min-width: 320px;
+            text-align: center;
+            padding: 0 55px 0 55px;
+            display: block;
+            overflow: hidden;
+            margin: 0;
+            margin-top: 20px;
+            margin-bottom: 26px;
+        }
+
+        #login_window .login_btn {
+            outline: none;
+            border: none;
+            /*padding-top: 6px;*/
+            /*padding-bottom: 7px;*/
+            border-radius: 25px;
+            color: white;
+            font-size: 17px;
+            width: 243px;
+            height: 35px;
+            line-height: 35px;
+            background: rgba(79, 178, 156, 1);
+            box-shadow: 0px 5px 9px 0px rgba(196, 232, 224, 1);
+        }
+
+        #login_window .login_btn:hover {
+            background: #319881;
+        }
+
+        #login_window .msg {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: red;
+            font-size: 10px;
+        }
+
+        .ms-controller {
+            visibility: hidden;
+        }
+
+        #login_max_div {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+        }
+
+        #login_window input::-webkit-input-placeholder {
+            color: #afaead;
+        }
+
+        /* input::-webkit-input-placeholder {
+            text-align: center;
+            position: relative;
+            left: -20px;
+        } */
+
+
+        #demo-slider-0 img {
+            min-width: 1000px;
+            min-height: auto;
+        }
+
+        #demo-slider-0 .am-control-nav {
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            z-index: 100;
+        }
+
+        #demo-slider-0 .am-prev {
+            display: none;
+        }
+
+        #demo-slider-0 .am-next {
+            display: none;
+
+        }
+
+        #login_max_div .nav_shu {
+            display: inline-block;
+            margin-right: 20px;
+            width: 10px;
+            height: 20px;
+            border-right: 1px solid #067c74;
+            position: relative;
+            top: 6px;
+        }
+
+        #login_window .right_title_span {
+            display: inline-block;
+            width: 110px;
+            height: 35px;
+            margin: auto;
+            font-size: 24px;
+            color: rgba(46, 139, 118, 1);
+            border-bottom: 1px solid #2E8B76;
+            padding-bottom: 49px;
+        }
+
+        #login_max_div .bottom_font .turn-css:hover {
+            cursor: pointer;
+            text-decoration: underline
+        }
+
+        /*新页面样式开始*/
+        /*#new-index{*/
+        /*width:100%;*/
+        /*background-image:url("common/images/new_banner.png");*/
+        /*background-repeat:no-repeat;*/
+        /*!*background-position:center;*!*/
+        /*!*background-size:100%;*!*/
+        /*background-size: cover;*/
+        /*}*/
+        #new-index .banner-style {
+            width: 100vw;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #login_max_div .index-phone {
+
+        }
+
+        #login_max_div .index-phone .index-phone-icon {
+            display: inline-block;
+            width: 30px;
+            height: 26px;
+            background-image: url("common/images/index_phone.png");
+            margin-top: 12px;
+        }
+
+        #login_max_div .index-phone .index-phone-icon:hover {
+            background-image: url("common/images/index_phone_hover.png");
+        }
+
+        #login_max_div .index-phone-num {
+            font-size: 14px;
+            color: rgba(137, 137, 137, 1);
+            margin-left: 23px;
+            position: absolute;
+        }
+
+        #login_max_div .index-nav {
+            /*border:1px solid red;*/
+            /*overflow: hidden;*/
+        }
+
+        #login_max_div .login-text {
+            float: right;
+            font-size: 20px;
+            color: rgba(137, 137, 137, 1);
+            cursor: pointer;
+            line-height: 20px;
+            padding-top: 15px;
+        }
+
+        #login_max_div .login-text:hover {
+            color: #34865D;
+            border-bottom: 1px solid #34865D;
+            padding-bottom: 5px;
+        }
+
+        #login_max_div .wei_span {
+            float: right;
+            position: relative;
+            /*margin-top: 15px;*/
+        }
+
+        #login_max_div .wei_span_hover {
+            display: none;
+        }
+
+        #login_max_div .wei_span:hover .wei_span_hover {
+            display: inline-block;
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            left: -30px;
+        }
+
+        #login_max_div .index-wx {
+            margin-left: 30px;
+            margin-right: 42px;
+        }
+
+        #login_max_div .index-wx .index-wx-icon {
+            display: inline-block;
+            width: 30px;
+            height: 28px;
+            background-image: url("common/images/index_wx.png");
+            margin-top: 11px;
+        }
+
+        #login_max_div .index-wx .index-wx-icon:hover {
+            background-image: url("common/images/index_wx_hover.png");
+        }
+
+        #login_max_div .index-app .index-app-icon {
+            display: inline-block;
+            width: 24px;
+            height: 27px;
+            background-image: url("common/images/index_app.png");
+            margin-top: 12px;
+        }
+
+        #login_max_div .index-app .index-app-icon:hover {
+            background-image: url("common/images/index_app_hover.png");
+        }
+
+        #login_max_div .logo-name {
+            margin-top: 48px;
+            margin-left: 89px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #login_max_div .logo-name .index-name {
+            font-size: 42px;
+            font-weight: 500;
+            color: rgba(52, 134, 93, 1);
+            margin-left: 22px;
+            /*position: absolute;*/
+            /*bottom:12px;*/
+        }
+
+        #login_max_div .index-intro {
+            margin-left: 201px;
+            margin-top: 38px;
+        }
+
+        #login_max_div .bottom_font {
+            margin: 0;
+            width: 100%;
+            font-size: 14px;
+            color: rgba(246, 246, 246, 1);
+            position: fixed;
+            text-align: center;
+            bottom: 10px;
+        }
+
+        #login_window .login_window_center {
+            width: 312px;
+            min-height: 371px;
+            background: rgba(255, 255, 255, 0.9);
+            /*opacity:0.9;*/
+            border-radius: 10px 10px 10px 10px;
+            margin: auto;
+            position: absolute;
+            top: 53%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 11000;
+            /* box-shadow: 0 0 8px 8px #e4e3e1; */
+        }
+
+        /*新页面样式结束*/
+        /*通知弹框样式*/
+        #new-index #sysNotice .am-modal-dialog{
+            background-color: #fff;
+            width: 533px;
+            padding-top: 25px;
+            padding-bottom: 39px;
+        }
+        #new-index #sysNotice .am-modal-hd{
+            font-weight: 600;
+            font-size: 20px;
+        }
+        #new-index #sysNotice .am-modal-bd{
+            border-bottom:none;
+        }
+        #new-index #sysNotice .am-modal-bd p{
+            text-indent: 30px;
+            text-align:left;
+        }
+        #new-index #sysNotice .am-modal-bd .notice-time{
+            text-align: right;
+        }
+        #new-index #sysNotice  .notice-close{
+            display:inline-block;
+            background-color: rgba(43, 187, 164, 1);
+            padding:3px 10px;
+            cursor: pointer;
+            color:#fff;
+            border-radius:4px;
+            font-size:14px;
+        }
+        #new-index #sysNotice  .notice-close:hover{
+            background-color: rgb(58, 158, 142);
+        }
+    </style>
+</head>
+
+<body ms-controller="login" class="ms-controller" id="new-index">
+<!--<div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 2000}" id="demo-slider-0">-->
+<!--<ul class="am-slides">-->
+<!--<li>-->
+<!--<img src="common/images/new_banner.png" />-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<img class="banner-style" src="common/images/new_banner1.png" alt="">
+<div id="login_max_div">
+    <div class="login_window_left_p index-nav">
+        <span class="index-phone">
+                <!--<img src="common/images/index_phone.png" alt="">-->
+                <span class="index-phone-icon"></span>
+            </span>
+        <span class="index-phone-num">技术服务热线：400-028-4088</span>
+        <span class="login-text" :click="@login_text()">登录</span>
+        <span class="wei_span index-wx">
+                <!--<img src="common/images/index_wx.png" alt="">-->
+                <span class="index-wx-icon"></span>
+                <br>
+                <img class="wei_span_hover" src="common/images/icon/xty_gzh.png" alt="" style="position: absolute;">
+            </span>
+        <span class="wei_span index-app">
+                <!--<img src="common/images/index_app.png" alt="">-->
+                 <span class="index-app-icon"></span>
+                <br>
+                <img class="wei_span_hover" src="common/images/icon/app_android1.png" alt=""
+                     style="position: absolute;">
+            </span>
+    </div>
+    <div class="logo-name">
+        <!--<span class="index-logo">-->
+        <!--<img src="common/images/index_logo.png" alt="">-->
+        <!--</span>-->
+        <span class="index-name">眉山市初中学生综合素质评价系统</span>
+    </div>
+    <div class="index-intro">
+        <div>
+            <img src="common/images/index_introduce.png" alt="">
+        </div>
+        <div>
+            <img src="common/images/index_introduce_english.png" alt="">
+        </div>
+    </div>
+    <div id="login_window" :visible='@login_window_show'>
+        <div class="login_window_center">
+            <p class="student_p_font">
+                <span class="right_title_span">用户登录</span>
+            </p>
+            <div class="login_div_input">
+                <p class="login_div_input_acc">
+                    <img ms-attr="{src:@acc_choose_img==true?'common/images/icon/g_admin.png':'common/images/icon/g_admin-h.png'}"
+                         alt="">
+                    <input type="text" placeholder="请输入账号" id="userAccount" ms-duplex="@data.account" ms-focus="@msgNull_acc()"
+                           ms-blur="@blur_acc()">
+
+                </p>
+                <p class="login_div_input_pwd">
+                    <img ms-attr="{src:@pwd_choose_img==true?'common/images/icon/g_key.png':'common/images/icon/g_key-h.png'}"
+                         alt="">
+                    <input type="password" placeholder="请输入密码" id="userPassword" ms-duplex="@data.password" ms-blur="@blur_pwd()"
+                           ms-focus="@focus_pwd()">
+                </p>
+            </div>
+
+            <p class="forget_reg_p">
+                <span class="forget_pwd" ms-on-click="@forgetPwd()">忘记密码</span>
+                <span class="patriarch_reg" ms-click="@signShow()">家长注册</span>
+            </p>
+
+            <div style="text-align: center;margin:0;padding:0;">
+                <button class="login_btn" id="login_btn" ms-on-click="@login()">登录</button>
+            </div>
+            <p class="msg am-text-center" ms-visible="@msg != ''" style="margin-top: 5px">{{msg}}</p>
+            <!--微信扫码登录这个功能暂时屏蔽，不能删除-->
+            <!--<div class="wx-sweep-login am-text-center" :click="@scan_turn()">-->
+            <!--<span>微信扫码登录</span>-->
+            <!--</div>-->
+        </div>
+
+
+    </div>
+    <!--<p class="bottom_font">-->
+    <!--版权所有：2007-2019@<span class="turn-css" :click="@official_website()">成都兴唐信息技术有限公司</span>-->
+    <!--<span style="visibility: hidden">哈</span><span class="turn-css" :click="@turn_shu()">蜀ICP备07501515号</span>-->
+    <!--</p>-->
+    <p class="bottom_font">
+        技术支持：<span class="turn-css" :click="@official_website()">成都兴唐信息技术有限公司</span>
+    </p>
+</div>
+
+
+<!--注册-->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="sign-modal">
+    <div class="am-modal-dialog" id="am-modal-diasig" style="width:660px;border-radius: 6px;">
+        <div style="color:#000" class="am-modal-hd am-padding-vertical-xl">家长注册
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd sign-modelText">
+            <div class="txt">
+                <div class="careful_one" style="color:red;margin-bottom:10px;">注：学生、教师、教育单位账户由系统统一分配，不需要注册</div>
+            </div>
+            <!--手机号-->
+            <div class="txt">
+                <span class="input-pwd left-css">用&nbsp;&nbsp;户&nbsp;名</span>
+                <!--隐藏元素:避免点击弹框出现提示信息-->
+                <input type="text" class="am-hide"/>
+                <input type="text" id="phone" placeholder="请输入11位手机号" ms-duplex="@signData.phone"
+                       ms-on-keyup="@phone_ident"
+                       ms-on-blur="@phone_check()">
+                <span class="required">*</span>
+                <span class="additional-infor">请输入常用手机号，用于登录和找回密码</span>
+            </div>
+            <!--姓名-->
+            <div class="txt">
+                <span class="parent-name left-css">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                <input type="text" id="parName" placeholder="请输入姓名" ms-duplex="@signData.parName"
+                       ms-on-blur="@parName_check()">
+                <span class="required">*</span>
+            </div>
+            <!--子女信息-->
+            <div class="txt" id="kidOut">
+                <!--ms-for:($index,el) in @stu_info-->
+                <div id="kids" style="float:left;">
+                    <!--<span class="parent-name left-css" style='float:left;margin-top:13px;'>子&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;女</span>-->
+                    <div id="kidInformation" style="float:left;">
+                        <div class="kidName" id="kidName" style="float:left;">
+                            <span class="kid-name left-css">子女姓名</span>
+                            <input type="text" class="kidName" ms-duplex="el.stu_name" placeholder="请输入子女姓名">
+                            <!--<span class="required">*</span>-->
+                        </div>
+                        <div class="kidNumber">
+                            <span class="kid-number left-css" id="kid_guid">学籍号</span>
+                            <input type="text" class="kidNumber" ms-duplex="el.stu_num" placeholder="请输入子女学籍号">
+                            <span class="required">*</span>
+                        </div>
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+                <!--子女增加按钮-->
+                <a href="javascript: void(0)" id="add-kid" class="add-kid" ms-on-click="@addKid_check()">增加&nbsp;&nbsp;
+                    &nbsp;
+                </a>
+                <!--子女减少按钮-->
+                <a href="javascript: void(0)" id="delete-kid" class="delete-kid" ms-on-click="@delete_check()">删除</a>
+            </div>
+            <div class=" am-text-center msg" ms-visible="@kidmsg != ''" style="font-size:.9em;text-align:left;">
+                {{kidmsg}}
+            </div>
+            <div class=" am-text-center msg" ms-visible="@kidmsg1 != ''" style="font-size:.9em;text-align:left;">
+                {{kidmsg1}}
+            </div>
+            <!--密码-->
+            <div class="txt">
+                <span class="input-pwd left-css">输入密码</span>
+                <input type="password" id="inputPwd" placeholder="请输入密码" ms-duplex="@signData.inputPwd"
+                       ms-on-blur="@inputPwd_check()">
+                <span class="required">*</span>
+                <span class="additional-infor">6到16字母、数字或组合</span>
+            </div>
+            <!--确认密码-->
+            <div class="txt">
+                <span class="insure-pwd left-css">确认密码</span>
+                <input type="password" id="insurePwd" placeholder="请输入密码" ms-duplex="@signData.insurePwd"
+                       ms-on-blur="@insurePwd_check()">
+                <span class="required">*</span>
+                <span class="additional-infor">两次密码必须一致</span>
+            </div>
+            <!--验证码-->
+            <div class="txt" id="identfy-btn">
+                <span class="input-pwd left-css">验&nbsp;&nbsp;证&nbsp;码</span>
+                <input type="text" id="identifying" placeholder="请输入短信验证码" ms-duplex="@signData.identfy"
+                       ms-on-blur="@identfy_check()">
+                <span class="required">*</span>
+                <span class="identfy" id="identfy-none" data-am-modal-confirm :if="@ident_type==0">获取验证码</span>
+                <span class="identfy" id="identfy-one" data-am-modal-confirm :if="@ident_type==1"
+                      ms-on-click="@identOne">获取验证码</span>
+                <span class="identfy" id="identfy-two" data-am-modal-confirm :if="@ident_type==2">{{@countdown}}秒</span>
+                <span class="identfy" id="identfy-three" data-am-modal-confirm :if="@ident_type==3"
+                      ms-on-click="@identThree">重新发送</span>
+            </div>
+            <div class=" am-text-center msg" ms-visible="@msg != ''">{{msg}}</div>
+            <div class=" am-text-center retMsg" ms-visible="@retMsg != '' && @msg == ''">{{retMsg}}</div>
+        </div>
+        <div class="am-padding-vertical-sm am-text-center" style="overflow: hidden">
+            <span class="sign-btn " data-am-modal-confirm ms-on-click="@sign">提交</span>
+        </div>
+        <div class="txt">
+            <span class="careful_one" style="color:red;">注：提交后将在学生端由学生进行确认，确认后家长账户即注册成功，方可使用</span>
+        </div>
+    </div>
+</div>
+
+<!--通知弹框-->
+<div class="am-modal am-modal-alert" id="sysNotice">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd"> 维护公告</div>
+        <div class="am-modal-bd" style="padding: 22px 47px;">
+            <div style="text-align: left;">尊敬的用户：</div>
+            <p style="margin:0;">  因华为云硬件升级，综合素质评价系统于2019.8.30晚上19:00 至 2019.8.31上午9:00 期间
+                将停止服务，升级改造，请各用户避开此时段使用系统。</p>
+           <p style="margin:0;">由此给您带来的不便，敬请谅解。</p>
+        </div>
+        <!--<div class="am-modal-footer">-->
+            <!--<span class="notice-close" :click="@notice_close()">关闭通知</span>-->
+        <!--</div>-->
+    </div>
+</div>
+<script src="common/lib/jquery.min.js"></script>
+<script src="common/lib/amazeui.js"></script>
+<script src="common/lib/avalon.js"></script>
+<script src="const.js"></script>
+<script src="common/module/request.js"></script>
+<script src="common/lib/bin/jsencrypt.js"></script>
+<script src="common/lib/rsa_public_key.js"></script>
+<!--<script src="//cdn.bootcss.com/layer/3.0/layer.min.js"></script>-->
+<script src="common/lib/layer.min.js"></script>
+<script>
+    avalon.ready(function () {
+        //判断origin是否存在（兼容ie）
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+        }
+        var HTTP_X = location.origin;
+        //var HTTP_API = "http://dev.xtyun.net";
+        var HTTP_API = HTTP_X;
+        //        登录
+        var loginUrl = HTTP_API + "/api/base/baseUser/login.action";
+        //获取系统当前时间
+        var api_get_server_time = HTTP_API + '/api/base/baseUser/current_time';
+        //获取用户在线时长
+        var api_get_online = HTTP_API + '/api/base/baseUser/get_onlie_time';
+        //        注册
+        var signUrl = HTTP_API + "/api/base/parent/regist";
+        //        发送短信验证码
+        var api_validmsg = HTTP_API + "/api/base/ng/validmsg/send";
+        //承诺书是否点同意
+        //            var api_get_query_is_read = HTTP_API + "/api/GrowthRecordBag/goodFaithCommitment_query";
+        //查询是否签字
+        var api_check_sign = HTTP_API + "/api/GrowthRecordBag/login_query_goodFaithCommitment";
+
+        //获取当前登录用户使用的角色菜单
+        var api_user_changed_menu = HTTP_API + '/api/base/power/find_logon_user_role_power';
+        var login = avalon.define({
+            $id: "login",
+            //登录判断是否已经修改过密码:0-未修改过；1-已修改过
+            is_upd_pwd: '',
+            //是否已设置用户名:0-未设置；1-已设置
+            is_set_name: '',
+            //账号图片判断
+            acc_choose_img: true,
+            //密码图片判断
+            pwd_choose_img: true,
+            //a1: false,
+            a2: false,
+            a3: false,
+            a4: false,
+            a5: false,
+            a6: false,
+            //倒计时
+            countdown: 120,
+            // 验证码状态:0-灰色;1-获取验证码；2-倒计时；3-重新发送
+            ident_type: 0,
+            //判断获取验证码是否发送
+            btn_type: false,
+            //            登录数据
+            data: {
+                account: "",
+                password: ""
+            },
+            //子女信息原本数据
+            stu_info: [{
+                stu_name: "",
+                stu_num: ""
+            }],
+
+            //注册数据
+            signData: {
+                parName: '',
+                inputPwd: '',
+                insurePwd: '',
+                phone: '',
+                stu: [],
+                // 验证码
+                identfy: ''
+            },
+            is_check: "",
+            //子女信息提示
+            kidmsg: '',
+            kidmsg1: '',
+            //            错误提示信息
+            msg: "",
+            retMsg: '',
+            //登录窗口显示隐藏
+            login_window_show: false,
+            modalShow: function () {
+                $("#login-modal").modal({
+                    closeOnConfirm: false
+                });
+                this.msg = "";
+                this.data.account = "";
+                this.data.password = "";
+            },
+            //登录窗口显示
+            login_text: function () {
+                this.login_window_show = !this.login_window_show;
+            },
+            //            注册窗口显示
+            signShow: function () {
+                window.location = HTTP_X + '/Growth/parent_registration.html';
+
+            },
+
+            login: function () {
+                //==清除之前菜单记录，删除防止重复提交的session记录 ==========================
+                sessionStorage.removeItem('one_tow_menu');
+                sessionStorage.removeItem("menu_level");
+                sessionStorage.removeItem('three_info');
+                sessionStorage.removeItem('is_menu_show');
+                //==清除之前菜单记录，删除防止重复提交的session记录 结束==========================
+                if (this.data.account != "" &&
+                    this.data.password != "") {
+                    var publicKey = public_key;
+                    var encrypt = new JSEncrypt(); // 实例化加密对象
+                    encrypt.setPublicKey(publicKey); // 设置公钥
+                    var get_password = encrypt.encrypt(this.data.password);
+                    // ajax_post(HTTP_API+'/zhsz_server/zhsz/decode',{
+                    //     account: this.data.account,
+                    //     password: this.data.password
+                    // },this);
+                    // console.log(loginUrl)
+                    ajax_post(loginUrl, {
+                        account: this.data.account,
+                        password: get_password
+                    }, this, this.is_check)
+                } else {
+                    this.msg = "请输入用户名和密码"
+                }
+            },
+            enter_login: function () {
+                // let self = this;
+                // $(document).keydown(function (event) {
+                //     if (event.keyCode == 13) {
+                //         self.login()
+                //     }
+                // })
+            },
+            //            姓名判断
+            parName_check: function () {
+                var self = this;
+                self.retMsg = '';
+                var reg = /^[\u4e00-\u9fa5]+$/;
+                var _txt = $("#parName").val();
+                if (reg.test(_txt) && $.trim(_txt) != '') {
+                    self.a2 = true;
+                    self.msg = "";
+                } else {
+                    self.a2 = false;
+                    self.msg = "姓名请输入中文";
+                }
+            },
+            //            子女
+            //            子女添加
+            addKid_check: function () {
+                var stu = {};
+                stu["stu_name"] = "";
+                stu["stu_num"] = "";
+                if (this.stu_info.length < 4) {
+                    this.stu_info.push(stu);
+                }
+                this.kidmsg = '';
+            },
+            //            子女删除
+            delete_check: function () {
+                var a = this.stu_info.length;
+                //删除提示
+                if (a == 1) {
+                    this.kidmsg = '当前只有一个子女，不能进行删除';
+                }
+                if (a > 1 && (this.stu_info[a - 1].stu_name != '' || this.stu_info[a - 1].stu_num !=
+                    '')) {
+                    this.kidmsg1 = '多子女信息已填写,想删除此信息需删除多子女填写的内容';
+                }
+                if (a > 1 && this.stu_info[a - 1].stu_name == '' && this.stu_info[a - 1].stu_num ==
+                    '') {
+                    //默认删除最后一条数据
+                    this.stu_info.pop();
+                    this.kidmsg1 = '';
+                }
+            },
+            // 密码
+            inputPwd_check: function () {
+                var self = this;
+                self.retMsg = '';
+                var password = $("#inputPwd").val();
+                var reg = /^[a-zA-Z0-9]{6,16}$/
+                if (reg.test(password)) {
+                    self.a3 = true;
+                    self.msg = "";
+                } else {
+                    self.a3 = false;
+                    self.msg = "密码只能由数字、字母或者数字+字母组成、位数为6-16位";
+                }
+            },
+            //确认密码
+            insurePwd_check: function () {
+                var self = this;
+                self.retMsg = '';
+                var pwd1 = $("#inputPwd").val();
+                var pwd2 = $("#insurePwd").val();
+                if (pwd2 != pwd1) {
+                    self.a4 = false;
+                    self.msg = "密码须一致";
+                } else {
+                    self.a4 = true;
+                    self.msg = "";
+                }
+            },
+            //            手机号
+            phone_check: function () {
+                var self = this;
+                self.retMsg = '';
+                var reg = /^((1(3|4|5|6|7|8|9)\d{9}))$/;
+                var _txt = $("#phone").val();
+                //console.log(self.btn_type);
+                if (reg.test(_txt)) {
+                    self.a5 = true;
+                    //发送短信验证码
+                    if (self.btn_type == true) {
+                        ajax_post(api_validmsg, {
+                            phone: self.signData.phone,
+                            is_exist: '0'
+                        }, self);
+                        self.ident_type = 2;
+                        self.idenfiy_two();
+                    }
+                    self.msg = "";
+                } else {
+                    self.a5 = false;
+                    self.btn_type = false;
+                    self.msg = "请输入正确的手机号";
+                }
+            },
+            //手机改变验证码
+            phone_ident: function () {
+                var self = this;
+                var _txt = $("#phone").val();
+                // 验证码
+                if ($.trim(_txt) != '') {
+                    self.ident_type = 1;
+                }
+            },
+            //            发送验证码
+            identOne: function () {
+                this.btn_type = true;
+                this.countdown = 120;
+                this.phone_check();
+            },
+            //验证码倒计时
+            idenfiy_two: function () {
+                var self = this;
+                self.btn_type = false;
+                //定时器
+                var timer = setInterval(function () {
+                    self.countdown--;
+                    if (self.countdown == 0) {
+                        clearInterval(timer);
+                        self.ident_type = 3;
+                    }
+                }, 1000);
+            },
+            //重新发送
+            identThree: function () {
+                this.countdown = 120;
+                this.btn_type = true;
+                this.phone_check();
+            },
+            //验证码验证
+            identfy_check: function () {
+                var self = this;
+                self.retMsg = '';
+                var _txt = $('#identifying').val();
+                if ($.trim(_txt) != '') {
+                    self.a6 = true;
+                    self.msg = "";
+                } else {
+                    self.a6 = false;
+                    self.msg = "请输入正确验证码";
+                }
+            },
+            // 提交
+            sign: function () {
+                var self = this;
+                self.retMsg = '';
+                self.msg = "";
+                if (self.a2 == true && self.a3 == true && self.a4 == true && self.a5 == true &&
+                    self.a6 == true) {
+                    var publicKey = public_key;
+                    var encrypt = new JSEncrypt(); // 实例化加密对象
+                    encrypt.setPublicKey(publicKey); // 设置公钥
+                    var get_password = encrypt.encrypt(self.signData.inputPwd);
+                    ajax_post(signUrl, {
+                        account: self.signData.phone,
+                        name: self.signData.parName,
+                        password: get_password,
+                        phone: self.signData.phone,
+                        stu: self.stu_info,
+                        validcode: self.signData.identfy
+                    }, self, self.is_check);
+                } else {
+                    //                    if (self.a1 == false) {
+                    //                        self.msg = '请按照用户名要求输入';
+                    //                    } else
+                    if (self.a5 == false) {
+                        self.msg = '请输入正确的手机号';
+                    } else if (self.a2 == false) {
+                        self.msg = '姓名请输入中文';
+                    } else if (self.a3 == false) {
+                        self.msg = '密码只能由数字、字母或者数字+字母组成、位数为6-16位';
+                        self.a4 = false;
+                    } else if (self.a4 == false) {
+                        self.msg = '密码须一致';
+                    } else if (self.a6 == false) {
+                        self.msg = '请输入正确验证码';
+                    }
+                }
+            },
+
+            msgNull_acc: function () {
+                this.acc_choose_img = false;
+                this.msg = "";
+            },
+            blur_acc: function () {
+                this.acc_choose_img = true;
+
+            },
+            blur_pwd: function () {
+                this.pwd_choose_img = true;
+            },
+            focus_pwd: function () {
+                this.pwd_choose_img = false;
+                this.enter_login();
+                this.msg = "";
+            },
+            //官网
+            official_website: function () {
+                window.location.href = 'http://www.uptang.com.cn';
+            },
+            //蜀
+            turn_shu: function () {
+                window.location.href = 'http://www.miibeian.gov.cn';
+            },
+            //微信扫码登录
+            scan_turn: function () {
+                window.location = HTTP_X + '/Growth/wx_scan.html';
+            },
+            on_request_complete: function (cmd, status, data, is_suc, msg) {
+                switch (cmd) {
+                    case loginUrl:
+                        this.complete_login(data);
+                        break;
+                    //获取用户在线时间
+                    case api_get_online:
+                        this.complete_get_online(data);
+                        break;
+                    //获取服务器时间
+                    case api_get_server_time:
+                        this.complete_get_server_time(data);
+                        break;
+                    //承诺书是否签字
+                    case api_check_sign:
+                        this.complete_get_query_is_read(data);
+                        break;
+                    //查询签字
+                    //                        case api_check_sign:
+                    //                            this.complete_check_sign(data);
+                    //                            break;
+                    case signUrl:
+                        this.complete_get_sign(data);
+                        break;
+                    // 短信验证码
+                    case api_validmsg:
+                        if (status == 200) {
+                            //                            this.complete_get_validmsg(data);
+                        } else {
+                            this.retMsg = msg;
+                        }
+                        break;
+                    //用户切换角色菜单
+                    case api_user_changed_menu:
+                        this.complete_user_changed_menu(data);
+                        break;
+                }
+            },
+            // 登录：1：省级；2：市州级；3：区县级；4：校级
+            department_level: "",
+            //当前登陆者等级:1：省级；2：市州级；3：区县级；4：校级；5：年级；6：班主任或普通任课教师
+            highest_level: '',
+            //用户类型：0：管理员；1：教师；2：学生；3：家长
+            user_type: '',
+            complete_login: function (data) {
+                if (data.status == 200) {
+                    var menus = data.data.powers;
+                    var token = data.data.token;
+                    var user = data.data.user;
+                    var highest_level = data.data.highest_level;
+                    this.highest_level = highest_level;
+                    this.user_type = data.data.user_type;
+                    this.department_level = JSON.parse(user).department_level;
+                    sessionStorage.setItem("token", token);
+                    if (this.user_type == '2' || this.user_type == 2) {//学生的时候直接取所有菜单，不做角色切换
+                        sessionStorage.setItem("menu", JSON.stringify(menus));
+                    }
+                    $(window).unbind('keydown');
+                    sessionStorage.setItem("login_remark", 'pc_html');
+                    //密码设置
+                    this.is_upd_pwd = data.data.is_upd_pwd;
+                    // 用户名设置
+                    this.is_set_name = data.data.is_set_name;
+                    //获取用户在线时间
+                    ajax_post(api_get_online, {}, this, this.is_check);
+                } else {
+                    this.msg = data.message;
+                }
+            },
+            //获取在线时间
+            complete_get_online: function (data) {
+                sessionStorage.setItem('online_time', data.data);
+                if (this.user_type != '2' || this.user_type != 2) {//非学生身份调用
+                    //获取用户菜单
+                    ajax_post(api_user_changed_menu, {}, this, this.is_check);
+                } else {
+                    //获取服务器时间
+                    ajax_post(api_get_server_time, {}, this, this.is_check);
+                }
+            },
+            //获取用户菜单
+            complete_user_changed_menu: function (data) {
+                sessionStorage.setItem('menu', JSON.stringify(data.data));
+                //获取服务器时间
+                ajax_post(api_get_server_time, {}, this, this.is_check);
+            },
+            //获取服务器时间
+            complete_get_server_time: function (data) {
+                var get_server_time = data.data.current_time;
+                var get_server_time_new = this.timeChuo(get_server_time);
+                var window_time = new Date().valueOf();
+                var window_time_new = this.timeChuo(window_time);
+                if (get_server_time_new == window_time_new) {
+                    //is_upd_pwd:0-未修改过；1-已修改过;is_set_name:0-未设置；1-已设置
+                    //                        if (this.is_upd_pwd == 0 && this.is_set_name == 0) {
+                    if (this.is_upd_pwd == 0) {
+                        var old = this.data.password;
+                        sessionStorage.setItem("old_pwd", old);
+                        sessionStorage.setItem('username_show', this.is_set_name);
+                        window.location = HTTP_X + '/Growth/first_update_password.html';
+                    } else {
+                        if (this.department_level == 2) {
+                            window.location = HTTP_X + '/Growth/index.html#';
+                        } else {
+                            window.location = HTTP_X + '/Growth/index.html#';
+                            //根据鲜总要求暂时屏蔽
+                            // 承诺书是否签字
+                            // ajax_post(api_check_sign, {status:2}, this);
+                        }
+
+                    }
+                } else {
+                    this.msg = "您的系统时间与服务器时间" + "(" + get_server_time_new + ")" +
+                        "不一致,为保证数据的正确性请先调整时间"
+                }
+            },
+            complete_get_query_is_read: function (data) {
+                if (data.data == true) {
+                    window.location = HTTP_X + '/Growth/index.html#';
+                } else {
+                    window.location = HTTP_X + '/Growth/promise.html#';
+                }
+
+            },
+            complete_check_sign: function (data) {
+                if (data.data.length > 0) {
+                    window.location = HTTP_X + '/Growth/index.html#';
+                } else {
+                    window.location = HTTP_X + '/Growth/promise.html#';
+                }
+            },
+            complete_get_sign: function (data) {
+                if (data.status == 200) {
+                    $("#sign-modal").modal({
+                        closeOnConfirm: false
+                    });
+                    //need_sure:1-需要学生验证；0-不需要学生验证
+                    if (data.data.need_sure == 1) {
+                        layer.alert('注册完成，为信息安全须您子女用他（她）的账号进入系统，确认家长信息后，方可进入系统', {
+                            closeBtn: 0
+                        }, function () {
+                            window.location = HTTP_X + "/Growth/new_index.html";
+                        });
+                    } else if (data.data.need_sure == 0) {
+                        window.location = HTTP_X + "/Growth/new_index.html";
+                    }
+
+                } else {
+                    this.retMsg = data.message;
+                }
+            },
+            //忘记密码
+            forgetPwd: function () {
+                window.location = HTTP_X + "/Growth/found_pwd.html#";
+            },
+            timeChuo: function (h) {
+                var timestamp3 = h / 1000;
+                var newDate = new Date();
+                newDate.setTime(timestamp3 * 1000);
+                Date.prototype.format = function (format) {
+                    var date = {
+                        "M+": this.getMonth() + 1,
+                        "d+": this.getDate(),
+                        "h+": this.getHours(),
+                        "m+": this.getMinutes(),
+                        "s+": this.getSeconds(),
+                        "q+": Math.floor((this.getMonth() + 3) / 3),
+                        "S+": this.getMilliseconds()
+                    };
+                    if (/(y+)/i.test(format)) {
+                        format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(
+                            4 - RegExp.$1.length));
+                    }
+                    for (var k in date) {
+                        if (new RegExp("(" + k + ")").test(format)) {
+                            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ?
+                                date[k] : ("00" + date[k]).substr(("" + date[k]).length)
+                            );
+                        }
+                    }
+                    return format;
+                }
+                var getTimeIs = newDate.format('yyyy-MM-dd');
+                return getTimeIs;
+            },
+            //轮播方法
+            banner: function () {
+                $('#demo-slider-0').flexslider({
+                    slideshowSpeed: 5000,
+                    animationLoop: true,
+                    animationSpeed: 5000,
+                });
+
+            },
+
+            init: function () {
+                sessionStorage.clear()
+                this.banner();
+                $("#demo-slider-0 .am-control-nav").css({
+                    'top': window.screen.availHeight - 175 + 'px'
+                })
+                $("#demo-slider-0 img").css({
+                    'width': window.screen.availWidth
+                })
+                $("#demo-slider-0 img").css({
+                    'height': window.screen.availHeight + "px"
+                })
+            },
+            /**
+             * 判断当前浏览器是否兼容placeholder
+             */
+            placeholderSupport: function () {
+                return 'placeholder' in document.createElement('input');
+            },
+            /**
+             * 对ie9的placeholder做兼容
+             */
+            dealPlaceholder: function () {
+                if (!this.placeholderSupport()) {   // 判断浏览器是否支持 placeholder 不支持则执行一下自定义代码
+                    $('[placeholder]').focus(function () {
+                        var input = $(this);
+                        //判断如果你密码框，获取焦点之后属性修改为密码框 如果没有密码框此处判断可以删除 一下同理
+                        if (input[0].id == 'userPassword') {
+                            input.prop('type', 'password');
+                        }
+                        if (input.val() == input.attr('placeholder')) {
+                            input.val('');
+                            input.removeClass('placeholder');
+                        }
+                    }).blur(function () {
+                        var input = $(this);
+                        if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                            //将所有input置为文本框  主要为了重置密码框
+                            input.prop('type', 'text');
+                            input.addClass('placeholder');
+                            input.val(input.attr('placeholder'));
+                        } else {
+                            //密码框填写密码后 密码后恢复 密码框
+                            if (input[0].id == 'userPassword') {
+                                input.prop('type', 'password');
+                            }
+                        }
+                    }).blur();
+                }
+            },
+            //通知弹框显示
+            notice_play:function(){
+                $("#sysNotice").modal({
+                    closeViaDimmer: false,//屏蔽点击空白关闭弹框
+                    closeOnConfirm: false
+                });
+                // setTimeout(function(){
+                //     $("#sysNotice").modal({
+                //         closeOnConfirm: true
+                //     });
+                // },5000)
+            },
+            //通知弹框点击关闭
+            notice_close:function(){
+                $("#sysNotice").modal({
+                    closeOnConfirm: true
+                });
+            },
+        });
+        login.init();
+        login.$watch('onReady', function () {
+            // login.notice_play();
+            this.dealPlaceholder();
+            $(document).keydown(function (event) {
+                if (event.keyCode == 13) {
+                    login.login()
+                }
+            })
+        })
+        avalon.scan(document.body);
+
+    });
+</script>
+</body>
+
+</html>

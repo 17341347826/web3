@@ -1,0 +1,21 @@
+#student_evaluation_list{
+    background-color: #f1f2f6;
+}
+#student_evaluation_list>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#student_evaluation_list .am-table{
+    margin-bottom: 0;
+}
+#student_evaluation_list .s-e-l-con{
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+    padding:17px 16px 40px;
+}
+#student_evaluation_list .table_module{
+    padding-top: 10px;
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}

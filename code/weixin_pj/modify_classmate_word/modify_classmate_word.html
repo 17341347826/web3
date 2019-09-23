@@ -1,0 +1,38 @@
+<div ms-important="modify_classmate_word" id="teacher_graduation_comment_edit">
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>姓名</p>
+            </div>
+            <div class="weui-cell__ft">{{data.post_data.party_name}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>学籍号</p>
+            </div>
+            <div class="weui-cell__ft">{{data.user_code}}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>学年学期</p>
+            </div>
+            <div class="weui-cell__ft">{{@data.semester_name}}</div>
+        </div>
+    </div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" ms-duplex="@data.post_data.content" placeholder="请输入评语" rows="3"></textarea>
+                <div class="weui-textarea-counter">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="screen_demo">
+        <div class="public_btn_big" :click="@edit_btn()">
+            <a>提交</a>
+        </div>
+    </div>
+</div>

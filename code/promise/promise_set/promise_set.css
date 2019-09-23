@@ -1,0 +1,289 @@
+#promise_set {
+    background-color: #f1f2f6;
+}
+
+#promise_set > div {
+    margin-top: 4px;
+    padding-left: 16px;
+    background-color: white;
+}
+
+#promise_set > div.first-index {
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+#promise_set > div.first-index > div.am-fl > div {
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color: #a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: default;
+}
+
+#promise_set .yu_lan {
+    width: 70px;
+    height: 36px;
+    background-color: #2bbba4;
+    color: white;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+.chosen {
+    color: #2bbba4 !important;
+    border: solid 1px #2bbba4 !important;
+    background: url('../../../common/images/chosen.png') no-repeat top right;
+}
+
+#promise_set > div.first-index > div.am-fr {
+    padding-right: 45px;
+}
+
+#promise_set .text_d {
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#promise_set .te {
+    width: 100% !important;
+}
+
+#promise_set .btns {
+    padding-bottom: 20px;
+}
+
+#promise_set #exampleToolbar {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    height: 27px;
+    overflow: hidden;
+}
+
+#promise_set #exampleToolbar label {
+    border: 1px solid silver;
+    padding: 1px 2px 0 1px;
+}
+
+#promise_set #examplePersistence {
+    position: absolute;
+    top: 40px;
+    width: 50%;
+    right: 0;
+    bottom: 40px;
+}
+
+#promise_set #examplePersistence div {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    overflow: hidden;
+}
+
+#promise_set #examplePersistence textarea {
+    width: 99%;
+    height: 99%;
+    border: none;
+    background: rgb(30, 30, 30);
+    color: rgb(0, 200, 20);
+}
+
+#promise_set #pageLinks {
+    position: absolute;
+    left: 10px;
+    height: 20px;
+    right: 10px;
+    bottom: 10px;
+    overflow: hidden;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#promise_set button img {
+    width: 12px;
+    height: 12px;
+}
+
+#promise_set #exampleToolbar {
+    position: absolute;
+    left: 186px;
+    top: 200px;
+    height: auto;
+    overflow: hidden;
+}
+
+#promise_set #exampleToolbar label {
+    border: 1px solid silver;
+    padding: 1px 2px 0 1px;
+}
+
+#promise_set #exampleToolbar > select,
+#promise_set #exampleToolbar > label,
+#promise_set #exampleToolbar > button {
+    margin-left: 10px;
+}
+
+#promise_set #exampleEditor {
+    border: 1px solid silver;
+    position: absolute;
+    left: 207px;
+    top: 240px;
+    bottom: 40px;
+    width: 368px;
+    height: 348px;
+}
+
+#promise_set #examplePersistence {
+    position: absolute;
+    top: 40px;
+    width: 50%;
+    right: 0;
+    bottom: 40px;
+}
+
+#promise_set #examplePersistence div {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    overflow: hidden;
+}
+
+#promise_set #examplePersistence textarea {
+    width: 99%;
+    height: 99%;
+    border: none;
+    background: rgb(30, 30, 30);
+    color: rgb(0, 200, 20);
+}
+
+#promise_set #pageLinks {
+    position: absolute;
+    left: 10px;
+    height: 20px;
+    right: 10px;
+    bottom: 10px;
+    overflow: hidden;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#promise_set button img {
+    width: 12px;
+    height: 12px;
+}
+
+#promise_set .editablePage {
+    display: none
+}
+
+/*预览*/
+#promise_set #print_div {
+    width: 50%;
+    margin-top: 0;
+    /*position: absolute;*/
+    /*right: 268px;*/
+    /*top:177px;*/
+}
+
+#promise_set #print_div .print_con {
+    width: 100%;
+    max-width: 850px;
+    height: 653px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#promise_set #print_div .print_con > img {
+    width: 100%;
+}
+
+#promise_set #print_div .content_de {
+    position: absolute;
+    width: 40%;
+    right: 9%;
+    top: 15%;
+}
+
+#print_div .content_de > div {
+    max-height: 430px;
+}
+
+#promise_set #print_div .print_text {
+    position: absolute;
+    right: 9%;
+    bottom: 10%;
+}
+
+#promise_set #print_div .print_qm {
+    height: 80px;
+}
+
+#promise_set #print_div p > img {
+    width: 115px;
+    height: 80px;
+}
+
+#promise_set #print_div .cn_work {
+    position: absolute;
+    bottom: 29%;
+    left: 22%;
+    font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+    font-size: 16px;
+    /*color: #313131;*/
+    color:#656561;
+    margin: 0;
+}
+
+#promise_set .main > div {
+    width: 340px;
+}
+
+#promise_set .wysiwyg-toolbar > a {
+    float: left !important;
+}
+
+#promise_set .wysiwyg-wrapper,
+#promise_set .wysiwyg-editor {
+    background-color: transparent;
+}
+
+#promise_set .wysiwyg-editor {
+    background-color: RGB(252, 252, 236);
+}
+
+/*@media (max-width: 1365px) {*/
+    /*#promise_set .main > div {*/
+        /*width: 240px !important;*/
+    /*}*/
+/*}*/
+
+#promise_set .content {
+    display: flex;
+}
+#promise_set .content .main .wysiwyg-editor{
+    height: 390px;
+    overflow-y: hidden;
+}
+#promise_set .content .main {
+    flex: 1;
+}
+
+#print_div {
+    flex: 2;
+}

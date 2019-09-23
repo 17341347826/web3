@@ -1,0 +1,22 @@
+#graduation_teacher_comments{
+    background-color: #f5f5f5;
+    color:#a2a2a2;
+}
+#graduation_teacher_comments >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+}
+#graduation_teacher_comments .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+}
+#graduation_teacher_comments .list-con table{
+    border-radius:4px;
+}
+#graduation_teacher_comments .am-table>thead>tr>th,
+#graduation_teacher_comments .am-table>tbody>tr>td {
+    /*text-align: left;*/
+    white-space: normal;
+}

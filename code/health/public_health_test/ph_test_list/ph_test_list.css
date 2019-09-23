@@ -1,0 +1,13 @@
+#create-project{
+    position: absolute;
+    right: 20px;
+}
+#physique_assessment_table.health-test{
+    overflow: auto;
+}
+#health-title th{
+    font-size: 14px;
+}
+.healths td{
+    font-size: 12px;
+}

@@ -1,0 +1,114 @@
+<div ms-important="rp" id="review_progress">
+    <div class="container">
+        <div class="select-content clearfix">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,head_value:'请选择学年学期',sel_check:@semester_sel,data_arr:@semester_arr}"></xmp>
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,head_value:'请选择年级',sel_check:@grade_sel,data_arr:@grade_arr}"></xmp>
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,head_value:'请选择班级',sel_check:@class_sel,data_arr:@class_arr}"></xmp>
+        </div>
+    </div>
+    <div class="container">
+        <div class="progress">
+            <h3 class="table-title">
+                班级整体审核进度
+            </h3>
+            <div class="progress_table">
+                <table  cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>类型</th>
+                        <th>材料总数</th>
+                        <th>已审核数</th>
+                        <th>未审核数</th>
+                        <th>完成率</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($index,el) in @class_overall_audit_list-->
+                    <tr ms-if="@class_overall_audit_list.length!=0">
+                        <td>{{el.type_name}}</td>
+                        <td>{{el.xsh}}</td>
+                        <td>{{el.ysh}}</td>
+                        <td>{{el.wsh}}</td>
+                        <td>{{el.wcl}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-if="@class_overall_audit_list.length==0">
+                        <td colspan="5">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="progress">
+            <h3 class="table-title">
+                上传材料审核进度
+            </h3>
+            <div class="progress_table">
+                <table  cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>类型</th>
+                        <th>材料总数</th>
+                        <th>未审核数</th>
+                        <th>完成率</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($index,el) in @upload_material_audit_list-->
+                    <tr>
+                        <td>{{el.type_name}}</td>
+                        <td>{{el.xsh}}</td>
+                        <td>{{el.wsh}}</td>
+                        <td>{{el.wcl}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-if="@upload_material_audit_list.length==0">
+                        <td colspan="5">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="progress">
+            <h3 class="table-title">
+                班级整体审核进度
+            </h3>
+            <div class="progress_table">
+                <table  cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>类型</th>
+                        <th>异议人数</th>
+                        <th>被异议数</th>
+                        <th>未审核数</th>
+                        <th>完成率</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($index,el) in @reconsider_audit_List-->
+                    <tr>
+                        <td>{{el.type_name}}</td>
+                        <td>{{el.tcyyrs}}</td>
+                        <td>{{el.btcyycls}}</td>
+                        <td>{{el.wsh}}</td>
+                        <td>{{el.wcl}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-if="@reconsider_audit_List.length==0">
+                        <td colspan="6">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--暂无数据-->
+    <div ms-if="@class_overall_audit_list.length == 0 && @upload_material_audit_list.length == 0 && @reconsider_audit_List.length == 0" class="no-data">
+        <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+    </div>
+
+</div>

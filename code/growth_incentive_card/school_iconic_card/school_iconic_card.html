@@ -1,0 +1,94 @@
+<div ms-important="school_iconic_card" id="school_iconic_card">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--筛选条件-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex="@extend.fk_grade_id">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择年级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @grade_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.grade_id}">-->
+                            <!--{{el.grade_name}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <xmp ms-widget="{is:'ms-select-kinds',s_kind:3,show_name:'请选择年级',data_arr:@grade_list,s_change:@gradeChange}"></xmp>
+            <!--周期-->
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex="@extend.cycle_type">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择周期-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:1}">-->
+                            <!--每天-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:2}">-->
+                            <!--每周-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:3}">-->
+                            <!--每月-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:4}">-->
+                            <!--每学期-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <xmp ms-widget="{is:'ms-select-kinds',s_kind:5,show_name:'请选择周期',data_arr:@week_list,s_change:@weekChange}"></xmp>
+            <!--发卡主体-->
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex="@extend.user_type">-->
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择发卡主体-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;<option ms-attr="{value:0}">管理员</option>&ndash;&gt;-->
+                        <!--<option ms-attr="{value:1}">-->
+                            <!--教师-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;<option ms-attr="{value:2}">家长</option>&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <xmp ms-widget="{is:'ms-select-kinds',s_kind:5,show_name:'请选择发卡主体',data_arr:@hairpin_list,s_change:@hairpinChange}"></xmp>
+            <!--卡名称-->
+            <div class="form-input">
+                <input ms-duplex="@other.card_name" ms-on-blur="@cardNameChange()" placeholder="请输入卡名称"
+                       type="text"/>
+            </div>
+            <!--使用状态-->
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select ms-duplex="@extend.status">-->
+                        <!--<option>-->
+                            <!--请选择使用状态-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:0}">-->
+                            <!--停用-->
+                        <!--</option>-->
+                        <!--<option ms-attr="{value:1}">-->
+                            <!--启用-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <xmp ms-widget="{is:'ms-select-kinds',s_kind:5,show_name:'请选择使用状态',data_arr:@type_list,s_change:@typeChange}"></xmp>
+            <!--保存-->
+            <div class="click_btn" ms-on-click="@secondAdd()">
+                <span>新增</span>
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <div class="table-module">
+            <xmp ms-widget="{is:'ms-ele-table',remember:false,url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}"></xmp>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+<div ms-important="goals_and_plans_teacher_fill" id="goals_and_plans_teacher_fill">
+    <!--<span :if="is_fill==1">可编辑  当前可编辑的年级 {{yearSemester}}</span>-->
+    <!--<span :if="is_fill==2">不可编辑</span>-->
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange" ms-duplex-number="@fk_grade_id">
+                        <option ms-attr="{value:el.grade_id}" ms-for="el in @grade_list">
+                            {{ el.grade_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@classChange" ms-duplex-number="@fk_class_id">
+                        <option ms-attr="{value:el.class_id}" ms-for="el in @class_list">
+                            {{ el.class_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--学校筛选-->
+            <div class="select">
+                <div class="old-select">
+                    <!--<select id="grade_select" data-duplex-changed="@semesterChange" ms-duplex="@fk_semester">-->
+                        <!--<option value="七年级上">七年级（上）</option>-->
+                        <!--<option value="七年级下">七年级（下）</option>-->
+                        <!--<option value="八年级上">八年级（上）</option>-->
+                        <!--<option value="八年级下">八年级（下）</option>-->
+                        <!--<option value="九年级上">九年级（上）</option>-->
+                        <!--<option value="九年级下">九年级（下）</option>-->
+                    <!--</select>-->
+                    <select data-duplex-changed="@semesterChange" ms-duplex="@fk_semester">
+                        <option ms-attr="{value:el.remark}" ms-for="el in @sem_list">
+                            {{ el.remark}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-padding-bottom-lg">
+        <table class="am-table am-table-bordered am-table-hover">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>学籍号</th>
+                <th>姓名</th>
+                <th>目标与计划</th>
+                <th style="width: 100px;">实现情况</th>
+                <th>计分</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($index,el) in @student_list-->
+            <tr>
+                <td style="min-width: 40px;">{{$index+1}}</td>
+                <td style="min-width: 175px;">{{el.code}}</td>
+                <td style="min-width: 75px;">{{el.name}}</td>
+                <td class="" >
+                    <p style="height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden;margin: 0; ">
+                        {{el.tar_targetplan}}
+                    </p>
+                  </td>
+                <td class="">
+                    <p style="width: 100px;height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden;margin: 0;">
+                        {{el.tar_situation}}
+                    </p>
+                </td>
+                <td>
+                    {{el.score}}
+                </td>
+                <td style="min-width: 50px;">
+                    <a :if="@fk_semester==@yearSemester && (el.hasOwnProperty('id')==true && el.tar_targetplan!='') &&
+                    is_fill==1 && @is_headmaster" class="tab-btn tab-edit-btn" title="编辑" ms-on-click="@edit_btn(el)"></a>
+                    <a :if="@fk_semester!=@yearSemester || (el.hasOwnProperty('id')==false && @fk_semester==@yearSemester) ||
+                    is_fill==2 || !@is_headmaster || (el.hasOwnProperty('id')==true && el.tar_targetplan=='')"
+                       class="tab-btn tab-edit-btn-disabled" title="编辑"></a>
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+        <div id="content_div" class='am-padding-top-sm' ms-visible="false">
+            <p class='am-text-center'>请填写【{{module_name}}】同学的实现情况并打分</p>
+            <div style="margin-left: 50px;margin-bottom: 20px;">
+                <span>请选择实现情况：</span>
+                <!--<select ms-duplex="module_info" data-duplex-changed="@module_change">-->
+                    <!--<option value="1|好">好</option>-->
+                    <!--<option value="0.5|一般">一般</option>-->
+                    <!--<option value="0|未完成">未完成</option>-->
+                <!--</select>-->
+                <div class="radios">
+                    <label class="am-radio-inline" ms-click="@module_change">
+                        <input type="radio" name="doc-radio-1" id="option1" class="rdo" ms-attr="{value:1+'|'+'好'}"
+                               ms-duplex="@module_info">
+                        <label ms-attr="{for:'option1'}">好</label>
+                    </label>
+                    <label class="am-radio-inline" ms-click="@module_change">
+                        <input type="radio" name="doc-radio-2" id="option2" class="rdo" ms-attr="{value:0.5+'|'+'一般'}"
+                               ms-duplex="@module_info">
+                        <label ms-attr="{for:'option2'}">一般</label>
+                    </label>
+                    <label class="am-radio-inline" ms-click="@module_change">
+                        <input type="radio" name="doc-radio-3" id="option3" class="rdo" ms-attr="{value:0+'|'+'未完成'}"
+                               ms-duplex="@module_info">
+                        <label ms-attr="{for:'option3'}">未完成</label>
+                    </label>
+                </div>
+            </div>
+            <div class='am-margin-top-sm am-margin-bottom-sm am-text-center'>
+                <span class='am-btn am-btn-default' ms-on-click='@cancel'>取消</span>
+                <span class='am-btn am-btn-primary am-margin-left-lg' ms-on-click='@add'>提交</span>
+            </div>
+        </div>
+    </div>
+</div>

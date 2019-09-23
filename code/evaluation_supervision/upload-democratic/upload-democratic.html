@@ -1,0 +1,298 @@
+<div ms-important="upload-democratic" class="d_e_progress" id="upload">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+         <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@select_init,data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+        </div>
+        <div class="select" ms-if="user_level<4">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@select_init,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+        </div>
+        <button class="am-btn am-btn-success handle-btn" ms-click="handle_refresh">刷新数据</button>
+    </div>
+    <div class="descript">说明：系统已设置每天分时段自动刷新数据，表格中可查看上一次刷新的时间。
+        如需查看最新数据，请点击右上角“刷新”按钮，因数据量较大，计算耗时较长，请耐心等待，切勿频繁点击“刷新”。
+    </div>
+    <div class="table-content clearfix" ms-if="@user_level<3">
+        <div class="title">
+            民主评议录入进度（全市）
+        </div>
+        <div class="no-msg-img" ms-if="filter_city(data.city_cnt).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+        <div class="tb-content" ms-if="filter_city(data.city_cnt).length>0" >
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市上传学生占比
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge" ms-if="filter_city(data.city_cnt).length>0">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">市</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自评</td>
+                        <td colspan="3">组评</td>
+                        <td colspan="3">班评</td>
+                        <td rowspan="2">总完成率</td>
+                        <td rowspan="2">统计时间</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(data.city_cnt)-->
+                    <tr>
+                        <td ms-attr="{rowspan:count(@filter_city(@data.city_cnt), 'szmc', el.szmc)}" ms-if="$index==0">{{el.szmc}}</td>
+                        <td>{{el.njmc}}</td>
+                        <td>{{el.bjrs}}</td>
+                        <td>{{el.zp_yp}}</td>
+                        <td>{{el.zp_wp}}</td>
+                        <td>{{el.zp_wcl}}%</td>
+                        <td>{{el.hp_yp}}</td>
+                        <td>{{el.hp_wp}}</td>
+                        <td>{{el.hp_wcl}}%</td>
+                        <td>{{el.bp_yp}}</td>
+                        <td>{{el.bp_wp}}</td>
+                        <td>{{el.bp_wcl}}%</td>
+                        <td>{{el.wcl}}%</td>
+                        <td>{{el.xgsj}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix" ms-if="@user_level<4">
+        <div class="title">
+            民主评议录入进度（区县）
+        </div>
+        <div class="tb-select clearfix" ms-if="@user_level<3">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@area_change,head_value:'请选择区县'}"></xmp>
+            </div>
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-if="@filter_area(data.district_cnt).length>0">
+                <div class="biao-title plan">
+                    区县上传学生占比
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+
+                <div class="no-msg-img" ms-if="@filter_area(@data.district_cnt).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-if="@filter_area(@data.district_cnt).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">区县</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自评</td>
+                        <td colspan="3">组评</td>
+                        <td colspan="3">班评</td>
+                        <td rowspan="2">总完成率</td>
+                        <td rowspan="2">统计时间</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@data.district_cnt)-->
+                    <tr>
+                        <td ms-if="$index==0||el.qxmc != filter_area(data.district_cnt)[$index-1].qxmc"
+                            ms-attr="{rowspan:@count(@filter_area(@data.district_cnt),'qxmc' ,el.qxmc)}" >
+                            {{el.qxmc}}
+                        </td>
+                        <td>{{el.njmc}}</td>
+                        <td>{{el.bjrs}}</td>
+                        <td>{{el.zp_yp}}</td>
+                        <td>{{el.zp_wp}}</td>
+                        <td>{{el.zp_wcl}}%</td>
+                        <td>{{el.hp_yp}}</td>
+                        <td>{{el.hp_wp}}</td>
+                        <td>{{el.hp_wcl}}%</td>
+                        <td>{{el.bp_yp}}</td>
+                        <td>{{el.bp_wp}}</td>
+                        <td>{{el.bp_wcl}}%</td>
+                        <td>{{el.wcl}}%</td>
+                        <td>{{el.xgsj}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="table-content clearfix" ms-if="@user_level<5">
+        <div class="title">
+            民主评议录入进度（学校）
+        </div>
+        <div class="tb-select clearfix">
+            <div class="select" ms-if="@user_level<3">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@area_change2,default_value:@default_area,head_value:'请选择区县'}"></xmp>
+            </div>
+            <div class="select" ms-if="@user_level<4">
+                <input type="text" ms-duplex="school_name" placeholder="请输入学校" data-duplex-changed="@school_change">
+            </div>
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-if="data_school.length>0">
+                <div class="biao-title plan">
+                    学校上传学生占比
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+
+                <div class="no-msg-img" ms-if="data_school.length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-if="data_school.length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2" ms-if="user_level<4" class="school-td">学校</td>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自评</td>
+                        <td colspan="3">组评</td>
+                        <td colspan="3">班评</td>
+                        <td rowspan="2">总完成率</td>
+                        <td rowspan="2">统计时间</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in data_school-->
+                    <tr>
+                        <td ms-if="($index==0||el.xxmc != data_school[$index-1].xxmc) && user_level<4"
+                            ms-attr="{rowspan:@count(data_school, 'xxmc', el.xxmc)}" >
+                            {{el.xxmc}}
+                        </td>
+                        <td>{{el.njmc}}</td>
+                        <td>{{el.bjrs}}</td>
+                        <td>{{el.zp_yp}}</td>
+                        <td>{{el.zp_wp}}</td>
+                        <td>{{el.zp_wcl}}<span ms-if="el.zp_wcl!='-'">%</span></td>
+                        <td>{{el.hp_yp}}</td>
+                        <td>{{el.hp_wp}}</td>
+                        <td>{{el.hp_wcl}}<span ms-if="el.hp_wcl!='-'">%</span></td>
+                        <td>{{el.bp_yp}}</td>
+                        <td>{{el.bp_wp}}</td>
+                        <td>{{el.bp_wcl}}<span ms-if="el.bp_wcl!='-'">%</span></td>
+                        <td>{{el.wcl}}<span ms-if="el.wcl!='-'">%</span></td>
+                        <td>{{el.xgsj}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="table-content clearfix" ms-if="@user_level==4">
+        <div class="title">
+            民主评议录入进度（班）
+        </div>
+        <div class="tb-select clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@class_grade_change,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_class:true,data_arr:@class_list,sel_check:@class_change,head_value:'请选择班级'}"></xmp>
+            </div>
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="data_class.length>0">
+                <div class="biao-title plan">
+                    民主评议录入进度
+                </div>
+                <div id="tubiao_4"></div>
+            </div>
+            <div class="biao-ge">
+
+                <div class="no-msg-img" ms-if="data_class.length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="data_class.length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">班级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">自评</td>
+                        <td colspan="3">组评</td>
+                        <td colspan="3">班评</td>
+                        <td rowspan="2">总完成率</td>
+                        <td rowspan="2">统计时间</td>
+                    </tr>
+                    <tr>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                        <td>已评</td>
+                        <td>未评</td>
+                        <td>完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @data_class-->
+                    <tr>
+                        <td>{{el.njmc}}-{{el.bjmc}}班</td>
+                        <td>{{el.bjrs}}</td>
+                        <td>{{el.zp_yp}}</td>
+                        <td>{{el.zp_wp}}</td>
+                        <td>{{el.zp_wcl}}%</td>
+                        <td>{{el.hp_yp}}</td>
+                        <td>{{el.hp_wp}}</td>
+                        <td>{{el.hp_wcl}}%</td>
+                        <td>{{el.bp_yp}}</td>
+                        <td>{{el.bp_wp}}</td>
+                        <td>{{el.bp_wcl}}%</td>
+                        <td>{{el.wcl}}%</td>
+                        <td>{{el.xgsj}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

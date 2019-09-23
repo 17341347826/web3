@@ -1,0 +1,46 @@
+#school_semester{
+    background-color: #f1f2f6;
+}
+#school_semester>div{
+    padding-left:16px;
+    padding-right:16px;
+    background-color: white;
+}
+#school_semester .common-select .click_btn{
+    display:inline-block;
+    height:36px;
+    line-height: 36px;
+    background-color: rgba(43, 187, 164, 1);
+    border-radius: 4px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor: pointer;
+}
+#school_semester .common-select .click_btn img{
+    margin-top: -4px;
+}
+#school_semester .common-select .click_btn>span{
+    display:inline-block;
+    color:#fff;
+    font-size: 16px;
+    margin-left:7px;
+}#school_semester .table-module{
+     padding-top: 10px;
+     padding-bottom: 10px;
+ }
+#school_semester .table-module table{
+    border:1px #ccc solid;
+    border-radius: 4px;
+}
+#school_semester #compileData{
+    color:#c8c8c8;
+}
+#school_semester #compileData input,
+#school_semester #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color:#777;
+}
+#school_semester .am-datepicker-dropdown{
+    z-index: 99999 !important;
+}

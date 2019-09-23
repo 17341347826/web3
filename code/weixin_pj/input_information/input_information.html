@@ -1,0 +1,155 @@
+<div ms-important="input_information" id="input_information">
+    <div class="weui-cells input-cells">
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select1">
+                    姓 名：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select"  id="select1" ms-duplex="@stu_message.select_id" data-duplex-changed="@student_change">
+                    <option ms-attr="{value:''}">
+                        请选择
+                    </option>
+                    <!--ms-for: $index,el in @student_arr-->
+                    <option ms-attr="{value:el.guid}">
+                        {{ el.name }}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label" for="select1">
+                    事 项：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select"  id="select2" ms-duplex="@events_message.event_id" data-duplex-changed="@event_change">
+                    <option ms-attr="{value:''}">
+                        请选择
+                    </option>
+                    <!--ms-for: el in @events_arr-->
+                    <option ms-attr="{value:el.id}">
+                        {{ el.index_name }}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">日期</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="date" value="" id="date"
+                       ms-duplex="@select_date" >
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_form input-cells cell2">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" ms-duplex="@descript" placeholder="请输入描述" rows="3"></textarea>
+                <div class="weui-textarea-counter">
+                </div>
+            </div>
+        </div>
+        <!-----------------加减分---------------->
+        <!--<div class="weui-cells__title label-title">加减分</div>-->
+        <div class="weui-cells weui-cells_radio radio-choose">
+            <!--加分：日常表现分值结束区间>0-->
+            <label class="weui-cell weui-check__label" for="x11" :visible = '@index_end_interval>0'>
+                <div class="weui-cell__bd">
+                    <p>
+                        加 分
+                    </p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input class="weui-check" id="x11" ms-duplex-number="@request_data.form.mark_type" name="radio1"
+                           type="radio" value="1"/>
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <div class="line" :visible="@index_start_interval<0 && @index_end_interval>0"></div>
+            <!--减分：日常表现分值开始区间<0-->
+            <label class="weui-cell weui-check__label" for="x12" :visible = '@index_start_interval<0'>
+                <div class="weui-cell__bd">
+                    <p>
+                        减 分
+                    </p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input class="weui-check" id="x12" ms-duplex-number="@request_data.form.mark_type" name="radio1"
+                           type="radio" value="2"/>
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+        </div>
+
+        <!--分值区间-->
+        <!--<div class="weui-cell score">-->
+            <!--<div class="weui-cell__bd">-->
+                <!--<input class="weui-input" ms-duplex-number="@score" placeholder="请输入0.1-1的分值" type="text"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--选择加分的时候：日常表现分值结束区间>0-->
+        <div class="weui-cell score" :visible = '@request_data.form.mark_type == 1 && @events_message.event_id != ""'>
+            <div class="weui-cell__bd">
+                <input class="weui-input" ms-attr="{placeholder:'打分值在0.1-'+@index_end_interval+'之间'}" ms-duplex-number="@score" type="text"/>
+            </div>
+        </div>
+        <!--选择减分的时候：日常表现分值开始区间<0-->
+        <div class="weui-cell score" :visible = '@request_data.form.mark_type == 2 && @events_message.event_id != ""'>
+            <div class="weui-cell__bd">
+                <input class="weui-input" ms-attr="{placeholder:'打分值在0.1-'+@index_start_interval+'之间'}" ms-duplex-number="@score" type="text"/>
+            </div>
+        </div>
+        <!-------------上传文件-------------------->
+        <form enctype="multipart/form-data" id="uploadForm" method="post">
+            <div class="weui-gallery" id="gallery">
+    <span class="weui-gallery__img" id="galleryImg">
+    </span>
+                <div class="weui-gallery__opr">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title yiju">
+                                依 据 (最多可上传9个附件)
+                            </p>
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles">
+                                <!--<li class="weui-uploader__file" style="background-image:url('../imgs/0.jpg')"></li>-->
+                            </ul>
+                            <div class="weui-uploader__input-box">
+                                <input class="weui-uploader__input" id="uploaderInput" multiple="" name="" type="file"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="weui-panel">
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text dec">
+                    <p class="weui-media-box__desc">
+                        视频要求：格式mp4、mov、avi、flv、swf，大小≤100MB（兆）;
+                    </p>
+                    <p class="weui-media-box__desc">
+                        图片要求：格式jpg、jpeg、png，宽或高≥300像素，0.5≤宽高比≤1;
+                    </p>
+                    <p class="weui-media-box__desc">
+                        其他要求：格式pdf、xls、xlsx、doc、docx、ppt、pptx、txt;
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a class="weui-btn weui-btn_primary" href="javascript:;" ms-class="[(@sub_disabled? 'disabled_class':'')]"
+           ms-click="@submit_btn">
+            提交
+        </a>
+    </div>
+</div>

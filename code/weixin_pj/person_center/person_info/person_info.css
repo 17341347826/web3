@@ -1,0 +1,143 @@
+#person_info{
+    background-color: #F5F5F5;
+    font-family: PingFang-SC-Regular;
+    padding-bottom:1000px;
+}
+#person_info>div{
+    text-align: center;
+}
+#person_info .con{
+    /*background-color: #358afe;*/
+    height: 254px;
+}
+/*背景色*/
+#person_info .con .head-back{
+    background-color: #358afe;
+    height: 244px;
+    width: 100%;
+    position: absolute;
+    border-bottom-left-radius: 60%;
+    border-bottom-right-radius: 60%;
+}
+/*头像*/
+#person_info .head-info{
+    padding-top:15px;
+}
+#person_info .head-info .user-head{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+}
+#person_info .head-info .user-head>img{
+    width: 90px;
+    height: 90px;
+    /*width:100%;*/
+}
+/*修改头像*/
+#person_info .user-head{
+    position: relative;
+    cursor: pointer;
+}
+#person_info .user-head:hover .up-head{
+    display:block;
+}
+#person_info .user-head .up-head{
+    position: absolute;
+    z-index:99;
+    /*top: 33px;*/
+    /*left: 12px;*/
+    display:none;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    margin-top: -90px;
+    background-color: rgba(0,0,0,.6);
+}
+#person_info .user-head .up-head span{
+    color: #E8E8E8;
+}
+#person_info .head-info>div:last-child{
+    margin-top:5px;
+    /*border:1px solid red;*/
+    position: relative;
+    height: 29px;
+    line-height: 29px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #fff;
+}
+/*头像结束*/
+
+/*用户姓名*/
+#person_info .head-info .user-name{
+
+}
+#person_info .head-info .user-name>div{
+    display:inline-block;
+    /*vertical-align: bottom;*/
+    margin-left: 5px;
+}
+#person_info .head-info .user-name>div span{
+    position: absolute;
+    top:11px;
+}
+/*密码设置*/
+#person_info .set-help-about{
+    display:inline-block;
+    width: 303px;
+    height: 85px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px 0px #e6e9ed;
+    border-radius: 5px;
+    text-align: center;
+    margin-top:24px;
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    margin-left: -152px;
+}
+#person_info .set-help-about>div{
+   display:inline-block;
+    vertical-align: top;
+    margin-right:43px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #646a75;
+    margin-top: 15px;
+    cursor: pointer;
+}
+#person_info .set-help-about>div:last-child{
+    margin-right:0;
+}
+#person_info .set-help-about>div img{
+    width: 30px;
+    height: 30px;
+}
+#person_info .set-help-about>div div{
+
+}
+/*下面部分*/
+#person_info .weui-panel{
+    text-align: left;
+    margin-top:24px;
+}
+#person_info .weui-panel:before {
+     border-top:none;
+}
+#person_info .weui-panel:after {
+     border-bottom:none;
+}
+#person_info .stu-data  .weui-cell:before {
+    border-top:none;
+}
+#person_info .weui-cell__bd {
+    color: #181918;
+    font-size: 15px;
+}
+/*上传头像*/
+.weui-uploader__input-box {
+    width: 90px;
+    height: 90px;
+}

@@ -1,0 +1,49 @@
+<div ms-important="kid_term_results" id="kid_term_results">
+    <div class="normalPaddding">
+        <!--内容-->
+        <div class="con">
+            <!--ms-for: ($index,el) in @semester_list-->
+            <div class="every_stu">
+                <div class="stu_info clearfix">
+                    <span class="float-left">{{el.semester_name}}</span>
+                    <span class="float-right"></span>
+                </div>
+                <!--ms-for:($idx,al) in el.list-->
+                <div class="stu_plan" :if="al.signname1 != ''">
+                    <div class="stu_plan1">{{al.signname1}}</div>
+                    <div class="stu_plan2">
+                        <span>{{al.evaluate_score}}</span>
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+                <div class="stu_plan" :if="el.daily_evaluation_score != undefined">
+                    <div class="stu_plan1">日常评价加分：</div>
+                    <div class="stu_plan2">
+                        <span>{{el.daily_evaluation_score}}</span>
+                    </div>
+                </div>
+                <div class="stu_plan" :if="el.sum_score != undefined">
+                    <div class="stu_plan1">累计得分：</div>
+                    <div class="stu_plan2">
+                        <span>{{el.sum_score}}</span>
+                    </div>
+                </div>
+                <div class="stu_plan" :if="el.grade_name != undefined">
+                    <div class="stu_plan1">评价等级：</div>
+                    <div class="stu_plan2">
+                        <span>{{el.grade_name}}</span>
+                    </div>
+                </div>
+                <!--查看学期档案，目前未开发，后期补上-->
+                <div class="public_btn" :click="@term_archives(el)">
+                    <a>查看学期档案</a>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--暂无数据-->
+            <div :visible="@semester_list.length == 0" class="no-data">
+                <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

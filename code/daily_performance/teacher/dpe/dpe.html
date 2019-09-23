@@ -1,0 +1,128 @@
+<div ms-important="dpe" id="dpe" class="clearfix">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="inner clearfix">
+        <div class="row-line">
+            <div class="dpe-name">姓<span class="jianju"></span>名</div>
+            <div class="dpe-select">
+                <select class="js-example-basic-single multiSelect"
+                        ms-attr="{disabled:@is_disabled}" ms-duplex="@student_info" multiple="" id="student_select">
+                    <option value="0">
+                        请选择
+                    </option>
+                    <option ms-attr="{value:el.guid+'|'+el.name+'|'+el.code}" ms-for="el in @student_arr">
+                        {{ el.name }}{{el.code}}
+                    </option>
+                </select>
+            </div>
+            <div class="dpe-sel-btn">
+                <button ms-click="@batch_selection">批量选择学生</button>
+            </div>
+        </div>
+        <div class="row-line">
+            <div class="dpe-name">日<span class="jianju"></span>期</div>
+            <div class="dpe-input">
+                <input type="text" data-am-datepicker="" id="my-datepicker"
+                       ms-attr="{value:@request_data.form.everyday_date}" ms-on-focus="@getDate"
+                       ms-rules="{required:true}" required=""placeholder="请选择日期" readonly>
+            </div>
+        </div>
+        <div class="row-line">
+            <div class="dpe-name">关键表现</div>
+            <div class="dpe-select" id="project-select">
+                <select class="js-example-basic-single" id="item_select">
+                    <option value="0">
+                        请选择
+                    </option>
+                    <option ms-attr="{value:el.id+'|'+el.index_name+'|'+el.index_start_interval+'|'+el.index_end_interval+'|'+el.index_value}"
+                            ms-for="el in @item_index_arr">
+                        {{ el.index_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row-line">
+            <div class="dpe-name">评价维度</div>
+            <div class="dpe-input">
+                <input type="text" id="first_index" ms-duplex="first_index" readonly="">
+            </div>
+            <div class="dpe-name dpe-sec">评价要素</div>
+            <div class="dpe-input">
+                <input type="text" id="second_index" ms-duplex="second_index" readonly="">
+            </div>
+        </div>
+        <div class="row-line">
+            <div class="dpe-name">表现描述</div>
+            <div class="dpe-input dec">
+                <input type="text" ms-blur="@desc_blur"
+                       ms-duplex="@request_data.form.description" ms-on-focus="@desc_focus"
+                       ms-on-keyup="@teacherNameDemand()" placeholder="请输入并选择">
+                <ul id="description"
+                    ms-on-mouseout="@teacherNameFalse()" ms-on-mouseover="@teacherNameTrue()"
+                    ms-visible="is_show_desc">
+                    <li>请选择</li>
+                    <!--ms-for: el in @description_arr-->
+                    <li ms-on-click="@click_li(el.description)">
+                        {{el.description }}
+                    </li>
+                    <!--ms-for-end:-->
+                </ul>
+            </div>
+        </div>
+        <div class="row-line">
+            <div class="dpe-name">加 减 分</div>
+            <div class="radios dpe-input">
+                <!--加分：日常表现分值结束区间>0-->
+                <label class="am-radio-inline" :visible = '@index_end_interval>0'>
+                    <input type="radio" name="score" id="add-score" class="rdo" value="1"
+                           ms-duplex="@request_data.form.mark_type" >
+                    <label ms-attr="{for:'add-score'}">加分</label>
+                </label>
+                <!--减分：日常表现分值开始区间<0-->
+                <label class="am-radio-inline" :visible = '@index_start_interval<0'>
+                    <input type="radio" name="score" id="reduce-score" class="rdo" value="2"
+                           ms-duplex="@request_data.form.mark_type">
+                    <label ms-attr="{for:'reduce-score'}">减分</label>
+                </label>
+            </div>
+            <div class="dpe-input">
+                <input type="text" ms-on-input="@inputLimits($event)"  ms-duplex-number="@index_value"  ms-attr="{value:@index_value}">
+            </div>
+            <!--选择加分的时候：日常表现分值结束区间>0-->
+            <div class="dpe-input prompt" :visible = '@request_data.form.mark_type == 1 && @request_data.form.item != ""'>
+                打分值在0.1-{{@index_end_interval | absFilter}}之间
+            </div>
+            <!--选择减分的时候：日常表现分值开始区间<0-->
+            <div class="dpe-input prompt" :visible = '@request_data.form.mark_type == 2 && @request_data.form.item != ""'>
+                打分值在0.1-{{@index_start_interval | absFilter}}之间
+            </div>
+        </div>
+        <div class="row-line">
+            <div class="dpe-name">上传依据</div>
+            <div class="load-file">
+                <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'uploader_add_daily',id:'uploader_add_daily', files:@files, url:@request_data.uploader_url}"></xmp>
+            </div>
+        </div>
+
+        <div class="bottom-btns">
+            <a class="am-btn am-btn-primary cancel-btn" role="button" ms-click="@back">取消</a>
+            <a href="javascript:;" class="am-btn am-btn-primary submit-btn" role="button"
+               ms-attr="{disabled:@save_click_dis}" ms-click="@save_daily">提交</a>
+        </div>
+
+
+    </div>
+    <div class="dpe-layer" id="dpe-layer">
+        <div class="all-check c-arys">
+            <input type="checkbox" ms-duplex-checked="@module_stu" value="1"
+                   ms-on-change="@all_change" id="all-check"><label for="all-check">全选</label>
+        </div>
+        <div class="each-check-content clearfix">
+
+            <div ms-for="($index,el) in @module_student_arr" class="c-arys">
+                <input type="checkbox" ms-attr="{value:el.guid+'|'+el.name+'|'+el.code,id:$index+1}"
+                       ms-duplex="@checkbox_arr">
+                <label ms-attr="{for:$index+1}">{{el.name}}-{{el.code}}</label>
+            </div>
+        </div>
+    </div>
+</div>

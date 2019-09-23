@@ -1,0 +1,58 @@
+<div ms-important="new_stu_comment" id="new_stu_comment">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--<span :if="is_fill==1">当前可编辑的年级 {{yearSemester}}-->
+    <!--</span>-->
+    <!--<span :if="is_fill==2">不可编辑</span>-->
+    <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select id="semester_select" data-duplex-changed="@semesterChange" ms-duplex="@fk_semester">
+                        <option ms-attr="{value:el.semester_name+'|'+el.semester_index+'|'+el.end_date+'|'+el.start_date+'|'+el.id+'|'+el.remark}" ms-for="el in @semester_list">
+                            {{el.semester_name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="new_teacher_comment_table" :if="@data_list.length != 0">
+        <table class="am-table am-table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>评语状态</th>
+                <th>评语</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($index,el) in @data_list-->
+            <tr>
+                <td style="min-width: 40px;">{{$index+1}}</td>
+                <!--<td style="min-width: 175px;">{{el.code}}</td>-->
+                <td style="min-width: 75px;">{{el.name}}</td>
+                <td>
+                    <span :if="el.content=='' || el.content==null">未评</span>
+                    <span  :if="el.content!='' && el.content!=null">已评</span>
+
+                </td>
+
+                <td class="">
+                    <!--<p style="min-width: 400px;height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden; ">-->
+                        <!--{{el.content}}-->
+                    <!--</p>-->
+                    {{el.content}}
+                </td>
+                <td style="min-width: 50px;">
+
+                    <a :if="@is_fill==1" class="tab-btn tab-edit-btn" title="编辑" ms-on-click="@edit_btn(el)"></a>
+                    <a :if="@is_fill==2" class="tab-btn tab-edit-btn-disabled" ms-click="disabled_tips" title="不可编辑"></a>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+    </div>
+</div>

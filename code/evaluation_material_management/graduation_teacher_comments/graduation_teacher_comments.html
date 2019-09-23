@@ -1,0 +1,94 @@
+<div ms-important="graduation_teacher_comments" id="graduation_teacher_comments">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <!--筛选条件-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--学年学期-->
+            <!--<div class="select">-->
+                <!--<div class="old-select">-->
+                    <!--<select data-duplex-changed="@semesterChange" ms-duplex="@seme_info">-->
+                        <!--&lt;!&ndash;ms-for: el in @semester_list&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.semester_name+'|'+el.semester_index+'|'+el.end_date+'|'+el.start_date}">-->
+                            <!--{{el.semester_name}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange" ms-duplex-number="@grade_info">
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@classChange" ms-duplex-number="@add_data.class_id">
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择班级-->
+                        <!--</option>-->
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name}}班
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--table数据-->
+    <div class='list-con' :if="@data_list.length>0">
+        <table class="am-table am-table-bordered am-table-hover am-text-center">
+            <thead>
+            <tr>
+                <td style="width:60px;">序号</td>
+                <td>学籍号</td>
+                <td>姓名</td>
+                <td style="width: 80px;">评语状态</td>
+                <td>评语</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($index,el) in @data_list-->
+            <tr>
+                <td style="min-width: 40px;">{{$index+1}}</td>
+                <td style="min-width: 175px;">{{el.stu_num}}</td>
+                <td style="min-width: 75px;">{{el.stu_name}}</td>
+                <td>
+                    <span :if="el.teacher_remark=='' || el.teacher_remark==null">未评</span>
+                    <span  :if="el.teacher_remark!='' && el.teacher_remark!=null">已评</span>
+                </td>
+
+                <td style="text-align: left;">
+                    <p>
+                        {{el.teacher_remark}}
+                    </p>
+                </td>
+                <td style="min-width: 50px;">
+                    <a :if="@is_fill == 1" class="tab-btn tab-edit-btn" title="编辑" ms-on-click="@edit_btn(el)"></a>
+                    <a :if="@is_fill == 2" class="tab-btn tab-edit-btn-disabled" title="不可编辑"></a>
+                    <!--<a :if="@seme_info==@yearSemester && is_fill==1" class="tab-btn tab-edit-btn" title="编辑" ms-on-click="@edit_btn(el)"></a>-->
+                    <!--<a :if="@seme_info!=@yearSemester" class="tab-btn tab-edit-btn-disabled" title="不可编辑"></a>-->
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+    </div>
+    <!--暂无数据-->
+    <div class="no-data" :if="@data_list.length==0">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+</div>

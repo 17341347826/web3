@@ -1,0 +1,74 @@
+
+<div class="am-g" >
+    <!--ms-for:ell in @data-->
+    <div id="detail_img_div" class="am-u-sm-5" style="padding-left:40px;">
+        <div class="am-slider am-slider-default" style="height: 400px;">
+            <ul class="am-slides">
+                <li ms-for="el in @ell.attachments">
+                    <div class="am-gallery-item">
+                        <a class="detail_carousel_img">
+                            <img ms-attr="{src:@url_for(el.guid)}" ms-css="@rotation_str()"/>
+                            <div ms-attr="{title:el.inner_name}">
+                                {{el.desc}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="detail_text_div" class="am-u-sm-7 text-right">
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">课程名称</span>
+            <span class="am-u-sm-9 am-text-left">
+                {{ ell.course_name}}
+            </span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">课程开始时间</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.start_date}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">课程结束时间</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.end_date}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">实施地点</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.site}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">指导老师</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.tutor}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">担任角色</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.role}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">参与人员</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.member}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">担任任务</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.duty}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">耗用时长</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.hour_consume}}    小时</span>
+            <!--<span class="am-u-sm-2 am-u-end"></span>-->
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">研究主题</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.theme}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">开展过程</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.process}}</span>
+        </div>
+        <div class="am-u-sm-12">
+            <span class="am-u-sm-3">成功结论</span>
+            <span class="am-u-sm-9 am-text-left">{{ell.result}}</span>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+</div>

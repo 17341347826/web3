@@ -1,0 +1,20 @@
+#project_content_list #project_value_tab > tbody > tr > td.content_td{
+    text-align: left;
+    white-space:inherit;
+}
+#project_content_list{
+    background-color: #f1f2f6;
+}
+#project_content_list>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#project_content_list>div.p-c-con{
+    padding:17px 16px 40px;
+}
+#project_content_list .table_module table{
+    border-radius: 4px;
+    /*margin-bottom: 10px;*/
+}

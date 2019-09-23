@@ -1,0 +1,12 @@
+#answer_paper_list{
+    background-color: #f1f2f6;
+}
+#answer_paper_list>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+}
+#answer_paper_list .table_module {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

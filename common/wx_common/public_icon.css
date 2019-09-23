@@ -1,0 +1,205 @@
+@charset "utf-8";
+.btn-circle {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+}
+/**
+添加按钮
+ */
+.add-circle-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -25px -25px;
+}
+/**
+审核按钮
+ */
+.examine-circle-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -75px -25px;
+}
+/**
+学期评语按钮
+ */
+.term-circle-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -125px -25px;
+}
+/**
+毕业评语按钮
+ */
+.graduation-circle-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -175px -25px;
+}
+/**
+学期公示
+ */
+.term-public-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -225px -25px;
+}
+/**
+毕业公示
+ */
+.graduate-public-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -275px -25px;
+}
+/**
+表现记录详情
+ */
+.performance-records-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -325px -25px;
+}
+/**
+周积分
+ */
+.weekly-integral-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -375px -25px;
+}
+/**
+我的记录材料
+ */
+.recording-material-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -425px -25px;
+}
+/**
+未遴选材料
+ */
+.not-selected-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -475px -25px;
+}
+/**
+已遴选材料
+ */
+.selected-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -525px -25px;
+}
+/**
+成就奖励
+ */
+.achievement-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -575px -25px;
+}
+/**
+惩戒
+ */
+.punishment-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -625px -25px;
+}
+/**
+热点问题
+ */
+.hot-issues-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -25px -75px;
+}
+/**
+意见反馈
+ */
+.feedback-btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url("/common/images/weixin_pj/btn-icons.png");
+  background-repeat: no-repeat;
+  background-position: -675px -25px;
+}

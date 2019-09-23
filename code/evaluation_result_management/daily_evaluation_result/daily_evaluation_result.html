@@ -1,0 +1,42 @@
+<div ms-important="rp" id="review_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="container">
+        <div class="select-content clearfix">
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'', is_init:true,sel_check:@grade_sel,data_arr:@grade_arr,id:'daily_eva_nj'}"></xmp>
+            </div>
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:semester_default,sel_check:@semester_sel,data_arr:@semester_arr}"></xmp>
+            </div>
+            <div class="select am-fl" :if="is_city_user">
+                <xmp ms-widget="{is:'ms-select-assembly', is_init:true, sel_check:@area_sel,data_arr:@area_arr}"></xmp>
+            </div>
+            <div class="select am-fl" :if="!is_school_user">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择学校',sel_check:@school_sel,data_arr:@school_list, id:'daily_eva_xx'}"></xmp>
+            </div>
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择班级',sel_check:@class_sel,data_arr:@class_arr,id:'daily_eva_bj'}"></xmp>
+            </div>
+            <!--<div class="select am-fl">-->
+                <!--<xmp ms-widget="{is:'ms-select-assembly',head_value:@project_default,sel_check:@project_sel,data_arr:@project_arr}"></xmp>-->
+            <!--</div>-->
+            <div class="select am-fl">
+                <input type="text" ms-duplex="data.xsxjh"  placeholder="请输入学籍号" ms-on-keyup="refresh_table">
+            </div>
+            <div class="select am-fl">
+                <input type="text" ms-duplex="data.xsxm" placeholder="请输入姓名" ms-on-keyup="refresh_table">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="progress">
+            <h3 class="table-title">
+                在籍学生综合素质评价结果详情
+            </h3>
+            <div class="table-content">
+                <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@pms_row,remember:false,is_init:true,extend:@data,theadTh:@theadTh, only_hash:true}">
+                </xmp>
+            </div>
+        </div>
+    </div>
+</div>

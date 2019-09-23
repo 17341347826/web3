@@ -1,0 +1,46 @@
+#index_weight_setting{
+    background-color: #f1f2f6;
+}
+#index_weight_setting>div{
+    background-color: white;
+    padding-left: 16px;
+    margin-top: 4px;
+}
+#index_weight_setting>div>div.w-set-table{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#index_weight_setting table{
+    border-radius: 4px;
+}
+#index_weight_setting .am-table>tbody>tr>td>div{
+    height: 40px;
+    border-bottom: 1px #e4e4e4 solid;
+    line-height: 40px;
+}
+#index_weight_setting .am-table > tbody > tr > td>div>input{
+    width: 40px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px #a2a2a2 solid;
+    text-align: center;
+    margin-right: 5px;
+}
+#index_weight_setting .am-table > tbody > tr > td{
+    padding: 0;
+}
+
+#index_weight_setting .no-border{
+    border-bottom: none!important;
+}
+#index_weight_setting .btns{
+    padding-bottom: 20px;
+    text-align: center;
+}
+#index_weight_setting .disabled_input{
+    border: none;
+    background-color: white;
+    width: 50px;
+}

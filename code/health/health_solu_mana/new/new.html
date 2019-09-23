@@ -1,0 +1,140 @@
+<div id="new-health-solu" ms-important="new_health_solu">
+    <div>
+        <div>
+            <form class="am-form am-form-inline am-padding-top-sm">
+                <div class="am-u-sm-12">
+                    <label class="am-u-sm-2 am-form-label am-padding-vertical-sm am-text-center">
+                        方案名称
+                    </label>
+                    <div class="am-u-sm-6 am-u-end am-border-left am-padding-vertical-sm">
+                        <input ms-duplex="@data.solu_name" placeholder="请输入方案名称" type="text"/>
+                    </div>
+                </div>
+                <div class="am-u-sm-12">
+                    <label class="am-u-sm-2 am-form-label am-padding-vertical-sm am-text-center">
+                        适用年级
+                    </label>
+                    <div class="am-u-sm-4 am-padding-vertical-sm am-border-left">
+                        <select ms-duplex="@data.due_grade" disabled>
+                            <!--<option value="7">-->
+                                <!--七年级-->
+                            <!--</option>-->
+                            <!--<option value="8">-->
+                                <!--八年级-->
+                            <!--</option>-->
+                            <!--<option value="9">-->
+                                <!--九年级-->
+                            <!--</option>-->
+                            <!--&lt;!&ndash; <option value="9">高一</option>-->
+                                           <!--<option value="9">高二</option>-->
+                                           <!--<option value="9">高三</option> &ndash;&gt;-->
+                            <option ms-attr="{value:@data.due_grade}">
+                                {{@grade_name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="am-u-sm-2 am-border-left am-padding-vertical-sm am-height am-text-center">
+                        <label class="am-form-label">
+                            方案状态
+                        </label>
+                    </div>
+                    <div class="am-u-sm-4 am-border-left am-padding-vertical-sm am-height">
+                        <label class="am-radio-inline am-margin-right-xl">
+                            <input ms-duplex="@data.status" name="docInlineRadio" type="radio" value="0"/>
+                            启用
+                        </label>
+                        <label class="am-radio-inline">
+                            <input ms-duplex="@data.status" name="docInlineRadio" type="radio" value="1"/>
+                            停用
+                        </label>
+                    </div>
+                </div>
+                <div class="am-u-sm-12">
+                    <div class="am-u-sm-3 am-padding-vertical-sm am-text-center am-height">
+                        <label class="am-form-label">
+                            测试内容(男)
+                        </label>
+                    </div>
+                    <div class="am-u-sm-3 am-border-left am-padding-vertical-sm am-text-center am-height">
+                        <label class="am-form-label">
+                            权重(%)
+                        </label>
+                    </div>
+                    <div class="am-u-sm-3 am-border-left am-padding-vertical-sm am-text-center am-height">
+                        <label class="am-form-label">
+                            测试内容(女)
+                        </label>
+                    </div>
+                    <div class="am-u-sm-3 am-border-left am-padding-vertical-sm am-text-center am-height">
+                        <label class="am-form-label">
+                            权重(%)
+                        </label>
+                    </div>
+                </div>
+                <div class="am-u-sm-12">
+                    <div class="am-u-sm-6 am-padding-none">
+                        <!--ms-for: el in @form_list-->
+                        <div :if="el.for_sex==1" class="am-border-bottom">
+                            <div class="am-u-sm-6 am-min-height " style="padding-left: 95px;">
+                                <label class="am-checkbox am-secondary">
+                                    <input ms-attr="{value:el._id}" ms-duplex="@select_health" type="checkbox"/>
+                                    {{el.name}}
+                                </label>
+                            </div>
+                            <div class="am-u-sm-6 am-min-height am-border-left am-text-center">
+                                <input ms-attr="{id:el._id}" ms-duplex="el.rate" type="number"/>
+                                %
+                            </div>
+                        </div>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="am-u-sm-6 am-padding-none">
+                        <!--ms-for: el in @form_list-->
+                        <div :if="el.for_sex==2" class="am-border-bottom">
+                            <div class="am-u-sm-6 am-min-height am-border-left" style="padding-left: 95px;">
+                                <label class="am-checkbox-inline">
+                                    <input ms-attr="{value:el._id}" ms-duplex="@select_health" type="checkbox"/>
+                                    {{el.name}}
+                                </label>
+                            </div>
+                            <div class="am-u-sm-6 am-min-height am-text-center am-border-left">
+                                <input ms-attr="{id:el._id}" ms-duplex="el.rate" type="number"/>
+                                %
+                            </div>
+                        </div>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="am-u-sm-12 am-border-top am-padding-none">
+                        <div class="am-u-sm-6 ">
+                            <div class="am-u-sm-6 am-text-center am-padding-span">
+      <span class="">
+       总计
+      </span>
+                            </div>
+                            <div class="am-u-sm-6 am-padding-span am-text-center am-border-left">
+      <span>
+       {{@boy}}%
+      </span>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-6 am-padding-none">
+                            <div class="am-u-sm-6 am-padding-span am-text-center am-border-left ">
+      <span>
+       总计
+      </span>
+                            </div>
+                            <div class="am-u-sm-6 am-text-center am-border-left am-padding-span">
+      <span>
+       {{@girl}}%
+      </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="btns am-text-center am-margin-top-lg am-padding-bottom-lg">
+            <button type="button" class="am-btn am-btn-primary" ms-on-click="@save_as()">提交</button>
+        </div>
+    </div>
+</div>

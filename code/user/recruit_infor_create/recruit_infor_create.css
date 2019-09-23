@@ -1,0 +1,19 @@
+#recruit_infor_create>div{
+    margin-left: 1px;
+    background-color: white;
+}
+#recruit_infor_create button{
+    margin: 0 15px;
+}
+#recruit_infor_create .mp-checkbox{
+    padding-right: 12px;
+}
+#recruit_infor_create .title-lab{
+    color: #ccc;
+}
+/*按钮*/
+#recruit_infor_create .btns{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}

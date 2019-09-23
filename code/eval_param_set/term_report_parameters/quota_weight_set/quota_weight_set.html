@@ -1,0 +1,61 @@
+<div class="am-g" id="index_weight_setting" ms-important="quota">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div class="common-select">
+            <div class="search-cont clearfix">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_check,head_value:'请选择年级'}"></xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="w-set-table">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>评价维度</th>
+                    <th>评价要素</th>
+                    <th>权重</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td ms-visible="@index_ratio.length==0" colspan="3">暂无指标</td>
+                </tr>
+                <tr ms-for="($index,el) in @index_ratio">
+                    <td>
+                        {{el.name}}-{{el.ratio}}%
+                    </td>
+                    <td>
+                        <ul>
+                            <li ms-for="($index2,el2) in el.second_index_ration">
+                                {{el2.name}}
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li  ms-for="($index2,el2) in el.second_index_ration">
+                                <input type="text" ms-visible="@page_state==2" ms-duplex-number="el2.ratio"  data-duplex-changed="@calculation">
+                                <span ms-visible="@page_state==1">{{el2.ratio}}</span>
+                                %
+                            </li>
+
+                        </ul>
+                    </td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="btns">
+            <button type="button" class="am-btn-primary" ms-click="@save" ms-visible="@page_state==2">保存</button>
+            <button type="button" class="am-btn-primary" ms-click="@page_state=2" ms-visible="@page_state==1">编辑</button>
+        </div>
+    </div>
+
+
+</div>
+

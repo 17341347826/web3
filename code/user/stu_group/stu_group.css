@@ -1,0 +1,31 @@
+#stu_group p{
+    color:red;
+    text-align: center;
+}
+#stu_group .am-table{
+    margin-bottom: 0px;
+}
+#stu_group{
+    background-color: #f1f2f6;
+}
+#stu_group>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#stu_group>div.c-t-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#stu_group .table_module{
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}
+#stu_group #add-confirm label,
+#stu_group #update-confirm label{
+    color:#a2a2a2;
+}
+#stu_group .random_input{
+    width: 80px;
+}

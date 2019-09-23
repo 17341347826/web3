@@ -1,0 +1,189 @@
+ #a_a_element{
+    background-color: #F1F2F6;
+    text-align: center;
+}
+#a_a_element .content{
+    display:inline-block;
+    width: 788px;
+    height: 524px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 1);
+}
+#a_a_element .grade-info{
+    font-size: 16px;
+    color: #c8c8c8;
+    text-align: left;
+    margin-left:18px;
+    margin-top:15px;
+}
+#a_a_element .a-name{
+    font-size: 18px;
+    color: #777777;
+    margin-bottom:18px;
+    margin-top:5px;
+}
+#a_a_element .base-select {
+    position: relative;
+}
+#a_a_element .select-head {
+    position: relative;
+    width: 440px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 14px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    text-align: left;
+    font-size: 16px;
+    color: #c8c8c8;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#a_a_element .select-head .select-icon {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: inline-block;
+    width: 7px;
+    height: 6px;
+    background: url("../../../../common/images/icon/triangle.png") center no-repeat;
+}
+#a_a_element .select-option {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 200px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow: auto;
+    z-index: 100;
+    outline: none;
+}
+#a_a_element .select-option ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#a_a_element .select-option li {
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    color: #c8c8c8;
+    cursor: pointer;
+}
+#a_a_element .select-option li:hover {
+    background-color: #f0f0f0;
+    color: #2bbba4;
+}
+/**/
+#a_a_element .form-inset{
+    overflow: hidden;
+}
+#a_a_element .form-inset>div {
+    margin-bottom:10px;
+ }
+#a_a_element .form-inset>div>label{
+    font-size: 16px;
+    color: #a2a2a2;
+    margin-right:8px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+#a_a_element .form-inset>div>div{
+    display:inline-block;
+ }
+#a_a_element .form-inset>div>div>input{
+    width: 440px;
+    height:34px;
+    border-radius: 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+
+}
+#a_a_element .form-inset>div>div>textarea{
+    width: 440px;
+    height: 120px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element input::-webkit-input-placeholder { /* WebKit browsers */
+     font-size: 16px;
+     color: #c8c8c8;
+ }
+#a_a_element input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element textarea::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 16px;
+    color: #c8c8c8;
+}
+#a_a_element .old-select select{
+    width:440px;
+    height:34px;
+    border: solid 1px rgba(228, 228, 228, 1);
+    /*padding-left: 0;*/
+    padding-left: 4px;
+}
+/*按钮组*/
+#a_a_element .btns{
+    margin-top:25px;
+}
+#a_a_element  .select2-container--default .select2-selection--single {
+    height: 34px;
+    border-color: #ccc;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(228, 228, 228, 1);
+}
+#a_a_element  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 34px;
+
+}
+#a_a_element .select2-container .select2-selection--single .select2-selection__rendered {
+    float: left;
+    font-size: 16px;
+    color: #c8c8c8;
+    padding-left: 0;
+}
+#a_a_element .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #C7C7C7 transparent transparent transparent;
+    border-width: 6px 3px 0 3px;
+}
+#a_a_element .form-inset>div>div>textarea,
+#a_a_element .form-inset>div>div>input{
+    color: #777;
+    font-size: 16px;
+    padding-right: 2px;
+    padding-left: 8px;
+}
+ #a_a_element .select2-container .select2-selection--single .select2-selection__rendered{
+     color: #777;
+     padding-left: 8px;
+ }

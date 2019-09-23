@@ -1,0 +1,59 @@
+
+<div class="am-g">
+    <div id="school_detail" ms-important="table">
+        <div>
+            <h2 class="am-text-center am-padding-top-lg">评价方案【{{@get_plan_name}}】详情</h2>
+            <div id="get_title" class="am-margin-left-lg am-padding-top-lg">
+                    <span class="am-margin-right-lg">创建单位:{{@get_plan_founder}}</span>
+                    <span class="am-margin-right-lg">适用主体:{{@plan_subject}}</span>
+                    <span class="am-margin-right-lg">适用年级:{{@grade}}</span>
+                    <span class="am-margin-right-lg" :if="@get_plan_type == 1">评价类型:选项评分</span>
+                    <span class="am-margin-right-lg" :if="@get_plan_type == 2">评价类型:直接评分</span>
+            </div>
+        </div>
+        <div class="am-padding-top-lg">
+            <div :if="@num==1">
+                <table class="am-table am-table-bordered am-table-hover" id="first_table">
+                    <thead>
+                    <tr>
+                        <th>评价维度</th>
+                        <th>评价要素</th>
+                        <th>关键表现</th>
+                        <th>分值</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for: $idx,el in @first_table_list-->
+                    <tr>
+                        <td style="max-width: 100px;">
+                            {{el.sub_subject_data.index_parent}}
+                        </td>
+                        <td style="max-width: 200px;">
+                            {{el.sub_subject_data.index_secondary}}
+                        </td>
+                        <td style="text-align: left">
+                            {{el.sub_subject}}
+                        </td>
+                        <td>
+                            {{el.sub_subject_data.index_value}}
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+            <div :if="@num==3" class="am-text-center am-margin-top-lg">
+                <p class="notice_p">
+                    暂无数据，请先添加
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="btns" style="text-align: center;margin-top: 15px;">
+                <button type="button" class="am-btn-default"  ms-on-click="@back()">返回</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

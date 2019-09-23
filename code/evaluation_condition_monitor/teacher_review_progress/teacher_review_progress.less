@@ -1,0 +1,117 @@
+@charset "utf-8";
+@contentColor: #f2f2f6;
+@sameWidth: 962px;
+@centerContainerColor:#FFFFFF;
+@borderRadius:4px;
+@paddingLeft: 12px;
+@paddingRight: 26px;
+@fontSize: 14px;
+@fontColor: rgb(162, 162, 162);
+@btnWidth: 70px;
+@btnColor: rgb(43, 187, 164);
+@queryWidth: 220px;
+@queryHeight: 36px;
+@queryFontSize: 16px;
+@queryFontColor: rgb(200, 200, 200);
+@queryPaddingLeft: 20px;
+@titleSize: 18px;
+@titleColor: rgb(13, 186, 158);
+@tuBiaoWidth: 200px;
+#review_progress {
+  background-color: @contentColor;
+  .table-title{
+    font-size: 18px;
+    color: rgb(13,186,158);
+    padding-bottom: 7px;
+  }
+  h3, p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  .container{
+    background-color:@centerContainerColor ;
+    margin-top: 4px;
+  }
+
+  .center_container {
+    padding: 16px;
+    margin: 0 auto;
+  }
+  .select-content {
+    .center_container;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .select{
+      input[type='text']{
+        width: @queryWidth;
+        height: @queryHeight;
+        font-size: @queryFontSize;
+        padding-left: @queryPaddingLeft;
+        color: @queryFontColor;
+        border-color: @queryFontColor;
+        border-radius: @borderRadius;
+        outline: none;
+      }
+      input[type='text'] {
+        border: 1px solid @queryFontColor;
+      }
+      input::-webkit-input-placeholder {
+        color: @queryFontColor;
+      }
+      input::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: @queryFontColor;
+      }
+      input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: @queryFontColor;
+      }
+      input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: @queryFontColor;
+      }
+      select > option:first-child {
+        margin-top: 5px;
+      }
+    }
+  }
+  .progress {
+    .center_container;
+    text-align: center;
+    .rank{
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+  }
+
+  .table-container{
+
+    border-radius: 0 0 4px 4px;
+    table{
+      word-wrap:break-word;
+      border-radius: @borderRadius;
+      tr>td:last-child{
+        width: 459px;
+        text-align: left;
+      }
+    }
+    .am-table>tbody>tr>td:last-child{
+      white-space: normal;
+      text-align: center;
+    }
+
+  }
+  .table-content{
+    table{
+      border-radius: 4px;
+    }
+  }
+  .review-table{
+    tr>th{
+      width: 20%;
+    }
+  }
+  .last-table{
+    tr>th{
+      width:16.66% ;
+    }
+  }
+}

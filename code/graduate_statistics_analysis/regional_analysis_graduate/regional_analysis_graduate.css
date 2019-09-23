@@ -1,0 +1,74 @@
+#regional_analysis_graduate {
+  background-color: #f6f5f5;
+}
+#regional_analysis_graduate > div {
+  background-color: #FFFFFF;
+}
+#regional_analysis_graduate .search-content {
+  padding: 16px;
+  margin-bottom: 4px;
+}
+#regional_analysis_graduate .title {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+#regional_analysis_graduate .draw-img {
+  width: 100%;
+  height: 500px;
+}
+#regional_analysis_graduate #img-bar {
+  width: 80%;
+  height: 456px;
+  margin: 0 auto;
+}
+#regional_analysis_graduate .double-img {
+  display: flex;
+  width: 100%;
+  height: 500px;
+}
+#regional_analysis_graduate .double-img > div {
+  flex: 1;
+}
+#regional_analysis_graduate .no-msg {
+  text-align: center;
+}
+#regional_analysis_graduate #img-sex,
+#regional_analysis_graduate #img-zs {
+  width: 100%;
+  height: 456px;
+}
+#regional_analysis_graduate  .first-index{
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left:16px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #FFFFFF;
+}
+#regional_analysis_graduate  .first-index>div.am-fl>div{
+  padding-right: 18px;
+  padding-left: 18px;
+  height: 34px;
+  border-radius: 4px;
+  border: solid 1px #e4e4e4;
+  color:#a2a2a2;
+  text-align: center;
+  line-height: 34px;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+}
+#regional_analysis_graduate  >div.first-index>div.am-fl>div>img{
+  position: absolute;
+  right: 0;
+  top:0;
+}
+.chosen{
+  color:#2bbba4!important;
+  border: solid 1px #2bbba4!important;
+  background:url('../../../../common/images/chosen.png') no-repeat top right;
+}

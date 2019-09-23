@@ -1,0 +1,77 @@
+@charset "utf-8";
+#teacher_term_comment {
+  padding-bottom: 10px;
+}
+#teacher_term_comment .weui-cells {
+  margin-top: 0;
+}
+#teacher_term_comment .teacher_term_comment_con,
+#teacher_term_comment .con {
+  margin-top: 10px;
+}
+#teacher_term_comment .every_stu {
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 9px 0px #cecece;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+#teacher_term_comment .every_stu > div {
+  padding-left: 13px;
+  padding-right: 13px;
+}
+#teacher_term_comment .every_stu > .stu_info {
+  height: 47px;
+  line-height: 47px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  letter-spacing: 0px;
+  background-color: #e0ebff;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #2f60b8;
+}
+#teacher_term_comment .every_stu > .stu_plan {
+  display: flex;
+  line-height: 15px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  letter-spacing: 0px;
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+}
+#teacher_term_comment .every_stu > .stu_plan > div.stu_plan1 {
+  flex: 1;
+}
+#teacher_term_comment .every_stu > .stu_plan > div.stu_plan2 {
+  flex: 4;
+}
+#teacher_term_comment .public_btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px #eeeeee solid;
+}
+#teacher_term_comment .weui-dialog__hd {
+  background-color: #358afe;
+}
+#teacher_term_comment .weui-dialog__title {
+  font-size: 13px;
+  font-weight: normal;
+  color: #ffffff;
+}
+#teacher_term_comment .three-menu .menu-check {
+  border-bottom: 1px solid red;
+  color: red;
+}
+#teacher_term_comment .weui-label,
+#teacher_term_comment .weui-select {
+  font-size: 15px;
+  color: #a2a2a2;
+}
+#teacher_term_comment .no-msg {
+  text-align: center;
+  font-size: 12px;
+  color: #a2a2a2;
+}

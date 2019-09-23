@@ -1,0 +1,93 @@
+
+<div class="am-g" id="daily_layered_div" ms-important="table">
+    <div class="am-text-left" id="demand">
+        <form class="am-form am-form-inline" ms-validate="@validate">
+            <div class="am-form-group ">
+                <label class="am-form-label">
+                    学年学期
+                </label>
+                <div class="form-width-sm">
+                    <select ms-duplex-string="@extend.semester_id" style="width: 135px"
+                            data-duplex-changed="@semester_change">
+                        <!--ms-for: el in @semesters-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.semester_name}}班
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group ">
+                <label class="am-form-label">
+                    班级
+                </label>
+                <div class="form-width-sm">
+                    <select ms-duplex="@selected_grade" style="width: 135px"
+                            data-duplex-changed="@grade_change"
+                            ms-attr="{disabled:@user_type==2}">
+                        <!--ms-for: el in @select_list-->
+                        <option ms-attr="{value:el.garde_id+','+el.grade_name+','+el.class_id+','+el.class_name}">
+                            {{el.grade_name}}-{{el.class_name}}班
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <div id="physique_assessment_table" class="health-test">
+        <table class="am-table am-table-striped am-table-hover am-margin-top-sm" >
+            <thead>
+            <tr id="health-title">
+                <th>
+                    序号
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    学籍号
+                </th>
+                <th>
+                    异议数
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($index,el) in @table_list-->
+            <tr class="healths">
+                <td>
+                    {{$index+1}}
+                </td>
+                <td>
+                    {{el.name}}
+                </td>
+                <td>
+                    {{el.code}}
+                </td>
+                <td>
+                    {{el.dissent_length}}
+                </td>
+
+                <td>
+                    <a href="javascript: void(0)" ms-click="@to_examine(el.id)">审核</a>
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            <tr class="healths" ms-if="@table_list.length==0">
+                <td ms-attr="{colspan:5}">
+                    暂无数据
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+</div>

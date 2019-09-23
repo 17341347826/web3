@@ -1,0 +1,162 @@
+<div class="am-g" id="evaluation_scale" ms-important="table">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl chosen" ms-click="@to_page('evaluation_scale')">综合等级</div>
+            <div class="am-fl" :class="[@html_display==2?'chosen':'']" ms-click="@to_page('evaluation_scale_wd?sta_type=2')">评价维度</div>
+            <div class="am-fl " :class="[@html_display==3?'chosen':'']" ms-click="@to_page('evaluation_scale_wd?sta_type=3')">评价要素</div>
+        </div>
+    </div>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select" ms-if="@highest_level<4">
+                <div class="old-select">
+                    <select ms-duplex="@other.grade" data-duplex-changed="@gradeChange()">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select" ms-if="@highest_level>3">
+                <div class="old-select">
+                    <select ms-duplex="@other.grade" data-duplex-changed="@gradeChange()">
+                        <!--ms-for: ($index,el) in @grade_class_list-->
+                        <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="select" ms-visible="@highest_level>3">
+                <div class="old-select">
+                    <select  data-duplex-changed="@sel_class" ms-duplex="fk_class_id">
+                        <option ms-for="($index,el) in @class_from_grade" ms-attr="{value:el.class_id}">
+                            {{el.class_name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn" ms-visible="@highest_level!=2 && @highest_level!=3&&@area_list.length==0">
+                <input type="button" value="查询" ms-on-click="@demand()">
+            </div>
+        </div>
+    </div>
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <!--ms-for: ($index,el) in @area_list-->
+            <div :if="@highest_level<3" class="am-fl" :class="[(@first_num==$index ? 'chosen':'')]"
+                 ms-on-click="@districtChange($index,el)">{{el.district}}
+            </div>
+            <!--ms-for-end:-->
+        </div>
+        <div :if="@highest_level<4" class="select">
+            <div class="old-select">
+                <select ms-duplex="@other.school" data-duplex-changed="@schoolChange()">
+                    <option ms-attr="{value:''}">
+                        请选择学校
+                    </option>
+                    <!--ms-for: el in @school_list-->
+                    <option ms-attr="{value:el.id+'|'+el.schoolname}">
+                        {{el.schoolname}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+
+        <div class="search-btn" ms-visible="@highest_level==2 || @highest_level==3 || @area_list.length>0">
+            <input type="button" value="查询" ms-on-click="@demand()">
+        </div>
+    </div>
+    <div class="first-table">
+        <table class="am-table scale-tab am-table-bordered am-margin-vertical ">
+            <thead>
+            <tr>
+                <th colspan="10">{{@tit}}综合素质评价等级</th>
+            </tr>
+            <tr>
+                <th rowspan="2" class="border-right">学年学期</th>
+                <th rowspan="2" class="border-right">总人数</th>
+                <th colspan="2">A</th>
+                <th colspan="2">B</th>
+                <th colspan="2">C</th>
+                <th colspan="2">D</th>
+            </tr>
+            <tr>
+                <th>人数</th>
+                <th>比例（%）</th>
+                <th>人数</th>
+                <th>比例（%）</th>
+                <th>人数</th>
+                <th>比例（%）</th>
+                <th>人数</th>
+                <th>比例（%）</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ms-if="@scale.length == 0">
+                <td ms-attr="{colspan:10}">暂时没有数据</td>
+            </tr>
+            <!--ms-for: ind,el in @scale-->
+            <tr>
+                <td class="border-right">{{el.semester}}</td>
+                <td class="border-right">{{el.count}}</td>
+                <td>{{el.A}}</td>
+                <td>{{el.scaleA|number(2)}}</td>
+                <td>{{el.B}}</td>
+                <td>{{el.scaleB|number(2)}}</td>
+                <td>{{el.C}}</td>
+                <td>{{el.scaleC|number(2)}}</td>
+                <td>{{el.D}}</td>
+                <td>{{el.scaleD|number(2)}}</td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+        <div ms-visible="@scale.length != 0" class="am-padding-horizontal">
+            <div id="container" class="am-padding-vertical"></div>
+        </div>
+        <!--<table class="am-table scale-tab index_count am-table-bordered am-margin-vertical">-->
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th colspan="10">{{@tit}}评价维度等级人数</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<th rowspan="2" class="border-right">评价维度</th>-->
+                <!--<th rowspan="2" class="border-right">学年学期</th>-->
+                <!--<th colspan="4">等级</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<th>A</th>-->
+                <!--<th>B</th>-->
+                <!--<th>C</th>-->
+                <!--<th>D</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr ms-if="@index_count.length == 0">-->
+                <!--<td ms-attr="{colspan:6}">暂时没有数据</td>-->
+            <!--</tr>-->
+            <!--&lt;!&ndash;ms-for: ind,el in @index_count&ndash;&gt;-->
+            <!--<tr>-->
+                <!--<td class="border-right"-->
+                    <!--ms-if="@is_visible(ind)">{{el.indexname}}-->
+                <!--</td>-->
+                <!--<td class="border-right">{{el.ca_semester}}</td>-->
+                <!--<td>{{el.A}}</td>-->
+                <!--<td>{{el.B}}</td>-->
+                <!--<td>{{el.C}}</td>-->
+                <!--<td>{{el.D}}</td>-->
+            <!--</tr>-->
+            <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+            <!--</tbody>-->
+        <!--</table>-->
+    </div>
+</div>

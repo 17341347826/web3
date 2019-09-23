@@ -1,0 +1,59 @@
+<div ms-important="achieve_maintenance_scheme" id="achieve_maintenance_scheme">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="first-index">
+        <div class="clearfix">
+            <div :class="['am-fl',(@sit_type == 1 ? 'chosen':'')]" :click="@sit_change(1)">
+                类型设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 2 ? 'chosen':'')]" :click="@sit_change(2)">
+                上传数量设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 3 ? 'chosen':'')]" :click="@sit_change(3)">
+                积分规则设置
+            </div>
+            <!--<div :class="['am-fl',(@sit_type == 4 ? 'chosen':'')]" :click="@sit_change(4)">-->
+                <!--任务开发时间设置-->
+            <!--</div>-->
+            <div :class="['am-fl',(@sit_type == 5 ? 'chosen':'')]" :click="@sit_change(5)">
+                个性特长
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <div class="table-module">
+            <table id="goals_table" class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>成就类型</th>
+                    <th>级别</th>
+                    <th>等级</th>
+                    <th>积分</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @data -->
+                <tr>
+                    <td>{{el.id}}</td>
+                    <td>{{el.ach_type}}</td>
+                    <td>{{el.ach_level}}</td>
+                    <td>{{el.ach_rank}}</td>
+                    <td>
+                        <span>{{el.score}}</span>
+                        <!--<span ms-visible="$idx != @num || !@btn_type">{{el.score}}</span>-->
+                        <!--<textarea ms-visible="$idx == num && @btn_type" ms-duplex-number="el.score"></textarea>-->
+                    </td>
+                    <td>
+                        <a :visible="@user_level == 2" title='编辑' class='tab-btn tab-edit-btn' ms-on-click='@edit($idx,el)'></a>
+                        <a :visible="@user_level != 2" title='市统一设置' class='tab-btn tab-edit-btn-disabled' ms-on-click='@edit($idx,el)'></a>
+                        <!--<a title='编辑' ms-visible="$idx != @num || !@btn_type" class='tab-btn tab-edit-btn' ms-on-click='@edit($idx,el)'></a>-->
+                        <!--<a title='保存' ms-visible="$idx == @num && @btn_type" class='tab-btn tab-save-btn' ms-on-click="@save($idx,el)"></a>-->
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

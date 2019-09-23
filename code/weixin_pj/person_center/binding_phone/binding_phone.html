@@ -1,0 +1,49 @@
+<div ms-important="binding_phone" id="binding_phone" >
+    <div class="normalPaddding">
+        <!--表单-->
+        <div class="weui-cells weui-cells_form">
+            <!--<div class="weui-cell">-->
+                <!--<div class="weui-cell__hd"><label class="weui-label">当前手机号</label></div>-->
+                <!--<div class="weui-cell__bd">-->
+                    <!--<input class="weui-input" type="text" id="phone" placeholder="请输入11位手机号" ms-duplex="@extend.phone"-->
+                           <!--ms-on-keyup="@phone_ident()" ms-on-blur="@phone_check()">-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">绑定手机号</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="phone" placeholder="请输入11位手机号" ms-duplex="@extend.phone"
+                           ms-on-keyup="@phone_ident()" ms-on-blur="@phone_check()">
+                </div>
+                <div class="ident-code" ms-class="@ident_type == 1 || @ident_type == 3 ? 'identfy-check':'identfy-no-check'">
+                    <span class="identfy" id="identfy-none" :visible="@ident_type == 0">获取验证码</span>
+                    <span class="identfy" id="identfy-one" :visible="@ident_type == 1" ms-on-click="@identOne()">获取验证码</span>
+                    <span class="identfy" id="identfy-two" :visible="@ident_type == 2">{{@countdown}}秒</span>
+                    <span class="identfy" id="identfy-three" :visible="@ident_type == 3" ms-on-click="@identThree()">重新发送</span>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="identifying" placeholder="请输入验证码"
+                           ms-duplex="@extend.validcode" ms-on-blur="@identfy_check()">
+                </div>
+            </div>
+        </div>
+        <!--提示语-->
+        <div class="reminder">
+            <div :if="@phone_type==1">手机号不正确</div>
+            <div class="additional-infor"  :if="@prompt_type==1">验证码不正确</div>
+        </div>
+        <!--确认-->
+        <div class="public_btn_big">
+            <a ms-click="@save_click()">确认</a>
+        </div>
+        <!--提示语-->
+        <div class="reminder" style="text-align: left">
+            <div>说明：更换手机号后，下次登录可使用新的手机号登录，原手机号将无效。</div>
+        </div>
+    </div>
+</div>

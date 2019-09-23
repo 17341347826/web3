@@ -1,0 +1,314 @@
+<div class="am-g" ms-important="club_activity_list" id="club_activity_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="form-input">
+                <input ms-duplex="@extend.communityName" placeholder="请输入社团名称" type="text"/>
+            </div>
+            <div class="form-input">
+                <input ms-duplex="@extend.managementPerson" placeholder="请输入负责人" type="text"/>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@extend.communityType">
+                        <option ms-attr="{value:''}">
+                            请选择
+                        </option>
+                        <!--ms-for:($index,el) in @club_type-->
+                        <option ms-attr="{value:el.type_name}">
+                            {{el.type_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="search-btn">
+                <input type="button" value="新增" :click="@addClassInfo()">
+            </div>
+            <div class="search-btn" ms-on-click="@uploadingModal()">
+                <input type="button" value="导入">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,extend:@extend,remember:@remember,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+        <!--添加修改-->
+        <!--<div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">-->
+            <!--<div class="am-modal-dialog">-->
+                <!--<div class="am-modal-hd">-->
+                    <!--{{@modal.title}}-->
+                    <!--<a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">-->
+                        <!--×-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="am-modal-bd">-->
+                    <!--<form class="am-form am-form-horizontal">-->
+                        <!--&lt;!&ndash;社团名称&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--社团名称-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9 ">-->
+                                <!--<input class="am-hide" type="text"/>-->
+                                <!--<input class="am-u-sm-10 am-modal-prompt-input" ms-duplex="@compileData.communityName"-->
+                                       <!--placeholder="请输入社团名称" type="text"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;负责人&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--负责人-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--&lt;!&ndash;<input class="am-modal-prompt-input" ms-duplex="@compileData.managementPerson"&ndash;&gt;-->
+                                       <!--&lt;!&ndash;placeholder="请输入负责人" type="text"/>&ndash;&gt;-->
+                                <!--<select ms-duplex="@charge_info" data-duplex-changed="@charge_change()">-->
+                                    <!--<option ms-attr="{value:''}">-->
+                                        <!--请选择负责人-->
+                                    <!--</option>-->
+                                    <!--&lt;!&ndash;ms-for: el in @charge_list&ndash;&gt;-->
+                                    <!--<option ms-attr="{value:el.user_id + '|' +el.name}">-->
+                                        <!--{{el.name}}-->
+                                    <!--</option>-->
+                                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;联系方式&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--联系方式-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<input class="am-modal-prompt-input" id="phone" ms-duplex="@compileData.tel"-->
+                                       <!--ms-on-blur="@phone_check" placeholder="请输入联系方式" type="text"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;指导老师&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--指导老师-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--&lt;!&ndash;<input class="am-modal-prompt-input" ms-duplex="@compileData.instructor"&ndash;&gt;-->
+                                       <!--&lt;!&ndash;placeholder="请输入指导老师" type="text"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<select>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<option ms-attr="{value:''}">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;请选择指导教师&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</option>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;ms-for: el in @guide_teach&ndash;&gt;&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<option ms-attr="{value:el.user_id + '|' +el.name}">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;{{el.name}}&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</option>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;ms-for-end:&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;</select>&ndash;&gt;-->
+                                <!--<select class="js-example-basic-single" id="guide-teach">-->
+                                    <!--<option value="0">-->
+                                        <!--请选择指导教师-->
+                                    <!--</option>-->
+                                    <!--<option ms-attr="{value:el.user_id+'|'+el.name}" ms-for="el in @charge_list">-->
+                                        <!--{{ el.name }}-->
+                                    <!--</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;社团人数&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--社团人数-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<input class="am-modal-prompt-input" ms-duplex="@compileData.communityNum"-->
+                                       <!--placeholder="请输入社团人数" type="text"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;男女比例&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--男女比例-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<input class="am-modal-prompt-input" ms-duplex="@compileData.proportion"-->
+                                       <!--placeholder="请输入男女比例" type="text"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;社团类型&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--社团类型-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<select ms-duplex="@compileData.communityType">-->
+                                    <!--<option ms-attr="{value:''}">-->
+                                        <!--请选择-->
+                                    <!--</option>-->
+                                    <!--&lt;!&ndash;ms-for: el in @club_type&ndash;&gt;-->
+                                    <!--<option ms-attr="{value:el.type_name}">-->
+                                        <!--{{el.type_name}}-->
+                                    <!--</option>-->
+                                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;备注&ndash;&gt;-->
+                        <!--<div class="am-form-group">-->
+                            <!--<label class="am-u-sm-3 am-form-label">-->
+                                <!--备注-->
+                            <!--</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<input class="am-modal-prompt-input" ms-duplex="@compileData.remark"-->
+                                       <!--placeholder="请输入备注" type="text"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                    <!--<span ms-visible="@modal.msg != ''" style="color: red">-->
+     <!--{{ @modal.msg }}-->
+    <!--</span>-->
+                <!--</div>-->
+                <!--<div class="am-modal-footer">-->
+                <!--<span class="am-modal-btn" data-am-modal-cancel="">-->
+                 <!--取消-->
+                <!--</span>-->
+                    <!--<span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@add_club()">-->
+                 <!--提交-->
+                <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--上传文件-->
+        <div class="am-modal am-modal-prompt" id="file-uploading" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    {{@modal.title}}
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <h5>
+                     <span>
+                      学校名称：
+                     </span>
+                        <span class="am-margin-right">
+                      {{@user.school_name}}
+                     </span>
+                        <span>
+                      学校代码：
+                     </span>
+                        <span>
+                      {{@user.school_code}}
+                     </span>
+                    </h5>
+                    <form enctype="multipart/form-data" id="uploadForm" method="post">
+                        <input class="am-u-sm-10" disabled="" id="file-name" ms-duplex="@fileName" style="height: 32px"
+                               type="text"/>
+                        <div class="am-form-group am-form-file" ms-on-click="fileChange()">
+                            <button class="am-btn am-btn-default am-btn-sm" type="button">
+                                选择文件
+                            </button>
+                            <input id="file" multiple="" name="file"
+                                   onchange="document.getElementById('file-name').value=this.value" type="file"/>
+                        </div>
+                    </form>
+                    <div class="am-text-left">
+                        <a href="/common/template/上传参数说明.txt">
+                            上传参数说明
+                        </a>
+                    </div>
+                    <div class="am-text-left">
+                        <a href="/common/template/学生信息模板.xls">
+                            下载模板
+                        </a>
+                    </div>
+                    <span ms-visible="@modal.msg != ''" style="color: red">
+                 {{ @modal.msg }}
+                </span>
+                    <div class="am-text-left" ms-visible="@importData.exist_student.length != 0">
+                     <span>
+                      已经存在的学籍号：
+                     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.exist_student-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.format_error.length != 0">
+     <span>
+      文件格式错误的工作表：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.format_error-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.refuse_class.length != 0">
+     <span>
+      校验未通过的班级：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.refuse_class-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.refuse_grade.length != 0">
+     <span>
+      校验未通过的年级：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.refuse_grade-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.refuse_school.length != 0">
+     <span>
+      校验未通过的学校：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.refuse_school-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                    <div class="am-text-left" ms-visible="@importData.repeate_student.length != 0">
+     <span>
+      在当前文件中重复的学籍号：
+     </span>
+                        <ol>
+                            <!--ms-for: el in @importData.repeate_student-->
+                            <li style="color: red">
+                                {{el}}
+                            </li>
+                            <!--ms-for-end:-->
+                        </ol>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+    <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+     上传
+    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

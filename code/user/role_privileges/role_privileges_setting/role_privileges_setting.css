@@ -1,0 +1,85 @@
+#role_privileges_setting{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+    color: #a2a2a2;
+}
+#role_privileges_setting .r_p_s_cont{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+    border: 1px #ccc solid;
+}
+
+#user_div>div:first-child {
+    border: 1px solid #eee;
+}
+#user_div .first-power {
+    border-bottom: 1px solid #eee;
+}
+#user_div .first-power-nomenu{
+    border-left: 1px solid #eee;
+    padding: 15px 0;
+}
+#user_div .second-power {
+    border-left:1px solid #eee ;
+    border-top: 1px solid #eee;
+}
+#user_div .am-padding-horizontal{
+    width:calc(100% - 120px);
+    border-left: 1px solid #eee;
+    padding: 8px 0;
+}
+#user_div .am-padding-horizontal.nomenu{
+    padding:20px;
+}
+#setting-con .first-power:first-child {
+    border-top: 1px solid #eee;
+}
+#setting-con{
+    border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
+}
+#user_div .second-power:first-child {
+    border-top: none;
+}
+#user_div .first-power>div,
+#user_div .second-power>div {
+    display: inline-block;
+    vertical-align: middle;
+}
+#user_div .first-power>div {
+    width: 90%;
+}
+#user_div .first-power span {
+    display: inline-block;
+    /*text-align: center;*/
+}
+#user_div .first-power>span {
+    width: 10%;
+    /*min-width: 104px;*/
+}
+#user_div .second-power>span {
+    padding: 6px 0;
+    width: 120px;
+}
+
+#user_div .second-power .am-checkbox-inline {
+    position: relative;
+    top:-3px;
+    width: 132px;
+}
+#user_div+div .am-btn {
+    width:120px;
+    height: 40px;
+    border-radius: 5px;
+}
+#user_div  input[type="checkbox"]{
+    visibility: inherit;
+}
+#user_div .btns{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.am-radio-inline + .am-radio-inline, .am-checkbox-inline + .am-checkbox-inline{
+    margin-left: 0;
+}

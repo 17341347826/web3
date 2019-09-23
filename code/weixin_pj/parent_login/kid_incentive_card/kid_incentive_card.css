@@ -1,0 +1,112 @@
+#kid_incentive_card{
+    margin-top: 0;
+}
+#kid_incentive_card .screen_demo{
+    margin-top: 0;
+}
+/*#kid_incentive_card .screen_demo .weui-cell_select {*/
+    /*margin-bottom: 0;*/
+    /*border-bottom: none;*/
+/*}*/
+/*内容*/
+#kid_incentive_card .con{
+    /*margin-top:10px;*/
+    padding-top:4px;
+    background-color: #f6f6f6;
+}
+#kid_incentive_card .con>div{
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:7px;
+    background-color: #fff;
+}
+#kid_incentive_card .con .daily-person{
+
+}
+/*头部*/
+#kid_incentive_card .person-head{
+    height:35px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 35px;
+    border-bottom: dotted 1px #eaeaea;
+}
+#kid_incentive_card .person-head span{
+    display: inline-block;
+}
+/*时间*/
+#kid_incentive_card .person-head span:first-child{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    color: #8d8d8d;
+}
+/*得分*/
+#kid_incentive_card .person-head span:last-child{
+    text-align: center;
+    font-size: 13px;
+    font-weight: normal;
+    /* width: 50px; */
+    padding: 5px;
+    /* height: 18px; */
+    line-height: 16px;
+    border-radius: 5px;
+    float: right;
+    margin-top: 5px;
+}
+/*加分*/
+.add-score{
+    color: #ff5e5e;
+    background-color: #ffe6e6;
+}
+/*减分*/
+.reduce-score{
+    color: #18ada4;
+    background-color: #d1f6ee;
+}
+#kid_incentive_card  .person-con{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+#kid_incentive_card .record-des{
+    margin-bottom:8px;
+}
+#kid_incentive_card .record-des h3{
+    float: left;
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #444444;
+}
+#kid_incentive_card .record-des p{
+    font-size: 13px;
+    font-weight: normal;
+    color: #998a87;
+    /*换行*/
+    word-wrap: break-word;
+}
+#kid_incentive_card .img-ary{
+    overflow: hidden;
+    border-radius: 5px;
+}
+#kid_incentive_card .img-ary h3{
+    overflow: hidden;
+    border-radius: 5px;
+}
+#kid_incentive_card .img-ary img{
+    width:100%;
+    border-radius: 5px;
+}
+#kid_incentive_card .weui-cells,
+#kid_incentive_card .weui-select,
+#kid_incentive_card .weui-input::placeholder
+{
+    font-size: 15px;
+    color: #a2a2a2;
+}
+#kid_incentive_card .weui-cells{
+    margin-top:0;
+}
+#kid_incentive_card .weui-cells:after {
+    border-bottom: none;
+}

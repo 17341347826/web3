@@ -1,0 +1,43 @@
+<div ms-important="group_index_graduate_d" id="group_index_graduate_d" xmlns="http://www.w3.org/1999/html">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl" ms-click="@gra_change(1)">综合实践</div>
+            <div class="am-fl chosen">评价维度</div>
+        </div>
+    </div>
+    <!--引用公共组件查询-->
+    <div class="common-select">
+        <div class="search-cont clearfix" style="padding-left: 16px;">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择学期'}"></xmp>
+            </div>
+        </div>
+    </div>
+    <!--对比分析标题-->
+    <div class="content-title-h">
+        <h3>{{@title}}各群体学生综合素质评价表现情况</h3>
+    </div>
+    <!--列表引用highchar图例-->
+    <div class="content-list">
+        <div class="ra-container">
+            <!--男女-->
+            <div id="container1" :if="@sex_xAxis.length != 0">
+
+            </div>
+            <div ms-if="@sex_xAxis.length==0">
+                <br>
+                <b>无男、女学生比较数据</b>
+            </div>
+            <!--走寄读-->
+            <div id="container2" ms-if="@post_xAxis.length!=0">
+
+            </div>
+            <div ms-if="@post_xAxis.length==0">
+                <br>
+                <b>无寄宿走读学生数据</b>
+            </div>
+        </div>
+    </div>
+
+</div>

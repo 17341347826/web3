@@ -1,0 +1,97 @@
+<div class="am-g " id="student_detail" ms-controller="student_detail">
+    <div class="list-con">
+        <!--ms-for:($idx,el) in @integral_list-->
+        <div class="daily-person">
+            <!--学生基本信息-->
+            <div class="stu-info">
+                <div>
+                    <!--头像-->
+                    <div class="stu-head">
+                        <div class="stu-img">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:'1080'}))}">
+                        </div>
+                        <!--<div class="stu-img">-->
+                            <!--<img ms-attr="{src:@url_img(@user_photo({guid:el.guid}))}">-->
+                        <!--</div>-->
+                        <div class="stu-name">
+                            <span>{{@extend.name}}</span>
+                        </div>
+                    </div>
+                    <div class="line-one"></div>
+                    <!--学校信息-->
+                    <div class="stu-school">
+                        <div>
+                            <span class="d-name">积分统计</span>
+                        </div>
+                        <div>
+                            <span>{{el.grade_name}} {{el.class_name}}班</span>
+                            <span>{{el.school_name}}</span>
+                            <span>{{@district_name}}</span>
+                            <span>{{el.create_time}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--日常表现信息-->
+            <div class="daily-info">
+                <div class="one-two-index">
+                    <h3>时间 ：</h3>
+                    <p>  {{el.everyday_date}}</p>
+                </div>
+                <div class="three-index h-style">
+                    <h3>加减分 ：</h3>
+                    <p>  {{el.score}}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>事项 ：</h3>
+                    <p>{{el.item}}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>记录描述 ：</h3>
+                    <p>{{el.description}}</p>
+                </div>
+                <div class="d-p-img">
+                    <!--ms-for:($index,al) in @data_change(el.attachment)-->
+                    <img ms-attr="{src:@url_for(al.guid)}">
+                    <!--ms-for-end:-->
+                </div>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <!--分页-->
+        <div class="divide-page" ms-visible="@totalPageArr.length!=0 && @count>10" data-am-widget="pagination">
+            <div class="page-info">
+                <span>共{{@count}}条数据</span>
+                <span>共{{@totalPage}}页</span>
+            </div>
+            <div class="pages">
+                <div class="first-page" ms-visible="@currentPage>3" ms-on-click="@currentPageDate(1)">
+                    首页
+                </div>
+                <div class="pre-page" ms-visible="@currentPage != 1" ms-on-click="@currentPageDate(@currentPage-1)">
+                    上一页
+                </div>
+                <!--ms-for: ($index,el) in @totalPageArr -->
+                <div class="com-page" ms-class="[el==@currentPage?'page-active':'']" ms-on-click="@currentPageDate(el)">
+                    {{el}}
+                </div>
+                <!--ms-for-end:-->
+                <div class="next-page" ms-visible="@currentPage != @totalPage" ms-on-click="@currentPageDate(@currentPage+1)">
+                    下一页
+                </div>
+                <div class="last-page" ms-visible="@currentPage != @totalPage" ms-on-click="@currentPageDate(@totalPage)">
+                    末页
+                </div>
+            </div>
+        </div>
+        <div :if="@integral_list.length==0" style="color:#a2a2a2;text-align: center;padding-top:20px;padding-bottom:30px;">
+            暂无数据
+        </div>
+        <div>
+            <div class="btns" style="text-align: right;margin-top: 15px;width: 55%;">
+                <button type="button" class="am-btn-default"  ms-on-click="@back()">返回</button>
+            </div>
+        </div>
+
+    </div>
+</div>

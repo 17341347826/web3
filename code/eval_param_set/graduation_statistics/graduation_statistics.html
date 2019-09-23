@@ -1,0 +1,54 @@
+<div ms-important="graduation_statistics" id="graduation_statistics">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="e-content">
+        <div class="table-module">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>
+                        <div>序号</div>
+                    </th>
+                    <th>
+                        <div>评价名称</div>
+                    </th>
+                    <th>
+                        <div>年级</div>
+                    </th>
+                    <th>
+                        <div>状态</div>
+                    </th>
+                    <th>
+                        <div>操作</div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($index,el) in @sta_data-->
+                <tr ms-if="@sta_data.length!= 0">
+                    <td>{{$index+1}}</td>
+                    <td>{{el.grade_name}}学生毕业综合素质评价</td>
+                    <td>{{el.grade_name}}</td>
+                    <td>
+                        <!--未生成(0),已生成(1)-->
+                        <span ms-if="@el.isGenerate==0">未生成</span>
+                        <span ms-if="@el.isGenerate==1">已生成</span>
+                    </td>
+                    <td>
+                        <a class='tab-btn tab_produce_btn_disabled' :if="@el.pro_change==0" title='不可计算'></a>
+                        <a class='tab-btn tab_produce_btn' :if="@el.pro_change==1" ms-on-click='@produce(el)' title='计算'></a>
+                        <a class='tab-btn tab-publicity' :if="@el.pro_change==2" ms-on-click='@publish_btn()' title='发布公示'></a>
+                        <a class='tab-btn tab-cancel-public' :if="@el.pro_change==3" ms-on-click='@publish_btn()' title='撤销公示'></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+        <!--暂无数据-->
+        <div class="no-data" :if="@sta_data.length == 0">
+            <div>
+                <img src="../../../../common/images/none.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

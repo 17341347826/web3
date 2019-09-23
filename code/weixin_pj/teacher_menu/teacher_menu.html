@@ -1,0 +1,174 @@
+<div id="teacher_menu" ms-important="teacher_menu">
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">评价指标</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('evaluation_scheme?mod=3')">
+                <span class="menu score"></span>
+                <span class="menu-name">评价方案</span>
+            </div>
+            <div class="each-menu">
+                <span class="menu"></span>
+                <span class="menu-name"></span>
+            </div>
+            <div class="each-menu">
+                <span class="menu"></span>
+                <span class="menu-name"></span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">我要评价学生</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('teacher_find_target')">
+                <span class="menu target"></span>
+                <span class="menu-name">目标与实现</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('teacher_evaluation')">
+                <span class="menu score"></span>
+                <span class="menu-name">评分</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('teacher_term_comment')">
+                <span class="menu comment"></span>
+                <span class="menu-name">评语</span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">学生材料管理</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('stu_per_score')">
+                <span class="menu daily"></span>
+                <span class="menu-name">日常表现</span>
+            </div>
+            <div class="each-menu"  ms-click="@jump_page('teacher_practice_see')">
+                <span class="menu practice"></span>
+                <span class="menu-name">综合实践</span>
+            </div>
+            <div class="each-menu"  ms-click="@jump_page('teacher_see_punishment')">
+                <span class="menu punishment"></span>
+                <span class="menu-name">学生奖惩</span>
+            </div>
+        </div>
+    </div>
+    <!--产品说先屏蔽，下阶段完善-->
+    <!--<div class="menu-container">-->
+        <!--<div class="title-container">-->
+            <!--<span class="point"></span><span class="title">我要审核</span>-->
+        <!--</div>-->
+        <!--<div class="menu-list">-->
+            <!--<div class="each-menu">-->
+                <!--<span class="menu audit-material"></span>-->
+                <!--<span class="menu-name">审核学生材料</span>-->
+            <!--</div>-->
+            <!--<div class="each-menu">-->
+                <!--<span class="menu audit-objection"></span>-->
+                <!--<span class="menu-name">审核公示异议</span>-->
+            <!--</div>-->
+            <!--<div class="each-menu">-->
+                <!--<span class="menu"></span>-->
+                <!--<span class="menu-name"></span>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">评价状况监管</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('progress_wx_total')">
+                <span class="menu all-progress"></span>
+                <span class="menu-name">总进度</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('progress_wx_target')">
+                <span class="menu realization"></span>
+                <span class="menu-name">目标计划与实现</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('progress_wx_pf')">
+                <span class="menu mark"></span>
+                <span class="menu-name">评分</span>
+            </div>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('progress_wx_py')">
+                <span class="menu remark"></span>
+                <span class="menu-name">评语</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('progress_wx_sh')">
+                <span class="menu review-progress"></span>
+                <span class="menu-name">审核进度</span>
+            </div>
+            <div class="each-menu">
+                <span class="menu"></span>
+                <span class="menu-name"></span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">公示栏</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('term_publicity')">
+                <span class="menu term-evaluation-results"></span>
+                <span class="menu-name">学期评价结果</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('graduation_publicity')">
+                <span class="menu graduation-evaluation-results"></span>
+                <span class="menu-name">毕业评价结果</span>
+            </div>
+            <div class="each-menu">
+                <span class="menu"></span>
+                <span class="menu-name"></span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">学生评价结果</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('city_term_eval_results')">
+                <span class="menu term-evaluation-results2"></span>
+                <span class="menu-name">学期评价结果</span>
+            </div>
+            <div class="each-menu" ms-click="@jump_page('city_gra-eval-results')">
+                <span class="menu i22"></span>
+                <span class="menu-name">毕业评价结果</span>
+            </div>
+            <div class="each-menu">
+                <span class="menu"></span>
+                <span class="menu-name"></span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="title-container">
+            <span class="point"></span><span class="title">学生档案</span>
+        </div>
+        <div class="menu-list">
+            <div class="each-menu" ms-click="@jump_page('growth_archives_list')">
+                <span class="menu i21"></span>
+                <span class="menu-name">学生成长档案</span>
+            </div>
+            <div class="each-menu"  ms-click="@jump_page('term_archives_list')">
+                <span class="menu i22"></span>
+                <span class="menu-name">学期评价档案</span>
+            </div>
+            <div class="each-menu"  ms-click="@jump_page('graduate_archives_list')">
+                <span class="menu i22"></span>
+                <span class="menu-name">毕业评价档案</span>
+            </div>
+        </div>
+    </div>
+    <!--
+    cur_tab:home首页，evaluate评价，about-me我的
+    跳转链接请加到bottom_tab.js的tab_href数组中
+    -->
+    <xmp ms-widget="{is:'ms-bottom-tab',cur_tab:'evaluate',ident_type:1}"></xmp>
+</div>

@@ -1,0 +1,42 @@
+#classControlList{
+    background-color: #f1f2f6;
+}
+#classControlList>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#classControlList>#user_div{
+    padding-bottom: 40px;
+    padding-top:17px;
+}
+#classControlList .city-stu-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#classControlList .search-btn input[type='button']{
+    /*width: auto;*/
+}
+#classControlList #compileData{
+    color:#c8c8c8;
+}
+#classControlList #compileData input,
+#classControlList #compileData select{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color: #777;
+}
+#classControlList #compileData .am-selected-list{
+    border: 1px #c8c8c8 solid;
+    background-color: white;
+    width: 100%;
+}
+#classControlList #compileData .am-selected-list li{
+    background-color: white;
+}
+#compileData .teacher-name{
+    max-height: 150px;
+    overflow-y: auto;
+}

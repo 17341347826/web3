@@ -1,0 +1,37 @@
+<div ms-important="new_parent_comment" id="new_parent_comment">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--<span :if="is_fill==1">可编辑-->
+         <!--<span>当前可编辑的年级 {{yearSemester}}</span>-->
+    <!--</span>-->
+    <!--<span :if="is_fill==2">不可编辑</span>-->
+    <span class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <div id="new_parent_comment_table" class="am-padding-top-lg am-padding-bottom-lg" :if="@show_table" style="padding-right: 15px;">
+        <table class="am-table am-table-bordered am-table-striped am-table-hover">
+            <thead>
+            <tr>
+                <th>学年学期</th>
+                <th>评语</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--ms-for: ($index,el) in @new_obj-->
+            <tr>
+                <td style="min-width: 185px;">{{el.semester_name}}</td>
+                <!--<td><p style="min-width: 400px;height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden; ">{{json(el)}}</p></td>-->
+                <td><p style="min-width: 400px;height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden;">
+                    {{el.content_guardian}}
+                </p></td>
+                <td style="min-width: 50px;">
+                    <a :if="el.semester_name==@yearSemester" class="tab-btn tab-edit-btn" title="编辑" ms-on-click="@add_btn(el)"></a>
+                    <a :if="el.semester_name!=@yearSemester" class="tab-btn tab-edit-btn-disabled" title="编辑"></a>
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+        </table>
+    </div>
+    <div class="no-data" :if="!@show_table">
+        <img src="../../../../common/images/none.png" alt="">
+    </div>
+</div>

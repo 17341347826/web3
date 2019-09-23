@@ -1,0 +1,7 @@
+#type-manage .am-form {
+    background: #fff;
+}
+#type-manage .am-form-inline .am-form-group div {
+    display: inline-block;
+    margin: 0 10px;
+}

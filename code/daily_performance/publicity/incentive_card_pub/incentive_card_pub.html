@@ -1,0 +1,147 @@
+<div ms-important="incentive_card_pub" id="incentive_card_pub">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange()" ms-duplex-number="@grade_info">
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id}">
+                        {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级--全校、班级公示-->
+            <div class="select" :if="@pub_range == 1 || @pub_range == 3 || @pub_range == 0">
+                <div class="old-select">
+                    <select ms-duplex-number="@form_list_score.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.class_id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--班级-年级公示-->
+            <div class="select" :if="@pub_range == 2">
+                <div class="old-select">
+                    <select  ms-duplex-number="@form_list_score.fk_class_id">
+                        <!--ms-for: el in @class_list-->
+                        <option ms-attr="{value:el.id}">
+                            {{el.class_name | class_ban}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@stu_num"placeholder="请输入学籍号">
+            </div>
+            <div class="form-input">
+                <input type="text" ms-duplex="@stu_name"  placeholder="请输入姓名">
+            </div>
+            <button type="button" class="am-btn am-btn-success"
+                    style="margin-top: 10px;border-radius: 4px" ms-click="to_search">查询</button>
+        </div>
+    </div>
+    <div class="list-con" id="list-con">
+        <!--ms-for:($idx,el) in @card_list-->
+        <div class="daily-person">
+            <!--学生基本信息-->
+            <div class="stu-info">
+                <div>
+                    <!--头像-->
+                    <div class="stu-head">
+                        <div class="stu-img">
+                            <img ms-attr="{src:@url_img(@user_photo({guid:el.student_guid}))}">
+                        </div>
+                        <div class="stu-name">
+                            <span>{{el.name}}</span>
+                        </div>
+                    </div>
+                    <div class="line-one"></div>
+                    <!--学校信息-->
+                    <div class="stu-school">
+                        <div>
+                            <!--<span class="d-name">日常表现</span>-->
+                        </div>
+                        <div>
+                            <span>{{el.grade_name}} {{el.class_name}}班</span>
+                            <span>{{el.school_name}}</span>
+                            <span>{{@district_name}}</span>
+                            <span>{{el.create_time | date("yyyy-MM-dd HH:mm:ss")}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--日常表现信息-->
+            <div class="daily-info">
+                <div class="three-index h-style">
+                    <h3>成长激励卡名称:</h3>
+                    <p>  {{el.b_card_name}}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>发卡时间 ：</h3>
+                    <p>{{el.encourage_date|date("yyyy-MM-dd")}}</p>
+                </div>
+                <div class="record-des h-style">
+                    <h3>发卡人:</h3>
+                    <p>{{el.fkr}}</p>
+                </div>
+                <div ms-visible="@el.img_arr.length>0" class="d-p-img" ms-class="[@daily_num==$idx ? 'img-ary-height-open':'img-ary-height']">
+                    <h3>图片材料：</h3>
+                    <img ms-attr="{src:@url_for(el.img_arr[0].guid)}">
+                    <!--ms-for:($index,al) in @el.img_arr-->
+                    <!--ms-for-end:-->
+                </div>
+                <div class="text-content">
+                    <!--<h3 ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0">文件材料：</h3>-->
+                    <ul style="margin-left: 0">
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                            <!--<video ms-attr="{src: col.down_href}" width="766px" controls></video>-->
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--展开、提异议-->
+                <div class="img-objection">
+                    <div class="img-objection">
+                        <div class="img-open img-switch" :if="@open_close==false || @daily_num!=$idx" :click="@img_open($idx,1)">
+                            <span>展开</span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="img-close img-switch" :if="@open_close==true && @daily_num==$idx" :click="@img_open($idx,0)">
+                        <span>收起</span>
+                        <span></span>
+                    </div>
+                    <div class="ask-dissent" :click="@ask_dis(el.id,$idx)">
+                        <span>我要提异议</span>
+                    </div>
+                </div>
+                <!--ms-for:($index2,cl) in el.a_adissent-->
+                <div class="yy-con" :if="@cl.owner_name==@ident_name">
+                    <span>{{cl.content}}</span>
+                </div>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <!--ms-for-end:-->
+    </div>
+    <!--暂无数据-->
+    <div class="no-data" :if="@card_list.length==0 && @data_had">
+        <div>
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+    <div ms-visible="@card_list.length==0 && !@data_had" class="data_pedding">
+        正在加载中，请稍等
+    </div>
+</div>

@@ -1,0 +1,359 @@
+<xmp ms-widget="{is:'page_title_div',title:'',reBack:'0'}"/>
+<div class="am-g" ms-important="information">
+    <div id="information_div">
+        <div class="am-padding-top-sm">
+            <a :if="@status == 3" class="am-btn am-btn-primary float-right am-margin-right-xl" ms-on-click="@save_data">
+                保存
+            </a>
+            <a :if="@status == 1" class="am-btn am-btn-primary float-right am-margin-right-xl" ms-on-click="@update_data">
+                编辑
+            </a>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div class="am-padding-top-sm am-padding-bottom-xl" id="information_table_div">
+            <!--查看-->
+            <table :if="@status == 1" border="1">
+                <tr>
+                    <td>姓名</td>
+                    <td>{{@data.student_name}}</td>
+                    <td>曾用名</td>
+                    <td>{{@data.old_name}}</td>
+                    <td>性别</td>
+                    <td :if="@data.sex == 1">男</td>
+                    <td :if="@data.sex == 2">女</td>
+                    <td colspan="2" rowspan="5" id="card-photo">
+                        <div ms-if="@photos =='' && @userType == 2">
+                            <div>暂无照片</div>
+                            <div>请选择上传</div>
+                            <div>建议尺寸（宽:高=3:4）</div>
+                            <div>图片格式：jpg/jpeg/png</div>
+                            <div>建议:选用天蓝色背景，身着校服</div>
+                        </div>
+                        <img ms-if="@photos != ''" ms-attr="{src:@photos}" alt="">
+                        <div ms-if="@userType==2" id="report" class="report">
+                            上传图片
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>出生年月</td>
+                    <td>{{@data.date_of_birth}}</td>
+                    <td>民族</td>
+                    <td>{{@data.nation}}</td>
+                    <td>政治面貌</td>
+                    <td>{{@data.politic}}</td>
+                </tr>
+                <tr>
+                    <td>身份证号</td>
+                    <td colspan="2">{{@data.student_code}}</td>
+                    <td>学籍号</td>
+                    <td colspan="2">{{@data.student_num}}</td>
+                </tr>
+                <tr>
+                    <td>身体健康情况</td>
+                    <td colspan="2">{{@data.body_quality}}</td>
+                    <td>住宿情况</td>
+                    <td colspan="2">{{@data.live_in}}</td>
+                </tr>
+                <tr>
+                    <td>通讯地址</td>
+                    <td colspan="2">{{@data.family_site}}</td>
+                    <td>联系电话</td>
+                    <td colspan="2">{{@data.student_phone}}</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">家庭情况</td>
+                    <td>父亲姓名</td>
+                    <td>{{@data.father_name}}</td>
+                    <td>政治面貌</td>
+                    <td>{{@data.father_political}}</td>
+                    <td>文化程度</td>
+                    <td colspan="2">{{@data.father_culture}}</td>
+                </tr>
+                <tr>
+                    <td>母亲姓名</td>
+                    <td>{{@data.mother_name}}</td>
+                    <td>政治面貌</td>
+                    <td>{{@data.mother_political}}</td>
+                    <td>文化程度</td>
+                    <td colspan="2">{{@data.mother_culture}}</td>
+                </tr>
+                <tr>
+                    <td>父亲工作单位</td>
+                    <td colspan="3">{{@data.father_work_site}}</td>
+                    <td>联系电话</td>
+                    <td colspan="2">{{@data.father_call}}</td>
+                </tr>
+                <tr>
+                    <td>母亲工作单位</td>
+                    <td colspan="3">{{@data.mother_work_site}}</td>
+                    <td>联系电话</td>
+                    <td colspan="2">{{@data.mother_call}}</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">托管监护情况</td>
+                    <td>托管人姓名</td>
+                    <td colspan="3">{{@data.trustee_name}}</td>
+                    <td>年龄</td>
+                    <td colspan="2">{{@data.trustee_age}}</td>
+                </tr>
+                <tr>
+                    <td>健康状况</td>
+                    <td colspan="3">{{@data.trustee_health}}</td>
+                    <td>文化程度</td>
+                    <td colspan="2">{{@data.trustee_culture}}</td>
+                </tr>
+                <tr>
+                    <td>托管监护人详细地址</td>
+                    <td colspan="3">{{@data.trustee_site}}</td>
+                    <td>联系电话</td>
+                    <td colspan="2">{{@data.trustee_call}}</td>
+                </tr>
+                <tr>
+                    <td>签字</td>
+                    <td style="height: 80px;" colspan="5">
+                        <img ms-attr="{src:@get_photos}" alt="" style="width:auto;height:auto;max-width:100%;max-height:100%;" class="am-margin-left-lg">
+                        <span :if="@reson" class="am-margin-left-lg">未通过原因:{{@reson}}</span>
+                    </td>
+                    <td>
+                        <a :if="@data_status == 0 || @data_status == 2" class="am-btn am-btn-primary" ms-on-click="@btn_click">更改签名</a>
+                        <a :if="@data_status == 1" class="am-btn am-btn-primary" disabled="disabled">更改签名</a>
+
+                    </td>
+                </tr>
+            </table>
+            <!--编辑-->
+            <table :if="@status == 3" border="1">
+                <tr>
+                    <td>姓名</td>
+                    <td>{{@data.student_name}}</td>
+                    <td>曾用名</td>
+                    <td>
+                        <input type="text" ms-duplex="@data.old_name" ms-attr="{value:@data.old_name}">
+                    </td>
+                    <td>性别</td>
+                    <td :if="@data.sex == 1">男</td>
+                    <td :if="@data.sex == 2">女</td>
+                    <td colspan="2" rowspan="5" id="card-photo-x">
+                        <div ms-if="@photos =='' && @userType == 2">
+                            <div>暂无照片</div>
+                            <div>请选择上传</div>
+                            <div>建议尺寸（宽:高=3:4）</div>
+                            <div>图片格式：jpg/jpeg/png</div>
+                            <div>建议:选用天蓝色背景，身着校服</div>
+                        </div>
+                        <img ms-if="@photos != ''" ms-attr="{src:@photos}" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>出生年月</td>
+                    <td>
+                        {{data.date_of_birth}}
+                    </td>
+                    <td>民族</td>
+                    <td>
+                        <select  ms-duplex="@data.nation">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.name}" ms-for="el in @nationList">
+                                {{ el.name }}
+                            </option>
+                        </select>
+
+                    </td>
+                    <td>政治面貌</td>
+                    <td>
+                        <select ms-duplex="@data.politic">
+                            <option value="0">请选择</option>
+                            <option value="共青团员">共青团员</option>
+                            <option value="群众">群众</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>身份证号</td>
+                    <td colspan="2">
+                        {{@data.student_code}}
+                    </td>
+                    <td>学籍号</td>
+                    <td colspan="2">
+                        {{@data.student_num}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>身体健康情况</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.body_quality" ms-attr="{value:@data.body_quality}">
+                    </td>
+                    <td>住宿情况</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.live_in" ms-attr="{value:@data.live_in}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>通讯地址</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.family_site" ms-attr="{value:@data.family_site}">
+                    </td>
+                    <td>联系电话</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.student_phone" ms-attr="{value:@data.student_phone}">
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4">家庭情况</td>
+                    <td>父亲姓名</td>
+                    <td>
+                        <input type="text" ms-duplex="@data.father_name" ms-attr="{value:@data.father_name}">
+                    </td>
+                    <td>政治面貌</td>
+                    <td>
+                        <select  ms-duplex="@data.father_political">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.name}" ms-for="el in @politicalList">
+                                {{ el.name }}
+                            </option>
+                        </select>
+                    </td>
+                    <td>文化程度</td>
+                    <td colspan="2">
+                        <select ms-duplex="@data.father_culture">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.name}" ms-for="el in @cultureList">
+                                {{ el.name }}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>母亲姓名</td>
+                    <td>
+                        <input type="text" ms-duplex="@data.mother_name" ms-attr="{value:@data.mother_name}">
+                    </td>
+                    <td>政治面貌</td>
+                    <td>
+                        <select name="" id="" ms-duplex="@data.mother_political">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.name}" ms-for="el in @politicalList">
+                                {{ el.name }}
+                            </option>
+                        </select>
+                    </td>
+                    <td>文化程度</td>
+                    <td colspan="2">
+                        <select ms-duplex="@data.mother_culture">
+                            <option value="0">
+                                请选择
+                            </option>
+                            <option ms-attr="{value:el.name}" ms-for="el in @cultureList">
+                                {{ el.name }}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>父亲工作单位</td>
+                    <td colspan="3">
+                        <input type="text" ms-duplex="@data.father_work_site" ms-attr="{value:@data.father_work_site}">
+                    </td>
+                    <td>联系电话</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.father_call" ms-attr="{value:@data.father_call}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>母亲工作单位</td>
+                    <td colspan="3">
+                        <input type="text" ms-duplex="@data.mother_work_site" ms-attr="{value:@data.mother_work_site}">
+                    </td>
+                    <td>联系电话</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.mother_call" ms-attr="{value:@data.mother_call}">
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="3">托管监护情况</td>
+                    <td>托管人姓名</td>
+                    <td colspan="3">
+                        <input type="text" ms-duplex="@data.trustee_name" ms-attr="{value:@data.trustee_name}">
+                    </td>
+                    <td>年龄</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.trustee_age" ms-attr="{value:@data.trustee_age}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>健康状况</td>
+                    <td colspan="3">
+                        <input type="text" ms-duplex="@data.trustee_health" ms-attr="{value:@data.trustee_health}">
+                    </td>
+                    <td>文化程度</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.trustee_culture" ms-attr="{value:@data.trustee_culture}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>托管监护人详细地址</td>
+                    <td colspan="3">
+                        <input type="text" ms-duplex="@data.trustee_site" ms-attr="{value:@data.trustee_site}">
+
+                    </td>
+                    <td>联系电话</td>
+                    <td colspan="2">
+                        <input type="text" ms-duplex="@data.trustee_call" ms-attr="{value:@data.trustee_call}">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">请进行签名</div>
+                <div class="am-modal-bd">
+                    <div class="am-form-group">
+                        <label class="am-radio-inline">
+                            <input type="radio"  value="2" name="docInlineRadio" ms-on-click="@radio_click" ms-duplex-number="@data_x.data_source"> 电子签名
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" value="1" name="docInlineRadio" ms-on-click="@radio_click"  ms-duplex-number="@data_x.data_source"> 上传签名图片
+                        </label>
+                    </div>
+                    <div :if="@data_x.data_source == 2">
+                        <a href="javascript:;" class="a-upload" ms-on-click="@start_sign">开始签名</a>
+                    </div>
+                    <div :if="@data_x.data_source ==1" style="border-top:2px dashed lightgray;" class="am-margin-top-lg">
+                        <form class="am-padding-top-lg" enctype="multipart/form-data" method="post" id='formBox' name="form">
+                            <a href="javascript:;" class="a-upload">
+                                <input type="file" name="file" id="chooseImage" ms-on-change="@file_change">选择文件
+                            </a>
+                        </form>
+                        <div id="content" :if="@img_src">
+                            <div class="container">
+                                <section class="copy">
+                                    <div class="figure-wrapper">
+                                        <figure class="image-container target">
+                                            <img ms-attr="{src:@img_src}" alt="DomoKun" id="target">
+                                        </figure>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <p style="color:red;">{{@msg}}</p>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                    <span class="am-modal-btn"  ms-on-click="@up_ajax">确定</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,53 @@
+#binding_phone{
+    font-family: PingFang-SC-Regular;
+}
+#binding_phone .weui-cell .weui-cell__hd{
+    font-size: 12px;
+    font-weight: normal;
+    color: #191a19;
+}
+#binding_phone .weui-cell .weui-cell__bd{
+    font-size: 12px;
+    font-weight: normal;
+    color: #777777;
+}
+/*验证码*/
+/*发送验证码、重新发送*/
+#binding_phone #identfy-one,
+#binding_phone #identfy-three {
+    cursor: pointer;
+    color:#59e0b6;
+}
+#binding_phone .ident-code{
+    display: inline-block;
+    float: none;
+    color: #777777;
+    text-align: center;
+    font-size: 12px;
+    width: 75px;
+    height: 22px;
+    line-height: 22px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: solid 1px #eeeeee;
+}
+/*验证码*/
+.identfy-no-check{
+    background-color: #A8A7A8;
+}
+/*验证码*/
+.identfy-check{
+    background-color: #59e0b6;
+    /*box-shadow: #D3FFF1 0 7px 10px;*/
+}
+/*提示语*/
+#binding_phone .reminder{
+    font-size: 12px;
+    text-align: center;
+    color:#ff5959;
+    margin-top:10px;
+}
+/*确认*/
+#binding_phone .public_btn_big{
+    margin-top: 15px;
+}

@@ -1,0 +1,119 @@
+<div class="am-g" id="parentInformation" ms-important="parentInformation">
+    <div class="am-padding-top-sm parent_frame ">
+        <div class="parent_title" :if="@mapping_parent.list.length != 0">
+            家长信息
+        </div>
+        <!--家长信息表格呈现-->
+        <div class="parentContents">
+            <!--ms-for:($index,el) in @mapping_parent.list-->
+            <div class="am-g parent_content" ms-if="el.map_status!='2'">
+                <div class="contTitle">
+                    家长（{{$index+1}}）
+                </div>
+                <div class="contInfor">
+                    <div class="userName">
+                      <span class="contInfor_left">
+                       用户名
+                      </span>
+                        <span>
+                       {{el.parent_num}}
+                      </span>
+                    </div>
+                    <div class="parentName">
+                      <span class="contInfor_left">
+                       姓   名
+                      </span>
+                        <span>
+                       {{el.parent_name}}
+                      </span>
+                    </div>
+                    <div class="phone">
+                      <span class="contInfor_left">
+                       手机号
+                      </span>
+                        <span>
+                       {{el.parent_phone}}
+                      </span>
+                    </div>
+                    <div id="chang_disc" ms-if="el.map_status=='3'">
+                        <div>
+                            请问这是你的家长吗？
+                        </div>
+                        <div class="insureInformation">
+                           <span id="parentNo" ms-on-click="@parentNo_check(el.id)">
+                            不是
+                           </span>
+                            <span id="parentYes" ms-on-click="@parentYes_check($index)">
+                            是
+                           </span>
+                        </div>
+                    </div>
+                    <!--家长已确认-->
+                    <div class="chang_disc" ms-if="el.map_status=='1' || el.map_status=='4'">
+                        <div class="insured">
+                            已确认
+                        </div>
+                        <div class="changInfor">
+                           <span id="resetPwd" ms-on-click="@resetPwd_check($index)">
+                            重置密码
+                           </span>
+                            <br/>
+                            <span :if="el.map_status=='1'" id="applyCla" ms-on-click="@applyCla_check($index)" style="margin-top:10px;">
+                            申请取消关联该用户
+                           </span>
+                        </div>
+                    </div>
+                    <!--取消关联成功-->
+                    <div class="chang_disc" ms-if="el.map_status=='5'">
+                      <span class="insured">
+                       已取消关联
+                      </span>
+                        <br/>
+                        <a id="resetAsc" ms-on-click="@parentYes_check($index)">
+                            重新关联
+                        </a>
+                    </div>
+                    <!--申请取消关联失败-->
+                    <div class="chang_disc" ms-if="el.map_status=='6'">
+                        <div class="insured">
+                            申请取消关联失败
+                        </div>
+                        <div class="changInfor">
+                           <span id="resReason">
+                            失败原因：{{el.check_msg}}
+                           </span>
+                            <br/>
+                            <span id="resEnsure" ms-on-click="@parentYes_yes($index)" style="margin-top:10px;">
+                                确定
+                           </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="carefurMsg" ms-if="el.map_status=='3'">
+                    注意：如果是你的家长，但是姓名、手机号点击有误，请点击【是】
+                    家长登录后可以在个人信息中修改
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+        <!--暂无数据-->
+        <div class="no-data" :if="@mapping_parent.list.length==0">
+            <div>
+                <img src="../../../../common/images/none.png" alt="">
+            </div>
+        </div>
+        <!--<--判断是否是家长-->
+        <!--<div class="am-modal am-modal-confirm" tabindex="-1" id="no-confirm">-->
+        <!--<div class="am-modal-dialog" style="width:300px;padding:10px 0">-->
+        <!--<div class="am-modal-bd" style="border-bottom:none">-->
+        <!--确定该用户不是你的家长吗？-->
+        <!--</div>-->
+        <!--<div class="am-modal-footer">-->
+        <!--<span class="am-modal-btn no_btn_no" style="border-right:none;" data-am-modal-cancel>取消</span>-->
+        <!--<span class="am-modal-btn no_btn_yes" style="border-left:none;"-->
+        <!--data-am-modal-confirm ms-on-click="@no_btn_yes()">确定</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>

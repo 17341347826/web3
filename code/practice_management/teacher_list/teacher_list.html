@@ -1,0 +1,56 @@
+<div ms-important="teacher_list" id="teacher_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@index_list,sel_check:@index_change,head_value:'请选择维度'}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div id="con_list" class="clearfix">
+       <div :if="@dataInfo.length > 0">
+           <!--ms-for: $idx,el in @dataInfo-->
+           <div class="cont_div">
+               <div class="img_div">
+                   <img :visible="@url_img(json(el.fjdz).guid) == undefined" ms-attr="{src:@url_img(json(el.fjdz).guid)}" alt="">
+                   <img :visible="@url_img(json(el.fjdz).guid) != undefined" src="../../../common/images/cover.png" alt="">
+               </div>
+               <div class="stu_suc" :if="el.is_enroll == 1">
+                   <img src="../../../common/images/stu_suc.png" alt="">
+               </div>
+               <div class="text_div">
+                   <div class="flex_div text_more">
+                       <div class="flex_left">主题</div>
+                       <div class="flex_right">{{el.bt}}</div>
+                   </div>
+                   <div class="flex_div text_more" ms-on-mouseenter="@show_jj($idx)">
+                       <div class="flex_left">简介</div>
+                       <div class="flex_right text_hdjj">{{el.hdjj}}</div>
+                   </div>
+                   <div class="flex_div">
+                       <div class="flex_left">开展</div>
+                       <div class="flex_right">{{el.hd_kssj}} 至 {{el.hd_jssj}}</div>
+                   </div>
+               </div>
+               <div class="btns am-text-center">
+                   <button class="am-btn-primary" ms-on-click="@click_btn(el)">学生报名情况及活动评价</button>
+               </div>
+               <div class="bj_div" :visible="@current_bj == $idx" ms-on-mouseout="@hide_jj($idx)">
+                   <p class="am-text-center">- 简介 -</p>
+                   <div>
+                       {{el.hdjj}}
+                   </div>
+               </div>
+           </div>
+           <!--ms-for-end:-->
+       </div>
+        <div class="no-data" :visible="@dataInfo.length == 0">
+            <div>
+                <img src="../../../../common/images/none.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+
+<div class="am-g" id="weight-set" ms-important="weight-set">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@grade_change" ms-duplex="@demo_grade">
+                        <!--ms-for:($index,el) in @grade_list-->
+                        <option ms-attr="{value:el.id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-set-content">
+        <div>
+            <p>毕业综合素质评价生成方式</p>
+            <div>
+                <div class="radios">
+                    <label class="am-radio-inline">
+                        <input type="radio" name="use-sheme" id="option1" class="rdo" value="1"
+                               ms-duplex-number="@req_data.generation_method" ms-click="@radio_click(1)">
+                        <label ms-attr="{for:'option1'}">各学期评价结果的平均分</label>
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="use-sheme" id="option2" class="rdo" value="2"
+                               ms-duplex-number="@req_data.generation_method" ms-click="@radio_click(2)">
+                        <label ms-attr="{for:'option2'}">自定义各学期评价结果所占权重</label>
+                    </label>
+                </div>
+                <div class="weight-semester-set clearfix">
+                    <!--ms-for:($index el) in @weight_data-->
+                    <div class="am-fl">
+                        <label class="am-form-label">{{el.semester_name}}学生综合素质评价【结果】</label>
+                        <input ms-if="@radio_type==1" ms-attr="{value:el.weight}" ms-duplex="el.weight" ms-rules="{required:true}" type="text"/>
+                        <span ms-if="@radio_type==1">%</span>
+                        <input ms-if="@radio_type==0" ms-attr="{value:el.weight}" ms-duplex="el.weight" ms-rules="{required:true}" type="text" disabled="disabled"/>
+                        <span ms-if="@radio_type==0">%</span>
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+
+            </div>
+            <div class="weight-semester-set-btn">
+                <div class="btns">
+                    <button type="button" class="am-btn-primary" ms-click="@btn_save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

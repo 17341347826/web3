@@ -1,0 +1,49 @@
+<div ms-important="stu_graduation_evaluation" id="stu_term_evaluation">
+    <div class="three-menu">
+        <!--学期评语-->
+        <div :click="@menu_change()">
+            <span class="term-circle-btn"></span>
+            <span class="name">学期评语</span>
+        </div>
+        <div class="line"></div>
+        <!--毕业评语-->
+        <div >
+            <span class="graduation-circle-btn"></span>
+            <span class="menu-check name">毕业评语</span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <!--内容-->
+        <div class="con">
+
+            <div class="every_stu">
+                <div class="stu_info clearfix">
+                    <span class="float-left">学生毕业评价</span>
+                    <span class="float-right"></span>
+                </div>
+                <div class="stu_plan">
+                    <div class="stu_plan1">评语状态</div>
+                    <div class="stu_plan2">
+                        <span :if="@add_data.stu_remark=='' || @add_data.stu_remark==null">未评</span>
+                        <span :if="@add_data.stu_remark!='' && @add_data.stu_remark!=null">已评</span>
+                    </div>
+                </div>
+                <div class="stu_plan">
+                    <div class="stu_plan1">评语</div>
+                    <div class="stu_plan2">
+                        <span :if="@add_data.stu_remark=='' || @add_data.stu_remark==null">暂无评语</span>
+                        <span :if="@add_data.stu_remark!='' && @add_data.stu_remark!=null">
+                       {{@add_data.stu_remark}}
+                    </span>
+                    </div>
+                </div>
+                <div class="public_btn" :if="@user_type == 2">
+                    <!--<a ms-on-click="@edit_btn(el)">评价/修改</a>-->
+                    <a :if="@read_type" ms-on-click="@edit_btn(el)">评价/修改</a>
+                    <a class="color_gray" :if="!@read_type">评价/修改</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

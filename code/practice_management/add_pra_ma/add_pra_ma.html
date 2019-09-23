@@ -1,0 +1,74 @@
+<div ms-important="add_pra_ma" id="add_pra_ma" class="hide_scroll">
+    <div>
+        <div  class="add_pra_ma-content">
+            <div class="p-line">
+                <div class="p-name">活动主题</div>
+                <div class="p-input">
+                    <span>{{@data.name}}</span>
+                </div>
+            </div>
+            <div class="p-line">
+                <div class="p-name">活动地点</div>
+                <div class="p-input">
+                    <input type="text" ms-duplex="data.place">
+                </div>
+            </div>
+            <div class="p-line">
+                <div class="p-name">参与成员</div>
+                <div class="p-input">
+                    <input type="text" ms-duplex="data.member">
+                </div>
+            </div>
+            <div :visible="@module_type == 6" class="clearfix p-line-float">
+                <div class="am-fl">
+                    <div class="p-name-float">担任角色</div>
+                    <div class="p-input-float">
+                        <input type="text" ms-duplex="data.role">
+                    </div>
+                </div>
+                <div class="am-fr">
+                    <div class="p-name-float">承担任务</div>
+                    <div class="p-input-float">
+                        <input type="text" ms-duplex="data.task">
+                    </div>
+                </div>
+            </div>
+            <div class="p-line-max">
+                <div class="p-name-max">过程描述</div>
+                <div class="p-input-max">
+                    <textarea ms-duplex="data.describe"></textarea>
+                </div>
+            </div>
+            <div class="p-line-max">
+                <div class="p-name-max">收获感想</div>
+                <div class="p-input-max">
+                    <textarea ms-duplex="data.thoughts"></textarea>
+                </div>
+            </div>
+            <div class="p-line material">
+                <div class="p-name">实证材料</div>
+                <div class="p-input">
+                    <xmp ms-widget="{is:'ms-ele-uploader',id_prefix:'add_pra_ma_uploader',id:'add_pra_ma_uploader', files:@files, url:@uploader_url}"></xmp>
+                </div>
+            </div>
+            <div class="p-line" :if="@tc == 1">
+                <div class="p-name"></div>
+                <div class="p-input">
+                    <div class="c-arys">
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox" id="option1" ms-duplex="@sftc_arr" data-duplex-changed="@checkboxChange" value="11">
+                            <label for="option1"></label>
+                        </label>
+                        标注为个性特长材料  <strong>说明：标注为特长材料，该材料将自动遴选为评价材料</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-p-btns">
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_data">提交</button>
+        </div>
+    </div>
+</div>

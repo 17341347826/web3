@@ -1,0 +1,110 @@
+<div ms-important="vertical_analysis_graduate" class="d_e_progress" id="vertical_analysis_graduate">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl chosen">综合等级</div>
+            <div class="am-fl" ms-click="@gra_change(2)">评价维度</div>
+        </div>
+    </div>
+    <div class="top">
+        <div class='first-index clearfix' ms-if="@user_level<3">
+            <div class="am-fl">
+                <div class="am-fl" ms-class="[@now_tab==-1 ? 'chosen':'']" ms-click="change_district()">全市</div>
+                <!--ms-for:($index,el) in @area_list-->
+                <div class="am-fl" ms-class="[@now_tab==el.id ? 'chosen':'']" ms-click="change_district(el)">{{el.district}}</div>
+                <!--ms-for-end:-->
+            </div>
+        </div>
+        <div class="search-content clearfix" ms-if="@user_level<4">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@school_list,sel_check:@school_change,head_value:'请选择学校'}"></xmp>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="table-content clearfix" ms-visible="@user_level<4">
+        <div class="title">
+            {{@user.city}}-{{@now_district}}-{{@now_school_name}}-综合素质评价等级
+        </div>
+        <div class="tb-content">
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">年级名称</td>
+                        <td rowspan="2">总人数</td>
+                        <td  ms-for="el2 in @area_process_list[0].sub_list">{{el2.djmc}}</td>
+                    </tr>
+                    <tr>
+                        <!--ms-for:($index,el) in @area_process_list[0].sub_list-->
+                        <td>
+                            <ul class="horizontal">
+                                <li>人数</li>
+                                <li>比例（%）</li>
+                            </ul>
+                        </td>
+                        <!--ms-for-end:-->
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                        <td>{{el.grade_name}}</td>
+                        <td>
+                            {{el.zrs}}
+                        </td>
+                        <td  ms-for="el2 in el.sub_list">
+                            <ul class="horizontal">
+                                <li>
+                                    {{el2.djrs}}
+                                </li>
+                                <li>
+                                    {{el2.rszb}}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@area_process_list.length==0">
+                        <td ms-attr="{colspan:4}">
+                            暂无数据
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tu-biao">
+            <div id="bar_img"></div>
+        </div>
+        <!--<div class="title">-->
+            <!--{{@user.city}}-{{@now_district}}-{{@now_school_name}}-评价维度平均分-->
+        <!--</div>-->
+        <!--<div class="tb-content">-->
+            <!--<div class="biao-ge">-->
+                <!--<table class="am-table am-table-bordered">-->
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--<td >年级名称</td>-->
+                        <!--<td  ms-for="el2 in @wd_cnt[0].sub_list">{{el2.zb_mc}}</td>-->
+                    <!--</tr>-->
+                    <!--&lt;!&ndash;ms-for:($index,el) in @wd_cnt&ndash;&gt;-->
+                    <!--<tr>-->
+                        <!--<td>{{el.grade_name}}</td>-->
+
+                        <!--<td  ms-for="el2 in el.sub_list">-->
+                            <!--{{el2.zb_pjf}}-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                    <!--<tr ms-visible="@wd_cnt.length==0">-->
+                        <!--<td ms-attr="{colspan:1}">-->
+                            <!--暂无数据-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+<div ms-important="ecm_achievement_import" id="ecm_achievement_import">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@sem_list,sel_check:@change_sems,head_value:@head_value.semester,  $id:'score_proc_opt_sem'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade, $id:'score_proc_opt_grade'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'score_proc_opt_class'}"></xmp>
+            </div>
+
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="con-one">
+            <div class="title">学生成绩上传进度</div>
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>内容</td>
+                    <td>班级学生人数</td>
+                    <td>已上传人数</td>
+                    <td>未上传人数</td>
+                    <td>完成率</td>
+                </tr>
+                <tr>
+                    <td>学业成绩</td>
+                    <td>{{student_list.length}}</td>
+                    <td>{{ysc.cj}}</td>
+                    <td>{{student_list.length-ysc.cj}}</td>
+                    <td>{{(ysc.cj/(student_list.length+0.00001)*100).toFixed(2)}}%</td>
+                </tr>
+                <tr>
+                    <td>国家体质健康</td>
+                    <td>{{student_list.length}}</td>
+                    <td>{{ysc.tzcp}}</td>
+                    <td>{{student_list.length-ysc.tzcp}}</td>
+                    <td>{{(ysc.tzcp/(student_list.length+0.00001)*100).toFixed(2)}}%</td>
+                </tr>
+                <tr>
+                    <td>艺术测评成绩</td>
+                    <td>{{student_list.length}}</td>
+                    <td>{{ysc.yscp}}</td>
+                    <td>{{student_list.length-ysc.yscp}}</td>
+                    <td>{{(ysc.yscp/(student_list.length+0.00001)*100).toFixed(2)}}%</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="con-two">
+            <div class="title">学生录入详情</div>
+            <table class="am-table am-table-bordered am-fl table-two">
+                <tbody>
+                <tr>
+                   <td width="45px;">序号</td>
+                    <td width="100px;">姓名</td>
+                    <td width="100px;">学籍号</td>
+                    <td>学业成绩</td>
+                    <td>国家体质健康</td>
+                    <td>艺术测评成绩</td>
+                </tr>
+                <tr :for="$index, item in student_list|limitBy(line_offset, 0)">
+                    <td>{{$index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.code|mtruncate(3,3)}}</td>
+                    <td :css="{color:@font_color(item.xy)}">{{value_of(item.xy)}}</td>
+                    <td :css="{color:@font_color(item.tz)}">{{value_of(item.tz)}}</td>
+                    <td :css="{color:@font_color(item.ys)}">{{value_of(item.ys)}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+            <table class="am-table am-table-bordered am-fr table-three">
+                <tbody>
+                <tr>
+                   <td width="45px;">序号</td>
+                    <td width="100px;">姓名</td>
+                    <td width="100px;">学籍号</td>
+                    <td>学业成绩</td>
+                    <td>国家体质健康</td>
+                    <td>艺术测评成绩</td>
+                </tr>
+                <tr :for="$index, item in student_list|limitBy(line_offset, line_offset)">
+                    <td>{{ line_offset+$index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.code|mtruncate(3,3)}}</td>
+                    <td :css="{color:@font_color(item.xy)}">{{value_of(item.xy)}}</td>
+                    <td :css="{color:@font_color(item.tz)}">{{value_of(item.tz)}}</td>
+                    <td :css="{color:@font_color(item.ys)}">{{value_of(item.ys)}}</td>
+                </tr>
+                </tbody>
+            </table>
+       </div>
+    </div>
+</div>

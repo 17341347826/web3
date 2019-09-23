@@ -1,0 +1,51 @@
+<div ms-important="sign_result" id="sign_result">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select" :visible="@level != 4">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@area_change,head_value:'请选择区县'}"></xmp>
+            </div>
+            <div class="select" :visible="@level != 4">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@school_list,sel_check:@school_change,head_value:'请选择学校'}"></xmp>
+            </div>
+            <div class="select" :if="@level == 4">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@class_list,sel_check:@class_change,head_value:'请选择班级'}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="table-module">
+        <p class="am-text-center">{{@bt}}</p>
+        <table class="am-table am-table-bordered">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>区县</th>
+                    <th>学校</th>
+                    <th>报名人数</th>
+                    <th>结果上传人数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody :if="@dataList.length > 0">
+            <!--ms-for: $idx,el in @dataList-->
+            <tr>
+                <td>{{$idx+1}}</td>
+                <td>{{el.district}}</td>
+                <td>{{el.school_name}}</td>
+                <td>{{el.bmrs}}</td>
+                <td>{{el.scrs}}</td>
+                <td>
+                    <a class='tab-btn tab-export-btn'  title='导出' ms-on-click="@export_click(el)"></a>
+                    <a class='tab-btn tab-download'  title='打印' ms-on-click="@print_click(el)"></a>
+                </td>
+            </tr>
+            <!--ms-for-end:-->
+            </tbody>
+            <tbody :if="@dataList.length == 0">
+            <tr>
+                <td colspan="6">暂无数据</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

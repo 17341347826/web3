@@ -1,0 +1,13 @@
+#final_exam_objection_detail #update_table table input,
+#final_exam_objection_detail #update_table table select{
+    height: 20px;
+}
+#final_exam_objection_detail #update_table table input{
+    width: 40px;
+}
+#final_exam_objection_detail #update_table table select{
+    width: 65px;
+}
+#final_exam_objection_detail textarea{
+    width: 100%;
+}

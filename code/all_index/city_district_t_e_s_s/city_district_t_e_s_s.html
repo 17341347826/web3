@@ -1,0 +1,81 @@
+<div id="city_district_t_e_s_s" ms-important="city_district_t_e_s_s">
+    <!--市管理 or 区管理查看方案列表-->
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.plan_subjectid">
+                        <option ms-attr="{value:''}">
+                            请选择评价主体
+                        </option>
+                        <option ms-attr="{value:4}">
+                            自评/组评/班评
+                        </option>
+                        <option ms-attr="{value:1}">
+                            自评
+                        </option>
+                        <option ms-attr="{value:2}">
+                            组评
+                        </option>
+                        <option ms-attr="{value:3}">
+                            班评
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-input">
+                <input ms-duplex="@extend.plan_name" ms-rules="{required:true}" placeholder="请输入方案名称" type="text"/>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.plan_school_typeid">
+                        <option value="">
+                            请选择适用类别
+                        </option>
+                        <option ms-attr="{value:el.id}" ms-for="el in @schoolList">
+                            {{ el.property_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@current_gradeId" data-duplex-changed="@grade_change()">
+                        <option value="">
+                            请选择年级
+                        </option>
+                        <option ms-attr="{value:el.id}" ms-for="el in @grade_list">
+                            {{ el.remark }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex-number="@extend.plan_use_state">
+                        <option value="">
+                            请选择使用状态
+                        </option>
+                        <option value="1">
+                            启用
+                        </option>
+                        <option value="2">
+                            停用
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="click_btn" :click="@city_add_programme">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建方案</span>
+            </div>
+        </div>
+    </div>
+    <div class="city-c-con">
+        <div class="table_module" >
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>

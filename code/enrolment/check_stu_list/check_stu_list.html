@@ -1,0 +1,31 @@
+<div ms-important="check_stu_list" id="check_stu_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select am-fl" :if="is_city_user">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择区县',sel_check:@area_sel,data_arr:@area_arr}"></xmp>
+            </div>
+            <div class="select am-fl" :if="!is_school_user">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择学校',sel_check:@school_sel,data_arr:@school_list, id:'daily_eva_xx'}"></xmp>
+            </div>
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择年级', is_init:true,sel_check:@grade_sel,data_arr:@grade_arr,id:'daily_eva_nj'}"></xmp>
+            </div>
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择志愿批次', is_init:true,sel_check:@type_sel,data_arr:@type_arr,id:'daily_eva_zy'}"></xmp>
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入学籍号" :duplex="extend.stu_num">
+            </div>
+            <div class="form-input">
+                <input type="text" placeholder="请输入姓名" :duplex="extend.stu_name">
+            </div>
+        </div>
+    </div>
+    <div class="c_s_list_con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>

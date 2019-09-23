@@ -1,0 +1,38 @@
+<div class="am-g" id="leader_club_detail" ms-controller="leader_club_detail">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--<div class="common-select">-->
+        <!--<div class="search-cont clearfix">-->
+            <!--<div class="search-btn">-->
+                <!--<input type="button" value="导出" :click="@club_export()">-->
+            <!--</div>-->
+            <!--<div class="search-btn">-->
+                <!--<input type="button" value="打印" :click="@club_printing()">-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div>
+        <div class="table_module">
+            <table class="am-table am-table-hover ">
+                <thead>
+                <tr>
+                    <th>社团类型</th>
+                    <th>个数</th>
+                    <th>社团人数</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for:($idx,el) in club_data-->
+                <tr>
+                    <td>{{el.community_type}}</td>
+                    <td>{{el.community_sum_num}}</td>
+                    <td>{{el.community_sum_person_num}}</td>
+                </tr>
+                <!--ms-for-end:-->
+                <tr ms-visible="@club_data.length==0">
+                    <td colspan="3">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

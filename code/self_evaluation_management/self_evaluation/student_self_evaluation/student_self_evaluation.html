@@ -1,0 +1,46 @@
+<div class="am-g" id="student_self_evaluation" ms-important="student_self_evaluation">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--<div class='first-index clearfix'>-->
+        <!--<div class="am-fl">-->
+            <!--<div class="chosen am-fl">自评任务</div>-->
+            <!--<div class="am-fl"  ms-on-click="@go_href">自评方案</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--筛选条件-->
+    <div class="common-select" ms-validate="@validate">
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select class="select-disabled" ms-duplex="@extend.pro_grade" ms-attr="{disabled:'disabled'}">
+                        <!--<option ms-attr="{value:''}">-->
+                            <!--请选择年级-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for: el in @request_data.grade_arr&ndash;&gt;-->
+                        <!--<option ms-attr="{value:el.remark}">-->
+                            <!--{{el.remark}}-->
+                        <!--</option>-->
+                        <!--&lt;!&ndash;ms-for-end:&ndash;&gt;-->
+                        <option ms-attr="{value:@extend.pro_grade}">
+                            {{@extend.pro_grade}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="click_btn" :click="@self_add" :visible="params.user_type ==0">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建任务</span>
+            </div>
+
+        </div>
+    </div>
+    <div class='list-con'>
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,params:@params,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+        </xmp>
+    </div>
+    <div class="a-p-btns">
+        <div class="btns" style="text-align: center">
+            <button type="button" class="am-btn-warning" ms-click="@onBlack()" style="margin-right: 25px;">返回</button>
+        </div>
+    </div>
+</div>

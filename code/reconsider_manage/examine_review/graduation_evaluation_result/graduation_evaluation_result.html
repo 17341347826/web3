@@ -1,0 +1,115 @@
+<div ms-important="graduation_evaluation_result" id="term_evaluation_result">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="container">
+        <div class="all-select">
+            <div class="search-content clearfix">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade, $id:'gra_eva_opt_grade'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'gra_eva_opt_class'}"></xmp>
+                </div>
+                <div class="select">
+                    <input type="text" placeholder="请输入学生姓名" :duplex="filter.name">
+                </div>
+                <div class="select">
+                    <input type="text" placeholder="请输入学生学籍号" :duplex="filter.code">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" :for="$index, el in list" :visible="@filter_show(el)">
+        <div class="inner-content">
+            <!---------------------------------->
+            <div class="b-title">
+                复议审核信息
+            </div>
+            <div class="table-container">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>提出人</th>
+                        <th>异议类型</th>
+                        <th>提出时间</th>
+                        <th>异议内容</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr :for="$index, row in el.dissent">
+                        <td>{{$index+1}}</td>
+                        <td>{{row.owner_name}}</td>
+                        <td>录入信息</td>
+                        <td>{{row.create_time|date}}</td>
+                        <td>{{row.content}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="b-title">
+                材料记录详情
+            </div>
+            <div class="inner">
+                <div class="m-title">
+                    <div class="person-left">
+                        <img ms-attr="{src:@url_img(@user_photo({guid:el.stu_id}))}" alt="">
+                        <h3>{{el.stu_name}}</h3>
+                    </div>
+                    <div class="person-right">
+                        <div class="persion-title">
+                            |<span>毕业评价结果</span>|
+                        </div>
+                        <div class="person-msg">
+                            <h3>
+                                {{el.grade_name}} {{el.class_name}} {{ el.class_name.indexOf("班")>=0?"":"班"}}
+                            </h3>
+                            <h3>
+                                {{el.school_name}}
+                            </h3>
+                            <h3>
+                                {{district}}
+                            </h3>
+                            <h3>
+                                {{el.publish_start_time|date}}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container2">
+                    <table class="am-table am-table-bordered">
+                        <thead>
+                        <tr>
+                            <th :for="$i, row in el.index_name" :visible="row!=''">{{row}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td :for="$i, row in el.index_name" :visible="row!=''">{{el.index_value[$i]}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bt clearfix">
+                    <div class="btns clearfix">
+                        <button class="no-pass" ms-click="@disagree(el)">异议无效</button>
+                        <button class="pass" ms-click="@establish(el)">异议成立</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;background-color: #FFFFFF;margin-top: 5px;padding-bottom: 16px" ms-visible="@list.length==0">
+        <img src="../../../../common/images/none.png" alt="">
+    </div>
+
+    <div id="v_layer">
+        <textarea ms-duplex="@opinion" placeholder="请说明核实结果？"></textarea>
+        <div class="files">
+            上传核查材料:
+            <button>请选择文件</button>
+            <span>{{@file_name}}</span>
+            <input type="file" id="file">
+        </div>
+    </div>
+</div>

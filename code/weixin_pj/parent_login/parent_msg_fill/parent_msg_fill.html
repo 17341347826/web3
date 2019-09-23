@@ -1,0 +1,19 @@
+<div ms-important="parent_msg_fill" id="parent_msg_fill">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <p>{{@remarl.semester_name}}</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" ms-duplex="@remarl.content_guardian" placeholder="请输入描述" rows="3"></textarea>
+            <div class="weui-textarea-counter">
+            </div>
+        </div>
+    </div>
+    <div>
+        <a href="javascript:;" class="weui-btn weui-btn_primary" ms-click="@submit_data">提交</a>
+    </div>
+</div>

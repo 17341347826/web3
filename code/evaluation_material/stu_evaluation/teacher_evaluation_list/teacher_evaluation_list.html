@@ -1,0 +1,106 @@
+<div class="am-g" id="teacher_evaluation_list" ms-important="teacher_evaluation_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="am-text-left" id="demand">
+        <form class="am-form am-form-inline" ms-validate="@validate">
+            <div class="am-form-group">
+                <div>
+                    <select data-duplex-changed="@gradeChange" ms-duplex-number="@get_grade_id">
+                        <option ms-attr="{value:el.grade_id}" ms-for="el in @grade_list">
+                            {{ el.grade_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <div>
+                    <select data-duplex-changed="@classChange" ms-duplex-number="@get_class_id">
+                        <option ms-attr="{value:el.class_id}" ms-for="el in @class_list">
+                            {{ el.class_name }}班
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div :if="table_show">
+        <div class="table-container">
+            <table class="am-table am-table-bordered am-table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        项目名称
+                    </th>
+                    <th>
+                        项目级别
+                    </th>
+                    <th>
+                        使用年级
+                    </th>
+                    <th>
+                        开始时间
+                    </th>
+                    <th>
+                        结束时间
+                    </th>
+                    <th>
+                        创建人
+                    </th>
+                    <th>
+                        状态
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @project_arr-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.pro_name}}
+                    </td>
+                    <td>
+                        <span :if="el.pro_rank==1">省级</span>
+                        <span :if="el.pro_rank==2">市级</span>
+                        <span :if="el.pro_rank==3">区县级</span>
+                        <span :if="el.pro_rank==4">校级</span>
+                    </td>
+                    <td>
+                        {{el.pro_grade}}
+                    </td>
+                    <td>
+                        {{el.pro_start_time}}
+                    </td>
+                    <td>
+                        {{el.pro_end_time}}
+                    </td>
+                    <td>
+                        {{el.pro_founder}}
+                    </td>
+                    <td :if="el.is_time=='1'">
+                        进行中
+                    </td>
+                    <td :if="el.is_time=='2'">
+                        已完成
+                    </td>
+                    <td>
+                        <a :if="el.is_time=='1' && @is_switch" class="tab-btn tab-edit-btn" ms-click="evaluate_go(el)" title="录入">
+                        </a>
+                        <a :if="el.is_time=='2' && @is_switch" class="tab-btn tab-edit-btn-disabled" disabled="disabled" title="不可录入">
+                        </a>
+                        <a :if="!@is_switch" class="tab-btn tab-edit-btn-disabled" disabled="disabled" title="任务已关闭">
+                        </a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

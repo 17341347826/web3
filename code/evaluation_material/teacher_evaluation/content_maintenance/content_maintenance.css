@@ -1,0 +1,44 @@
+#first_table input,
+#second_table input,
+#first_table_x input,
+#second_table_x input
+{
+    width: 50px;
+    border:1px lightgrey solid;
+    border-radius:5px;
+    text-align: center;
+}
+#daily_content_div .am-table>tbody>tr>td{
+    white-space: inherit;
+}
+#daily_content_div .am-table>tbody>tr>td p{
+    margin: 0;
+}
+#daily_content_div #second_table > tbody > tr > td:nth-of-type(odd){
+    text-align: left;
+}
+.notice_p{
+    color: red;
+}
+#daily_content_div{
+    background-color: #f1f2f6;
+}
+#daily_content_div>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#daily_content_div>div.d-con-div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#daily_content_div .table_module{
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}
+#daily_content_div a.tab-btn{
+    margin-left: 5px;
+}
+

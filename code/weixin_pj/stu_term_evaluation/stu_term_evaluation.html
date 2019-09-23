@@ -1,0 +1,49 @@
+<div ms-important="stu_term_evaluation" id="stu_term_evaluation">
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--学期评语-->
+        <div>
+            <span class="term-circle-btn"></span>
+            <span class="menu-check name">学期评语</span>
+        </div>
+        <div class="line"></div>
+        <!--毕业评语-->
+        <div :click="@menu_change()">
+            <span class="graduation-circle-btn"></span>
+            <span class="name">毕业评语</span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <!--内容-->
+        <div class="con">
+            <!--ms-for: ($index,el) in @semester-->
+            <div class="every_stu">
+                <div class="stu_info clearfix">
+                    <span class="float-left">{{el.semester_name}}</span>
+                    <span class="float-right"></span>
+                </div>
+                <div class="stu_plan">
+                    <div class="stu_plan1">评语状态</div>
+                    <div class="stu_plan2">
+                        <span :if="el.content.content_my=='' || el.content.content_my==null">未评</span>
+                        <span :if="el.content.content_my!='' && el.content.content_my!=null">已评</span>
+                    </div>
+                </div>
+                <div class="stu_plan">
+                    <div class="stu_plan1">评语</div>
+                    <div class="stu_plan2">
+                        <span :if="el.content.content_my=='' || el.content.content_my==null">暂无评语</span>
+                        <span :if="el.content.content_my!='' && el.content.content_my!=null">
+                       {{el.content.content_my}}
+                    </span>
+                    </div>
+                </div>
+                <div class="public_btn">
+                    <a :if="@is_fill == 1 && @current_se_id == @el.id" ms-on-click="@edit_btn(el)">评价/修改</a>
+                    <a class="color_gray" :if="@current_se_id != @el.id">评价/修改</a>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+</div>

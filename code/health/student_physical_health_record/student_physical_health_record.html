@@ -1,0 +1,90 @@
+<!--<div class="am-g" id="page_title_div">-->
+ <!--<table id="title_table">-->
+  <!--<tr>-->
+   <!--<td class="title_nowrap" id="first_title">-->
+    <!--<span>-->
+     <!--综合成绩-->
+    <!--</span>-->
+   <!--</td>-->
+   <!--<td>-->
+    <!--<img alt="" src="Growth/common/images/title_line.png"/>-->
+   <!--</td>-->
+   <!--<td class="title_nowrap" id="last_title">-->
+    <!--体质健康/-->
+    <!--<span>-->
+     <!--成绩查看-->
+    <!--</span>-->
+   <!--</td>-->
+  <!--</tr>-->
+ <!--</table>-->
+<!--</div>-->
+<xmp ms-widget="{is:'page_title_div',title:'查看',reBack:'1'}">
+</xmp>
+<div class="am-g" id="teacher_edit_div" ms-important="teacher_edit_art_evaluation">
+ <div class="am-text-center am-padding-top-sm am-padding-bottom-sm" id="searchDiv">
+  <div>
+   学年学期
+   <select data-duplex-changed="@semesterChange" ms-duplex="@data.semester_name">
+    <option value="0">
+     请选择
+    </option>
+    <!--ms-for: el in @data.semester_name_arr-->
+    <option ms-attr="{value:el.semester_name}">
+     {{el.semester_name}}
+    </option>
+    <!--ms-for-end:-->
+   </select>
+  </div>
+  <div class="am-margin-left-sm">
+   测评项目
+   <select data-duplex-changed="@projectChange" ms-duplex="@data.form.project">
+    <option value="0">
+     请选择
+    </option>
+    <!--ms-for: el in @data.project_list-->
+    <option ms-attr="{value:el._id}">
+     {{el.name}}
+    </option>
+    <!--ms-for-end:-->
+   </select>
+  </div>
+  <div class="am-btn am-btn-primary am-margin-left-xl" ms-click="@checkBtn">
+   确定
+  </div>
+ </div>
+ <div class="am-text-right" ms-if="false">
+  <button class="am-btn am-btn-warning" ms-on-click="@uploadingModal()">
+   成绩导入
+  </button>
+ </div>
+ <div id="div_table">
+  <table class="am-table am-table-striped am-table-hover am-margin-top-sm" id="score_table">
+   <thead>
+    <tr>
+     <!--ms-for: el in @theadTh-->
+     <th>
+      {{el.name}}
+     </th>
+     <!--ms-for-end:-->
+    </tr>
+   </thead>
+   <tbody>
+    <!--ms-for: $idx,el in @tbodyex-->
+    <tr>
+     <!--ms-for: col in @theadTh-->
+     <td ms-if="col.type == 'index'">
+      {{$idx+1}}
+     </td>
+     <td ms-if="col.type == 'text'">
+      {{ @showDate(col,el) }}
+     </td>
+     <td ms-if="col.type == 'import'">
+      {{el[col.alias].value}}
+     </td>
+     <!--ms-for-end:-->
+    </tr>
+    <!--ms-for-end:-->
+   </tbody>
+  </table>
+ </div>
+</div>

@@ -1,0 +1,727 @@
+<div ms-important="new_upload_material" id="new_upload_material">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="container">
+        <div class="all-select">
+
+            <div class="search-content clearfix">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@change_grade,head_value:@head_value.grade, $id:'update_mate_opt_grade'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@change_class,head_value:@head_value.class,  $id:'update_mate_opt_class'}"></xmp>
+                </div>
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',is_init:true,head_value:'请选择类型',sel_check:@change_type,data_arr:@type_arr}"></xmp>
+                </div>
+                <div class="select">
+                    <input type="text" placeholder="请输入学生姓名" :duplex="filter.name">
+                </div>
+                <div class="select">
+                    <input type="text" placeholder="请输入学生学籍号" :duplex="filter.code">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!--ms-for:($idx,el) in @list-->
+        <div class="inner-content" :visible="el.mk == @form_list.mk || @form_list.mk==''" :visible="@filter_show(el)">
+            <div class="b-title">
+                复议审核信息
+            </div>
+            <div class="table-container">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>提出人</th>
+                        <th>异议类型</th>
+                        <th>提出时间</th>
+                        <th>异议内容</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ms-for:($idx,row) in el.dissent_list-->
+                    <tr :visible="el.mk != 9">
+                        <td>{{$idx+1}}</td>
+                        <td>{{row.owner_name}}</td>
+                        <td>无</td>
+                        <td>
+                            <span :visible="ary_score.indexOf(el.mk)>=0">{{row.create_time*1000|date}}</span>
+                            <span :visible="ary_score.indexOf(el.mk)<0">{{row.create_time|date}}</span>
+
+                        </td>
+                        <td>{{row.content}}</td>
+                    </tr>
+                    <tr :visible="el.mk == 9">
+                        <td>{{$idx+1}}</td>
+                        <td>{{row.name}}</td>
+                        <td>无</td>
+                        <td>{{row.join}}</td>
+                        <td>{{row.content}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="b-title">
+                材料记录详情
+            </div>
+            <div class="inner">
+                <div class="m-title">
+                    <div class="person-left">
+                        <img style="border-radius: 30px" ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}"
+                             alt="">
+                        <h3>{{el.xsxm}}</h3>
+                    </div>
+                    <div class="person-right">
+                        <div class="persion-title">
+                            |<span :visible="el.mk!=7 && el.mk!=8">{{el.lx}}</span>
+                            <span :visible="el.mk==7">日常表现</span>
+                            <span :visible="el.mk==8">成长激励卡</span>|
+
+                        </div>
+                        <div class="person-msg">
+                            <h3>
+                                {{el.njmc}} {{el.bjmc}} {{ el.njmc.indexOf("班")>=0?"":"班"}}
+                            </h3>
+                            <h3>
+                                {{el.xxmc}}
+                            </h3>
+                            <h3>
+                                {{el.sj}}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!--思想品德-->
+                <div class="am-u-g" :visible="el.mk==1">
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{el.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型:</h3>
+                            <p>{{el.lx}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>地点:</h3>
+                            <p>{{el.dd}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>开始时间 : </h3>
+                            <p>{{el.kssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>结束时间</h3>
+                            <p>{{el.jssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>时长</h3>
+                            <p>{{el.sc}}&nbsp;小时</p>
+                        </div>
+                    </div>
+
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>参与成员 : </h3>
+                            <p>{{el.cy}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>标注特长</h3>
+                            <p>{{el.sftc}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>得分</h3>
+                            <p>{{el.df}}</p>
+                        </div>
+                    </div>
+
+                    <div class="bg">
+                        <h3>详细描述 : </h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>收获感想: </h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+                </div>
+                <!--艺术素养 -->
+                <div :visible="el.mk==2">
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{el.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型:</h3>
+                            <p>{{el.lx}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>地点:</h3>
+                            <p>{{el.dd}}</p>
+                        </div>
+
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>开始时间 : </h3>
+                            <p>{{el.kssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>结束时间</h3>
+                            <p>{{el.jssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>时长</h3>
+                            <p>{{el.sc}}&nbsp;小时</p>
+                        </div>
+                    </div>
+
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>参与成员 : </h3>
+                            <p>{{el.cy}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>标注特长</h3>
+                            <p>{{el.sftc}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>得分</h3>
+                            <p>{{el.df}}</p>
+                        </div>
+                    </div>
+
+                    <div class="bg">
+                        <h3>详细描述 : </h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>收获感想: </h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+
+
+                </div>
+                <!--社会实践-->
+                <div :visible="el.mk==3">
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{el.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型:</h3>
+                            <p>{{el.lx}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>地点:</h3>
+                            <p>{{el.dd}}</p>
+                        </div>
+
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>开始时间 : </h3>
+                            <p>{{el.kssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>结束时间</h3>
+                            <p>{{el.jssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>时长</h3>
+                            <p>{{el.sc}}&nbsp;小时</p>
+                        </div>
+                    </div>
+
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>参与成员 : </h3>
+                            <p>{{el.cy}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>标注特长</h3>
+                            <p>{{el.sftc}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>得分</h3>
+                            <p>{{el.df}}</p>
+                        </div>
+                    </div>
+
+                    <div class="bg">
+                        <h3>详细描述 : </h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>收获感想: </h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+
+
+                </div>
+                <!--学业水平-->
+                <div :visible="el.mk==4">
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{el.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型:</h3>
+                            <p>{{el.lx}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>地点:</h3>
+                            <p>{{el.dd}}</p>
+                        </div>
+
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>开始时间 : </h3>
+                            <p>{{el.kssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>结束时间</h3>
+                            <p>{{el.jssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>时长</h3>
+                            <p>{{el.sc}}&nbsp;小时</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>指导教师</h3>
+                            <p>{{el.zdjs}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>担任角色</h3>
+                            <p>{{el.drjs}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>承担任务</h3>
+                            <p>{{el.cdrw}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>参与成员</h3>
+                            <p>{{el.cy}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>研究主题</h3>
+                            <p>{{el.yjzt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>标注特长</h3>
+                            <p>{{el.sftc}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>得分</h3>
+                            <p>{{el.df}}</p>
+                        </div>
+                    </div>
+
+                    <div class="bg">
+                        <h3>详细描述 : </h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>收获感想: </h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+                </div>
+                <!--身体健康-->
+                <div :visible="el.mk==5">
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{el.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型:</h3>
+                            <p>{{el.lx}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>地点:</h3>
+                            <p>{{el.dd}}</p>
+                        </div>
+
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>开始时间 : </h3>
+                            <p>{{el.kssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>结束时间</h3>
+                            <p>{{el.jssj|date}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>时长</h3>
+                            <p>{{el.sc}}&nbsp;小时</p>
+                        </div>
+                    </div>
+
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>参与成员 : </h3>
+                            <p>{{el.cy}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>标注特长</h3>
+                            <p>{{el.sftc}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>得分</h3>
+                            <p>{{el.df}}</p>
+                        </div>
+                    </div>
+
+                    <div class="bg">
+                        <h3>详细描述 : </h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>收获感想: </h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+                    <div class="bg">
+                        <h3>得分 : </h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+
+                </div>
+                <!--成就奖励-->
+                <div :visible="el.mk==6">
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>名称 : </h3>
+                            <p>{{el.bt}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>类型:</h3>
+                            <p>{{el.lx}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>地点:</h3>
+                            <p>{{el.dd}}</p>
+                        </div>
+
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>级别</h3>
+                            <p>{{el.jb}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>等级</h3>
+                            <p>{{el.dj}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>得分</h3>
+                            <p>{{el.df}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>标注特长</h3>
+                            <p>{{el.sftc}}</p>
+                        </div>
+                    </div>
+                    <div class="bg">
+                        <h3>收获感想: </h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+                </div>
+                <!--日常表现-->
+                <div :visible="el.mk==7">
+
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>表现时间</h3>
+                            <p>{{el.sj}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>评价维度</h3>
+                            <p>{{el.yjzb_mc}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>评价要素</h3>
+                            <p>{{el.ejzb_mc}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>关键表现</h3>
+                            <p>{{el.sjzb_mc}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>得分</h3>
+                            <p>{{el.df}}</p>
+                        </div>
+                    </div>
+                    <div class="bg">
+                        <h3>详细描述: </h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                </div>
+                <!--成长激励卡-->
+                <div :visible="el.mk==8">
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>成长激励卡名称:</h3>
+                            <p>{{el.bt}}</p>
+                        </div>
+                    </div>
+                    <div class="sm first-sm">
+                        <div class="sm-each">
+                            <h3>发卡人:</h3>
+                            <p>{{el.zdjs}}</p>
+                        </div>
+                        <div class="sm-each">
+                            <h3>发卡时间:</h3>
+                            <p>{{el.sj|date("yyyy-MM-dd")}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!--体质测评异议项-->
+                <div :visible="el.mk==9" style="overflow: auto">
+                    <table class="am-table am-table-bordered">
+                        <thead>
+                        <tr>
+                            <td>序号</td>
+                            <td>姓名</td>
+                            <td>学籍号</td>
+                            <td>性别</td>
+                            <td>身高</td>
+                            <td>体重</td>
+                            <td>体重评分</td>
+                            <td>体重等级</td>
+                            <td>肺活量</td>
+                            <td>肺活量评分</td>
+                            <td>肺活量等级</td>
+                            <td>50米跑</td>
+                            <td>50米跑评分</td>
+                            <td>50米跑等级</td>
+                            <td>立定跳远</td>
+                            <td>立定跳远评分</td>
+                            <td>立定跳远等级</td>
+                            <td>坐位体前屈</td>
+                            <td>坐位体前屈评分</td>
+                            <td>坐位体前屈等级</td>
+                            <td>800米跑</td>
+                            <td>800米跑评分</td>
+                            <td>800米跑等级</td>
+                            <td>800米跑附加分</td>
+                            <td>1000米跑</td>
+                            <td>1000米跑评分</td>
+                            <td>1000米跑等级</td>
+                            <td>1000米跑附加分</td>
+                            <td>一分钟仰卧起坐</td>
+                            <td>一分钟仰卧起坐评分</td>
+                            <td>一分钟仰卧起坐等级</td>
+                            <td>一分钟仰卧起坐附加分</td>
+                            <td>引体向上</td>
+                            <td>引体向上评分</td>
+                            <td>引体向上等级</td>
+                            <td>引体向上附加分</td>
+                            <td>标准分</td>
+                            <td>附加分</td>
+                            <td>总分</td>
+                            <td>总分等级</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{$idx+1}}</td>
+                            <td>{{el.name}}</td>
+                            <td>{{el.code|mtruncate(3,3)}}</td>
+                            <td>{{el.sex==1?'男':'女'}}</td>
+                            <td>{{el.height}}</td>
+                            <td>{{el.weight}}</td>
+                            <td>{{el.weight_score}}</td>
+                            <td>{{el.weight_lv}}</td>
+                            <td>{{el.vital_capacity}}</td>
+                            <td>{{el.vital_capacity_score}}</td>
+                            <td>{{el.vital_capacity_lv}}</td>
+                            <td>{{el.run_50}}</td>
+                            <td>{{el.run_50_score}}</td>
+                            <td>{{el.run_50_lv}}</td>
+                            <td>{{el.ldty}}</td>
+                            <td>{{el.ldty_score}}</td>
+                            <td>{{el.ldty_lv}}</td>
+                            <td>{{el.zqqq}}</td>
+                            <td>{{el.zqqq_score}}</td>
+                            <td>{{el.zqqq_lv}}</td>
+                            <td>{{el.run_800}}</td>
+                            <td>{{el.run_800_score}}</td>
+                            <td>{{el.run_800_lv}}</td>
+                            <td>{{el.run_800_extra}}</td>
+                            <td>{{el.run_1000}}</td>
+                            <td>{{el.run_1000_score}}</td>
+                            <td>{{el.run_1000_lv}}</td>
+                            <td>{{el.run_1000_extra}}</td>
+                            <td>{{el.ywqz}}</td>
+                            <td>{{el.ywqz_scor}}</td>
+                            <td>{{el.ywqz_lv}}</td>
+                            <td>{{el.ywqz_extra}}</td>
+                            <td>{{el.ytxs}}</td>
+                            <td>{{el.ytxs_score}}</td>
+                            <td>{{el.ytxs_lv}}</td>
+                            <td>{{el.ytxs_extra}}</td>
+                            <td>{{el.criteria_score}}</td>
+                            <td>{{el.extra_score}}</td>
+                            <td>{{el.total_score}}</td>
+                            <td>{{el.total_score_lv}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--学业成绩-->
+                <div :visible="el.mk==10">
+                    <div class="content-nr-nn">
+                        <div class="content-nr-one" :visible="count(el.columns, 'type', 'nor') != 0">
+                            <h3>按分数记录成绩</h3>
+                            <table class="am-table am-table-bordered">
+                                <tr>
+                                    <td class="padding-td">科目</td>
+                                    <td :for="sil in el.columns" :visible="sil.type == 'nor'">{{sil.name}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td class="padding-td">成绩</td>
+                                    <td :for="$index,sil in el.columns" :visible="sil.type == 'nor'">
+                                        {{el.content[sil.alias].value}}
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="content-nr-three" :visible="count(el.columns, 'type', 'pass') != 0">
+                            <h3>按合格/不合格记录</h3>
+                            <table class="am-table am-table-bordered">
+                                <tr>
+                                    <td class="padding-td">科目</td>
+                                    <td :for="sil in el.columns" :visible="sil.type == 'pass'">{{sil.name}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td class="padding-td">成绩</td>
+                                    <td :for="sil in el.columns" :visible="sil.type == 'pass'">
+                                        {{el.content[sil.alias].level}}
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="content-nr-two" :visible="count(el.columns, 'type', 'ABCD') != 0">
+                            <h3>按A/B/C/D等级记录学科</h3>
+                            <table class="am-table am-table-bordered" style="width: 300px;">
+                                <tr>
+                                    <td class="padding-td" style="width: 150px;">科目</td>
+                                    <td :for="sil in el.columns" :visible="sil.type == 'ABCD'">{{sil.name}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td class="padding-td">成绩</td>
+                                    <td style="width: 150px;" :for="sil in el.columns" :visible="sil.type == 'ABCD'">
+                                        {{el.content[sil.alias].level}}
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="img-container clearfix" :visible="ary_score.indexOf(el.mk)<0">
+                    <h3 ms-visible="@el.img_arr.length>0">图片材料：</h3>
+                    <!--ms-for: ($index,col) in @el.img_arr-->
+                    <div ms-class="[(@is_open? '':'part-img')]">
+                        <img ms-attr="{src:@url_img(col.guid)}">
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+                <div class="text-content">
+                    <h3 ms-visible="@el.video_arr.length>0 || @el.file_arr.length>0">文件材料：</h3>
+                    <ul>
+                        <li ms-for="col in @el.video_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                        <li ms-for="col in @el.file_arr">
+                            <a ms-attr="{href:col.down_href}">{{col.file_name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bt clearfix">
+                    <!--<div :visible="!is_open && @ary_score.indexOf(el.mk)<0" class="open-close open" ms-click="@open_close(1)">-->
+                        <!--展开<span></span>-->
+                    <!--</div>-->
+                    <!--<div :visible="is_open && @ary_score.indexOf(el.mk)<0" class="open-close close" ms-click="@open_close(2)">-->
+                        <!--收起<span></span>-->
+                    <!--</div>-->
+                    <!--<div :visible="ary_score.indexOf(el.mk)<0" class="btns clearfix">-->
+                        <!--<button class="no-pass" ms-click="@disagree(el)">异议无效</button>-->
+                        <!--<button class="pass" ms-click="@establish(el)">异议成立</button>-->
+                    <!--</div>-->
+                    <div :visible="!is_open && el.mk != 10 && el.mk != 9" class="open-close open" ms-click="@open_close(1)">
+                        展开<span></span>
+                    </div>
+                    <div :visible="is_open && el.mk != 10 && el.mk != 9" class="open-close close" ms-click="@open_close(2)">
+                        收起<span></span>
+                    </div>
+                    <div :visible="el.mk != 10 && el.mk != 9" class="btns clearfix">
+                        <button class="no-pass" ms-click="@disagree(el)">异议无效</button>
+                        <button class="pass" ms-click="@establish(el)">异议成立</button>
+                    </div>
+                    <div :visible="el.mk=='9'" class="btns clearfix">
+                        <!--<a class="am-btn am-btn-primary"-->
+                           <!--:attr="{href:'#ph_check_detail?id='+el.content._id + '&school_id='+fk_school_id}">异议处理</a>-->
+                        <a class="am-btn am-btn-primary" ms-on-click="@tz_dissent_btn(el)">异议处理</a>
+                    </div>
+                    <div :visible="el.mk=='10'" class="btns clearfix">
+                        <a class="am-btn am-btn-primary"
+                           :attr="{href:'#score_dissent_detail?_id='+el.content._id + '&semester_id='+el.content.semester_id}">异议处理</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <div style="text-align: center;" ms-visible="@list.length==0&&is_show_none">
+            <img src="../../../../common/images/none.png" alt="">
+        </div>
+    </div>
+
+
+    <div id="v_layer">
+        <textarea ms-duplex="@opinion" placeholder="请说明核实结果？"></textarea>
+        <div class="files">
+            上传核查材料:
+            <button>请选择文件</button>
+            <span>{{@file_name}}</span>
+            <input type="file" id="file">
+        </div>
+    </div>
+</div>

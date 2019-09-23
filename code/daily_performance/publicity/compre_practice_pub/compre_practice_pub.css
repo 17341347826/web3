@@ -1,0 +1,263 @@
+#compre_practice_pub{
+    background-color: #f1f2f6;
+}
+#compre_practice_pub .common-select{
+    border-radius: 4px 4px 0px 0px;
+    padding-left:16px;
+    padding-right:16px;
+}
+#compre_practice_pub .common-select,
+#compre_practice_pub .list-con>div{
+    background-color: white;
+}
+/*内容部分*/
+#compre_practice_pub .list-con{
+    /*overflow: hidden;*/
+    /*padding:*/
+}
+#compre_practice_pub .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#compre_practice_pub .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#compre_practice_pub .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+}
+#compre_practice_pub .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#compre_practice_pub .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#compre_practice_pub .list-con .daily-person .stu-info>div{
+    /*width:766px;*/
+    display:inline-block;
+}
+#compre_practice_pub .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#compre_practice_pub .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#compre_practice_pub .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*#compre_practice_pub .line-two{*/
+/*display:inline-block;*/
+/*width: 1px;*/
+/*height: 18px;*/
+/*background-color: #a2a2a2;*/
+/*}*/
+/*学生头像那块*/
+#compre_practice_pub .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#compre_practice_pub .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#compre_practice_pub .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#compre_practice_pub .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#compre_practice_pub .stu-school{
+    /*border:1px solid red;*/
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+/*班团活动*/
+#compre_practice_pub .stu-school .btn-operation{
+    text-align: right;
+    margin-top: 14px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+#compre_practice_pub .stu-school .btn-operation .d-name{
+    /*float:left;*/
+    font-size: 18px;
+    line-height:18px;
+    font-weight: bold;
+    color: #a2a2a2;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #a2a2a2;
+    border-left: 1px solid #a2a2a2;
+}
+#compre_practice_pub .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#compre_practice_pub .stu-school>div:last-child span{
+    margin-right:54px;
+}
+#compre_practice_pub .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#compre_practice_pub  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#compre_practice_pub .daily-info>div{
+    margin-top:10px;
+}
+#compre_practice_pub  .daily-info .one-two-index span:first-child{
+    margin-right:72px;
+}
+#compre_practice_pub .daily-info h3{
+     font-size: 16px;
+     font-weight: normal;
+     font-stretch: normal;
+     color: #a2a2a2;
+     float:left;
+     margin:0;
+     padding:0;
+ }
+#compre_practice_pub .daily-info p{
+    margin:0;
+    padding:0;
+    padding-left:85px;
+}
+#compre_practice_pub  .two-info span:first-child{
+    margin-right:80px;
+}
+/*图片*/
+#compre_practice_pub  .daily-info .img-ary{
+    border-radius: 4px;
+    /*height:150px;*/
+    /*overflow: hidden;*/
+}
+#compre_practice_pub  .daily-info .img-ary img{
+    margin-bottom:5px;
+    width:766px;
+}
+#compre_practice_pub  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+.img-ary-height{
+    height:150px !important;
+    overflow: hidden;
+}
+.img-ary-height-open{
+    height:auto !important;
+}
+/*展开提异议*/
+#compre_practice_pub  .daily-info .img-objection{
+    text-align: center;
+    position: relative;
+    margin-top:10px;
+}
+#compre_practice_pub  .daily-info .img-objection>div{
+    display:inline-block;
+    cursor: pointer;
+}
+#compre_practice_pub .img-objection .img-switch{
+    width: 80px;
+    height: 28px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    line-height:28px;
+    text-align: center;
+    border: solid 1px #2bbba4;
+    color: #2bbba4;
+}
+#compre_practice_pub .img-objection .img-switch:hover{
+    background-color: #2bbba4;
+    color: #fff;
+}
+/*展开*/
+#compre_practice_pub .img-objection .img-open span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/down.png");
+    margin-left:5px;
+}
+#compre_practice_pub .img-objection .img-open:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/down1.png");
+}
+/*收起*/
+#compre_practice_pub .img-objection .img-close span:last-child{
+    height:11px;
+    width:11px;
+    display:inline-block;
+    background-image: url("../../../../common/images/teacher/top.png");
+    margin-left:5px;
+}
+#compre_practice_pub .img-objection .img-close:hover span:last-child{
+    background-image: url("../../../../common/images/teacher/top1.png");
+}
+#compre_practice_pub .img-objection .ask-dissent{
+    width: 98px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #ff9e47;
+    border-radius: 4px;
+    color:#fff;
+    position: absolute;
+    right:0;
+}
+#compre_practice_pub .img-objection .ask-dissent:hover{
+    background-color: #ff7a45;
+}
+/*异议内容*/
+#compre_practice_pub .yy-con{
+    color: #ff6656;
+}
+/*h标签与p不得不说的密码*/
+/** + p, * + hr, * + ul, * + ol, * + dl, * + blockquote, * + pre, * + address, * + fieldset, * + figure {*/
+/*margin-top:0;*/
+/*margin-bottom: 0;*/
+/*}*/
+/*#compre_practice_pub .h-style{*/
+/*float: left;*/
+/*margin-top: -1.6rem;*/
+/*}*/
+
+.yy ul{
+    list-style: none;
+    padding-left: 0;
+    color: #ff6656;
+}
+
+#compre_practice_pub .list-con a {
+    text-decoration: underline;
+}

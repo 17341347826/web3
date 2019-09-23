@@ -1,0 +1,50 @@
+<div ms-important="task_control_list" id="task_control_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@sel_check,head_value:@first_grade}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="e-content">
+        <div class="table-module">
+            <table class="am-table am-table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2">评价方式</th>
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <th>使用状态</th>
+                        <th>参数设置</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <tr ms-for="$idx,el in @task_ary">
+                    <td  ms-visible="$idx==0||el.f_name != @task_ary[$idx-1].f_name" ms-attr="{rowspan:@count(@task_ary, 'f_name', el.f_name)}">
+                        {{el.f_name}}
+                    </td>
+                    <td>{{el.p_name}}</td>
+                    <td>{{el.start_time}}</td>
+                    <td>{{el.end_time}}</td>
+                    <td>
+                        <!--<a class='tab-btn' :if="@ident_type == 0" ms-on-click="@switch_btn(el)" ms-class="['tab-btn', el.is_switch==true?'tab-toggle-on-btn':'tab-toggle-off-btn']"></a>-->
+                        <!--<a class='tab-btn tab-toggle-off-btn' :if="@ident_type == 1" style="cursor: auto"></a>-->
+                        <a :visible="@ident_type == 0"  ms-class="['tab-btn', el.is_switch==true?'tab-toggle-on-btn':'tab-toggle-off-btn']"
+                            ms-on-click="@switch_btn(el)"></a>
+                        <span :visible="@ident_type == 1 && el.is_switch == true">开启</span>
+                        <span :visible="@ident_type == 1 && el.is_switch == false">关闭</span>
+                    </td>
+                    <td>
+                        <a class='tab-btn tab-setting-btn' title="编辑" ms-click="@edit(el)"
+                           :if="@ident_type == 0 || (el.module_type == 0 || el.module_type == 7 || el.module_type == 8 || el.module_type == 14)"></a>
+                        <a class="tab-btn tab-setting-btn-disabled"  title="不可编辑"
+                           :if="@ident_type == 1 && (el.module_type != 0 && el.module_type != 7 && el.module_type != 8 && el.module_type != 14)"></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

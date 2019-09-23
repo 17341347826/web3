@@ -1,0 +1,49 @@
+#portrait_analysis_graduate {
+    background-color: #f2f2f6;
+}
+#portrait_analysis_graduate>div{
+    background-color: white;
+}
+#portrait_analysis_graduate .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+#portrait_analysis_graduate .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#portrait_analysis_graduate >div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+#portrait_analysis_graduate .common-select{
+    padding-left:17px;
+}
+#portrait_analysis_graduate .list-con{
+    padding:16px 17px 20px;
+    overflow: hidden;
+}
+#portrait_analysis_graduate .table_module .am-table-bordered {
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    border-left:none;
+}

@@ -1,0 +1,39 @@
+<div ms-important="region_analysis_wd" id="region_analysis">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl " ms-click="@to_page('region_analysis')">综合等级</div>
+            <div class="am-fl" :class="[@html_display==2?'chosen':'']" ms-click="@to_page('region_analysis_wd?sta_type=2')">评价维度</div>
+            <div class="am-fl " :class="[@html_display==3?'chosen':'']" ms-click="@to_page('region_analysis_wd?sta_type=3')">评价要素</div>
+        </div>
+    </div>
+    <!--引用公共组件查询-->
+    <div class="common-select">
+        <div class="search-cont clearfix" style="padding-left: 16px;">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择年级'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择学期'}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="content-title-one">
+        <h3>{{@city}}{{@grade_name}}在{{@semester_name}}学期各区域学生综合素质评价表现情况</h3>
+        <p>
+            根据该学期学生综合素质评价的反馈，市辖区学生综合素质评价明显优于其他区域，根据学生上传数据的数量，参与活动的质量
+        </p>
+    </div>
+
+    <div class="ra-container" >
+        <!--<div id="ra2" ms-if="@qy_hd_data.length>1">-->
+        <div id="ra2" ms-if="@qy_hd_data.length != 0">
+
+        </div>
+        <div ms-if="@qy_hd_data.length == 0">
+            学生活动上传无数据
+        </div>
+    </div>
+
+
+</div>

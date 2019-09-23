@@ -1,0 +1,70 @@
+<div id="uploader" class="am-u-sm-12" style="    border: 3px dashed #e6e6e6;">
+    <div class="queueList">
+        <div id="dndArea" class="placeholder" ms-visible="@files.length == 0">
+            <div id="filePicker" class="webuploader-container">
+                <div class="webuploader-pick" ms-attr="{id:@name}"> 点击选择</div>
+            </div>
+            <p>最多可选择9个文件,文件格式不区分大小写</p>
+            <p>视频要求:格式mp4、mov、avi、flv、swf，大小≤100MB（兆）</p>
+            <p>图片要求:格式jpg、jpeg、png，宽或高≥300像素，0.5≤宽高比≤1</p>
+            <p>其他要求:格式pdf、xls、xlsx、doc、docx、ppt、pptx、txt</p>
+        </div>
+        <div class="filelist">
+
+
+            <!--ms-for: $index,image_info in @files-->
+            <div style="width: 260px;height: 260px;margin: 15px;float:left;">
+
+                <div class="am-g doc-am-g group_image" ms-on-mouseenter="on_mouse_enter($index)"
+                     ms-on-mouseleave="@on_mouse_leave($index)">
+                    <div class="am-u-sm-12" align="center" style="padding: 0px;margin: 0px;height: 100%">
+
+                        <img ms-visible="@is_sup_view(image_info.mini_type) && @is_img_guid(image_info)" class="imgWrap" ms-attr="{src:@url_image(image_info.src,image_info.guid)}"
+                             ms-css="@rotation_str($index)" style="height: 100%">
+                        <p ms-visible="!@is_sup_view(image_info.mini_type)" style="line-height: 258px;">文件暂不支持预览</p>
+                        <div class="file-panel" style="height: 30px;background-color: #be590a;top:0px;"
+                             ms-visible="@current_hover==$index">
+                            <span class="cancel" ms-on-click="@on_remove_file($index)">删除</span>
+                            <span ms-visible="@is_sup_view(image_info.mini_type)" class="rotateRight" ms-on-click="@rotate($index, 90)">向右旋转</span>
+                            <span ms-visible="@is_sup_view(image_info.mini_type)" class="rotateLeft" ms-on-click="@rotate($index, -90)">向左旋转</span>
+                        </div>
+                        <p  ms-visible="@is_sup_view(image_info.mini_type)" class="title" style="display: block;">
+                            <input  type="text" class="title" style="display: block;color: black"
+                                   ms-duplex="@image_info.desc|isNll" placeholder="在这里输入描述"/>
+
+                        </p>
+
+                        <p  ms-visible="!@is_sup_view(image_info.mini_type)" class="title" style="display: block;">
+
+                            {{@image_info.file_name}}
+                        </p>
+                        <img ms-attr="{src:@icon_success}" ms-visible="@image_info.status=='success'" class="view-img"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <div class="statusBar" ms-visible="@files.length != 0&&@process <= 0">
+        <div class="progress" style="display: none;">
+            <span class="text">0%</span>
+            <span class="percentage" style="width: 0%;"></span>
+        </div>
+        <div class="info">已上传成功{{@files.length}}个文件
+            <!--（{{ @size / 1024 / 1024|number(3) }} MB）-->
+        </div>
+        <div class="btns">
+            <div id="filePicker2" class="webuploader-container">
+                <div class="webuploader-pick" ms-on-click="@show_file_dia()">继续添加</div>
+            </div>
+            <!-- <div class="uploadBtn state-pedding" ms-on-click="@start()">开始上传</div> -->
+        </div>
+    </div>
+    <div class="statusBar" ms-visible="@process > 0">
+        <div class="am-progress">
+            <div class="am-progress-bar" ms-css="{width:@process+'%'}">{{ @process|number(2) }}%</div>
+        </div>
+    </div>
+</div>

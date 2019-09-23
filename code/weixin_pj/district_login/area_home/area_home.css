@@ -1,0 +1,81 @@
+#area_home{
+    background-color: #ffffff;
+    padding-bottom: 59px;
+}
+#area_home .swiper-wrapper img{
+    width: 100%;
+}
+#area_home .swiper-container-horizontal>.swiper-pagination-bullets{
+    /*bottom: -10px;*/
+}
+#area_home .area_home_content{
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 12px;
+    color: #a1a1a1;
+    text-align: center;
+}
+/*欢迎语*/
+#area_home .area_home_content .welcoming{
+    /*margin-left: 10px;*/
+    font-size: 14px;
+}
+#area_home .area_home_content>.context_high{
+    margin-top: 17px;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 32px 0px #dfdfdf;
+    border-radius: 10px;
+}
+#area_home .first_high{
+    margin-top: 13px!important;
+}
+#area_home .area_home_content p+div{
+    /*background-color: #ffffff;*/
+    /*box-shadow: 0px 3px 32px 0px #dfdfdf;*/
+    /*border-radius: 10px;*/
+    margin-top: 8px;
+    min-height: 190px;
+}
+/*通知管理*/
+#area_home .notice-msg{
+    padding-top:10px;
+}
+/*新增记录*/
+#area_home .add-jl .text_remark span,
+#area_home .user-type .text_remark span{
+    font-weight: bolder;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#area_home .add-jl .text_remark,
+#area_home .user-type .text_remark{
+    overflow: hidden;
+}
+#area_home .add-rc,
+#area_home .add-hd,
+#area_home .user-type .online-user,
+#area_home .user-type .today-login,
+#area_home .user-type .today-visit{
+    display:inline-block;
+}
+#area_home .add-rc span{
+    color: #fdd158;
+}
+#area_home .add-hd,
+#area_home .user-type .today-login,
+#area_home .user-type .today-visit{
+    margin-left:20px;
+}
+#area_home .add-hd span{
+    color: #0090ff;
+}
+/*使用状态*/
+#area_home .user-type .online-user span{
+    color: #58adfd;
+}
+#area_home .user-type .today-login span{
+    color: #6ee59e;
+}
+#area_home .user-type .today-visit span{
+    color: #ff7e00;
+}

@@ -1,0 +1,152 @@
+#graduation_results {
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+#graduation_results .content-yy {
+    width: 100%;
+    display: block;
+}
+
+#graduation_results .content-table-tt {
+    overflow: hidden;
+}
+
+#range_tubiao {
+    min-width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.qcfd {
+    clear: both;
+}
+
+.content-two {
+    width: 100%;
+    height: 350px;
+    margin-top: 4px;
+    background-color: #fff;
+    /*border:1px solid red;*/
+}
+
+.content-title-h {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.content-table-tt {
+    padding: 16px;
+}
+
+#graduation_results .content-title-h h3 {
+    font-size: 20px;
+    color: #15bf9d;
+    font-weight: 500;
+    padding-top: 20px;
+}
+
+.content-sub {
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+
+.content-cha-left {
+    flex: 1;
+}
+
+.content-tr-right {
+    flex: 1;
+    padding-top: 150px;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.cha-o {
+    width: 420px;
+    height: 204px;
+}
+
+/*highcharts引用中li*/
+.highcharts-root {
+    background-color: #fff !important;
+}
+
+.highcharts-legend {
+    display: none;
+}
+
+.branches {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-family: "Microsoft YaHei";
+    color: #5f5f5f;
+    font-size: 16px;
+}
+
+.rank {
+    position: absolute;
+    top: 240px;
+    right: 30px;
+    writing-mode: vertical-lr; /*从左向右 从右向左是 writing-mode: vertical-rl;*/
+    writing-mode: tb-lr; /*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+    font-family: "Microsoft YaHei";
+    color: #5f5f5f;
+    font-size: 16px;
+}
+
+.content-table-t {
+    width: 400px;
+    height: 150px;
+    text-align: center;
+    margin: 80px auto;
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    color: #a2a2a2;
+}
+
+.content-three {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.common-select > .search-cont {
+    padding-left: 16px;
+}
+
+.content-yy {
+    padding-left: 16px;
+}
+
+/*分页*/
+.page-active {
+    background-color: rgba(255, 171, 120, 1);
+    color: #fff;
+}
+
+.print-btn {
+    display: inline-block;
+}
+
+.print-btn > input[type='button'] {
+    height: 36px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #2bbba4;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+#graduation_results .content-sub .no-data{
+    height:100%;
+    width: 100%;
+    margin-top: 42px;
+}

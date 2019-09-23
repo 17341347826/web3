@@ -1,0 +1,69 @@
+<div class="v-login-container" ms-important="wx_login" id="wx_login">
+    <div class="logo weui-text-center">
+        <div>
+            <img alt="" src="../../../common/images/weixin_pj/logo3.png"/>
+        </div>
+        <div>
+            眉山市初中学生综合素质评价
+        </div>
+        <div class="bg-three">
+            <img alt="" src="code/weixin_xy/login/bg_three.png"/>
+        </div>
+        <div class="bg-two">
+            <img alt="" src="code/weixin_xy/login/bg_two.png"/>
+        </div>
+    </div>
+    <div class="login-container">
+        <!--账户-->
+        <div class="login-input-container">
+            <div class="pj-user">
+                <img alt="" src="common/images/wx_user.png"/>
+            </div>
+            <input ms-duplex="@form.account" ms-blur="showFooter()" ms-focus="@hideFooter()" placeholder="请输入账户"
+                   type="text"/>
+        </div>
+        <!--密码-->
+        <div class="login-input-container">
+            <div class="pj-pwd">
+                <img alt="" src="common/images/wx_pwd.png"/>
+            </div>
+            <input ms-duplex="@form.password" ms-blur="showFooter()" ms-focus="@hideFooter()" placeholder="请输入密码"
+                   type="password"/>
+        </div>
+
+        <div id="parentMock">
+            <label class="weui-agree" for="auto_login">
+                <input class="weui-agree__checkbox" id="auto_login" ms-duplex-checked="@is_auto" type="checkbox"/>
+                <span class="weui-agree__text">
+     <a href="">
+      自动登录
+     </a>
+    </span>
+            </label>
+            <a href="#parent_sign" id="parent_sign">
+                家长注册
+            </a>
+            <span class="split-line"></span>
+            <a href="#found_pwd_wx" class="forget-pwd">
+                忘记密码
+            </a>
+        </div>
+        <!--登录-->
+        <div>
+            <a class="weui-btn weui-btn_primary" href="javascript:;" ms-on-click="@login()">
+                登录
+            </a>
+        </div>
+    </div>
+    <div class="pj-footer" ms-if="@show=='1'">
+        <p class="footer-text">
+            技术支持：成都兴唐信息技术有限公司
+        </p>
+    </div>
+    <div class="login-model" ms-if="is_show_model">
+        <div class="content">
+            <p class="p-out">尊敬的用户：<br/><p style="text-indent: 32px">因华为云硬件升级，综合素质评价系统于2019.8.30晚上19:00 至 2019.8.31上午9:00 期间将停止服务，升级改造，请各用户避开此时段使用系统，给您带来的不便，敬请谅解。</p>
+            </p>
+        </div>
+    </div>
+</div>

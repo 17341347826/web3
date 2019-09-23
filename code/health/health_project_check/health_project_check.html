@@ -1,0 +1,25 @@
+<div class="am-g" id="health_project_list" ms-important="health_project_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="form-input">
+                <input ms-duplex="@extend.name__icontains" placeholder="请输入测试项名称" ms-rules="{required:true}"
+                       type="text"/></div>
+            <div class="form-input">
+                <input class="am-form-field" id="start_time_input" readonly placeholder="请选择开始时间" ms-attr="{value:@extend.start}"
+                       type="text"/>
+            </div>
+            <div class="form-input">
+                <input class="am-form-field" id="end_time_input" readonly placeholder="请选择结束时间" ms-attr="{value:@extend.end}"
+                       type="text"/>
+            </div>
+        </div>
+    </div>
+    <div class="h-p-l-con">
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',is_init:@is_init,url:@url,data:@data,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+    </div>
+
+</div>

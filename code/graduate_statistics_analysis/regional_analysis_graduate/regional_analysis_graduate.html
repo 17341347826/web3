@@ -1,0 +1,23 @@
+<div ms-important="regional_analysis_graduate" class="d_e_progress" id="regional_analysis_graduate">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl chosen">综合实践</div>
+            <div class="am-fl" ms-click="@gra_change(2)">评价维度</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+    </div>
+    <div class="title">
+        {{@city_name}}{{@district_name}}{{@school_name}}{{@grade_name}}学生综合素质毕业评价表现情况
+    </div>
+    <div class="draw-img clearfix">
+       <div id="img-bar" ms-if="!@is_empty_data"></div>
+        <div ms-if="@is_empty_data" class="no-msg">暂无数据</div>
+    </div>
+
+
+</div>

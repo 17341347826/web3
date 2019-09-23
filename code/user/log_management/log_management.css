@@ -1,0 +1,24 @@
+#log_management{
+    background-color: #f1f2f6;
+}
+#log_management>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#log_management .table_module{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+#log_management .table_module #class-module{
+    overflow: auto;
+}
+#log_management .name{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#log_management .search-cont .form-input{
+    margin-right: 0;
+}

@@ -1,0 +1,112 @@
+#growth_table_div table > tbody > tr:nth-child(even){
+    background-color: #f6f7fa;
+}
+#growth_table_div table > tbody > tr:nth-child(odd){
+    background-color: white;
+}
+.am-dimmer-active{
+    overflow: auto;
+}
+span.check_opinion_span{
+    cursor: pointer;
+}
+/*------------------------------------------列表页面css---------------------------------------*/
+#searchDiv{
+    height: 80px;
+    background-color: #ffffff;
+    margin:10px 0 10px 0;
+}
+#type_div{
+    margin-left: 20px;
+    margin-right: 85px;
+}
+#type_div>select{
+    width: 269px;
+    height: 40px;
+}
+#startTime,#endTime{
+    width:105px!important;
+}
+#searchDiv>div{
+    display: inline-block;
+    line-height: 80px;
+}
+
+/*----------------------------------作品录入----------------------*/
+
+#growth_form{
+    background-color: white;
+    border-radius: 5px;
+}
+#growth_form .am-g-fixed{
+    margin: 20px 90px;
+}
+#growth_form #growth_form_first_div{
+    margin-top: 80px;
+}
+/*--------------------------------------教师审核详情--------------------------------*/
+#teacher_check_form{
+    padding-top: 30px;
+    padding-bottom: 25px;
+    background-color: white;
+}
+#teacher_check_form #submitBtnDiv{
+    margin: 35px 0 0 0;
+}
+/*--------------------------------------公示详情------------------------------------*/
+#dissent_div{
+    background-color: white;
+    padding-top: 20px;
+}
+#dissent_btn_div{
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#dissent_btn_div>button,#dissent_btn_div>a{
+    width:120px;
+    height: 40px;
+    border-radius: 5px;
+}
+/*----------------------------------异议审核详情------------------------------*/
+#tab_div{
+    background-color: white;
+}
+#tab_div #radio_div{
+    margin-top: 20px;
+}
+#tab_div #radio_div .am-radio{
+    display: inline-block;
+    margin-top: 0;
+}
+#tab_div #fill_opinion{
+    width: 100%;
+    height: 150px;
+}
+
+
+
+
+
+.text-center {
+    font-size: 14px;
+}
+.errorMessage{
+    font-size: 10px;
+}
+
+
+.text-center,
+.errorMessage {
+    color: red;
+    text-align: center;
+}
+
+
+
+.hideErrorMessage{
+    display: none;
+}
+#papers-list{
+    padding: 16px;
+}

@@ -1,0 +1,150 @@
+<div ms-important="upload_simple_detail" id="upload_simple_detail">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="content clearfix">
+        <!--记录列表-->
+        <div class="am-fl list-con " id="top">
+            <div class="daily-person" ms-class="['s'+el.fk_xq_id]" ms-visible="el.mk!=4">
+                <!--学生基本信息-->
+                <div class="stu-info">
+                    <div>
+                        <!--头像-->
+                        <div class="stu-head">
+                            <div class="stu-img">
+                                <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}" alt="图片">
+                            </div>
+                            <div class="stu-name">
+                                <span>{{el.xsxm}}</span>
+                            </div>
+                        </div>
+                        <div class="line-one"></div>
+                        <!--学校信息-->
+                        <div class="stu-school">
+                            <div class="btn-operation">
+                                <span class="d-name">{{el.mkmc}}</span>
+                            </div>
+                            <div>
+                                <span>{{el.njmc}}{{el.bjmc}}班</span>
+                                <span> {{el.xxmc}}</span>
+                                <!--<span>{{@district}}</span>-->
+                                <span> {{el.xgsj}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--日常表现信息-->
+                <div class="daily-info">
+                    <div class="two-info">
+                        <span>名称 ：{{el.bt}}</span>
+                        <span>类型 ：{{el.lx}}</span>
+                    </div>
+                    <div class="three-index">
+                        <h3>参与成员 ：</h3>
+                        <p>{{el.cy}}</p>
+                    </div>
+                    <div class="two-info">
+                        <span>时长 ：{{el.sc}}</span>
+                        <span>地点 ：{{el.dd}}</span>
+                    </div>
+                    <div class="three-index">
+                        <h3>开始时间 ：</h3>
+                        <p>{{el.kssj}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>结束时间 ：</h3>
+                        <p>{{el.jssj}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>活动描述 ：</h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>感想 ：</h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+
+                    <!--图片-->
+                    <div class="img-ary">
+                        <!--ms-for:($idx2,e2l) in el.photo_guid-->
+                        <img ms-attr="{src:@url_img(e2l.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <div class="daily-person" ms-class="['s'+el.fk_xq_id]" ms-visible="el.mk==4">
+                <!--学生基本信息-->
+                <div class="stu-info">
+                    <div>
+                        <!--头像-->
+                        <div class="stu-head">
+                            <div class="stu-img">
+                                <img ms-attr="{src:@url_img(@user_photo({guid:el.fk_xsyh_id}))}" alt="图片">
+                            </div>
+                            <div class="stu-name">
+                                <span>{{el.xsxm}}</span>
+                            </div>
+                        </div>
+                        <div class="line-one"></div>
+                        <!--学校信息-->
+                        <div class="stu-school">
+                            <div class="btn-operation">
+                                <span class="d-name">{{el.mkmc}}</span>
+                            </div>
+                            <div>
+                                <span>{{el.njmc}}{{el.bjmc}}班</span>
+                                <span> {{el.xxmc}}</span>
+                                <span>{{@district}}</span>
+                                <span> {{el.xgsj}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--日常表现信息-->
+                <div class="daily-info">
+                    <div class="two-info">
+                        <span>名称 ：{{el.bt}}</span>
+                        <span>类型 ：{{el.lx}}</span>
+                    </div>
+                    <div class="three-index">
+                        <h3>参与成员 ：</h3>
+                        <p>{{el.cy}}</p>
+                    </div>
+                    <div class="two-info">
+                        <span>时长 ：{{el.sc}}</span>
+                        <span>地点 ：{{el.dd}}</span>
+                    </div>
+                    <div class="two-info">
+                        <span>开始时间 ：{{el.kssj}}</span>
+                        <span>结束时间 ：{{el.jssj}}</span>
+                    </div>
+                    <div class="two-info">
+                        <span>指导老师 ：{{el.zdjs}}</span>
+                        <span>担任角色 ：{{el.drjs}}</span>
+                    </div>
+                    <div class="two-info">
+                        <span>承担任务 ：{{el.cdrw}}</span>
+                        <span>研究主题 ：{{el.yjzt}}</span>
+                    </div>
+                    <div class="record-des">
+                        <h3>活动描述 ：</h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>感想 ：</h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+
+                    <!--图片-->
+                    <div class="img-ary">
+                        <!--ms-for:($idx2,e2l) in el.photo_guid-->
+                        <img ms-attr="{src:@url_img(e2l.guid)}" alt="图片">
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <div class="cancel-btn">
+                <button ms-click="back">取消</button>
+            </div>
+        </div>
+
+    </div>
+</div>

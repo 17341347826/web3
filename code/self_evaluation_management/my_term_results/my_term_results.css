@@ -1,0 +1,27 @@
+#my_term_results{
+    background-color: #f1f2f6;
+}
+#my_term_results>div{
+    background-color: white;
+    padding-left:16px;
+    padding-right:16px;
+}
+#my_term_results>div.public_div>div{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+#my_term_results>div.public_div>div>img{
+    position: absolute;
+    top:25%;
+    left:25%;
+}
+#my_term_results .my-t-r{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#my_term_results table{
+    border-radius: 4px;
+
+}

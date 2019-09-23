@@ -1,0 +1,10 @@
+<div :if="@three_list.length>0" id="three_menu_module">
+    <div>
+        <!--ms-for: ($index,el) in @three_list-->
+        <div class="menu_person" :click="@menu_click($index)">
+            <a ms-attr="{href:el.url}" ms-class="[@is_menu_show==$index ? 'active':'']" >{{el.power_name}}</a>
+            <span class="menu_line"></span>
+        </div>
+        <!--ms-for-end:-->
+    </div>
+</div>

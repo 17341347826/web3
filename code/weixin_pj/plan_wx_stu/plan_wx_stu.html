@@ -1,0 +1,72 @@
+<div ms-important="goals_and_plans_student_fill" class="am-g">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div id="goals_table_div">
+        <div class="am-padding-top-lg am-padding-bottom-lg">
+            <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+            <!--<div :if="index==1">可编辑-->
+            <!--<div>当前可编辑的年级是:{{yearSemester}}</div>-->
+            <!--</div>-->
+            <!--<div :if="index==2">不可编辑</div>-->
+            <table id="goals_table" class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th>学期</th>
+                    <th colspan="2">具体内容</th>
+                    <th>积分</th>
+                    <th ms-if="@user_type==2">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @local_ary -->
+                <tr>
+                    <td rowspan="2" style="width: 100px;">{{ $idx }}</td>
+                    <td style="width: 100px;">目标与计划</td>
+                    <td>
+                        <p style="min-width: 400px;height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden;margin: 0;">
+                            {{el.tar_targetplan}}
+                        </p>
+                    </td>
+                    <td rowspan="2" :if="el.score==666" style="width: 65px;"></td>
+                    <td rowspan="2" :if="el.score!=666" style="width: 65px;">{{el.score}}</td>
+                    <td style="width: 65px;">
+                        <a title='编辑' ms-if="$idx == @yearSemester && index==1 && (el.tar_situation=='' || el.tar_situation==null)" class='tab-btn tab-edit-btn' ms-click='@edit($idx,el)'></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100px;">实现情况</td>
+                    <td>
+                        <p style="margin: 0;">{{el.tar_situation}}</p>
+                    </td>
+                    <td style="width: 65px;">
+
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

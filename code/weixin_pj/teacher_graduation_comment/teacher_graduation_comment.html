@@ -1,0 +1,75 @@
+<div ms-important="teacher_graduation_comment" id="teacher_graduation_comment">
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--学期评语-->
+        <div class="float-left" :click="@menu_change()">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="term-circle-btn"></span>
+            <span>学期评语</span>
+            <span class="three-border"></span>
+        </div>
+        <!--毕业评语-->
+        <div class="float-right">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="graduation-circle-btn"></span>
+            <span class="menu-check">毕业评语</span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <!--筛选条件-->
+        <span  class="current_time hide_none">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+        <div class="screen_demo">
+            <!--年级-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@gradeChange" ms-duplex-number="@grade_info">
+                        <option ms-attr="{value:el.grade_id+'|'+el.grade_name}" ms-for="el in @grade_list">
+                            {{el.grade_name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--班级-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@classChange" ms-duplex-number="@add_data.class_id">
+                        <option ms-attr="{value:el.class_id}" ms-for="el in @class_list">
+                            {{ el.class_name }}班
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="con">
+            <!--ms-for: ($index,el) in @data_list-->
+            <div class="every_stu">
+                <div class="stu_info clearfix">
+                    <span class="float-left">{{el.stu_name}}</span>
+                    <span class="float-right">{{el.stu_num}}</span>
+                </div>
+                <div class="stu_plan">
+                    <div class="stu_plan1">评语状态</div>
+                    <div class="stu_plan2">
+                        <span :if="el.teacher_remark=='' || el.teacher_remark==null">未评</span>
+                        <span :if="el.teacher_remark!='' && el.teacher_remark!=null">已评</span>
+                    </div>
+                </div>
+                <div class="stu_plan">
+                    <div class="stu_plan1">评语</div>
+                    <div class="stu_plan2">
+                        <span :if="el.teacher_remark=='' || el.teacher_remark==null">暂无评语</span>
+                        <span :if="el.teacher_remark!='' && el.teacher_remark!=null">
+                        {{el.teacher_remark}}
+                    </span>
+                    </div>
+                </div>
+                <div class="public_btn">
+                    <a :if="@is_fill == 1" ms-on-click="@edit_btn(el)">评价/修改</a>
+                    <a class="color_gray" :if="@is_fill == 2">评价/修改</a>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+</div>

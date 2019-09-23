@@ -1,0 +1,20 @@
+<div ms-important="grading_audit_list" id="grading_audit_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择年级', is_init:true,sel_check:@grade_sel,data_arr:@grade_list}"></xmp>
+            </div>
+            <div class="select am-fl">
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择学校', is_init:true,sel_check:@school_sel,data_arr:@school_list}"></xmp>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>

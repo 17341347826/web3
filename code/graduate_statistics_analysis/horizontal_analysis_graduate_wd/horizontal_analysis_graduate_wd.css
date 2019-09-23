@@ -1,0 +1,121 @@
+#horizontal_analysis_graduate_wd .first-index {
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-left: 13px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 0px 0px 4px 4px;
+    background-color: #FFFFFF;
+}
+#horizontal_analysis_graduate_wd .first-index > div > div {
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color: #a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#horizontal_analysis_graduate_wd .first-index > div > div > img {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#horizontal_analysis_graduate_wd .first-index .chosen {
+    color: #2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background: url('../../../common/images/chosen.png') no-repeat top right;
+}
+
+
+#horizontal_analysis_graduate_wd .search-content {
+    height: 60px;
+}
+#horizontal_analysis_graduate_wd .search-content {
+    padding-left: 12px;
+    padding-right: 26px;
+    padding-top: 12px;
+    background-color: #FFFFFF;
+}
+
+
+#horizontal_analysis_graduate_wd{
+    background-color: #f1f2f6;
+}
+#horizontal_analysis_graduate_wd .area-select,
+#horizontal_analysis_graduate_wd .school-select,
+#horizontal_analysis_graduate_wd .class-select{
+    padding-bottom:16px;
+}
+#horizontal_analysis_graduate_wd .common-select,
+#horizontal_analysis_graduate_wd .table-module{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 2px;
+}
+#horizontal_analysis_graduate_wd .am-table{
+    margin-bottom: 0;
+}
+#horizontal_analysis_graduate_wd .table-module{
+    padding-bottom: 40px;
+    padding-top:17px;
+    overflow: hidden;
+}
+#horizontal_analysis_graduate_wd .table-module>p{
+    text-align: center;
+    color:#0dba9e;
+    font-size: 18px;
+    padding-bottom: 18px;
+}
+#horizontal_analysis_graduate_wd .table-module>div{
+    display: flex;
+}
+#horizontal_analysis_graduate_wd .table-module .charts-container{
+
+}
+#horizontal_analysis_graduate_wd .table-module .table-box{
+    width:100%;
+    overflow: auto;
+}
+#horizontal_analysis_graduate_wd .am-table > thead > tr > th {
+    border-bottom:none;
+}
+
+/*table宽度*/
+.table-width{
+    flex: 1;
+}
+/*学校*/
+#horizontal_analysis_graduate_wd .analysis-class table .school-name{
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*比例*/
+.propor{
+    max-width:75px;
+}
+/*highcharts图形样式改变*/
+#horizontal_analysis_graduate_wd  #container{
+    width: 300px;
+    margin-top:70px;
+}
+#horizontal_analysis_graduate_wd #container_school{
+    height:300px;
+    width: 300px;
+}
+#horizontal_analysis_graduate_wd #container_area{
+    height:200px;
+    width: 300px;
+}
+.nodata{
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}

@@ -1,0 +1,60 @@
+.title{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+.reason{
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    max-width: 200px;
+    padding-left:7px;
+}
+.for-radio{
+    height: 80px;
+    margin-left: 50px;
+    padding-top: 30px;
+}
+#option label{
+    font-weight: normal;
+    margin-right: 6px;
+    padding-bottom: 2px;
+}
+#option select,#option .test-input{
+    display: inline-block;
+    color: #767676;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    padding-right: 20px;
+    height: 38px;
+    line-height: 38px;
+}
+#option .test-input{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.for-sel{
+    margin-right: 30px;
+}
+#daily_layered_div .my-table th{
+    font-size: 14px;
+}
+#result-area{
+    width: 80%;
+    border: 1px solid #ddd;
+
+}
+.disabled{
+    background-color: #e5e5e5;
+}
+.btns{
+    text-align: center;
+}
+.btns>.am-btn{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

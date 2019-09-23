@@ -1,0 +1,34 @@
+<div id="evaluate_wx_self" ms-important="evaluate_wx_self">
+    <div :if="@project_arr_x.length > 0">
+        <!--ms-for: $idx,el in @project_arr_x-->
+        <div class="con">
+            <p class="flex_p">
+                <span>{{el.pro_name}}</span>
+                <span>填写状态:{{el.is_time}}</span>
+            </p>
+            <div>
+                <p class="flex_p">
+                    <span>开始时间</span>
+                    <span>{{el.pro_start_time}}</span>
+                </p>
+                <p class="flex_p">
+                    <span>结束时间</span>
+                    <span>{{el.pro_end_time}}</span>
+                </p>
+                <p class="flex_p">
+                    <span>评价状态</span>
+                    <span :if="el.is_complete == 0">未评</span>
+                    <span :if="el.is_complete != 0">已评</span>
+                </p>
+            </div>
+            <div class="public_btn">
+                <!--<a :if="el.is_complete == 0 && el.is_time == '进行中'" ms-on-click="@evaluate_go(el)">进入评价</a>-->
+                <!--<a :if="el.is_time != '进行中'" class="color_gray">进入评价</a>-->
+                <a :if="el.is_time == '进行中'  && @is_switch" ms-on-click="@evaluate_go(el)">进入评价</a>
+                <a :if="!@is_switch" class="color_gray">任务已关闭</a>
+                <a :if="el.is_time != '进行中' && @is_switch" class="color_gray">不可评价</a>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+    </div>
+</div>

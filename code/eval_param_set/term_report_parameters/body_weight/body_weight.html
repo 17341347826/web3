@@ -1,0 +1,34 @@
+<div class="am-g" id="body_weight" ms-important="body_weight">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <div class="common-select" >
+            <div class="search-cont clearfix">
+                <div class="select">
+                    <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@grade_check,head_value:@head_value}"></xmp>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="b-w-con">
+            <div class="clearfix">
+                <div class="am-fl">
+                    学生自评权重
+                    <input type="text" ms-attr="{value:@dataInfo[0]}" ms-duplex="@dataInfo[0]">%
+                </div>
+                <div class="am-fl">
+                    学生互评权重
+                    <input type="text" ms-attr="{value:@dataInfo[1]}" ms-duplex="@dataInfo[1]">%
+                </div>
+                <div class="am-fl">
+                    教师评价权重
+                    <input type="text" ms-attr="{value:@dataInfo[2]}" ms-duplex="@dataInfo[2]">%
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <!--<button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>-->
+            <button type="button" class="am-btn-primary" ms-click="@save_data">提交</button>
+        </div>
+    </div>
+</div>

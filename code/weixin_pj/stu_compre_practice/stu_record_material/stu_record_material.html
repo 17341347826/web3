@@ -1,0 +1,129 @@
+<div ms-important="stu_record_material" id="stu_record_material" >
+    <!--三级菜单-->
+    <div class="three-menu">
+        <!--我记录的材料-->
+        <div class="float-left">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="recording-material-btn"></span>
+            <span class="menu-check">我记录的材料</span>
+            <span class="three-border"></span>
+        </div>
+        <!--未遴选的材料-->
+        <div class="" :click="@menu_change(2)">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="not-selected-btn"></span>
+            <span>未遴选的材料</span>
+            <span class="three-border"></span>
+        </div>
+        <!--已遴选的材料-->
+        <div class="float-right" :click="@menu_change(3)">
+            <!--<img src="../../../common/images/weixin_pj/pj_lr.png">-->
+            <span class="selected-btn"></span>
+            <span>已遴选的材料</span>
+        </div>
+    </div>
+    <div class="normalPaddding">
+        <div class="screen_demo">
+            <!--学年学期-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@semesterChange($index)" ms-duplex="@sem_index">
+                        <!--ms-for: ($index,el) in @sem_list-->
+                        <option ms-attr="{value:$index}">
+                            {{el.semester_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--模块：1品德 2艺术活动 3社会实践 4学业水平 5身心健康-->
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" data-duplex-changed="@semesterChange($index)" ms-duplex="@data.mk">
+                        <option ms-attr="{value:1}">思想品德</option>
+                        <option ms-attr="{value:2}">艺术素养</option>
+                        <option ms-attr="{value:3}">社会实践</option>
+                        <option ms-attr="{value:4}">学业水平</option>
+                        <option ms-attr="{value:5}">身心健康</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="con">
+            <!--ms-for:($idx,el) in @daily_list-->
+            <div class="daily-person clearfix">
+                <!--头部-->
+                <div class="person-head clearfix">
+                    <span>{{el.bt}}</span>
+                    <span ms-class="[el.score>0 ? 'add-score':'reduce-score']">{{el.cjsj | time_ten}}&nbsp;&nbsp;{{el.mkmc}}</span>
+                </div>
+                <!--内容和图片-->
+                <div class="person-con">
+                    <div class="record-des">
+                        <h3>活动类型 ：</h3>
+                        <p>{{el.lx}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>起止时间 ：</h3>
+                        <p>{{el.kssj}}--{{el.jssj}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>过程描述 ：</h3>
+                        <p>{{el.xxms}}</p>
+                    </div>
+                    <div class="record-des">
+                        <h3>收获感想 ：</h3>
+                        <p>{{el.gx}}</p>
+                    </div>
+                    <!--图片-->
+                    <div class="img-ary">
+                        <!--ms-for: ($index,col) in @el.img_arr-->
+                        <img ms-attr="{src:@url_img(col.guid)}">
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="img-ary">
+                        <!--ms-for: ($index,col) in @el.video_arr-->
+                        <p class="file-name">
+                            <span class="video my-icon"></span><a ms-click="to_show_video(col.down_href)">{{col.inner_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+                    <div class="img-ary">
+                        <!--ms-for: ($index,col) in @el.file_arr-->
+                        <p class="file-name">
+                            <span class="file my-icon"></span><a ms-attr="{href:col.down_href}">{{col.inner_name}}</a>
+                        </p>
+                        <!--ms-for-end:-->
+                    </div>
+
+
+                    <div class="lin-choose">
+                        <!--
+                                           草稿 审核不通过 下进行删除和编辑 其余状态下显示已遴选
+                                       1品德status    0草稿 1删除 1待审核 2审核通过 3审核不通过 4归档
+                                       3社会实践      0草稿 1删除 1待审核 2审核通过 3审核不通过 4归档
+                                       4学业水平      0草稿 1删除 1待审核 2审核通过 3审核不通过 4归档
+
+
+                                       5身心健康      -1:删除 1:待审核2:提交草稿3:未通过4:审核通过5归档
+                                       2艺术活动      -1:删除 1:待审核2:提交草稿3:未通过4:审核通过5:归档
+
+                                        sftc	特长标识0非特长 1特长
+                                        模块  1品德 2艺术活动3社会实践4学业水平5身心健康
+                                   -->
+                        <!--品德活动、学业水平、社会实践:0-草稿，3-审核不通过 ；身心健康、艺术活动：2-草稿，3-审核不通过-->
+                        <a :visible="@user_type != 3 && ((el.mk == 1 || el.mk == 3 || el.mk == 4) && (el.shzt == 0 || el.shzt == 3)) || ((el.mk == 5 || el.mk == 2) && (el.shzt == 2 || el.shzt == 3)) " class='edit' ms-on-click="@edit(el)" style="cursor: pointer">编辑</a>
+                        <a :visible="@user_type != 3 && ((el.mk == 1 || el.mk == 3 || el.mk == 4) && (el.shzt == 0 || el.shzt == 3)) || ((el.mk == 5 || el.mk == 2) && (el.shzt == 2 || el.shzt == 3)) " class='delete' ms-on-click="@delete($idx,el)" style="cursor: pointer">删除</a>
+                        <span :visible="((el.mk == 5 || el.mk == 2) && (el.shzt != 2 && el.shzt != 3)) || ((el.mk != 5 && el.mk != 2) && (el.shzt != 0 && el.shzt != 3))" class="access">已遴选</span>
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--暂无数据-->
+            <div ms-if="@daily_list.length==0" class="no-data">
+                <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

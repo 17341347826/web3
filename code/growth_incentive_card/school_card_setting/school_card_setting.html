@@ -1,0 +1,95 @@
+<div ms-important="school_card_setting" id="school_card_setting">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <!--筛选条件-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--年级-->
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@gradeChange()" ms-duplex="@other.grade">
+                        <option ms-attr="{value:''}">
+                            请选择年级
+                        </option>
+                        <!--ms-for: el in @grade_list-->
+                        <option ms-attr="{value:el.grade_id+'|'+el.grade_name}">
+                            {{el.grade_name}}
+                        </option>
+                        <!--ms-for-end:-->
+                    </select>
+                </div>
+            </div>
+            <!--周期-->
+            <div class="select">
+                <div class="old-select">
+                    <select ms-duplex="@initial_data.cycle_type">
+                        <option ms-attr="{value:''}">
+                            请选择周期
+                        </option>
+                        <option ms-attr="{value:1}">
+                            每天
+                        </option>
+                        <option ms-attr="{value:2}">
+                            每周
+                        </option>
+                        <option ms-attr="{value:3}">
+                            每月
+                        </option>
+                        <option ms-attr="{value:4}">
+                            每学期
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!--最大获卡数-->
+            <div class="form-input">
+                <input ms-duplex="@initial_data.max_number" placeholder="请输入最大获卡数" name="points" type="number" min="0"/>
+            </div>
+            <!--保存-->
+            <div class="click_btn" ms-on-click="@demand()">
+                <span>保存</span>
+            </div>
+        </div>
+    </div>
+    <div class='list-con'>
+        <div class="table-module">
+            <table class="am-table am-table-hover am-table-bordered am-text-center">
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>年级</td>
+                        <td>周期</td>
+                        <td>周期最大获卡量</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody :if="@initial_setting.length>0">
+                    <!--ms-for:($index,el) in @initial_setting-->
+                    <tr>
+                        <td>
+                            {{$index+1}}
+                        </td>
+                        <td>
+                            {{el.grade_name}}
+                        </td>
+                        <td>
+                            {{@setCycleType(el.cycle_type)}}
+                        </td>
+                        <td>
+                            {{el.max_number}}
+                        </td>
+                        <td>
+                            <a class="tab-btn tab-edit-btn" ms-on-click="@details(el)" title="编辑">
+                            </a>
+                        </td>
+                    </tr>
+                    <!--ms-for-end:-->
+                </tbody>
+                <tbody :if="@initial_setting.length == 0">
+                    <tr>
+                        <td colspan="5">暂无数据</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

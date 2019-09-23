@@ -1,0 +1,6 @@
+#review_detail_div .am-table th {
+    white-space: nowrap;
+}
+#review_detail_div .am-viewport {
+    top:0;
+}

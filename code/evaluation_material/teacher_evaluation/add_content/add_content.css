@@ -1,0 +1,46 @@
+#add_programme{
+    background-color: #f1f2f6;
+}
+#add_programme>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#add_programme>div.a-p-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#add_programme .table_module{
+    width:100%;
+    /*border-radius: 4px;*/
+    /*border: 1px #ccc solid;*/
+    margin-bottom: 10px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+#add_programme .table_module table{
+    border-radius: 4px;
+    border: 1px #ccc solid;
+}
+#add_programme .btns{
+    text-align: center;
+}
+#add_programme p{
+    margin-bottom: 0;
+}
+/*评价性内容*/
+.pj-con{
+    /*width: calc(100% - 100px);*/
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+    /*text-overflow: ellipsis;*/
+    /*display: inline-block;*/
+    max-width: 600px;
+    word-wrap:break-word;
+    word-break:break-all;
+    white-space:normal;
+    margin-bottom: 0;
+    display: inline-block;
+}

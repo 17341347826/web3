@@ -1,0 +1,385 @@
+#honor_reward{
+    background-color: #f1f2f6;
+}
+/*绪论*/
+#honor_reward .introduction{
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-bottom:2px;
+    width: calc(100% - 256px);
+}
+#honor_reward .introduction>div>div{
+    color:#a2a2a2;
+    position: relative;
+    cursor: default;
+    font-size: 14px;
+}
+#honor_reward .introduction .intro-name{
+    margin-left:50px;
+}
+#honor_reward .introduction .intro-score{
+    color: #ff6656;
+}
+/*几种状态*/
+#honor_reward>div.first-index{
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-bottom:2px;
+    width: calc(100% - 256px);
+}
+#honor_reward .first-index #add-record{
+    background-color: #2bbba4;
+    color:#fff;
+    border:none;
+    cursor: pointer;
+}
+#honor_reward .first-index #add-record:hover{
+    background-color:#2bbb7c;
+}
+/*#honor_reward .first-index #add-record>span:first-child{*/
+    /*display: inline-block;*/
+    /*width:20px;*/
+    /*height:20px;*/
+    /*margin-right:4px;*/
+/*}*/
+#honor_reward>div.first-index>div.am-fl>div{
+    padding-right: 16px;
+    padding-left: 16px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#honor_reward>div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+#honor_reward>div.first-index>div.am-fr{
+    padding-right: 45px;
+}
+/*内容部分*/
+#honor_reward .fg-line{
+    height:4px;
+    width:100%;
+    background-color: #F1F2F6;
+}
+#honor_reward .list-con{
+    background-color: #fff;
+    width: calc(100% - 256px);
+    /*overflow-y: auto;*/
+    border-radius: 4px 4px 0 0;
+}
+#honor_reward .list-con>div{
+    margin-bottom: 4px;
+    /*border:1px solid red;*/
+}
+#honor_reward .list-con>div:last-child{
+    margin-bottom:0;
+}
+/*单个学生日常表现*/
+#honor_reward .list-con .daily-person{
+    text-align: center;
+    padding-bottom:20px;
+    margin-bottom:4px;
+}
+#honor_reward .list-con .daily-person>div{
+    /*padding-left:120px;*/
+    /*padding-right:120px;*/
+    text-align: center;
+}
+#honor_reward .stu-info{
+    border-bottom:1px dashed #d5d5d5;
+    height:128px;
+    padding-top:19px;
+    overflow: hidden;
+}
+#honor_reward .list-con .daily-person .stu-info>div{
+    width:766px;
+    display:inline-block;
+}
+#honor_reward .list-con .daily-person .stu-info>div>div{
+    /*display:inline-block;*/
+    float:left;
+}
+#honor_reward .list-con .daily-person .stu-info>div>div:last-child{
+    float:right;
+}
+#honor_reward .line-one{
+    width: 1px;
+    height: 88px;
+    border:1px #d5d5d5 dashed;
+}
+/*#honor_reward .line-two{*/
+/*display:inline-block;*/
+/*width: 1px;*/
+/*height: 18px;*/
+/*background-color: #a2a2a2;*/
+/*}*/
+/*学生头像那块*/
+#honor_reward .stu-head{
+    /*width:60px;*/
+    height:88px;
+    margin-right:40px;
+    text-align: center;
+}
+#honor_reward .stu-head .stu-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#honor_reward .stu-head img{
+    width:60px;
+    height:60px;
+    /*width:100%;*/
+}
+#honor_reward .stu-head .stu-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ff944d;
+    margin-top:4px;
+}
+/*学校信息*/
+#honor_reward .stu-school{
+    position: relative;
+    /*width:calc(100% - 261px);*/
+}
+#honor_reward .stu-school>div:first-child{
+    text-align: right;
+    margin-top: 14px;
+    margin-bottom: 16px;
+}
+#honor_reward .stu-school>div:last-child{
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#honor_reward .stu-school>div:last-child span{
+    margin-right:44px;
+}
+#honor_reward .stu-school>div:last-child span:last-child{
+    margin-right:0;
+}
+/*日常表现信息*/
+#honor_reward  .list-con .daily-person  .daily-info{
+    width:766px;
+    /*border:1px solid red;*/
+    display:inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+}
+#honor_reward .daily-info>div{
+    margin-top:10px;
+}
+#honor_reward  .daily-info .one-two-index span:first-child{
+    margin-right:148px;
+}
+#honor_reward .daily-info h3{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #a2a2a2;
+    float:left;
+    margin:0;
+}
+#honor_reward .daily-info p{
+    margin:0;
+    padding-left:85px;
+}
+#honor_reward .daily-info .check-no p{
+    padding-left:133px;
+}
+/*图片*/
+#honor_reward  .daily-info .img-ary{
+    border-radius: 4px;
+}
+#honor_reward  .daily-info .img-ary img{
+    margin-bottom:10px;
+    width:766px;
+    border-radius: 4px;
+}
+#honor_reward  .daily-info .img-ary img:last-child{
+    margin-bottom:0;
+}
+/*学年学期*/
+#honor_reward .d-p-c-nav{
+    width: 254px;
+    height: 450px;
+    /*margin-left: 6px;*/
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+    position: fixed;
+    right:15px;
+    top: 80px;
+}
+/*----------------------------------------------------滚动条样式--------------------------------------*/
+#honor_reward .d-p-munu,
+#honor_reward .small-circular,
+#honor_reward .out-circle
+{
+    background-color: #ffffff;
+}
+#honor_reward .d-p-munu {
+    /*position: absolute;*/
+    width: 244px;
+    /*top: 0;*/
+    /*right: 0;*/
+    padding-right:15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 4px 4px 0 0;
+}
+.out-circle, .detail-content, .growth-record ,.model-title{
+    background-color: #FFFFFF;
+}
+#honor_reward .d-p-munu .outer {
+    border-right: 1px solid #20bda4;
+}
+#honor_reward .d-p-munu .outer .inner {
+    width: 100%;
+    margin-left: 9px;
+    text-align: right;
+    font-size: 16px;
+    color: #a2a2a2;
+    padding-top: 30px;
+    padding-bottom: 1px;
+    position: relative;
+}
+#honor_reward .d-p-munu .outer .inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#honor_reward .d-p-munu .outer .inner li {
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+#honor_reward .d-p-munu .outer .inner li .new-record{
+    color:#a2a2a2;
+}
+#honor_reward .d-p-munu .outer .inner .right-top-point,
+#honor_reward .d-p-munu .outer .inner .right-bottom-point {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #20bda4;
+}
+#honor_reward .d-p-munu .outer .inner .right-top-point {
+    top: -1px;
+    right: 4px;
+}
+#honor_reward .d-p-munu .outer .inner .right-bottom-point {
+    bottom: -2px;
+    right: 4px;
+}
+#honor_reward .d-p-munu .outer .small-circular {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #a2a2a2;
+    margin-left: 34px;
+    margin-right: 3px;
+    background-color: white;
+}
+#honor_reward .d-p-munu .outer .active {
+    font-size: 17px;
+    color: #20bda4;
+}
+#honor_reward .d-p-munu .outer .inner .active .new-record{
+    color: #20bda4;
+}
+#honor_reward .d-p-munu .outer .dotted {
+    display: inline-block;
+    width: 25px;
+    height: 13px;
+    margin-left: 4px;
+    background: url(../../../../common/images/file_detail/dotted.png) center no-repeat;
+}
+#honor_reward .d-p-munu .outer .out-circle {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid #20bda4;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+#honor_reward .d-p-munu .outer .inner-circle {
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #20bda4;
+    top: 6px;
+    left: 6px;
+}
+#honor_reward .no-data{
+    color:#a2a2a2;
+    text-align: center;
+    height:473px;
+    padding-top:20px;
+}
+/*显示方式*/
+#honor_reward .dis-type{
+    text-align: right;
+    margin: 20px 30px 0;
+}
+#honor_reward .radios{
+    display:inline-block;
+}
+#honor_reward .radios .radios-name{
+    font-size: 16px;
+    font-weight: normal;
+    margin-right:0;
+}
+/*表格*/
+#honor_reward .table_module{
+    padding-left:16px;
+    padding-right:16px;
+}
+#honor_reward #class-module{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+/*取消按钮*/
+#honor_reward .btns{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+

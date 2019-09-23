@@ -1,0 +1,59 @@
+#teacher_graduation_comment .teacher_graduation_comment_con{
+    margin-top: 10px;
+}
+#teacher_graduation_comment .con{
+    margin-top:10px;
+}
+#teacher_graduation_comment .every_stu{
+    /*height: 155px;*/
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px #cecece;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#teacher_graduation_comment .every_stu>div{
+    padding-left: 26px;
+    padding-right: 26px;
+}
+#teacher_graduation_comment .every_stu>.stu_info{
+    height: 47px;
+    background-color: #e0ebff;
+    line-height: 47px;
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #2f60b8;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#teacher_graduation_comment .every_stu>.stu_plan{
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    letter-spacing: 0px;
+    color: #8d8d8d;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    display: flex;
+}
+#teacher_graduation_comment .every_stu>.stu_plan>div.stu_plan1{
+    flex: 1;
+}
+#teacher_graduation_comment .every_stu>.stu_plan>div.stu_plan2{
+    flex: 4;
+}
+/*按钮*/
+#teacher_graduation_comment .public_btn{
+    border-top:1px #eeeeee solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/*三级菜单选中*/
+#teacher_graduation_comment .three-menu .menu-check{
+    border-bottom:1px solid #5386E9;
+    color:#5386E9;
+}

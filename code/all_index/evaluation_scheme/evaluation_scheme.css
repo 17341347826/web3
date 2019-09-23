@@ -1,0 +1,180 @@
+#evaluation-scheme{
+    background-color: #f5f5f5;
+}
+#evaluation-scheme >div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+    margin-top: 4px;
+}
+#evaluation-scheme p{
+    margin-bottom: 0;
+}
+#evaluation-scheme .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+#evaluation-scheme  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}
+
+
+#evaluation-scheme .custom_select2 {}
+
+#evaluation-scheme .custom_select2 .select2-selection {
+	max-height: 36px;
+	padding-left: 5px;
+	border: 1px solid #c8c8c8;
+	border-radius: 4px;
+	cursor: pointer;
+	height: 36px;
+}
+
+#evaluation-scheme .custom_select2 .select2-selection .select2-selection__rendered {
+	line-height: 36px;
+	text-align: left;
+	font-size: 16px;
+	color: #c8c8c8;
+}
+
+#evaluation-scheme .custom_select2 .select2-selection .select2-selection__arrow {
+	border-color: #d5d5d5 transparent transparent transparent;
+	border-style: solid;
+	border-width: 5px 4px 0 4px;
+	height: 0;
+	right: 10px;
+	margin-left: -4px;
+	margin-top: -2px;
+	position: absolute;
+	top: 18px;
+	width: 0;
+}
+
+#evaluation-scheme .custom_select2 .select2-selection .select2-selection__arrow>b {
+	visibility: hidden;
+}
+
+#evaluation-scheme .d-content-title{
+    margin-bottom:18px;
+}
+#evaluation-scheme .d-content-title>.am-fl>div{
+    font-family: MicrosoftYaHei;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #2bbba4;
+    /*border-left:1px #2bbba4 solid;*/
+    /*padding-left: 16px;*/
+    border-bottom: 1px #2bbba4 solid;
+    margin-top: 16px;
+}
+#evaluation-scheme .d-content{
+    padding-bottom: 20px;
+    padding-top: 16px;
+}
+#evaluation-scheme .d-content-title>.am-fr>div{
+    margin-top: 16px;
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+}
+#evaluation-scheme .d-content-title>.am-fr>div>img:first-of-type{
+    margin-left: 15px;
+    margin-right: 6px;
+}
+#evaluation-scheme .d-content-title>.am-fr>div>img:last-of-type{
+    margin-left: 10px;
+    margin-right: 6px;
+}
+#evaluation-scheme .d-content-con{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+    margin-top: 14px;
+}
+#evaluation-scheme .d-content-con>div>div{
+    padding-left: 20px;
+    margin-bottom: 18px;
+}
+#evaluation-scheme .d-content-con>div:nth-child(2){
+    margin-top: 26px;
+}
+#evaluation-scheme .index-title{
+    /*width: 76px;*/
+    /*height: 16px;*/
+    /*font-family: MicrosoftYaHei;*/
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #7a7a7a;
+}
+#evaluation-scheme .index-title>p{
+    width: 4px;
+    height: 4px;
+    background-color: #0dba9e;
+    /*margin-bottom: 0;*/
+    margin-top: 12px;
+}
+#evaluation-scheme .index-title>div{
+    margin-left: 16px;
+}
+#evaluation-scheme .index-con{
+    padding-left: 62px;
+    margin-top: 14px;
+}
+#evaluation-scheme .index-con>div{
+    /*margin-bottom: 12px;*/
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #a2a2a2;
+    width: 90%;
+}
+#evaluation-scheme .index-con>div img{
+    margin-top: -3px;
+}
+#evaluation-scheme .index-con>div:first-of-type{
+    margin-top: 0;
+}
+#evaluation-scheme .index-con .fl-con{
+    width: 90%;
+    margin-left: 7px;
+    text-align: left
+}
+#evaluation-scheme .d-content-con>div:last-child{
+    margin-bottom: 32px;
+}
+#evaluation-scheme .eval-review .d-content-con .d-content-title>div{
+    margin-bottom:0;
+}
+#evaluation-scheme .eval-review .d-content-con>div>div{
+   margin-bottom:18px;
+}
+#evaluation-scheme .eval-review .d-content-con .index-title p{
+    position: absolute;
+}

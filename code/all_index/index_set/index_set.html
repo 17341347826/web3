@@ -1,0 +1,154 @@
+<div ms-important="index-set" id="index-set">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@sel_check,head_value:'请选择年级'}"></xmp>
+            </div>
+            <!--<div class="search-btn">-->
+                <!--<input type="button" value="查询">-->
+            <!--</div>-->
+            <div class="search-btn">
+                <input type="button" value="导入" ms-on-click="@index_import">
+            </div>
+        </div>
+    </div>
+    <!--一级指标-->
+    <div class="first-index clearfix">
+        <!--index_state 1:待审核 2:审核通过 3:审核未通过-->
+        <div class="am-fl">
+            <!--ms-for: ($index,el) in @first_index_list-->
+            <div class="am-fl" :class="[(@first_num==$index ? 'chosen':'')]" ms-on-click="@first_change($index,el.id)">{{el.index_name}}</div>
+            <!--ms-for-end:-->
+        </div>
+        <div class="am-fr">
+            <div class="am-fl btn add-index" ms-on-click="@add_index(1)"><img src="../../../common/images/add-1.png" class="btn-img">添加维度</div>
+            <div class="am-fl btn del-index" :visible="@first_index_list[@first_num].index_state !=2 " ms-on-click="@delete_index(1,@first_index_list[@first_num].id,@first_num,@first_index_list[@first_num].index_state)"><img src="../../../common/images/delet-1.png" class="btn-img">删除维度</div>
+            <div class="am-fl btn update-index" :visible="@first_index_list[@first_num].index_state !=2 " ms-on-click="@edit_first_index(1,@first_index_list[@first_num].id)"><img src="../../../common/images/update-1.png" class="btn-img">修改维度</div>
+        </div>
+    </div>
+    <!--二级指标-->
+    <div class="second-index">
+        <div class="clearfix">
+            <div class="am-fl second-title">评价要素</div>
+            <div class="am-fr btn add-index" ms-on-click="@add_index(2)"><img src="../../../common/images/add-1.png" class="btn-img">添加要素</div>
+        </div>
+        <div class="table-module">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th class="table-number">序号</th>
+                    <th class="table-second-index">要素名称</th>
+                    <th class="table-three-index-th">考察要点</th>
+                    <th>审核状态</th>
+                    <th>使用状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr :for="$index, el in @detail_l2">
+                    <td class="table-number">{{$index+1}}</td>
+                    <td class="table-second-index" ms-attr="{title:el.index_name}">{{el.index_name}}</td>
+                    <td class="table-three-index">{{el.index_review}}</td>
+                    <td>{{@as_status(el.index_state)}}</td>
+                    <td>
+                        <a :class="[(@el.index_use_state == 1 ? 'tab-toggle-on-btn':'tab-toggle-off-btn')]" class='tab-btn' ms-on-click="@update_use_state(2,el.id,el.index_use_state,$index,el.index_state)"></a>
+                    </td>
+                    <td>
+                        <a :class="[(@el.index_state != 2 ? 'tab-edit-btn':'tab-edit-btn-disabled')]" class='tab-btn' ms-attr="{title:el.index_state != 2 ?'编辑':'不可编辑'}" ms-on-click="@edit_index(2,el.index_state,el.id)"></a>
+                        <a :class="[(@el.index_state != 2 ? 'tab-trash-btn':'tab-trash-btn-disabled')]"  class='tab-btn' ms-attr="{title:el.index_state != 2 ?'删除':'不可删除'}"  ms-on-click="@delete_index(2,el.id,$index,el.index_state)"></a>
+                    </td>
+                </tr>
+                <tr :if="@detail_l2.length == 0">
+                    <td colspan="6">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="three-index">
+        <div class="clearfix">
+            <div class="am-fl second-title">关键表现</div>
+            <div class="am-fr btn add-index" ms-on-click="@add_index(3)"><img src="../../../common/images/add-1.png" class="btn-img">添加表现</div>
+        </div>
+        <div class="table-module" style="overflow-y: auto;">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th class="table-number">序号</th>
+                    <th class="table-three-index-th">关键表现</th>
+                    <th class="table-second-index">所属要素</th>
+                    <th>审核状态</th>
+                    <th>使用状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <tr ms-for="$index, row in @detail_l3">
+                    <td class="table-number">{{$index+1}}</td>
+                    <td class="table-three-index-th">{{row.index_name}}</td>
+                    <td class="table-second-index">{{row.index_secondary}}</td>
+                    <td  ms-attr="{id:'index-state'+$index}" ms-on-mouseenter="@no_pass_hover(row.index_state,row.index_notpass,$index)">
+                        {{@as_status(row.index_state)}}
+                    </td>
+                    <td>
+                        <a :class="[(@row.index_use_state == 1 ? 'tab-toggle-on-btn':'tab-toggle-off-btn')]" class='tab-btn' ms-on-click="@update_use_state(3,row.id,row.index_use_state,$index,row.index_state)"></a>
+                    </td>
+                    <td>
+                        <a :class="[(@row.index_state != 2 ? 'tab-edit-btn':'tab-edit-btn-disabled')]" class='tab-btn' ms-attr="{title:row.index_state != 2 ?'编辑':'不可编辑'}" ms-on-click="@edit_index(3,row.index_state,row.id,row)"></a>
+                        <a :class="[(@row.index_state != 2 ? 'tab-trash-btn':'tab-trash-btn-disabled')]" class='tab-btn' ms-attr="{title:row.index_state != 2 ?'删除':'不可删除'}"  ms-on-click="@delete_index(3,row.id,$index,row.index_state)"></a>
+                    </td>
+                </tr>
+                <tr :if="@detail_l3.length == 0">
+                    <td colspan="6">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--批量导入指标-->
+        <div class="am-modal am-modal-prompt upload_div" id="file-uploading" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    批量导入行政指标
+                    <a class="am-close am-close-spin" data-am-modal-close="" ms-on-click="@cancel()">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form id="uploadForm" method="post" enctype="multipart/form-data">
+                        <input type="text" ms-duplex="@file_name" id="file-name" disabled class="am-u-sm-10"
+                               style="height: 32px">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-sm">选择文件</button>
+                            <input type="file" id="file" name="file" multiple
+                                   onchange="document.getElementById('file-name').value=this.value">
+                        </div>
+                    </form>
+                    <div class="am-text-left">
+                        <a ms-on-click="@down_index">
+                            下载模板
+                        </a>
+                    </div>
+                    <span ms-visible="@modal_msg != ''" style="color: red">
+                    {{ @modal_msg }}
+                    </span>
+                    <div :class="[(false_data.length > 0 ? 'false_msg' :'')]">
+                        <!--ms-for: ($index,el) in @false_data-->
+                        <p :visible="el.is_pass == false">第【{{el.row_no}}】行{{el.error_msg}}</p>
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel="" ms-on-click="@cancel()">
+                        取消
+                    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@uploading()">
+                        上传
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

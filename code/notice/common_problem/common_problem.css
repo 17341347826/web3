@@ -1,0 +1,183 @@
+#common_problem{
+    background-color: #f1f2f6;
+    padding-left: 53px;
+    padding-right: 53px;
+}
+#common_problem>div{
+    background-color: white;
+}
+#common_problem .problem-left{
+    width: calc(100% - 250px);
+    float: left;
+    background-color: #FFFFFF;
+}
+#common_problem .problem-right{
+    width: 243px;
+    float: left;
+    margin-left: 5px;
+    padding: 30px;
+    color: #828282;
+    font-size: 16px;
+    background-color: #FFFFFF;
+}
+/*.problem-right*/
+#common_problem .m_con{
+    margin-top: 1px;
+    padding-top: 20px;
+}
+#common_problem .lxfs-title{
+    font-size: 20px;
+    color: #40acc1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#common_problem .lxfs-way{
+    height: 30px;
+    line-height: 30px;
+}
+#common_problem .wx{
+    margin-top: 38px;
+    margin-bottom: 10px;
+}
+#common_problem .problem-icon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    vertical-align: text-bottom;
+    margin-right: 10px;
+}
+#common_problem .qq{
+    background: url("../../../common/images/problem/qq.png") center no-repeat;
+}
+#common_problem .phone{
+    background: url("../../../common/images/problem/phone.png") center no-repeat;
+}
+#common_problem .wechat{
+    background: url("../../../common/images/problem/wechat.png") center no-repeat;
+}
+#common_problem .lxkf{
+}
+#common_problem .lxkf>div{
+
+    width: 129px;
+    height: 30px;
+    margin: 10px auto 30px;
+    line-height: 30px;
+    color: #FFFFFF;
+    text-align: center;
+    background-color: #33a2b6;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#common_problem .lxkf>div:hover{
+    background-color: #52a9b9;
+}
+#common_problem .cp_title{
+    height: 64px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 64px;
+    font-family: MicrosoftYaHei;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #40acc1;
+}
+#common_problem .cp_every{
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 24px;
+    padding-bottom: 12px;
+    margin-bottom: 26px;
+}
+#common_problem .old_border{
+    border: solid 1px #e0e0e0;
+}
+#common_problem .cp_every:hover{
+    border-color: #ea6f1c;
+}
+#common_problem .cp_index{
+    font-family: MicrosoftYaHei;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #444444;
+    width: 5%;
+    text-align: center;
+    vertical-align: top;
+}
+#common_problem .cp_con{
+    width: 95%;
+}
+#common_problem .cp_every_con{
+    padding-right: 138px;
+}
+#common_problem .cp_con_line{
+    width: 2px;
+    height: 18px;
+    background-color: #ea6f1c;
+    margin-top: 7px;
+}
+#common_problem .cp_con_que{
+    width: 95%;
+    margin-left: 12px;
+    border-bottom: 1px #e0e0e0 dashed;
+    font-family: MicrosoftYaHei;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #444444;
+    line-height: 32px;
+    padding-bottom: 8px;
+}
+#common_problem .cp_answer{
+    margin-left: 12px;
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #777777;
+    padding-top: 8px;
+}
+#common_problem .last_div{
+    height: 90px;
+}
+#common_problem  .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left:16px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    background-color: #FFFFFF;
+}
+#common_problem  .first-index>div.am-fl>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+#common_problem  >div.first-index>div.am-fl>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../common/images/chosen.png') no-repeat top right;
+}

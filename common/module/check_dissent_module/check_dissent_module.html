@@ -1,0 +1,16 @@
+<div class="content_box">
+    <div class="title_remark tab_div">
+        <p>
+            <a href="javascript:;" :class="[(@change_tab_num==1 ? 'avtive':'')]" ms-on-click="change_tab(1)" >审核情况</a> |
+            <a href="javascript:;" :class="[(@change_tab_num==2 ? 'avtive':'')]" ms-on-click="change_tab(2)">异议情况</a>
+        </p>
+    </div>
+    <div class="context_high" :if="@change_tab_num==1">
+        <div class="am-fl" id="audit_chart_x" style="width:50%;"></div>
+        <div class="am-fl" id="audit_chart_y" style="width: 50%;"></div>
+    </div>
+    <div class="context_high" :if="@change_tab_num==2">
+        <div class="am-fl" id="dissent_chart_x" style="width:50%;"></div>
+        <div class="am-fl" id="dissent_chart_y" style="width: 50%;"></div>
+    </div>
+</div>

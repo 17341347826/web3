@@ -1,0 +1,20 @@
+#subject_setting{
+    background-color: #f1f2f6;
+}
+#subject_setting>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+#subject_setting>div.s_set{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#subject_setting .table_module{
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}
+#subject_setting .am-form input[type="text"]{
+    color:#777;
+}

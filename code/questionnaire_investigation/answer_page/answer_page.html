@@ -1,0 +1,142 @@
+<div class="am-g" id="check-roll" ms-important="add_topic">
+    <div class="roll-title am-padding-top-lg">
+        {{@question_data.ques_name}}
+    </div>
+    <div class="name-company">
+        <div ms-if="@question_data.founder">
+            <span>创建人:{{@question_data.founder}}</span>
+        </div>
+        <div ms-if="@question_data.company_name">
+            <span>学校:{{@question_data.company_name}}</span>
+        </div>
+    </div>
+    <a class="am-btn am-btn-primary am-margin-left-sm finish-ans" ms-on-click="@finish_ans">
+        提交答卷
+    </a>
+    <!--ms-for:($index,el) in @question_data.questio_list-->
+    <div class="simple-question" ms-if="el.question_type=='单选题'">
+        <div class="simple-content1">
+            <div class="simple-top">
+                <div class="simple-top-title">
+                    <h3>
+                        {{$index+1}}.{{el.title}}
+                        <span ms-if="el.must">*</span>
+                        <span class="prompt-span" ms-if="el.prompt!=''">提示:{{el.prompt}}</span>
+                    </h3>
+                </div>
+                <div class="simple-top-option">
+                    <ul id="simple-top-option-ul">
+                        <!--ms-for:($index2,el2) in @el.data-->
+                        <li>
+                            <div class="am-radio">
+                                <label>
+                                    <input ms-attr="{name:'doc-radio-'+$index}" ms-duplex-checked="el2.is_checked"
+                                           type="radio"/>
+                                    {{el2.option_name}}:
+                                </label>
+                                <div class="option-desc" ms-if="el2.option_desc.length>14">
+                                    <span ms-html="el2.option_desc" ms-if="el2.option_desc!=''"></span>
+                                </div>
+                                <div class="option-desc-1" ms-if="el2.option_desc.length<15">
+                                    <span ms-html="el2.option_desc" ms-if="el2.option_desc!=''"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <!--ms-for-end:-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="simple-question" ms-if="el.question_type=='多选题'">
+        <div class="simple-content1">
+            <div class="simple-top">
+                <div class="simple-top-title">
+                    <h3>
+                        {{$index+1}}.{{el.title}}
+                        <span ms-if="el.must">*</span>
+                        <span class="prompt-span" ms-if="el.prompt!=''">提示:{{el.prompt}}</span>
+                    </h3>
+                </div>
+                <div class="simple-top-option">
+                    <ul id="multiple-top-option-ul">
+                        <!--ms-for:($index2,el2) in @el.data-->
+                        <li>
+                            <div class="am-checkbox">
+                                <label>
+                                    <input ms-duplex-checked="el2.is_checked" type="checkbox"/>
+                                    {{el2.option_name}}:
+                                </label>
+                                <div class="option-desc" ms-if="el2.option_desc.length>14">
+                                    <span ms-html="el2.option_desc" ms-if="el2.option_desc!=''"></span>
+                                </div>
+                                <div class="option-desc-1" ms-if="el2.option_desc.length<15">
+                                    <span ms-html="el2.option_desc" ms-if="el2.option_desc!=''"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <!--ms-for-end:-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--单项填空题-->
+    <div class="simple-question" ms-if="el.question_type=='单项填空题'">
+        <div class="simple-content1">
+            <div class="simple-top">
+                <div class="simple-top-title">
+                    <h3>
+                        {{$index+1}}.{{el.title}}
+                        <span :if="el.must">*</span>
+                        <span class="prompt-span" ms-if="el.prompt!=''">提示:{{el.prompt}}</span>
+                    </h3>
+                </div>
+                <div class="simple-top-option">
+                    <ul id="single-filling-top-option-ul1">
+                        <!--ms-for:($index2,el2) in @el.data-->
+                        <li>
+                            <textarea ms-duplex="el2.answer">这里输入答案</textarea>
+                        </li>
+                        <!--ms-for-end:-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--多项填空题-->
+    <div class="simple-question" ms-if="el.question_type=='多项填空题'">
+        <div class="simple-content1">
+            <div class="simple-top">
+                <div class="simple-top-title">
+                    <h3>
+                        {{$index+1}}.{{el.title}}
+                        <span :if="el.must">*</span>
+                        <span class="prompt-span" ms-if="el.prompt!=''">提示:{{el.prompt}}</span>
+                    </h3>
+                </div>
+                <div class="simple-top-option">
+                    <ul id="more-filling-top-option-ul1">
+                        <!--ms-for:($index2,el2) in @el.data-->
+                        <li>
+                            <label>
+                               {{el2.option_name}}:
+                            </label>
+
+                            <div class="option-desc" ms-if="el2.option_desc.length>14">
+                                <span ms-html="el2.option_desc" ms-if="el2.option_desc!=''"></span>
+                            </div>
+                            <div class="option-desc-1" ms-if="el2.option_desc.length<15">
+                                <span ms-html="el2.option_desc" ms-if="el2.option_desc!=''"></span>
+                            </div>
+                            <textarea ms-duplex="el2.answer">这里输入答案</textarea>
+                            <!--<input ms-duplex="el2.answer" type="text"/>-->
+                        </li>
+                        <!--ms-for-end:-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+</div>

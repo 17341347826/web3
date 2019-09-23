@@ -1,0 +1,109 @@
+#stu_person_data {
+    background-color: #f9f9fb;
+    color: #777;
+}
+
+#stu_person_data .person-title,.person-img{
+    background-color: #ffffff;
+}
+
+#stu_person_data .person-title {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    cursor: pointer;
+}
+
+#stu_person_data .person-title > .base-title {
+    display: inline-block;
+    padding-left: 60px;
+    height: 36px;
+    line-height: 36px;
+    background-size: 36px;
+    min-width: 100px;
+    text-align: left;
+}
+#stu_person_data .base{
+    background: url("../../../../common/images/weixin_pj/wexin_basic_info.png") center left no-repeat;
+}
+#stu_person_data .home{
+    background: url("../../../../common/images/wexin_family_situation.png") center left no-repeat;
+}
+#stu_person_data .jianhu{
+    background: url("../../../../common/images/wexin_trusteeship.png") center left no-repeat;
+}
+#stu_person_data .gxmp{
+    background: url("../../../../common/images/weixin_pj/person_card.png") center left no-repeat;
+}
+#stu_person_data .title-margin{
+    margin-top: 6px;
+}
+
+#stu_person_data .r-icon {
+    position: absolute;
+    right: 10px;
+    top: 28px;
+    width: 14px;
+}
+#stu_person_data .person-img{
+    position: relative;
+    margin-top: 6px;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 18px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+}
+#stu_person_data .person-img>.pic{
+    display: inline-block;
+    height: 90px;
+}
+#stu_person_data .img-title{
+    display: inline-block;
+    vertical-align: top;
+}
+#stu_person_data .pic>img{
+    position: absolute;
+    right: 64px;
+    height: 90px;
+}
+#stu_person_data #img-upload{
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 90px;
+}
+#stu_person_data .person-img>.img-icon{
+    position: absolute;
+    right: 10px;
+    top: 48px;
+    height: 14px;
+}
+#stu_person_data .base-list{
+    margin-top: 6px;
+    /*animation: fade-in;!*动画名称*!*/
+    /*animation-duration: 1s;!*动画持续时间*!*/
+    /*-webkit-animation:fade-in 1s;!*针对webkit内核*!*/
+}
+/*@keyframes fade-in {*/
+/*0% {translate: 0;}!*初始状态 透明度为0*!*/
+/*40% {opacity: 0;}!*过渡状态 透明度为0*!*/
+/*100% {opacity: 1;}!*结束状态 透明度为1*!*/
+/*}*/
+/*@-webkit-keyframes fade-in {!*针对webkit内核*!*/
+/*0% {opacity: 0;}*/
+/*40% {opacity: 0;}*/
+/*100% {opacity: 1;}*/
+/*}*/
+#stu_person_data .weui-select {
+    color: #777;
+}
+#stu_person_data .weui-cells__title {
+     font-size: 16px;
+}

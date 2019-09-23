@@ -1,0 +1,14 @@
+<div class="base-select" ms-click="@is_null">
+    <div class="select-head" ms-click="@click_head">
+        {{@head_value}} <span class="select-icon"></span>
+    </div>
+    <div class="select-option" ms-if="@show_option" tabindex="0"  ms-on-blur="@hide_option">
+        <ul>
+            <!--ms-for: $index,el in @data_arr-->
+            <li ms-on-click-1="@sel_check(el, $index)" ms-on-click-2="@change_head(el)">
+               {{el.name}}
+            </li>
+            <!--ms-for-end:-->
+        </ul>
+    </div>
+</div>

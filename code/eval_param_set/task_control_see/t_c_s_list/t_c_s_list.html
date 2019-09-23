@@ -1,0 +1,45 @@
+<div ms-important="t_c_s_list" id="t_c_s_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@sel_check,head_value:@first_grade}"></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="e-content">
+        <div class="table-module">
+            <table class="am-table am-table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2">评价方式</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <!--学生和家长：没有使用状态和参数设置;教师：没有参数设置-->
+                    <th :visible="@ident_type != 2 && @ident_type != 3">使用状态</th>
+                    <th :visible="@ident_type != 2 && @ident_type != 3 && @high_type != 6">参数设置</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr ms-for="$idx,el in @task_ary">
+                    <td  ms-visible="$idx==0||el.f_name != @task_ary[$idx-1].f_name" ms-attr="{rowspan:@count(@task_ary, 'f_name', el.f_name)}">
+                        {{el.f_name}}
+                    </td>
+                    <td>{{el.p_name}}</td>
+                    <td>{{el.start_time}}</td>
+                    <td>{{el.end_time}}</td>
+                    <td :visible="@ident_type != 2 && @ident_type != 3">
+                        <span :if="el.is_switch==true">启用</span>
+                        <span :if="el.is_switch==false">停用</span>
+                    </td>
+                    <td :visible="@ident_type != 2 && @ident_type != 3 && @high_type != 6">
+                        <a  class='tab-btn tab-details-btn' :visible="el.module_type == 7 || el.module_type == 8 || el.module_type == 0 || el.module_type == 14 || el.module_type == 11" title="查看" ms-click="@edit(el)"></a>
+                        <a  class='tab-btn tab-details-btn-disabled' :visible="el.module_type != 7 && el.module_type != 8 && el.module_type != 0 && el.module_type != 14 && el.module_type != 11" title="不可查看"></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

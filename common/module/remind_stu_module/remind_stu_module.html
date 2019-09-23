@@ -1,0 +1,17 @@
+<div class="remind_div_module content_box">
+    <div class="title_remark">
+        <p>待录入</p>
+    </div>
+    <div class="context_high content_box_remind">
+        <div class="stu_fill_module">
+            <ul>
+                <!--ms-for: el in @pending_list-->
+                <li :if="el.title != '待审核'" class="am-cf" ms-on-click="@detail(el)">
+                    <div class="affair-name am-u-sm-9">{{el.mod}}</div>
+                    <div :if="el.count" class="affair-num am-u-sm-3"><span>{{el.count}}</span></div>
+                </li>
+                <!--ms-for-end:-->
+            </ul>
+        </div>
+    </div>
+</div>

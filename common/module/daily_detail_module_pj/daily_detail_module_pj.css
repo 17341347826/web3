@@ -1,0 +1,79 @@
+
+#content_search{
+    /*background-color: #EFEFF4;*/
+}
+#content_search .personCon{
+    background-color: #EFEFF4;
+    margin-top:30px;
+}
+#content_search .weui-form-preview__label {
+    /* text-align-last: justify; */
+    text-align-last:auto;
+}
+#content_search .daily_status{
+    margin-left:10px;
+}
+/*加分*/
+#content_search .weui-form-preview__hd .addScore{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #3798FF;
+}
+/*减分*/
+#content_search .reduceScore{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #FF9800;
+}
+/*幻灯片*/
+#content_search_search_search .swiper-wrapper .swiper-slide img{
+    width:100%;
+}
+#content_search .weui-form-preview__hd .weui-form-preview__value {
+    /* font-size: 1.6em; */
+    font-size:1em;
+    color:#A19999;
+}
+#content_search .weui-form-preview__ft {
+    /* line-height: 50px; */
+    line-height:35px;
+}
+#content_search .weui-form-preview__btn:after {
+    /* border-left: 1px solid #d5d5d6; */
+    border-left:none;
+}
+#content_search .weui-form-preview__ft:after {
+    /*border-top: 1px solid #d5d5d6;*/
+    border-top:none;
+}
+#content_search .weui-form-preview:before {
+    /* border-top: 1px solid #d9d9d9; */
+    border-top:none;
+}
+#content_search .weui-form-preview__bd {
+    padding:0 0;
+    padding-left:15px;
+}
+/*操作*/
+.operations{
+    background-color:#fff;
+}
+#content_search .weui-form-preview__btn {
+    /* text-align: center; */
+    text-align:left;
+    margin-left:10px;
+}
+/*.xians{*/
+/*display:block;*/
+/*}*/
+/*.yincang{*/
+/*display:none;*/
+/*}*/

@@ -1,0 +1,15 @@
+#check_stu_list{
+    background-color: #f5f5f5;
+    font-family: ﻿MicrosoftYaHei;
+}
+#check_stu_list>div{
+    background-color: #fff;
+    padding-left:16px;
+    padding-right:16px;
+    margin-top: 4px;
+}
+#check_stu_list .c_s_list_con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}

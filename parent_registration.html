@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="pwZcyU5Ols" />
+    <title>眉山市初中学生综合素质评价</title>
+    <!--<link href="//cdn.bootcss.com/amazeui/2.7.2/css/amazeui.css" rel="stylesheet">-->
+    <link href="common/lib/amazeui.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/amazeui.ie8polyfill.js"></script>
+    <![endif]-->
+    <style>
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        body {
+            min-width: 1000px;
+            height: 100%;
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, "Lucida Grande", Helvetica, FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+        }
+        #parent-registration-div{
+            height: 100%;
+            overflow: auto;
+        }
+        #parent-registration-div>.parent-title{
+            width: 100%;
+            min-width: 1000px;
+            height:80px;
+            /*background-color: #009e8e;*/
+            overflow: hidden;
+            background: #000000;
+            background: -moz-linear-gradient(left,  #009e8e 0%, #579fd6 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#009e8e), color-stop(100%,#579fd6));
+            background: -webkit-linear-gradient(left,  #009e8e 0%,#579fd6 100%);
+            background: -o-linear-gradient(left,  #009e8e 0%,#579fd6 100%);
+            background: -ms-linear-gradient(left,  #009e8e 0%,#579fd6 100%);
+            background: linear-gradient(to right,  #009e8e 0%,#579fd6 100%);
+            /*ie6 - ie8 我们可以使用滤镜*/
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009e8e', endColorstr='#579fd6',GradientType=0 );
+            /*box-shadow:0 5px 5px red;*/
+            box-shadow: 0 3px 10px #E3E3E3;
+        }
+        #parent-registration-div>.parent-title>p{
+            color: white;
+            font-size: 30px;
+            line-height: 80px;
+            text-align: center;
+        }
+        #parent-registration-div .parent-content{
+            height: 100%;
+        }
+        #parent-registration-div .content-box{
+            border: 1px solid #d1d1d1;
+            border-radius: 5px;
+            /*height: 80%;*/
+            height:576px;
+            margin-left: 35px;
+            margin-top: 25px;
+            margin-right: 35px;
+        }
+        #parent-registration-div .registration-process{
+            width: 497px;
+            height: 72px;
+            margin: 35px auto;
+        }
+        #parent-registration-div .step-box{
+            text-align: center;
+            color:#d2d2d2;
+        }
+        .step-circular{
+            background-color: white;
+            width: 46px;
+            height: 46px;
+            border: 1px #d2d2d2 solid;
+            color: #d2d2d2;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 23px;
+            margin: 0 auto;
+        }
+        .step-spline{
+            border:1px solid #d2d2d2;
+            width: 150px;
+            margin-top: 22px;
+        }
+        .active-circular{
+            background-color: #55d9bd;
+            color: white;
+            border: 1px #55d9bd solid;
+        }
+        .active-spline{
+            border:1px solid #55d9bd;
+        }
+        .active-span{
+            color:#55d9bd;
+        }
+        #parent-registration-div .form-div {
+            width: 399px;
+            height: auto;
+            /*margin: 55px auto;*/
+            /*margin-top:0;*/
+            padding-left: 20px;
+            margin: 0 auto 30px;
+        }
+        #parent-registration-div .form-div>div{
+            width: 399px;
+            margin-bottom: 10px;
+            /*border:1px solid red;*/
+            position: relative;
+        }
+        #parent-registration-div  .form-div>div>input{
+            width: 360px;
+            height: 50px;
+            border: 1px #afafaf solid;
+            border-radius: 5px;
+            text-align: center;
+            color:#afafaf;
+        }
+        #parent-registration-div .form-div>div>input+img{
+            margin-left: 10px;
+        }
+        /*验证码开始*/
+        #parent-registration-div .parent-phone{
+            display: inline-block;
+        }
+        #parent-registration-div .parent-phone .ident-code{
+            display: inline-block;
+            float: none;
+            color: #fff;
+            text-align: center;
+            border-radius: 28px;
+            width: 110px;
+            height: 35px;
+            font-size: 16px;
+            line-height: 35px;
+            margin-left: 5px;
+        }
+        .identfy-no-check{
+            background-color: #A8A7A8;
+        }
+        .identfy-check{
+            background-color: #59e0b6;
+            box-shadow: #D3FFF1 0 7px 10px;
+        }
+        /*发送验证码、重新发送*/
+        #parent-registration-div .parent-phone #identfy-one,
+        #parent-registration-div .parent-phone #identfy-three{
+            /*background-color: #59e0b6;*/
+            cursor: pointer;
+            /*box-shadow: #D3FFF1 0 7px 10px;*/
+        }
+        /*验证码结束*/
+        /*上下一步*/
+        #parent-registration-div .parent-submit{
+            text-align: center;
+            /*position: fixed;*/
+            /*left:50%;*/
+            /*margin-left:-180px;*/
+            /*bottom:6%;*/
+        }
+        #parent-registration-div .parent-submit span{
+            display:inline-block;
+            background-color: #4cd8d0;
+            color: white;
+            font-size: 24px;
+            border-radius: 25px;
+            box-shadow: #d3fffa 0 9px 21px 5px;
+            cursor: pointer;
+        }
+        /*错误提示信息*/
+        #parent-registration-div .additional-infor{
+            position:absolute;
+            font-size:14px;
+            margin-top:14px;
+            color:red;
+            margin-left:10px;
+            width: 200px;
+        }
+        /*注册下一步*/
+        #parent-registration-div .sign-sub span{
+            width: 360px;
+            height: 50px;
+            line-height: 50px;
+        }
+        /*子女上、下一步*/
+        #parent-registration-div .kid-sub span{
+            width:170px;
+            height: 50px;
+            line-height: 50px;
+        }
+        #parent-registration-div .kid-sub span:first-child{
+            margin-right:20px;
+        }
+        /*关联子女开始*/
+        #parent-registration-div .form-stu-div {
+            /*width: 615px;*/
+            height: auto;
+            margin: 55px auto;
+            /*padding-left: 45px;*/
+            /*border:1px solid red;*/
+            text-align: center;
+        }
+        #parent-registration-div .form-stu-div .kid-info{
+            /*border:1px solid red;*/
+            margin-bottom:10px;
+            display:inline-block;
+            margin-left:65px;
+        }
+        #parent-registration-div .form-stu-div .kid-info .kids{
+             width:487px;
+             margin-right:10px;
+             margin-bottom:10px;
+         }
+        #parent-registration-div .form-stu-div .kid-info .kids>div{
+            display:inline-block;
+        }
+        #parent-registration-div .form-stu-div .kid-info .kids .kid-name{
+           margin-right:10px;
+        }
+        #parent-registration-div .form-stu-div .kid-info .kids>div>input{
+            width: 238px;
+            height: 50px;
+            border: 1px #afafaf solid;
+            border-radius: 5px;
+            text-align: center;
+            color:#afafaf;
+        }
+        /*关联子女提示信息*/
+        #parent-registration-div .kid-msg{
+            font-size:14px;
+            margin-top:14px;
+            color:red;
+        }
+            /*按钮*/
+        #parent-registration-div .form-stu-div a{
+            display:inline-block;
+            width:19px;
+            height:19px;
+        }
+        #parent-registration-div .add-kid{
+            background-image: url('common/images/par_add.png');
+            margin-right:10px;
+        }
+        #parent-registration-div .add-kid:hover{
+            background-image: url('common/images/par_add_click.png');
+        }
+        #parent-registration-div .delete-kid{
+            background-image: url('common/images/par_reduce.png');
+        }
+        #parent-registration-div .delete-kid:hover{
+            background-image: url('common/images/par_reduce_click.png');
+        }
+        /*完成*/
+        #parent-registration-div .complete-sub{
+            width:310px;
+            text-align: center;
+            position: fixed;
+            left:50%;
+            height:50px;
+            line-height: 50px;
+            margin-left:-155px;
+            /*bottom:8%;*/
+        }
+        #parent-registration-div .complete-sub span{
+            width:100%;
+            display:inline-block;
+            background-color: #4cd8d0;
+            color: white;
+            font-size: 24px;
+            border-radius: 25px;
+            box-shadow: #d3fffa 0 9px 21px 5px;
+            cursor: pointer;
+            /*padding-left:20px;*/
+            /*padding-right:20px;*/
+        }
+        /*隐藏*/
+        hide-style{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="parent-registration-div" ms-controller="parent-registration">
+    <div class="parent-title">
+        <p>家长注册</p>
+    </div>
+    <div class="parent-content">
+        <div class="content-box">
+            <div class="registration-process am-cf">
+                <div class="am-fl">
+                    <div class="am-fl step-box">
+                        <div class="step-circular active-circular">1</div>
+                        <div class="active-span"> <span style="visibility: hidden;">注</span>注册 <span style="visibility: hidden;">注</span></div>
+                    </div>
+                    <div class="am-fl step-spline active-spline"></div>
+                </div>
+                <div class="am-fl">
+                    <div class="am-fl step-box">
+                        <div class="step-circular" ms-class="@content_type==3 || @content_type==2 ? 'active-circular':''">2</div>
+                        <div ms-class="@content_type==3 || @content_type==2 ? 'active-span':''">关联子女</div>
+                    </div>
+                    <div class="am-fl step-spline" ms-class="@content_type==3 || @content_type==2 ? 'active-spline':''"></div>
+                </div>
+                <div class="am-fl">
+                    <div class="step-box">
+                        <div class="step-circular" ms-class="@content_type==3 ? 'active-circular':''">3</div>
+                        <div ms-class="@content_type==3 ? 'active-span':''">注册完成</div>
+                    </div>
+                </div>
+            </div>
+            <!--注册-->
+            <div class="form-div" :if="@content_type==1">
+                <div>
+                    <input type="text" id="parName" placeholder="请输入家长姓名" ms-duplex="@signData.parName" ms-on-blur="@parName_check()">
+                    <span class="additional-infor" :if="@user_type==1">请输入中文</span>
+                </div>
+                <div>
+                    <input type="password" id="inputPwd" placeholder="登录密码" :if="@pwd_type==1" ms-duplex="@signData.inputPwd" ms-on-blur="@inputPwd_check()">
+                    <input type="text" id="inputPwd" placeholder="登录密码" :if="@pwd_type==2" ms-duplex="@signData.inputPwd" ms-on-blur="@inputPwd_check()">
+                    <img src="common/images/hide.png" :if="@pwd_type==1" :click="@pwd_btn(2)">
+                    <img src="common/images/display.png" :if="@pwd_type==2" :click="@pwd_btn(1)">
+                    <span class="additional-infor" :if="@prom_pwd_type==1">8-16位且包含大写、小写、数字、特殊字符至少3种</span>
+                </div>
+                <div>
+                    <input type="password" id="insurePwd" placeholder="确认密码" :if="@insure_pwd==1" ms-duplex="@signData.insurePwd" ms-on-blur="@insurePwd_check()">
+                    <input type="text" id="insurePwd" placeholder="确认密码" :if="@insure_pwd==2" ms-duplex="@signData.insurePwd" ms-on-blur="@insurePwd_check()">
+                    <img src="common/images/hide.png" :if="@insure_pwd==1" :click="@pwd_btn(4)">
+                    <img src="common/images/display.png" :if="@insure_pwd==2" :click="@pwd_btn(3)">
+                    <span class="additional-infor" :if="@insurePwd_type==1">两次密码不一致，请重新输入</span>
+                </div>
+                <!--<div>-->
+                    <!--<input type="text" placeholder="确认密码">-->
+                    <!--<img src="common/images/display.png" alt="">-->
+                <!--</div>-->
+                <div class="parent-phone" style="width: 510px;">
+                    <input type="text" id="phone" placeholder="请输入11位手机号" ms-duplex="@signData.phone" ms-on-keyup="@phone_ident()" ms-on-blur="@phone_check()">
+                    <div class="ident-code" ms-class="@ident_type==1 || @ident_type==3 ? 'identfy-check':'identfy-no-check'">
+                        <span class="identfy" id="identfy-none" :visible="@ident_type==0">获取验证码</span>
+                        <span class="identfy" id="identfy-one" :visible="@ident_type==1" ms-on-click="@identOne()">获取验证码</span>
+                        <span class="identfy" id="identfy-two" :visible="@ident_type==2">{{@countdown}}秒</span>
+                        <span class="identfy" id="identfy-three" :visible="@ident_type==3" ms-on-click="@identThree()">重新发送</span>
+                    </div>
+                    <!--<span class="additional-infor" :if="@phone_type==1">手机号不正确</span>-->
+                    <span class="additional-infor" :if="@phone_type==1">{{@phone_msg}}</span>
+                </div>
+                <div>
+                    <span style="font-size: 14px;color: red;">请注意：家长的【登录账号】就是【手机号】</span>
+                </div>
+                <div>
+                    <input type="text" id="identifying" placeholder="请输入验证码" ms-duplex="@signData.identfy" ms-on-blur="@identfy_check()">
+                    <span class="additional-infor"  :if="@prompt_type==1">验证码不正确</span>
+                </div>
+            </div>
+            <!--关联子女-->
+            <div class="form-stu-div" :if="@content_type==2">
+                <div class="kid-info">
+                    <!--ms-for:($index,el) in @stu_info-->
+                    <div class="kids">
+                        <!--<div class="kid-name" >-->
+                            <!--<input type="text" class="kidName" ms-duplex="el.stu_name" ms-on-blur="@kid_contact(el.stu_name)" placeholder="子女姓名">-->
+                        <!--</div>-->
+                        <!--<div class="kid-number">-->
+                            <!--<input type="text" class="kidNumber" ms-duplex="el.stu_num" ms-on-blur="@kid_contact(el.stu_num)" placeholder="子女学籍号">-->
+                        <!--</div>-->
+                        <div class="kid-name" >
+                            <input type="text" class="kidName" ms-duplex="el.stu_name" placeholder="请输入子女姓名">
+                        </div>
+                        <div class="kid-number">
+                            <input type="text" class="kidNumber" ms-duplex="el.stu_num" placeholder="请输入子女学籍号">
+                        </div>
+                    </div>
+                    <!--ms-for-end:-->
+                </div>
+                <!--子女增加按钮-->
+                <a href="javascript: void(0)" class="add-kid" :if="@stu_info_len!=4" ms-on-click="@addKid_check()"></a>
+                <!--子女减少按钮-->
+                <a href="javascript: void(0)" class="delete-kid" :if="@stu_info_len!=1" ms-on-click="@delete_check()"></a>
+                <div class="kid-msg" :if="@kid_msg != ''">{{@kid_msg}}</div>
+            </div>
+            <!--注册完成-->
+            <div class="form-stu-div" :if="@content_type==3">
+                <div class="complete-sub">
+                    <span :if="@need_sure==0">注册成功，请登录<br/>(登录账号为手机号码)</span>
+                    <span :if="@need_sure==1">注册成功，等待子女确认<br/>(登录账号为手机号码)</span>
+                </div>
+            </div>
+            <div class="parent-submit sign-sub" :if="@content_type==1">
+                <span ms-on-click="@sign_first()">下一步</span>
+            </div>
+            <div class="parent-submit kid-sub" :if="@content_type==2">
+                <span ms-on-click="@pre_click(2)">上一步</span>
+                <span ms-on-click="@sign()">下一步</span>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<script src="common/lib/jquery.min.js"></script>
+<script src="common/lib/amazeui.js"></script>
+<script src="common/lib/avalon.js"></script>
+<script src="const.js"></script>
+<script src="common/module/request.js"></script>
+<script src="common/lib/bin/jsencrypt.js"></script>
+<script src="common/lib/rsa_public_key.js"></script>
+<!--<script src="//cdn.bootcss.com/layer/3.0/layer.min.js"></script>-->
+<script src="common/lib/layer.min.js"></script>
+<script>
+    avalon.ready(function() {
+        var HTTP_X = location.origin;
+        //        注册
+        var signUrl = HTTP_X + "/api/base/parent/regist";
+//        发送短信验证码
+        var api_validmsg=HTTP_X + "/api/base/ng/validmsg/send";
+//        核对短信验证码
+        var api_check_validate=HTTP_X+'/api/base/ng/parent/validate_code';
+        var login = avalon.define({
+            $id: "parent-registration",
+            //注册流程：1-注册；2-关联子女；3-注册完成
+            content_type:1,
+            //登录密码眼睛状态：1-闭眼  2-针眼
+            pwd_type:1,
+            //确认密码眼睛状态：1-闭眼  2-针眼
+            insure_pwd:1,
+            //倒计时
+            countdown:120,
+            // 验证码状态:0-灰色;1-获取验证码；2-倒计时；3-重新发送
+            ident_type:0,
+            //判断获取验证码是否发送
+            btn_type:false,
+            //判断是否点击获取验证码这个按钮
+            ident_one_check:false,
+            // 错误提示信息显示：0-无措，1-有错
+            user_type:0,
+            prom_pwd_type:0,
+            insurePwd_type:0,
+            phone_type:0,
+            prompt_type:0,
+            //五个表单控件状态
+            a1: false,
+            a2: false,
+            a3: false,
+            a4: false,
+            a5: false,
+            //手机号码提示信息
+            phone_msg:'',
+            //子女信息原本数据
+            stu_info: [{
+                stu_name: "",
+                stu_num: ""
+            }],
+//            关联子女提示信息
+            kid_msg:'',
+            //注册数据
+            signData: {
+                parName: '',
+                inputPwd: '',
+                insurePwd: '',
+                phone: '',
+                stu: [],
+                //验证码
+                identfy:''
+            },
+            //姓名判断
+            parName_check: function() {
+                var self = this;
+                var reg = /^[\u4e00-\u9fa5]+$/;
+                var _txt = $("#parName").val();
+                if (reg.test(_txt) && $.trim(_txt) != '') {
+                    self.a1 = true;
+                    self.user_type = 0;
+                } else {
+                    self.a1 = false;
+                    self.user_type = 1;
+                }
+            },
+            // 密码
+            inputPwd_check: function() {
+                var self = this;
+                var password = $("#inputPwd").val();
+                // var reg = /(?=^.*?\d)(?=^.*?[a-zA-Z])^[0-9a-zA-Z]{6,16}$/;
+                var reg = /^(?![a-zA-Z]+$)(?![A-Z0-9]+$)(?![A-Z\\W_!@#$%^&*`~()-+=]+$)(?![a-z0-9]+$)(?![a-z\\W_!@#$%^&*`~()-+=]+$)(?![0-9\\W_!@#$%^&*`~()-+=]+$)[a-zA-Z0-9\\W_!@#$%^&*`~()-+=]{8,20}$/;
+                if (reg.test(password)) {
+                    self.a2 = true;
+                    self.prom_pwd_type = 0;
+                } else {
+                    self.a2 = false;
+                    self.prom_pwd_type = 1;
+                }
+            },
+            //确认密码
+            insurePwd_check: function() {
+                var self = this;
+                var pwd1 = $("#inputPwd").val();
+                var pwd2 = $("#insurePwd").val();
+                if (pwd2 != pwd1) {
+                    self.a3 = false;
+                    self.insurePwd_type = 1;
+                } else {
+                    self.a3 = true;
+                    self.insurePwd_type = 0;
+                }
+            },
+            //手机号
+            phone_check: function() {
+                var self = this;
+                self.retMsg = '';
+                var reg = /^((1(3|4|5|6|7|8|9)\d{9}))$/;
+                var _txt = $("#phone").val();
+//                console.log(self.btn_type);
+                if (reg.test(_txt)) {
+                    self.phone_type = 0;
+                    self.a4 = true;
+                    //发送短信验证码
+                    if(self.btn_type==true){
+                        ajax_post(api_validmsg,{phone:self.signData.phone,is_exist:'0'},self);
+                        self.ident_type=2;
+                        self.idenfiy_two();
+                    }
+                } else {
+                    self.a4 = false;
+                    self.btn_type=false;
+                    self.phone_type = 1;
+                    self.phone_msg = '手机号码不正确';
+                }
+            },
+            //手机改变验证码
+            phone_ident:function(){
+                var self=this;
+                var reg = /^((1(3|4|5|6|7|8|9)\d{9}))$/;
+                var _txt = $("#phone").val();
+                // 验证码
+//                if($.trim(_txt) != '') {
+//                    self.ident_type=1;
+//                }
+                if(reg.test(_txt)){
+                    self.ident_type = 1;
+                }else{
+                    self.ident_type = 0;
+                }
+            },
+            //发送验证码
+            identOne:function(){
+                this.btn_type=true;
+                this.countdown=120;
+                this.phone_check();
+                //判断是否点击获取验证码
+                this.ident_one_check=true;
+            },
+            //验证码倒计时
+            idenfiy_two:function(){
+                var self = this;
+                self.btn_type=false;
+                //定时器
+                var timer=setInterval(function(){
+                    self.countdown--;
+                    if(self.countdown==0){
+                        clearInterval(timer);
+                        self.ident_type=3;
+                    }
+//                    console.log(self.countdown);
+                },1000);
+            },
+            //重新发送
+            identThree:function(){
+                this.countdown=120;
+                this.btn_type=true;
+                this.phone_check();
+            },
+            //验证码验证
+            identfy_check:function(){
+                var self=this;
+                var _txt=$('#identifying').val();
+                if ($.trim(_txt)!='' && self.ident_one_check==true) {
+                    self.a5 = true;
+                    self.prompt_type = 0;
+                } else {
+                    self.a5 = false;
+                    self.prompt_type = 1;
+                }
+            },
+            //第一页下一步
+            sign_first:function(){
+                if (this.a1 == false) {
+                    this.user_type=1;
+                } else if (this.a2 == false) {
+                    this.prom_pwd_type=1;
+                } else if (this.a3 == false) {
+                    this.insurePwd_type=1;
+                } else if (this.a4 == false) {
+                    this.phone_type=1;
+                }else if(this.ident_one_check){
+                    //核对短信验证码
+                    ajax_post(api_check_validate,{code:this.signData.identfy,phone:this.signData.phone},this);
+                }else{
+                    layer.msg('请点击"获取验证码"按钮');
+                }
+            },
+////           关联子女姓名和学籍失去焦点判断
+//            kid_contact:function(value){
+//                if(value.trim() == ''){
+//                    this.kid_msg = '请输入子女姓名及学籍号';
+//                }else{
+//                    this.kid_msg = '';
+//                }
+//            },
+//            第二页下一步-注册
+            sign: function() {
+                // 处理子女信息数组，清除空数据
+                var stu_i=[];
+                var stu_ary=[];
+                for(var i=0;i<this.stu_info.length;i++){
+                    if(this.stu_info[i].stu_name!='' || this.stu_info[i].stu_num!=''){
+                        stu_i.push(this.stu_info[i]);
+                    }
+                }
+                stu_ary=stu_i;
+                //子女、学籍号为空提示
+                if(stu_ary.length == 0){
+                   this.kid_msg = '请输入子女姓名及学籍号';
+                    return;
+                }
+                var self = this;
+                if (self.a2 == true && self.a3 == true && self.a4 == true && self.a5 == true && self.a1 == true) {
+                    var publicKey = public_key;
+                    var encrypt = new JSEncrypt(); // 实例化加密对象
+                    encrypt.setPublicKey(publicKey); // 设置公钥
+                    var get_password = encrypt.encrypt(self.signData.inputPwd);
+                    ajax_post(signUrl, {
+                        account: self.signData.phone,
+                        name: self.signData.parName,
+                        password: get_password,
+                        phone: self.signData.phone,
+                        stu: stu_ary,
+                        validcode:self.signData.identfy
+                    }, self, self.is_check);
+                } else {
+                    if (self.a1 == false) {
+//                        layer.msg('用户名请输入中文');
+                        this.kid_msg = '用户名请输入中文';
+                    } else if (self.a2 == false) {
+//                        layer.msg('登录密码请输入6到16字母+数字组合');
+                        this.kid_msg = '登录密码请输入6到16字母+数字组合';
+                    } else if (self.a3 == false) {
+//                        layer.msg('两次密码不一致，请重新输入');
+                        this.kid_msg = '两次密码不一致，请重新输入';
+                    } else if (self.a4 == false) {
+//                        layer.msg('手机号不正确，请重新输入');
+                        this.kid_msg = '手机号不正确，请重新输入';
+                    }else if(self.a5 == false){
+//                        layer.msg('验证码不正确，请重新输入');
+                        this.kid_msg = '验证码不正确，请重新输入';
+                    }
+                }
+            },
+
+
+            //子女信息原本数据
+            stu_info: [{
+                stu_name: "",
+                stu_num: ""
+            }],
+            //子女长度
+            stu_info_len:1,
+            //登录、确认密码
+            pwd_btn:function(num){
+                if(num==1 || num==2){
+                    this.pwd_type=num;
+                }else if(num==3 || num==4){
+                    this.insure_pwd=num-2;
+                }
+            },
+            //添加子女
+            addKid_check:function(){
+                var stu = {};
+                stu["stu_name"] = "";
+                stu["stu_num"] = "";
+                if (this.stu_info.length < 4) {
+                    this.stu_info.push(stu);
+                }
+                this.stu_info_len++;
+            },
+            //删除子女
+            delete_check:function(){
+                //默认删除最后一条数据
+                this.stu_info.pop();
+                this.stu_info_len--;
+            },
+            //上一步
+            pre_click:function(num){
+                this.content_type=num-1;
+            },
+            on_request_complete: function(cmd, status, data, is_suc, msg) {
+                switch (cmd) {
+//                    注册
+                    case signUrl:
+                        if(status!=200){
+//                            layer.msg(msg);
+                            this.kid_msg = msg;
+                            return;
+                        }
+                        this.complete_get_sign(data);
+                        break;
+                    // 短信验证码
+                    case api_validmsg:
+                        if(status==200){
+                            this.phone_type = 0;
+                        }else {
+                            //layer.msg(msg);
+                            this.phone_type = 1;
+                            this.phone_msg = msg;
+//                            this.ident_type = 0;
+                        }
+                        break;
+//                        核对短信验证码
+                    case api_check_validate:
+                        if(status!=200){
+//                            layer.msg(msg);
+                            this.prompt_type = 1;
+                            return;
+                        }
+                        this.content_type=2;
+                        break;
+                }
+            },
+            //need_sure:1-需要学生验证；0-不需要学生验证
+            need_sure:1,
+//            注册
+            complete_get_sign:function(data){
+                this.need_sure=data.data.need_sure;
+                this.content_type=3;
+            },
+        });
+        //        监听是否跳转到设置成功页面
+        login.$watch("content_type", function() {
+            if(login.content_type==3){
+                window.setTimeout(function(){
+                    window.location = window.location = HTTP_X + "/Growth/new_index.html";
+                },5000);
+            }
+        });
+        avalon.scan(document.body);
+    })
+</script>
+</body>
+
+</html>

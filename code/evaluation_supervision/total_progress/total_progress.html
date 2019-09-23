@@ -1,0 +1,173 @@
+<div ms-important="daily_perform_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@semester_list,sel_check:@sel_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+    </div>
+
+    <div class="table-content clearfix">
+        <div class="title">
+            学期评价总进度
+        </div>
+        <div class="tb-content">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>内容</td>
+                    <td>评价主体</td>
+                    <td>学生人数</td>
+                    <td>已上传人数</td>
+                    <td>未上传人数</td>
+                    <td>完成率</td>
+                </tr>
+                <tr ms-for="($index,el) in @pj_progress">
+                    <td>{{el.nr}}</td>
+                    <td>{{el.zt}}</td>
+                    <td>{{el.xsrs}}</td>
+                    <td>{{el.yscrs}}</td>
+                    <td>{{el.wscrs}}</td>
+                    <td>{{el.wcl|percent}}%</td>
+                </tr>
+                <tr ms-visible="@pj_progress.length==0">
+                    <td colspan="6">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="tb-content">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>材料</td>
+                    <td>学生人数</td>
+                    <td>上传总数</td>
+                    <td>归档总数</td>
+                    <td>人均上传数</td>
+                    <td>已上传人数</td>
+                    <td>未上传人数</td>
+                    <td>上传学生占比</td>
+                </tr>
+                <tr ms-for="($index,el) in @zhsj_progress">
+                    <td>{{el.nr}}</td>
+                    <td>{{el.xsrs}}</td>
+                    <td>{{el.sczs}}</td>
+                    <td>{{el.gd}}</td>
+                    <td>{{el.rjsc|rj_filter}}</td>
+                    <td>{{el.yscrs}}</td>
+                    <td>{{el.wscrs}}</td>
+                    <td>{{el.scxxzb}}%</td>
+                </tr>
+                <tr ms-visible="@zhsj_progress.length==0">
+                    <td colspan="7">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="table-content clearfix">
+        <div class="title">
+            各班级评价进度汇总
+        </div>
+        <div style="text-align: left;overflow: auto">
+            <div>
+                说明：根据每学期评价方案，学生、家长、教师需完成的评价任务进行统计
+                "红色"部分为：完成率&lt;50%，“黄色”部分为：50%&lt;完成率&lt;100%
+            </div>
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>年级</td>
+                    <td>班级</td>
+                    <td>班主任</td>
+                    <td>学生人数</td>
+                    <td>民主自评(%)</td>
+                    <td>民主互评(%)</td>
+                    <td>民主教师评(%)</td>
+                    <td>目标计划(%)</td>
+                    <td>目标实现情况(%)</td>
+                    <td>自我描述(%)</td>
+                    <td>同学寄语(%)</td>
+                    <td>家长寄语(%)</td>
+                    <td>教师寄语(%)</td>
+                </tr>
+                <tr ms-for="($index,el) in @class_progress">
+                    <td>{{el.njmc}}</td>
+                    <td>{{el.bjmc}}</td>
+                    <td>{{el.bzrmc.split('-')[0]}}</td>
+                    <td>{{el.xsrs}}</td>
+                    <td ms-class="[el.zp>50 ? 'well':'poor']">{{el.zp}}</td>
+                    <td ms-class="[el.hp>50 ? 'well':'poor']">{{el.hp}}</td>
+                    <td ms-class="[el.bp>50 ? 'well':'poor']">{{el.bp}}</td>
+                    <td ms-class="[el.mb>50 ? 'well':'poor']">{{el.mb}}</td>
+                    <td ms-class="[el.sx>50 ? 'well':'poor']">{{el.sx}}</td>
+                    <td ms-class="[el.jy_zw>50 ? 'well':'poor']">{{el.jy_zw}}</td>
+                    <td ms-class="[el.jy_tx>50 ? 'well':'poor']">{{el.jy_tx}}</td>
+                    <td ms-class="[el.jy_jz>50 ? 'well':'poor']">{{el.jy_jz}}</td>
+                    <td ms-class="[el.jy_js>50 ? 'well':'poor']">{{el.jy_js}}</td>
+                </tr>
+                <tr ms-visible="@class_progress.length==0">
+                    <td colspan="13">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="tb-content"style="overflow: auto">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td rowspan="2">班级</td>
+                    <td rowspan="2">年级</td>
+                    <td rowspan="2">班主任</td>
+                    <td rowspan="2">学生人数</td>
+                    <td colspan="2">日常表现</td>
+                    <td colspan="2">实践活动</td>
+                    <td colspan="2">荣誉奖励</td>
+                    <td colspan="2">个性特长</td>
+                </tr>
+                <tr>
+                    <td>人均上传数</td>
+                    <td>上传学生占比(%)</td>
+                    <td>人均上传数</td>
+                    <td>上传学生占比(%)</td>
+                    <td>人均上传数</td>
+                    <td>上传学生占比(%)</td>
+                    <td>人均上传数</td>
+                    <td>上传学生占比(%)</td>
+                </tr>
+                <tr ms-for="($index,el) in @upmater">
+                    <td>{{el.njmc}}</td>
+                    <td>{{el.bjmc}}</td>
+                    <td>{{el.bzrmc.split('-')[0]}}</td>
+                    <td>{{el.xsrs}}</td>
+                    <td>{{el.rc_rjsc|rj_filter}}</td>
+                    <td>{{el.rc_scxszb}}</td>
+                    <td>{{el.zh_rjsc|rj_filter}}</td>
+                    <td>{{el.zh_scxszb}}</td>
+                    <td>{{el.cjjl_rjsc|rj_filter}}</td>
+                    <td>{{el.cjjl_scxszb}}</td>
+                    <td>{{el.gxtc_rjsc|rj_filter}}</td>
+                    <td>{{el.gxtc_scxszb}}</td>
+                </tr>
+                <tr ms-visible="@class_progress.length==0">
+                    <td colspan="12">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

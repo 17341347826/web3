@@ -1,0 +1,231 @@
+<div ms-important="city_term_eval_results" id="city_term_eval_results">
+    <div class="weui-cells give-out-cells">
+        <!--年级-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after" :if="@ident_type < 5">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    年级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@grade_change"
+                        ms-duplex-number="@form.gradeId" ms-rules="{required:true}">
+                    <!--ms-for: el in @grade_list-->
+                    <option ms-attr="{value:el.id}">
+                        {{el.grade_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--年级-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after" :if="@ident_type >= 5">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    年级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@grade_change"
+                        ms-duplex-number="@form.gradeId" ms-rules="{required:true}">
+                    <!--ms-for: el in @grade_list-->
+                    <option ms-attr="{value:el.grade_id}">
+                        {{el.grade_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--学年学期-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    学年学期：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@sem_change" ms-duplex-number="@form.semesterId"
+                        ms-rules="{required:true}">
+                    <!--ms-for: el in @semester_list-->
+                    <option ms-attr="{value:el.id}">
+                        {{el.semester_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--区县-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after" :if="@ident_type == 2">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    区县：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@area_change"
+                        ms-duplex="@form.district" ms-rules="{required:true}">
+                    <option ms-attr="{value:''}">
+                        请选择区县
+                    </option>
+                    <!--ms-for: el in @area_list-->
+                    <option ms-attr="{el.district}">
+                        {{ el.district }}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--学校-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after" :if="@ident_type == 2 || @ident_type == 3">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    学校：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@school_change" ms-duplex-number="@form.schoolId"
+                        ms-rules="{required:true}">
+                    <option ms-attr="{value:''}">
+                        请选择学校
+                    </option>
+                    <!--ms-for: el in @school_list-->
+                    <option ms-attr="{value:el.id}">
+                        {{ el.schoolname }}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--班级-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after" :if="@ident_type < 5">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    班级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@class_change" ms-duplex-number="@form.classId">
+                    <option ms-attr="{value:''}">
+                        请选择班级
+                    </option>
+                    <!--ms-for: el in @class_list-->
+                    <option ms-attr="{value:el.id}">
+                        {{el.class_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--班级-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after" :if="@ident_type >= 5">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    班级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@class_change" ms-duplex-number="@form.classId">
+                    <option ms-attr="{value:''}">
+                        请选择班级
+                    </option>
+                    <!--ms-for: el in @class_list-->
+                    <option ms-attr="{value:el.class_id}">
+                        {{el.class_name}}
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+        <!--等级-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">
+                    等级：
+                </label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" data-duplex-changed="@rank_change" ms-duplex="@form.dfdj">
+                    <option ms-attr="{value:''}">
+                        请选择等级
+                    </option>
+                    <!--ms-for: el in @rank_arr-->
+                    <option ms-attr="{value:el}">
+                        {{el}}等
+                    </option>
+                    <!--ms-for-end:-->
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells give-out-cells table-wx">
+        <div class="weui-cell weui-flex table-tc" ms-if="@get_info.length > 0" >
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    序号
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    姓名
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item code_width">
+                <p>
+                    学籍号
+                </p>
+            </div>
+
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    综合等级
+                </p>
+            </div>
+            <!--<div class="weui-cell__bd weui-flex__item">-->
+                <!--<p>-->
+                    <!--学期档案-->
+                <!--</p>-->
+            <!--</div>-->
+        </div>
+        <!--ms-for: ($idx,el) in @get_info-->
+        <div class="weui-cell weui-flex table_font table-tc" ms-on-click="@get_detail(el.code)">
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    {{$idx+1}}
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    {{el.studentName}}
+                </p>
+            </div>
+            <div class="weui-cell__bd weui-flex__item code_width">
+                {{el.studentNum}}
+            </div>
+            <div class="weui-cell__bd weui-flex__item">
+                <p>
+                    {{el.gradeName}}
+                </p>
+            </div>
+            <!--<div class="weui-cell__bd weui-flex__item">-->
+                <!--<p>-->
+                    <!--<a href="javascript:;" >-->
+                        <!--<i class="iconfont icon-chakan">-->
+                        <!--</i>-->
+                    <!--</a>-->
+                <!--</p>-->
+            <!--</div>-->
+        </div>
+        <!--ms-for-end:-->
+        <!--暂无数据-->
+        <div ms-if="@get_info.length==0" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+    <div class="weui-loadmore" ms-if="@is_show_loader_more">
+        <i class="weui-loading">
+        </i>
+        <span class="weui-loadmore__tips">
+           正在加载
+          </span>
+    </div>
+</div>

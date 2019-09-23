@@ -1,0 +1,22 @@
+#parentCheck{
+    background-color: #f1f2f6;
+}
+#parentCheck>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+    overflow: hidden;
+}
+#parentCheck>.p-con{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#parentCheck #compileData{
+    color:#c8c8c8;
+}
+#parentCheck #file-uploading input{
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    color:#c8c8c8;
+}

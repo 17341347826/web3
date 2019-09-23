@@ -1,0 +1,36 @@
+<div ms-important="stu_graduation_evaluation" id="stu_term_evaluation">
+    <div class="weui-cells weui-cells_form graduation_form">
+        <div class="weui-cell graduation-name">
+            <div class="weui-cell__bd">
+                <p>姓名</p>
+            </div>
+            <div class="weui-cell__ft">{{@data.post_data.name2}}</div>
+        </div>
+        <div class="weui-cell graduation-name">
+            <div class="weui-cell__bd">
+                <p>学籍号</p>
+            </div>
+            <div class="weui-cell__ft">{{@data.post_data.nameId2}}</div>
+        </div>
+        <div class="weui-cell graduation-name">
+            <div class="weui-cell__bd">
+                <p>综合素质评价等级</p>
+            </div>
+            <div class="weui-cell__ft">{{@data.rank}}</div>
+        </div>
+
+        <div class="weui-cell graduation-textarea">
+            <div class="weui-cell__bd">
+            <textarea class="weui-textarea" ms-duplex="@data.post_data.content"
+                      placeholder="请输入异议"
+                      rows="8"></textarea>
+                <div class="weui-textarea-counter">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <a href="javascript:;" class="weui-btn weui-btn_primary" ms-click="@save">提交</a>
+    </div>
+</div>

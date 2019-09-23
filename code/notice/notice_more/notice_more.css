@@ -1,0 +1,23 @@
+#notice-more{
+    padding:16px 16px 40px;
+}
+#notice-more .con{
+    border: 1px #d3d3d3 solid;
+    border-radius: 4px;
+}
+#notice-more .con-name,
+#notice-more .con-list{
+    padding:16px 16px 10px;
+}
+#notice-more .con-name{
+    /*border:1px solid red;*/
+    border-bottom:1px solid #d3d3d3;
+}
+#notice-more .con-list .list-person{
+    margin-bottom:10px;
+    cursor: pointer;
+}
+#notice-more .con-list .list-person:hover{
+    color:#fff;
+    background-color: orange;
+}

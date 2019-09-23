@@ -1,0 +1,33 @@
+<div ms-important="notice_list" id="notice_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select">
+        <div class="search-cont clearfix">
+            <!--创建方案-->
+            <div class="click_btn" :click="@create_notice">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>创建</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!--<div class="evaluation-sub" ms-if="@is_sc_man">-->
+            <!--<label>是否广播：</label>-->
+            <!--<div class="radios">-->
+                <!--<label class="am-radio-inline">-->
+                    <!--<input type="radio" name="doc-radio-1" id="option1" class="rdo" value="0"-->
+                           <!--ms-duplex-number="@is_radio" ms-click="@save_radio_status(0)">-->
+                    <!--<label ms-attr="{for:'option1'}">是</label>-->
+                <!--</label>-->
+                <!--<label class="am-radio-inline">-->
+                    <!--<input type="radio" name="doc-radio-2" id="option2" class="rdo" value="1"-->
+                           <!--ms-duplex-number="@is_radio" ms-click="@save_radio_status(1)">-->
+                    <!--<label ms-attr="{for:'option2'}">否</label>-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',only_hash:true, url:@url,data:@data,extend:@extend,is_init:@is_init,theadTh:@theadTh,cbopt:@cbopt,params:@params}">
+            </xmp>
+        </div>
+    </div>
+</div>

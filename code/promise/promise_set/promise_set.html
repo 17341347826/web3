@@ -1,0 +1,44 @@
+<div ms-important="promise_set" id="promise_set">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="first-index clearfix">
+        <div class="am-fl">
+            <!--ms-for: ($index,el) in @user_list-->
+            <div class="am-fl" :class="[(@user_num==$index ? 'chosen':'')]" ms-on-click="@user_change($index,el)">{{el.name}}</div>
+            <!--ms-for-end:-->
+            <input :if="@is_yulan" class="yu_lan" type="button" value="预览" ms-on-click="@yu_lan">
+        </div>
+    </div>
+    <div>
+        <div class="container clearfix">
+            <div class="content bgcolor-1 clearfix">
+                <div class="main am-padding-top-sm">
+                    <div style="margin: 0 auto">
+				        <textarea id="editor1" name="editor" placeholder="请在这里输入内容" ms-duplex = "@data.cxcn_nr"></textarea>
+                    </div>
+                </div>
+                <!--预览-->
+                <div id="print_div">
+                    <div class="print_con">
+                        <img src="../../../common/images/background_img3.png" alt="">
+                        <p class="cn_work">{{@cn_dw}}</p>
+                        <div class="content_de">
+                            <div style="width: 100%">
+                                <img ms-attr="{src:@yu_lan_img}"  style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="img_div" class="am-hide"></div>
+
+        <div class="am-form-group">
+            <div class="btns am-text-center">
+                <button type="button" class="am-btn-default"  ms-click="@back">取消</button>
+                <button type="button" class="am-btn-primary" ms-click="@submitBtn">提交</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,93 @@
+@charset "utf-8";
+#review_progress {
+  background-color: #f2f2f6;
+}
+#review_progress .table-title {
+  font-size: 18px;
+  color: #0dba9e;
+  padding-bottom: 7px;
+}
+#review_progress h3,
+#review_progress p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+#review_progress .container {
+  background-color: #ffffff;
+  margin-top: 4px;
+}
+#review_progress .center_container {
+  padding: 16px;
+  margin: 0 auto;
+}
+#review_progress .select-content {
+  padding: 16px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#review_progress .select-content .select input[type='text'] {
+  width: 220px;
+  height: 36px;
+  font-size: 16px;
+  padding-left: 20px;
+  color: #c8c8c8;
+  border-color: #c8c8c8;
+  border-radius: 4px;
+  outline: none;
+}
+#review_progress .select-content .select input[type='text'] {
+  border: 1px solid #c8c8c8;
+}
+#review_progress .select-content .select input::-webkit-input-placeholder {
+  color: #c8c8c8;
+}
+#review_progress .select-content .select input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #c8c8c8;
+}
+#review_progress .select-content .select input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #c8c8c8;
+}
+#review_progress .select-content .select input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #c8c8c8;
+}
+#review_progress .select-content .select select > option:first-child {
+  margin-top: 5px;
+}
+#review_progress .progress {
+  padding: 16px;
+  margin: 0 auto;
+  text-align: center;
+}
+#review_progress .progress .rank {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+#review_progress .table-container {
+  border-radius: 0 0 4px 4px;
+}
+#review_progress .table-container table {
+  word-wrap: break-word;
+  border-radius: 4px;
+}
+#review_progress .table-container table tr > td:last-child {
+  width: 459px;
+  text-align: left;
+}
+#review_progress .table-container .am-table > tbody > tr > td:last-child {
+  white-space: normal;
+  text-align: center;
+}
+#review_progress .table-content table {
+  border-radius: 4px;
+}
+#review_progress .review-table tr > th {
+  width: 20%;
+}
+#review_progress .last-table tr > th {
+  width: 16.66% ;
+}

@@ -1,0 +1,60 @@
+<div class="content" id="point" ms-controller="point">
+    <!--ms-for: $idx,el in @point_scores-->
+    <div class="point-content">
+        <span class="point-icon"></span>
+        <div class="point-top">
+            <h3>
+                {{el.question_name}}
+            </h3>
+            <span class="point-score">
+                {{el.my_score | get_int}}/{{el.question_score | get_int}}
+            </span>
+        </div>
+        <div class="weui-flex point-middle">
+            <div class="weui-flex__item"><h3>{{el.question_score_city_avg}}</h3><h4>市平均</h4></div>
+            <div class="weui-flex__item"><h3>{{el.question_score_school_avg}}</h3><h4>校平均</h4></div>
+            <div class="weui-flex__item"><h3>{{el.question_score_class_avg}}</h3><h4>班平均</h4></div>
+        </div>
+        <div class="weui-flex point-bottom">
+            <div class="weui-flex__item">难度系数</div>
+            <div class="weui-flex__item">
+                <!--ms-for: $idx2,el2 in el.star_arr-->
+                <img src="common/images/xy/stars-full.png" alt="图片">
+                <!--ms-for-end:-->
+                <!--ms-for: $idx2,el2 in el.empty_arr-->
+                <img src="common/images/xy/stars-empty.png" alt="图片">
+                <!--ms-for-end:-->
+            </div>
+            <div class="weui-flex__item"><span class="go-detail" ms-click="@go_detail(el)">题目详情</span></div>
+        </div>
+    </div>
+    <!--ms-for-end:-->
+    <div class="point-content" ms-if="@point_scores.length==0">
+        <span class="point-icon"></span>
+        <div class="point-top">
+            <h3>
+                暂无数据
+            </h3>
+            <span class="point-score">
+                0/0
+            </span>
+        </div>
+        <div class="weui-flex point-middle">
+            <div class="weui-flex__item"><h3>0</h3><h4>市平均</h4></div>
+            <div class="weui-flex__item"><h3>0</h3><h4>市平均</h4></div>
+            <div class="weui-flex__item"><h3>0</h3><h4>市平均</h4></div>
+        </div>
+        <div class="weui-flex point-bottom">
+            <div class="weui-flex__item">难度系数</div>
+            <div class="weui-flex__item">
+                <img src="common/images/xy/stars-empty.png" alt="图片">
+                <img src="common/images/xy/stars-empty.png" alt="图片">
+                <img src="common/images/xy/stars-empty.png" alt="图片">
+                <img src="common/images/xy/stars-empty.png" alt="图片">
+                <img src="common/images/xy/stars-empty.png" alt="图片">
+            </div>
+            <div class="weui-flex__item"><span >题目详情</span></div>
+        </div>
+    </div>
+
+</div>

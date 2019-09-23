@@ -1,0 +1,281 @@
+<div ms-important="daily_portrait_special" class="d_e_progress" id="daily_portrait_target">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <div class="am-fl " ms-click="@to_page('daily_portrait_target')">目标计划与完成情况</div>
+            <div class="am-fl" ms-click="@to_page('daily_portrait_practice')">综合实践活动</div>
+            <div class="am-fl chosen" ms-click="@to_page('daily_portrait_special')">日常表现与个性特长</div>
+            <div class="am-fl" ms-click="@to_page('daily_portrait_award')">获奖情况</div>
+        </div>
+    </div>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_change_grade,head_value:'请选择年级'}"></xmp>
+        </div>
+
+    </div>
+    <div class="sec_index">
+        <div class="radios">
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(1)" id="option1" ms-duplex-number="@html_display" class="rdo" value="1">
+                <label ms-attr="{for:'option1'}">综合等级</label>
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" ms-click="@presentation_change(2)" id="opition2" ms-duplex-number="@html_display" class="rdo" value="2">
+                <label ms-attr="{for:'opition2'}">评价维度</label>
+            </label>
+            <label class="am-radio-inline" >
+                <input type="radio" ms-click="@presentation_change(3)" id="option3" ms-duplex-number="@html_display" class="rdo" value="3">
+                <label ms-attr="{for:'option3'}">评价要素</label>
+            </label>
+        </div>
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<3">
+        <div class="title">
+            日常表现与个性特长分析（全市）
+        </div>
+        <div class="tb-content" ms-visible="filter_city(@city_process_list).length>0">
+            <div class="tu-biao">
+                <div class="biao-title biao-title-city">
+                    全市进度
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">学期</td>
+                        <td colspan="3">日常表现人均记录材料</td>
+                        <td colspan="3">日常表现记录材料人数占比（%）</td>
+                        <td>日常表现</td>
+                        <td colspan="2">个性特长材料</td>
+                    </tr>
+                    <tr>
+                        <td>加分材料</td>
+                        <td>减分材料</td>
+                        <td>合计</td>
+                        <td>≥0分</td>
+                        <td>＜0分</td>
+                        <td>无记录</td>
+                        <td>平均得分</td>
+                        <td>人均记录数</td>
+                        <td>平均得分</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_city(@city_process_list)-->
+                    <tr>
+                        <td class="city-td">{{el.semester_name}}</td>
+                        <td>{{el.rc_rj_ljcl}}</td>
+                        <td>{{el.rc_rj_tjcl}}</td>
+                        <td>{{el.rc_rj_hj}}</td>
+                        <td>{{el.rc_dydy_rszb}}</td>
+                        <td>{{el.rc_xy_rszb}}</td>
+                        <td>{{el.rc_wjl_rszb}}</td>
+                        <td>{{el.rc_pjf}}</td>
+                        <td>{{el.gx_rj_cl}}</td>
+                        <td>{{el.gx_pjf}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="no-msg-img" ms-visible="filter_city(@city_process_list).length==0">
+            <img src="common/images/none.png" alt="图片">
+        </div>
+
+    </div>
+    <div class="table-content clearfix" ms-visible="@user_level<4">
+        <div class="title">
+            日常表现与个性特长分析（区县）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao district-tb" ms-visible="filter_area(@area_process_list).length>0" ms-class="@user_level==3? 'district_user':''">
+                <div class="biao-title">
+                    区县进度
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-visible="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area,head_value:@default_area_area}"></xmp>
+                    </div>
+
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="filter_area(@area_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">区县</td>
+                        <td rowspan="2">学期</td>
+                        <td colspan="3">日常表现人均记录材料</td>
+                        <td colspan="3">日常表现记录材料人数占比（%）</td>
+                        <td>日常表现</td>
+                        <td colspan="2">个性特长材料</td>
+                    </tr>
+                    <tr>
+                        <td>加分材料</td>
+                        <td>减分材料</td>
+                        <td>合计</td>
+                        <td>≥0分</td>
+                        <td>＜0分</td>
+                        <td>无记录</td>
+                        <td>平均得分</td>
+                        <td>人均记录数</td>
+                        <td>平均得分</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_area(@area_process_list)-->
+                    <tr>
+                        <td ms-if="$index==0||el.district_name != filter_area(area_process_list)[$index-1].district_name"
+                            ms-attr="{rowspan:@count(@filter_area(@area_process_list),'district_name' ,el.district_name)}" >
+                        {{el.district_name}}
+                        </td>
+                        <td>{{el.semester_name}}</td>
+                        <td>{{el.rc_rj_ljcl}}</td>
+                        <td>{{el.rc_rj_tjcl}}</td>
+                        <td>{{el.rc_rj_hj}}</td>
+                        <td>{{el.rc_dydy_rszb}}</td>
+                        <td>{{el.rc_xy_rszb}}</td>
+                        <td>{{el.rc_wjl_rszb}}</td>
+                        <td>{{el.rc_pjf}}</td>
+                        <td>{{el.gx_rj_cl}}</td>
+                        <td>{{el.gx_pjf}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="filter_area(@area_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            日常表现与个性特长分析（学校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@filter_school(school_process_list).length>0" ms-class="@user_level==3? 'school-tubiao':''">
+                <div class="biao-title">
+                    校级进度
+                </div>
+                <div id="tubiao_3"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select" ms-if="@user_level<3">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@area_list,sel_check:@sel_change_area_2,head_value:@defalut_area_school}"></xmp>
+                    </div>
+                    <div class="select" ms-if="@user_level<4">
+                        <xmp ms-widget="{is:'ms-select-assembly',data_arr:@school_list,sel_check:@school_change,head_value:@default_school}"></xmp>
+                    </div>
+
+                </div>
+                <table class="am-table am-table-bordered" ms-visible="@filter_school(school_process_list).length>0">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2" ms-visible="@user_level<4">学校</td>
+                        <td rowspan="2">学期</td>
+                        <td colspan="3">日常表现人均记录材料</td>
+                        <td colspan="3">日常表现记录材料人数占比（%）</td>
+                        <td>日常表现</td>
+                        <td colspan="2">个性特长材料</td>
+                    </tr>
+                    <tr>
+                        <td>加分材料</td>
+                        <td>减分材料</td>
+                        <td>合计</td>
+                        <td>≥0分</td>
+                        <td>＜0分</td>
+                        <td>无记录</td>
+                        <td>平均得分</td>
+                        <td>人均记录数</td>
+                        <td>平均得分</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @filter_school(@school_process_list)-->
+                    <tr>
+                        <td class="school-td" ms-visible="@user_level<4"
+                            ms-if="$index==0||el.school_name != filter_school(school_process_list)[$index-1].school_name"
+                            ms-attr="{rowspan:@count(@filter_area(@school_process_list),'school_name' ,el.school_name)}">{{el.school_name}}</td>
+                        <td >{{el.status}}</td>
+                        <td>{{el.detail.rc_rj_ljcl}}</td>
+                        <td>{{el.detail.rc_rj_tjcl}}</td>
+                        <td>{{el.detail.rc_rj_hj}}</td>
+                        <td>{{el.detail.rc_dydy_rszb}}</td>
+                        <td>{{el.detail.rc_xy_rszb}}</td>
+                        <td>{{el.detail.rc_wjl_rszb}}</td>
+                        <td>{{el.detail.rc_pjf}}</td>
+                        <td>{{el.detail.gx_rj_cl}}</td>
+                        <td>{{el.detail.gx_pjf}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+
+                    </tbody>
+                </table>
+                <div class="no-msg-img" ms-visible="filter_school(school_process_list).length==0">
+                    <img src="common/images/none.png" alt="图片">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix" ms-if="@user_level>3">
+        <div class="title">
+            学生目标计划与完成情况分析（班）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@order_by_class.length>0">
+                <div class="biao-title">
+                    班级统计图
+                </div>
+                <div id="tubiao_4"></div>
+            </div>
+            <div class="biao-ge" ms-visible="@order_by_class.length>0">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">班级</td>
+                        <td colspan="3">日常表现人均记录材料</td>
+                        <td colspan="3">日常表现记录材料人数占比（%）</td>
+                        <td>日常表现</td>
+                        <td colspan="2">个性特长材料</td>
+                    </tr>
+                    <tr>
+                        <td>加分材料</td>
+                        <td>减分材料</td>
+                        <td>合计</td>
+                        <td>≥0分</td>
+                        <td>＜0分</td>
+                        <td>无记录</td>
+                        <td>平均得分</td>
+                        <td>人均记录数</td>
+                        <td>平均得分</td>
+                    </tr>
+                    <!--ms-for:($index,el) in order_by_class-->
+                    <tr>
+                        <td class="school-td">{{el.grade_name}}-{{el.status}}</td>
+                        <td>{{el.class_name}}</td>
+                        <td>{{el.detail.rc_rj_ljcl}}</td>
+                        <td>{{el.detail.rc_rj_tjcl}}</td>
+                        <td>{{el.detail.rc_rj_hj}}</td>
+                        <td>{{el.detail.rc_dydy_rszb}}</td>
+                        <td>{{el.detail.rc_xy_rszb}}</td>
+                        <td>{{el.detail.rc_wjl_rszb}}</td>
+                        <td>{{el.detail.rc_pjf}}</td>
+                        <td>{{el.detail.gx_rj_cl}}</td>
+                        <td>{{el.detail.gx_pjf}}</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="no-msg-img" ms-visible="order_by_class.length==0">
+                <img src="common/images/none.png" alt="图片">
+            </div>
+        </div>
+
+    </div>
+</div>

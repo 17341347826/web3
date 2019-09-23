@@ -1,0 +1,49 @@
+<div ms-important="xy_home" id="xy_home">
+    <div class="weui-cells query-select">
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" ms-if="@rank_list.length>0"  ms-duplex="@rank_level" data-duplex-changed="@get_semesters">
+                    <option ms-attr="{value:''}">请选择</option>
+                    <!--ms-for: $idx,el in @rank_list-->
+                    <option ms-attr="{value:el.rank_level}">{{el.rank_name}}</option>
+                    <!--ms-for-end:-->
+                </select>
+                <select class="weui-select" ms-if="@rank_list.length==0">
+                    <option ms-attr="{value:''}" >暂无等级数据</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" ms-if="@semester_list.length>0" ms-duplex="@current_semester" data-duplex-changed="@get_project">
+                    <!--ms-for: $idx,el in @semester_list-->
+                    <option ms-attr="{value:el.semester_id}">{{el.semester_name}}</option>
+                    <!--ms-for-end:-->
+                </select>
+                <select class="weui-select"  ms-if="@semester_list.length==0">
+
+                    <option ms-attr="{value:''}">暂无学期数据</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="project-content">
+        <h3>考试列表</h3>
+        <div class="project-name" ms-if="project_list.length==0">
+            <span class="project-icon">
+            </span>
+            暂无考试项目
+        </div>
+        <!--ms-for: $idx,el in @project_list-->
+        <div class="project-name" ms-click="grade_analysis(el)">
+            <span class="project-icon">
+            </span>
+            {{el.examName}}
+        </div>
+        <!--ms-for-end:-->
+
+    </div>
+
+
+</div>

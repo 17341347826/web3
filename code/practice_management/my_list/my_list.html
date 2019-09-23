@@ -1,0 +1,113 @@
+<div ms-important="my_list" id="my_list">
+<!--    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>-->
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@semester_list,sel_check:@semester_change,head_value:'请选择学年学期'}"></xmp>
+            </div>
+            <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@index_list,sel_check:@index_change,head_value:'请选择维度'}"></xmp>
+            </div>
+            <div class="select a-p-btns">
+                <button style="border-radius: 4px;" class="am-btn am-btn-success" ms-click="@query_info">查询</button>
+            </div>
+        </div>
+    </div>
+    <div id="con_list" class="clearfix">
+        <span  class="current_time am-hide">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+        <!--ms-for: $idx,el in @dataInfo-->
+        <div class="cont_div">
+            <div class="img_div">
+                <img :visible="@url_img(json(el.fjdz).guid) == undefined" ms-attr="{src:@url_img(json(el.fjdz).guid)}" alt="">
+                <img :visible="@url_img(json(el.fjdz).guid) != undefined" src="../../../common/images/cover.png" alt="">
+            </div>
+            <div class="stu_suc" :if="el.is_enroll == 1">
+                <img src="../../../common/images/stu_suc.png" alt="">
+            </div>
+            <div class="text_div">
+                <div class="flex_div text_more">
+                    <div class="flex_left">主题</div>
+                    <div class="flex_right">{{el.bt}}</div>
+                </div>
+                <div class="flex_div text_more" ms-on-mouseenter="@show_jj($idx)">
+                    <div class="flex_left">简介</div>
+                    <div class="flex_right text_hdjj">{{el.hdjj}}</div>
+                </div>
+                <div class="flex_div">
+                    <div class="flex_left">开展</div>
+                    <div class="flex_right">{{el.hd_kssj}} 至 {{el.hd_jssj}}</div>
+                </div>
+                <div class="flex_div">
+                    <div class="flex_left">报名</div>
+                    <div class="flex_right">{{el.bm_kssj}} 至 {{el.bm_jssj}}</div>
+                </div>
+                <div class="flex_div" :if="el.is_enroll == 1 && el.sc_time == 1 && el.sf_my != 0 && el.sf_qd != 0">
+                    <div class="flex_left">调查</div>
+                    <div class="flex_right">已参与</div>
+                </div>
+            </div>
+            <div class="btns am-text-center">
+                <button :if="el.is_enroll == 0 && el.bm_time == 1" class="am-btn-primary" ms-on-click="@bao_ming(el)">我要报名</button>
+                <button :if="el.is_enroll == 0 && el.bm_time == 0" class="am-btn-primary gray_bg">我要报名</button>
+                <button :if="el.is_enroll == 1 && el.is_sc == 0 && el.sc_time == 1" type="button" class="am-btn-primary"  ms-on-click="@add(el)">上传材料</button>
+                <button :if="el.is_enroll == 1 && el.is_sc == 0 && el.sc_time == 0" type="button" class="am-btn-primary gray_bg">我要上传材料</button>
+                <button :if="el.is_enroll == 1 && el.is_sc == 1" type="button" class="am-btn-primary gray_bg">上传完成</button>
+                <button style="margin-left: 5px;" :if="el.is_enroll == 1 && el.sc_time == 1 && el.sf_my == 0 && el.sf_qd == 0" type="button" class="am-btn-primary" ms-on-click="@check(el)">情况调查</button>
+            </div>
+            <div class="bj_div" :visible="@current_bj == $idx" ms-on-mouseout="@hide_jj($idx)">
+                <p class="am-text-center">- 简介 -</p>
+                <div>
+                    {{el.hdjj}}
+                </div>
+            </div>
+        </div>
+
+        <!--ms-for-end:-->
+        <!--满意度调查-->
+        <div class="am-modal am-modal-prompt" id="check_prompt" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    活动开展情况调查
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <p>
+                                1、关于此次活动开展，你的整体评价是？
+                            </p>
+                            <label class="am-radio-inline">
+                                <input type="radio"  value="2" name="docInlineRadio" ms-duplex-number="@man_yi.sf_my"> 满意
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" value="1" name="docInlineRadio" ms-duplex-number="@man_yi.sf_my"> 不满意
+                            </label>
+                        </div>
+                        <div class="am-form-group">
+                            <p>
+                                2、你是否还期待参加此类活动？
+                            </p>
+                            <label class="am-radio-inline">
+                                <input type="radio"  value="2" name="docInlineRadio1" ms-duplex-number="@man_yi.sf_qd"> 期待
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" value="1" name="docInlineRadio1" ms-duplex-number="@man_yi.sf_qd"> 不期待
+                            </label>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel="">
+                        取消
+                    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@check_save">
+                        提交
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

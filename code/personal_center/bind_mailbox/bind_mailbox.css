@@ -1,0 +1,58 @@
+#bind_mailbox>.update_title{
+    line-height: 80px;
+    color:#40acc1;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px #e4e4e4 solid;
+}
+#bind_mailbox>.update_title span span{
+    margin-left:20px;
+}
+#bind_mailbox>.update_content{
+    width: 360px;
+    margin: 40px auto;
+}
+#bind_mailbox>.update_content input{
+    width: 360px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color:#afafaf;
+    border-radius: 5px;
+}
+#bind_mailbox .parent-phone input{
+    display: inline-block;
+}
+/*验证码*/
+#bind_mailbox .ident-info input{
+    width: 235px;
+    margin-right: 14px;
+    display: inline-block;
+}
+#bind_mailbox .ident-info div{
+    display: inline-block;
+}
+/*发送验证码、重新发送*/
+#bind_mailbox .ident-info #identfy-one,
+#bind_mailbox .ident-info #identfy-three {
+    cursor: pointer;
+}
+#bind_mailbox .ident-info .ident-code{
+    display: inline-block;
+    float: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 28px;
+    width: 110px;
+    height: 35px;
+    font-size: 16px;
+    line-height: 35px;
+    /*margin-left: 5px;*/
+}
+#bind_mailbox .additional-infor{
+    position:absolute;
+    font-size:14px;
+    margin-top:14px;
+    color:red;
+    margin-left:10px;
+}

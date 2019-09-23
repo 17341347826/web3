@@ -1,0 +1,43 @@
+<div ms-important="new_parent_msg" id="new_parent_msg">
+    <span  class="current_time hide_none">{{current_time|date("yyyy-MM-dd HH:mm:ss")}}</span>
+    <div class="teacher_find_target_con normalPaddding">
+        <!--ms-for: el in @local_ary-->
+        <div class="every_stu">
+            <div class="stu_info clearfix">
+                <span class="float-left">{{el.semester_name}}</span>
+                <!--<span class="float-right">-->
+                    <!--状态-->
+                    <!--<span :if="key == yearSemester">进行中</span>-->
+                    <!--<span :if="key != yearSemester">已完成/未开始</span>-->
+                <!--</span>-->
+            </div>
+            <div class="stu_plan">
+                <div class="stu_plan1">状态</div>
+                <!--<div class="stu_plan2">-->
+                    <!--<span :visible="el.semester_name == yearSemester">进行中</span>-->
+                    <!--<span :visible="el.semester_name != yearSemester">已完成/未开始</span>-->
+                <!--</div>-->
+                <div class="stu_plan2">
+                    <span :visible="el.content.content_guardian=='' || el.content.content_guardian==null">未评</span>
+                    <span :visible="el.content.content_guardian!='' && el.content.content_guardian!=null">已评</span>
+                </div>
+            </div>
+            <div class="stu_plan">
+                <div class="stu_plan1">评语</div>
+                <div class="stu_plan2">
+                    <span :visible="el.content.content_guardian == ''">暂无评语</span>
+                    <span :visible="el.content.content_guardian != ''">{{el.content.content_guardian}}</span>
+                </div>
+            </div>
+            <div class="public_btn">
+                <a :visible="el.is_fill == true" ms-on-click="@edit_btn(el)">评价/修改</a>
+                <a :visible="el.is_fill == false" class="color_gray">评价/修改</a>
+            </div>
+        </div>
+        <!--ms-for-end:-->
+        <!--暂无数据-->
+        <div ms-if="@local_ary.length==0" class="no-data">
+            <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+        </div>
+    </div>
+</div>

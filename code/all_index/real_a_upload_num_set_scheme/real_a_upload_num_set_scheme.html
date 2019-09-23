@@ -1,0 +1,49 @@
+<div ms-important="real_a_upload_num_set_scheme" id="real_a_upload_num_set_scheme">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="first-index">
+        <div class="clearfix">
+            <div :class="['am-fl',(@sit_type == 1 ? 'chosen':'')]" :click="@sit_change(1)">
+                类型设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 2 ? 'chosen':'')]" :click="@sit_change(2)">
+                上传数量设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 3 ? 'chosen':'')]" :click="@sit_change(3)">
+                积分规则设置
+            </div>
+            <div :class="['am-fl',(@sit_type == 5 ? 'chosen':'')]" :click="@sit_change(5)">
+                个性特长
+            </div>
+        </div>
+    </div>
+    <div class="list-con">
+        <div class="table-module">
+            <!--<xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,remember:@remember,extend:@extend,theadTh:@theadTh,cbopt:@cbopt,params:@params}">-->
+            <!--</xmp>-->
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>模块</th>
+                    <th>周期</th>
+                    <th>最大上传数</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: ($index,el) in @dataList-->
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{el.modaule_name}}</td>
+                    <td>按月</td>
+                    <td>{{el.max_number}}</td>
+                    <td>
+                        <a class="tab-btn tab-edit-btn" title="编辑" ms-on-click="@edit_btn(el)"></a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+#statistical{
+    background-color: #ffffff;
+}
+.question-content{
+    padding: 10px 30px;
+}
+.qe-title,.bottom {
+    background-color: #e0e0e0;
+}
+.question-type{
+    font-size: 16px;
+    padding: 10px 0;
+}
+.q-type{
+    color: #06f;
+}
+/*.bottom{*/
+    /*background-color: #e0e0e0;*/
+/*}*/

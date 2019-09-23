@@ -1,0 +1,137 @@
+#pers_situation_analysis{
+    background-color: #f1f2f6;
+    color: #a2a2a2;
+}
+#pers_situation_analysis>div{
+    padding-left: 16px;
+    background-color: white;
+}
+#pers_situation_analysis .first-index{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 0px 0px 4px 4px;
+    position: relative;
+}
+#pers_situation_analysis  .first-index>div{
+    width: 70%;
+}
+#pers_situation_analysis  .first-index>div>div{
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 34px;
+    border-radius: 4px;
+    border: solid 1px #e4e4e4;
+    color:#a2a2a2;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+#pers_situation_analysis >div.first-index>div>div>img{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+#pers_situation_analysis >div.first-index>div{
+    width: auto;
+    padding-right: 40px;
+
+}
+#pers_situation_analysis .toggle-a{
+    margin-left: 32px;
+}
+.chosen{
+    color:#2bbba4!important;
+    border: solid 1px #2bbba4!important;
+    background:url('../../../../../common/images/chosen.png') no-repeat top right;
+}
+/*时间--单选*/
+#pers_situation_analysis .radios label label{
+    font-size:14px;
+}
+#pers_situation_analysis .radios label:first-child{
+    margin-right:0;
+}
+/*内容*/
+#pers_situation_analysis .list-con{
+    padding-top:17px;
+    padding-bottom:40px;
+    overflow: hidden;
+}
+#pers_situation_analysis>div.second-index .title-name,#pers_situation_analysis>div.three-index .title-name{
+
+    /*#pers_situation_analysis .title-name{*/
+    width: 73px;
+    height: 24px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #0dba9e;
+    border-bottom: 1px #0dba9e solid;
+}
+/*table组件*/
+#pers_situation_analysis .table-module{
+    margin-top: 12px;
+    padding-right: 16px;
+    background-color: #ffffff;
+    overflow-x: auto;
+    margin-right: 16px;
+    margin-bottom: 10px;
+}
+/*!*出现滚动条时table宽度*!*/
+/*.table-width{*/
+    /*width:auto !important;*/
+/*}*/
+#pers_situation_analysis .table-module table{
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+#pers_situation_analysis .btn{
+    width: 112px;
+    height: 34px;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    line-height: 34px;
+}
+#pers_situation_analysis .table-module .max-width-td{
+    max-wdith:1000px;
+    width:1000px;
+}
+/*表格超出部分省略号表示*/
+#pers_situation_analysis  table{
+    /*table-layout: fixed;!*固定布局的算法。在这种算法中，表格和列的宽度取决于col对象的宽度总和，假如没有指定，则会取决于第一行每个单元格的宽度。假如表格没有指定宽度( width )属性，则表格被呈递的默认宽度为 100% （注意：此样式是关键）*!*/
+}
+/*table td超出部分省略号显示*/
+.over-hid{
+    /*width: 63px;*/
+    overflow: hidden;/*不显示超过对象尺寸的内容（这个绝对不能少）,也就是说设置td里面的数据无论有多少，都不会换行*/
+    white-space: nowrap;/*设置内容抵达容器边界会不会转到下一行*/
+    text-overflow: ellipsis;/*将被隐藏的那部分用省略号代替。*/
+    width: 80px !important;
+    display: inline-block;
+}
+#pers_situation_analysis  .am-table > thead > tr > th,
+#pers_situation_analysis  .am-table > tbody > tr > th,
+#pers_situation_analysis  .am-table > tfoot > tr > th,
+#pers_situation_analysis  .am-table > thead > tr > td,
+#pers_situation_analysis  .am-table > tbody > tr > td,
+#pers_situation_analysis  .am-table > tfoot > tr > td {
+    /* padding: 0.7rem; */
+    /*padding:0;*/
+    line-height: 40px;
+}
+#pers_situation_analysis  .am-table > tbody + tbody tr:first-child td {
+    border-top: 1px solid #ddd;
+}
+/*分页*/
+#pers_situation_analysis .divide-page {
+    margin-bottom: 20px;
+    margin-top:0;
+}

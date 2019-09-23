@@ -1,0 +1,71 @@
+<div ms-important="table" id="index_details">
+    <div>
+        <div>
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>评价维度</td>
+                    <td>{{@data.index_parent}}</td>
+                </tr>
+                <tr>
+                    <td>评价要素</td>
+                    <td>{{@data.index_secondary}}</td>
+                </tr>
+                <tr>
+                    <td>关键表现</td>
+                    <td>
+                        <p>
+                            {{@data.index_name}}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>评价主体</td>
+                    <td>{{@data.index_apply}}</td>
+                </tr>
+                <tr>
+                    <td>考察要点</td>
+                    <td>
+                        <p>{{@data.index_review}}</p>
+                    </td>
+                </tr>
+                <tr :if="@data.index_rank!=0">
+                    <td>默认加减分</td>
+                    <td>{{@data.index_value}}</td>
+                </tr>
+                <tr :if="@data.index_apply == '日常表现'">
+                    <td>分值起始区间</td>
+                    <td>{{@data.index_start_interval}}</td>
+                </tr>
+                <tr :if="@data.index_apply == '日常表现'">
+                    <td>分值结束区间</td>
+                    <td>{{@data.index_end_interval}}</td>
+                </tr>
+                <tr :if="@data.arr_option.length>0" ms-for="($index, el) in @data.arr_option">
+                    <td>选项{{$index+1}}</td>
+                    <td>
+                        <span>
+                            {{el.title}}:
+                        </span>
+                        <span class="am-margin-left-lg">
+                            分值:{{el.score}}
+                        </span>
+                        <span class="am-margin-left-lg">
+                            答案:{{el.question}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>适用年级</td>
+                    <td>{{@data.index_grade}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <div class="btns">
+                    <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

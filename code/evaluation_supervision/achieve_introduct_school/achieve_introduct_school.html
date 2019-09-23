@@ -1,0 +1,135 @@
+<div ms-important="achieve_introduct_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:@is_init_sel,data_arr:@semester_list,sel_check:@sel_change_semester,head_value:'请选择学年学期'}"></xmp>
+        </div>
+
+    </div>
+
+    <div class="table-content clearfix">
+        <div class="title">
+            成绩导入进度（校）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@order_by_grade.length>0">
+                <div class="biao-title">
+                    学校录入进度
+                </div>
+                <div id="tubiao_1"></div>
+            </div>
+            <div class="biao-ge">
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">学业成绩</td>
+                        <td colspan="3">体质健康成绩</td>
+                        <td colspan="3">艺术测评成绩</td>
+                        <td rowspan="2">总完成率</td>
+                    </tr>
+                    <tr>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                    </tr>
+                     <!--ms-for:($index,el) in @filter_school(@order_by_grade)-->
+                    <tr>
+                        <td>{{el.grade_name}}</td>
+                        <td>{{el.used_count}}</td>
+                        <td>{{@value(el,"cj.num",0)|people}}</td>
+                        <td>{{el.cj.wdr|people}}</td>
+                        <td>{{el.cj.wcl | percent}}%</td>
+                        <td>{{@value(el,"tzcp.num",0)|people}}</td>
+                        <td>{{el.tzcp.wdr|people}}</td>
+                        <td>{{el.tzcp.wcl | percent}}%</td>
+                        <td>{{@value(el,"ys.num",0)|people}}</td>
+                        <td>{{el.ys.wdr|people}}</td>
+                        <td>{{el.ys.wcl | percent}}%</td>
+                        <td>{{el.wcl | percent}}%</td>
+                    </tr>
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@order_by_grade.length==0">
+                        <td colspan="12">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-content clearfix">
+        <div class="title">
+            成绩导入进度（班级）
+        </div>
+        <div class="tb-content">
+            <div class="tu-biao" ms-visible="@order_by_class.length>0">
+                <div class="biao-title">
+                    班级录入进度
+                </div>
+                <div id="tubiao_2"></div>
+            </div>
+            <div class="biao-ge">
+                <div class="tb-select clearfix">
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@sel_grade,head_value:'请选择年级'}"></xmp>
+                    </div>
+                    <div class="select">
+                        <xmp ms-widget="{is:'ms-select-assembly',is_class:true,data_arr:@class_list,sel_check:@sel_class,head_value:'请选择班级'}"></xmp>
+                    </div>
+                </div>
+                <table class="am-table am-table-bordered">
+                    <tbody>
+                    <tr>
+                        <td rowspan="2">年级</td>
+                        <td rowspan="2">学生人数</td>
+                        <td colspan="3">学业成绩</td>
+                        <td colspan="3">体质健康成绩</td>
+                        <td colspan="3">艺术测评成绩</td>
+                        <td rowspan="2">总完成率</td>
+                    </tr>
+                    <tr>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                        <td >已导入</td>
+                        <td >未导入</td>
+                        <td >完成率</td>
+                    </tr>
+                    <!--ms-for:($index,el) in @order_by_class-->
+                    <tr>
+                        <td>{{el.njmc}}-{{el.bjmc}}班</td>
+                        <td>{{el.xssl}}</td>
+                        <td>{{@value(el,"cj.num",0)|people}}</td>
+                        <td>{{el.cj.wdr|people}}</td>
+                        <td>{{el.cj.wcl | percent}}%</td>
+                        <td>{{@value(el,"tzcp.num",0)|people}}</td>
+                        <td>{{el.tzcp.wdr|people}}</td>
+                        <td>{{el.tzcp.wcl | percent}}%</td>
+                        <td>{{@value(el,"ys.num",0)|people}}</td>
+                        <td>{{el.ys.wdr|people}}</td>
+                        <td>{{el.ys.wcl | percent}}%</td>
+                        <td>{{el.wcl | percent}}%</td>
+                    </tr>
+
+                    <!--ms-for-end:-->
+                    <tr ms-visible="@order_by_class.length==0">
+                        <td colspan="9">暂无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

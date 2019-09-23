@@ -1,0 +1,77 @@
+<div class="content" id="marks" ms-controller="marks">
+ <div class="weui-title">
+  <p>
+   {{project_name}}
+   <span>
+    总分：{{@marks.SUMMARK}}分
+   </span>
+  </p>
+ </div>
+ <div class="weui-cell tab-title">
+  <div class="border-right">
+   个人成绩
+  </div>
+  <div class="border-right">
+   班平均
+  </div>
+  <div class="border-right">
+   校平均
+  </div>
+  <div>
+   市平均
+  </div>
+ </div>
+ <div class="weui-cell subject-score tab-con">
+  <div>
+   <div>
+    {{@marks.SUMMARK}}
+   </div>
+   <div class="green-word">
+    总分
+   </div>
+  </div>
+  <div class="border-right border-left">
+   <div>
+    {{ @class_avg.summark_class_avg }}
+   </div>
+  </div>
+  <div class="border-right">
+   <div>
+    {{ @school_avg.summark_school_avg }}
+   </div>
+  </div>
+  <div>
+   <div>
+    {{ @city_avg.summark_city_avg }}
+   </div>
+  </div>
+ </div>
+ <div class="weui-cell subject-score" ms-for="(ind, el) in @subjects">
+  <div>
+   <div>
+    {{ @marks[el.columname] }}
+   </div>
+   <div class="green-word">
+    {{el.subject}}
+   </div>
+  </div>
+  <div class="border-right border-left">
+   <div>
+    {{ @class_avg[el.class_avg] }}
+   </div>
+  </div>
+  <div class="border-right">
+   <div>
+    {{ @school_avg[el.school_avg]}}
+   </div>
+  </div>
+  <div>
+   <div>
+    {{ @city_avg[el.city_avg] }}
+   </div>
+  </div>
+ </div>
+ <div class="am-text-center msg">
+  {{errmsg}}
+ </div>
+</div>

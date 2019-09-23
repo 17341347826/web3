@@ -1,0 +1,96 @@
+<div class="am-g" ms-important="role_privileges" id="role_privileges">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <!--创建方案-->
+            <div class="click_btn" :click="@addInfo">
+                <img src="../../../../common/images/icon/add_schemem.png"/>
+                <span>新增</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table_module">
+            <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+            </xmp>
+        </div>
+        <xmp ms-widget="{is:'ms-ele-modal',modal:@modal,extend:@extend,sure:@sure}">
+        </xmp>
+        <!--添加-->
+        <div class="am-modal am-modal-prompt" id="compileData" tabindex="-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">
+                    {{@modal.title}}
+                    <a class="am-close am-close-spin" data-am-modal-close="" href="javascript: void(0)">
+                        ×
+                    </a>
+                </div>
+                <div class="am-modal-bd">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">
+                                角色名称
+                            </label>
+                            <div class="am-u-sm-9">
+                                <input class="am-hide" type="text"/>
+                                <input class="am-modal-prompt-input" ms-duplex="@compileData.role_name"
+                                       placeholder="请输入角色名称(必填)" type="text"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group" ms-if="@department_level==4">
+                            <label class="am-u-sm-3 am-form-label">
+                                角色等级
+                            </label>
+                            <div class="am-u-sm-9 ">
+                                <select ms-duplex="@compileData.role_level">
+                                    <option ms-attr="{value:''}">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:'4'}">
+                                        校级
+                                    </option>
+                                    <option ms-attr="{value:'5'}">
+                                        年级
+                                    </option>
+                                    <option ms-attr="{value:'6'}">
+                                        班级
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group" ms-if="@department_level==4">
+                            <label class="am-u-sm-3 am-form-label">
+                                角色类型
+                            </label>
+                            <div class="am-u-sm-9">
+                                <select ms-duplex="@compileData.role_type">
+                                    <option ms-attr="{value:''}">
+                                        请选择
+                                    </option>
+                                    <option ms-attr="{value:'1'}">
+                                        教师
+                                    </option>
+                                    <option ms-attr="{value:'2'}">
+                                        学生
+                                    </option>
+                                    <!--<option ms-attr="{value:'3'}">家长</option>-->
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <span ms-visible="@modal.msg != ''" style="color: red">
+     {{ @modal.msg }}
+    </span>
+                </div>
+                <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel="">
+     取消
+    </span>
+                    <span class="am-modal-btn" data-am-modal-confirm="" ms-on-click="@compile()">
+     提交
+    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="content_box">
+    <div class="title_remark">
+        <p>近七日表现</p>
+    </div>
+    <div class="context_high">
+        <p class="am-padding-top-sm am-padding-bottom-sm">
+            <a href="javascript:;" :class="[(@change_tab_num==1 ? 'active1':'')]" ms-on-click="change_tab(1)" >闪光点</a> |
+            <a href="javascript:;" :class="[(@change_tab_num==2 ? 'active2':'')]" ms-on-click="change_tab(2)">薄弱点</a>
+        </p>
+        <div class="everyday-container" ms-if="@change_tab_num==1">
+            <div :if="@good_list[0].item != '暂无记录'">你在以下方面做的很好，请继续保持</div>
+            <!--ms-for: ($index,el) in @good_list-->
+            <div  :if="$index < 5" class="am-padding-top-sm am-cf">
+                <div class="circle_x am-fl"></div>
+                <div class="am-fl am-padding-left-sm">{{el.item}}</div>
+            </div>
+
+            <!--ms-for-end:-->
+        </div>
+        <div class="everyday-container" ms-if="@change_tab_num==2">
+            <div :if="@bad_list[0].item != '暂无记录'">你在以下方面还需努力</div>
+            <!--ms-for: ($index,el) in @bad_list-->
+            <div :if="$index < 5" class="am-padding-top-sm am-cf">
+                <div class="circle_x circle_y am-fl"></div>
+                <div class="am-fl am-padding-left-sm">{{el.item}}</div>
+            </div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <div class="text_remark am-cf">
+        <div class="am-fr">
+            <div class="more_notice">更多>></div>
+        </div>
+    </div>
+</div>

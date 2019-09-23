@@ -1,0 +1,47 @@
+<div ms-important="admin_index_see" id="admin_index_see">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+             <div class="select">
+                <xmp ms-widget="{is:'ms-select-assembly',data_arr:@grade_list,sel_check:@change_grade,head_value:'请选择年级'}"></xmp>
+            </div>
+
+        </div>
+    </div>
+    <!--一级指标-->
+    <div class='first-index clearfix'>
+        <div class="am-fl">
+            <!--ms-for:($index,el) in @first_index_list-->
+            <div :class="['am-fl',(@checked_first_index == el.id? 'chosen':'')]" ms-click="@click_first_index(el.id)">{{el.index_name}}</div>
+            <!--ms-for-end:-->
+        </div>
+    </div>
+    <!--二三级指标-->
+    <div class="t-t-index">
+        <div class="t-t-name">
+            <span></span>
+            <span>评价要素及关键表现</span>
+        </div>
+        <div class="two-indexs">
+            <!--ms-for:($index,el) in @index_detail_list-->
+            <div class="two-index" :if="el.index_name!=''">
+                <div>
+                    <span class="t-i-disc"></span>
+                    评价要素:<span class="jianju"></span>{{el.index_name}}
+                </div>
+                <div class="three-index" :if="el.elements.length!=0">
+                    <span>关键表现:<span class="jianju"></span></span>
+                    <div class="eva-content">
+                        <!--ms-for:($idx,xl) in el.elements-->
+                        <div class="eav">{{$idx+1}}.{{xl.index_name}}</div>
+                        <!--ms-for-end:-->
+                    </div>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <div class="two-index" style="color: #a2a2a2" ms-visible="@index_detail_list.length==0">
+                暂无数据
+            </div>
+        </div>
+    </div>
+</div>

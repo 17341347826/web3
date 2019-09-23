@@ -1,0 +1,53 @@
+<xmp ms-widget="{is:'page_title_div',title:'',reBack:'0'}">
+</xmp>
+<div class="am-text-left" id="demand" ms-important="table">
+    <form class="am-form am-form-inline">
+        <div class="am-form-group">
+            <label class="am-form-label">
+                业务类型
+            </label>
+            <div class="form-width-mid">
+                <select data-am-selected="" ms-duplex="@extend.type">
+                    <option value="">
+                        请选择
+                    </option>
+                    <option value="1">
+                        作品作业
+                    </option>
+                    <option value="2">
+                        品德发展
+                    </option>
+                    <option value="4">
+                        实践活动
+                    </option>
+                    <option value="5">
+                        艺术素养
+                    </option>
+                    <option value="6">
+                        研究性学习
+                    </option>
+                    <option value="7">
+                        身心健康
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-form-label">
+                类型名称
+            </label>
+            <div class="form-width-sm">
+                <input ms-duplex="@extend.type_name" type="text"/>
+            </div>
+        </div>
+        <div class="am-form-group">
+   <span class="am-btn am-btn-primary" ms-on-click="@add()">
+    新增
+   </span>
+        </div>
+    </form>
+    <div id="growth_table_div">
+        <xmp ms-widget="{is:'ms-ele-table',url:@url,data:@data,is_init:@is_init,extend:@extend,theadTh:@theadTh,cbopt:@cbopt}">
+        </xmp>
+    </div>
+</div>

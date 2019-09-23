@@ -1,0 +1,58 @@
+<div class="am-g" id="project_content_list" ms-important="project_content_list">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="p-c-con">
+        <div class="table_module">
+            <table id="project_value_tab" class="am-table am-table-bordered am-table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        评价内容
+                    </th>
+                    <!--<th>-->
+                        <!--评价状态-->
+                    <!--</th>-->
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @contentList-->
+                <tr>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td class="content_td"  :if="@contentList[0].value_list.length == 0">
+                        {{el.sub_subject}}({{el.index_value}})
+                    </td>
+                    <td class="content_td"  :if="@contentList[0].value_list.length > 0">
+                        <div class="am-margin-top-sm">{{el.sub_subject}}</div>
+                        <div class="am-margin-top-sm am-margin-bottom-sm">
+                            <!--ms-for: $key,col in @el.value_list-->
+                            <span>{{col.index_option}}:</span>
+                            <span class="am-margin-right-lg">{{col.index_option_content}}({{col.item_values}}分)</span>
+                            <!--ms-for-end:-->
+                        </div>
+                    </td>
+                    <!--<td :css="@color_green" :if="el.status=='已评价'">-->
+                        <!--{{el.status}}-->
+                    <!--</td>-->
+                    <!--<td :css="@color_red" :if="el.status=='未评价'">-->
+                        <!--{{el.status}}-->
+                    <!--</td>-->
+                    <td>
+                        <!--<a :if="el.status=='已评价'" class="tab-btn tab-edit-btn-disabled" disabled="disabled" title="不可录入">-->
+                        <!--</a>-->
+                        <a class="tab-btn tab-edit-btn" ms-click="evaluate_click(el)" title="进入评价">
+                        </a>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

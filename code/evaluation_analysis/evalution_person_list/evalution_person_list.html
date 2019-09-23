@@ -1,0 +1,39 @@
+<div ms-important="d_e_progress" class="d_e_progress" id="d_e_progress">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div class="search-content clearfix">
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@grade_list,sel_check:@grade_change,head_value:'请选择年级'}"></xmp>
+        </div>
+        <div class="select">
+            <xmp ms-widget="{is:'ms-select-assembly',is_init:true,data_arr:@class_list,sel_check:@class_change,head_value:'请选择班级'}"></xmp>
+        </div>
+    </div>
+    <div class="table-content clearfix">
+        <div class="biao-ge">
+            <table class="am-table am-table-bordered">
+                <tbody>
+                <tr>
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>学籍号</td>
+                    <td>年级</td>
+                    <td>班级</td>
+                    <td>操作</td>
+                </tr>
+                <tr ms-for="($index,el) in @student_list">
+                    <td>{{$index+1}}</td>
+                    <td>{{el.name}}</td>
+                    <td>{{el.code}}</td>
+                    <td>{{@now_grade_name}}</td>
+                    <td>{{@now_class_name}}</td>
+                    <td><a class='tab-btn tab-details-btn' title='查看个人分析' ms-click="@detail(el)"></a></td>
+                </tr>
+                <tr ms-visible="@student_list.length==0">
+                    <td colspan="6">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,49 @@
+<div ms-important="kid_graduate_results" id="kid_graduate_results">
+    <div class="normalPaddding">
+        <!--内容-->
+        <div class="con">
+            <!--ms-for: ($index,el) in @get_info-->
+            <div class="every_stu">
+                <div class="stu_info clearfix">
+                    <span class="float-left">毕业评价结果</span>
+                    <span class="float-right"></span>
+                </div>
+                <!--ms-for:($idx,al) in el.values-->
+                <div class="stu_plan" :if="al.name != ''">
+                    <div class="stu_plan1">{{al.name}}</div>
+                    <div class="stu_plan2">
+                        <span>{{al.score}}</span>
+                    </div>
+                </div>
+                <!--ms-for-end:-->
+                <div class="stu_plan" :if="el.score_plus != undefined">
+                    <div class="stu_plan1">日常评价加分：</div>
+                    <div class="stu_plan2">
+                        <span>{{el.score_plus}}</span>
+                    </div>
+                </div>
+                <div class="stu_plan" :if="el.zf != undefined">
+                    <div class="stu_plan1">累计得分：</div>
+                    <div class="stu_plan2">
+                        <span>{{el.zf}}</span>
+                    </div>
+                </div>
+                <div class="stu_plan" :if="el.rank != undefined">
+                    <div class="stu_plan1">评价等级：</div>
+                    <div class="stu_plan2">
+                        <span>{{el.rank}}</span>
+                    </div>
+                </div>
+                <!--查看毕业档案，目前未开发，后期补上-->
+                <div class="public_btn" :click="@graduate_archives(el)">
+                    <a>查看毕业档案</a>
+                </div>
+            </div>
+            <!--ms-for-end:-->
+            <!--暂无数据-->
+            <div :visible="@get_info.length == 0" class="no-data">
+                <img src="./../../../common/images/weixin_pj/no_data.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

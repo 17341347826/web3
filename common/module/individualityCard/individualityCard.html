@@ -1,0 +1,64 @@
+<div id="card-tab_div">
+    <table id="card-tab" class="am-table">
+        <tbody>
+        <!--<tr>-->
+            <!--<td>姓名</td>-->
+            <!--<td>{{@stuInfo.name}}</td>-->
+            <!--<td rowspan="4" id="card-photo">-->
+                <!--<div ms-if="@url==''&&@userType==2">-->
+                    <!--<div>暂无照片</div>-->
+                    <!--<div>请选择上传</div>-->
+                    <!--<div>建议尺寸（宽:高=3:4）</div>-->
+                    <!--<div>图片格式：jpg/jpeg/png</div>-->
+                    <!--<div>建议:选用天蓝色背景，身着校服</div>-->
+                <!--</div>-->
+                <!--<img ms-if="@url!=''" ms-attr="{src:@url}" alt="">-->
+                <!--<div ms-if="@userType==1 && @url==''">暂无照片</div>-->
+                <!--<div ms-if="@userType==2" id="report" class="report">-->
+                    <!--上传图片-->
+                <!--</div>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>学籍号</td>-->
+            <!--<td>{{@stuInfo.code}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>学校</td>-->
+            <!--<td>{{@stuInfo.school_name}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>班级</td>-->
+            <!--<td>-->
+                <!--<span class="am-text-center">{{@stuInfo.grade_name|isNll}}{{@stuInfo.class_name|isNll}}班</span>-->
+            <!--</td>-->
+        <!--</tr>-->
+
+        <!--名片格言-->
+        <!--ms-for: $idx,el in @cardList-->
+        <tr>
+            <td>
+                {{el.card_name}}
+            </td>
+            <td class="con-span" colspan="2">
+                <span :if="@txtFlag==0">{{ el.content|isNll }}</span>
+                <textarea ms-duplex="@cardList[$idx].content|isNll" :if="@txtFlag==1"></textarea>
+            </td>
+        </tr>
+        <!--ms-for-end:-->
+        </tbody>
+    </table>
+    <div class="am-text-center  am-margin-bottom" :if="@updateFlag==1">
+        <button class='am-btn am-btn-primary' ms-on-click="@update()">编辑</button>
+    </div>
+    <div class="am-text-center am-margin-bottom-xl" :if="@txtFlag==1">
+        <button type="button" class="am-btn am-btn-default am-margin-right"
+                ms-on-click="@cancel()">
+            取消
+        </button>
+        <button type="button" class="am-btn am-btn-primary"
+                ms-on-click="@confirm()">
+            提交
+        </button>
+    </div>
+</div>

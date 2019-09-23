@@ -1,0 +1,84 @@
+<div  id="add_programme" ms-important="add_programme">
+    <div class="common-select" >
+        <div class="search-cont clearfix">
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@first_index_click" id="first_select" ms-duplex="@first_info">
+                        <option value="0">
+                            请选择评价维度
+                        </option>
+                        <option ms-attr="{value:el.id+'|'+el.index_name}" ms-for="el in @first_index_arr">
+                            {{ el.index_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select">
+                <div class="old-select">
+                    <select data-duplex-changed="@second_index_click" ms-duplex="@second_info">
+                        <option value="0">
+                            请选择评价要素
+                        </option>
+                        <option ms-attr="{value:el.id+'|'+el.index_name}" ms-for="el in @second_index_arr">
+                            {{ el.index_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-p-con" :if="is_show">
+        <div class="table_module">
+            <table class="am-table am-table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        <input type='checkbox' name='checkAll' id='checkAll' value='全选' :click="check_all()"/>全选
+                    </th>
+                    <th style="width:100px;">
+                        序号
+                    </th>
+                    <th>
+                        评价维度
+                    </th>
+                    <th>
+                        评价要素
+                    </th>
+                    <th>
+                        关键表现
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--ms-for: $idx,el in @item_arr-->
+                <tr>
+                    <td>
+                        <input class='checkper' ms-attr="{value:el.id+'|'+el.index_name}" ms-duplex="checkbox_arr"
+                               type="checkbox"/>
+                        <!--<input type="checkbox" ms-attr="{value:el.id+'|'+el.index_name}" ms-duplex="checkbox_arr" data-duplex-changed="checkbox_change(el)">-->
+                    </td>
+                    <td>
+                        {{$idx+1}}
+                    </td>
+                    <td>
+                        {{el.index_parent}}
+                    </td>
+                    <td>
+                        {{el.index_secondary}}
+                    </td>
+                    <td>
+                        <p class="pj-con">
+                            {{el.index_name}}
+                        </p>
+                    </td>
+                </tr>
+                <!--ms-for-end:-->
+                </tbody>
+            </table>
+        </div>
+        <div class="btns">
+            <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+            <button type="button" class="am-btn-primary" ms-click="@save_click">提交</button>
+        </div>
+    </div>
+</div>

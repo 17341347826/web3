@@ -1,0 +1,41 @@
+<div class="am-g" id="add_papers_div" ms-important="add_papers">
+    <xmp ms-widget="{is:'ms-three-menu-module'}"></xmp>
+    <div>
+        <form class="am-form am-form-inline" ms-validate="@validate">
+            <div class="am-u-sm-12 am-margin-bottom">
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    问卷名称
+                </label>
+                <div class="am-u-sm-10">
+                    <input id="name_input" ms-duplex="@data.ques_name" ms-rules="{required:true}"
+                           placeholder="请输入问卷名称,如:关于补课的问卷调查" type="text"/>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-margin-bottom">
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    创建人
+                </label>
+                <div class="am-u-sm-10">
+                    <input disabled="disabled" ms-duplex="@data.founder" type="text"/>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-margin-bottom">
+                <label class="am-u-sm-2 am-form-label am-text-right">
+                    创建单位
+                </label>
+                <div class="am-u-sm-10">
+                    <input disabled="disabled" ms-duplex="@data.company_name" type="text"/>
+                </div>
+            </div>
+            <div class="am-form-group am-u-sm-12 am-text-center my-btn" >
+                <a class="am-btn am-btn-default" href="javascript:history.go(-1);">
+                    取消
+                </a>
+                <a class="am-btn am-btn-default" ms-click="@add_papers">
+                    确定
+                </a>
+
+            </div>
+        </form>
+    </div>
+</div>

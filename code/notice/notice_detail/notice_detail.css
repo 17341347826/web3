@@ -1,0 +1,18 @@
+/*------------通知部分----------------------*/
+.notice_title {
+    font-size: 18px;
+    font-weight: bolder;
+
+}
+
+.notice_content {
+    font-size: 14px;
+    text-indent: 30px;
+}
+.back_color{
+    background-color: white;
+}
+#notice_detail .label_title{
+    font-size: 16px;
+    font-weight: bolder;
+}

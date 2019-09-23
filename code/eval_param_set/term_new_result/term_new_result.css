@@ -1,0 +1,10 @@
+#term_new_result{
+    background-color: #f1f2f6;
+}
+#term_new_result>div{
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    margin-top: 4px;
+}
+

@@ -1,0 +1,39 @@
+<div class="hide_scroll" ms-important="create_result_generation" id="create_result_generation">
+    <div class="content-result">
+        <div class="common-select">
+            <div class="select">
+                <label>项目名称</label>
+                <input type="text" placeholder="请输入项目名称" ms-duplex="@post_data.project_name">
+            </div>
+            <div class="select">
+                <label>年级</label>
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择年级', default_value:@default_grade,sel_check:@grade_sel,data_arr:@grade_list}"></xmp>
+            </div>
+            <div class="select">
+                <label>学期</label>
+                <xmp ms-widget="{is:'ms-select-assembly',head_value:'请选择学期', default_value:@default_semester,sel_check:@semester_sel,data_arr:@semester_list}"></xmp>
+            </div>
+        </div>
+        <div class="time-change">
+            <div class="start-change">
+                <label>统计起止时间</label>
+                <div class="form-input">
+                    <input class="form-width-md add_width" placeholder="开始时间" id="update-start-time"
+                           ms-attr="{value:@post_data.start_date_time}" readonly ms-on-focus="@update_start_time" type="text"/>
+                </div>
+                <div class="form-input">
+                    <input class="form-width-md add_width" placeholder="结束时间" id="update-end-time"
+                           ms-attr="{value:@post_data.end_date_time}" readonly ms-on-focus="@update_end_time" type="text"/>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn-content">
+            <div class="btns">
+                <button type="button" class="am-btn-default"  ms-on-click="@back()">取消</button>
+                <button type="button" class="am-btn-primary" ms-click="@create_result()">提交</button>
+            </div>
+        </div>
+    </div>
+
+</div>
